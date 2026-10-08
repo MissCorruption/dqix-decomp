@@ -8019,7 +8019,7 @@ src/Combat/Main/GetClampedRateMultiplier.cpp:
 src/Combat/Main/TensionBonusCalculation.cpp:
 	complete
 	.text start:0x02074774 end:0x020747b4
-	
+
 src/Combat/Main/CritRateCalculation.cpp:
 	complete
 	.text start:0x020747b4 end:0x02074848
@@ -14231,6 +14231,14 @@ src/Combat/Main/GX_SendFifo48B.cpp:
 src/Combat/Main/EmptyInterruptHandler.cpp:
     complete
     .text start:0x020c69d8 end:0x020c69dc
+
+src/System/DMAInterruptHandlers.cpp:
+    complete
+    .text start:0x020c6a64 end:0x020c6aa4
+
+src/System/TimerOverflowInterruptHandlers.cpp:
+    complete
+    .text start:0x020c6aa4 end:0x020c6ae4
 
 src/Combat/Main/InitializeInterruptContextBlock_020c6ad4.cpp:
     complete
