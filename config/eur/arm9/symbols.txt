@@ -2180,7 +2180,7 @@ _Z29CreateAndRegisterNode02057de0P16NodeList02057de0iP13SafeAllocatorii kind:fun
 func_02057e6c kind:function(arm,size=0x94) addr:0x02057e7c
 func_02057f00 kind:function(arm,size=0x8c) addr:0x02057f10
 _Z20FindNodeById02057f8cPvi kind:function(arm,size=0x28) addr:0x02057f9c
-_Z26FindNodeAndProcess02057fb4Pvii kind:function(arm,size=0x24) addr:0x02057fc4
+_Z26FindNodeAndProcess02057fb4PviS_ kind:function(arm,size=0x24) addr:0x02057fc4
 func_02057fd8 kind:function(arm,size=0x58c) addr:0x02057fe8
 _Z23CleanupNodeList02058564P16NodeList02058564 kind:function(arm,size=0x38) addr:0x02058574
 _Z33ResetBattleEncounterState0205859cP17MainBlock0205859c kind:function(arm,size=0x7c) addr:0x020585ac

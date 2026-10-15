@@ -81,7 +81,7 @@ struct BattleWork {
 MessageWork* GetGlobalField0x1c020421a0();
 void CopyInternalFields0207df50(Foo0207df50* p);
 void InitStruct02078484(InitStruct02078484Struct* req);
-int FindNodeAndProcess02057fb4(void* list, int id, int req);
+int FindNodeAndProcess02057fb4(void* list, int id, void* req);
 
 extern "C" {
 void* func_02057924();
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov026_021db3d8(BattleWork* self) {
             req.scale.x = 0x10a;
             req.scale.y = 0x10a;
             req.scale.z = 0x10a;
-            self->effectNodeId = FindNodeAndProcess02057fb4(list, 0x13, (int)&req);
+            self->effectNodeId = FindNodeAndProcess02057fb4(list, 0x13, &req);
             self->effectTrigger = -1;
             self->effectLoadState = -1;
         }

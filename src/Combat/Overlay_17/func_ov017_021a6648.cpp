@@ -38,7 +38,7 @@ void BackupPairTableToBuffer_020bb700(int*);
 void ReadGlobalPair020bb910(int*);
 void CleanInvalidateCacheRange(const void*, unsigned int);
 extern "C" int func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, Foo0207df50*);
-void FindNodeAndProcess02057fb4(void*, int, int);
+void FindNodeAndProcess02057fb4(void*, int, void*);
 void SetForwardAndStore0205ebc0(void*, int, int);
 void DispatchIfField0xc4NonNeg_0205ebfc(void*, int, int);
 void SetByteField0x253_020397c0(void*);
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov017_021a6648(Transition021a6648* self, ListHead02046b
         params.position = leader->obj3D_.position_;
         params.scale = scale;
         params.enabled = 1;
-        FindNodeAndProcess02057fb4(manager, 0xc, (int)&params);
+        FindNodeAndProcess02057fb4(manager, 0xc, &params);
         if (self->kind == 2) {
             SetForwardAndStore0205ebc0(&data_02108760, 0xa3, 0xa3);
             DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, 5, 0);

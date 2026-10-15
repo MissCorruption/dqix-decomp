@@ -49,7 +49,7 @@ void* GetGlobal02109400_02094a00(); extern "C" void func_02094ab0(void*); extern
 void* AllocateAligned4_02012d88(AllocatorUnion*,unsigned int); void CopyInternalFields0207df50(Foo0207df50*);
 extern "C" void func_02057e6c(void*,int,SafeAllocator*,void*,unsigned int,Foo0207df50*);
 int IsMainBrightnessTransitionActive(GameResources*); void CopyCountedBytesToIntArray02010834(Base02010834*,int,int*,int*);
-void FindNodeAndProcess02057fb4(void*,int,int); void SetForwardAndStore0205ebc0(void*,int,int); void DispatchIfField0xc4NonNeg_0205ebfc(void*,int,int);
+void FindNodeAndProcess02057fb4(void*,int,void*); void SetForwardAndStore0205ebc0(void*,int,int); void DispatchIfField0xc4NonNeg_0205ebfc(void*,int,int);
 void SetBrightness(GameResources*,int,int); void ClearBitsInWord_0203b4b0(unsigned int*,unsigned int); void CallListIfFlagsSet_02197528();
 WorldE468* GetField0x3f8Address_0200fd0c(GameState*); extern "C" void VectorizedMemset(void*,int,int);
 void InitAndResetHeader_0219e310(unsigned char*,int); void AppendNodeToTail(TailList020469b4*,TailNode020469b4*);
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) 
                 params[i].scale.x=0x1000; params[i].scale.y=0x1000; params[i].scale.z=0x1000;
                 ParamsE468* p=&params[i]; p->flags.bit0=0; p->flags.bit1=0; p->flags.bit2=1; p->flags.bit3=0; p->flags.bit4=0; p->flags.bit5=0; p->flags.bit6=0; p->flags.bit7=0;
                 p->position=member->obj3D_.position_; p->scale=member->obj3D_.GetScale();
-                FindNodeAndProcess02057fb4(battle,5,(int)p);
+                FindNodeAndProcess02057fb4(battle,5,p);
             }
             self->state++;
         }

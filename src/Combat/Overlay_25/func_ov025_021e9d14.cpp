@@ -75,7 +75,7 @@ struct Vec3Int0203a48c;
 void QueuePopupEntry0203a48c(Obj0203a48c*, int, Vec3Int0203a48c*, int, int, int);
 extern "C" void* func_02057924(void);
 void InitStruct02078484(struct InitStruct02078484Struct* p);
-void FindNodeAndProcess02057fb4(void* list, int id, int a3);
+void FindNodeAndProcess02057fb4(void* list, int id, void* config);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern "C" void _Z24SetShortField0xE02176150P11Obj02176150s(struct Obj02176150* obj, unsigned short val);
 
@@ -114,7 +114,7 @@ extern "C" ARM void func_ov025_021e9d14(void) {
                 InitStruct02078484(&req);
                 req.offset.y += actor->obj3D_.GetHeight() / 2;
                 req.objectId = id;
-                FindNodeAndProcess02057fb4(list, 0x10, (int)&req);
+                FindNodeAndProcess02057fb4(list, 0x10, &req);
                 DispatchWithShortB4_0205eaa0(&data_02108760, 0x65, 0);
             }
         }

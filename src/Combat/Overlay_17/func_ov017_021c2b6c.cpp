@@ -19,7 +19,7 @@ extern "C" int func_02057e6c(void* list, int p1, SafeAllocator* alloc, int p2, i
 unsigned int GetMaxAlloc02012dd0(Struct02012dd0*);
 void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
 void CopyState0207dfc8(State0207dfc8*, State0207dfc8*);
-void FindNodeAndProcess02057fb4(void*, int, int);
+void FindNodeAndProcess02057fb4(void*, int, void*);
 void EnqueueEventTag30_021d24a8(int);
 
 extern AllocatorUnion data_02114e20;
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov017_021c2b6c(Obj021c2b6c* self) {
             e->bit7 = 0;
             e->pos = m->obj3D_.position_;
             e->scale = m->obj3D_.GetScale();
-            FindNodeAndProcess02057fb4(list, 0x11, (int)e);
+            FindNodeAndProcess02057fb4(list, 0x11, e);
         }
         self->done = 1;
         EnqueueEventTag30_021d24a8(self->memberIndex);

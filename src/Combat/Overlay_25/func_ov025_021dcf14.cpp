@@ -129,7 +129,7 @@ struct In021dce7c;
 int TryDispatch_021dce7c(unsigned char*, In021dce7c*, int);
 extern "C" void* func_02057924(void);
 void InitStruct02078484(struct InitStruct02078484Struct* p);
-void FindNodeAndProcess02057fb4(void*, int, int);
+void FindNodeAndProcess02057fb4(void*, int, void*);
 void DispatchIfField0xc4NonNeg_0205ebfc(void*, int, int);
 extern "C" void func_ov025_021eabd0(void* obj, bool party);
 extern "C" void func_ov025_021ead5c(void* obj, bool party);
@@ -591,7 +591,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* sl) {
                     if (pending.flags & 1) {
                         req.offset.y += target->obj3D_.GetHeight() / 2;
                     }
-                    FindNodeAndProcess02057fb4(list, pending.id, (int)&req);
+                    FindNodeAndProcess02057fb4(list, pending.id, &req);
                     DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
                 }
                 if (!crit) {
@@ -803,7 +803,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
                 req.offset.y += obj->obj3D_.GetHeight() / 2;
             }
             DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
-            FindNodeAndProcess02057fb4(fx, *(short*)(sl + Field6f98), (int)&req);
+            FindNodeAndProcess02057fb4(fx, *(short*)(sl + Field6f98), &req);
             TIMER = *(unsigned int*)(sl + Field6fc8);
         }
         sl[Field6efe] = 3;
@@ -973,7 +973,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
                     req.scale = sc;
                 }
             }
-            FindNodeAndProcess02057fb4(fx, *(short*)(sl + Field6f98), (int)&req);
+            FindNodeAndProcess02057fb4(fx, *(short*)(sl + Field6f98), &req);
             if (*(short*)(sl + Field6f9a) != -1) {
                 DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(short*)(sl + Field6f9a), 0);
             } else if (*(unsigned short*)(sl + Field6f04) != -1) {
@@ -999,7 +999,7 @@ extern "C" ARM int func_ov025_021de124(unsigned char* sl) {
             }
             DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, *(unsigned short*)(sl + Field6f04), 0);
             req.objectId = savedId;
-            FindNodeAndProcess02057fb4(fx, *(unsigned short*)(sl + Field6f02), (int)&req);
+            FindNodeAndProcess02057fb4(fx, *(unsigned short*)(sl + Field6f02), &req);
             TIMER = *(unsigned int*)(sl + Field6fd0);
             if (TIMER == 0) {
                 TIMER = 0x1f4;

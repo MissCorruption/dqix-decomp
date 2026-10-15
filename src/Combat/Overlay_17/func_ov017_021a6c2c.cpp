@@ -59,7 +59,7 @@ void CleanInvalidateCacheRange(const void*, unsigned int);
 extern "C" void func_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, Foo0207df50*);
 void ForwardField0xc0_0205ebec(void*);
 void CopyCountedBytesToIntArray02010834(Base02010834*, int, int*, int*);
-void FindNodeAndProcess02057fb4(void*, int, int);
+void FindNodeAndProcess02057fb4(void*, int, void*);
 void SetForwardAndStore0205ebc0(void*, int, int);
 void DispatchIfField0xc4NonNeg_0205ebfc(void*, int, int);
 int GetByte0x26c_02039d7c(char*);
@@ -145,7 +145,7 @@ extern "C" ARM void func_ov017_021a6c2c(Event021a6c2c* self) {
             entry->bit4 = 0; entry->bit5 = 0; entry->bit6 = 0; entry->bit7 = 0;
             entry->position = *position;
             entry->scale = actor->obj3D_.GetScale();
-            FindNodeAndProcess02057fb4(manager, 13, (int)entry);
+            FindNodeAndProcess02057fb4(manager, 13, entry);
         }
         SetForwardAndStore0205ebc0(&data_02108760, 0xa2, 0xa2);
         DispatchIfField0xc4NonNeg_0205ebfc(&data_02108760, 2, 0);
