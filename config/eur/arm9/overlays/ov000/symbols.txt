@@ -849,8 +849,8 @@ data_ov000_02182ba4 kind:data(any) addr:0x02182ba4
 data_ov000_02182bb4 kind:data(any) addr:0x02182bb4
 data_ov000_02182bc4 kind:data(any) addr:0x02182bc4
 data_ov000_02182bd4 kind:data(any) addr:0x02182bd4
-data_ov000_02182be4 kind:data(any) addr:0x02182be4
-data_ov000_02182bf4 kind:data(any) addr:0x02182bf4
+@892 kind:data(any) addr:0x02182be4 local
+sSleepChance$893 kind:data(any) addr:0x02182bf4 local
 data_ov000_02182c04 kind:data(any) addr:0x02182c04
 data_ov000_02182c14 kind:data(any) addr:0x02182c14
 data_ov000_02182c24 kind:data(any) addr:0x02182c24
