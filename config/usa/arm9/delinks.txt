@@ -20127,3 +20127,18 @@ src/Combat/Main/func_0205b890.cpp:
 src/Combat/Main/func_0205c96c_0205c96c.cpp:
     complete
     .text start:0x0205c96c end:0x0205cb60
+
+
+src/Combat/Main/func_020459b8.cpp:
+    complete
+    .text start:0x020459b8 end:0x02045c00
+
+
+src/Combat/Main/func_02045f3c.cpp:
+    complete
+    .text start:0x02045f3c end:0x02046170
+
+
+src/Combat/Main/func_0205da88.cpp:
+    complete
+    .text start:0x0205da88 end:0x0205dd08
