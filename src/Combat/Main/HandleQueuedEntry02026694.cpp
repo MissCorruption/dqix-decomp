@@ -1,56 +1,38 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-struct MapDisplay;
+#include "Combat/MapDisplay.h"
 
 struct Obj02026780;
 extern "C" int func_02026780(MapDisplay* context, void* archive, unsigned int archiveSize);
 
-#if defined(jpn)
-enum { SuccessOffset = 0x6cd };
-#else
-enum { SuccessOffset = 0x779 };
-#endif
-
 extern const char data_020ef6d7[];
-
-struct TreasureLoadContextPrefix {
-    unsigned char unknown0[SuccessOffset];
-    unsigned char succeeded;
-    unsigned char unknownAfterSuccess[0x23e];
-    unsigned char pending;
-    unsigned char state;
-    unsigned char complete;
-    unsigned char unknownAfterComplete[0x71];
-    int taskId;
-};
 
 // USA: func_02026694
 ARM void HandleQueuedEntry02026694(MapDisplay* context) {
-    TreasureLoadContextPrefix* request = reinterpret_cast<TreasureLoadContextPrefix*>(context);
-    if (request->pending == 0) return;
+    if (context->field9b8 == 0) return;
 
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    if (request->state == 0) {
-        loader->RemoveTask(request->taskId);
+    if (context->field9b9 == 0) {
+        loader->RemoveTask(context->taska2c);
         loader->AddFence();
-        request->taskId = loader->QueueLoadFile(data_020ef6d7, NULL);
-        request->state++;
+        context->taska2c = loader->QueueLoadFile(data_020ef6d7, NULL);
+        context->field9b9++;
         return;
     }
-    if (request->state != 1) return;
-    if (loader->GetTaskStatus(request->taskId) == 0) return;
+    if (context->field9b9 != 1) return;
+    if (loader->GetTaskStatus(context->taska2c) == 0) return;
 
     void* archive = NULL;
     unsigned int archiveSize = 0;
-    loader->GetLoadedFileByID(request->taskId, &archive, &archiveSize);
+    loader->GetLoadedFileByID(context->taska2c, &archive, &archiveSize);
     if (func_02026780(context, archive, archiveSize) == 0) {
-        request->complete = 1;
+        context->field9ba = 1;
     } else {
-        request->succeeded = 1;
-        request->complete = 1;
+        context->refreshRecords = 1;
+        context->field9ba = 1;
     }
-    loader->RemoveTask(request->taskId);
-    request->taskId = -1;
-    request->pending = 0;
-    request->state++;
+    loader->RemoveTask(context->taska2c);
+    context->taska2c = -1;
+    context->field9b8 = 0;
+    context->field9b9++;
 }

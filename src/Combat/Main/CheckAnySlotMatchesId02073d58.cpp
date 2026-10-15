@@ -28,7 +28,7 @@ ARM int CheckAnySlotMatchesId02073d58(int entryId, void* spawnGroup, int exclude
         GameObject* combatant = bs->GetMaybeWanderingMonsterByIndex(id);
         if (!combatant) continue;
         if (!combatant->obj3D_.IsVisible()) continue;
-        unsigned short field_b8 = *reinterpret_cast<unsigned short*>(&combatant->unk_ac[0xb8 - 0xac]);
+        unsigned short field_b8 = combatant->combatFields_.unknown_b8_;
         ListEntry_02028430* entry = GetListEntryChecked((List_02028430*)((char*)spawnGroup + EntryListOffset), field_b8);
         if (!entry) continue;
         if (*(unsigned char*)entry == entryId) return 1;
