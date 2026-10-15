@@ -26,15 +26,6 @@ struct ResourceScriptEntry {
     unsigned char variants[0x16];
 };
 
-struct Data02108ee8 {
-    int field0;
-    int field4;
-    int field8;
-    void *fieldC;
-    int field10;
-};
-
-extern Data02108ee8 data_02108ee8;
 extern Script::OpcodeLookupEntry data_020f0ff8[];
 
 extern "C" int func_02082490(void *output, void *resource, unsigned int size, int selection, int extra);

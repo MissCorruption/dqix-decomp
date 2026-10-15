@@ -2993,7 +2993,7 @@ _Z27SetElementFlag0x40_02081ea4P7Obj2081ii kind:function(arm,size=0x40) addr:0x0
 _Z19InitWithSub02081ee4P11Obj02081ee4P11Sub02081ee4 kind:function(arm,size=0x3c) addr:0x02082820
 func_02081f20 kind:function(arm,size=0x11c) addr:0x0208285c
 _Z20ResetWithSub0208203cP11Obj0208203c kind:function(arm,size=0x28) addr:0x02082978
-func_020829a0 kind:function(arm,size=0x380) addr:0x020829a0
+func_02082064 kind:function(arm,size=0x380) addr:0x020829a0
 _Z22CopyFiveFields020823e4P11Obj020823e4S0_ kind:function(arm,size=0x2c) addr:0x02082d20
 _Z28FillVariantByteTable02082410P15Variant02030b0c kind:function(arm,size=0x6c) addr:0x02082d4c
 _Z22Clear0x54Bytes0208247cPv kind:function(arm,size=0x14) addr:0x02082db8
@@ -7563,7 +7563,11 @@ data_02108e9c kind:bss addr:0x02108de0
 data_02108ea8 kind:bss addr:0x02108dec
 data_02108ed8 kind:bss addr:0x02108e1c
 data_02108ee0 kind:bss addr:0x02108e24
-data_02108ee8 kind:bss addr:0x02108e2c
+s_found kind:bss addr:0x02108e2c local
+s_maxValue kind:bss addr:0x02108e30 local
+s_selection kind:bss addr:0x02108e34 local
+s_entry kind:bss addr:0x02108e38 local
+s_counter kind:bss addr:0x02108e3c local
 data_02108efc kind:bss addr:0x02108e40
 data_02108f0c kind:bss addr:0x02108e50
 data_02108fc0 kind:bss addr:0x02108f04

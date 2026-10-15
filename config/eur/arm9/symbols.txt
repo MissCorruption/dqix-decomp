@@ -7752,7 +7752,11 @@ data_02108e9c kind:bss addr:0x02108e9c
 data_02108ea8 kind:bss addr:0x02108ea8
 data_02108ed8 kind:bss addr:0x02108ed8
 data_02108ee0 kind:bss addr:0x02108ee0
-data_02108ee8 kind:bss addr:0x02108ee8
+s_found kind:bss addr:0x02108ee8 local
+s_maxValue kind:bss addr:0x02108eec local
+s_selection kind:bss addr:0x02108ef0 local
+s_entry kind:bss addr:0x02108ef4 local
+s_counter kind:bss addr:0x02108ef8 local
 data_02108efc kind:bss addr:0x02108efc
 data_02108f0c kind:bss addr:0x02108f0c
 data_02108fc0 kind:bss addr:0x02108fc0

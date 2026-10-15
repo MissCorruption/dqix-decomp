@@ -8895,21 +8895,10 @@ src/Combat/Main/ResetWithSub0208203c.cpp:
     complete
     .text start:0x0208204c end:0x02082074
 
-src/Combat/Main/CopyFiveFields020823e4.cpp:
+src/Combat/Main/ResourceScriptEntry.cpp:
     complete
-    .text start:0x020823f4 end:0x02082420
-
-src/Combat/Main/FillVariantByteTable02082410.cpp:
-    complete
-    .text start:0x02082420 end:0x0208248c
-
-src/Combat/Main/Clear0x54Bytes0208247c.cpp:
-    complete
-    .text start:0x0208248c end:0x020824a0
-
-src/Combat/Main/InitAndRunScript0208274c.cpp:
-    complete
-    .text start:0x0208275c end:0x020827d4
+    .text start:0x02082074 end:0x020827d4
+    .bss start:0x02108ee8 end:0x02108efc
 
 src/Combat/Main/ClearPackedTriples02082cdc.cpp:
     complete
@@ -17686,10 +17675,6 @@ src/Combat/Main/FilterManagerSelectionByState.cpp:
 src/Combat/Main/UploadCharacterResource.cpp:
     complete
     .text start:0x020b05a4 end:0x020b07d0
-
-src/Combat/Main/BuildScriptResourceEntry.cpp:
-    complete
-    .text start:0x020824a0 end:0x0208275c
 
 src/Filesystem/IdentifyBackupDeviceCore.cpp:
     complete
