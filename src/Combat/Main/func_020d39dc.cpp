@@ -30,7 +30,7 @@ struct Entry020d3cf0 {
 };
 
 struct Container020d3cf0;
-extern "C" void _Z24AppendNamedEntry020d3cf0P17Container020d3cf0P13Entry020d3cf0(struct Container020d3cf0* container, struct Entry020d3cf0* src);
+void AppendNamedEntry020d3cf0(struct Container020d3cf0* container, struct Entry020d3cf0* src);
 extern struct Container020d3cf0* data_021142c4;
 
 // USA: func_020d39dc  (semantic: BuildAndAppendVariantEntry_020d39dc)
@@ -61,6 +61,6 @@ extern "C" ARM int func_020d39dc(Script::Parameter* params, int count) {
     entry.h20 = (params++)->ToInt();
     entry.h22 = (params++)->ToInt();
 
-    _Z24AppendNamedEntry020d3cf0P17Container020d3cf0P13Entry020d3cf0(data_021142c4, &entry);
+    AppendNamedEntry020d3cf0(data_021142c4, &entry);
     return 1;
 }

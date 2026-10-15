@@ -48,16 +48,16 @@ struct Receiver0202555c {
     char padding5b4[0x9c0 - 0x5b4];
     unsigned char actionState;
 };
-extern "C" void* _Z24GetData02105254_0203b628v();
+void* GetData02105254_0203b628();
 extern "C" void* func_02012fe4();
-extern "C" void _Z24SetArraySlotFlag0203b718Pviii(void*, int, int, int);
+void SetArraySlotFlag0203b718(void*, int, int, int);
 Entry_02027878* GetEntryFromList(List_02027878*, int);
-extern "C" void _Z28ForwardParamsToB8bc_0203bcb8P10Bcb8Paramsii(Bcb8Params*, int, int);
-extern "C" void _Z29AccumulateBattleTimer0202441cP19BattleTimer0202441c(BattleTimer0202441c*);
-extern "C" int _Z36CheckCombatantReadyForAction020243b8Pvi(void*, int);
+void ForwardParamsToB8bc_0203bcb8(Bcb8Params*, int, int);
+void AccumulateBattleTimer0202441c(BattleTimer0202441c*);
+int CheckCombatantReadyForAction020243b8(void*, int);
 int CheckActionAllowed(Actor02024d48*, int);
-extern "C" void _Z24SetElementFields0202756cPviiihhthii(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
-extern "C" void _Z19SetBitfield0205afdciPvi(int, void*, int);
+void SetElementFields0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
+void SetBitfield0205afdc(int, void*, int);
 
 // USA: func_0202555c
 extern "C" ARM void func_0202555c(Receiver0202555c* self) {
@@ -84,7 +84,7 @@ extern "C" ARM void func_0202555c(Receiver0202555c* self) {
     int isSpecial;
     fix32_t scale;
     object = GameState::GetInstance()->GetUnknownGameObject();
-    displayState = _Z24GetData02105254_0203b628v();
+    displayState = GetData02105254_0203b628();
     func_02012fe4();
     Vector3i position = object->obj3D_.position_;
     CombatActionPosition entries[17];
@@ -129,19 +129,19 @@ extern "C" ARM void func_0202555c(Receiver0202555c* self) {
     self->tileY = tileY;
     if (self->forwardingPending) {
         self->forwardingPending = 0;
-        _Z24SetArraySlotFlag0203b718Pviii(displayState, 1, 0, self->forwardingFill);
+        SetArraySlotFlag0203b718(displayState, 1, 0, self->forwardingFill);
         for (i = 0; i < self->forwardingCount; ++i) {
             forwardEntry = GetEntryFromList((List_02027878*)self, self->forwarding[i].entryIndex);
             if (forwardEntry) {
-                _Z28ForwardParamsToB8bc_0203bcb8P10Bcb8Paramsii((Bcb8Params*)((char*)forwardEntry + 8), self->forwarding[i].x,
+                ForwardParamsToB8bc_0203bcb8((Bcb8Params*)((char*)forwardEntry + 8), self->forwarding[i].x,
                                     self->forwardingY + self->forwarding[i].y - tileY + 16);
             }
         }
     }
-    _Z29AccumulateBattleTimer0202441cP19BattleTimer0202441c((BattleTimer0202441c*)self);
+    AccumulateBattleTimer0202441c((BattleTimer0202441c*)self);
     for (j = 0; j < count; ++j) {
         entry = &entries[j];
-        if (!_Z36CheckCombatantReadyForAction020243b8Pvi(self, entry->combatantId)) {
+        if (!CheckCombatantReadyForAction020243b8(self, entry->combatantId)) {
             continue;
         }
         scale = self->scale;
@@ -154,7 +154,7 @@ extern "C" ARM void func_0202555c(Receiver0202555c* self) {
         }
         isSpecial = entry->type == 0x74;
         if (isSpecial) {
-            _Z24SetElementFields0202756cPviiihhthii(self, (x - 4) << 12, (y + 0x5c) << 12, entry->elementId, entry->type, 0,
+            SetElementFields0202756c(self, (x - 4) << 12, (y + 0x5c) << 12, entry->elementId, entry->type, 0,
                                      entry->palette, 0xff, 0x1000, 0x1000);
             continue;
         }
@@ -164,11 +164,11 @@ extern "C" ARM void func_0202555c(Receiver0202555c* self) {
         slotData = (char*)self->slots + (short)entry->elementId * (short)40;
         if (entry->flag13) {
             ColorEffect_ConfigureAlphaBlend(0x04001050, 0, 3, 8, 8);
-            _Z19SetBitfield0205afdciPvi((int)&self->bits94, slotData, 1);
+            SetBitfield0205afdc((int)&self->bits94, slotData, 1);
         } else {
-            _Z19SetBitfield0205afdciPvi((int)&self->bits94, slotData, 0);
+            SetBitfield0205afdc((int)&self->bits94, slotData, 0);
         }
-        _Z24SetElementFields0202756cPviiihhthii(self, (x - 4) << 12, (y + 0x5c) << 12, entry->elementId, entry->type, 0,
+        SetElementFields0202756c(self, (x - 4) << 12, (y + 0x5c) << 12, entry->elementId, entry->type, 0,
                                  entry->palette, 0xff, 0x1000, 0x1000);
     }
     func_02023b5c(self, self->forwardingX << 3, self->screenY, -4, 0x5c, 0);

@@ -65,23 +65,20 @@ struct Battle0208a03c {
     unsigned char mode;
 };
 
-extern "C" struct Combatant0208a03c* _Z34GetCombatantWithFlag0x400_0200fea4P9GameStatei(GameState*, int);
-extern "C" void* _Z24GetData02108e10_020797dcv(void);
-extern "C" int _Z27IsGlobalU16InRange_020117f0P9GameState(GameState*);
+struct Combatant0208a03c* GetCombatantWithFlag0x400_0200fea4(GameState*, int);
+void* GetData02108e10_020797dc(void);
+int IsGlobalU16InRange_020117f0(GameState*);
 extern "C" char* func_02012fe4(void);
-extern "C" char* _ZN17ActiveGrottoClass15GetDetailedDataEv(void* grotto);
-extern "C" unsigned short _ZNK23DetailedTreasureMapData17LegacyBossMapData26MaybeGetCurrentAlternateIDEv(void* legacy);
-extern "C" int _ZN23DetailedTreasureMapData17LegacyBossMapData17CanUseLevelUpMoveEt(void* legacy, int moveId);
-extern "C" struct Move0208a03c* _Z24SearchBothTables02079e2cPci(char* table, int key);
-extern "C" int _Z45GetCombatantField0x148Bits3To4_ov000_02159d94ii(int unused, int id);
-extern "C" void _Z24ClearFirstField_021f66c0Pi(int* p);
+struct Move0208a03c* SearchBothTables02079e2c(char* table, int key);
+int GetCombatantField0x148Bits3To4_ov000_02159d94(void* unused, int id);
+void ClearFirstField_021f66c0(int* p);
 extern "C" int func_ov024_021f66cc(int* obj, struct Battle0208a03c* battle, int moveId, int id, int* out, int arg);
 
 // USA: func_0208a03c
 extern "C" ARM int func_0208a03c(Context0208a03c* ctx, unsigned char index, unsigned short id, int* out, int arg) {
     GameState* gs = GameState::GetInstance();
-    struct Combatant0208a03c* c = _Z34GetCombatantWithFlag0x400_0200fea4P9GameStatei(gs, id);
-    char* table = (char*)_Z24GetData02108e10_020797dcv();
+    struct Combatant0208a03c* c = GetCombatantWithFlag0x400_0200fea4(gs, id);
+    char* table = (char*)GetData02108e10_020797dc();
     struct MoveSet0208a03c* set = c->moveSet;
     if (ctx->battle->mode == 2 && ctx->battle->f8e20 == 0 && c->moveSet->moves[index] == 0xe1) {
         return 0;
@@ -94,19 +91,19 @@ extern "C" ARM int func_0208a03c(Context0208a03c* ctx, unsigned char index, unsi
         }
     }
     char* zone = func_02012fe4();
-    if (_Z27IsGlobalU16InRange_020117f0P9GameState(gs) && ctx->battle->party->f25 != 0) {
-        char* detail = _ZN17ActiveGrottoClass15GetDetailedDataEv(zone + 0x23ec);
+    if (IsGlobalU16InRange_020117f0(gs) && ctx->battle->party->f25 != 0) {
+        char* detail = (char*)((ActiveGrottoClass*)(zone + 0x23ec))->GetDetailedData();
         short kindId = c->kindId;
-        unsigned short alt = _ZNK23DetailedTreasureMapData17LegacyBossMapData26MaybeGetCurrentAlternateIDEv(detail + 0x4c);
+        unsigned short alt = ((DetailedTreasureMapData::LegacyBossMapData*)(detail + 0x4c))->MaybeGetCurrentAlternateID();
         if (alt == kindId) {
-            if (!_ZN23DetailedTreasureMapData17LegacyBossMapData17CanUseLevelUpMoveEt(detail + 0x4c, set->moves[index])) {
+            if (!((DetailedTreasureMapData::LegacyBossMapData*)(detail + 0x4c))->CanUseLevelUpMove(set->moves[index])) {
                 return 0;
             }
         }
     }
-    struct Move0208a03c* move = _Z24SearchBothTables02079e2cPci(table, (short)set->moves[index]);
+    struct Move0208a03c* move = SearchBothTables02079e2c(table, (short)set->moves[index]);
     int passed = 0;
-    int kind = _Z45GetCombatantField0x148Bits3To4_ov000_02159d94ii((int)ctx->battle, (short)id);
+    int kind = GetCombatantField0x148Bits3To4_ov000_02159d94(ctx->battle, (short)id);
     int applies;
     unsigned int flags = move->flags;
     if (flags & 1) {
@@ -181,7 +178,7 @@ extern "C" ARM int func_0208a03c(Context0208a03c* ctx, unsigned char index, unsi
         }
     }
     int handler;
-    _Z24ClearFirstField_021f66c0Pi(&handler);
+    ClearFirstField_021f66c0(&handler);
     if (!func_ov024_021f66cc(&handler, ctx->battle, set->moves[index], id, out, arg)) {
         return 0;
     }

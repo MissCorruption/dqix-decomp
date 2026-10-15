@@ -1,14 +1,14 @@
 #include <globaldefs.h>
+#include "Resource/Script.h"
 
 struct Variant02030b0c {
     int tag;
     int value;
 };
-extern "C" int _ZNK6Script9Parameter5ToIntEv(struct Variant02030b0c* p);
 
 struct List02071cc8;
 struct Elem02071cc8;
-extern "C" void _Z27AppendElementCapped02071cc8P12List02071cc8P12Elem02071cc8(struct List02071cc8*, struct Elem02071cc8*);
+void AppendElementCapped02071cc8(struct List02071cc8*, struct Elem02071cc8*);
 
 struct FieldC02071b38 {
     unsigned int lo10 : 10;
@@ -63,7 +63,7 @@ extern struct Data02108d98 data_02108d98;
 // USA: func_02071874
 extern "C" ARM int func_02071874(struct Variant02030b0c* cur) {
     struct Struct02071b38 entry;
-    short id = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
+    short id = (short)((Script::Parameter*)(cur++))->ToInt();
 
     if (data_02108d98.field4 != 0) {
         int found = 0;
@@ -81,41 +81,41 @@ extern "C" ARM int func_02071874(struct Variant02030b0c* cur) {
 
     func_02071b38(&entry);
     entry.f0 = id;
-    entry.f2 = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
+    entry.f2 = (short)((Script::Parameter*)(cur++))->ToInt();
     if (cur->tag != 0) {
-        entry.f4 = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
+        entry.f4 = (short)((Script::Parameter*)(cur++))->ToInt();
     } else {
         entry.f4 = 0;
         cur++;
     }
-    entry.fa.n0 = (unsigned short)_ZNK6Script9Parameter5ToIntEv(cur++);
+    entry.fa.n0 = (unsigned short)((Script::Parameter*)(cur++))->ToInt();
     if (cur->tag != 0) {
-        entry.f6 = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
+        entry.f6 = (short)((Script::Parameter*)(cur++))->ToInt();
     } else {
         entry.f6 = 0;
         cur++;
     }
-    entry.fa.n1 = (unsigned short)_ZNK6Script9Parameter5ToIntEv(cur++);
+    entry.fa.n1 = (unsigned short)((Script::Parameter*)(cur++))->ToInt();
     if (cur->tag != 0) {
-        entry.f8 = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
+        entry.f8 = (short)((Script::Parameter*)(cur++))->ToInt();
     } else {
         entry.f8 = 0;
         cur++;
     }
-    entry.fa.n2 = (unsigned short)_ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.fa.n3 = (unsigned short)_ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.fc.lo10 = _ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.fc.mid10 = _ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.f10.lo10 = _ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.f10.mid10 = _ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.f10.bit20 = _ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.fc.hi8 = _ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.f10.hi8 = _ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.f14 = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.f16 = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.f18 = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
-    entry.f1a = (short)_ZNK6Script9Parameter5ToIntEv(cur++);
+    entry.fa.n2 = (unsigned short)((Script::Parameter*)(cur++))->ToInt();
+    entry.fa.n3 = (unsigned short)((Script::Parameter*)(cur++))->ToInt();
+    entry.fc.lo10 = ((Script::Parameter*)(cur++))->ToInt();
+    entry.fc.mid10 = ((Script::Parameter*)(cur++))->ToInt();
+    entry.f10.lo10 = ((Script::Parameter*)(cur++))->ToInt();
+    entry.f10.mid10 = ((Script::Parameter*)(cur++))->ToInt();
+    entry.f10.bit20 = ((Script::Parameter*)(cur++))->ToInt();
+    entry.fc.hi8 = ((Script::Parameter*)(cur++))->ToInt();
+    entry.f10.hi8 = ((Script::Parameter*)(cur++))->ToInt();
+    entry.f14 = (short)((Script::Parameter*)(cur++))->ToInt();
+    entry.f16 = (short)((Script::Parameter*)(cur++))->ToInt();
+    entry.f18 = (short)((Script::Parameter*)(cur++))->ToInt();
+    entry.f1a = (short)((Script::Parameter*)(cur++))->ToInt();
 
-    _Z27AppendElementCapped02071cc8P12List02071cc8P12Elem02071cc8(data_02108d98.fieldC, (struct Elem02071cc8*)&entry);
+    AppendElementCapped02071cc8(data_02108d98.fieldC, (struct Elem02071cc8*)&entry);
     return 1;
 }

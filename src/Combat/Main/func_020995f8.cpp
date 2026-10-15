@@ -23,7 +23,7 @@ struct Elem020995f8 {
     unsigned char flagE7 : 1;
 };
 
-extern "C" void _Z21AppendElement020999f0P12List020999f0P12Elem020999f0(struct List020999f0* list, struct Elem020999f0* src);
+void AppendElement020999f0(struct List020999f0* list, struct Elem020999f0* src);
 extern struct List020999f0* data_02109924;
 
 // USA: func_020995f8
@@ -70,6 +70,6 @@ extern "C" ARM int func_020995f8(Script::Parameter* params, int numParams) {
     }
     memcpy(e.text, text, 7);
     e.text[6] = 0;
-    _Z21AppendElement020999f0P12List020999f0P12Elem020999f0(data_02109924, (struct Elem020999f0*)&e);
+    AppendElement020999f0(data_02109924, (struct Elem020999f0*)&e);
     return 1;
 }
