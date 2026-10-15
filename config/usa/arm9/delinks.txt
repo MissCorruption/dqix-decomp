@@ -20142,3 +20142,9 @@ src/Combat/Main/func_02045f3c.cpp:
 src/Combat/Main/func_0205da88.cpp:
     complete
     .text start:0x0205da88 end:0x0205dd08
+
+
+src/Combat/Main/func_0205e57c.cpp:
+    complete
+    .text start:0x0205e57c end:0x0205e7d0
+    .bss start:0x02108748 end:0x02108754
