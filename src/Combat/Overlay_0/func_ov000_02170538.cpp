@@ -54,7 +54,6 @@ struct Palette02170538 {
     int v[2];
 };
 
-// This translation unit's .rodata: the two { 0, 2 } initializer templates sit at +0x7c and +0x84.
 extern const struct Rodata02170538 {
     char pad0[0x7c];
     struct Palette02170538 large;

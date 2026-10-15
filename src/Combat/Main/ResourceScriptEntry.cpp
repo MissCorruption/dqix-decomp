@@ -3,10 +3,6 @@
 
 #include "Combat/ResourceScriptEntry.h"
 
-// The script state shared by the opcode handler and the two entry builders: five file-scope
-// statics at 0x02108ee8, addressed as .bss+offset. mwcc lays them out with the first four declared
-// in reverse order and the last one at the end, so this order gives found@0, maxValue@4,
-// selection@8, entry@0xc, counter@0x10.
 static ResourceScriptEntry *s_entry;
 static unsigned int s_selection;
 static unsigned int s_maxValue;
