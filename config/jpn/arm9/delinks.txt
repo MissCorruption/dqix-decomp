@@ -1306,10 +1306,6 @@ src/Combat/Main/BuildOffsetTable02072e34.cpp:
     complete
     .text start:0x02073fc4 end:0x02074024
 
-src/Combat/Main/BuildScriptResourceEntry.cpp:
-    complete
-    .text start:0x02082dcc end:0x02083088
-
 src/Combat/Main/BuildSortedChain02097628.cpp:
     complete
     .text start:0x02099278 end:0x020992b8
@@ -2013,10 +2009,6 @@ src/Combat/Main/Clear0x28Bytes.cpp:
 src/Combat/Main/Clear0x4cBytes0204bf30.cpp:
     complete
     .text start:0x0204cd50 end:0x0204cd64
-
-src/Combat/Main/Clear0x54Bytes0208247c.cpp:
-    complete
-    .text start:0x02082db8 end:0x02082dcc
 
 src/Combat/Main/Clear0x80Bytes0206ebc8.cpp:
     complete
@@ -3142,10 +3134,6 @@ src/Combat/Main/CopyFieldsWithFlags02048004.cpp:
     complete
     .text start:0x02048e24 end:0x02048ea0
 
-src/Combat/Main/CopyFiveFields020823e4.cpp:
-    complete
-    .text start:0x02082d20 end:0x02082d4c
-
 src/Combat/Main/CopyFourHalfwords.cpp:
     complete
     .text start:0x02033ab4 end:0x02033ad8
@@ -3989,10 +3977,6 @@ src/Combat/Main/FillTilePattern.cpp:
 src/Combat/Main/FillTilemapPalette0204ae44.cpp:
     complete
     .text start:0x0204bc64 end:0x0204bc9c
-
-src/Combat/Main/FillVariantByteTable02082410.cpp:
-    complete
-    .text start:0x02082d4c end:0x02082db8
 
 src/Combat/Main/FillVariantShortTable02109928.cpp:
     complete
@@ -6365,10 +6349,6 @@ src/Combat/Main/InitAndReturnSelf0208f4d0.cpp:
 src/Combat/Main/InitAndRunScript0201c724.cpp:
     complete
     .text start:0x0201c4b0 end:0x0201c528
-
-src/Combat/Main/InitAndRunScript0208274c.cpp:
-    complete
-    .text start:0x02083088 end:0x02083100
 
 src/Combat/Main/InitAndRunScript0208df20.cpp:
     complete
@@ -9002,6 +8982,11 @@ src/Combat/Main/ResolveHandleFields02097248.cpp:
 src/Combat/Main/ResolveOffsetOrPointerEntry.cpp:
     complete
     .text start:0x020d49b8 end:0x020d49f4
+
+src/Combat/Main/ResourceScriptEntry.cpp:
+    complete
+    .text start:0x020829a0 end:0x02083100
+    .bss start:0x02108e2c end:0x02108e40
 
 src/Combat/Main/RestoreContext.cpp:
     complete
