@@ -833,7 +833,7 @@ data_ov000_02182a60 kind:data(any) addr:0x02183b18
 data_ov000_02182a64 kind:data(any) addr:0x02183b1c
 data_ov000_02182a6c kind:data(any) addr:0x02183b24
 data_ov000_02182a74 kind:data(any) addr:0x02183b2c
-data_ov000_02183b34 kind:data(any) addr:0x02183b34
+data_ov000_02182a7c kind:data(any) addr:0x02183b34
 data_ov000_02182a85 kind:data(any) addr:0x02183b3d
 data_ov000_02182a94 kind:data(any) addr:0x02183b4c
 data_ov000_02182aa0 kind:data(any) addr:0x02183b58
