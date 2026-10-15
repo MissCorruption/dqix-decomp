@@ -108,7 +108,7 @@ void ResetGlobalObjAndInitSelfPointer0205ce94(unsigned char* obj);
 void ClearFlags020466f4(FlagWord020466f4* obj, unsigned int mask);
 void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
 void TailForward02012da4(AllocatorUnion* alloc, void* p);
-char* GetGlobalField0x1c020421a0();
+MessageSystem* GetGlobalField0x1c020421a0();
 
 extern CombatStepTable data_ov017_021d6aec;
 extern AllocatorUnion data_02114e20;
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
         TailForward02012da4(&data_02114e20, obj->allocation);
         obj->allocation = 0;
     }
-    MessageSystem* messages = reinterpret_cast<MessageSystem*>(GetGlobalField0x1c020421a0());
+    MessageSystem* messages = GetGlobalField0x1c020421a0();
 #if defined(jpn)
     messages->flags17ff.flag2 = 0;
 #else

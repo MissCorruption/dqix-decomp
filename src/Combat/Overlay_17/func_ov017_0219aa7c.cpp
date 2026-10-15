@@ -12,10 +12,7 @@ struct ChainRoot;
 struct LookupBase;
 struct InteractionSelection { unsigned char kind, index; unsigned short id; };
 #if defined(jpn)
-enum { SpriteOffset = 0x2980 };
 #define data_ov017_021d64f4 data_ov017_021d6944
-#else
-enum { SpriteOffset = 0x2b90 };
 #endif
 typedef void (GameResources::*FocusAction0219aa7c)();
 struct FocusActions0219aa7c { FocusAction0219aa7c entries[15]; };
@@ -43,7 +40,7 @@ extern "C" ARM void func_ov017_0219aa7c(GameResources* self) {
     void* camera = GetField0x3b0Value_020100bc(game);
     GameObject* object = game->GetUnknownGameObject();
     if (object == 0 || CheckSubstructByte0x7cPositive_020535c8((signed char*)object) || ((InteractionSelection*)self->interactionSelection)->index == 18) return;
-    Foo02048004* sprite = reinterpret_cast<Foo02048004*>(reinterpret_cast<char*>(self) + SpriteOffset + ((InteractionSelection*)self->interactionSelection)->index * sizeof(Foo02048004));
+    Foo02048004* sprite = &self->substruct_array_2b90[((InteractionSelection*)self->interactionSelection)->index];
     Vector3fix position;
     __clear(&position, 12);
     int x = 0;

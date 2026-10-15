@@ -5,8 +5,7 @@ struct Slot0223e00c { void* slots; void* entries; Node0223e00c* node; char buffe
 extern Slot0223e00c* data_ov031_02290d9c;
 extern unsigned char data_ov031_022493c0[];
 extern "C" void* func_ov031_0223cf4c(int, int);
-void FillSlotArrayField4_0223beec(int, int, int);
-typedef void* (*FillSlotArrayWithResult0223e00c)(int, int, int);
+void* FillSlotArrayField4_0223beec(int, int, int);
 extern "C" void* func_ov031_0223beb8(int);
 Node0223e00c* InitSelfRefNode_0223d858();
 int TailCallField4Ptr_0223d918(char*);
@@ -25,7 +24,7 @@ extern "C" ARM void func_ov031_0223e00c() {
     do {
         data_ov031_02290d9c[index].count = *count;
         data_ov031_02290d9c[index].storage = func_ov031_0223cf4c(*count * 20, 4);
-        data_ov031_02290d9c[index].slots = reinterpret_cast<FillSlotArrayWithResult0223e00c>(FillSlotArrayField4_0223beec)(*count, (int)data_ov031_02290d9c[index].storage, 20);
+        data_ov031_02290d9c[index].slots = FillSlotArrayField4_0223beec(*count, (int)data_ov031_02290d9c[index].storage, 20);
         data_ov031_02290d9c[index].entries = func_ov031_0223beb8(*count);
         count++;
         data_ov031_02290d9c[index].node = InitSelfRefNode_0223d858();

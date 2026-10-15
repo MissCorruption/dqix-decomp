@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
+#include "Resource/MessageSystem.h"
 #include "Grotto/Main/TreasureMapDataStructs.h"
 #include "System/Memory.h"
 #include "std_library_functions.h"
@@ -14,13 +15,12 @@ struct MapList3C40 {
     char field_18fb[3];
     unsigned char field_18fe;
 };
-struct Dialog3C40 { char field_0[0x998]; int active; };
 struct Node3C40 { char field_0[0x38]; unsigned short selected; };
 struct Obj0205eaa0;
 extern MapList3C40* data_ov004_02171010;
 extern Obj0205eaa0 data_02108760;
 extern unsigned short data_ov004_0216fef8[3];
-int GetGlobalField0x1c020421a0();
+MessageSystem* GetGlobalField0x1c020421a0();
 int DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 extern "C" void func_ov004_02163478(MapList3C40*);
 extern "C" void* func_ov011_021849c8(void*);
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov004_02163c40(void* self) {
     int brightness = IsBrightnessTransitionActive(func_ov017_0218b5b0());
     if (brightness && !data_ov004_02171010->field_18fe) return 0;
     if (!data_ov004_02171010->count) return 0;
-    if (reinterpret_cast<Dialog3C40*>(GetGlobalField0x1c020421a0())->active) return 0;
+    if (GetGlobalField0x1c020421a0()->active) return 0;
     if (!data_ov004_02171010->field_18fe) {
         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
     }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/ActionDisplay.h"
+#include "Combat/MapDisplay.h"
 #include "GameState/GameState.h"
 #include "System/Memory.h"
 #include "std_library_functions.h"
@@ -9,26 +10,11 @@ struct Entry_02027878;
 struct List_02027878;
 struct BattleTimer0202441c;
 struct Actor02024d48;
-struct ForwardingRecord02025b0c {
-    int field_0x0;
+struct ForwardingRecord02024518 {
+    int unknown0;
     int entryIndex;
     int x;
     int y;
-};
-struct Receiver02025b0c {
-    char padding0[0x18];
-    int forwardingX;
-    int forwardingY;
-    char padding20[0xc];
-    ForwardingRecord02025b0c* forwarding;
-    int forwardingCount;
-    char padding34[4];
-    fix32_t scale;
-    char padding3c[8];
-    int screenX;
-    int screenY;
-    char padding4c[0x74 - 0x4c];
-    int forwardingFill;
 };
 void* GetData02105254_0203b628();
 extern "C" void* func_02012fe4();
@@ -40,15 +26,8 @@ int CheckCombatantReadyForAction020243b8(void*, int);
 int CheckActionAllowed(Actor02024d48*, int);
 void SetElementFields0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
 
-#if defined(jpn)
-enum { actionStateOffset = 0x914 };
-#else
-enum { actionStateOffset = 0x9c0 };
-#endif
-
 // USA: func_02025b0c
-extern "C" ARM void func_02025b0c(Receiver02025b0c* self) {
-    unsigned char* receiver = reinterpret_cast<unsigned char*>(self);
+extern "C" ARM void func_02025b0c(MapDisplay* self) {
     GameObject* object = GameState::GetInstance()->GetUnknownGameObject();
     void* displayState = GetData02105254_0203b628();
     func_02012fe4();
@@ -57,26 +36,25 @@ extern "C" ARM void func_02025b0c(Receiver02025b0c* self) {
     unsigned char groups[32];
     memset(groups, 0, sizeof(groups));
     int count = func_020236dc(entries, groups, &position);
-    fix32_t& cameraHeight = *reinterpret_cast<fix32_t*>(receiver + 0x5b0);
     int screenX;
     int cameraY;
     fix32_t scale;
     scale = self->scale;
     screenX = (int)((float)FIX32_MULTIPLY(position.x, scale) / 4096.0f);
-    cameraY = (int)((float)FIX32_MULTIPLY(cameraHeight, scale) / 4096.0f);
+    cameraY = (int)((float)FIX32_MULTIPLY(self->cameraZ, scale) / 4096.0f);
     int objectY = (int)((float)FIX32_MULTIPLY(position.y, scale) / 4096.0f);
     if (cameraY - objectY > 5 || objectY - cameraY > 5) {
         if (objectY < cameraY) {
-            cameraHeight -= fix32_Divide((cameraY - objectY - 5) << 12, scale);
+            self->cameraZ -= fix32_Divide((cameraY - objectY - 5) << 12, scale);
         } else {
-            cameraHeight += fix32_Divide((objectY - cameraY - 5) << 12, scale);
+            self->cameraZ += fix32_Divide((objectY - cameraY - 5) << 12, scale);
         }
     }
-    cameraY = (int)((float)FIX32_MULTIPLY(cameraHeight, self->scale) / 4096.0f);
+    cameraY = (int)((float)FIX32_MULTIPLY(self->cameraZ, self->scale) / 4096.0f);
     self->screenX = screenX;
     self->screenY = cameraY;
     int tileY = cameraY < 0 ? cameraY / 8 - 1 : cameraY / 8;
-    receiver[0x55c] = 0;
+    self->forwardingPending = 0;
     SetArraySlotFlag0203b718(displayState, 1, 0, self->forwardingFill);
     for (int i = 0; i < self->forwardingCount; ++i) {
         Entry_02027878* entry = GetEntryFromList((List_02027878*)self, self->forwarding[i].entryIndex);
@@ -100,12 +78,12 @@ extern "C" ARM void func_02025b0c(Receiver02025b0c* self) {
             x += data_020e70f0[group][entry->variant][0];
             y -= data_020e70f4[group][entry->variant][0];
         }
-        if (*reinterpret_cast<int*>(receiver + 0x5a4) & 1) {
+        if (self->flags & 1) {
             if (IsNonCombatantAction(entry->type)) {
                 continue;
             }
         }
-        if (!CheckActionAllowed((Actor02024d48*)entry, receiver[actionStateOffset])) {
+        if (!CheckActionAllowed((Actor02024d48*)entry, self->actionState)) {
             continue;
         }
         SetElementFields0202756c(self, (x + 0x7c) << 12, (y + 0x5c) << 12,

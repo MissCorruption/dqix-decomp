@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 
+#include "Combat/CombatantRecovery.h"
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
 #include "World/Zone3D.h"
@@ -36,15 +37,6 @@ struct CombatResourceStatePrefix {
     unsigned char activeCombatants;
 };
 
-struct CombatantFlagsPrefix {
-#if defined(jpn)
-    char pad0[0x180];
-#else
-    char pad0[0x18c];
-#endif
-    unsigned int flags;
-};
-
 // USA: func_02026bdc
 extern "C" ARM void func_02026bdc(void *object, int flag) {
     CombatResourceStatePrefix *state = static_cast<CombatResourceStatePrefix *>(object);
@@ -57,7 +49,7 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
             continue;
         }
         func_ov017_0218b5b0();
-        GameObject *combatant = GetCombatantWithFlag0x100_0200ff1c(gameState, i);
+        CombatantRecovery *combatant = static_cast<CombatantRecovery *>(GetCombatantWithFlag0x100_0200ff1c(gameState, i));
         if (combatant == 0) {
             continue;
         }
@@ -65,10 +57,9 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
         if (&zone->substruct_c_ == 0 || zone->pUnknownStruct_8_ == 0) {
             return;
         }
-        CombatantFlagsPrefix *combatantState = reinterpret_cast<CombatantFlagsPrefix *>(combatant);
         if ((combatant->obj3D_.unknown_0_ & 0x1000) != 0) {
             if (zone->currentZoneID_ == 10000 || zone->currentZoneID_ == 10100) {
-                combatantState->flags &= ~8;
+                combatant->recoveryFlags &= ~8;
                 continue;
             }
         }
@@ -90,11 +81,11 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
                         entryValue = entryValue / 100 * 100;
                     }
                     if (entryValue == value) {
-                        combatantState->flags |= 8;
+                        combatant->recoveryFlags |= 8;
                         if (node->type == 0) {
-                            combatantState->flags &= ~0x10;
+                            combatant->recoveryFlags &= ~0x10;
                         } else {
-                            combatantState->flags |= 0x10;
+                            combatant->recoveryFlags |= 0x10;
                             SetFields1a8And1ac(reinterpret_cast<S02053f4c *>(combatant), node->x, node->y);
                             SetField0x1b0_02053f6c(combatant, node->id);
                         }
@@ -108,8 +99,8 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
             if (unknownObject != 0) {
                 int unknownValue = unknownObject->obj3D_.GetField06();
                 if (unknownValue == value) {
-                    combatantState->flags |= 8;
-                    combatantState->flags &= ~0x10;
+                    combatant->recoveryFlags |= 8;
+                    combatant->recoveryFlags &= ~0x10;
                     found = 1;
                 }
             }
@@ -117,11 +108,11 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
             while (node != 0 && found == 0) {
                 for (int j = 0; j < node->count && found == 0; j++) {
                     if (value == static_cast<unsigned short>(node->data[j])) {
-                        combatantState->flags |= 8;
+                        combatant->recoveryFlags |= 8;
                         if (node->type == 0) {
-                            combatantState->flags &= ~0x10;
+                            combatant->recoveryFlags &= ~0x10;
                         } else {
-                            combatantState->flags |= 0x10;
+                            combatant->recoveryFlags |= 0x10;
                             SetFields1a8And1ac(reinterpret_cast<S02053f4c *>(combatant), node->x, node->y);
                             SetField0x1b0_02053f6c(combatant, node->id);
                         }
@@ -132,7 +123,7 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
             }
         }
         if (found == 0) {
-            combatantState->flags &= ~8;
+            combatant->recoveryFlags &= ~8;
         }
     }
 }

@@ -24,7 +24,7 @@ extern "C" ARM void func_ov015_0218c920(void* context, int unused) {
     BackgroundLoader::AddLockGlobal();
     BackgroundLoader::FreeAllocationsGlobal();
     unsigned int size = 0;
-    char* buffer = reinterpret_cast<char*>(data_0211e33c);
+    unsigned char* buffer = data_0211e33c;
     unsigned int room = 0x30000;
     GPCReadPair pair;
     ResetObjectState02079a3c(&pair);

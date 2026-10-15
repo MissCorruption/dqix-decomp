@@ -50,7 +50,7 @@ extern "C" ARM void func_ov015_0218c538(Obj0218c274* self, char* arg) {
     __clear(name, 0x80);
 
     unsigned int size = 0;
-    char* buffer = reinterpret_cast<char*>(data_0211e33c);
+    unsigned char* buffer = data_0211e33c;
     unsigned int room = 0x30000;
     GPCReadPair pair;
     ResetObjectState02079a3c(&pair);

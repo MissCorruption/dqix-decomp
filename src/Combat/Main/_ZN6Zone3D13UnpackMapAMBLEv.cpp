@@ -79,7 +79,7 @@ ARM int Zone3D::UnpackMapAMBL_02014108() {
                         SafeAllocator* alloc = pAllocator_68_;
                         unsigned int decompSize;
                         void* data = DecompressLZ77FileIntoScratchSpace(*alloc, src, decompSize);
-                        RunBufferedStream0205e104(reinterpret_cast<char*>(&substruct_c_), alloc, data, decompSize);
+                        RunBufferedStream0205e104(substruct_c_.buffer1, alloc, data, decompSize);
                     } else if (strcmp(&data_020ef150, dot) == 0) {
                         ProcessBPOSFile_020143d8(src, size);
                     }

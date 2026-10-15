@@ -42,7 +42,6 @@ extern "C" SlotNode0216276c* func_ov023_021f6880(void*, int);
 int GetFlagBitFromField150_0215eb20(void*, int);
 int CheckAfterTwoCalls_0215e460();
 void SetField38IfState8_0215e49c(void*, int, int);
-typedef void (*SetSlotValue0216276c)(void*, int, int);
 extern "C" int func_ov004_0215e4e8(void*, short);
 extern "C" SlotNode0216276c* func_ov004_0215e47c(void*, int);
 
@@ -83,9 +82,9 @@ extern "C" ARM int func_ov004_0216276c(void* self) {
         if (!node) continue;
         node->flags &= ~8;
         if (CheckAfterTwoCalls_0215e460())
-            reinterpret_cast<SetSlotValue0216276c>(SetField38IfState8_0215e49c)(self, row + 13, 4);
+            SetField38IfState8_0215e49c(self, row + 13, 4);
         else
-            reinterpret_cast<SetSlotValue0216276c>(SetField38IfState8_0215e49c)(self, row + 13, slots[tableIndex] + 4);
+            SetField38IfState8_0215e49c(self, row + 13, slots[tableIndex] + 4);
         SetField38IfState8_0215e49c(self, row + 25, 0x1f1);
         node = func_ov023_021f6880(list, row + 0x51);
         if (!node) continue;

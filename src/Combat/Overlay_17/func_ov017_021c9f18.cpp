@@ -1,13 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Combat/CombatantRecovery.h"
 
 struct SearchStruct0202c1a4;
-struct CombatStatus {
-    unsigned int flags;
-    unsigned short hp;
-    unsigned short mp;
-    unsigned char condition;
-};
 struct PartyStatsEvent {
     unsigned char tag;
     unsigned char padding[3];
@@ -28,12 +23,6 @@ struct BattlePolicy {
     unsigned char padding[2];
     unsigned char enabled;
 };
-#if defined(jpn)
-enum { DisplayFlagsOffset = 0x180 };
-#else
-enum { DisplayFlagsOffset = 0x18c };
-#endif
-
 void* GetFieldAt0x150_02053c6c(unsigned char*);
 extern "C" void func_02083e28(void*, int);
 unsigned short GetField6b4_021b8480(void*);
@@ -51,35 +40,35 @@ extern "C" void func_ov017_02191108(void*, int, int, int, int);
 // USA: func_ov017_021c9f18
 extern "C" ARM void func_ov017_021c9f18(void* unused, const PartyStatsEvent* event, GameState* game, GameResources* controller, SearchStruct0202c1a4* search) {
     int memberIndex;
-    GameObject* member;
+    CombatantRecovery* member;
     int changed;
     int allowVisibility;
     int index = event->index;
     int valid = index >= 0 && index <= 3;
     if (valid == 0) return;
-    member = game->GetPartyMemberByIndex(index);
+    member = static_cast<CombatantRecovery*>(game->GetPartyMemberByIndex(index));
     if (member == NULL) return;
     void* effect = GetFieldAt0x150_02053c6c((unsigned char*)member);
     if (effect == NULL) return;
     changed = 0;
-    int wasDead = (*reinterpret_cast<CombatStatus**>(reinterpret_cast<char*>(member) + 0x130))->flags & 1;
+    int wasDead = member->combatFields_.savedState_130_->flags & 1;
     if ((wasDead != 0 && (event->flags & 1) == 0) || (wasDead == 0 && (event->flags & 1) != 0)) changed = 1;
-    unsigned short oldHP = (*reinterpret_cast<CombatStatus**>(reinterpret_cast<char*>(member) + 0x130))->hp;
-    unsigned short oldMP = (*reinterpret_cast<CombatStatus**>(reinterpret_cast<char*>(member) + 0x130))->mp;
-    (*reinterpret_cast<CombatStatus**>(reinterpret_cast<char*>(member) + 0x130))->hp = event->hp;
-    (*reinterpret_cast<CombatStatus**>(reinterpret_cast<char*>(member) + 0x130))->mp = event->mp;
+    unsigned short oldHP = member->combatFields_.savedState_130_->hp;
+    unsigned short oldMP = member->combatFields_.savedState_130_->mp;
+    member->combatFields_.savedState_130_->hp = event->hp;
+    member->combatFields_.savedState_130_->mp = event->mp;
     member->baseStats_->primaryStats.maxHP = event->maxHP;
     member->baseStats_->primaryStats.maxMP = event->maxMP;
-    (*reinterpret_cast<CombatStatus**>(reinterpret_cast<char*>(member) + 0x130))->flags = event->flags & 0xffff;
-    (*reinterpret_cast<CombatStatus**>(reinterpret_cast<char*>(member) + 0x130))->condition = event->condition;
+    member->combatFields_.savedState_130_->flags = event->flags & 0xffff;
+    member->combatFields_.savedState_130_->status = event->condition;
     if (event->resetEffect != 0) func_02083e28(effect, 0);
     BattlePolicy* policy = static_cast<BattlePolicy*>(controller->unknown_ptr_3718);
     allowVisibility = 1;
     if (policy->enabled != 0 && GetField6b4_021b8480(policy) == 0) allowVisibility = 0;
     if (event->updateVisibility != 0) {
         if (allowVisibility != 0) {
-            if (event->hp == 0) (*reinterpret_cast<unsigned int*>(reinterpret_cast<char*>(member) + DisplayFlagsOffset)) |= 1;
-            else (*reinterpret_cast<unsigned int*>(reinterpret_cast<char*>(member) + DisplayFlagsOffset)) &= ~1;
+            if (event->hp == 0) member->recoveryFlags |= 1;
+            else member->recoveryFlags &= ~1;
         } else {
             if (event->hp == 0) SetFlags0x180At0x18c_02054224(member);
             else ClearFlag0x80SetFlag0x100_02054234(member);
