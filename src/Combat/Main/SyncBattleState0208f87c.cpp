@@ -9,14 +9,14 @@
 #define IS_JPN 0
 #endif
 
-extern "C" void* func_ov017_0218b5b0(void* p);
+extern "C" void* func_ov017_0218b5b0(const void* p);
 unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 
 extern "C" void func_020ca528(void* a, void* b);
 extern int data_0210a0cc;
 
 // USA: func_0208f87c
-ARM void SyncBattleState0208f87c(void* self, int b, int c, int d) {
+ARM void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId) {
     void* ov = func_ov017_0218b5b0(self);
     Object3D* r4 = *(Object3D**)((char*)ov + (IS_JPN ? 0x34bc : 0x36cc));
     if (GetBitsInField4_0203b4fc((unsigned int*)ov, 0x200400) != 0) {

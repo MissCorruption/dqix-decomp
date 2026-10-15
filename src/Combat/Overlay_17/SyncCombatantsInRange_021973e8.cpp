@@ -10,12 +10,7 @@ struct Bits40_37464;
 struct Vec3_37774 { int a[3]; };
 struct Src_37774;
 extern "C" void _ZNK8Object3D20MaybeGetShadowSourceEv(struct Vec3_37774* dst, struct Src_37774* src);
-void SyncBattleState0208f87c(void* self, int b, int c, int d);
-
-struct SyncLocal_021973e8 {
-    int tag;
-    struct Vec3_37774 vec;
-};
+void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId);
 
 #if defined(jpn)
 enum { RegionOffset38 = 0x58, RegionOffset3c = 0x5c };
@@ -50,10 +45,9 @@ extern "C" ARM void func_ov017_021973e8(unsigned int* flagsObj) {
         int bits = ((Object3D*)((struct Bits40_37464*)c))->GetInheritedAlpha();
         int computed = (int)((float)field3c / 31.0f * (float)bits);
 
-        struct SyncLocal_021973e8 local;
-        _ZNK8Object3D20MaybeGetShadowSourceEv(&local.vec, (struct Src_37774*)c);
+        struct Vec3_37774 vec;
+        _ZNK8Object3D20MaybeGetShadowSourceEv(&vec, (struct Src_37774*)c);
         int intAt64 = ((Object3D*)((unsigned char*)c))->GetRadius();
-        local.tag = 8;
-        SyncBattleState0208f87c(&local.vec, field38, intAt64, computed);
+        SyncBattleState0208f87c(&vec, field38, intAt64, computed, 8);
     }
 }

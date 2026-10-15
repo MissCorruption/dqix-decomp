@@ -40,7 +40,7 @@ unsigned int GetBitsInField4_0203b4fc(unsigned int*, unsigned int);
 int TickActorFlagStateAndDispatch02076bec(GameObject*, void*);
 struct BitField0203402c;
 int CheckField0xc4Low15BitsNonZero(BitField0203402c*);
-extern "C" void _Z23SyncBattleState0208f87cPviii(const Vector3fix*, int, int, int, int);
+void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId);
 
 // USA: func_ov017_021a1d98
 extern "C" ARM void func_ov017_021a1d98(unsigned int* flags, int id) {
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_021a1d98(unsigned int* flags, int id) {
             int shadowScale = monster->shadowInfo_ ? monster->shadowInfo_->scale : 0x1000;
             fix32_t size = FIX32_MULTIPLY(shadowScale, monster->obj3D_.GetScale().x * 15);
             const Vector3fix& shadow = monster->obj3D_.MaybeGetShadowSource();
-            _Z23SyncBattleState0208f87cPviii(&shadow, field38, size, value, 8);
+            SyncBattleState0208f87c(&shadow, field38, size, value, 8);
         }
     }
 }
