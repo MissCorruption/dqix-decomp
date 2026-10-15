@@ -38,7 +38,7 @@ func_ov009_0218a420 kind:function(arm,size=0x64) addr:0x0218a420
 _Z19ToUpperCopy0218a484iPcS_ kind:function(arm,size=0x44) addr:0x0218a484
 _Z17FindMatch0218a4c8iiiii kind:function(arm,size=0x50) addr:0x0218a4c8
 func_ov009_0218a518 kind:function(arm,size=0x370) addr:0x0218a518
-_Z24FindByteInBuffer0218a888iPhii kind:function(arm,size=0x30) addr:0x0218a888
+_Z24FindByteInBuffer0218a888P21PatternSyntax0218a518Phii kind:function(arm,size=0x30) addr:0x0218a888
 _Z23ResetEntrySkill0218a8b8Pv kind:function(arm,size=0x78) addr:0x0218a8b8
 func_ov009_0218a930 kind:function(arm,size=0x2c) addr:0x0218a930
 data_ov009_0218a95d kind:data(any) addr:0x0218a95d

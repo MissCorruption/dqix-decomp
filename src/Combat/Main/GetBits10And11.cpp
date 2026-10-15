@@ -1,8 +1,9 @@
 #include <globaldefs.h>
 #include "Graphics/SpriteAffineTransform.h"
+struct SpriteContext0205ac40;
 
 // USA: func_0205b174
-ARM int GetBits10And11_0205b174(int unused, struct B174Outer* obj) {
+ARM int GetBits10And11_0205b174(SpriteContext0205ac40* unused, B174Outer* obj) {
     if (obj == 0) {
         return 0;
     }

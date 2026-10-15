@@ -160,7 +160,7 @@ void ResetAndDispatchActorContext0209c6d8(void* obj, int value);
 void EnqueueEventTag162_021cfc74(unsigned char value);
 void ResetFields_021eefac(Reset_021eefac* end);
 int IsInRange0201b588(int zone);
-void DispatchAndSetTreasureMapUnknownBit_020117cc(char* gameState, int map);
+void DispatchAndSetTreasureMapUnknownBit_020117cc(char* gameState, DetailedTreasureMapData* map);
 
 extern "C" {
 void __clear(void* buffer, unsigned long size);
@@ -455,7 +455,7 @@ extern "C" ARM int func_ov023_021eefd0(BattleScene_021eefd0* self)
                 VectorizedInvertedMemcpy(buffer, map2->clearedBy_, sizeof(buffer));
 #endif
 
-                DispatchAndSetTreasureMapUnknownBit_020117cc((char*)gameState, (int)map2);
+                DispatchAndSetTreasureMapUnknownBit_020117cc((char*)gameState, map2);
                 func_02011744(gameState);
             }
             if (IsInRange0201b588(zone->id_))

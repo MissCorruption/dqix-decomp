@@ -51,7 +51,7 @@ void ComputeAngleHeightDistance0202ea4c(Obj0202ea4c*);
 void UpdateEntry0216d50c(void*);
 int GetField0x3acValue_020100a8(GameState*);
 void ResetAndDispatchActorContext0209c6d8(void*, int);
-void DispatchAndSetTreasureMapUnknownBit_020117cc(char*, int);
+void DispatchAndSetTreasureMapUnknownBit_020117cc(char*, DetailedTreasureMapData*);
 void ScaleOrResetCombatants_021ed988(char*, int);
 MoveName* SearchBothTables02079e2c(char*, int);
 void SetIndexedName02046574(Obj02046574*, int, char*);
@@ -209,7 +209,7 @@ extern "C" ARM int func_ov023_021ef6f4(BattleBossScene* self) {
             messages->pending_ = 1;
             ResetAndDispatchActorContext0209c6d8(data_02109bf4, 0x35);
             map->UpdateFollowingCompletion(true, 0);
-            DispatchAndSetTreasureMapUnknownBit_020117cc((char*)game, (int)map);
+            DispatchAndSetTreasureMapUnknownBit_020117cc((char*)game, map);
             func_02011744(game);
             if (map->legacy_.GetLearnedMove(map->legacy_.level_, -1)) state->phase_ = 9;
             else state->phase_ = 11;
@@ -217,7 +217,7 @@ extern "C" ARM int func_ov023_021ef6f4(BattleBossScene* self) {
     } else if (state->phase_ == 8) {
         ScaleOrResetCombatants_021ed988((char*)self, 1500);
         map->UpdateFollowingCompletion(false, self->turns_);
-        DispatchAndSetTreasureMapUnknownBit_020117cc((char*)game, (int)map);
+        DispatchAndSetTreasureMapUnknownBit_020117cc((char*)game, map);
         func_02011744(game);
         state->phase_ = 10;
     } else if (state->phase_ == 9) {

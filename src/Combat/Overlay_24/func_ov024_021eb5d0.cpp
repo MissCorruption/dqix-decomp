@@ -284,7 +284,7 @@ int ConsumeMP0215a124(void* world, int id, int amount);
 int TestBitInArray0x8ec_02083b00(unsigned char* arr, int bit);
 unsigned int AdjustValueByFieldFlag_020dd290(void* obj, unsigned int v);
 int GetField0x3acValue_020100a8(GameState*);
-int IsValueInShortList_021eb47c(int, int);
+int IsValueInShortList_021eb47c(Act_021eb5d0*, int);
 void LoadBattleBlock020ac4c0(void* p);
 struct S_a0530;
 void AddClamped16BitFieldAt0x1c_020a0530(S_a0530*, unsigned int);
@@ -299,7 +299,7 @@ void AddClamped10BitFieldMidAt0x14_020a017c(S_a017c*, unsigned int);
 struct List021600f8;
 struct Node_021eb5d0* GetNodeAtIndex021600f8(List021600f8*, int);
 struct CheckStruct_021ea4d0;
-int CheckStateFlags3or4_021ea4d0(int, CheckStruct_021ea4d0*);
+int CheckStateFlags3or4_021ea4d0(Act_021eb5d0*, CheckStruct_021ea4d0*);
 extern "C" int func_ov024_021ea500(struct Act_021eb5d0* self, struct Rec_021eb5d0* rec, int id);
 extern "C" int func_ov000_02156cc4(void* world, int id, struct Rec_021eb5d0* rec, int n);
 struct S_10088;
@@ -545,7 +545,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Act_021eb5d0* self, struct World_
         }
     }
     if (id == GetField0x3acValue_020100a8((GameState*)bs)) {
-        if (IsValueInShortList_021eb47c((int)self, rec->f4.id) != 0) {
+        if (IsValueInShortList_021eb47c(self, rec->f4.id) != 0) {
             LoadBattleBlock020ac4c0(blkA);
             AddClamped16BitFieldAt0x1c_020a0530((S_a0530*)blkA, 1);
             AddClamped12BitFieldTopAt0x14_020a01b8((S_a01b8*)(blkA + 0x68), 1);
@@ -571,7 +571,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Act_021eb5d0* self, struct World_
     unsigned char flagC = totA;
     int hit = totA;
     struct Rec_021eb5d0* recSaved = rec;
-    if (CheckStateFlags3or4_021ea4d0((int)self, (CheckStruct_021ea4d0*)rec) != 0) hit = 1;
+    if (CheckStateFlags3or4_021ea4d0(self, (CheckStruct_021ea4d0*)rec) != 0) hit = 1;
     if (func_ov024_021ea500(self, rec, id) != 0) hit = 1;
     if (hit != 0) {
         okFlag = 0;
@@ -961,7 +961,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Act_021eb5d0* self, struct World_
             }
         }
     }
-    if (IsValueInShortList_021eb47c((int)self, rec->f4.id) != 0) {
+    if (IsValueInShortList_021eb47c(self, rec->f4.id) != 0) {
         struct Fighter_021eb5d0* me = (struct Fighter_021eb5d0*)GetCombatantByID((int)self->f10, id);
         if (me != 0) me->f138->f3b.b3 = 0;
     }

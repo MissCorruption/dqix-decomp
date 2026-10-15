@@ -37,7 +37,7 @@ struct BitFlags02037170;
 struct BitFlags02037180;
 void ForwardField0xc0_0205ebec(void* obj);
 void SetByteField0x253_020397c0(void* obj);
-int GetBitflagForCombatantColor_021a26e8(int unused0, int combatantId);
+int GetBitflagForCombatantColor_021a26e8(GameResources* unused0, int combatantId);
 void EnqueueEventTag139_021d09cc(int a, int b, int c, int d);
 GameObject* FindCombatantByField0x16a_0200ffe0(GameState* battleStruct, int id);
 
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov017_021c2784(Obj_021c2784* obj) {
             return;
         }
         int fv3 = GetField0x397cValue_020100b0(battleStruct);
-        int bitflag = GetBitflagForCombatantColor_021a26e8((int)ov, fv3);
+        int bitflag = GetBitflagForCombatantColor_021a26e8(ov, fv3);
         EnqueueEventTag139_021d09cc(0, 0, bitflag, obj->field18);
         obj->state = 4;
         return;

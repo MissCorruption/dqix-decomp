@@ -160,7 +160,7 @@ void SetOrClearBitInArray_0206df6c(void* p, unsigned char* arr, int bit, int set
 extern "C" void func_020120f0(void* gs);
 int TestFlagMask_02012430(unsigned short*, int);
 extern "C" int func_02032370(int n);
-void CopyToBattleField02039768(int obj, void* dst);
+void CopyToBattleField02039768(GameObject* obj, void* dst);
 short GetField0x397cValue_020100b0(GameState* gs);
 void SetField0x21c_020a2770(void* p, short v);
 extern "C" int rand();
@@ -719,7 +719,7 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
                 char* save = (char*)GetPtrField0x2a04_02010828(gs);
                 GameObject* hero = gs->GetProtagonist();
                 if (hero != 0) {
-                    CopyToBattleField02039768((int)hero, save + 0x2c8d);
+                    CopyToBattleField02039768(hero, save + 0x2c8d);
                 }
             }
         }

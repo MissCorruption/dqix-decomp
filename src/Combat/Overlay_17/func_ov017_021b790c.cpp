@@ -172,8 +172,8 @@ void SetOrClearBit_0201bf98(unsigned char* obj, int bit, int set);
 extern "C" int func_ov000_0215e9fc(void* battle, short* buf, int max, int start);
 extern "C" int func_ov017_021959b4(void);
 extern "C" void* func_0205ec34(void);
-int ClearField0x498Dispatch10_02064a24(void*, int);
-int ClearField0x498Dispatch0F_02064a08(void*, int);
+int ClearField0x498Dispatch10_02064a24(void*, Desc021b790c*);
+int ClearField0x498Dispatch0F_02064a08(void*, Desc021b790c*);
 extern "C" void func_0206f81c(void* p);
 int IsField0xcNonNegative_020a3694(int* obj);
 void ResetMpForFlaggedCombatants02010604(GameState* gs, int a, int b, int c);
@@ -320,11 +320,11 @@ extern "C" ARM void func_ov017_021b790c(BattleScene021b790c* self, ListHead02046
             memset(&desc, 0, sizeof(desc));
             desc.field_18 = self->field_28;
             if (self->context->mode == 2) {
-                if (ClearField0x498Dispatch10_02064a24(p, (int)&desc)) {
+                if (ClearField0x498Dispatch10_02064a24(p, &desc)) {
                     func_0206f81c(&desc);
                 }
             } else {
-                if (ClearField0x498Dispatch0F_02064a08(p, (int)&desc)) {
+                if (ClearField0x498Dispatch0F_02064a08(p, &desc)) {
                     func_0206f81c(&desc);
                 }
             }

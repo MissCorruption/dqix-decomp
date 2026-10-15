@@ -169,7 +169,7 @@ struct Struct_0203cfb4;
 void Init0203cfb4(Struct_0203cfb4*);
 struct MainBlock0205859c;
 void ResetBattleEncounterState0205859c(MainBlock0205859c*);
-void UpdateFlagsFromField12_0219e234(int, int, int, void*);
+void UpdateFlagsFromField12_0219e234(Battle0219d250*, Request0219d250*, Entry0219d250*, void*);
 void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 extern "C" void func_ov017_0219fda0(Battle0219d250* self);
 void InitEntriesAndAllocators_0219fec0(void* self);
@@ -386,7 +386,7 @@ extern "C" ARM void func_ov017_0219d250(Battle0219d250* self, unsigned char arg)
     SetFlagsForFlaggedCombatants_0219e0ec(self);
     Init0203cfb4((Struct_0203cfb4*)extRegion);
     ResetBattleEncounterState0205859c((MainBlock0205859c*)combatants);
-    UpdateFlagsFromField12_0219e234((int)self, (int)request, (int)other, entry);
+    UpdateFlagsFromField12_0219e234(self, request, other, entry);
     self->f36f0 = 0;
     self->f36f4 = 0;
     self->b42ea = gs->GetTimeOfDay();

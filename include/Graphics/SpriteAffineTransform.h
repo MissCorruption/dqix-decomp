@@ -44,4 +44,4 @@ void ScalePairsByTwoFactors_020c1128(const Matrix2x2* source, Matrix2x2* destina
                            fix32_t scaleX, fix32_t scaleY);
 extern "C" void func_0205b0d8(SpriteContext0205ac40* context, Matrix2x2* transform,
                              Matrix2x2* affine, B174Outer* sprite);
-int GetBits10And11_0205b174(int unused, B174Outer* sprite);
+int GetBits10And11_0205b174(SpriteContext0205ac40* unused, B174Outer* sprite);

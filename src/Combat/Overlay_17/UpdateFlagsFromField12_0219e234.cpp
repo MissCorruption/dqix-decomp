@@ -1,5 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+struct Battle0219d250;
+struct Entry0219d250;
+struct Request0219d250;
 
 int GetFieldIfFlag4_020100f8(char* obj);
 void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
@@ -14,7 +17,7 @@ struct Field12Bits0219e234 {
 };
 
 // USA: func_ov017_0219e234
-ARM void UpdateFlagsFromField12_0219e234(int a0, int a1, int a2, void* obj) {
+ARM void UpdateFlagsFromField12_0219e234(Battle0219d250* a0, Request0219d250* a1, Entry0219d250* a2, void* obj) {
 	GameState* battle = GameState::GetInstance();
 	int f = GetFieldIfFlag4_020100f8((char*)battle);
 	if (!f) return;
