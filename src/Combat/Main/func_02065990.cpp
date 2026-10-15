@@ -70,11 +70,7 @@ int IsAnimationActive0209ca2c(void* p);
 struct Battle020456d0;
 void StepCounter020456d0(Battle020456d0*);
 void ResetOrConsumeCounter02065920(unsigned char*, unsigned int);
-struct Repeat02045740;
-void HandleRepeatInput02045740(Repeat02045740*);
 extern "C" void func_020676e0(void* obj, int step);
-struct State020455f8;
-void HandleStateChange020455f8(State020455f8*);
 extern "C" void func_02043124(void* obj);
 void SetName56AndFlag_0218d7b0(unsigned char* owner, char* name);
 struct Obj0205eaa0;
@@ -128,7 +124,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
     int step = amount;
     if (step == 0) step = 1;
 
-    if (*(void**)(self + REGION_VALUE(0x230, 0x2e0)) != 0 && self[REGION_VALUE(0x236, 0x2e6)] != 0 && *(int*)(self + REGION_VALUE(0x870, 0x9a0)) == 6) {
+    if (*(void**)(self + REGION_VALUE(0x230, 0x2e0)) != 0 && self[REGION_VALUE(0x236, 0x2e6)] != 0 && message->mode == 6) {
         if ((*(unsigned short*)0x4000304 & 0x8000) >> 15 == 1) {
             SetEntryByte14ByKey0205a42c((Container0205a3d0*)(*(void**)(self + REGION_VALUE(0x230, 0x2e0))), 0, 0x1e);
         }
@@ -138,17 +134,17 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
     if (*(int*)(self + REGION_VALUE(0x868, 0x998)) == 0) return;
 
     if (REGION_FLAG(flag3, b19d1) != 0) {
-        (self + 0x1000)[REGION_VALUE(0x786, 0x958)] = *(signed char*)(self + REGION_VALUE(0x1786, 0x1958)) - step;
+        message->b1958 = *(signed char*)(self + REGION_VALUE(0x1786, 0x1958)) - step;
         if (*(signed char*)(self + REGION_VALUE(0x1786, 0x1958)) >= 0) return;
         func_0206b104(self);
         ReinitController02043204((char*)self);
         return;
     }
 
-    CheckAndClearFlag020656e4(message, step);
+    message->CheckAndClearFlag020656e4(step);
     if (UpdateCounterAndFlag02065758((Struct02065758*)self, step) != 0) return;
 
-    if ((self + 0x1000)[REGION_VALUE(0x7e1, 0x9b1)] != 0) {
+    if (message->b19b1 != 0) {
         UpdateTimedState0202f380(self + REGION_VALUE(0x1804, 0x19e0), step);
         if (IsField440Empty_0205ce28((CE28Obj*)(self + REGION_VALUE(0x1804, 0x19e0))) != 0) {
             SetupField440Type1((Field440Obj0202f6a4*)(self + REGION_VALUE(0x1804, 0x19e0)));
@@ -163,78 +159,78 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
         if (ready == 0) return;
     }
 
-    if (REGION_FLAG(streamMode, b19ce) != 0) *(int*)(self + REGION_VALUE(0x10, 0x44)) = *(int*)(self + REGION_VALUE(0x44, 0x78));
+    if (REGION_FLAG(streamMode, b19ce) != 0) message->stream44 = *(int*)(self + REGION_VALUE(0x44, 0x78));
 
-    if ((self + 0x1000)[REGION_VALUE(0x7e4, 0x9b4)] != 0) {
-        *(int*)(self + REGION_VALUE(0x1738, 0x1868)) = *(int*)(self + REGION_VALUE(0x1738, 0x1868)) + step;
-        if (*(int*)(self + REGION_VALUE(0x1738, 0x1868)) < *(int*)(self + REGION_VALUE(0x1734, 0x1864))) return;
-        *(int*)(self + REGION_VALUE(0x1738, 0x1868)) = 0;
+    if (message->b19b4 != 0) {
+        message->w1868 = message->w1868 + step;
+        if (message->w1868 < message->w1864) return;
+        message->w1868 = 0;
         ProcessTextTokens0206b61c((Ctx0206b61c*)self);
-        (self + 0x1000)[REGION_VALUE(0x7e4, 0x9b4)] = 0;
-        *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 5;
-        (self + 0x1000)[REGION_VALUE(0x7e5, 0x9b5)] = 0;
+        message->b19b4 = 0;
+        message->mode = 5;
+        message->b19b5 = 0;
         return;
     }
 
     if (func_020657c8(self, step) != 0) return;
     UpdateStatusTimer_020658ac((unsigned char*)self, step);
 
-    if (((self + 0x1000)[REGION_VALUE(0x789, 0x95b)] & 1) != 0) {
+    if ((message->b195b & 1) != 0) {
         if (IsAnimationActive0209ca2c(&data_02109bf4) == 0) {
-            (self + 0x1000)[REGION_VALUE(0x789, 0x95b)] = (self + 0x1000)[REGION_VALUE(0x789, 0x95b)] & ~1;
+            message->b195b = message->b195b & ~1;
         }
     } else {
-        if (*(unsigned char**)(self + REGION_VALUE(0x4c, 0x8c)) != 0 && (*(unsigned char**)(self + REGION_VALUE(0x4c, 0x8c)))[0xd4] == 2) return;
+        if (message->child != 0 && (message->child)[0xd4] == 2) return;
 
-        if ((self + 0x1000)[REGION_VALUE(0x7fa, 0x9c9)] != 0) {
+        if (message->b19c9 != 0) {
             if (IsAnimationActive0209ca2c(&data_02109bf4) != 0) return;
             *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-            (self + 0x1000)[REGION_VALUE(0x7fa, 0x9c9)] = 0;
+            message->b19c9 = 0;
             return;
         }
 
         StepCounter020456d0((Battle020456d0*)self);
-        if (func_020440cc(message) != 0) {
+        if (message->func_020440cc() != 0) {
             REGION_FLAG(flag3, b19d1) = 1;
-            (self + 0x1000)[REGION_VALUE(0x786, 0x958)] = 5;
+            message->b1958 = 5;
             return;
         }
 
-        if (*(int*)(self + REGION_VALUE(0x870, 0x9a0)) != 5) {
+        if (message->mode != 5) {
             ResetOrConsumeCounter02065920((unsigned char*)self, step);
-            if ((self + 0x1000)[REGION_VALUE(0x7ec, 0x9bc)] != 0) {
-                HandleRepeatInput02045740((Repeat02045740*)self);
+            if (message->b19bc != 0) {
+                message->HandleRepeatInput02045740();
             }
             func_020676e0(self, step);
-            ProcessPendingFlag02045688(message);
+            message->ProcessPendingFlag02045688();
             return;
         }
     }
 
-    if (*(short*)(self + REGION_VALUE(0x1774, 0x1946)) < 0 && (self + 0x1000)[REGION_VALUE(0x7f9, 0x9c8)] == 0) {
+    if (*(short*)(self + REGION_VALUE(0x1774, 0x1946)) < 0 && message->b19c8 == 0) {
         *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
-        ProcessPendingFlag02045688(message);
+        message->ProcessPendingFlag02045688();
     }
 #if defined(jpn)
     else {
 #else
-    else if (*(unsigned int*)(self + 0x88) < *(unsigned int*)(self + REGION_VALUE(0x44, 0x78))) {
+    else if (*(unsigned int*)(self + 0x88) < message->tokenIndex) {
 #endif
         if (*(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) >= 4) {
             *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) - 4;
-            ProcessPendingFlag02045688(message);
-            HandleStateChange020455f8((State020455f8*)self);
+            message->ProcessPendingFlag02045688();
+            message->HandleStateChange020455f8();
         }
         *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) =
             *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) + GameState::GetInstance()->GetTickCount();
     }
 
-    if ((self + 0x1000)[REGION_VALUE(0x7f6, 0x9c5)] != 0) step = 0x10;
+    if (message->b19c5 != 0) step = 0x10;
 #if defined(jpn)
     int n = step;
     bool skipCount = false;
 #else
-    if (((self + 0x1000)[REGION_VALUE(0x789, 0x95b)] & 4) != 0 && *(int*)(self + REGION_VALUE(0x870, 0x9a0)) != 0) step = 0x18;
+    if ((message->b195b & 4) != 0 && message->mode != 0) step = 0x18;
 
     int old = *(int*)(self + 0x80) >> 4;
     *(int*)(self + 0x80) += step * 16;
@@ -244,8 +240,8 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
 #endif
 
     while (n != 0) {
-        if (*(unsigned int*)(self + REGION_VALUE(0x38, 0x6c)) <= *(unsigned int*)(self + REGION_VALUE(0x44, 0x78))) return;
-        tok = ((unsigned short*)*(void**)(self + REGION_VALUE(0x18, 0x4c)))[*(unsigned int*)(self + REGION_VALUE(0x44, 0x78))];
+        if (message->tokenCount <= message->tokenIndex) return;
+        tok = ((unsigned short*)message->firstLineBuffer)[message->tokenIndex];
 #if defined(jpn)
         if (func_02069430(self, tok) != 0) {
             int adv = func_02069444(self, tok);
@@ -258,25 +254,25 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 continue;
             }
             if (tok == 0xff01) {
-                if (((self + 0x1000)[REGION_VALUE(0x789, 0x95b)] & 4) != 0) {
-                    (self + 0x1000)[REGION_VALUE(0x789, 0x95b)] = (self + 0x1000)[REGION_VALUE(0x789, 0x95b)] | 8;
+                if ((message->b195b & 4) != 0) {
+                    message->b195b = message->b195b | 8;
                 }
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 0;
-                ProcessPendingFlag02045688(message);
+                message->mode = 0;
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == 0xff02) {
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 0;
-                ProcessPendingFlag02045688(message);
+                message->mode = 0;
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == 0xff03) {
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 0;
-                ProcessPendingFlag02045688(message);
+                message->mode = 0;
+                message->ProcessPendingFlag02045688();
                 ReinitController02043204((char*)self);
                 func_02043124(self);
                 return;
             } else if (tok == 0xff0b) {
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 4;
-                ProcessPendingFlag02045688(message);
+                message->mode = 4;
+                message->ProcessPendingFlag02045688();
                 (self + 0x1000)[REGION_VALUE(0x78d, 0x95f)] = (self + 0x1000)[REGION_VALUE(0x78c, 0x95e)];
                 *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
                 if (*(short*)(self + REGION_VALUE(0x1800, 0x19da)) >= 0) {
@@ -285,17 +281,17 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 }
                 return;
             } else if (tok == 0xff0c) {
-                (self + 0x1000)[REGION_VALUE(0x78f, 0x961)] = (self + 0x1000)[REGION_VALUE(0x78e, 0x960)];
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 1;
-                ProcessPendingFlag02045688(message);
+                message->inputDelay = message->b1960;
+                message->mode = 1;
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == 0xff0d) {
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 1;
-                ProcessPendingFlag02045688(message);
+                message->mode = 1;
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == 0xff0a) {
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 3;
-                ProcessPendingFlag02045688(message);
+                message->mode = 3;
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == REGION_VALUE(0xff1d, 0xff1b)) {
                 nm.f0 = 0;
@@ -303,8 +299,8 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 nm.f2 = 0;
                 nm.f4 = 0;
                 nm.f5 = 0;
-                nm.f0 = (self + 0x1000)[REGION_VALUE(0x7f7, 0x9c6)] == 0;
-                nm.f1 = (self + 0x1000)[REGION_VALUE(0x7f8, 0x9c7)] == 0;
+                nm.f0 = message->b19c6 == 0;
+                nm.f1 = message->b19c7 == 0;
                 nm.f2 = *(unsigned short*)(self + REGION_VALUE(0x174e, 0x187e));
                 nm.f4 = 1;
                 SetName56AndFlag_0218d7b0(((unsigned char*)func_ov017_0218b5b0()), (char*)&nm);
@@ -314,7 +310,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 int slot = *(signed char*)(self + REGION_VALUE(0x1785, 0x1957));
                 if (slot >= 0 && slot < *(signed char*)(self + REGION_VALUE(0x1784, 0x1956))) {
                     int val;
-                    int kind = *(signed char*)(self + REGION_VALUE(0x1780, 0x1952) + slot);
+                    int kind = *(signed char*)(message->b1952 + slot);
                     val = *(signed char*)(self + REGION_VALUE(0x177c, 0x194e) + slot);
                     if (kind > 0) {
                         DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 0x65, 0);
@@ -343,27 +339,27 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                         }
                     }
                 }
-                (self + 0x1000)[REGION_VALUE(0x785, 0x957)] = *(signed char*)(self + REGION_VALUE(0x1785, 0x1957)) + 1;
+                message->b1957 = *(signed char*)(self + REGION_VALUE(0x1785, 0x1957)) + 1;
                 *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
                 return;
             } else if (tok == REGION_VALUE(0xff1c, 0xff1a)) {
                 if (REGION_FLAG(flag2, b19d0) != 0) return;
-                ProcessPendingFlag02045688(message);
+                message->ProcessPendingFlag02045688();
                 ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] =
                     ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] - 1;
                 if (((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] > 0) return;
                 ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] = 0;
                 *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                (self + 0x1000)[REGION_VALUE(0x7dc, 0x9ac)] = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) + 1;
-                (self + 0x1000)[REGION_VALUE(0x7dc, 0x9ac)] = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) & 3;
+                message->b19ac = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) + 1;
+                message->b19ac = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) & 3;
                 *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
                 return;
             } else if (tok == REGION_VALUE(0xff1f, 0xff1d)) {
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 2;
-                ProcessPendingFlag02045688(message);
+                message->mode = 2;
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == REGION_VALUE(0xff20, 0xff1e)) {
-                ProcessPendingFlag02045688(message);
+                message->ProcessPendingFlag02045688();
                 ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] =
                     ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] - 1;
                 if (((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] > 0) {
@@ -374,52 +370,52 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 }
                 ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] = 0;
                 *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                (self + 0x1000)[REGION_VALUE(0x7dc, 0x9ac)] = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) + 1;
-                (self + 0x1000)[REGION_VALUE(0x7dc, 0x9ac)] = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) & 3;
+                message->b19ac = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) + 1;
+                message->b19ac = *(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac)) & 3;
                 *(signed char*)(self + REGION_VALUE(0x7e2, 0x912)) = 0;
                 return;
             } else if (tok == REGION_VALUE(0xff21, 0xff1f)) {
-                (self + 0x1000)[REGION_VALUE(0x7fb, 0x9ca)] = 0;
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 2;
-                ProcessPendingFlag02045688(message);
+                message->b19ca = 0;
+                message->mode = 2;
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == REGION_VALUE(0xff28, 0xff26)) {
-                (self + 0x1000)[REGION_VALUE(0x7e1, 0x9b1)] = 1;
-                (self + 0x1000)[REGION_VALUE(0x7fe, 0x9cd)] = 1;
+                message->b19b1 = 1;
+                message->b19cd = 1;
             } else if (tok == REGION_VALUE(0xff29, 0xff27)) {
-                (self + 0x1000)[REGION_VALUE(0x7e1, 0x9b1)] = 0;
-                (self + 0x1000)[REGION_VALUE(0x7fe, 0x9cd)] = 1;
+                message->b19b1 = 0;
+                message->b19cd = 1;
             } else if (tok == REGION_VALUE(0xff2a, 0xff28)) {
-                (self + 0x1000)[REGION_VALUE(0x7e8, 0x9b8)] = 1;
+                message->b19b8 = 1;
             } else if (tok == REGION_VALUE(0xff2b, 0xff29)) {
-                (self + 0x1000)[REGION_VALUE(0x7e8, 0x9b8)] = 0;
+                message->b19b8 = 0;
             } else if (tok == REGION_VALUE(0xff2c, 0xff2a)) {
-                *(int*)(self + REGION_VALUE(0x1714, 0x1844)) = *(int*)(self + REGION_VALUE(0x1710, 0x1840));
-                (self + 0x1000)[REGION_VALUE(0x7e6, 0x9b6)] = 1;
+                message->pendingValue = *(int*)(self + REGION_VALUE(0x1710, 0x1840));
+                message->pendingValueActive = 1;
                 *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                ProcessPendingFlag02045688(message);
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == REGION_VALUE(0xff2e, 0xff2c)) {
-                *(int*)(self + REGION_VALUE(0x1714, 0x1844)) = *(int*)(self + REGION_VALUE(0x170c, 0x183c));
-                (self + 0x1000)[REGION_VALUE(0x7e6, 0x9b6)] = 1;
+                message->pendingValue = message->selectedValue;
+                message->pendingValueActive = 1;
                 *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
-                ProcessPendingFlag02045688(message);
+                message->ProcessPendingFlag02045688();
                 return;
             } else if (tok == REGION_VALUE(0xff2f, 0xff2d)) {
                 unsigned char* who = (unsigned char*)GameState::GetInstance()->GetUnknownGameObject();
-                void* node = GetEntryUnlessFlag0x8000_0203dce4((EntryList_203dce4*)GetGlobalPtr021075f4_0203cf4c(), *(int*)(self + REGION_VALUE(0x1708, 0x1838)));
+                void* node = GetEntryUnlessFlag0x8000_0203dce4((EntryList_203dce4*)GetGlobalPtr021075f4_0203cf4c(), message->selectedEntry);
                 if (who != 0 && node != 0) {
                     here = *(struct Vec3_020406f8*)(who + 0x44);
                     SelectVec3FromSources020406f8(&src, (Node020406f8*)node);
                     dst = src;
-                    *(int*)(self + REGION_VALUE(0x1714, 0x1844)) = fix32ReduceAngle0To2Pi(fix32_Atan2(here.v[0] - dst.v[0], here.v[2] - dst.v[2]));
-                    (self + 0x1000)[REGION_VALUE(0x7e6, 0x9b6)] = 1;
-                    ProcessPendingFlag02045688(message);
+                    message->pendingValue = fix32ReduceAngle0To2Pi(fix32_Atan2(here.v[0] - dst.v[0], here.v[2] - dst.v[2]));
+                    message->pendingValueActive = 1;
+                    message->ProcessPendingFlag02045688();
                 }
                 *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
                 return;
             } else if (tok == REGION_VALUE(0xff30, 0xff2e)) {
-                ProcessPendingFlag02045688(message);
+                message->ProcessPendingFlag02045688();
                 (self + 0x1000)[REGION_VALUE(0x787, 0x959)] = 0x3c;
                 (self + 0x1000)[REGION_VALUE(0x7e7, 0x9b7)] = 1;
                 (self + 0x1000)[REGION_VALUE(0x78a, 0x95c)] = 0;
@@ -428,7 +424,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 6, 0);
                 return;
             } else if (tok == REGION_VALUE(0xff31, 0xff2f)) {
-                ProcessPendingFlag02045688(message);
+                message->ProcessPendingFlag02045688();
                 (self + 0x1000)[REGION_VALUE(0x787, 0x959)] = 0x3c;
                 (self + 0x1000)[REGION_VALUE(0x7e7, 0x9b7)] = 1;
                 (self + 0x1000)[REGION_VALUE(0x78a, 0x95c)] = 1;
@@ -437,7 +433,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 0x1c, 0);
                 return;
             } else if (tok == 0xff04 || tok == 0xff05 || tok == 0xff06 || tok == 0xff07) {
-                func_02065418((self + 0x1000)[REGION_VALUE(0x7fd, 0x9cc)]);
+                func_02065418(message->b19cc);
                 int first = 0;
                 if (*(int*)(self + REGION_VALUE(0x218, 0x2c8)) == 1 || tok == 0xff05) first = 1;
                 *(int*)(self + REGION_VALUE(0x218, 0x2c8)) = 0;
@@ -448,11 +444,11 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 int b = CallFunc020e0434With02153694_020e51cc(0x1c);
                 InitCombatPairState020652d0((char*)(self + REGION_VALUE(0x50, 0x90)), first, a, b);
 #endif
-                *(int*)(self + REGION_VALUE(0x824, 0x954)) = first;
+                message->w94c[2] = first;
                 (self + 0x1000)[REGION_VALUE(0x7ea, 0x9ba)] = 1;
                 *(int*)(self + REGION_VALUE(0x85c, 0x98c)) = 0;
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 6;
-                ProcessPendingFlag02045688(message);
+                message->mode = 6;
+                message->ProcessPendingFlag02045688();
                 DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 5, 0);
                 int alive = 1;
                 unsigned char* bs = (unsigned char*)GameState::GetInstance();
@@ -465,7 +461,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 unsigned int bits = (*reg & 0x1f00) >> 8;
                 unsigned int keep = *reg & ~0x1f00;
                 *reg = keep | ((bits | 0x10) << 8);
-                func_02065418((self + 0x1000)[REGION_VALUE(0x7fd, 0x9cc)]);
+                func_02065418(message->b19cc);
 #if defined(jpn)
                 func_020665bc((char*)(self + REGION_VALUE(0x50, 0x90)), 0, data_020f07c0, data_020f07c7);
 #else
@@ -473,25 +469,25 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 int b = CallFunc020e0434With02153694_020e51cc(0x1e);
                 InitCombatPairState020652d0((char*)(self + REGION_VALUE(0x50, 0x90)), 0, a, b);
 #endif
-                *(int*)(self + REGION_VALUE(0x824, 0x954)) = 0;
+                message->w94c[2] = 0;
                 (self + 0x1000)[REGION_VALUE(0x7ea, 0x9ba)] = 1;
                 *(int*)(self + REGION_VALUE(0x85c, 0x98c)) = 1;
-                *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 6;
-                ProcessPendingFlag02045688(message);
+                message->mode = 6;
+                message->ProcessPendingFlag02045688();
                 DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 5, 0);
                 unsigned char* w = GetWord0x0_0200fb8c((int*)GameState::GetInstance());
                 if (w != 0) (w + 0x4000)[REGION_VALUE(0x134, 0x354)] = 0xa;
                 return;
             } else if (tok == 0xff0f) {
-                unsigned char* ent = *(unsigned char**)(self + REGION_VALUE(0x4c, 0x8c));
+                unsigned char* ent = message->child;
 #if defined(jpn)
                 {
 #else
                 if (ent != 0) {
 #endif
                     *(unsigned short*)(ent + 0xda) = *(unsigned short*)(ent + 0xda) | 0x40;
-                    SetFieldD20208bf28((Obj0208bf28*)(*(void**)(self + REGION_VALUE(0x4c, 0x8c))), *(short*)(self + REGION_VALUE(0x1776, 0x1948)), 0);
-                    *(self + REGION_VALUE(0x1789, 0x195b)) |= 1;
+                    SetFieldD20208bf28((Obj0208bf28*)(message->child), *(short*)(self + REGION_VALUE(0x1776, 0x1948)), 0);
+                    *&message->b195b |= 1;
                     unsigned char* g = GetGlobal02109418_02094d6c();
                     int idx = GetTableByteOrFF_020965ac((GetTableByteOrFFData*)g, (unsigned char)*(short*)(self + REGION_VALUE(0x1776, 0x1948)));
                     RegisterSlotA020cf0fc((int)&sa);
@@ -505,9 +501,9 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                     SetValueAndActivate0209c830((Struct0209c830*)&data_02109bf4, 0x32);
                 }
             } else if (tok > REGION_VALUE(0xff39, 0xff34) && tok < REGION_VALUE(0xff4e, 0xff49)) {
-                ProcessPendingFlag02045688(message);
+                message->ProcessPendingFlag02045688();
                 SetValueAndActivate0209c830((Struct0209c830*)&data_02109bf4, tok - REGION_VALUE(0xff08, 0xff03));
-                (self + 0x1000)[REGION_VALUE(0x7fa, 0x9c9)] = 1;
+                message->b19c9 = 1;
                 return;
             } else if (tok >= REGION_VALUE(0xff4f, 0xff4a) && tok <= REGION_VALUE(0xff51, 0xff4c)) {
                 int arg = -1;
@@ -516,27 +512,27 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                     DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 0xe, 0);
                 }
             } else if (tok == 0xff10) {
-                unsigned char* ent = *(unsigned char**)(self + REGION_VALUE(0x4c, 0x8c));
+                unsigned char* ent = message->child;
                 if (ent != 0) *(short*)(ent + 0xd2) = *(short*)(self + REGION_VALUE(0x1776, 0x1948));
             } else if (tok == 0xff11) {
-                unsigned char* ent = *(unsigned char**)(self + REGION_VALUE(0x4c, 0x8c));
+                unsigned char* ent = message->child;
                 if (ent != 0) {
                     *(unsigned short*)(ent + 0xda) = *(unsigned short*)(ent + 0xda) | 0x200;
-                    ClearField0xd0AndSetFlag0x1IfByte0xd4Not2_0208be94((unsigned char*)(*(void**)(self + REGION_VALUE(0x4c, 0x8c))));
-                    *(self + REGION_VALUE(0x1789, 0x195b)) |= 1;
+                    ClearField0xd0AndSetFlag0x1IfByte0xd4Not2_0208be94((unsigned char*)(message->child));
+                    *&message->b195b |= 1;
                     SetValueAndActivate0209c830((Struct0209c830*)&data_02109bf4, 0x33);
                 }
             } else if (tok == 0xff13) {
-                unsigned char* ent = *(unsigned char**)(self + REGION_VALUE(0x4c, 0x8c));
+                unsigned char* ent = message->child;
                 if (ent != 0) {
                     *(unsigned short*)(ent + 0xda) = *(unsigned short*)(ent + 0xda) | 0x300;
-                    ClearField0xd0AndSetFlag0x1IfByte0xd4Not2_0208be94((unsigned char*)(*(void**)(self + REGION_VALUE(0x4c, 0x8c))));
-                    *(self + REGION_VALUE(0x1789, 0x195b)) |= 1;
+                    ClearField0xd0AndSetFlag0x1IfByte0xd4Not2_0208be94((unsigned char*)(message->child));
+                    *&message->b195b |= 1;
                     SetValueAndActivate0209c830((Struct0209c830*)&data_02109bf4, 0x44);
                 }
             } else if (tok == 0xff12) {
-                if (*(void**)(self + REGION_VALUE(0x4c, 0x8c)) != 0) {
-                    SetFlag0x2IfByte0xd4Not3_0208beb4((unsigned char*)(*(void**)(self + REGION_VALUE(0x4c, 0x8c))));
+                if (message->child != 0) {
+                    SetFlag0x2IfByte0xd4Not3_0208beb4((unsigned char*)(message->child));
                 }
 #if defined(jpn)
             } else if (tok == 0xff37) {
@@ -548,15 +544,15 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 int v = *(signed char*)(self + REGION_VALUE(0x1778, 0x194a) + (tok - REGION_VALUE(0xff52, 0xff4d)));
                 func_0205e944(&data_02108760, ((v * 0x21dd) >> 10) & 0x7f);
             } else if (tok == 0xff0e) {
-                (self + 0x1000)[REGION_VALUE(0x7f0, 0x9c0)] = 1;
-                (self + 0x1000)[REGION_VALUE(0x78b, 0x95d)] = 0x1e;
+                message->b19c0 = 1;
+                message->b195d = 0x1e;
 #if defined(jpn)
             } else if ((unsigned short)(tok + 0xe6) <= 1) {
                 n++;
 #endif
             }
         }
-        *(int*)(self + REGION_VALUE(0x870, 0x9a0)) = 5;
+        message->mode = 5;
         *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
 #if defined(jpn)
         if (!skipCount) n--;
