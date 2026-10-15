@@ -7,15 +7,15 @@ struct Layer0204fd00 {
 };
 
 struct Window0204fd00 {
-    Window0204fd00* next;       // 0x00
-    Layer0204fd00* layer;       // 0x04
+    Window0204fd00* next;
+    Layer0204fd00* layer;
     char pad08[0xa8 - 0x8];
-    short width;                // 0xa8
-    short height;               // 0xaa
-    short x;                    // 0xac
-    short y;                    // 0xae
+    short width;
+    short height;
+    short x;
+    short y;
     char padb0[0xc5 - 0xb0];
-    unsigned char flags;        // 0xc5
+    unsigned char flags;
 };
 
 int IsWithinRect0204ea28(short x, short y, short minX, short minY, short maxX, short maxY);

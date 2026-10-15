@@ -2,13 +2,13 @@
 
 struct Window0204f41c {
     char pad0[0xb6];
-    short lineHeight;           // 0xb6
+    short lineHeight;
 };
 
 struct Glyph0204f41c {
     int data;
-    signed char width;          // 0x4
-    signed char length : 6;     // 0x5
+    signed char width;
+    signed char length : 6;
 };
 
 extern "C" int func_0204fc40(Window0204f41c* window, const char** cursor, const char* tag, short* out, int count);
