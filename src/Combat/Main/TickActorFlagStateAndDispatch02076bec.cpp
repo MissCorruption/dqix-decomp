@@ -13,7 +13,8 @@ extern int data_0210a0cc;
 extern Vector3i data_020e8920;
 
 // USA: func_02076bec
-ARM int TickActorFlagStateAndDispatch02076bec(unsigned char* obj, void* param1) {
+ARM int TickActorFlagStateAndDispatch02076bec(GameObject* arg0, void* param1) {
+    unsigned char* obj = (unsigned char*)arg0;
     if (!((Object3D*)obj)->IsVisible()) {
         return 0;
     }

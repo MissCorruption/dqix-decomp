@@ -18,7 +18,9 @@ void InitRenderParams0204bf44(RenderParams0204bf44*, void*, RenderSource0204bf44
 extern char data_020ef1ee;
 
 // USA: func_02015134  (semantic: LoadAndDecompressResource_02015134)
-extern "C" ARM int func_02015134(Ctx02015134* ctx, Out02015134* out, Src02015134* src) {
+extern "C" ARM int func_02015134(Zone3D* zone, Struct02012ff0* tracker, Src02015134* src) {
+    Ctx02015134* ctx = (Ctx02015134*)zone;
+    Out02015134* out = (Out02015134*)tracker;
     void* allocator = *(void**)((char*)ctx + kOffset68);
     char buf[0x50];
     unsigned int size;

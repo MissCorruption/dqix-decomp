@@ -70,7 +70,7 @@ int CheckAndComputeDistance020968d0(Obj020968d0* obj, int* outDist);
 int TestFlagMask_02012430(unsigned short* flags, int mask);
 extern "C" void __clear(void* buf, int count);
 struct Vec3;
-short GetAbsAngleDeltaBetween_021a4754(Vec3*, int, Vec3*);
+short GetAbsAngleDeltaBetween_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" void func_ov017_0219b33c(Self02197a64* self, GroupEvent02197a64* event);
 extern "C" void func_ov017_02198f84(Self02197a64* self);
 
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov017_02197a64(Self02197a64* self) {
             Vector3fix_Add(&center, &event.nodes[i]->position, &center);
         }
         Vector3fixDivideScalar(&center, event.count << 12, &center);
-        event.angle = GetAbsAngleDeltaBetween_021a4754((Vec3*)&leader->position, (short)leader->rotationY, (Vec3*)&center);
+        event.angle = GetAbsAngleDeltaBetween_021a4754(&leader->position, (short)leader->rotationY, &center);
         event.tag = 4;
         func_ov017_0219b33c(self, &event);
     }

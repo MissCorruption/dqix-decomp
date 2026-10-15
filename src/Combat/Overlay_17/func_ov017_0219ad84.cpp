@@ -144,7 +144,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* self) {
         x -= 12;
         y -= 24;
         if (member->obj3D.GetFlag(0x400)) {
-            Foo02048004* marker = (Foo02048004*)self->unknown_3520;
+            Foo02048004* marker = &self->unknown_3520;
             SetVec3At0x1c((Vec3Target0203a46c*)marker, x << 12, y << 12, -0xa000);
             RecomputeField0x7c((Struct020478bc*)marker, 1);
             AdvanceStreamRecord0204724c((Obj0204724C*)marker);

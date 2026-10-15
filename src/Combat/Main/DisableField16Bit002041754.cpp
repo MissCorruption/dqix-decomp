@@ -4,8 +4,8 @@
 
 struct Obj02041754;
 // USA: func_02041754
-ARM void DisableField16Bit002041754(Obj02041754* object) {
-    MessageGlyphSlot* glyph = reinterpret_cast<MessageGlyphSlot*>(object);
+ARM void DisableField16Bit002041754(MessageGlyphSlot* object) {
+    MessageGlyphSlot* glyph = object;
     if (glyph->bitmapIndex < 0) return;
     if (glyph->pendingUpload && glyph->pixels != 0) {
         StageMemoryToVRAM(VRAMSubregion_TextureImage, glyph->pixels, glyph->textureOffset, 16 * 16 / 2, true, true);

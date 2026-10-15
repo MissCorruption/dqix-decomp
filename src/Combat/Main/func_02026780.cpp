@@ -3,6 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "System/Memory.h"
 #include "System/Matrix.h"
+struct MapDisplay;
 
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* p);
@@ -67,7 +68,8 @@ struct Mgr02026780 {
 };
 
 // USA: func_02026780
-extern "C" ARM int func_02026780(Obj02026780* self, void* fileBuf, unsigned int fileSize) {
+extern "C" ARM int func_02026780(MapDisplay* arg0, void* fileBuf, unsigned int fileSize) {
+    Obj02026780* self = (Obj02026780*)arg0;
     char buffer[0x800];
     SafeAllocator alloc;
     Mgr02026780 mgr;

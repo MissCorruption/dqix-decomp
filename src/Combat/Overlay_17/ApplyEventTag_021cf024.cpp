@@ -29,8 +29,8 @@ struct EventPairWork {
 };
 
 // USA: func_ov017_021cf024
-ARM void ApplyEventTag_021cf024(int unused0, LocalEvt021cf024* evt, int unused2, unsigned char* base) {
-    void* table = ((GameResources*)base)->unknown_ptr_3718;
+ARM void ApplyEventTag_021cf024(int unused0, LocalEvt021cf024* evt, int unused2, GameResources* base) {
+    void* table = base->unknown_ptr_3718;
     WorkRecord* record = (WorkRecord*)func_ov017_021b8478(table);
     EventPairWork* work = (EventPairWork*)func_ov017_021b8468(table);
     if (work == NULL) {

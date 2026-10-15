@@ -38,7 +38,7 @@ void SetEntryEnabled020e2cc4(struct Entry020e2cc4* obj, int enabled);
 
 void RestorePairTables0207df90(char* obj);
 struct Obj02041754;
-void DisableField16Bit002041754(struct Obj02041754* obj);
+void DisableField16Bit002041754(MessageGlyphSlot* obj);
 void BackupPairTables0207dfac(char* obj);
 void ClearBitInArray_02042af4(int unused, unsigned char* arr, int index);
 
@@ -268,7 +268,7 @@ extern "C" ARM void func_020439b0(char* self, int flag) {
                             entry->pendingUpload = 0;
                         } else {
                             RestorePairTables0207df90((char*)controller->encoder);
-                            DisableField16Bit002041754((Obj02041754*)entry);
+                            DisableField16Bit002041754(entry);
                             BackupPairTables0207dfac((char*)controller->encoder);
                         }
                         ClearBitInArray_02042af4((int)self, controller->bitmapAllocationBits, entry->bitmapIndex);

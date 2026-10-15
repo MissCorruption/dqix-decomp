@@ -112,7 +112,8 @@ void ClearBytes0And1_021941ec(unsigned char*);
 void ClearFourEntries_02191b70(void* obj);
 
 // USA: func_ov030_021d9340
-extern "C" ARM void func_ov030_021d9340(unsigned char* self) {
+extern "C" ARM void func_ov030_021d9340(GameResources* arg0) {
+    unsigned char* self = (unsigned char*)arg0;
     func_ov015_0218b5a0();
     InitializeBrightnessState((GameResources*)self);
 

@@ -67,7 +67,7 @@ struct GameResources
 
     char unknown_2b20[0x70]; // jpn: offset 2910
     Foo02048004 substruct_array_2b90[0x12]; // jpn: offset2980
-    char unknown_3520[0x88]; // jpn: offset 3310
+    Foo02048004 unknown_3520; // jpn: offset 3310
     char unknown_35a8[0x8c]; // jpn: offset 3398
     unsigned char fieldButtonX[18];
     unsigned char fieldButtonY[18];

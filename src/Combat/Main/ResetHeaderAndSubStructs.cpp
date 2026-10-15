@@ -3,7 +3,7 @@
 #include "Memory/PlacementNew.h"
 
 // USA: func_020133cc
-ARM void ResetHeaderAndSubStructs_020133cc(char* base)
+ARM void ResetHeaderAndSubStructs_020133cc(ZoneLootableRecord* base)
 {
     ZoneLootableRecord* record = new (static_cast<void*>(base)) ZoneLootableRecord;
     record->id = 0;

@@ -5,6 +5,7 @@
 #endif
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+struct CharacterCreationUI;
 
 void* GetDataPtr02114e04_020d6c00(void);
 struct FlagWord020466f4;
@@ -29,7 +30,8 @@ extern "C" void func_0205d048(struct Obj0205d048* obj);
 extern "C" void* __clear(void* dst, int count);
 
 // USA: func_ov009_02184848  (semantic: ResetAndReinitCombatState_02184848)
-extern "C" ARM void func_ov009_02184848(char* obj) {
+extern "C" ARM void func_ov009_02184848(CharacterCreationUI* arg0) {
+    char* obj = (char*)arg0;
     if (*(unsigned char*)(obj + R(0xd59,0xd95)) == 1) {
         ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0xf);
     }

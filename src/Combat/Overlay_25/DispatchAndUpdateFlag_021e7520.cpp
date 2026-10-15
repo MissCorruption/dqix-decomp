@@ -1,8 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+struct ObjectStatePrefix;
 
-void SetBits0x40000AndFlag0x2_02033fec(unsigned char* obj);
-void ClearStateFlags0203400c(unsigned char* obj);
+void SetBits0x40000AndFlag0x2_02033fec(ObjectStatePrefix* obj);
+void ClearStateFlags0203400c(ObjectStatePrefix* obj);
 int DispatchByIndex021820bc(void* obj, int unused, int index, int arg);
 
 struct Param021e7520 {
@@ -21,9 +22,9 @@ ARM int DispatchAndUpdateFlag_021e7520(struct Param021e7520* p, int unused, int 
         GameObject* c = bs->GetMaybeWanderingMonsterByIndex(ids[i]);
         if (c) {
             if (p->field_c != 0) {
-                SetBits0x40000AndFlag0x2_02033fec((unsigned char*)c);
+                SetBits0x40000AndFlag0x2_02033fec((ObjectStatePrefix*)c);
             } else {
-                ClearStateFlags0203400c((unsigned char*)c);
+                ClearStateFlags0203400c((ObjectStatePrefix*)c);
             }
         }
     }

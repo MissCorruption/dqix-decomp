@@ -12,8 +12,8 @@ struct Variant02030b0c;
 extern void* data_02108740[];
 
 // USA: func_0205e03c
-ARM int StoreVariantToField0x2a_0205e03c(struct Variant02030b0c* p) {
-    const Script::Parameter* parameters = reinterpret_cast<const Script::Parameter*>(p);
+ARM int StoreVariantToField0x2a_0205e03c(Script::Parameter* p) {
+    const Script::Parameter* parameters = p;
     *(short*)((char*)data_02108740[1] + FIELD_OFFSET) = parameters[0].ToInt();
     return 1;
 }

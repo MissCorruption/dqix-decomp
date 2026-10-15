@@ -1,12 +1,13 @@
 #include <globaldefs.h>
 #include "Memory/AllocatorLifecycle.h"
 #include "Memory/SafeAllocator.h"
+struct GameResources;
 
 void* AllocateFromAllocatorUnion_02012db0(AllocatorUnion* alloc, unsigned int size);
 extern "C" void func_0200ee94(void* array, int count, int size, void* ctor, void* dtor);
 void* ResetNameTableThenNotify_0201c0e8(void* obj);
 void* NotifyThenResetNameTable_0201c108(void* obj);
-extern "C" void func_ov030_021d9340(unsigned char* self);
+extern "C" void func_ov030_021d9340(GameResources* self);
 void* ResetHeaderAndReturn_021d9250(void* p);
 void* ResetHeaderAndReturn_021d9264(void* p);
 void* ResetHeaderAndReturn_021d9278(void* p);
@@ -298,7 +299,7 @@ extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned 
         scene->p44c4 = q44c4;
     }
 
-    func_ov030_021d9340((unsigned char*)scene);
+    func_ov030_021d9340((GameResources*)scene);
     EmptyStub02012de4(alloc);
     return scene;
 }

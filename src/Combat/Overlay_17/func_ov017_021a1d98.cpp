@@ -37,7 +37,7 @@ Entry_02028bd0* GetEntryTableBase_02027ca4();
 Entry_02028bd0* FindInlineEntryById(Entry_02028bd0*, int);
 extern "C" SpawnParams* func_02012fe4();
 unsigned int GetBitsInField4_0203b4fc(unsigned int*, unsigned int);
-int TickActorFlagStateAndDispatch02076bec(unsigned char*, void*);
+int TickActorFlagStateAndDispatch02076bec(GameObject*, void*);
 struct BitField0203402c;
 int CheckField0xc4Low15BitsNonZero(BitField0203402c*);
 extern "C" void _Z23SyncBattleState0208f87cPviii(const Vector3fix*, int, int, int, int);
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov017_021a1d98(unsigned int* flags, int id) {
         if (!slots[j].selected) continue;
         FieldMonster* monster = (FieldMonster*)state->GetMaybeFieldMonsterByIndex(entry->slotGroup * 12 + 0x70 + j);
         if (monster && monster->obj3D_.IsVisible()
-            && TickActorFlagStateAndDispatch02076bec((unsigned char*)monster, (void*)arg)
+            && TickActorFlagStateAndDispatch02076bec(monster, (void*)arg)
             && !CheckField0xc4Low15BitsNonZero((BitField0203402c*)monster)) {
             int alpha = monster->obj3D_.GetCombinedAlpha();
             int value = (int)((float)field3c / 31.0f * (float)alpha);

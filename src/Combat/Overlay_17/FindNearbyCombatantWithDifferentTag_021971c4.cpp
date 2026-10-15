@@ -11,7 +11,7 @@ extern "C" void* __clear(void* dst, int count);
 
 struct U16Field0x6_020375f8;
 
-int CheckProximity_02196fc8(unsigned char* self, unsigned char* other, int extra);
+int CheckProximity_02196fc8(GameObject* self, GameObject* other, int extra);
 
 struct Party021971c4 {
     char pad[0xf78];
@@ -52,7 +52,7 @@ extern "C" ARM unsigned short func_ov017_021971c4(unsigned char* ov) {
         if (*((unsigned char*)other + 0xbe) != 2) {
             continue;
         }
-        if (CheckProximity_02196fc8((unsigned char*)combatant, (unsigned char*)other, 0x1000)) {
+        if (CheckProximity_02196fc8(combatant, other, 0x1000)) {
             unsigned short v = *(unsigned short*)((unsigned char*)other + RegionOffset1b2);
             if (*(unsigned short*)(ov + RegionOffset4400 + RegionOffsetc2) != v) {
                 result = v;

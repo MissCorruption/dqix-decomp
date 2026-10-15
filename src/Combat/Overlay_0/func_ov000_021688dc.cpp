@@ -10,6 +10,7 @@
 #include "Graphics/NSBXX/RenderConfig.h"
 #include "System/VRAM.h"
 #include "System/Matrix.h"
+struct ObjectStatePrefix;
 
 #if defined(jpn)
 enum {
@@ -146,7 +147,7 @@ void SetField0x1b2IfMatchOrFlag02053f7c(Obj02053f7c* obj, unsigned short a, int 
 struct Obj02049f50;
 void SetField41AndScaleSub02049f50(struct Obj02049f50* obj, int val, int count);
 int TestBitInArray0x8ec_02083b00(unsigned char* obj, int index);
-void ClearStateFlags0203400c(unsigned char* obj);
+void ClearStateFlags0203400c(ObjectStatePrefix* obj);
 void SetFlag0x1ceBit0x4_02039d48(unsigned char* obj);
 void ClearFlag0x1ceBit0x4_02039d58(unsigned char* obj);
 void ClearFlag0x1ceBit0x1_020398a4(unsigned char* obj);
@@ -345,7 +346,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
 
                 if (GetCombatWorkFlags0x55f4_ov000_02160fd4(work, 1) && work[kWorkPlacementFlag] != 0) {
                     func_02048b0c(c, TestBitInArray0x8ec_02083b00(*(unsigned char**)((char*)c + kCombatantRecord), 0x99) ? 1 : 0);
-                    ClearStateFlags0203400c((unsigned char*)c);
+                    ClearStateFlags0203400c((ObjectStatePrefix*)c);
                 }
 
                 if (ArrayContainsByte_02086ef0(arrStruct, GetObjectId(c))) {

@@ -79,7 +79,7 @@ extern "C" ARM void func_020177d4(Zone3D *zone, void *resourceNode, SafeAllocato
                     node->tracker = NULL;
                 } else {
                     node->object->Initialize();
-                    reinterpret_cast<Object3D *>(tracker->field4)->ShallowCloneTo(node->object);
+                    tracker->field4->ShallowCloneTo(node->object);
                 }
             }
         }

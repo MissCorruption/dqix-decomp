@@ -55,7 +55,7 @@ Entry_02027878* GetEntryFromList(List_02027878*, int);
 void ForwardParamsToB8bc_0203bcb8(Bcb8Params*, int, int);
 void AccumulateBattleTimer0202441c(BattleTimer0202441c*);
 int CheckCombatantReadyForAction020243b8(void*, int);
-int CheckActionAllowed(Actor02024d48*, int);
+int CheckActionAllowed(CombatActionPosition*, int);
 void SetElementFields0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
 void SetBitfield0205afdc(int, void*, int);
 
@@ -158,7 +158,7 @@ extern "C" ARM void func_0202555c(Receiver0202555c* self) {
                                      entry->palette, 0xff, 0x1000, 0x1000);
             continue;
         }
-        if (!CheckActionAllowed((Actor02024d48*)entry, self->actionState)) {
+        if (!CheckActionAllowed(entry, self->actionState)) {
             continue;
         }
         slotData = (char*)self->slots + (short)entry->elementId * (short)40;

@@ -30,8 +30,8 @@ struct RegNode02064d48 {
 };
 
 // USA: func_02064d48
-ARM int RegisterNode02064d48(char* obj) {
-    const Script::Parameter* parameters = reinterpret_cast<const Script::Parameter*>(obj);
+ARM int RegisterNode02064d48(const Script::Parameter* obj) {
+    const Script::Parameter* parameters = obj;
     int b = parameters[0].ToInt();
     char* g = (char*)func_02012fe4();
 

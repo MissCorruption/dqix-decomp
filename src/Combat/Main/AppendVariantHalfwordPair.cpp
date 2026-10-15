@@ -12,8 +12,8 @@ struct Global020fdd30_800c {
 extern struct Global020fdd30_800c data_020fdd30;
 
 // USA: func_0202800c
-ARM int AppendVariantHalfwordPair_0202800c(struct Variant02030b0c* v) {
-    const Script::Parameter* parameters = reinterpret_cast<const Script::Parameter*>(v);
+ARM int AppendVariantHalfwordPair_0202800c(Script::Parameter* v) {
+    const Script::Parameter* parameters = v;
     struct HalfwordPair pair;
     int a = parameters[0].ToInt();
     int b = parameters[1].ToInt();

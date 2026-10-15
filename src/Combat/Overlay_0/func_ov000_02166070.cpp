@@ -55,7 +55,7 @@ void BackupPairTables0207dfac(char*);
 void ClearEightWords_0203dafc(struct Struct_203dafc*);
 ModelNames* SearchWithLow15Comparator02070fd0(struct Container02070e60*, int);
 void RunOverlayScript0216d1c4(int, struct StreamHeader*, int, int*);
-void InitObjectFields020484f8(unsigned char*, Input020484f8*);
+void InitObjectFields020484f8(Object3D*, Input020484f8*);
 void CopyInternalFields0207df50(struct Foo0207df50*);
 extern "C" void _ZN8Object3D10SetField78Et(Object3D*, unsigned int);
 extern "C" void _ZN8Object3D10SetField7aEt(Object3D*, unsigned int);
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov000_02166070(Scene02166070* self, GPCReadPair* pair, 
     } else {
         RunOverlayScript0216d1c4((int)alloc, (StreamHeader*)scriptPtr, scriptSize, &input.script);
     }
-    InitObjectFields020484f8((unsigned char*)obj, &input);
+    InitObjectFields020484f8(obj, &input);
     unsigned int low = (unsigned short)input.names->words;
     unsigned int high;
     _ZN8Object3D10SetField78Et(obj, (high = input.names->words >> 16, low));

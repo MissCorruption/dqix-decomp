@@ -51,7 +51,7 @@ Entry_02027878 *GetEntryFromList(List_02027878 *list, int index);
 void ForwardParamsToB8bc_0203bcb8(Bcb8Params *params, int a, int b);
 void AccumulateBattleTimer0202441c(BattleTimer0202441c *receiver);
 int CheckCombatantReadyForAction020243b8(void *receiver, int combatantId);
-int CheckActionAllowed(Actor02024d48 *entry, int state);
+int CheckActionAllowed(CombatActionPosition* entry, int state);
 void SetElementFields0202756c(void *receiver, int x, int y, int index, unsigned char type, unsigned char flags,
                               unsigned short palette, unsigned char opacity, int scaleX, int scaleY);
 
@@ -98,7 +98,7 @@ extern "C" ARM void func_02024e78(void *receiver) {
         if (obj->flags & 1) {
             if (IsNonCombatantAction(entry->type)) continue;
         }
-        if (!CheckActionAllowed(reinterpret_cast<Actor02024d48 *>(entry), obj->actionState)) continue;
+        if (!CheckActionAllowed(entry, obj->actionState)) continue;
         SetElementFields0202756c(receiver, (x - 4) << 12, (y - 4) << 12, entry->elementId, entry->type, 0, entry->palette,
                                  0xff, 0x1000, 0x1000);
     }
@@ -186,7 +186,7 @@ extern "C" ARM void func_020251bc(void *receiver) {
         if (state->flags5a4 & 1) {
             if (IsNonCombatantAction(record->type)) continue;
         }
-        if (!CheckActionAllowed(reinterpret_cast<Actor02024d48 *>(record), state->actionFlag)) continue;
+        if (!CheckActionAllowed(record, state->actionFlag)) continue;
         SetElementFields0202756c(receiver, (x - 4) * 0x1000, (z + 0x5c) * 0x1000, record->elementId, record->type, 0,
                                  record->palette, 0xff, 0x1000, 0x1000);
     }

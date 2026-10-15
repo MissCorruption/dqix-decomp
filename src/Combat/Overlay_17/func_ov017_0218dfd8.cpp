@@ -52,7 +52,7 @@ extern "C" ActorListManager* func_02012fe4(void);
 ActorEntry* GetActorEntryByIndex_0201777c(ActorListManager* manager, int index);
 unsigned int IsFlag0x1ceBit0x8Set_02039dcc(unsigned char* obj);
 struct Vec3;
-short GetAbsAngleDeltaBetween_021a4754(Vec3*, int, Vec3*);
+short GetAbsAngleDeltaBetween_021a4754(Vector3fix*, int, Vector3fix*);
 int IsField0Null_02046b08(void** obj);
 int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
 void InitObj0219a674(unsigned char* self);
@@ -101,7 +101,7 @@ extern "C" ARM int func_ov017_0218dfd8(Actor0218dfd8* self) {
             moved = 1;
         }
         if (dist < pushRadius + 0x400) {
-            int angle = GetAbsAngleDeltaBetween_021a4754((Vec3*)&pos, (short)self->obj3D.rotation_.y, (Vec3*)&b);
+            int angle = GetAbsAngleDeltaBetween_021a4754(&pos, (short)self->obj3D.rotation_.y, &b);
             if (angle < bestAngle) {
                 bestAngle = angle;
                 bestIndex = i;

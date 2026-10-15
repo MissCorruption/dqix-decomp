@@ -20,7 +20,9 @@ public:
         struct {
             char unknown_ac[0xb2 - 0xac];
             unsigned short unknown_b2_;
-            char unknown_b4[0x130 - 0xb4];
+            char unknown_b4[0xb8 - 0xb4];
+            unsigned short unknown_b8_;
+            char unknown_ba[0x130 - 0xba];
             CombatantStatus* savedState_130_;
         } combatFields_;
     };
@@ -67,12 +69,16 @@ public:
 #endif
 
     unsigned char unknownObjectIndex_397c_; // jpn: offset 0x731c instead
-    char unk_397d[0x63e0 - 0x397d];
+    char unk_397d[0x5cc8 - 0x397d];
+    unsigned char unknown_5cc8_;
+    char unk_5cc9[0x63e0 - 0x5cc9];
 
     unsigned char* treasureMapLanguageData_;
     GrottoStruct grottoInfo_;
 
-    char unk_6fc0[0x7ff4 - 0x6fc0];
+    char unk_6fc0[0x7f58 - 0x6fc0];
+    short unk_7f58;
+    char unk_7f5a[0x7ff4 - 0x7f5a];
 
 public:
     // --- GameStateInstance.cpp ---

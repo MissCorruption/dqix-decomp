@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+struct CombatantRecovery;
 
 struct S02053f4c {
 #if defined(jpn)
@@ -11,7 +12,8 @@ struct S02053f4c {
 };
 
 // USA: func_02053f4c
-ARM void SetFields1a8And1ac(struct S02053f4c* obj, int val1, int val2) {
+ARM void SetFields1a8And1ac(CombatantRecovery* arg0, int val1, int val2) {
+    struct S02053f4c* obj = (struct S02053f4c*)arg0;
     obj->field1a8 = val1;
     obj->field1ac = val2;
 }

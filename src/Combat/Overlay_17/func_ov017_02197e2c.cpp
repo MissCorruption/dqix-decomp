@@ -26,7 +26,7 @@ int fix32abs(int);
 extern "C" int func_020c32f8(int);
 extern "C" int func_020c3260(int);
 extern "C" float func_0200c700(int);
-int GetAbsAngleDeltaBetween_021a4754(Vec3*, int, Vec3*);
+int GetAbsAngleDeltaBetween_021a4754(Vector3fix*, int, Vector3fix*);
 InteractionReset* GetGlobalResetObj020d7a50();
 void InitObj0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(GameResources*, InteractionRequest*);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* resources) {
         Matrix3x3 rotation;
         Mat3x3_WriteRotationY(&rotation, sine, cosine);
         Mat3x3_ApplyToVector(&rotated, &rotation, &rotated);
-        int difference = GetAbsAngleDeltaBetween_021a4754((Vec3*)position, (short)player->obj.rotation_.y, (Vec3*)&point);
+        int difference = GetAbsAngleDeltaBetween_021a4754(position, (short)player->obj.rotation_.y, &point);
         if (difference >= bestAngle) continue;
         bestAngle = difference;
         selectedIndex = i;
@@ -90,7 +90,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* resources) {
     InteractionRequest request;
     InitObj0219a674((unsigned char*)&request);
     request.type = 2;
-    request.angle = GetAbsAngleDeltaBetween_021a4754((Vec3*)&player->obj.position_, (short)player->obj.rotation_.y, (Vec3*)&selected->position);
+    request.angle = GetAbsAngleDeltaBetween_021a4754(&player->obj.position_, (short)player->obj.rotation_.y, &selected->position);
     request.point = selected;
     request.index = selectedIndex;
     request.direction = direction;

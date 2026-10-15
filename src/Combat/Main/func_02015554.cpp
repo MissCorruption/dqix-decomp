@@ -24,10 +24,10 @@ extern "C" ARM void func_02015554(void *receiver, void *element) {
     if (!animations || !animations->field4) return;
     fix32_t delta = state->GetAnimationDeltaTime();
     if (animations->field0 == 0) {
-        if (animations->field8) reinterpret_cast<Animation3D *>(animations->field8)->AdvanceTimer(delta);
-        if (animations->fieldc) reinterpret_cast<Animation3D *>(animations->fieldc)->AdvanceTimer(delta);
-        if (animations->field10) reinterpret_cast<Animation3D *>(animations->field10)->AdvanceTimer(delta);
-        if (animations->field14) reinterpret_cast<Animation3D *>(animations->field14)->AdvanceTimer(delta);
+        if (animations->field8) animations->field8->AdvanceTimer(delta);
+        if (animations->fieldc) animations->fieldc->AdvanceTimer(delta);
+        if (animations->field10) animations->field10->AdvanceTimer(delta);
+        if (animations->field14) animations->field14->AdvanceTimer(delta);
 
         short angle = entry->angle;
         if (angle != fix32ReduceAngle0To2Pi(entry->targetAngle)) {

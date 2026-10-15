@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+struct ObjectStatePrefix;
 
 struct ArrayContainsByteStruct;
 struct GatherObj02163a7c;
@@ -104,7 +105,7 @@ int TestBitAt0x34_020a35e0(unsigned char*, unsigned char);
 void ResetCombatantSlot020d7334(unsigned char*, int);
 int IsFlag10088Set_02010088(S_10088*);
 void SetByte0xbeShiftPrev(Bytes02033b88*, int);
-void ClearStateFlags0203400c(unsigned char*);
+void ClearStateFlags0203400c(ObjectStatePrefix*);
 GameObject* GetCombatantWithFlag0x400_0200fea4(GameState*, int);
 GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*, int);
 GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState*, int);
@@ -176,7 +177,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleWork* work) {
                     ((ActorFlags*)actor)->fieldc1 &= ~0xf0;
                     SetByte0xbeShiftPrev((Bytes02033b88*)actor, 0);
                     actor->obj3D_.SkipAnimationTransition();
-                    ClearStateFlags0203400c((unsigned char*)actor);
+                    ClearStateFlags0203400c((ObjectStatePrefix*)actor);
                     actor->obj3D_.MakeVisible();
                 }
             }

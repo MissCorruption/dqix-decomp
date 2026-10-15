@@ -71,7 +71,7 @@ Entry_02027878 *GetEntryFromList(List_02027878 *list, int index);
 void ForwardParamsToB8bc_0203bcb8(Bcb8Params *params, int a, int b);
 void AccumulateBattleTimer0202441c(BattleTimer0202441c *receiver);
 int CheckCombatantReadyForAction020243b8(void *receiver, int combatantId);
-int CheckActionAllowed(Actor02024d48 *entry, int state);
+int CheckActionAllowed(CombatActionPosition* entry, int state);
 void SetElementFields0202756c(void *receiver, int x, int y, int index, unsigned char type, unsigned char flags,
                               unsigned short palette, unsigned char opacity, int scaleX, int scaleY);
 
@@ -192,7 +192,7 @@ extern "C" ARM void func_02024518(MapReceiver02024518 *self) {
         if (self->flags & 1) {
             if (IsNonCombatantAction(entry->type)) continue;
         }
-        if (!CheckActionAllowed((Actor02024d48*)entry, self->actionState)) continue;
+        if (!CheckActionAllowed(entry, self->actionState)) continue;
         SetElementFields0202756c(self, (x + 0x7c) << 12, (z + 0x5c) << 12, entry->elementId, entry->type, 0,
                                  entry->palette, 0xff, 0x1000, 0x1000);
     }

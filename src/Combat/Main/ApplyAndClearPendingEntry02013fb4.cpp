@@ -8,8 +8,8 @@ struct StreamHeader;
 extern "C" void func_0201c724(int zoneId, void* mapList, StreamHeader* data, int size);
 
 // USA: func_02013fb4
-ARM int ApplyAndClearPendingEntry02013fb4(Obj02013fb4* object) {
-    Zone3D* zone = reinterpret_cast<Zone3D*>(object);
+ARM int ApplyAndClearPendingEntry02013fb4(Zone3D* object) {
+    Zone3D* zone = object;
     if (zone->mapListLoadHandle_ < 0)
         return 1;
 

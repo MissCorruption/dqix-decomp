@@ -1,8 +1,9 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
+struct MapDisplay;
 
 struct Obj02026780;
-extern "C" int func_02026780(Obj02026780* context, void* archive, unsigned int archiveSize);
+extern "C" int func_02026780(MapDisplay* context, void* archive, unsigned int archiveSize);
 
 #if defined(jpn)
 enum { SuccessOffset = 0x6cd };
@@ -24,7 +25,7 @@ struct TreasureLoadContextPrefix {
 };
 
 // USA: func_02026694
-ARM void HandleQueuedEntry02026694(char* context) {
+ARM void HandleQueuedEntry02026694(MapDisplay* context) {
     TreasureLoadContextPrefix* request = reinterpret_cast<TreasureLoadContextPrefix*>(context);
     if (request->pending == 0) return;
 
@@ -42,7 +43,7 @@ ARM void HandleQueuedEntry02026694(char* context) {
     void* archive = NULL;
     unsigned int archiveSize = 0;
     loader->GetLoadedFileByID(request->taskId, &archive, &archiveSize);
-    if (func_02026780(reinterpret_cast<Obj02026780*>(context), archive, archiveSize) == 0) {
+    if (func_02026780(context, archive, archiveSize) == 0) {
         request->complete = 1;
     } else {
         request->succeeded = 1;

@@ -1,9 +1,10 @@
 #include <globaldefs.h>
+struct LootableContainerManager;
 
 #pragma define_section initcode ".init" RX
 
 extern "C" ARM char* _ZN24LootableContainerManagerC1Ev(char* obj);
-ARM char* ClearRegionAndReturnSelf020269d0(char* obj);
+ARM LootableContainerManager* ClearRegionAndReturnSelf020269d0(LootableContainerManager* obj);
 
 extern "C" void __register_global_object(int c, int b, void* node);
 

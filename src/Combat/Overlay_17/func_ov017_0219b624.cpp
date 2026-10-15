@@ -96,8 +96,8 @@ extern "C" ARM void func_ov017_0219b624(GameResources* self) {
     const void* file;
     file = GetFileFromNARCInMemory(data_ov017_021d7544);
     if (file != 0) {
-        func_0204719c(&(*reinterpret_cast<Foo02048004*>(self->unknown_3520)));
-        func_02047b40(&(*reinterpret_cast<Foo02048004*>(self->unknown_3520)), file, allocator);
+        func_0204719c(&self->unknown_3520);
+        func_02047b40(&self->unknown_3520, file, allocator);
     }
     file = GetFileFromNARCInMemory(data_ov017_021d7555);
     if (file != 0) {

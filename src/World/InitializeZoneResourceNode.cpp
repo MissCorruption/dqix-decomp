@@ -18,8 +18,7 @@ extern "C" ARM int func_02014a24(Zone3D *zone, void *data) {
         InitTrackerFields02012ff0(trackers + index);
         if (source != NULL) {
             if (reinterpret_cast<char *>(source->id)[3] == 'A') {
-                func_02015134(reinterpret_cast<Ctx02015134 *>(zone), reinterpret_cast<Out02015134 *>(trackers + index),
-                              source);
+                func_02015134(zone, trackers + index, source);
             } else if (static_cast<unsigned char>(source->pad[2]) & 0x10) {
                 func_020151cc(zone, trackers + index, source);
             } else {

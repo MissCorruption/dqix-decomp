@@ -1,13 +1,14 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+struct ObjectStatePrefix;
 
 struct Bytes02033b88;
 void ClearSubstructFlag0x100_02048c50(unsigned char*);
-void ClearStateFlags0203400c(unsigned char*);
+void ClearStateFlags0203400c(ObjectStatePrefix*);
 void ClearFlagBit_020d76d8(unsigned char* base, int bit);
 extern "C" int func_ov000_02159f18(void* unused, unsigned long long bits, unsigned int bit);
 void SetByte0xbeShiftPrev(Bytes02033b88* obj, int v);
-void SetBits0x40000AndFlag0x2_02033fec(unsigned char*);
+void SetBits0x40000AndFlag0x2_02033fec(ObjectStatePrefix*);
 void SetSubstructFlag0x100_02048c38(unsigned char*);
 void ResetCombatantSlot020d7334(unsigned char*, int);
 extern "C" void func_020d6f9c(void* param0, int combatantId, int reason);
@@ -53,7 +54,7 @@ extern "C" ARM void func_ov000_02162dc4(Battle02162dc4* self, Combatant02162dc4*
     if (actor == NULL || (slots = self->slots) == NULL) return;
     id = actor->id;
     ClearSubstructFlag0x100_02048c50((unsigned char*)actor);
-    ClearStateFlags0203400c((unsigned char*)actor);
+    ClearStateFlags0203400c((ObjectStatePrefix*)actor);
     if (flags & 1) {
         ClearFlagBit_020d76d8(slots, id);
         return;
@@ -82,14 +83,14 @@ extern "C" ARM void func_ov000_02162dc4(Battle02162dc4* self, Combatant02162dc4*
         if (reason == REASON_NONE) reason = REASON_3;
         actor->kind = 0;
         if (notify) SetByte0xbeShiftPrev((Bytes02033b88*)actor, 0);
-        SetBits0x40000AndFlag0x2_02033fec((unsigned char*)actor);
+        SetBits0x40000AndFlag0x2_02033fec((ObjectStatePrefix*)actor);
         SetSubstructFlag0x100_02048c38((unsigned char*)actor);
     }
     if (CheckStatus(self, mask, flags, 0x10, 0x10, 0xe)) {
         if (kind == KIND_NONE) kind = KIND_2;
         if (reason == REASON_NONE) reason = REASON_1;
         SetSubstructFlag0x100_02048c38((unsigned char*)actor);
-        if (IsMonsterSlot(id)) SetBits0x40000AndFlag0x2_02033fec((unsigned char*)actor);
+        if (IsMonsterSlot(id)) SetBits0x40000AndFlag0x2_02033fec((ObjectStatePrefix*)actor);
     } else if (actor->kind == 2) {
         actor->kind = 0;
     }

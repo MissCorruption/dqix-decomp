@@ -197,7 +197,7 @@ extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
 #if !defined(jpn)
             int shown = 1;
 #endif
-            messages->active = (void*)1;
+            messages->active = 1;
             if (self->title_ > 0)
             {
 #if !defined(jpn)

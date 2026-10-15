@@ -9,7 +9,8 @@ struct PartySelectionState {
 extern "C" void func_ov017_021c12fc(char* resources, unsigned char, unsigned char);
 
 // USA: func_ov017_021a4e0c
-ARM void SetListField22FromCombatant_021a4e0c(char* resourceStorage) {
+ARM void SetListField22FromCombatant_021a4e0c(GameResources* arg0) {
+    char* resourceStorage = (char*)arg0;
     GameObject* member = GameState::GetInstance()->GetUnknownGameObject();
     if (member == NULL) return;
     short index = member->obj3D_.unknown_4_;

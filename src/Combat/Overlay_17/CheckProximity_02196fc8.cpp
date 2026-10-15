@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
+struct GameObject;
 
 struct Outer02077a20;
 int GetField0x8OrDefault02077a20(struct Outer02077a20* p);
@@ -7,7 +8,9 @@ int GetField0x8OrDefault02077a20(struct Outer02077a20* p);
 int fix32abs(int x);
 
 // USA: func_ov017_02196fc8
-ARM int CheckProximity_02196fc8(unsigned char* self, unsigned char* other, int extra) {
+ARM int CheckProximity_02196fc8(GameObject* arg0, GameObject* arg1, int extra) {
+	unsigned char* self = (unsigned char*)arg0;
+	unsigned char* other = (unsigned char*)arg1;
 	int a = ((Object3D*)self)->GetRadius();
 	int half;
 

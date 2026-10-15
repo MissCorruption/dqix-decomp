@@ -13,7 +13,7 @@ enum { kFinalSubflag = 0x3bc };
 #include "GameState/GameState.h"
 
 extern "C" {
-    int _Z33ApplyAndClearPendingEntry02013fb4P11Obj02013fb4(void*);
+    int _Z33ApplyAndClearPendingEntry02013fb4P6Zone3D(void*);
     int _ZN6Zone3D22UnpackMapAMDJ_020146fcEv(void*);
     int _Z29AccumulateHandleStats0201498cPv(void*);
     int func_0201a600(void*);
@@ -34,7 +34,7 @@ extern "C" ARM int func_02013e18(Zone3D* zone)
     if (zone->unknown_424_ == 0)
         return 1;
 
-    if (!_Z33ApplyAndClearPendingEntry02013fb4P11Obj02013fb4(zone))
+    if (!_Z33ApplyAndClearPendingEntry02013fb4P6Zone3D(zone))
         return 0;
 
     if (!zone->UnpackMapAMBL_02014108())

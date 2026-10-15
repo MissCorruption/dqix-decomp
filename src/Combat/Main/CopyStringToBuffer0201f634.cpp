@@ -7,8 +7,8 @@
 struct Struct02030b7c;
 
 // USA: func_0201f634
-ARM int CopyStringToBuffer0201f634(Struct02030b7c* s) {
-    const Script::Parameter* parameters = reinterpret_cast<const Script::Parameter*>(s);
+ARM int CopyStringToBuffer0201f634(const Script::Parameter* s) {
+    const Script::Parameter* parameters = s;
     strcpy(data_020fdc4c.currentObject + 0x548, parameters[0].ToString());
     return 1;
 }

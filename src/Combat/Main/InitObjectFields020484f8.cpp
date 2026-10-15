@@ -20,7 +20,8 @@ struct Input020484f8 {
 };
 
 // USA: func_020484f8
-ARM void InitObjectFields020484f8(unsigned char* self, struct Input020484f8* in) {
+ARM void InitObjectFields020484f8(Object3D* arg0, Input020484f8* in) {
+    unsigned char* self = (unsigned char*)arg0;
     *(unsigned int*)(self + 0xb0) = in->val4;
     *(struct AcTarget020484f8**)(self + 0xac) = in->ac;
     *(unsigned int*)(self + 0xb4) = in->val8;

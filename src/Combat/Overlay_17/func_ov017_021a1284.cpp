@@ -69,7 +69,7 @@ void SetBrightness(GameResources*, int, int);
 int IsBrightnessTransitionActive(GameResources*);
 int GetByteField0x254_02039850(void*);
 int GetField0x3acValue_020100a8(GameState*);
-void ComputeAndCall_021a1178(char*, int);
+void ComputeAndCall_021a1178(GameResources*, int);
 void SetBoolFlag0x254_0203983c(unsigned char*, int);
 extern "C" void func_0204500c(void*, unsigned char*, int, int);
 void ReinitController02043204(char*);
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov017_021a1284(TransferEvent021a1284* self, void* unuse
             ((PlayerTransfer021a1284*)player)->field_b4 = 0x189;
             player->obj3D_.SetHeight(0x1800);
             player->obj3D_.SetRadius(0x1000);
-            ComputeAndCall_021a1178((char*)resources, GetField0x3acValue_020100a8(game));
+            ComputeAndCall_021a1178(resources, GetField0x3acValue_020100a8(game));
             SetBoolFlag0x254_0203983c((unsigned char*)player, 0);
         }
         unsigned char flag = 0;

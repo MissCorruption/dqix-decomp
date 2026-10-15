@@ -57,7 +57,7 @@ struct MessageSystem {
     unsigned char pad85c[4];
     int w990;
     int w994;
-    void* active;
+    int active;
     int state;
     int mode;
     int w9a4;
@@ -213,7 +213,7 @@ struct MessageSystem {
     unsigned char pad98c[0x4];
     int w990;
     int w994;
-    void* active;
+    int active;
     int state;
     int mode;
     int w9a4;

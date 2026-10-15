@@ -50,7 +50,7 @@ extern "C" int func_020321e0(const Vector3fix*, Bounds*, int, const Vector3fix*,
 extern "C" void* func_ov017_0219c6f4(void*);
 unsigned char GetByteField0x252_02039820(void*);
 void InitObj0219a674(unsigned char*);
-short GetAbsAngleDeltaBetween_021a4754(Vec3*, int, Vec3*);
+short GetAbsAngleDeltaBetween_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" void func_ov017_0219b33c(GameResources*, Event0219ca88*);
 void InitAndResetHeader_0219e310(unsigned char*, int);
 void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* resources) {
                     InitObj0219a674((unsigned char*)&event);
                     event.kind = 8;
                     event.entry = entry;
-                    event.angle = GetAbsAngleDeltaBetween_021a4754(reinterpret_cast<Vec3*>(actorPosition), (short)actor->obj3D_.rotation_.y, reinterpret_cast<Vec3*>(&entry->pivot));
+                    event.angle = GetAbsAngleDeltaBetween_021a4754(actorPosition, (short)actor->obj3D_.rotation_.y, &entry->pivot);
                     func_ov017_0219b33c(resources, &event);
                 }
                 if (handled) {

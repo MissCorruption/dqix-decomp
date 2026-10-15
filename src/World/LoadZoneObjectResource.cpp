@@ -15,16 +15,16 @@ extern "C" ARM int func_020151cc(Zone3D *zone, Struct02012ff0 *tracker, Src02015
     const void *file = GetFileFromNARCInMemory(filename);
     Object3D *object;
     if (file != NULL) {
-        tracker->field4    = reinterpret_cast<int>(allocator->Allocate(sizeof(Object3D)));
+        tracker->field4    = static_cast<Object3D*>(allocator->Allocate(sizeof(Object3D)));
         void *decompressed = DecompressLZ77FileIntoAllocatedSpace(*allocator, file, size);
         if (decompressed != NULL && tracker->field4 != 0) {
-            Object3D *object = reinterpret_cast<Object3D *>(tracker->field4);
+            Object3D *object = tracker->field4;
             object->Initialize();
             RestorePairTables0207df90(pairTables);
-            object = reinterpret_cast<Object3D *>(tracker->field4);
+            object = tracker->field4;
             object->SetModelFromFile(allocator, decompressed, size, Model3D::TextureStagingMode_Normal);
             BackupPairTables0207dfac(pairTables);
-            Model3D *model = reinterpret_cast<Object3D *>(tracker->field4)->pModel_;
+            Model3D *model = tracker->field4->pModel_;
             if (model != NULL) {
                 NSBXXTex *texture = model->GetTEX0();
                 if (texture != NULL) {
@@ -40,7 +40,7 @@ extern "C" ARM int func_020151cc(Zone3D *zone, Struct02012ff0 *tracker, Src02015
                 }
             }
         }
-        object = reinterpret_cast<Object3D *>(tracker->field4);
+        object = tracker->field4;
         if (object == NULL || object->pModel_ == NULL) {
             tracker->field0 = -1;
             return 0;

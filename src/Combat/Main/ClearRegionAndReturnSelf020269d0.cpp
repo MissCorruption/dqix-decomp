@@ -1,9 +1,8 @@
 #include <globaldefs.h>
 #include "World/LootableContainer.h"
 
-
 // USA: func_020269d0
-ARM char* ClearRegionAndReturnSelf020269d0(char* obj) {
-    ((LootableContainerManager*)(obj))->Reset();
+ARM LootableContainerManager* ClearRegionAndReturnSelf020269d0(LootableContainerManager* obj) {
+    obj->Reset();
     return obj;
 }

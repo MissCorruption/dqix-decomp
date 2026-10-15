@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+struct CombatActionPosition;
 
 struct Actor02024d48 {
     unsigned char pad[0x11];
@@ -7,7 +8,8 @@ struct Actor02024d48 {
 };
 
 // USA: func_02024d48
-ARM int CheckActionAllowed(struct Actor02024d48* actor, int flag) {
+ARM int CheckActionAllowed(CombatActionPosition* arg0, int flag) {
+    struct Actor02024d48* actor = (struct Actor02024d48*)arg0;
     int result = 1;
     int keep = 1;
     unsigned char v12 = actor->flag0x12;

@@ -51,7 +51,7 @@ extern "C" void func_02022644(MapDisplay*);
 extern "C" void func_02022bb0(MapDisplay*);
 #endif
 extern "C" void func_020e0688(MapDisplay*);
-void HandleQueuedEntry02026694(char*);
+void HandleQueuedEntry02026694(MapDisplay*);
 void HandleStateDispatch020214f0(Obj020214f0*);
 extern "C" void func_02026bdc(MapDisplay*, int);
 
@@ -109,7 +109,7 @@ extern "C" ARM void func_02022dc8(MapDisplay* receiver) {
 #endif
     } else {
         if (receiver->field9c5 && receiver->field764) func_020e0688(receiver);
-        if (receiver->field9b8) HandleQueuedEntry02026694((char*)receiver);
+        if (receiver->field9b8) HandleQueuedEntry02026694(receiver);
         if (receiver->field9c3) HandleStateDispatch020214f0((Obj020214f0*)receiver);
         else func_02026bdc(receiver, 1);
     }

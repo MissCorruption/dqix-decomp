@@ -7,7 +7,7 @@
 
 extern "C" void *func_02012fe4(void);
 struct S02053f4c;
-void SetFields1a8And1ac(S02053f4c *, int, int);
+void SetFields1a8And1ac(CombatantRecovery*, int, int);
 void SetField0x1b0_02053f6c(void *, unsigned char);
 int IsValueInRange0201b5d8(int);
 
@@ -86,7 +86,7 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
                             combatant->recoveryFlags &= ~0x10;
                         } else {
                             combatant->recoveryFlags |= 0x10;
-                            SetFields1a8And1ac(reinterpret_cast<S02053f4c *>(combatant), node->x, node->y);
+                            SetFields1a8And1ac(combatant, node->x, node->y);
                             SetField0x1b0_02053f6c(combatant, node->id);
                         }
                         found = 1;
@@ -113,7 +113,7 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
                             combatant->recoveryFlags &= ~0x10;
                         } else {
                             combatant->recoveryFlags |= 0x10;
-                            SetFields1a8And1ac(reinterpret_cast<S02053f4c *>(combatant), node->x, node->y);
+                            SetFields1a8And1ac(combatant, node->x, node->y);
                             SetField0x1b0_02053f6c(combatant, node->id);
                         }
                         found = 1;
