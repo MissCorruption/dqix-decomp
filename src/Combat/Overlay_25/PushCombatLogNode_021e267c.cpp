@@ -64,9 +64,9 @@ extern "C" ARM void func_ov025_021e267c(int combatantId, int arg1, int arg2, int
     s.field10 = 1;
     unsigned char b = GetByte48_021e8ba4(byteObj);
     s.field1c = b + 4;
-    ((Object3D*)combatant)->LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&s, (int (*)(BCFG::AnimationRecord*))flag);
+    combatant->obj3D_.LoadFromCCHROrCMOTArchive((ObjectArchiveLoadInfo*)&s, (int (*)(BCFG::AnimationRecord*))flag);
     if (name) {
-        ((Object3D*)combatant)->MaybeSetRegularAnimation((char const*)buf, 0);
+        combatant->obj3D_.MaybeSetRegularAnimation((char const*)buf, 0);
         ((Object3D*)((struct S1a0*)combatant))->SetCurrentAnimationTime((unsigned int)ptr);
     }
     node->byte0 = 0;

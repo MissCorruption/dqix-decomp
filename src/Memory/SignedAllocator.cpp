@@ -2,13 +2,7 @@
 
 namespace AllocatorTree
 {
-    // Yes, this is an int and not a bool. It's handled like a bool though.
-    // This makes me think this part might have been written in C, since it
-    // already seems likely to be from an external library (and we know
-    // parts/all of it use different compiler settings)
     static int initializedTopLevel;
-    // At the root of the tree we don't have an allocator, so we just store a 
-    // global list of 'top-level' allocators. Can also view this as a forest.
     static SignedAllocatorList topLevel;
 }
 
@@ -80,7 +74,7 @@ void SignedAllocatorList::InsertBefore(SignedAllocatorHeader* where, SignedAlloc
 
     if (where == pFirst)
         return InsertAtStart(what);
-    
+
     SignedAllocatorHeader** whatPtrs = (SignedAllocatorHeader**)((char*)what + signatureLength);
     SignedAllocatorHeader* wherePrev = *(SignedAllocatorHeader**)((char*)where + signatureLength);
     SignedAllocatorHeader** wherePrevPtrs = (SignedAllocatorHeader**)((char*)wherePrev + signatureLength);
@@ -98,7 +92,7 @@ void SignedAllocatorList::InsertBefore(SignedAllocatorHeader* where, SignedAlloc
 void SignedAllocatorList::Remove(SignedAllocatorHeader* what)
 {
     SignedAllocatorHeader** prevAndNext = (SignedAllocatorHeader**)((char*)what + signatureLength);
-    
+
     if (prevAndNext[0] == NULL)
         pFirst = prevAndNext[1];
     else
@@ -120,7 +114,7 @@ SignedAllocatorHeader* SignedAllocatorList::ElementAfter(SignedAllocatorHeader* 
 {
     if (what == NULL)
         return pFirst;
-    
+
     return *(SignedAllocatorHeader**)((char*)what + signatureLength + 4);
 }
 
@@ -159,26 +153,19 @@ SignedAllocatorHeader* SignedAllocatorList::GetNthElement(unsigned int n)
 // JPN: func_020b0bb4
 SignedAllocatorHeader* AllocatorTree::GetParent(SignedAllocatorList* searchList, SignedAllocatorHeader* alloc)
 {
-    // Loop through the list to find which element is an ancestor
     SignedAllocatorHeader* ancestor = searchList->ElementAfter(NULL);
     if (ancestor != NULL)
     {
         do
         {
-            // Allocators manage a contiguous block, and siblings in the list
-            // don't share any space, so this range condition is satisfied by
-            // at most one ancestor.
             if (ancestor->allocBegin <= alloc && alloc < ancestor->allocEnd)
             {
-                // Having found the ancestor, look among its children & descendants
                 SignedAllocatorHeader* answer = GetParent(&ancestor->children, alloc);
                 if (answer != NULL)
                     return answer;
-                // If we couldn't find it among the descendants, then it must be that 
-                // ancestor is actually the node we're looking for
                 return ancestor;
             }
-    
+
             ancestor = searchList->ElementAfter(ancestor);
         } while (ancestor != NULL);
     }
@@ -202,15 +189,14 @@ SignedAllocatorList* AllocatorTree::GetListContainingAllocator(SignedAllocatorHe
 void AllocatorTree::InsertNewAndPopulateHeader(SignedAllocatorHeader* allocator,
     unsigned int sig, void* allocBegin, void* allocEnd, unsigned short clearFlags)
 {
-    SignedAllocatorHeader* header = (SignedAllocatorHeader*)allocator;
+    SignedAllocatorHeader* header = allocator;
     header->signature = sig;
     header->allocBegin = allocBegin;
     header->allocEnd = allocEnd;
-    // wtf?!
     header->clearFlags = 0;
     header->clearFlags &= ~0xFF;
     header->clearFlags |= clearFlags & 0xFF;
-    
+
     header->children.Initialize(4);
     if (!initializedTopLevel)
     {

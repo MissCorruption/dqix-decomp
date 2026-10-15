@@ -128,7 +128,7 @@ extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* 
                 func_02046a8c(list, res->unknown_ptr_array_36fc[4]);
             }
         } else if (IsField0Null_02046b08((void**)res->unknown_ptr_array_36fc[1])) {
-            SetBitsInWord_0203b4a0((unsigned int*)res, 0x10);
+            SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 0x10);
             func_02094ab0(GetGlobal02109400_02094a00());
             func_020a0cc4(0x2800);
             self->task = loader->QueueLoadFile(&data_ov017_021d78da, NULL);
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* 
         int ids[5];
         ObjParams02078484 params[5];
         if (self->active != 0) {
-            CopyCountedBytesToIntArray02010834((Base02010834*)gs, *(short*)((char*)leader + 4), ids, &count);
+            CopyCountedBytesToIntArray02010834((Base02010834*)gs, leader->obj3D_.unknown_4_, ids, &count);
             for (int i = 0; i < count; i++) {
                 self->members |= 1 << ids[i];
             }
@@ -210,8 +210,8 @@ extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* 
                 params[k].b5 = 0;
                 params[k].b6 = 0;
                 params[k].b7 = 0;
-                params[k].position = ((Object3D*)member)->position_;
-                params[k].scale = ((Object3D*)member)->GetScale();
+                params[k].position = member->obj3D_.position_;
+                params[k].scale = member->obj3D_.GetScale();
                 FindNodeAndProcess02057fb4(mgr, 5, (int)&params[k]);
             }
         }
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* 
                 if (self->members & (1 << i)) {
                     GameObject* member = gs->GetGameObjectByIndex(i != 4 ? i : 0xce);
                     if (member) {
-                        ((Object3D*)member)->EnableFlag(1);
+                        member->obj3D_.EnableFlag(1);
                     }
                 }
             }
@@ -249,11 +249,11 @@ extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* 
                 if (self->members & (1 << i)) {
                     GameObject* member = gs->GetGameObjectByIndex(i != 4 ? i : 0xce);
                     if (member) {
-                        ((Object3D*)member)->DisableFlag(1);
+                        member->obj3D_.DisableFlag(1);
                     }
                 }
             }
-            ClearBitsInWord_0203b4b0((unsigned int*)res, 0x10);
+            ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x10);
             CallListIfFlagsSet_02197528();
             self->done = 1;
             SetByteField0x253_020397c0(leader);

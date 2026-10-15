@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021b7104(Dst_021b7104* dst, Src_021b7104* src) {
     dst->f21 = src->f12;
 
     if (src->f0 != 0 && src->f14 == 0) {
-        SetBitsInWord_0203b4a0((unsigned int*)ov, 0x800);
+        SetBitsInWord_0203b4a0(&ov->brightnessFlags_0, 0x800);
     }
 
     *((unsigned char*)ov + 0x4000 + regionalOffset0) = 0;

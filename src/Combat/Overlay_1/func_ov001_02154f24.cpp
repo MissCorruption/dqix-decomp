@@ -86,7 +86,7 @@ extern "C" ARM int func_ov001_02154f24(LoadState02154f24* self)
     void* list = GetGlobalPtr021075f4_0203cf4c();
     LoadArguments02154f24* arguments = func_02012fe4();
     void* other = func_0202ae18();
-    if (!GetBitsInField0_0203b4c4((unsigned int*)resources, 0x1000))
+    if (!GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000))
     {
         if (!AlwaysTrue02094b4c(GetGlobal02109400_02094a00()))
         {
@@ -100,7 +100,7 @@ extern "C" ARM int func_ov001_02154f24(LoadState02154f24* self)
     EmptyStub02012de4(&data_02114e20);
     func_020a0cc4(0x40400);
     EmptyStub02012de4(&data_02114e20);
-    if ((self->flags & 1) && !GetBitsInField0_0203b4c4((unsigned int*)resources, 0x1000))
+    if ((self->flags & 1) && !GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000))
     {
         func_0203e0a0(list, arguments->slot);
         func_ov017_021a316c(resources);
@@ -127,7 +127,7 @@ extern "C" ARM int func_ov001_02154f24(LoadState02154f24* self)
     {
         size += self->savedSize;
     }
-    if (!GetBitsInField0_0203b4c4((unsigned int*)resources, 0x1000))
+    if (!GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000))
     {
         void* memory = AllocateAligned4_02012d88(&data_02114e20, size);
         self->allocator.CreateTypeA(memory, size);

@@ -51,7 +51,7 @@ extern "C" ARM short func_02079238(Object3D* reference, int maximumDistance) {
         Position02079238 copy = func_02034104(candidate);
         Position02079238 offset;
         Vector3fix_Subtract((const Vector3fix*)&copy,
-                            (const Vector3fix*)((char*)reference + 0x44),
+                            &reference->position_,
                             (Vector3fix*)&offset);
         int dist = Vector3fix_Length((const Vector3fix*)&offset);
         if (dist <= maximumDistance) {

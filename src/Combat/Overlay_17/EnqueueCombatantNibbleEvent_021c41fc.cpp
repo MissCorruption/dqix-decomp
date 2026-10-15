@@ -57,7 +57,7 @@ extern "C" ARM void func_ov017_021c41fc(int combatantId, int mode) {
     }
 
     GameObject* target = battleStruct->GetUnknownGameObject();
-    if (target != NULL && combatantId == *(short*)((char*)target + 4)) {
+    if (target != NULL && combatantId == target->obj3D_.unknown_4_) {
         if (p->field6 == 0x2710) {
             p->field6 = 0x170c;
         } else if (p->field6 == 0x2710 + 0x64) {

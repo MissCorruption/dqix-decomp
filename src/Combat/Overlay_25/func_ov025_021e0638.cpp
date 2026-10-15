@@ -365,7 +365,7 @@ found:
     }
     for (int i = 0; i < n; i++) {
         int flag = 0;
-        unsigned char* c = (unsigned char*)(CombatantStruct*)GetCombatantWithFlag0x100_0200ff1c((GameState*)gs, *(short*)(ents[i].obj + 4));
+        unsigned char* c = (unsigned char*)(CombatantStruct*)GetCombatantWithFlag0x100_0200ff1c(gs, *(short*)(ents[i].obj + 4));
         if (c != 0 && (*(unsigned int*)(c + Field18c) & 1)) {
             flag = 1;
         }

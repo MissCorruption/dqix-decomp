@@ -257,34 +257,34 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
 #if defined(jpn)
         sprintf(message, (const char*)entry, *(char**)((char*)caster + 0x134));
         func_0204500c(presenter, message, 0);
-        *(int*)((char*)presenter + 0x868) = 1;
+        presenter->active = 1;
 #else
         struct Vec3i02184354 casterObj;
         InitObjFromCombatantId020e4bf4(&casterObj, actorInfo->combatantId);
         func_02046380(presenter);
         *(void**)presenter = &casterObj;
         func_0204500c(presenter, (const char*)entry, 0, 0xe3);
-        *(int*)((char*)presenter + 0x998) = 1;
+        presenter->active = 1;
 #endif
     } else if (state == 2) {
 #if defined(jpn)
-        if (*(int*)((char*)presenter + 0x868) != 0) return 0;
+        if (presenter->active != 0) return 0;
 #else
-        if (*(int*)((char*)presenter + 0x998) != 0) return 0;
+        if (presenter->active != 0) return 0;
 #endif
         if (func_020457e0(presenter) == 0) {
             void* entry = FindEntryByKey_02072a68((struct TableA68*)&obj->list, 0);
 #if defined(jpn)
             sprintf(message, (const char*)entry, *(char**)((char*)caster + 0x134));
             func_0204500c(presenter, message, 0);
-            *(int*)((char*)presenter + 0x868) = 1;
+            presenter->active = 1;
 #else
             struct Vec3i02184354 casterObj;
             InitObjFromCombatantId020e4bf4(&casterObj, actorInfo->combatantId);
             func_02046380(presenter);
             *(void**)presenter = &casterObj;
             func_0204500c(presenter, (const char*)entry, 0, 0xe3);
-            *(int*)((char*)presenter + 0x998) = 1;
+            presenter->active = 1;
 #endif
             DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x64, 0);
             unsigned short* slot = (unsigned short*)GetField0x74deForValidIndex_020120a0((char*)bs, GetField0x3acValue_020100a8(bs));
@@ -398,17 +398,17 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
         int finished = 0;
         if (obj->visible != 0) {
 #if defined(jpn)
-            if (now->GetGameObjectByIndex(obj->nodeId) == NULL && *(int*)((char*)presenter + 0x868) == 0) {
+            if (now->GetGameObjectByIndex(obj->nodeId) == NULL && presenter->active == 0) {
 #else
-            if (now->GetGameObjectByIndex(obj->nodeId) == NULL && *(int*)((char*)presenter + 0x998) == 0) {
+            if (now->GetGameObjectByIndex(obj->nodeId) == NULL && presenter->active == 0) {
 #endif
                 finished = 1;
             }
         } else {
 #if defined(jpn)
-            if (*(int*)((char*)presenter + 0x868) == 0) finished = 1;
+            if (presenter->active == 0) finished = 1;
 #else
-            if (*(int*)((char*)presenter + 0x998) == 0) finished = 1;
+            if (presenter->active == 0) finished = 1;
 #endif
         }
         if (finished != 0) {

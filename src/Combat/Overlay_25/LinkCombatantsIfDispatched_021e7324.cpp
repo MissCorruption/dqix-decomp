@@ -35,6 +35,6 @@ ARM int LinkCombatantsIfDispatched_021e7324(struct In021e7324* a, int b, int unu
         return 1;
     }
     ((Object3D*)((struct ListNode020378dc*)c1))->Detach();
-    ((Object3D*)((struct Node02037890*)c1))->Attach((Object3D*)c2, a->label);
+    ((Object3D*)((struct Node02037890*)c1))->Attach(&c2->obj3D_, a->label);
     return 1;
 }

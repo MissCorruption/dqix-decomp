@@ -19,11 +19,11 @@ extern "C" ARM int func_ov001_0215bcc0(void* self, int mode) {
     }
     GameObject* combatant = battle->GetGameObjectByIndex(id);
     if (combatant == NULL) return 0;
-    unsigned char byteField = *((unsigned char*)combatant + 0x19);
-    void* ptrField = *(void**)((char*)combatant + 0x14);
+    unsigned char byteField = combatant->obj3D_.animationFlags_;
+    void* ptrField = combatant->obj3D_.activeAnimationRecord_;
     ((Object3D*)((struct Container02037364*)combatant))->RemoveAnimationPackageByID(mode2);
-    if (((Object3D*)combatant)->MaybeSetRegularAnimation((char const*)((int)ptrField), byteField) == 0) {
-        ((Object3D*)combatant)->MaybeSetRegularAnimation((char const*)((int)&data_ov001_02165769), 0);
+    if (combatant->obj3D_.MaybeSetRegularAnimation((char const*)((int)ptrField), byteField) == 0) {
+        combatant->obj3D_.MaybeSetRegularAnimation((char const*)((int)&data_ov001_02165769), 0);
     }
     return 1;
 }

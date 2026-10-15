@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021984f4(void* obj) {
         if (func_02094b9c(node, &filter) != 0) {
             int angle = (short)fix32ReduceAngle0To2Pi(node->angle + 0x3244);
             BuildAndForwardVec_0218da48(obj, angle, 0xccc, -819, idx);
-            int delta = fix32abs(fix32SignedAngleDistance(*(int*)((char*)c + 0x54), node->angle));
+            int delta = fix32abs(fix32SignedAngleDistance(c->obj3D_.rotation_.y, node->angle));
             if ((float)delta < 8364.19921875f) {
                 if (delta < best) {
                     best = delta;

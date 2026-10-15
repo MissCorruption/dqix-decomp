@@ -25,7 +25,7 @@ extern "C" ARM void func_020a2be8(struct Obj020a2be8* obj) {
     __clear(&v, 0xc);
     GameObject* c = battle->GetGameObjectByIndex(obj->field21c);
     if (c != 0) {
-        *(Vector3i*)((int*)&v) = *(Vector3i const*)((int*)((char*)c + 0x44));
+        *(Vector3i*)((int*)&v) = *(Vector3i const*)(&c->obj3D_.position_.x);
         int val = ((Object3D*)((struct IntField0x68_020377bc*)c))->GetHeight();
         v.y = v.y + (val >> 1);
     }

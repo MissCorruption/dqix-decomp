@@ -20,7 +20,7 @@ ARM void SetupBattleMessage02185774(void* obj) {
         func_0204500c(messages, (const char*)GetFieldByKey020e0434((Container020e0310*)(menu + 0x5ac), 1002), 0);
     }
     messages->b19b2 = 0;
-    *(int*)((char*)messages + 0x868) = 1;
+    messages->active = 1;
 #else
     unsigned char mode = menu[0x63c];
     if (mode == 4) {
@@ -31,6 +31,6 @@ ARM void SetupBattleMessage02185774(void* obj) {
         func_0204500c(messages, (const char*)GetFieldByKey020e0434((Container020e0310*)(menu + 0x620), 1002), 0, 0xe3);
     }
     messages->b19b2 = 0;
-    *(int*)((char*)messages + 0x998) = 1;
+    messages->active = 1;
 #endif
 }

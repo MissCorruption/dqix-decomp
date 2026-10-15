@@ -262,7 +262,7 @@ extern "C" ARM int func_ov023_021f1234(BattleScene_021f1234* self)
                 if (member != NULL)
                 {
                     func_ov013_02184b4c(self->skillMenu_, member);
-                    self->abilities_->member_ = *(short*)((char*)member + 4);
+                    self->abilities_->member_ = member->obj3D_.unknown_4_;
                 }
             }
         }
@@ -296,7 +296,7 @@ extern "C" ARM int func_ov023_021f1234(BattleScene_021f1234* self)
             }
             int skill = self->skillMenu_->selection_;
             if (member != NULL)
-                func_ov013_0218782c(self->abilities_, (signed char)*(short*)((char*)member + 4), (unsigned char)skill);
+                func_ov013_0218782c(self->abilities_, (signed char)member->obj3D_.unknown_4_, (unsigned char)skill);
         }
         else if (end->step_ == 6)
         {

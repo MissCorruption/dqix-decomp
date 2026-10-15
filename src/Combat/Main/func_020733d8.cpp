@@ -167,7 +167,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
             if (CheckField0NonZero_0202b7d8(counter) == 0) {
                 unknown = gs->GetUnknownGameObject();
                 if (unknown != 0 && localWeights[0] == -1) {
-                    candIds[0] = *(short*)((char*)unknown + 4);
+                    candIds[0] = unknown->obj3D_.unknown_4_;
                     candCount = 1;
                 }
             } else {
@@ -330,8 +330,8 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
             func_02034104(&selfTmp, slotObj);
             selfPos = selfTmp;
             __clear(&facing, sizeof(facing));
-            facing.x = fix32sin(*(int*)((char*)slotObj + 0x54));
-            facing.z = fix32cos(*(int*)((char*)slotObj + 0x54));
+            facing.x = fix32sin(slotObj->obj3D_.rotation_.y);
+            facing.z = fix32cos(slotObj->obj3D_.rotation_.y);
 
             pick = -1;
             matchCount = 0;

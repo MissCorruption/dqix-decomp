@@ -93,10 +93,10 @@ extern "C" ARM int func_ov001_021557e0(struct Self021557e0* self) {
             }
             SetFlag0x4At0xe0((struct Flags02033fcc*)m);
             if (GetByte0x26c_02039d7c((char*)m) == 0 || GetFieldPtrAt0x26c_020399a8(m)->command != 2) {
-                ((Object3D*)m)->MaybeSetRegularAnimation(data_ov001_02164bd1, 0x10);
+                m->obj3D_.MaybeSetRegularAnimation(data_ov001_02164bd1, 0x10);
             }
             ClearBytesAndZeroBlock02039d24((unsigned char*)m);
-            ((Object3D*)m)->EnableFlag(0x800000);
+            m->obj3D_.EnableFlag(0x800000);
         }
 
         int list[4];
@@ -107,7 +107,7 @@ extern "C" ARM int func_ov001_021557e0(struct Self021557e0* self) {
             if (m == 0) {
                 continue;
             }
-            ((Object3D*)m)->SetInheritedAlpha(0x1f);
+            m->obj3D_.SetInheritedAlpha(0x1f);
             ClearFlag0x1ceBit0x4_02039d58((unsigned char*)m);
         }
 
@@ -156,7 +156,7 @@ extern "C" ARM int func_ov001_021557e0(struct Self021557e0* self) {
         }
     }
 
-    SetBitsInField4_0203b4d8((unsigned int*)res, 0x1000);
+    SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x1000);
 
     if (self->f50 & 0x200) {
         volatile unsigned int* reg = (volatile unsigned int*)0x4000000;

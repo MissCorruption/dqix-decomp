@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Combat/EntryGetterTypes.h"
 
 extern "C" int func_ov017_0218b5b0(void);
 unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
@@ -21,7 +22,7 @@ ARM int NotifyEntriesFlag256_0218df50(void* a, void* b) {
 		for (int i = 0; i < 0x20; i++) {
 			struct Entry_203dce4* entry = GetEntryUnlessFlag0x8000_0203dce4((struct EntryList_203dce4*)list, i);
 			if (!entry) continue;
-			int field = GetField0x8_02040528((int*)entry);
+			int field = GetField0x8_02040528(&entry->flags);
 			if (*((unsigned char*)field + 2) == 1) continue;
 			if (func_ov017_0218dd18(a, entry, b) != 0) {
 				result = 1;

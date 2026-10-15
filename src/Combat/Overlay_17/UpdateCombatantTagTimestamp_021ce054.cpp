@@ -24,7 +24,7 @@ extern "C" ARM void func_ov017_021ce054(int checkVal, struct Src021ce054* src, G
     void* g = func_0202ae18();
     if (src->field4 != 1) return;
     if (src->field6 > 0) {
-        func_ov017_02191aac(obj, 1, *(short*)((char*)c + 4), 2);
+        func_ov017_02191aac(obj, 1, c->obj3D_.unknown_4_, 2);
         p[0x56c] = 1;
         if (func_0202c540(g)) return;
         unsigned long long ts = GetCurrentTimestamp();
@@ -32,6 +32,6 @@ extern "C" ARM void func_ov017_021ce054(int checkVal, struct Src021ce054* src, G
         *(unsigned int*)(p + 0x484) = (unsigned int)(ts >> 32);
     } else {
         p[0x56c] = 0;
-        func_ov017_02191aac(obj, 0, *(short*)((char*)c + 4), 2);
+        func_ov017_02191aac(obj, 0, c->obj3D_.unknown_4_, 2);
     }
 }

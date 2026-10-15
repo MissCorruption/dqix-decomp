@@ -28,7 +28,7 @@ extern "C" ARM void func_020a8c4c(struct Obj020a8c4c* obj, unsigned char axis) {
     if (IsAxisIntWithin16((struct AxisFloats0203b5a0*)ov, 0) == 0) {
         CancelPendingAction020397cc((struct Obj020397cc*)c800, 1);
         *(short*)((char*)c800 + 0xac) = 0;
-        if (axis == *(short*)((char*)c397c + 4)) {
+        if (axis == c397c->obj3D_.unknown_4_) {
             return;
         }
         EnqueueEventTag36_021d2c34(axis, 0, 0);

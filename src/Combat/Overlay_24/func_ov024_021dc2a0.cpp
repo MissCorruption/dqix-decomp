@@ -34,7 +34,7 @@ extern "C" ARM void* func_ov024_021dc2a0(Obj021dc2a0* obj,short id,int unused,Pa
     void* work=GetActiveCombatWork_ov000_02160130();
     int total=1;
     Pair021dc2a0 ids=data_ov024_021fe6d0;
-    ids.values[0]=*(short*)((char*)c+2);
+    ids.values[0]=c->obj3D_.unknown_2_;
     if(params->field18.mode==12){
         total=FindRecordByKey0215fb54((int)obj->context, params->code.value, (Out0215fb54*)&ids);
         for(int i=0;i<total;i++){

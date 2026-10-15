@@ -15,7 +15,7 @@ ARM int IsCombatantStateSpecial02163c0c(void* unused, int id) {
     c = GetCombatantWithFlag0x400_0200fea4(battle, id);
     if (!c) goto fail;
     x = 0x1fd;
-    state = *(short*)((char*)c + 2);
+    state = c->obj3D_.unknown_2_;
     if (state == x || state == x + 1 || (unsigned int)(state - 0x308) <= 3) return 1;
 fail:
     return 0;

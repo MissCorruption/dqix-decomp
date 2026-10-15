@@ -539,7 +539,7 @@ extern "C" ARM void func_ov017_021b790c(BattleScene021b790c* self, ListHead02046
                 if (m != NULL) {
                     GameObject* m2 = gs->GetPartyMemberByIndex(GetSignedByte0x1ca_02039888(m));
                     if (m2 != NULL) {
-                        InitObjFromCombatantId020e4bf4(&who, *(short*)((char*)m2 + 4));
+                        InitObjFromCombatantId020e4bf4(&who, m2->obj3D_.unknown_4_);
                         c->obj = &who;
                         sprintf(text, (const char*)CallFunc020e0434With02153694_020e51cc(0x22));
                     }

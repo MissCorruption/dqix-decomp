@@ -24,8 +24,8 @@ ARM void EnqueueEventTag20_021cee78(int id, unsigned char b) {
 	LocalEvt021cee78 buf;
 	buf.tag = 0x14;
 	buf.field12 = id;
-	*(Vector3i*)buf.vec = *(Vector3i const*)((int*)((char*)c + 0x44));
-	buf.field10 = *(int*)((char*)c + 0x54);
+	*(Vector3i*)buf.vec = *(Vector3i const*)(&c->obj3D_.position_.x);
+	buf.field10 = c->obj3D_.rotation_.y;
 	buf.field13 = b;
 	func_0205e330(p, &buf, 0);
 }

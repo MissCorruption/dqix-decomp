@@ -188,7 +188,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
                     _Z22SetIndexedName02046574P11Obj02046574iPc(g, 0, *(char**)((char*)pm + 0x134));
                 }
 #else
-                _Z30InitObjFromCombatantId020e4bf4Pvi(tmp, *(short*)((char*)pm + 4));
+                _Z30InitObjFromCombatantId020e4bf4Pvi(tmp, pm->obj3D_.unknown_4_);
                 *(void**)g = tmp;
 #endif
             } else {

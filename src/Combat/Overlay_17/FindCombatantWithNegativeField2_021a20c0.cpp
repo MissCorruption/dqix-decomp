@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-
 // USA: func_ov017_021a20c0
 ARM int FindCombatantWithNegativeField2_021a20c0(int unused, int mult, int limit) {
     GameState* battleStruct = GameState::GetInstance();
@@ -11,7 +10,7 @@ ARM int FindCombatantWithNegativeField2_021a20c0(int unused, int mult, int limit
     for (int i = 0; i < limit; i++) {
         GameObject* combatant = battleStruct->GetGameObjectByIndex(i + base);
         if (combatant != NULL) {
-            short v = *(short*)((char*)combatant + 0x2);
+            short v = combatant->obj3D_.unknown_2_;
             if (v < 0) return i + base;
         }
     }

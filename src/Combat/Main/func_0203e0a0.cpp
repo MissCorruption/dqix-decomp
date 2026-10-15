@@ -57,15 +57,15 @@ extern "C" ARM void func_0203e0a0(void *receiver, unsigned short id) {
             Vector3i position;
             __clear(&position, sizeof(position));
             short value = 0;
-            if (*(unsigned char **) ((unsigned char *) entry + 0x14) != NULL) {
-                position = *(Vector3i *) (*(unsigned char **) ((unsigned char *) entry + 0x14) + 4);
-                value    = (short) GetField0x60(*(StructF0x60_0203cdd0 **) ((unsigned char *) entry + 0x14));
-            } else if (*(unsigned char **) ((unsigned char *) entry + 0x18) != NULL) {
-                position = *(Vector3i *) (*(unsigned char **) ((unsigned char *) entry + 0x18) + 0x44);
-                value    = (short) *(int *) (*(unsigned char **) ((unsigned char *) entry + 0x18) + 0x54);
-            } else if (*(unsigned char **) ((unsigned char *) entry + 0x1c) != NULL) {
-                position = *(Vector3i *) (*(unsigned char **) ((unsigned char *) entry + 0x1c) + 0x44);
-                value    = (short) *(int *) (*(unsigned char **) ((unsigned char *) entry + 0x1c) + 0x54);
+            if (((unsigned char*)entry->child14) != NULL) {
+                position = *(Vector3i *) (((unsigned char*)entry->child14) + 4);
+                value    = (short) GetField0x60(((StructF0x60_0203cdd0*)entry->child14));
+            } else if (((unsigned char*)entry->child18) != NULL) {
+                position = *(Vector3i *) (((unsigned char*)entry->child18) + 0x44);
+                value    = (short) *(int *) (((unsigned char*)entry->child18) + 0x54);
+            } else if (((unsigned char*)entry->child1c) != NULL) {
+                position = *(Vector3i *) (((unsigned char*)entry->child1c) + 0x44);
+                value    = (short) *(int *) (((unsigned char*)entry->child1c) + 0x54);
             }
             int x               = position.x;
             int z               = position.z;
@@ -74,7 +74,7 @@ extern "C" ARM void func_0203e0a0(void *receiver, unsigned short id) {
             snapshot->y         = (short) (y >> 4);
             snapshot->z         = (short) (z >> 4);
             snapshot->value     = value;
-            unsigned short *key = (unsigned short *) GetField0x8_02040528((int *) entry);
+            unsigned short *key = (unsigned short *) GetField0x8_02040528(&entry->flags);
             if (key != NULL) {
                 snapshot->key = *key;
             }

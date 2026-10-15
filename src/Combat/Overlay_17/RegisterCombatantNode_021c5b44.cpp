@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int combatantId, uns
 
     GameObject* combatant = FindCombatantByField16a_021a278c(baseRaw, combatantId);
     if (combatant != 0) {
-        id2 = *(short*)((char*)combatant + 4);
+        id2 = combatant->obj3D_.unknown_4_;
     }
 
     if (!ListContainsNode((struct ListHead02046b38*)list, (struct ListNode02046b38*)node)) {

@@ -6,6 +6,7 @@ enum { RegionOffset710 = 0x710, RegionOffset724 = 0x724, RegionOffset6fc = 0x6fc
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Combat/EntryGetterTypes.h"
 
 void* GetGlobalPtr021075f4_0203cf4c(void);
 struct EntryList_203dce4;
@@ -40,7 +41,7 @@ ARM void ProcessEntryFieldAndNotify_021a4cf0(char* self) {
     if (entry == NULL) {
         return;
     }
-    int* field = (int*)GetField0x8_02040528((int*)entry);
+    int* field = (int*)GetField0x8_02040528(&entry->flags);
     if (field == NULL) {
         return;
     }

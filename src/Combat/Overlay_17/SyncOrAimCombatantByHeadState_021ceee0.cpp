@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_021ceee0(void* unused0, struct Info021ceee0* info
         if (!withinRange) {
             return;
         }
-        if (!(*(unsigned short*)held & 0x80)) {
+        if (!(held->obj3D_.unknown_0_ & 0x80)) {
             return;
         }
         GameObject* target = GetCombatantWithFlag0x100_0200ff1c(battle, info->field12);
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov017_021ceee0(void* unused0, struct Info021ceee0* info
     if (GetHeadNodeIdOrMinusOne(list) == 4) {
         return;
     }
-    *(Vector3i*)((int*)((char*)held + 0x44)) = *(Vector3i const*)info->vec;
+    *(Vector3i*)(&held->obj3D_.position_.x) = *(Vector3i const*)info->vec;
     if (info->field13 == 0) {
         SetVecYByMode02033834((struct Obj02033834*)held, info->field10);
     } else {

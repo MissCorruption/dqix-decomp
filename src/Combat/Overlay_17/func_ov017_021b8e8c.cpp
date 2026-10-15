@@ -154,7 +154,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         ReinitController02043204(msg);
         func_02043124(msg);
         SetField0x23cTrue_020a27ac(hud);
-        ClearBitsInWord_0203b4b0((unsigned int*)res, 0x2000);
+        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x2000);
         self->done = 1;
         return;
     }

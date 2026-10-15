@@ -142,7 +142,7 @@ extern "C" ARM void func_ov017_021b0bc0(Self021b0bc0* self) {
     }
     GameObject* leader = gs->GetPartyMemberByIndex(self->leader);
     if (leader != NULL) {
-        SetByte0x1ca_02039880((unsigned char*)leader, *(short*)((char*)leader + 4));
+        SetByte0x1ca_02039880((unsigned char*)leader, leader->obj3D_.unknown_4_);
     }
     short* y = ys;
     for (int i = 0; i < 4; i++, y++) {
@@ -176,12 +176,12 @@ extern "C" ARM void func_ov017_021b0bc0(Self021b0bc0* self) {
             if (i == GetSignedByte0x1ca_02039888(member)) {
                 continue;
             }
-            if (i != 0 && !(*(unsigned short*)member & 0x1000)) {
+            if (i != 0 && !(member->obj3D_.unknown_0_ & 0x1000)) {
                 continue;
             }
             SetVecYFromValue02033874((Obj02033874*)member, *y);
         }
-        ClearBitsInWord_0203b4b0((unsigned int*)res, 0x40);
+        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x40);
 
         Snapshot021b0bc0* snap = self->snapshot;
         SetByte0x5cdaAndClearField0xa_020120d4((unsigned char*)gs, snap->f0);

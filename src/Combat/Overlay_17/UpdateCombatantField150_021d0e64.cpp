@@ -26,7 +26,7 @@ ARM void UpdateCombatantField150_021d0e64(void* unused0, ArgA021d0e64* a1, GameS
     if (f[0x56a] != a1->field5) {
         short v = *(short*)(f + 0x488);
         if (v < 0) {
-            *(short*)((char*)c + 2) = -1;
+            c->obj3D_.unknown_2_ = -1;
             func_ov017_0218f5a4(a3, a1->field4, 0, 0, 0);
         }
     }

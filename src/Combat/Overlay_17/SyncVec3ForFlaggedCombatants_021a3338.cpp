@@ -30,7 +30,7 @@ ARM void SyncVec3ForFlaggedCombatants_021a3338(void*) {
             if (value == ((Object3D*)((struct U16Field0x6_020375f8*)combatant))->GetField06()) {
                 EventVec3 v = *(EventVec3*)((char*)combatant + 0x44);
                 v.b = func_02018fbc((int)ptr, &v);
-                *(Vector3i*)((int*)((char*)combatant + 0x44)) = *(Vector3i const*)((int*)&v);
+                *(Vector3i*)(&combatant->obj3D_.position_.x) = *(Vector3i const*)((int*)&v);
             }
         }
     }

@@ -63,9 +63,9 @@ extern "C" ARM void func_020aeb34(void) {
         ClearFlag0x1_02040648((unsigned int*)arr[i]);
     }
 
-    if (IsField0Null_02046b08((void**)head) == 0 && IsMainBrightnessTransitionActive((struct GameResources*)base) == 0 &&
-        (GetMainBrightnessTransitionState((struct GameResources*)base) == 2 ||
-         GetMainBrightnessTransitionState((struct GameResources*)base) == 3)) {
+    if (IsField0Null_02046b08((void**)head) == 0 && IsMainBrightnessTransitionActive(base) == 0 &&
+        (GetMainBrightnessTransitionState(base) == 2 ||
+         GetMainBrightnessTransitionState(base) == 3)) {
         if (elem->angle != 0) return;
         for (int j = 0; j < 4; j++) {
             EntryPositionState* s = (EntryPositionState*)GetField0xc02040538((S02040538*)arr[j]);
@@ -111,8 +111,8 @@ extern "C" ARM void func_020aeb34(void) {
 
         Vector3fix_Add(&vecA, &vecB, &out);
 
-        if ((*(void**)((char*)entry + 0x14)) != NULL) SetOrClearFlag0x8_0203cec4((struct Struct_203cec4*)(*(void**)((char*)entry + 0x14)), 1);
-        if ((*(void**)((char*)entry + 0x14)) != NULL) SetField40IfPositive((struct Struct_0203fc5c*)(*(void**)((char*)entry + 0x14)), 0.8f);
+        if ((entry->child14) != NULL) SetOrClearFlag0x8_0203cec4((struct Struct_203cec4*)(entry->child14), 1);
+        if ((entry->child14) != NULL) SetField40IfPositive((struct Struct_0203fc5c*)(entry->child14), 0.8f);
         DispatchOnActiveChild020409b0((struct Node020409b0*)entry, (int)&out);
         SetActiveChildFields02040774((struct Node02040774*)entry, out.x, out.y, out.z);
     }

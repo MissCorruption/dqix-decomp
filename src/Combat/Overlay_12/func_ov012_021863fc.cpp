@@ -166,7 +166,7 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditor021863fc* self)
     {
         if (IsField0Null_02046b08(*(void***)((char*)resources + 0x3700)))
         {
-            SetBitsInWord_0203b4a0((unsigned int*)resources, 0x10);
+            SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 0x10);
             OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0xf);
             self->text_ = (char*)GetGlobalField0x1c020421a0()->unk_5c;
             unsigned int female = 0;

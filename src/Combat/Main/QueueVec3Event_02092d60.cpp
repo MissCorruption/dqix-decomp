@@ -40,14 +40,14 @@ extern "C" ARM void func_02092d60(struct Param1_02092d60* p1, int p2) {
     GameObject* c = bs->GetUnknownGameObject();
     if (c != 0) {
         struct Vec3_02092d60 vecBuf;
-        *(Vector3i*)&vecBuf.x = *(Vector3i const*)((int*)((char*)c + 0x44));
+        *(Vector3i*)&vecBuf.x = *(Vector3i const*)(&c->obj3D_.position_.x);
         int word0 = GetWord0x0_0200fb8c((int*)bs);
         struct HeadNode02046b24** listHead = *(struct HeadNode02046b24***)((char*)(int)word0 + (IS_JPN ? 0x34ec : 0x36fc));
         int head = GetHeadNodeIdOrMinusOne(listHead);
         if (head == 0xa) {
             void* work = GetActiveCombatWork_ov000_02160130();
             if (work != 0) {
-                void* slot = GetSlot021677d8(work, *(short*)((char*)c + 4));
+                void* slot = GetSlot021677d8(work, c->obj3D_.unknown_4_);
                 if (slot != 0) {
                     *(Vector3i*)&vecBuf.x = *(Vector3i const*)((int*)slot);
                 }

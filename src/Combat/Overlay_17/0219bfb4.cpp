@@ -160,10 +160,10 @@ extern "C" ARM void func_ov017_0219bfb4(int mode, unsigned short id) {
         if (member) {
             if (i == 0) {
                 ClearFlag0x1ceBit0x4_02039d58((unsigned char*)member);
-                ((Object3D*)member)->SetInheritedAlpha(0x1f);
+                member->obj3D_.SetInheritedAlpha(0x1f);
             } else {
                 SetFlag0x1ceBit0x4_02039d48((unsigned char*)member);
-                ((Object3D*)member)->SetInheritedAlpha(0);
+                member->obj3D_.SetInheritedAlpha(0);
             }
         }
     }

@@ -44,8 +44,8 @@ extern "C" ARM int func_ov001_0215ef54(char* obj, int count) {
         obj += 0x8;
         int idx = AbsPlus159IfNegative0215ad2c(t);
         GameObject* combatant = battle->GetGameObjectByIndex(idx);
-        if (combatant != 0 && *(void**)((char*)combatant + 0x8) != 0) {
-            ((Model3D*)(*(void**)((char*)combatant + 0x8)))->ApplyTexturesFromModel((Model3D*)newBuf);
+        if (combatant != 0 && combatant->obj3D_.pModel_ != 0) {
+            ((Model3D*)(combatant->obj3D_.pModel_))->ApplyTexturesFromModel((Model3D*)newBuf);
         }
     }
     return 1;

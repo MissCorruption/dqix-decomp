@@ -1128,7 +1128,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
             if (hp > 0)
                 continue;
             if (msg->p1 == 0) {
-                unsigned short val = *(unsigned short *)((char *)*(void **)((char *)combatant + 0x134) + 0x30);
+                unsigned short val = *(unsigned short *)((char *)combatant->baseStats_ + 0x30);
                 ClearFieldBit02053fe4(combatant, val, 1);
             } else if (msg->p1 == 1) {
                 int val = Field134_30(combatant);

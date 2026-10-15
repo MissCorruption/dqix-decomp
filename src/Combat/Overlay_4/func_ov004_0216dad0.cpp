@@ -57,7 +57,7 @@ extern "C" ARM int func_ov004_0216dad0(void) {
     if (data_ov004_02171034.status == 1) {
         unsigned char info[3];
         if (func_020ab5d4(data_ov004_02171034.buf, 0, 0, info) == 0) {
-            unsigned char v = *((unsigned char*)gs + 0x5cc8);
+            unsigned char v = gs->unknown_5cc8_;
             if (v == 0) {
                 data_ov004_02171034.status = 6;
             } else if (v == 2) {

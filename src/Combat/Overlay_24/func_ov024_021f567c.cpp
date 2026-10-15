@@ -19,7 +19,7 @@ extern "C" ARM int func_ov024_021f567c(int* a0, int a1, int a2, int* outFlag, sh
     for (int i = 0; i < count; i++) {
         GameObject* c = GetCombatantByID(*a0, buf.v[i]);
         if (!c) continue;
-        void* inner = *(void**)((char*)c + 0x138);
+        void* inner = c->currentStats_;
         if (*(unsigned short*)((char*)inner + 2) == 0) continue;
         if (IsCombatantFlagMask512_021eda60(c)) continue;
         int n = *outFlag;

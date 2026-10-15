@@ -37,7 +37,7 @@ ARM void ProcessEntryFlagsAndCombatants_0219e014(unsigned char* obj, EntryArg_02
 	for (int i = 7; i <= 0x12; i++) {
 		GameObject* combatant = battleStruct->GetGameObjectByIndex(i);
 		if (combatant) {
-			((Object3D*)combatant)->Initialize();
+			combatant->obj3D_.Initialize();
 			((Object3D*)((unsigned char*)combatant))->MakeHidden();
 		}
 	}

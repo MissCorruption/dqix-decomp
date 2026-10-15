@@ -19,7 +19,7 @@ ARM void ClearMonsterFlagEntries_02191bdc(unsigned char* a, int b) {
 	GameObject* combatant = battleStruct->GetUnknownGameObject();
 	if (!combatant) return;
 	if (*(short*)((char*)combatant + 0xac) != 0) return;
-	if (((Object3D*)combatant)->GetFlag(0x8000000) != 0) return;
+	if (combatant->obj3D_.GetFlag(0x8000000) != 0) return;
 	if (b == 0) {
 		unsigned char* fieldAddr = (unsigned char*)GetField0x3f8Address_0200fd0c(battleStruct);
 		unsigned char* q = *(unsigned char**)(a + RegionOffset370c);

@@ -194,7 +194,7 @@ extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
             void* data;
             unsigned int size;
             loader->GetLoadedFileByID(self->task_630, &data, &size);
-            SetBitsInField4_0203b4d8((unsigned int*)resources, 0x601fe);
+            SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x601fe);
             RestorePairTables0207df90(self->pairTables_8);
             self->allocator_14->Reset();
             ZeroInit020de848(self->descriptor_a4);

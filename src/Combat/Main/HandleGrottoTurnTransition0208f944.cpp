@@ -70,7 +70,7 @@ ARM void HandleGrottoTurnTransition0208f944(struct Obj0208f944* obj) {
     }
 
     if (IsInRange0201b588(a) && !IsInRange0201b588(b)) {
-        signed char g8 = *((signed char*)grotto + 8);
+        signed char g8 = grotto->unknown_8;
         if (g8 != -1) {
             if (!IsValueInRange0201b5d8(a)) {
                 int rem = a % 20;

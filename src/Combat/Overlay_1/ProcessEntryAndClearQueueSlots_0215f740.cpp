@@ -42,7 +42,7 @@ extern "C" ARM int func_ov001_0215f740(void* self) {
         return 0;
     }
     if (*(int*)((char*)entry + 0x14) != 0) {
-        int field = GetField0x8_02040528((int*)entry);
+        int field = GetField0x8_02040528(&entry->flags);
         struct Container02040404* c = (struct Container02040404*)EmptyStub0203d004(list);
         char buf[0x10];
 #if defined(jpn)
@@ -53,12 +53,12 @@ extern "C" ARM int func_ov001_0215f740(void* self) {
         int idx = FindEntryIndexByName02040404(c, buf);
         ReleaseOrDecrementSlot0204039c((struct Container0204039c*)c, idx);
     } else {
-        if (*(void**)((char*)entry + 0x18) != 0) {
-            ((Object3D*)((unsigned char*)*(void**)((char*)entry + 0x18)))->Destroy();
-            ResetState0204128c((struct State02041244*)*(void**)((char*)entry + 0x18));
+        if (entry->child18 != 0) {
+            ((Object3D*)((unsigned char*)entry->child18))->Destroy();
+            ResetState0204128c((struct State02041244*)entry->child18);
         }
     }
-    Reset02040504((int*)entry);
+    Reset02040504(&entry->flags);
     SetSlotIfIndexBelow32((SlotArray0203dd10*)list, id, 0);
 
     if (data_ov001_02165880.table != NULL) {

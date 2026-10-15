@@ -179,7 +179,7 @@ static inline Combatant* GetCombatant(int id) {
 
 static inline Combatant* GetFlagged0x400(int id) {
     GameState* bs = GameState::GetInstance();
-    return GetCombatantWithFlag0x400_0200fea4((GameState*)bs, id);
+    return GetCombatantWithFlag0x400_0200fea4(bs, id);
 }
 
 // USA: func_ov000_0215d63c

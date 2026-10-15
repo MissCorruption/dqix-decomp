@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021983e0(unsigned char* obj) {
                     InitObj0219a674((unsigned char*)&buf);
                     buf.tag = 7;
                     buf.ptr = node;
-                    buf.field10 = GetAngleDeltaBetween_021a4700((struct Vec3*)((char*)c + 0x44), (short)*(int*)((char*)c + 0x54), (struct Vec3*)((char*)node + 8));
+                    buf.field10 = GetAngleDeltaBetween_021a4700((struct Vec3*)((char*)c + 0x44), (short)c->obj3D_.rotation_.y, (struct Vec3*)((char*)node + 8));
                     func_ov017_0219b33c(obj, &buf);
                     return;
                 }

@@ -381,7 +381,7 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
                 {
                     if (GetField0x50_020db2d4(GetGlobalContext020daf90()) == 0) {
                         DispatchWithGlobalContext020daf9c(1, 0, 1, 0);
-                        SetMainBrightness((GameResources*)mgr, ~0xf, 0);
+                        SetMainBrightness(mgr, ~0xf, 0);
                     }
                     OrBitsIntoField0_020466e4(dataFlags, 0x400000);
                     if (!IsPowcntBit0Set_020cede0()) {

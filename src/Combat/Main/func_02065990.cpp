@@ -131,7 +131,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
         IterateEntries0205a330((Container0205a330*)(*(void**)(self + REGION_VALUE(0x230, 0x2e0))), step);
     }
 
-    if (*(int*)(self + REGION_VALUE(0x868, 0x998)) == 0) return;
+    if (message->active == 0) return;
 
     if (REGION_FLAG(flag3, b19d1) != 0) {
         message->b1958 = *(signed char*)(self + REGION_VALUE(0x1786, 0x1958)) - step;

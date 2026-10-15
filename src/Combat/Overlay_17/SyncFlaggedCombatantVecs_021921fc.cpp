@@ -22,7 +22,7 @@ extern "C" ARM void func_ov017_021921fc(int* vec, int angle, int resetFlag) {
     for (; i < base[0xf7c]; i++) {
         GameObject* c = bs->GetPartyMemberByIndex(keys[i]);
         if (c != NULL) {
-            *(Vector3i*)((int*)((char*)c + 0x44)) = *(Vector3i const*)vec;
+            *(Vector3i*)(&c->obj3D_.position_.x) = *(Vector3i const*)vec;
             SetVecYFromValue02033874((struct Obj02033874*)c, angle);
             if (resetFlag != 0) {
                 SetByte0xbeShiftPrev((struct Bytes02033b88*)c, 0);

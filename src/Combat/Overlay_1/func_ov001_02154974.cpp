@@ -78,7 +78,7 @@ extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
                 walk->kind == 0xd || walk->kind == 0xa || walk->kind == 4) {
                 GameObject* obj = gs->GetGameObjectByIndex(walk->slot);
                 if (obj != 0) {
-                    Object3D* o = (Object3D*)obj;
+                    Object3D* o = &obj->obj3D_;
                     unsigned char animFlags = o->animationFlags_;
                     const char* animName = (const char*)o->activeAnimationRecord_;
                     o->RemoveAnimationPackageByID(3);
@@ -142,22 +142,22 @@ extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
         return;
     }
     if (self->mode & 1) {
-        _Z26ClearBitsInField4_0203b4e8Pjj((unsigned int*)base, 8);
+        _Z26ClearBitsInField4_0203b4e8Pjj(&base->brightnessFlags_0, 8);
     }
     if (self->mode & 2) {
-        _Z26ClearBitsInField4_0203b4e8Pjj((unsigned int*)base, 0x10);
+        _Z26ClearBitsInField4_0203b4e8Pjj(&base->brightnessFlags_0, 0x10);
     }
     if (self->mode & 4) {
         int j;
         for (j = 0; j < 4; j++) {
             GameObject* obj = gs->GetGameObjectByIndex(j);
             if (obj != 0) {
-                ((Object3D*)obj)->DisableFlag(1);
+                obj->obj3D_.DisableFlag(1);
             }
         }
     }
     if (self->mode & 8) {
-        _Z26ClearBitsInField4_0203b4e8Pjj((unsigned int*)base, 0x400);
+        _Z26ClearBitsInField4_0203b4e8Pjj(&base->brightnessFlags_0, 0x400);
     }
     if (self->mode & 0x20) {
         _Z29GetGlobalPtr021075f4_0203cf4cv()->flags &= ~2;

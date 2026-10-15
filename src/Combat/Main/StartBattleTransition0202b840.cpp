@@ -41,7 +41,7 @@ ARM int StartBattleTransition0202b840(int* state, int id) {
     *state = 6;
 
     battleStruct = GameState::GetInstance();
-    *(unsigned long long*)((char*)battleStruct + 0x3f0) = GetCurrentTimestamp();
+    battleStruct->altTimestamp_ = GetCurrentTimestamp();
 
     return 1;
 }

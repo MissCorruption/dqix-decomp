@@ -14,7 +14,6 @@ struct List02160094 {
 };
 extern struct ListNode02160094* GetNodeAtIndex02160094(struct List02160094* list, int index);
 
-
 // USA: func_ov000_021819c8  (semantic: SetIndexIfCombatantValid_021819c8)
 extern "C" ARM int func_ov000_021819c8(struct List02160094* list, int index, int* out, int flag) {
     GameState* battleStruct = GameState::GetInstance();
@@ -29,7 +28,7 @@ extern "C" ARM int func_ov000_021819c8(struct List02160094* list, int index, int
 
         GameObject* combatant = battleStruct->GetGameObjectByIndex(computed);
         if (combatant != NULL) {
-            if (*(short*)((char*)combatant + 0x2) > -1) {
+            if (combatant->obj3D_.unknown_2_ > -1) {
                 *out = computed;
                 return 1;
             }

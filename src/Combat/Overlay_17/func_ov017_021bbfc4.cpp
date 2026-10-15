@@ -242,7 +242,7 @@ extern "C" ARM int func_ov017_021bbfc4(LoadEvent021bbfc4* self) {
             ticket->rotation = player->obj3D_.rotation_.y;
             ticket->positioned = 1;
         }
-        if (GetBitsInField0_0203b4c4((unsigned int*)resources, 0x1000)) ticket->flags |= 9;
+        if (GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000)) ticket->flags |= 9;
         ticket->restart = restart;
         SetFlag0x9c6_020213fc((SetFlagStruct*)resources->unknown_ptr_36d0, 1);
         func_ov017_021bb27c(self);
@@ -261,5 +261,5 @@ extern "C" ARM int func_ov017_021bbfc4(LoadEvent021bbfc4* self) {
     }
     if (self->restart && self->refresh) self->refresh = 0;
     self->restart = 0;
-    return GetBitsInField0_0203b4c4((unsigned int*)resources, 0x1000) ? 13 : 12;
+    return GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000) ? 13 : 12;
 }

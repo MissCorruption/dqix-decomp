@@ -73,10 +73,10 @@ extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
         func_020a0c0c();
     }
 
-    ClearBitsInWord_0203b4b0((unsigned int*)ov, 0x10);
+    ClearBitsInWord_0203b4b0(&ov->brightnessFlags_0, 0x10);
     if (self->field0x38.b.bit0) {
         func_02012fe4();
-        ClearBitsInWord_0203b4b0((unsigned int*)ov, 4);
+        ClearBitsInWord_0203b4b0(&ov->brightnessFlags_0, 4);
         func_ov017_0219bd1c(1, 0, 0, 0);
         self->field0x38.raw &= ~2;
         void* p = GetField0x3f8Address_0200fd0c(battleStruct);
@@ -101,8 +101,8 @@ extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
     }
 
     if (!self->field0x38.b.bit5) {
-        ClearBitsInField4_0203b4e8((unsigned int*)ov, 0x609fe);
-        SetBitsInField4_0203b4d8((unsigned int*)ov, self->field0x40);
+        ClearBitsInField4_0203b4e8(&ov->brightnessFlags_0, 0x609fe);
+        SetBitsInField4_0203b4d8(&ov->brightnessFlags_0, self->field0x40);
     }
 
     Data02107930_021b2758* d = (Data02107930_021b2758*)LightingManager::GetInstance();

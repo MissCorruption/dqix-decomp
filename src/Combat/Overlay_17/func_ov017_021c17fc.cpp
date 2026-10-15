@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021c17fc(Task021c17fc* task) {
     GameResources* res = func_ov017_0218b5b0();
     GameObject* unknown = gs->GetUnknownGameObject();
     CancelPendingAction020397cc((Obj020397cc*)unknown, 1);
-    SetBitsInField4_0203b4d8((unsigned int*)res, 0xc0);
+    SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0xc0);
     unsigned char* flags = (unsigned char*)GetFieldIfFlag4_020100f8((char*)gs);
     SetFlagsAt0x244_020a28a0(flags, 3);
     if (task->step == 0) {
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov017_021c17fc(Task021c17fc* task) {
         if (ready) {
             SetByteField0x253_020397c0(unknown);
             ClearFlagBits_020a28b0(flags, 3);
-            ClearBitsInField4_0203b4e8((unsigned int*)res, 0xc0);
+            ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0xc0);
         } else {
             CancelActionAndInsertNode_021a5530((char*)res);
         }

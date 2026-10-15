@@ -87,7 +87,7 @@ extern "C" ARM void func_0208b0f8(void* receiver) {
     flags = (unsigned char*)resources->unknown_ptr_36d0;
     list = (void**)resources->unknown_ptr_array_36fc[0];
     if (leader == NULL) return;
-    blocked = GetBitsInField4_0203b4fc((unsigned int*)resources, 0x10);
+    blocked = GetBitsInField4_0203b4fc(&resources->brightnessFlags_0, 0x10);
     int ids[4];
     int count;
     __clear(ids, sizeof(ids));

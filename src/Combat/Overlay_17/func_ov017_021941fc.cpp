@@ -460,10 +460,10 @@ dispatched:
             *(Vector3i*)posB = *(Vector3i const*)&data_ov017_021d63fc;
             kind = 0;
         } else if (GetField0x158_02053ed0(actor) == 0) {
-            *(Vector3i*)posA = *(Vector3i const*)((int*)((char*)actor + 0x44));
-            *(Vector3i*)posB = *(Vector3i const*)((int*)((char*)actor + 0x50));
+            *(Vector3i*)posA = *(Vector3i const*)(&actor->obj3D_.position_.x);
+            *(Vector3i*)posB = *(Vector3i const*)(&actor->obj3D_.rotation_.x);
             if (CheckField0xc4Low15BitsNonZero((struct BitField0203402c*)actor) != 0) {
-                posA[1] = posA[1] - fix32_Divide(((Object3D*)actor)->GetHeight(), 0x1800);
+                posA[1] = posA[1] - fix32_Divide(actor->obj3D_.GetHeight(), 0x1800);
             }
             kind = *(unsigned char*)((char*)actor + 0xbe);
             if (GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)list) == 0x26) kind = 0;
@@ -548,7 +548,7 @@ dispatched:
             SetVecYByMode02033834((struct Obj02033834*)c, angle);
             struct Vec3s32_020c3030 current = *(struct Vec3s32_020c3030*)((char*)c + 0x44);
             if (Vector3fix_Distance((const Vector3fix*)&target, (const Vector3fix*)&current) > 0x1000) {
-                *(Vector3i*)((int*)((char*)c + 0x44)) = *(Vector3i const*)((int*)&target);
+                *(Vector3i*)(&c->obj3D_.position_.x) = *(Vector3i const*)((int*)&target);
                 SetVecYFromValue02033874((struct Obj02033874*)c, angle);
             }
         }

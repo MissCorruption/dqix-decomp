@@ -270,7 +270,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         }
         self->alloc138 = 0;
     }
-    if (!GetBitsInField0_0203b4c4((unsigned int*)res, 0x1000) || self->u11a == 0) {
+    if (!GetBitsInField0_0203b4c4(&res->brightnessFlags_0, 0x1000) || self->u11a == 0) {
         int size = self->i90;
         if (size) {
             SafeAllocator* sa = GetAllocator_021bc77c(res, 7);
@@ -324,11 +324,11 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
                 if (GetState0209ca68((char*)data_02109bf4) == 2) {
                     func_0209c530(data_02109bf4);
                 }
-                ClearBitsInField4_0203b4e8((unsigned int*)res, 4);
-                ClearBitsInField4_0203b4e8((unsigned int*)res, 0x10);
-                ClearBitsInField4_0203b4e8((unsigned int*)res, 2);
-                ClearBitsInWord_0203b4b0((unsigned int*)res, 4);
-                ClearBitsInWord_0203b4b0((unsigned int*)res, 0x800);
+                ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 4);
+                ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x10);
+                ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 2);
+                ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 4);
+                ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x800);
             }
         }
     } else {
@@ -354,13 +354,13 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         }
     }
     if (f[2]) {
-        SetBrightness((GameResources*)res, -16, 0);
+        SetBrightness(res, -16, 0);
     } else if (p14[2]) {
         SetStateAndDispatch0209c3b4((Actor0209c3b4*)data_02109bf4, func_0209cd50(*p));
         func_ov017_021bd704(&self->blk);
-        SetMainBrightness((GameResources*)res, 0, 0x28);
+        SetMainBrightness(res, 0, 0x28);
     } else if (r8[2]) {
-        SetBrightness((GameResources*)res, -16, 0);
+        SetBrightness(res, -16, 0);
         *(unsigned short*)(r8 + 0x6c4) = self->u184;
         if (func_0202c540(x34)) {
             self->u14e = *(int*)(func_ov017_021b8478(*(unsigned char**)((unsigned char*)res + kResourceNodeOffset)) + 0xc);
@@ -379,7 +379,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
             SetByteField0x253_020397c0(unk);
             CopyByteField0x253To0x252_02039830(unk);
         }
-        SetMainBrightness((GameResources*)res, 0, 0x28);
+        SetMainBrightness(res, 0, 0x28);
         func_ov017_021bb27c(self);
         self->done = 1;
         return self->fa;
@@ -431,7 +431,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
                 goto checked;
             }
             if (!r) {
-                ClearBitsInWord_0203b4b0((unsigned int*)res3, 0x10);
+                ClearBitsInWord_0203b4b0(&res3->brightnessFlags_0, 0x10);
             }
             ok = r == 0;
         }
@@ -454,7 +454,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         f[7] = 1;
         *(Vector3i*)(f + 0x10) = self->vbc;
         *(short*)(f + 0x1c) = self->sc8;
-        SetBrightness((GameResources*)res, -16, 0);
+        SetBrightness(res, -16, 0);
     } else if (*(int*)((unsigned char*)gs + kGamePositionState) > 0) {
         InitStruct02070378((char*)f);
         f[2] = 1;
@@ -463,7 +463,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         *(Vector3i*)(f + 0x10) = GetPos_021bc77c(gs);
         *(short*)(f + 0x1c) = *(int*)((unsigned char*)gs + kGamePositionY);
         *(int*)((unsigned char*)gs + kGamePositionState) = 0;
-        SetBrightness((GameResources*)res, -16, 0);
+        SetBrightness(res, -16, 0);
         SetFlagBytes02017d68(func_02012fe4());
     } else {
         if (PeekInputLogA_020a1eb0() == 1) {
@@ -477,9 +477,9 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         func_ov017_021bd704(&self->blk);
         SetByteIfDataAndCheckClear_021a01bc((unsigned char*)res);
         if (p10[2]) {
-            SetBrightness((GameResources*)res, -16, 0);
+            SetBrightness(res, -16, 0);
         } else if (!self->b10b) {
-            SetMainBrightness((GameResources*)res, 0, 0x28);
+            SetMainBrightness(res, 0, 0x28);
         }
         SetByteField0x253_020397c0(unk);
         CopyByteField0x253To0x252_02039830(unk);
@@ -491,11 +491,11 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         if (self->f8 == 0x6013) {
             LightingManager* lm = LightingManager::GetInstance();
             int tod = gs->GetTimeOfDay();
-            if (tod != *(int*)((unsigned char*)lm + 0x98)) {
+            if (tod != lm->timeOfDayIndex_) {
                 if (p10[2]) {
                     p10[9] = 1;
                 }
-                SetBrightness((GameResources*)res, -16, 0);
+                SetBrightness(res, -16, 0);
                 InitFieldsFromCombatant_0219bcac(0);
             }
         }

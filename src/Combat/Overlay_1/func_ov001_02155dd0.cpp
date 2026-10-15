@@ -140,18 +140,18 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
 
     ReinitController02043204(globalA);
     func_02043124(globalA);
-    ClearBitsInField4_0203b4e8((unsigned int*)res2, 8);
+    ClearBitsInField4_0203b4e8(&res2->brightnessFlags_0, 8);
     if (IsScaledFieldPositive0203adfc(data_02108760, 0) != 0) {
         ScaleAndNotify0203ad88(data_02109bf4, 0, 0);
     }
-    ClearBitsInField4_0203b4e8((unsigned int*)res2, 0x2000);
+    ClearBitsInField4_0203b4e8(&res2->brightnessFlags_0, 0x2000);
     SetField0x7cClearFields0x1ec0x1ee_0202e874((unsigned char*)hud, 0);
     SetFields0x1f0And0x1f4_0202f0c4(hud, 0xf000, 0);
     SetScaledEffectParam020708c8((EffectParam020708c8*)func_020704fc(), 0);
     loader->MaybeReset();
 
     REG_DISPSTAT_304 &= ~0x8000;
-    if (GetBitsInField0_0203b4c4((unsigned int*)res2, 0x1000) != 0) {
+    if (GetBitsInField0_0203b4c4(&res2->brightnessFlags_0, 0x1000) != 0) {
         ResetAndReinit0209c278(data_02109bf4);
         Dispatch0203a974With0x57000_0209c290(data_02109bf4);
         SetupContextForMode0205ea20(data_02108760, 0x64);

@@ -84,7 +84,7 @@ extern "C" ARM int func_ov001_021561e0(CleanupState021561e0* state) {
             }
         }
     }
-    if (!GetBitsInField0_0203b4c4((unsigned int*)resources, 0x1000) || !state->keepResources) {
+    if (!GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000) || !state->keepResources) {
         SignedAllocatorHeader* buffer = state->allocator.GetSignedAllocator();
         if (buffer) {
             state->allocator.Destroy();

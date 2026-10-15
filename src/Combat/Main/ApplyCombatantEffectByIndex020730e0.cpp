@@ -93,15 +93,15 @@ ARM void ApplyCombatantEffectByIndex020730e0(int id, int index) {
         case 5:
         case 6:
         case 7:
-            subPtr = *(void**)((char*)combatant2 + 8);
+            subPtr = combatant2->obj3D_.pModel_;
             func_02099d34(subPtr, nibble, table->b14.threeBit, 4);
             break;
         case 4:
-            subPtr = *(void**)((char*)combatant2 + 8);
+            subPtr = combatant2->obj3D_.pModel_;
             func_02099d34(subPtr, nibble, table->b14.threeBit, 0x10);
             break;
         case 2:
-            subPtr = *(void**)((char*)combatant2 + 8);
+            subPtr = combatant2->obj3D_.pModel_;
             func_02099e18(subPtr, table->b14.threeBit, table->b15.fourBit, table->b14.highNibble);
             break;
         default:

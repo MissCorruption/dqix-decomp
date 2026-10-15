@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_0218dba0(int combatantId) {
     tag = *(unsigned short*)((char*)misc + RegionOffset38);
     f8c = *(int*)((char*)misc + RegionOffset3c);
 
-    Vector3fix selfVec = ((Object3D*)combatant)->MaybeGetShadowSource();
+    Vector3fix selfVec = combatant->obj3D_.MaybeGetShadowSource();
 
     int mulResult = ((Object3D*)((struct S02037484*)combatant))->GetCombinedAlpha();
     float t = (float)f8c / 31.0f;
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov017_0218dba0(int combatantId) {
         }
     }
 
-    if (((Object3D*)combatant)->GetFlag(0x10) == 0) {
+    if (combatant->obj3D_.GetFlag(0x10) == 0) {
         int c = (int)(0.9f * (float)((Object3D*)((unsigned char*)combatant))->GetRadius());
         volatile int pad8 = 8;
         SyncBattleState0208f87c(&selfVec, tag, c, d);

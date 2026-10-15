@@ -16,7 +16,7 @@ extern "C" ARM int func_ov024_021f65fc(struct Obj_021f65fc* obj, short value, in
     *outCount = 0;
     for (int i = 0; i < count; i++) {
         GameObject* c = GetCombatantWithFlag0x400ByID_ov000_021536f8(obj->field0, buf.v[i]);
-        if (c && *(short*)((char*)c + 2) == 0xb4) {
+        if (c && c->obj3D_.unknown_2_ == 0xb4) {
             (*outCount)++;
         }
     }

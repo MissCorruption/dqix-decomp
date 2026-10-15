@@ -45,7 +45,7 @@ extern "C" ARM int func_ov017_021b3444(struct Obj_021b3444* obj) {
         if (c == 0) {
             continue;
         }
-        short* p2 = (short*)((char*)c + 0x2);
+        short* p2 = &c->obj3D_.unknown_2_;
         if (flag) {
             *p2 = -1;
         }

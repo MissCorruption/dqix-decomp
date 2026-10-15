@@ -54,7 +54,7 @@ extern "C" ARM void func_ov002_0216806c(char *self) {
             if (member == 0) return;
             unsigned char *f = (unsigned char *) GetFieldAt0x150_02053c6c((unsigned char *) member);
             if (f[0x56a] != *(short *) (self + 0x1c06) && *(short *) (f + 0x488) < 0) {
-                *(short *) ((char *) member + 2) = -1;
+                member->obj3D_.unknown_2_ = -1;
                 func_ov017_0218f5a4(func_ov017_0218b5b0(), id, 0, 0, 0);
             }
             f[0x56a] = *(short *) (self + 0x1c06);

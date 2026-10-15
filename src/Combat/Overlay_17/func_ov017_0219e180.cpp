@@ -35,7 +35,7 @@ extern "C" ARM void func_ov017_0219e180(void* param, int id) {
         if (monster == NULL) {
             continue;
         }
-        GameObject* found = FindCombatantByField2_021a2738(param, *(short*)((char*)monster + 2));
+        GameObject* found = FindCombatantByField2_021a2738(param, monster->obj3D_.unknown_2_);
         if (found == NULL) {
             continue;
         }

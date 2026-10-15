@@ -21,7 +21,7 @@ extern "C" ARM int func_0208f748(unsigned char* obj) {
     func_0202ae18();
     GrottoStruct* grotto = battle->GetGrottoStruct();
     Vec3Local_0208f748 tmp1;
-    *(Vector3i*)((int*)&tmp1) = *(Vector3i const*)((int*)((char*)grotto + 0x10));
+    *(Vector3i*)((int*)&tmp1) = *(Vector3i const*)(&grotto->entranceX);
     Vec3Local_0208f748 tmp0 = *(Vec3Local_0208f748*)&data_020e8d48;
     *(Vector3i*)((int*)(obj + 0x4c)) = *(Vector3i const*)((int*)&tmp1);
     ((Object3D*)(obj + 8))->SetScale((Vector3i const*)&tmp0);

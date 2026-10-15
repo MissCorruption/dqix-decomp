@@ -618,8 +618,8 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
             if (GetByte0x4_0200fb9c((char*)gs) != 5) {
                 func_0208ea10(GetData02109020_0208e9e8(), 1);
             }
-            *(unsigned long long*)((char*)gs + 0x3e8) = GetCurrentTimestamp();
-            *(unsigned long long*)((char*)gs + 0x3f0) = GetCurrentTimestamp();
+            gs->mainTimestamp_ = GetCurrentTimestamp();
+            gs->altTimestamp_ = GetCurrentTimestamp();
         }
 
         if (loaded != 0) {
@@ -853,7 +853,7 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
             GameObject* obj = gs->GetUnknownGameObject();
             if (obj != 0) {
                 *(Vector3i*)request->pos = *(Vector3i const*)((char*)obj + 0x44);
-                request->dir = *(int*)((char*)obj + 0x54);
+                request->dir = obj->obj3D_.rotation_.y;
             }
             if (IsHalfword0x63d8Set_020115d0((FieldBlock63d8_115d0*)gs) != 0) {
                 request->value20 = GetHalfword0x63d8_020115e8(gs);
@@ -906,7 +906,7 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
         NoOp_0219a188(self);
         NoOp_021a63cc(self);
         if (data_ov017_021d82e0.paused == 0) {
-            int speed = *(int*)((char*)gs + 0x3c8);
+            int speed = gs->currentNumTicks_;
             for (int f = 1; f < 2 - speed; f++) {
                 DelayThenSyncBit0_020c9820();
             }

@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-
 // USA: func_ov017_02190818
 ARM int IsCombatantField2InMonsterRange_02190818(int id) {
 	GameState* bs = GameState::GetInstance();
@@ -12,7 +11,7 @@ ARM int IsCombatantField2InMonsterRange_02190818(int id) {
 	if (c == NULL)
 		goto zero;
 	{
-	short v = *(short*)((char*)c + 2);
+	short v = c->obj3D_.unknown_2_;
 	if (v != 0x2347) {
 		if (v != 0x2348) {
 			if (v != 0x2349) {

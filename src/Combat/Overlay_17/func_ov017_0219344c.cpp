@@ -120,7 +120,7 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
     hidden = self->GetFlags() & 0x4000000;
     self->DisableFlag(0x4000000);
     enable = 1;
-    if (GetBitsInField0_0203b4c4((unsigned int*)res, 0x400) != 0 && TestFlagMask_02012430(&data_02114e30, 1) != 0) {
+    if (GetBitsInField0_0203b4c4(&res->brightnessFlags_0, 0x400) != 0 && TestFlagMask_02012430(&data_02114e30, 1) != 0) {
         enable = 0;
     }
     if ((self->unknown_0_ & 0x100) && (self->field18c & 1)) {

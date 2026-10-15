@@ -41,10 +41,10 @@ extern "C" ARM void func_ov017_0218f80c(void* obj, int idx) {
         if (combatant == NULL) {
             continue;
         }
-        if (*(short*)((char*)combatant + 0x2) <= -1) {
+        if (combatant->obj3D_.unknown_2_ <= -1) {
             continue;
         }
-        void* ptr = *(void**)((char*)combatant + 0x8);
+        void* ptr = combatant->obj3D_.pModel_;
         if (ptr == NULL) {
             continue;
         }

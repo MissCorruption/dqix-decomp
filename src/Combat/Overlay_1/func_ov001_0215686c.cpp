@@ -82,7 +82,7 @@ extern "C" ARM void func_ov001_0215686c(void) {
     func_0202ae18();
 
     if (!(o->f50 & 0x20)) {
-        if (GetBitsInField0_0203b4c4((unsigned int*)res, 0x1000) == 0) {
+        if (GetBitsInField0_0203b4c4(&res->brightnessFlags_0, 0x1000) == 0) {
             goto cont;
         }
     }

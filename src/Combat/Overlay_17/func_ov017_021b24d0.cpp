@@ -97,7 +97,7 @@ extern "C" ARM int func_ov017_021b24d0(Task021b24d0* task) {
 #endif
     func_ov011_02184694(data_ov017_021d83f0.scene);
     if (!task->keepField4Bits) {
-        SetBitsInField4_0203b4d8((unsigned int*)res, 0x609fe);
+        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x609fe);
     }
     Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
     return 2;

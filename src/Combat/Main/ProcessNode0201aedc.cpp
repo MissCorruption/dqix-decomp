@@ -33,7 +33,7 @@ ARM void ProcessNode0201aedc(Zone3D* p) {
             if (r6 != 0 && r6->rawInternalModel_ != 0) {
                 void* obj = LightingManager::GetInstance();
                 NSBXXInternalModel* arg1 = r6->rawInternalModel_;
-                ((LightingManager*)((Obj02052338*)obj))->ApplyAmbientColorToModel((NSBXXInternalModel*)(arg1));
+                ((LightingManager*)((Obj02052338*)obj))->ApplyAmbientColorToModel(arg1);
                 ClearGlobalFlagBits02016d8c(buf + 0x48);
                 RenderConfig::SetObjectPosition((Vector3i*)(buf + 0x6c));
                 RenderConfig::SubmitToFifo();
@@ -52,7 +52,7 @@ ARM void ProcessNode0201aedc(Zone3D* p) {
     if (r5v != 0 && r5v->rawInternalModel_ != 0) {
         void* obj2 = LightingManager::GetInstance();
         NSBXXInternalModel* arg1b = r5v->rawInternalModel_;
-        ((LightingManager*)((Obj02052338*)obj2))->ApplyAmbientColorToModel((NSBXXInternalModel*)(arg1b));
+        ((LightingManager*)((Obj02052338*)obj2))->ApplyAmbientColorToModel(arg1b);
         ClearGlobalFlagBits02016d8c(buf + 0x14);
         RenderConfig::SetObjectPosition((Vector3i*)(buf + 0x38));
         RenderConfig::SubmitToFifo();

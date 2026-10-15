@@ -13,6 +13,6 @@ ARM void* FindEntryForCombatant02153758(void* obj, int idx) {
     GameObject* combatant = GetCombatantChecked_0200ff94(battleStruct, idx);
     if (combatant == 0) return 0;
     int base = *(int*)((char*)obj + 0x8000 + 0xe18);
-    short key = *(short*)((char*)combatant + 0x2);
+    short key = combatant->obj3D_.unknown_2_;
     return SearchWithComparator0206f4f0((struct BinarySearchByComparatorStruct*)((char*)base + 0x678), key);
 }

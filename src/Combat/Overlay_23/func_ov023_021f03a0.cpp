@@ -156,7 +156,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleWork* work) {
         func_ov000_021626a0(work, 4, 0);
         ApplyField41ToGatheredCombatants02163a7c((GatherObj02163a7c*)work);
         func_ov000_021639b4(work);
-        ClearBitsInField4_0203b4e8((unsigned int*)resources, 0x400);
+        ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x400);
         RunFlagPassAndSetMode02167dd8_02167dd8((unsigned char*)work);
         void* battle = work->battle;
         int count;

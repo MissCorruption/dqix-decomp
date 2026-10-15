@@ -113,7 +113,7 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
             if (self->flags & 0x40) {
                 GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, GetField0x3acValue_020100a8(gs));
                 if (c != 0) {
-                    Vector3i *v = (Vector3i *) ((char *) c + 0x44);
+                    Vector3i *v = &c->obj3D_.position_;
                     v->x        = 0x5800;
                     v->y        = 0x199;
                     v->z        = -0x785;
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
             for (int i = 0; i < 4; i++) {
                 GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, (gp + i)[0xf78]);
                 if (c != 0) {
-                    saved[i] = *(Vector3i *) ((char *) c + 0x44);
+                    saved[i] = c->obj3D_.position_;
                     c->obj3D_.MakeVisible();
                 }
             }
@@ -158,7 +158,7 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
                 GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, i);
                 if (c != 0) {
                     c->obj3D_.MakeVisible();
-                    *(Vector3i *) ((char *) c + 0x44) = tmp;
+                    c->obj3D_.position_ = tmp;
                 }
             }
         }

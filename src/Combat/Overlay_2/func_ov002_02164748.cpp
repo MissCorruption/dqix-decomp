@@ -137,14 +137,14 @@ extern "C" ARM void func_ov002_02164748(char *base) {
                         (struct Slots02083994 *) GetFieldAt0x150_02053c6c((unsigned char *) b), 0x570a);
                     if (cnt == 0 || (cnt == 1 && same)) {
                         *(unsigned char *) (*(char **) ((char *) b + 0x130) + 8) = 0;
-                        func_ov017_021c9e00(*(short *) ((char *) b + 4), 0, 0, 1);
+                        func_ov017_021c9e00(b->obj3D_.unknown_4_, 0, 0, 1);
                     }
                 }
                 if (*(short *) (base + 0x1c00 + 0x24) == 0x570a) {
                     short cnt = CountMatchingUntilNegative02083994((struct Slots02083994 *) fa, 0x570a);
                     if (cnt == 0 || (cnt == 1 && same)) {
                         *(unsigned char *) (*(char **) ((char *) a + 0x130) + 8) = 0;
-                        func_ov017_021c9e00(*(short *) ((char *) a + 4), 0, 0, 1);
+                        func_ov017_021c9e00(a->obj3D_.unknown_4_, 0, 0, 1);
                     }
                 }
             }

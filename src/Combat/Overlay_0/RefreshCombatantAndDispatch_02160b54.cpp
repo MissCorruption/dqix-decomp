@@ -32,12 +32,12 @@ extern "C" ARM void func_ov000_02160b54(unsigned char* obj) {
         GameObject* c2 = battle->GetGameObjectByIndex(0xc8);
         if (c2 != 0) {
             if (c1 != 0) {
-                *(Vector3i*)((int*)((char*)c2 + 0x44)) = *(Vector3i const*)((int*)((char*)c1 + 0x44));
-                *(Vector3i*)((int*)((char*)c2 + 0x50)) = *(Vector3i const*)((int*)((char*)c1 + 0x50));
-                const Vector3fix& tmp = ((Object3D*)c1)->GetScale();
+                *(Vector3i*)(&c2->obj3D_.position_.x) = *(Vector3i const*)(&c1->obj3D_.position_.x);
+                *(Vector3i*)(&c2->obj3D_.rotation_.x) = *(Vector3i const*)(&c1->obj3D_.rotation_.x);
+                const Vector3fix& tmp = c1->obj3D_.GetScale();
                 ((Object3D*)((unsigned char*)c2))->SetScale(&tmp);
             }
-            ((Object3D*)c2)->Draw(0);
+            c2->obj3D_.Draw(0);
         }
     }
     RenderConfig::SubmitToFifo();

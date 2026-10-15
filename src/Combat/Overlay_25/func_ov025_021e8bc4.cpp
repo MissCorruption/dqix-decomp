@@ -41,10 +41,10 @@ extern "C" ARM void func_ov025_021e8bc4(struct Obj021e8bc4* obj, int priority) {
                 char* name = *(char**)((char*)combatant + 0x14);
                 char buf[0x28];
                 if (name) strcpy(buf, name);
-                unsigned char b = *(unsigned char*)((char*)combatant + 0x19);
-                unsigned int saved = *(unsigned int*)((char*)combatant + 0x1c);
+                unsigned char b = combatant->obj3D_.animationFlags_;
+                unsigned int saved = combatant->obj3D_.animationTime_;
                 ((Object3D*)((struct Container02037364*)combatant))->RemoveAnimationPackageByID(node->id4);
-                ((Object3D*)combatant)->MaybeSetRegularAnimation((char const*)buf, b);
+                combatant->obj3D_.MaybeSetRegularAnimation((char const*)buf, b);
                 ((Object3D*)((struct S1a0*)combatant))->SetCurrentAnimationTime(saved);
             }
             break;

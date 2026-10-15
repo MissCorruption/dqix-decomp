@@ -28,7 +28,7 @@ extern "C" ARM int func_ov024_021f6500(struct Obj_6500* obj, int a1, int a2, int
 	for (int i = 0; i < count; i++) {
 		GameObject* c = GetCombatantWithFlag0x400ByID_ov000_021536f8(obj->field0, buf[i]);
 		if (!c) continue;
-		if (*(short*)((char*)c + 2) != 0x13a) continue;
+		if (c->obj3D_.unknown_2_ != 0x13a) continue;
 		if (*(short*)((char*)c->currentStats_ + 0x2c) > 0) continue;
 		outArray[*outCount] = buf[i];
 		*outCount = *outCount + 1;

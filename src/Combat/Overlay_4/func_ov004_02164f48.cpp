@@ -5,7 +5,6 @@
 #include "System/Timing.h"
 #include "std_library_functions.h"
 
-
 struct Info02011930 {
     unsigned char b0;
     unsigned char b1;
@@ -61,12 +60,12 @@ extern "C" ARM int func_ov004_02164f48(void* a1) {
         if (name1buf[0] != 0) {
             VectorizedInvertedMemcpy(name1buf, (char*)meta + 1, 0xa);
         } else {
-            *((char*)meta + 1) = 0;
+            meta->DiscoveredBy[0] = 0;
         }
         if (name2buf[0] != 0) {
             VectorizedInvertedMemcpy(name2buf, (char*)meta + 0xb, 0xa);
         } else {
-            *((char*)meta + 0xb) = 0;
+            meta->ClearedBy[0] = 0;
         }
 
 #if defined(jpn)

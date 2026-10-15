@@ -52,7 +52,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
             SetField0x23cTrue_020a27ac((void*)flag);
         }
         if (res2 != NULL) {
-            ClearBitsInField4_0203b4e8((unsigned int*)res2, 0x80);
+            ClearBitsInField4_0203b4e8(&res2->brightnessFlags_0, 0x80);
         }
         self->countdown = 0;
         self->timer = 0;
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
             SetField0x23cTrue_020a27ac((void*)flag);
         }
         if (res != NULL) {
-            ClearBitsInField4_0203b4e8((unsigned int*)res, 0x80);
+            ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x80);
         }
     }
 

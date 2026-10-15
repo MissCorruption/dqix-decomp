@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_02196e58(struct Work02196e58* work) {
     ActiveGrottoClass* grotto = NULL;
     if (zone != NULL) {
 #if defined(jpn)
-        grotto = (ActiveGrottoClass*)((char*)zone + 0x240c);
+        grotto = &zone->grotto_;
 #else
         grotto = &zone->grotto_;
 #endif

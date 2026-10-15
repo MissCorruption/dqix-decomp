@@ -46,8 +46,8 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short destinationZone, int whol
         if (!wholeParty) id = memberId;
         GameObject* member = (GameObject*)state->GetPartyMemberByIndex(id);
         if (member && (**(unsigned int**)((char*)member + 0x130) & 1)) {
-            if (fullRecovery) func_02048150((GameObject*)member, 1, 1);
-            else func_02048150((GameObject*)member, 0, 1);
+            if (fullRecovery) func_02048150(member, 1, 1);
+            else func_02048150(member, 0, 1);
             (*(unsigned int*)((char*)member + ActorFlagsOffset)) &= ~1;
             SetByte0xbeShiftPrev((Bytes02033b88*)member, 0);
             if (wholeParty) {
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short destinationZone, int whol
             GameObject* object = state->GetGameObjectByIndex(id * 12 + 20);
             if (object && (object->obj3D_.unknown_2_ == 9031 || object->obj3D_.unknown_2_ == 9032 || object->obj3D_.unknown_2_ == 9033)) {
                 if (**(unsigned int**)((char*)member + 0x130) & 1) {
-                    func_02048150((GameObject*)member, 0, 1);
+                    func_02048150(member, 0, 1);
                     (*(unsigned int*)((char*)member + ActorFlagsOffset)) &= ~1;
                     SetByte0xbeShiftPrev((Bytes02033b88*)member, 0);
                     func_ov017_021cedf4(id, 1, 0);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short destinationZone, int whol
         if (allRevived && wholeParty) {
             GameObject* protagonist = (GameObject*)state->GetProtagonist();
             if (protagonist && (**(unsigned int**)((char*)protagonist + 0x130) & 1)) {
-                func_02048150((GameObject*)protagonist, 0, 1);
+                func_02048150(protagonist, 0, 1);
                 (*(unsigned int*)((char*)protagonist + ActorFlagsOffset)) &= ~1;
                 SetByte0xbeShiftPrev((Bytes02033b88*)protagonist, 0);
                 func_ov017_021cedf4(0, 1, 0);

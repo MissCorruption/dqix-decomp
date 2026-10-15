@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_021b2ce8(Task_021b2ce8* self) {
 #endif
     GameState* gs = GameState::GetInstance();
     GameResources* res = GetWord0x0_0200fb8c((int*)gs);
-    SetBitsInField4_0203b4d8((unsigned int*)res, 0xc0);
+    SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0xc0);
     GameObject* leader = gs->GetUnknownGameObject();
     CancelPendingAction020397cc((Obj020397cc*)leader, 1);
     unsigned char* camera = (unsigned char*)GetFieldIfFlag4_020100f8((char*)gs);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov017_021b2ce8(Task_021b2ce8* self) {
         PushInputLogB_020a1ef0(1);
         func_ov003_02174114(data_ov017_021d840c);
         func_ov003_02173f70(data_ov017_021d840c, &self->allocator);
-        SetBitsInWord_0203b4a0((unsigned int*)res, 0x6000);
+        SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 0x6000);
         self->state++;
     } else if (self->state == 1) {
         if (func_ov003_021745fc(data_ov017_021d840c)) {
@@ -100,13 +100,13 @@ extern "C" ARM void func_ov017_021b2ce8(Task_021b2ce8* self) {
             self->state++;
         }
     } else {
-        ClearBitsInField4_0203b4e8((unsigned int*)res, 0xc0);
+        ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0xc0);
         DISPCNT = (data_ov017_021d840c->bgMode << 8) | (DISPCNT & ~0x1f00);
         ClearFlagBits_020a28b0(camera, 3);
         func_ov017_021b2c88((Obj021b2c88*)self);
         func_020a0c0c();
         self->done = 1;
-        ClearBitsInWord_0203b4b0((unsigned int*)res, 0x6000);
+        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x6000);
         SetByteField0x253_020397c0(leader);
     }
 }

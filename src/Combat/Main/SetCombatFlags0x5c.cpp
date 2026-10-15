@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-
 struct Struct0203cedc {
     char pad0[0xc];
     int fieldC;
@@ -19,11 +18,11 @@ ARM void SetCombatFlags0x5c(struct Struct0203cedc* obj, int b, int c) {
     battleStruct = GameState::GetInstance();
     combatant = battleStruct->GetUnknownGameObject();
 
-    if (*(int*)((char*)combatant + 0x4c) >= obj->fieldC) {
+    if (combatant->obj3D_.position_.z >= obj->fieldC) {
         return;
     }
 
-    obj->field98 = *(int*)((char*)combatant + 0x44);
+    obj->field98 = combatant->obj3D_.position_.x;
     obj->flags5c &= ~0x20;
     obj->flags5c &= ~0x10;
 

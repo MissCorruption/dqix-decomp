@@ -49,7 +49,7 @@ extern "C" ARM void func_0202c288(struct SearchStruct* obj) {
         if (cur > 1) {
             if (saved == 1) {
                 GameState* bs = GameState::GetInstance();
-                *(unsigned long long*)((char*)bs + 0x3f0) = GetCurrentTimestamp();
+                bs->altTimestamp_ = GetCurrentTimestamp();
             }
         }
     }

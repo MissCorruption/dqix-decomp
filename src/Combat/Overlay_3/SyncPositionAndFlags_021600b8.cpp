@@ -21,7 +21,7 @@ extern "C" ARM void func_ov003_021600b8(Struct31c_021600b8* obj) {
     int val = GetField0x3acValue_020100a8(battleStruct);
     GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(battleStruct, val);
     if (combatant == 0) return;
-    *(Vector3i*)((int*)((char*)obj->field320 + 0x44)) = *(Vector3i const*)((int*)((char*)combatant + 0x44));
+    *(Vector3i*)((int*)((char*)obj->field320 + 0x44)) = *(Vector3i const*)(&combatant->obj3D_.position_.x);
     *(int*)0x4000444 = 0;
     func_02032fdc(obj->field320, 0, 0);
     *(int*)0x4000448 = 1;

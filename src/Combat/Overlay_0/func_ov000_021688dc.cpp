@@ -218,7 +218,7 @@ struct Slot70 { char data[0x70]; };
 static inline SafeAllocator* GetAllocator38(GameResources* res, int i) { return &res->allocator_array_38[i]; }
 static inline Slot70* GetSlot2cc(GameResources* res, int i) { return &((Slot70*)res->unknown_2cc)[i]; }
 
-static inline short GetObjectId(GameObject* c) { return *(short*)((char*)c + 4); }
+static inline short GetObjectId(GameObject* c) { return c->obj3D_.unknown_4_; }
 
 static inline int IsFlag130Bit0(GameObject* c) {
     return (**(int**)((char*)c + 0x130) & 1) != 0;
@@ -319,19 +319,19 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
         *((unsigned char*)c397c + 0xc3) = 0xf;
     }
 
-    short leadId = *(short*)((char*)prot + 4);
+    short leadId = prot->obj3D_.unknown_4_;
     if (ArrayContainsByte_02086ef0(arrStruct, 0)) {
         for (int idx = 0; idx < arrStruct->count; idx++) {
             GameObject* c = battle->GetPartyMemberByIndex(arrStruct->arr[idx]);
             if (c != NULL && !IsFlag10088Set_02010088((struct S_10088*)c)) {
                 if (!IsFlag130Bit0(c)) {
-                    leadId = *(short*)((char*)c + 4);
+                    leadId = c->obj3D_.unknown_4_;
                     break;
                 }
             }
         }
     } else {
-        leadId = *(short*)((char*)c397c + 4);
+        leadId = c397c->obj3D_.unknown_4_;
     }
 
     for (int i = 0; i < 4; i++) {
@@ -350,16 +350,16 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
                 }
 
                 if (ArrayContainsByte_02086ef0(arrStruct, GetObjectId(c))) {
-                    if (leadId != *(short*)((char*)c + 4)) {
+                    if (leadId != c->obj3D_.unknown_4_) {
                         SetFlag0x1ceBit0x4_02039d48((unsigned char*)c);
                     }
                     if (GetCombatWorkFlags0x55f4_ov000_02160fd4(work, 1)) {
-                        *(Vector3i*)((char*)c + 0x44) = *(Vector3i*)(work + kWorkPositions + leadId * 16);
+                        c->obj3D_.position_ = *(Vector3i*)(work + kWorkPositions + leadId * 16);
                         SetVecYFromValue02033874((struct Obj02033874*)c, *(short*)(work + leadId * 16 + kWorkHeightBase + kWorkHeightOffset));
                     }
                 } else {
                     if (GetCombatWorkFlags0x55f4_ov000_02160fd4(work, 1)) {
-                        *(Vector3i*)((char*)c + 0x44) = *(Vector3i*)(work + kWorkPositions + i * 16);
+                        c->obj3D_.position_ = *(Vector3i*)(work + kWorkPositions + i * 16);
                         SetVecYFromValue02033874((struct Obj02033874*)c, *(short*)(work + i * 16 + kWorkHeightBase + kWorkHeightOffset));
                     }
                     if (*(unsigned short*)((char*)c + kCombatantHeightFlag) != 0) {
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
                     }
                 }
 
-                *(unsigned short*)((char*)c + 0x9c) = 0;
+                c->obj3D_.unknown_9c_ = 0;
                 c->obj3D_.SetField9e(0);
                 CallHelperIfCheckPasses_0218fcf8(ovBase, i, 0);
                 ClearBytesAndZeroBlock02039d24((unsigned char*)c);
@@ -589,8 +589,8 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
         unsigned short* p = func_02012fe4();
         GameObject* pr = battle->GetProtagonist();
         *(int*)((char*)battle + kBattleSelection) = *p;
-        int v54 = *(int*)((char*)pr + 0x54);
-        Vector3i pos = *(Vector3i*)((char*)pr + 0x44);
+        int v54 = pr->obj3D_.rotation_.y;
+        Vector3i pos = pr->obj3D_.position_;
         *(Vector3i*)((char*)battle + kBattlePosition) = pos;
         *(int*)((char*)battle + kBattleRotation) = v54;
         AppendNodeToTail((struct TailList020469b4*)p1c, (struct TailNode020469b4*)p18);

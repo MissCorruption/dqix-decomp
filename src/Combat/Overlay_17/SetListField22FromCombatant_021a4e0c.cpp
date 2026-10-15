@@ -14,7 +14,7 @@ ARM void SetListField22FromCombatant_021a4e0c(GameResources* arg0) {
     GameObject* member = GameState::GetInstance()->GetUnknownGameObject();
     if (member == NULL) return;
     short index = member->obj3D_.unknown_4_;
-    GameResources* resources = (GameResources*)resourceStorage;
+    GameResources* resources = arg0;
     PartySelectionState* selection = (PartySelectionState*)resources->unknown_ptr_array_371c[0];
     selection->selectedPartyIndex = index;
     func_ov017_021c12fc(resourceStorage, 1, 1);

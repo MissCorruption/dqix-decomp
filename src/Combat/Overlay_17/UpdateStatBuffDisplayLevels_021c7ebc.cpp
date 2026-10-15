@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021c7ebc(int unused0, Src021c7ebc* src, GameState
 	StatLevelsHigh_021c7ebc* high = (StatLevelsHigh_021c7ebc*)&src->v2;
 	if (src->selector == 1) {
 #if defined(jpn)
-		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)(*(void**)((unsigned char*)c + 0x138)) + 0x70);
+		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)(c->currentStats_) + 0x70);
 #else
 		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)c->currentStats_ + 0x70);
 #endif
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov017_021c7ebc(int unused0, Src021c7ebc* src, GameState
 		out->levels[14] = high->s4;
 	} else {
 #if defined(jpn)
-		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)(*(void**)((unsigned char*)c + 0x138)) + 0x93);
+		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)(c->currentStats_) + 0x93);
 #else
 		StatDisplay_021c7ebc* out = (StatDisplay_021c7ebc*)((unsigned char*)c->currentStats_ + 0x93);
 #endif

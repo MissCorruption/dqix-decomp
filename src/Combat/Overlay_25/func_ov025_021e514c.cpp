@@ -129,7 +129,7 @@ extern "C" ARM int func_ov025_021e514c(struct Self021e514c* self, struct List021
         for (i = 0, idp = ids; i < count; i++, idp++) {
             GameObject* t = bs->GetGameObjectByIndex(*idp);
             if (t) {
-                *(Vector3i*)((int*)((char*)t + 0x44)) = *(Vector3i const*)((int*)&off);
+                *(Vector3i*)(&t->obj3D_.position_.x) = *(Vector3i const*)((int*)&off);
                 if (((Obj021e514c*)t)->flags & 2) {
                     SetVecYFromValue02033874((struct Obj02033874*)t, angle);
                 } else {
@@ -144,7 +144,7 @@ extern "C" ARM int func_ov025_021e514c(struct Self021e514c* self, struct List021
         DispatchByIndex021820bc(p3, (int)p1, self->idxB, (int)out);
         GameObject* obj = bs->GetGameObjectByIndex(out[0]);
         if (obj) {
-            *(Vector3i*)((int*)&result) = *(Vector3i const*)((int*)((char*)obj + 0x44));
+            *(Vector3i*)((int*)&result) = *(Vector3i const*)(&obj->obj3D_.position_.x);
             yaw = ((Obj021e514c*)obj)->rotation.y;
         }
         break;
@@ -152,7 +152,7 @@ extern "C" ARM int func_ov025_021e514c(struct Self021e514c* self, struct List021
     case 10: {
         GameObject* obj = bs->GetGameObjectByIndex(nodeA->field20);
         if (obj) {
-            *(Vector3i*)((int*)&result) = *(Vector3i const*)((int*)((char*)obj + 0x44));
+            *(Vector3i*)((int*)&result) = *(Vector3i const*)(&obj->obj3D_.position_.x);
             result.y = result.y + (obj->obj3D_.GetHeight() >> 1);
             yaw = ((Obj021e514c*)obj)->rotation.y;
         }
@@ -208,7 +208,7 @@ extern "C" ARM int func_ov025_021e514c(struct Self021e514c* self, struct List021
     for (i = 0, idp = ids; i < count; i++, idp++) {
         GameObject* t = bs->GetGameObjectByIndex(*idp);
         if (t) {
-            *(Vector3i*)((int*)((char*)t + 0x44)) = *(Vector3i const*)((int*)&result);
+            *(Vector3i*)(&t->obj3D_.position_.x) = *(Vector3i const*)((int*)&result);
             if (((Obj021e514c*)t)->flags & 2) {
                 SetVecYFromValue02033874((struct Obj02033874*)t, yaw);
             } else {

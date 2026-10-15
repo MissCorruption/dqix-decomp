@@ -133,9 +133,9 @@ extern "C" ARM int func_ov017_021afe00(Step021afe00* self) {
                 clear = 0x7fff;
             }
             Set3DClearColor_020c5588(clear, 0x1f, 0x7fff, 0, 0);
-            self->field4Bits = GetField4_0203b4d0((unsigned int*)res);
-            ClearBitsInField4_0203b4e8((unsigned int*)res, 0xffffffff);
-            SetBitsInField4_0203b4d8((unsigned int*)res, 0x8de);
+            self->field4Bits = GetField4_0203b4d0(&res->brightnessFlags_0);
+            ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0xffffffff);
+            SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x8de);
             SetMainBrightness(res, 0, 2);
         }
         for (int i = 0; i < 4; i++) {
@@ -193,7 +193,7 @@ extern "C" ARM int func_ov017_021afe00(Step021afe00* self) {
         for (int i = 0; i < 4; i++) {
             GameObject* o = gs->GetGameObjectByIndex(i);
             if (o != 0) {
-                if ((*(unsigned short*)o & 0x200) != 0) {
+                if ((o->obj3D_.unknown_0_ & 0x200) != 0) {
                     self->slots[i] = 1;
                 } else {
                     self->slots[i] = 2;

@@ -16,7 +16,7 @@ ARM void SetFlagAndSyncVec3_021bd3d4(void* self, int index) {
 	base[regionalOffset1] &= ~mask;
 	GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(index);
 	if (combatant) {
-		*(Vector3i*)((int*)(base + regionalOffset2 + index * 0xc)) = *(Vector3i const*)((int*)((char*)combatant + 0x44));
-		*(int*)(base + regionalOffset3 + index * 4) = *(int*)((char*)combatant + 0x54);
+		*(Vector3i*)((int*)(base + regionalOffset2 + index * 0xc)) = *(Vector3i const*)(&combatant->obj3D_.position_.x);
+		*(int*)(base + regionalOffset3 + index * 4) = combatant->obj3D_.rotation_.y;
 	}
 }

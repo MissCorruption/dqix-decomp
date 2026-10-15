@@ -31,7 +31,7 @@ ARM int AllocateAndRegisterCombatant_0215ba64(char* self, int type) {
 	if (newObj == NULL) return 0;
 
 	((Object3D*)newObj)->Initialize();
-	((Object3D*)combatant)->ShallowCloneTo((Object3D*)newObj);
+	combatant->obj3D_.ShallowCloneTo((Object3D*)newObj);
 	RegisterCombatantSlot_0200fd38(bs, id2, (GameObject*)newObj);
 	((Object3D*)((struct Shorts5c_374e0*)newObj))->SetScale(0x10a, 0x10a, 0x10a);
 	((Object3D*)newObj)->MaybeSetBCFGAnimation(0, 0);

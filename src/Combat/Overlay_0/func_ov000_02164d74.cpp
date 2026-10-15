@@ -124,7 +124,7 @@ extern "C" ARM void func_ov000_02164d74(struct Battle02164d74* battle) {
     func_ov000_021675a0(battle);
     func_ov000_021676a8(battle);
     _Z34SetupCombatantAllocations_021901acv(ov);
-    ClearBitsInField4_0203b4e8((unsigned int*)ov, 4);
+    ClearBitsInField4_0203b4e8(&ov->brightnessFlags_0, 4);
     if (battle->info->field2c != 0) {
         unsigned char mask = battle->field77d4;
         for (i = 0; i < 8; i++) {

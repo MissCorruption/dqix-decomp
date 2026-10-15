@@ -11,7 +11,7 @@ extern "C" ARM int func_ov025_021e6910(void* unused, struct Param2_021e6910* p2)
     GameObject* c = bs->GetGameObjectByIndex(0xc8);
     if (!c) return 1;
     ((Object3D*)((unsigned char*)c))->MakeVisible();
-    ((Object3D*)c)->MaybeSetRegularAnimation((char const*)&data_ov025_021ef82b, 1);
+    c->obj3D_.MaybeSetRegularAnimation((char const*)&data_ov025_021ef82b, 1);
     unsigned short idx = *(unsigned short*)(p2->node + 0x20);
     GameObject* c2 = bs->GetGameObjectByIndex(idx * 0xc + 0x1c);
     if (c2) {

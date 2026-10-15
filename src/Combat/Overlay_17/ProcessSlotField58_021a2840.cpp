@@ -18,7 +18,7 @@ ARM void ProcessSlotField58_021a2840(GameResources*) {
             continue;
         }
 
-        void* ptr = *(void**)((char*)combatant + 0x8);
+        void* ptr = combatant->obj3D_.pModel_;
         if (ptr == NULL) {
             continue;
         }

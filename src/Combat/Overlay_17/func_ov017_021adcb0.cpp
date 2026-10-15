@@ -154,7 +154,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
             SetField0x238False_020a27a0(camera);
         }
         if (res) {
-            SetBitsInField4_0203b4d8((unsigned int*)res, 0x80);
+            SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x80);
         }
         *(unsigned short*)((char*)member + 0xb2) = 0;
         SetVecYByMode02033834((Obj02033834*)member, self->mode);
@@ -249,20 +249,20 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
             self->state = 1;
         }
     } else if (self->state == 1) {
-        if (*(int*)((char*)member + 0x24) >= 0x666) {
+        if (member->obj3D_.normalizedAnimationTime_ >= 0x666) {
             Element021adcb0* elem = (Element021adcb0*)GetElementStride0x24_020177a8(save, self->slot);
             if (elem) {
                 if (elem->kind == 2 || elem->kind == 1) {
-                    UpdateActivationState_02015a98((UpdateStateStruct*)elem, *(short*)((char*)member + 4), 1, 1);
+                    UpdateActivationState_02015a98((UpdateStateStruct*)elem, member->obj3D_.unknown_4_, 1, 1);
                 } else {
-                    UpdateActivationState_02015a98((UpdateStateStruct*)elem, *(short*)((char*)member + 4), 1, 0);
+                    UpdateActivationState_02015a98((UpdateStateStruct*)elem, member->obj3D_.unknown_4_, 1, 0);
                 }
             }
-            EnqueueEventTag164_021cfd5c(*(short*)((char*)member + 4), *(unsigned short*)save, self->slot);
+            EnqueueEventTag164_021cfd5c(member->obj3D_.unknown_4_, *(unsigned short*)save, self->slot);
             self->state = 2;
         }
     } else if (self->state == 2) {
-        if (*(int*)((char*)member + 0x24) >= 0xb33) {
+        if (member->obj3D_.normalizedAnimationTime_ >= 0xb33) {
             if (self->special && !IsField10Eq2_0218d618((Struct0218d618*)func_ov017_0218b5b0())) {
                 return;
             }
@@ -276,7 +276,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
                     SetField0x238True_020a2794(camera);
                 }
                 if (res) {
-                    ClearBitsInField4_0203b4e8((unsigned int*)res, 0x80);
+                    ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x80);
                 }
             }
             self->state = 4;
@@ -400,7 +400,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
             }
             func_020d7e10(GetGlobalResetObj020d7a50(), text, 0, 0, 1, 1);
             InitState69_021c2744((Obj021c2744*)notice);
-            notice->memberId = *(short*)((char*)member + 4);
+            notice->memberId = member->obj3D_.unknown_4_;
             notice->ready = 1;
             notice->itemId = self->itemId;
             InsertNodeAfterHead((List02046a3c*)tail, (Node02046a3c*)notice);

@@ -17,7 +17,7 @@ ARM int CanTargetCombatant_021ed9dc(struct RngHolder_021ed9dc* holder, int id) {
     if (!IsAnyByteSetInArray0x910_02083be8((unsigned char*)p)) return 0;
     GameObject* combatant = GetCombatantByID((int)holder->field0, id);
     if (!combatant) return 0;
-    void* inner = *(void**)((char*)combatant + 0x138);
+    void* inner = combatant->currentStats_;
     if (*(unsigned short*)((char*)inner + 2) == 0) return 0;
     if (IsFlagBit8Set_021dd010((struct FlagObj_021dd010*)combatant)) return 0;
     return !IsCombatantFlagMask512_021eda60(combatant);

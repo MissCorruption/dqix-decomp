@@ -377,7 +377,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                     params.flags.bit7 = 0;
                     params.scale.z = 0x1000;
 
-                    if (obj->entries[i].n & 1) params.pos.y += ((Object3D*)target)->GetHeight() / 2;
+                    if (obj->entries[i].n & 1) params.pos.y += target->obj3D_.GetHeight() / 2;
                     if (params.pos.y < obj->f304) params.pos.y = obj->f304;
                     params.flags.bit2 = 0;
 

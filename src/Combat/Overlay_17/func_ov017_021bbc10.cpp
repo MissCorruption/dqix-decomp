@@ -101,8 +101,8 @@ extern "C" ARM int func_ov017_021bbc10(Overlay021bbc10* self) {
     if (self->flagFd == 0 && IsField0Null_02046b08((void**)res->unknown_ptr_array_36fc[1]) == 0) {
         return self->result0a;
     }
-    SetBitsInWord_0203b4a0((unsigned int*)res, 0x10);
-    if (GetBitsInField0_0203b4c4((unsigned int*)res, 0x1000) == 0 && PeekInputLogA_020a1eb0() != 1) {
+    SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 0x10);
+    if (GetBitsInField0_0203b4c4(&res->brightnessFlags_0, 0x1000) == 0 && PeekInputLogA_020a1eb0() != 1) {
         PushInputLogA_020a1df8(1);
     }
     ClearAllocSlotsAndStore_0215aa14((SafeAllocator*)NULL);
@@ -130,7 +130,7 @@ extern "C" ARM int func_ov017_021bbc10(Overlay021bbc10* self) {
         if (member != NULL) {
             SetFlag0x4At0xe0((Flags02033fcc*)member);
             if (GetByte0x26c_02039d7c((char*)member) == 0 || GetFieldPtrAt0x26c_020399a8(member)->command != 2) {
-                ((Object3D*)member)->MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
+                member->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
             }
             ClearBytesAndZeroBlock02039d24((unsigned char*)member);
         }

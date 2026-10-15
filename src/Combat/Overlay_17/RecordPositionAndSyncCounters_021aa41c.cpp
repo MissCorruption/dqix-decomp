@@ -31,7 +31,7 @@ extern "C" ARM void func_ov017_021aa41c(Obj021aa41c* p) {
         InitFieldsFromCombatant_0219bcac(0);
     } else {
         GameResources* ov = func_ov017_0218b5b0();
-        SetBrightness((GameResources*)ov, 0, 30);
+        SetBrightness(ov, 0, 30);
     }
     SetField5cb0AndRecordByte0_02010774(obj, p->f8);
     SetField5cb4AndRecordByte1_020107a8(obj, p->fa);

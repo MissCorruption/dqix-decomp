@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_021b688c(MenuWork* work) {
     Obj020397cc* object = (Obj020397cc*)game->GetUnknownGameObject();
     CancelPendingAction020397cc(object, 1);
     GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)game);
-    SetBitsInField4_0203b4d8((unsigned int*)resources, 0xc0);
+    SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0xc0);
     SetFlagsAt0x244_020a28a0((unsigned char*)GetFieldIfFlag4_020100f8((char*)game), 1);
     if (work->state == 0) {
         func_020a0cc4(0x1b800);
@@ -119,7 +119,7 @@ extern "C" ARM void func_ov017_021b688c(MenuWork* work) {
             CancelPendingAction020397cc(object, 1);
             return;
         }
-        ClearBitsInField4_0203b4e8((unsigned int*)resources, 0xc0);
+        ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0xc0);
         SetByteField0x253_020397c0(object);
         unsigned char* flags = (unsigned char*)GetFieldIfFlag4_020100f8((char*)game);
         if (!func_ov017_021959b4()) SetField0x23cTrue_020a27ac(flags);

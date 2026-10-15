@@ -281,9 +281,9 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         self->bgCharBase = dispCnt.bgCharBase;
         self->dispCntFlags = DISPCNT & 0x300010;
         self->clearColor = GetFieldAt0x7e_0201e830((S_e830*)((char*)func_02012fe4() + kGlobalColorOffset));
-        self->word = GetWord_0203b498((unsigned int*)res);
-        self->field4 = GetField4_0203b4d0((unsigned int*)res);
-        self->field8 = GetField8_0203b508((unsigned int*)res);
+        self->word = GetWord_0203b498(&res->brightnessFlags_0);
+        self->field4 = GetField4_0203b4d0(&res->brightnessFlags_0);
+        self->field8 = GetField8_0203b508(&res->brightnessFlags_0);
         self->fieldB8 = GetField0x3b0Value_020100bc(gs);
         self->state++;
     } else if (self->state == 2) {
@@ -315,8 +315,8 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         BG1CNTSUB = BG1CNTSUB & ~3;
         BG2CNTSUB = (BG2CNTSUB & ~3) | 2;
         BG3CNTSUB = (BG3CNTSUB & ~3) | 3;
-        SetBitsInWord_0203b4a0((unsigned int*)res, 4);
-        SetBitsInField4_0203b4d8((unsigned int*)res, 0x8de);
+        SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 4);
+        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x8de);
         Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
         SetFogState_020c54a4(0, 0, 0, 0);
         char* context = (char*)func_0203bd08();
@@ -354,12 +354,12 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         memset(blank, 0, 0x20);
         CleanInvalidateCacheRange(blank, 0x20);
         LoadToMainBG1CharacterData(blank, 0, 0x20);
-        ClearBitsInWord_0203b4b0((unsigned int*)res, -1);
-        ClearBitsInField4_0203b4e8((unsigned int*)res, -1);
-        ClearBitsInField8_0203b520((unsigned int*)res, -1);
-        SetBitsInWord_0203b4a0((unsigned int*)res, self->word);
-        SetBitsInField4_0203b4d8((unsigned int*)res, self->field4);
-        SetBitsInField8_0203b510((unsigned int*)res, self->field8);
+        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, -1);
+        ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, -1);
+        ClearBitsInField8_0203b520(&res->brightnessFlags_0, -1);
+        SetBitsInWord_0203b4a0(&res->brightnessFlags_0, self->word);
+        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, self->field4);
+        SetBitsInField8_0203b510(&res->brightnessFlags_0, self->field8);
         ProcessCombatantsIfFlagged_0218f79c(res);
         SetField0x3b0Value_020100c4(gs, (int)self->fieldB8);
         GameState* state = GameState::GetInstance();
@@ -367,7 +367,7 @@ extern "C" ARM void func_ov017_021c0850(SceneSwap021c0850* self) {
         for (int i = 0; i < 0x30; i++) {
             GameObject* monster = state->GetMaybeFieldMonsterByIndex(index);
             if (monster) {
-                ((Object3D*)monster)->StageTextureData();
+                monster->obj3D_.StageTextureData();
             }
             index++;
         }

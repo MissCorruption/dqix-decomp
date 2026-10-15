@@ -19,7 +19,7 @@ ARM void SetupAndDispatchCombatant_02191e5c(int a, int b, short c, unsigned char
 	GameObject* combatant = battleStruct->GetCombatantByIndex(b);
 	if (!combatant) return;
 	SetGroupShortValues_021919c8(a, b, c);
-	*(unsigned short*)((char*)combatant + 0x9c) = e;
+	combatant->obj3D_.unknown_9c_ = e;
 	((Object3D*)((unsigned char*)combatant))->SetField9e(d);
 	int inRange2 = (b >= 0 && b <= 3);
 	if (inRange2) {

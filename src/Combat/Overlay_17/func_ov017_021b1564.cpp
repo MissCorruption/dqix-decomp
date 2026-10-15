@@ -144,10 +144,10 @@ extern "C" ARM void func_ov017_021b1564(Transition021b1564* self, TailList020469
     GameObject* player = game->GetUnknownGameObject();
     if (field) ClearIntAt0x23c_020a27b8(field);
     if (self->stage == 0) {
-        self->savedFlags = GetWord_0203b498((unsigned int*)resources);
-        self->savedFlags4 = GetField4_0203b4d0((unsigned int*)resources);
-        self->savedFlags8 = GetField8_0203b508((unsigned int*)resources);
-        SetBitsInField4_0203b4d8((unsigned int*)resources, 0x40);
+        self->savedFlags = GetWord_0203b498(&resources->brightnessFlags_0);
+        self->savedFlags4 = GetField4_0203b4d0(&resources->brightnessFlags_0);
+        self->savedFlags8 = GetField8_0203b508(&resources->brightnessFlags_0);
+        SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x40);
         if (!self->alternate) {
             GameObject* current = game->GetUnknownGameObject();
             if (current) CancelPendingAction020397cc((Obj020397cc*)current, 1);
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov017_021b1564(Transition021b1564* self, TailList020469
         self->mainDisplay = (REG_MAIN_DISPLAY & 0x1f00) >> 8;
         BackupSubBgControlRegisters((SubBgControlBackup02074b64*)self->displayBackup);
         self->subDisplay = (REG_SUB_DISPLAY & 0x1f00) >> 8;
-        SetBitsInField4_0203b4d8((unsigned int*)resources, 0x8de);
+        SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x8de);
         void* entries = GetGlobalPtr021075f4_0203cf4c();
         Zone3D* zone = func_02012fe4();
         func_0203e0a0(entries, zone->currentZoneID_);
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov017_021b1564(Transition021b1564* self, TailList020469
             resources->allocator_array_38[7].Reset();
         }
         SetField0x98Bit0_0203d008((unsigned char*)entries);
-        SetBitsInWord_0203b4a0((unsigned int*)resources, 16);
+        SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 16);
         return;
     } else if (self->stage == 4) {
         SetField0x98Bit0_0203d008((unsigned char*)GetGlobalPtr021075f4_0203cf4c());
@@ -273,12 +273,12 @@ extern "C" ARM void func_ov017_021b1564(Transition021b1564* self, TailList020469
             LoadToMainBG2ScreenData(empty, 0, 0x800);
             TailForward02012da4(&data_02114e20, empty);
         }
-        ClearBitsInWord_0203b4b0((unsigned int*)resources, ~0u);
-        ClearBitsInField4_0203b4e8((unsigned int*)resources, ~0u);
-        ClearBitsInField8_0203b520((unsigned int*)resources, ~0u);
-        SetBitsInWord_0203b4a0((unsigned int*)resources, self->savedFlags);
-        SetBitsInField4_0203b4d8((unsigned int*)resources, self->savedFlags4);
-        SetBitsInField8_0203b510((unsigned int*)resources, self->savedFlags8);
+        ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0, ~0u);
+        ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, ~0u);
+        ClearBitsInField8_0203b520(&resources->brightnessFlags_0, ~0u);
+        SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, self->savedFlags);
+        SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, self->savedFlags4);
+        SetBitsInField8_0203b510(&resources->brightnessFlags_0, self->savedFlags8);
         ProcessCombatantsIfFlagged_0218f79c(resources);
         SetAndLockMainBrightness(resources, -16, 1);
         func_ov017_021921fc(&player->obj3D_.position_, ((PlayerView021b1564*)player)->angle, 1);

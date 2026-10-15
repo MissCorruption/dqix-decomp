@@ -24,7 +24,7 @@ extern "C" ARM int func_020abd20() {
     GameState* gs = GameState::GetInstance();
     func_ov017_0218b5b0();
     unsigned char* zone = (unsigned char*)func_02012fe4();
-    ((unsigned char*)gs)[0x5cc8] = 0;
+    gs->unknown_5cc8_ = 0;
     char buf[8];
     if (func_020aaf84(buf, 0, 0, 1) == 0) {
         SetFlag0x5cccBit0_02011544((struct StateBits5ccc_11544*)gs);

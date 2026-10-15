@@ -55,7 +55,7 @@ extern "C" ARM void func_ov000_02161020(BattleWork02161020* work) {
             continue;
         }
         int drawn = 0;
-        if (GetBitsInField4_0203b4fc((unsigned int*)res, 0x200) == 0) {
+        if (GetBitsInField4_0203b4fc(&res->brightnessFlags_0, 0x200) == 0) {
             drawn = func_02032fdc(c, 1, drawn);
         }
         if (drawn != 0) {

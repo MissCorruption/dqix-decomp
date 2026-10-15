@@ -38,7 +38,7 @@ extern "C" ARM int func_ov025_021e5a6c(struct Obj021e5a6c* obj, struct List02160
         if (node != 0) {
             GameObject* c = bs->GetCombatantByIndex(*(short*)((char*)node + 0xe));
             if (c != 0) {
-                height = ((Object3D*)c)->GetHeight();
+                height = c->obj3D_.GetHeight();
             }
         }
         float scale = 1.0f;

@@ -118,7 +118,7 @@ extern "C" ARM void func_02025f28(unsigned char* obj) {
     posVec[2] -= 0x4000;
 
     if (ok) {
-        short f4 = *(short*)((char*)c1 + 4);
+        short f4 = c1->obj3D_.unknown_4_;
         unsigned char p5 = (unsigned char)(f4 + 0x44);
         unsigned short p7 = (unsigned short)(f4 + 4);
         _Z24SetElementFields0202756cPviiihhthii(obj, posVec[0], posVec[2], 5, p5, 0, p7, 0xff, 0x1000, 0x1000);

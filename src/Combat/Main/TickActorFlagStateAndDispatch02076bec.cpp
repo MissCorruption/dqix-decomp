@@ -15,7 +15,7 @@ extern Vector3i data_020e8920;
 // USA: func_02076bec
 ARM int TickActorFlagStateAndDispatch02076bec(GameObject* arg0, void* param1) {
     unsigned char* obj = (unsigned char*)arg0;
-    if (!((Object3D*)obj)->IsVisible()) {
+    if (!arg0->obj3D_.IsVisible()) {
         return 0;
     }
 
@@ -27,7 +27,7 @@ ARM int TickActorFlagStateAndDispatch02076bec(GameObject* arg0, void* param1) {
     GameState* battleStruct = GameState::GetInstance();
     void* f3b0 = GetField0x3b0Value_020100bc(battleStruct);
 
-    Vector3i localBuf = *(Vector3i*)(obj + 0x44);
+    Vector3i localBuf = arg0->obj3D_.position_;
     localBuf.y = *(int*)(obj + 0x170);
     RenderConfig::SetObjectPosition(&localBuf);
 

@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-
 // USA: func_ov017_021a2738
 ARM GameObject* FindCombatantByField2_021a2738(void* unused, int value) {
     if (value < 0) return NULL;
@@ -10,7 +9,7 @@ ARM GameObject* FindCombatantByField2_021a2738(void* unused, int value) {
     for (i = 0; i < 0xc; i++) {
         GameObject* combatant = bs->GetGameObjectByIndex(i + 7);
         if (combatant) {
-            if (value == *(short*)((char*)combatant + 0x2)) return combatant;
+            if (value == combatant->obj3D_.unknown_2_) return combatant;
         }
     }
     return NULL;

@@ -19,6 +19,6 @@ ARM void EnqueueTag33ForListedCombatant_021c12b0(unsigned char param) {
 	if (c == NULL) {
 		c = bs->GetProtagonist();
 	}
-	short val = *(short*)((char*)c + 4);
+	short val = c->obj3D_.unknown_4_;
 	EnqueueEventTag33_021d2738((unsigned char)(val & 0xff), param);
 }

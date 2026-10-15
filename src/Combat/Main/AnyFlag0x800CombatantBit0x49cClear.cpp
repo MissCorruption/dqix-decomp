@@ -14,7 +14,7 @@ struct PartyRow_020685f0 {
 
 // USA: func_020685f0
 ARM int AnyFlag0x800CombatantBit0x49cClear_020685f0(GameState* battleStruct) {
-    unsigned char* p = (unsigned char*)GetPtrField0x2a04_02010828((GameState*)(battleStruct));
+    unsigned char* p = (unsigned char*)GetPtrField0x2a04_02010828(battleStruct);
     int i;
     for (i = 0; i < p[0xf7c]; i++) {
         GameObject* c = battleStruct->GetPartyMemberByIndex(((struct PartyRow_020685f0*)(p + i))->id);

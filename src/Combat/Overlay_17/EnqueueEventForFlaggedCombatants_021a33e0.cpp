@@ -31,7 +31,7 @@ ARM void EnqueueEventForFlaggedCombatants_021a33e0(void* unused, int key) {
             func_02076a8c(combatant);
             ((Object3D*)((unsigned char*)combatant))->MakeHidden();
             if (CheckField0NonZero_0202b7d8((int*)search) && func_0202c508(search)) {
-                EnqueueEventTag134_021c9544(key, i, *(short*)((char*)combatant + 0x2), -1);
+                EnqueueEventTag134_021c9544(key, i, combatant->obj3D_.unknown_2_, -1);
             }
         }
     }

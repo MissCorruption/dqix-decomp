@@ -55,7 +55,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
 
 #endif
     }
-    SetBitsInField4_0203b4d8((unsigned int*)ov, 0x40);
+    SetBitsInField4_0203b4d8(&ov->brightnessFlags_0, 0x40);
     func_ov017_0218b5c0(0, -1);
     DispatchWithGlobalContext020daf9c(1, 1, 0, 1);
 #if defined(jpn)

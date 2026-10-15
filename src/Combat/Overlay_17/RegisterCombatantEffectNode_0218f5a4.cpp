@@ -29,7 +29,7 @@ extern "C" ARM int func_ov017_0218f5a4(char* self, int combatantId, int flag2, i
     if (func_ov017_021925e0(self + 0x3000) != 0) {
         GameObject* c = bs->GetPartyMemberByIndex(combatantId);
         if (c != 0) {
-            unsigned short w = *(unsigned short*)c;
+            unsigned short w = c->obj3D_.unknown_0_;
             if (w & 0x1000) {
                 ClearFlagAndZeroVec3Field_021bd440(base, combatantId & 0xff);
                 return 0;
@@ -56,7 +56,7 @@ extern "C" ARM int func_ov017_0218f5a4(char* self, int combatantId, int flag2, i
                     GameObject* c3 = bs->GetGameObjectByIndex(arr[i]);
                     if (c3 != 0) {
                         short v1 = arr2[i];
-                        short v2 = *(short*)((char*)c3 + 2);
+                        short v2 = c3->obj3D_.unknown_2_;
                         if (v1 != v2) matched = 1;
                     }
                 }

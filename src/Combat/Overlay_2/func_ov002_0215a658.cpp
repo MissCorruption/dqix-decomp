@@ -48,7 +48,7 @@ extern "C" ARM void func_ov002_0215a658(char* self, int val) {
                             if (*(short*)(slots + off) == 0x570a) {
                                 if (CountMatchingUntilNegative02083994((struct Slots02083994*)f, 0x570a) == 1) {
                                     *(char*)(*(char**)((char*)c + 0x130) + 8) = 0;
-                                    func_ov017_021c9e00(*(short*)((char*)c + 4), 0, 0, 1);
+                                    func_ov017_021c9e00(c->obj3D_.unknown_4_, 0, 0, 1);
                                 }
                             }
                             AddKeyValueClamped020a095c((struct KeyMap020a095c*)keymap, *(short*)(slots + off), 1);

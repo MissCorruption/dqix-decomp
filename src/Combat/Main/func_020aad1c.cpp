@@ -32,9 +32,9 @@ extern "C" ARM int func_020aad1c(struct Struct020aad1c* s, int a1, int a2, int a
     if (s->state == 0) {
         GameState* battle = GameState::GetInstance();
 #if defined(jpn)
-        *((unsigned char*)battle + 0x5a68) = 1;
+        battle->unknown_5cc8_ = 1;
 #else
-        *((unsigned char*)battle + 0x5cc8) = 1;
+        battle->unknown_5cc8_ = 1;
         GameResources* flagv = func_ov017_0218b5b0();
 #endif
         unsigned int buf;
@@ -52,14 +52,14 @@ extern "C" ARM int func_020aad1c(struct Struct020aad1c* s, int a1, int a2, int a
 #if !defined(jpn)
             unsigned int* flags = (unsigned int*)GetDataPtr02114e04_020d6c00();
             OrBitsIntoField0_020466e4(flags, 0x2000000);
-            SetBitsInWord_0203b4a0((unsigned int*)flagv, 0x10);
+            SetBitsInWord_0203b4a0(&flagv->brightnessFlags_0, 0x10);
 #endif
             int ptr = (int)&data_0211e33c + 0x1c + 0x29000;
             if (func_02075910(0x8000, (void*)(s->field4 = ptr), 0x6fe4, 1) == 0) {
 #if !defined(jpn)
                 flags = (unsigned int*)GetDataPtr02114e04_020d6c00();
                 ClearFlags020466f4((struct FlagWord020466f4*)flags, 0x2000000);
-                ClearBitsInWord_0203b4b0((unsigned int*)flagv, 0x10);
+                ClearBitsInWord_0203b4b0(&flagv->brightnessFlags_0, 0x10);
 #endif
                 s->state = 4;
                 return 1;

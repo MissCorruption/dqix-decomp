@@ -10,19 +10,19 @@ extern "C" ARM int func_ov001_021605d4(void* self) {
     GameState* battle = GameState::GetInstance();
     int base = id1 * 0xc;
     GameObject* c1 = battle->GetGameObjectByIndex(base + 0x1c);
-    if (c1 != NULL && *(short*)((char*)c1 + 2) >= 0) {
+    if (c1 != NULL && c1->obj3D_.unknown_2_ >= 0) {
         if (flag != 0) {
-            ((Object3D*)c1)->MakeVisible();
+            c1->obj3D_.MakeVisible();
         } else {
-            ((Object3D*)c1)->MakeHidden();
+            c1->obj3D_.MakeHidden();
         }
     }
     GameObject* c2 = battle->GetGameObjectByIndex(base + 0x1d);
-    if (c2 != NULL && *(short*)((char*)c2 + 2) >= 0) {
+    if (c2 != NULL && c2->obj3D_.unknown_2_ >= 0) {
         if (flag != 0) {
-            ((Object3D*)c2)->MakeVisible();
+            c2->obj3D_.MakeVisible();
         } else {
-            ((Object3D*)c2)->MakeHidden();
+            c2->obj3D_.MakeHidden();
         }
     }
     return 1;

@@ -28,7 +28,7 @@ extern "C" ARM bool func_ov017_021b6e70(struct Obj_021b6e70* obj, int combatantI
     void* misc = func_02012fe4();
     struct GrottoStruct* grotto = battleStruct->GetGrottoStruct();
 #if defined(jpn)
-    int mapType = ((TreasureMapMetadata*)((char*)grotto + 0x4c))->GetMapType();
+    int mapType = grotto->activeMapData.GetMapType();
 #else
     int mapType = grotto->activeMapData.GetMapType();
 #endif

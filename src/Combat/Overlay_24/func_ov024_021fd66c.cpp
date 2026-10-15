@@ -51,7 +51,7 @@ extern "C" ARM void func_ov024_021fd66c(struct Obj_021fd66c* obj) {
 	float scaled = valF * ((float)pctBase / 100.0f);
 	unsigned int code = state->bits4.code;
 	if (code == 0x58) {
-		if (*(unsigned short*)c & 0x400) {
+		if (c->obj3D_.unknown_0_ & 0x400) {
 			struct Inner144_021fd66c* inner = *(struct Inner144_021fd66c**)((char*)c + 0x144);
 			if (inner != NULL && inner->bit12) {
 				obj->flag2c = 1;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov024_021fd66c(struct Obj_021fd66c* obj) {
 			}
 		}
 	} else if (code == 0x52) {
-		if (!func_ov000_02156068(obj->field0, *(short*)((char*)c + 4), 9, 0)) return;
+		if (!func_ov000_02156068(obj->field0, c->obj3D_.unknown_4_, 9, 0)) return;
 	}
 	if (scaled > 100.0f) scaled = 100.0f;
 	SetFieldFromIndexed_021fe6b4((struct IndexedObj_021fe6b4*)obj, 1);

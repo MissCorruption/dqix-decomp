@@ -11,6 +11,6 @@ ARM void SetFieldndDispatch_021bdb78_021bdb78(int id) {
 	if (!combatant) {
 		return;
 	}
-	*(short*)((char*)combatant + 0x9c) = 0x40c8;
+	combatant->obj3D_.unknown_9c_ = 0x40c8;
 	CallHelperIfCheckPasses_0218fcf8(helper, 0, 0x40c8);
 }

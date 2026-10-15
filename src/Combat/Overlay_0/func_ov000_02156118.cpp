@@ -57,7 +57,7 @@ extern "C" ARM float func_ov000_02156118(BattleContext* ctx, int combatantId) {
         if (monster == 0) {
             return 0;
         }
-        MonsterEntry* entry = SearchWithLow15Comparator02070fd0((Container02070e60*)(ctx->data + 0x684), *(short*)((char*)monster + 2));
+        MonsterEntry* entry = SearchWithLow15Comparator02070fd0((Container02070e60*)(ctx->data + 0x684), monster->obj3D_.unknown_2_);
         signed char rank = entry->rank;
         value = GetTableEntryOrZero02074988(rank);
     }

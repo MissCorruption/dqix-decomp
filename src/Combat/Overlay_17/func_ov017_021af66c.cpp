@@ -158,8 +158,8 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
             res->unknown_42e3[0] = 1;
             GrottoInfo02012fe4* info = func_02012fe4();
             if (info->type == 1) {
-                SetBrightness((GameResources*)res, 0, 30);
-                UnlockAndSetBrightness((GameResources*)res, 0, 30);
+                SetBrightness(res, 0, 30);
+                UnlockAndSetBrightness(res, 0, 30);
             }
             CombatMenuNode* node = static_cast<CombatMenuNode*>(res->unknown_ptr_array_371c[6]);
             if (node->active == 0) {
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
                 node->phase = 3;
                 AppendNodeToTail((TailList020469b4*)list, (TailNode020469b4*)node);
             }
-            ClearBitsInWord_0203b4b0((unsigned int*)res, 0x40);
+            ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x40);
         } else {
             func_ov017_0219577c(0, 0, 0);
             CombatMenuNode* node = static_cast<CombatMenuNode*>(res->unknown_ptr_array_371c[6]);
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
         }
         obj->finished = 1;
     }
-    int slot = func_ov017_02195658((GameResources*)res);
+    int slot = func_ov017_02195658(res);
     if (slot > 0) {
         obj->slots[slot] = 0;
         if (menu->active != 0) {
@@ -203,10 +203,10 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
         return;
     }
     if (obj->restoreDisplay != 0) {
-        SetMainBrightness((GameResources*)res, obj->mainBrightness, 0);
+        SetMainBrightness(res, obj->mainBrightness, 0);
         Set3DClearColor_020c5588(obj->clearColor, 0, 0x7fff, 0, 0);
-        ClearBitsInField4_0203b4e8((unsigned int*)res, 0xffffffff);
-        SetBitsInField4_0203b4d8((unsigned int*)res, obj->field4Bits);
+        ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0xffffffff);
+        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, obj->field4Bits);
     }
     obj->unkB = 0;
     ClearListUntilFlagZero((ClearList02046968*)list);
@@ -227,7 +227,7 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
     func_ov017_0218b5c0(1, -1);
     DispatchWithGlobalContext020daf9c(0, 1, 0, 1);
     DISPCNT = (DISPCNT & ~0x1f00) | (obj->bgMode << 8);
-    ClearBitsInField4_0203b4e8((unsigned int*)res, 0x40);
+    ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x40);
     if (obj->allocation != 0) {
         TailForward02012da4(&data_02114e20, obj->allocation);
         obj->allocation = 0;

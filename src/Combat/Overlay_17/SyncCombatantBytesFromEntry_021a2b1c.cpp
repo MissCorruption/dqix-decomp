@@ -26,7 +26,7 @@ extern "C" ARM void func_ov017_021a2b1c(void* param) {
         int idx = i + t;
         GameObject* combatant = bs->GetMaybeFieldMonsterByIndex(idx);
         if (!combatant) continue;
-        GameObject* found = FindCombatantByField2_021a2738(param, *(short*)((char*)combatant + 2));
+        GameObject* found = FindCombatantByField2_021a2738(param, combatant->obj3D_.unknown_2_);
         if (!found) continue;
         CopyPairAndStoreField_02072adc((struct PairStruct*)found, (struct PairStruct*)combatant);
         switch (*(int*)((char*)combatant + 0x130)) {

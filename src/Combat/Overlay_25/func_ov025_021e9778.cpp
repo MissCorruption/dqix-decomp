@@ -146,7 +146,7 @@ extern "C" ARM void func_ov025_021e9778(void* self) {
         if (isParty != 0) {
             GameObject* c = GetCombatantWithFlag0x400_0200fea4(gs2, id);
             if (c != 0) {
-                short v = *(short*)((char*)c + 2);
+                short v = c->obj3D_.unknown_2_;
                 if (v == 0x200 || (unsigned int)(v - 0x289) <= 4) {
                     flag = 1;
                 } else {

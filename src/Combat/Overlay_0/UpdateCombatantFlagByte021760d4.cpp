@@ -12,7 +12,7 @@ ARM void UpdateCombatantFlagByte021760d4(void* obj) {
         if (found != NULL) {
             GameObject* c = battleStruct->GetCombatantByIndex(i);
             if (c != NULL) {
-                void* p = *(void**)((char*)c + 0x138);
+                void* p = c->currentStats_;
                 unsigned short val = *(unsigned short*)((char*)p + 0x22);
                 int shifted = val << 30;
                 *(unsigned char*)((char*)found + 0x2f) = (unsigned char)((unsigned int)shifted >> 30);

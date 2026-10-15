@@ -156,7 +156,7 @@ extern "C" ARM void func_ov017_021a1284(TransferEvent021a1284* self, void* unuse
         ReinitController02043204((char*)global);
         SetField0x98Bit0_0203d008((unsigned char*)entries);
         func_0203e0a0(entries, zone->currentZoneID_);
-        SetBitsInWord_0203b4a0((unsigned int*)resources, 0x10);
+        SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 0x10);
         func_020a0cc4(0x17600);
         void* buffer = AllocateAligned4_02012d88(&data_02114e20, 0x17600);
         if (!buffer) {
@@ -238,7 +238,7 @@ extern "C" ARM void func_ov017_021a1284(TransferEvent021a1284* self, void* unuse
                 func_ov017_021c4418(i, -1);
             }
         }
-        ClearBitsInWord_0203b4b0((unsigned int*)resources, 0x10);
+        ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0, 0x10);
         func_ov017_0219ba0c(resources, 0);
         self->stage = 5;
     } else if (self->stage == 5) {
@@ -246,9 +246,9 @@ extern "C" ARM void func_ov017_021a1284(TransferEvent021a1284* self, void* unuse
         CallFuncForEachOfFour_020732a8();
         func_ov017_0219bd1c(1, 0, 0, 0);
         if (zone->currentZoneID_ == 0x2710 || zone->currentZoneID_ == 0x2774) {
-            ClearBitsInField4_0203b4e8((unsigned int*)resources, 0x601fe);
-            SetBitsInField4_0203b4d8((unsigned int*)resources, 0x10004);
-        } else ClearBitsInField4_0203b4e8((unsigned int*)resources, 0x601fe);
+            ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x601fe);
+            SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x10004);
+        } else ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x601fe);
         self->stage = 6;
     } else if (self->stage == 6) {
         if (((ZoneTransfer021a1284*)func_02012fe4())->pending) return;

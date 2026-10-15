@@ -38,7 +38,7 @@ extern "C" ARM int func_ov023_021eaea0(void* obj) {
 
         if (*((unsigned char*)headerObj + 0x24) != 0) {
             if (IsInRange0201b588(*(unsigned short*)zone) != 0 && detail != NULL) {
-                if (*((unsigned char*)detail + 1) == 1) {
+                if (detail->mapType_ == 1) {
                     char buf[0xb0];
                     LoadBattleBlock020ac4c0(buf);
                     result = ((struct BlockWord021eaea0*)(buf + 0xc))->fieldA;

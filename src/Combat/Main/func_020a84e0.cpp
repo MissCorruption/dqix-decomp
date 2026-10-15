@@ -57,22 +57,22 @@ extern "C" ARM void func_020a84e0() {
             po = gs->GetPartyMemberByIndex(*(unsigned char*)(list + 0xf78 + j));
             if (po) {
                 if (!TestFlags02046708(fw, 0x200000) &&
-                    ForwardCombatantField0x44_02094b5c(entry, *(short*)((char*)po + 4)) != 0) {
+                    ForwardCombatantField0x44_02094b5c(entry, po->obj3D_.unknown_4_) != 0) {
                     switch (sub[0]) {
                     case 2:
-                        SetByteFlagBitAndCombatantField0x6c_020a8ac8(sub, *(short*)((char*)po + 4) & 0xff);
+                        SetByteFlagBitAndCombatantField0x6c_020a8ac8(sub, po->obj3D_.unknown_4_ & 0xff);
                         break;
                     case 3:
-                        func_020a8c4c(sub, *(short*)((char*)po + 4) & 0xff);
+                        func_020a8c4c(sub, po->obj3D_.unknown_4_ & 0xff);
                         break;
                     }
                 }
                 switch (sub[0]) {
                 case 2:
-                    func_020a8b0c(sub, *(short*)((char*)po + 4) & 0xff);
+                    func_020a8b0c(sub, po->obj3D_.unknown_4_ & 0xff);
                     break;
                 case 3:
-                    func_020a8d08(sub, *(short*)((char*)po + 4) & 0xff);
+                    func_020a8d08(sub, po->obj3D_.unknown_4_ & 0xff);
                     break;
                 }
             }

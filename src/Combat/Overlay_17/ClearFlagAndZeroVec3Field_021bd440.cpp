@@ -21,13 +21,13 @@ ARM void ClearFlagAndZeroVec3Field_021bd440(void* self, int partyMemberIndex) {
 	GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(partyMemberIndex);
 	if (!combatant) return;
 #if defined(jpn)
-	*(Vector3i*)((int*)((char*)combatant + 0x44)) = *(Vector3i const*)((int*)(base + 0x184 + partyMemberIndex * 0xc));
+	*(Vector3i*)(&combatant->obj3D_.position_.x) = *(Vector3i const*)((int*)(base + 0x184 + partyMemberIndex * 0xc));
 	int savedRotationY = *(int*)(base + 0x1b4 + partyMemberIndex * 4);
 #else
-	*(Vector3i*)((int*)((char*)combatant + 0x44)) = *(Vector3i const*)((int*)(base + 0x188 + partyMemberIndex * 0xc));
+	*(Vector3i*)(&combatant->obj3D_.position_.x) = *(Vector3i const*)((int*)(base + 0x188 + partyMemberIndex * 0xc));
 	int savedRotationY = *(int*)(base + 0x1b8 + partyMemberIndex * 4);
 #endif
-	*(int*)((char*)combatant + 0x50) = 0;
-	*(int*)((char*)combatant + 0x54) = savedRotationY;
-	*(int*)((char*)combatant + 0x58) = 0;
+	combatant->obj3D_.rotation_.x = 0;
+	combatant->obj3D_.rotation_.y = savedRotationY;
+	combatant->obj3D_.rotation_.z = 0;
 }

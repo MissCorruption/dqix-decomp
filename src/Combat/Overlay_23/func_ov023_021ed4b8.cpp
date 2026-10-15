@@ -92,7 +92,7 @@ extern "C" ARM void func_ov023_021ed4b8(char* obj) {
 
 #else
     char localbuf[0xc];
-    int combatantId = *(short*)((char*)combatant + 0x4);
+    int combatantId = combatant->obj3D_.unknown_4_;
     InitObjFromCombatantId020e4bf4(localbuf, combatantId);
 
     *(void**)((char*)g + 0x0) = localbuf;

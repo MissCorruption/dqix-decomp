@@ -186,7 +186,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         func_02046a8c(res->unknown_ptr_array_36fc[0], res->unknown_ptr_array_3afc[0x14]);
     }
 
-    SetBitsInWord_0203b4a0((unsigned int*)res, 2);
+    SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 2);
     BlankFunction020d84e0();
     func_0202b0f4(search);
     func_0205e22c(d100044);

@@ -42,10 +42,10 @@ extern "C" ARM void func_ov017_021973e8(unsigned int* flagsObj) {
         GameObject* c = bs->GetGameObjectByIndex(id);
         if (!c) continue;
         if (((Object3D*)((struct ListNode0x2037a50*)c))->IsChild()) continue;
-        if (((Object3D*)c)->GetFlag(0x40000000) != 0) continue;
+        if (c->obj3D_.GetFlag(0x40000000) != 0) continue;
         ((Object3D*)((unsigned char*)c))->EnableFlag(4);
         if (!_ZN8Object3D4DrawEb(c, flag9)) continue;
-        if (((Object3D*)c)->GetFlag(0x10) != 0) continue;
+        if (c->obj3D_.GetFlag(0x10) != 0) continue;
 
         int bits = ((Object3D*)((struct Bits40_37464*)c))->GetInheritedAlpha();
         int computed = (int)((float)field3c / 31.0f * (float)bits);

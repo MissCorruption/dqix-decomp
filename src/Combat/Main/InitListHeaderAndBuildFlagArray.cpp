@@ -1,4 +1,6 @@
 #include <globaldefs.h>
+#include "Graphics/NSBXX/Animation.h"
+#include "Graphics/NSBXX/NSBXX.h"
 
 #if defined(jpn)
 #define data_020f1c74 data_020f1de0
@@ -17,10 +19,10 @@ ARM void InitializeModelAnimationFromJAC(AnimationData* p0, void* p1, NSBXXInter
     unsigned int i;
     unsigned short* arr;
 
-    *(void**)((char*)p0 + 0x8) = p1;
+    p0->pRawData_ = p1;
     *(int*)((char*)p0 + 0xc) = data_020f1c74;
-    byteVal = ((unsigned char*)p2)[0x17];
-    *(unsigned char*)((char*)p0 + 0x19) = byteVal;
+    byteVal = p2->numBoneMatrices_;
+    p0->numEntries_ = byteVal;
     func_020ca390(0, (char*)p0 + 0x1a, byteVal << 1);
 
     i = 0;

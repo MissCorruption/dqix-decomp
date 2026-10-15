@@ -45,9 +45,9 @@ extern "C" ARM int func_ov004_0216d920() {
     }
     SetModeClamped0209ca70((void*)&data_02109bf4, data_ov004_02171034[kContextIndex]);
     SetStateAndDispatch0205e9f4((struct Obj0205e9f4*)&data_02108760, data_ov004_02171034[kStateIndex]);
-    ClearBitsInWord_0203b4b0((unsigned int*)obj, -1);
-    ClearBitsInField4_0203b4e8((unsigned int*)obj, -1);
-    ClearBitsInField8_0203b520((unsigned int*)obj, -1);
+    ClearBitsInWord_0203b4b0(&obj->brightnessFlags_0, -1);
+    ClearBitsInField4_0203b4e8(&obj->brightnessFlags_0, -1);
+    ClearBitsInField8_0203b520(&obj->brightnessFlags_0, -1);
     SetFieldFlag17188_0218d258(obj);
     SetWord0x7f6c_02012010(bs, 5);
     if (data_ov004_02171034[kVariantIndex] == 1 && data_ov004_02171034[kModeIndex] != 4) {

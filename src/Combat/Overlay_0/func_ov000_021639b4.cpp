@@ -20,11 +20,11 @@ extern "C" ARM void func_ov000_021639b4(struct Obj021639b4* obj) {
     int n = func_ov000_0215e9fc(obj->field29c, buf, 4, 0);
     for (int i = 0; i < n; i++) {
         GameObject* c = bs->GetGameObjectByIndex(buf[i] * 12 + 0x1c);
-        if (c && *(signed short*)((char*)c + 2) >= 0) {
+        if (c && c->obj3D_.unknown_2_ >= 0) {
             ((Object3D*)((unsigned char*)c))->MakeVisible();
         }
         c = bs->GetGameObjectByIndex(buf[i] * 12 + 0x1d);
-        if (c && *(signed short*)((char*)c + 2) >= 0) {
+        if (c && c->obj3D_.unknown_2_ >= 0) {
             ((Object3D*)((unsigned char*)c))->MakeVisible();
         }
         func_ov017_021917f0(buf[i], 1);

@@ -15,9 +15,9 @@ extern "C" ARM int func_ov004_0216da58() {
     GameResources* obj = func_ov017_0218b5b0();
     int frames = _s32_div_f(1000, 0x22);
     if (GetByte0x4_0200fb9c((char*)bs) == 8) {
-        SetBrightness((GameResources*)obj, 0x10, frames);
+        SetBrightness(obj, 0x10, frames);
     } else {
-        SetBrightness((GameResources*)obj, -16, frames);
+        SetBrightness(obj, -16, frames);
     }
     if (GetByte0x4_0200fb9c((char*)bs) != 2) {
         DispatchContextByState0209c678((struct Actor0209c678*)&data_02109bf4, 0x10);

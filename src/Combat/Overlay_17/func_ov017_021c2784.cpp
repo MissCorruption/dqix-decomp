@@ -182,7 +182,7 @@ extern "C" ARM void func_ov017_021c2784(Obj_021c2784* obj) {
             if (found == NULL) {
                 return;
             }
-            obj->fieldc = *(short*)((char*)found + 4);
+            obj->fieldc = found->obj3D_.unknown_4_;
         }
         *(unsigned char*)((char*)c + 0xc3) = 0;
         obj->state = 3;

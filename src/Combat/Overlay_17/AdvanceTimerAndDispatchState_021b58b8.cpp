@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
                 }
                 GameResources* ov = func_ov017_0218b5b0();
                 if (ov != 0) {
-                    SetBitsInField4_0203b4d8((unsigned int*)ov, 0x80);
+                    SetBitsInField4_0203b4d8(&ov->brightnessFlags_0, 0x80);
                 }
             } else if (self->field54 == 0) {
                 SetByteField0x253_020397c0((void*)combatant);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
                 }
                 GameResources* ov = func_ov017_0218b5b0();
                 if (ov != 0) {
-                    ClearBitsInField4_0203b4e8((unsigned int*)ov, 0x80);
+                    ClearBitsInField4_0203b4e8(&ov->brightnessFlags_0, 0x80);
                 }
             }
         }
@@ -88,6 +88,6 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
         func_ov017_021b5a30(self);
     }
     if (self->field1 != 0) {
-        ClearBitsInField4_0203b4e8((unsigned int*)ov, 0x40);
+        ClearBitsInField4_0203b4e8(&ov->brightnessFlags_0, 0x40);
     }
 }
