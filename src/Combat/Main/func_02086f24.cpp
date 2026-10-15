@@ -1,0 +1,282 @@
+#include <globaldefs.h>
+#include "Memory/SafeAllocator.h"
+#include "Filesystem/BackgroundLoader.h"
+#include "Filesystem/FileIO.h"
+#include "Combat/ResourceScriptEntry.h"
+#include "System/Memory.h"
+#include "std_library_functions.h"
+
+struct PackedTriple02086f24 {
+    unsigned int x : 10;
+    unsigned int y : 10;
+    unsigned int z : 10;
+    unsigned int reserved : 2;
+};
+
+struct Appearance02086f24 {
+    short equipment[10];
+    unsigned char gender : 1;
+    unsigned char hairStyle : 3;
+    unsigned char hairColor : 4;
+    unsigned char face : 4;
+    short voice;
+    short height;
+    short width;
+};
+
+struct CombatSelection {
+    signed char selected : 6;
+    unsigned char active : 1;
+    unsigned char reserved : 1;
+    unsigned char count : 4;
+    unsigned char ready : 1;
+    unsigned char mode : 3;
+    unsigned char levels[13];
+    unsigned char status[13];
+    int experience[13];
+    int current;
+    unsigned short selectionMask;
+    char pad56[2];
+    PackedTriple02086f24 triples[13][3];
+    unsigned short skillPoints;
+    unsigned char flags[27];
+    unsigned char groupFlags[9];
+    unsigned char commandFlags[36];
+    unsigned char field13e;
+    unsigned char cursor : 3;
+    unsigned char capacity : 5;
+    unsigned char name[12];
+    PackedTriple02086f24 vectors[4];
+    unsigned int timer : 10;
+    unsigned int timerLimit : 10;
+    unsigned int reserved15c : 12;
+    Appearance02086f24 appearance;
+    unsigned char history[0xc0];
+};
+
+struct RecruitTemplate02086f24 {
+    signed char id;
+    char pad1[3];
+    const char* name;
+    unsigned char gender;
+    char pad9;
+    short voice;
+    char padc[4];
+    unsigned char hairStyle;
+    unsigned char face;
+    unsigned char hairColor;
+    char pad13;
+    float height;
+    float width;
+    short equipment[10];
+    unsigned char levels[13];
+    unsigned char vocation;
+    unsigned char count;
+    unsigned char cursor;
+};
+
+struct ResetFieldsStruct {
+    RecruitTemplate02086f24* entries;
+    short count;
+    short f6;
+    short f8;
+    char pad0a[2];
+    int fc;
+    short f10;
+    char pad12[2];
+    int f14;
+    short f18;
+};
+
+struct CharacterProfile02086f24 {
+    char name[0x30];
+    unsigned short stat6c;
+    unsigned short stat6e;
+    unsigned short stat70;
+    unsigned short stat72;
+};
+
+struct Element020de650 {
+    unsigned int v[8];
+};
+
+struct CharacterRecord02086f24 {
+    PackedTriple02086f24 base[4];
+    unsigned char pad10[0x2c];
+    CharacterProfile02086f24 profile;
+    unsigned char pad74[0x120];
+    Element020de650 equipment[11];
+    unsigned char pad2f4[0x670];
+};
+
+struct Container020dedd0 {
+    unsigned short count;
+    unsigned char pad[10];
+    Element020de650* base;
+    unsigned char pad2[4];
+    unsigned char useBinarySearch;
+};
+
+struct Party02086f24 {
+    unsigned char pad[0xf70];
+    unsigned int memberCount;
+};
+
+struct EntryArray02089fb0;
+struct Ctx0209a8b4 { void* field0; };
+struct Holder0209ab20;
+struct StreamHeader;
+
+void ResetStructFields_02089db4(ResetFieldsStruct* s);
+void ForwardResetStructFields02089ddc(ResetFieldsStruct* s);
+void SetupHeaderAndRunBufferedScript02089de8(void* param0, void* param1, const char* param2);
+RecruitTemplate02086f24* FindEntryBySignedId02089fb0(EntryArray02089fb0* arr, int id);
+extern "C" void func_02086404(CombatSelection* selection);
+extern "C" void __clear(void* dst, unsigned int size);
+extern "C" int func_020426bc(const void* a, void* b, int flag);
+extern "C" void func_02082828(CharacterRecord02086f24* record);
+extern "C" void func_02082d6c(CharacterRecord02086f24* dst, CombatSelection* src);
+void LoadAndApplyResourceEntry02082fc4(void* a, void* b);
+void ZeroInitReturn020de824(void* p);
+void ZeroInit020de848(void* p);
+int InitAndDispatch020def44(int a0, int a1, int a2, short a3);
+extern "C" void func_02083e28(void* a, int arg2);
+void ClearField00209a804(int* p);
+void SetupAndRunBufferedScript0209a8b4(Ctx0209a8b4* ctx, SafeAllocator* alloc, StreamHeader* data, int length);
+int CollectPairsBelowThreshold0209ab20(Holder0209ab20* h, int slot, int threshold, unsigned char* out);
+extern "C" int func_02086778(Party02086f24* party, CombatSelection* sel, unsigned char c, unsigned char d);
+
+extern const char* data_020f2a38;
+extern const char* data_020f2a30;
+extern const signed char data_020e8a94[10];
+extern const char data_020f102e[];
+extern unsigned char data_0211e33c[];
+
+#define FX_F32_TO_FX16(x) ((short)(((x) > 0) ? (short)((x) * 4096.0f + 0.5f) : (short)((x) * 4096.0f - 0.5f)))
+
+static inline void SetVocation02086f24(CombatSelection* s, int n) {
+    s->selectionMask |= 1 << n;
+    s->current = n;
+}
+
+static inline int SkillByteIndex02086f24(int n) { return n / 8; }
+
+static inline int SkillBitIndex02086f24(int n) { return n % 8; }
+
+static inline short GetEquip02086f24(const RecruitTemplate02086f24* t, int k) { return t->equipment[k]; }
+
+static inline unsigned short GetStat6c02086f24(const CharacterProfile02086f24* profile) { SDK_NULL_ASSERT(profile); return profile->stat6c; }
+
+static inline unsigned short GetStat6e02086f24(const CharacterProfile02086f24* profile) { SDK_NULL_ASSERT(profile); return profile->stat6e; }
+
+static inline unsigned short GetStat7002086f24(const CharacterProfile02086f24* profile) { SDK_NULL_ASSERT(profile); return profile->stat70; }
+
+static inline unsigned short GetStat7202086f24(const CharacterProfile02086f24* profile) { SDK_NULL_ASSERT(profile); return profile->stat72; }
+
+// USA: func_02086f24
+extern "C" ARM int func_02086f24(Party02086f24* party, unsigned char id, SafeAllocator* heap) {
+    CombatSelection sel;
+    ResourceScriptEntry entry;
+    CharacterRecord02086f24 record;
+    ResetFieldsStruct templates;
+    SafeAllocator scriptAlloc;
+    unsigned char nameBuf[12];
+    Container020dedd0 items;
+    unsigned char skills[20];
+    unsigned int itemSize;
+    unsigned int size;
+    Ctx0209a8b4 ctx;
+
+    if (heap->GetMaxPossibleAllocation() < 0x800) {
+        return 0;
+    }
+    scriptAlloc.ResetAllocatorPointer();
+    scriptAlloc.ResetAllocatorPointer();
+    scriptAlloc.CreateTypeA(heap->Allocate(0x800), 0x800);
+    scriptAlloc.Reset();
+    ResetStructFields_02089db4(&templates);
+    SetupHeaderAndRunBufferedScript02089de8(&templates, &scriptAlloc, NULL);
+    RecruitTemplate02086f24* t = FindEntryBySignedId02089fb0((EntryArray02089fb0*)&templates, (short)(id + 7));
+    func_02086404(&sel);
+    int vocation = 0;
+    int ok;
+    if (t != NULL) {
+        sel.active = 1;
+        sel.count = t->count;
+        sel.cursor = t->cursor;
+        SetVocation02086f24(&sel, t->vocation);
+        __clear(nameBuf, sizeof(nameBuf));
+        func_020426bc(t->name, nameBuf, 1);
+        memcpy(sel.name, nameBuf, sizeof(nameBuf));
+        VectorizedInvertedMemcpy(t->levels, sel.levels, sizeof(sel.levels));
+        Appearance02086f24* look = &sel.appearance;
+        VectorizedInvertedMemcpy(t->equipment, look->equipment, sizeof(look->equipment));
+        look->gender = t->gender;
+        look->hairStyle = t->hairStyle;
+        look->hairColor = t->hairColor;
+        look->face = t->face;
+        look->voice = t->voice;
+        look->height = FX_F32_TO_FX16(t->height);
+        look->width = FX_F32_TO_FX16(t->width);
+        func_02082828(&record);
+        func_02082d6c(&record, &sel);
+        LoadAndApplyResourceEntry02082fc4(&record, &entry);
+        BackgroundLoader::AddLockGlobal();
+        itemSize = 0;
+        ZeroInitReturn020de824(&items);
+        ZeroInit020de848(&items);
+        void* itemData = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &itemSize);
+        for (int k = 0; k < 10; k++) {
+            short equip = GetEquip02086f24(t, k);
+            InitAndDispatch020def44((int)&record.equipment[data_020e8a94[k]], (int)itemData, itemSize, equip);
+        }
+        BackgroundLoader::RemoveLockGlobal();
+        func_02083e28(&record, 0);
+        sel.vectors[0].x = record.base[0].x;
+        sel.vectors[0].y = record.base[0].y;
+        sel.vectors[0].z = record.base[0].z;
+        sel.vectors[1].x = record.base[1].x;
+        sel.vectors[1].y = record.base[1].y;
+        sel.vectors[1].z = record.base[1].z;
+        sel.vectors[2].x = record.base[2].x;
+        sel.vectors[2].y = GetStat6c02086f24(&record.profile);
+        sel.vectors[3].x = GetStat6c02086f24(&record.profile) & 0x3ff;
+        sel.vectors[2].z = GetStat6e02086f24(&record.profile);
+        sel.vectors[3].y = GetStat6e02086f24(&record.profile);
+        sel.vectors[3].z = GetStat7002086f24(&record.profile);
+        sel.timer = GetStat7202086f24(&record.profile);
+        sel.timerLimit = record.base[3].x;
+        sel.skillPoints = entry.initial.value4High;
+        sel.experience[t->vocation] = entry.initial.value0;
+        vocation = t->vocation;
+    } else {
+        ok = 0;
+    }
+    ForwardResetStructFields02089ddc(&templates);
+    scriptAlloc.Reset();
+    if (ok) {
+        void* data = LoadFileIntoMemory(data_020f102e, data_0211e33c, &size);
+        if (data != NULL) {
+            ClearField00209a804((int*)&ctx);
+            SetupAndRunBufferedScript0209a8b4(&ctx, &scriptAlloc, (StreamHeader*)data, size);
+            int count = CollectPairsBelowThreshold0209ab20((Holder0209ab20*)&ctx, vocation, sel.levels[vocation], skills);
+            unsigned char* p = skills;
+            for (int i = 0; i < count; i++) {
+                int skill = *p;
+                int byte = SkillByteIndex02086f24(skill);
+                int bit = SkillBitIndex02086f24(skill);
+                sel.groupFlags[byte] |= 1 << bit;
+                p++;
+            }
+        }
+    }
+    if (ok) {
+        ok = func_02086778(party, &sel, 1, 0);
+        party->memberCount++;
+        if (party->memberCount > 4) {
+            party->memberCount = 4;
+        }
+    }
+    scriptAlloc.Destroy();
+    return ok;
+}
