@@ -24,7 +24,6 @@ extern "C" void func_ov017_021a5bac(unsigned char* base);
 void InitFieldArenaLists_021a5b48(unsigned char* base);
 extern "C" void func_ov017_021a5cbc(GameResources* self);
 
-// BGxCNT layout
 typedef union {
     unsigned short raw;
     struct {

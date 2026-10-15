@@ -2,10 +2,10 @@
 
 struct Wnd0204e1c8 {
     char pad0[8];
-    unsigned char* buf;     // 0x08 (4bpp tile pixels)
+    unsigned char* buf;
     char padC[0xa8 - 0xc];
-    short cols;             // 0xa8
-    short rows;             // 0xaa
+    short cols;
+    short rows;
 };
 
 // USA: func_0204e1c8

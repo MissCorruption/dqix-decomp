@@ -3,19 +3,19 @@
 void WriteReg0400048802047888(int s, int t);
 
 struct Sprite02047718 {
-    int polygonId;           // 0x00
-    unsigned short texFormat; // 0x04
+    int polygonId;
+    unsigned short texFormat;
     char pad6[0x10 - 0x6];
-    unsigned int plttAddr;   // 0x10
+    unsigned int plttAddr;
     char pad14[0x80 - 0x14];
-    unsigned short color;    // 0x80
-    short alpha;             // 0x82
+    unsigned short color;
+    short alpha;
 };
 
 struct Cell02047718 {
-    unsigned int texAddr;    // 0x0
-    unsigned short texSize;  // 0x4
-    unsigned short position; // 0x6
+    unsigned int texAddr;
+    unsigned short texSize;
+    unsigned short position;
 };
 
 static inline void Translate(int x, int y, int z) {

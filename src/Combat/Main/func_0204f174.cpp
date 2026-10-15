@@ -3,25 +3,25 @@
 
 struct Window0204f174 {
     char pad0[8];
-    unsigned char* pixels;      // 0x08
+    unsigned char* pixels;
     char pad0c[0x9c - 0xc];
-    int dirty;                  // 0x9c
-    int offset;                 // 0xa0
-    int pixelSize;              // 0xa4
-    short width;                // 0xa8
-    short height;               // 0xaa
-    short x;                    // 0xac
-    short y;                    // 0xae
+    int dirty;
+    int offset;
+    int pixelSize;
+    short width;
+    short height;
+    short x;
+    short y;
     char padb0[0xc2 - 0xb0];
-    short frame;                // 0xc2
+    short frame;
     char padc4;
-    unsigned char flags;        // 0xc5
+    unsigned char flags;
     char padc6[2];
-    short drawWidth;            // 0xc8
-    short drawHeight;           // 0xca
+    short drawWidth;
+    short drawHeight;
     char padcc[4];
-    int indexSize;              // 0xd0
-    unsigned short* indices;    // 0xd4
+    int indexSize;
+    unsigned short* indices;
 };
 
 extern "C" void func_0204f914(Window0204f174* window, int color, short x0, short y0, short x1, short y1);

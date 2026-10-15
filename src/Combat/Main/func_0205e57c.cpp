@@ -66,7 +66,6 @@ struct Obj0205e57c {
     struct List0205e57c active;
 };
 
-// .bss 0x02108748..0x02108754: sSeq (function static) at +0, then these two.
 static int sPendingBytes;
 static int sActiveBytes;
 

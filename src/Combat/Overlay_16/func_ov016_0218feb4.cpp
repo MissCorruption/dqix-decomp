@@ -1,13 +1,12 @@
 #include <globaldefs.h>
 
-// IMA ADPCM decoder state (initialised by func_ov016_0218fea0 from the block header).
 struct AdpcmState_0218feb4 {
     int predictor;
     int stepIndex;
 };
 
-extern const short data_ov016_0219cef0[];       // IMA step table (89 entries)
-extern const signed char data_ov016_0219cee0[]; // IMA index table
+extern const short data_ov016_0219cef0[];
+extern const signed char data_ov016_0219cee0[];
 
 // USA: func_ov016_0218feb4
 extern "C" ARM void func_ov016_0218feb4(AdpcmState_0218feb4* state, unsigned char* input, int length, unsigned int* output) {
