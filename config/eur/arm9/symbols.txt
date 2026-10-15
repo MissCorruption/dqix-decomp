@@ -7716,7 +7716,9 @@ data_021079cc kind:bss addr:0x021079cc
 data_021079e0 kind:bss addr:0x021079e0
 data_021079ec kind:bss addr:0x021079ec
 data_02108740 kind:bss addr:0x02108740
-data_02108748 kind:bss addr:0x02108748
+sSeq$22 kind:bss addr:0x02108748 local
+sPendingBytes kind:bss addr:0x0210874c local
+sActiveBytes kind:bss addr:0x02108750 local
 data_02108754 kind:bss addr:0x02108754
 data_02108760 kind:bss addr:0x02108760
 data_02108830 kind:bss addr:0x02108830
