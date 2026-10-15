@@ -82,7 +82,7 @@ extern const char data_020f1bf0[];
 extern "C" int func_02075910(int, void*, unsigned int, int);
 extern "C" int func_01ff85b8(void*, int);
 extern "C" Context020aaf84* func_0205ec34();
-extern "C" void func_020a95a4(void*, void*, unsigned char*);
+extern "C" int func_020a95a4(void*, void*, unsigned char*);
 extern "C" int func_020a9a50(void*, void*, int);
 extern "C" void func_020a9b2c(void*);
 extern "C" void func_020a9c14(void*);

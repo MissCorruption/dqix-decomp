@@ -61,7 +61,7 @@ extern "C" int func_01ff85b8(void*, int);
 extern "C" void* func_0205ec34();
 Globals020ab314* GetGlobal02109418_02094d6c();
 void* GetSlotEntry020108d8(char*, int);
-extern "C" void func_020a95a4(void*, void*, unsigned char*);
+extern "C" int func_020a95a4(void*, void*, unsigned char*);
 extern "C" int func_020a9a50(void*, void*, int);
 void LoadBattleRegion0x5cdc_020a9af8(unsigned char*);
 extern "C" void func_020a9b2c(void*);
