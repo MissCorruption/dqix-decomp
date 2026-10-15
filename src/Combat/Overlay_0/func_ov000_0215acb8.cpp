@@ -48,7 +48,7 @@ struct Battle0215acb8 {
 void InitStruct02160030(void* obj);
 void ResetStruct02157cdc(void* obj);
 void PopulateEntry_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
-                            short valC, short valA, short valB, int wordC, int wordD, unsigned char byteE);
+                            short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
 void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
 void AppendToChainAndIncCount0215ffc4(void* obj, void* node, int idx);
 
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov000_0215acb8(struct Battle0215acb8* battle, int comba
     entry->combatantId = combatantId;
     entry->currHP = c->currentStats_->primaryStats.currHP;
     entry->currMP = c->currentStats_->primaryStats.currMP;
-    PopulateEntry_0215ccbc((int)battle, out, c, -amount, c->currentStats_->primaryStats.currHP, valB, 0, 8, 0);
+    PopulateEntry_0215ccbc((int)battle, out, c, -amount, c->currentStats_->primaryStats.currHP, valB, 0x800000000ULL, 0);
     AddEntryAndIncrementCount0215a88c(battle, out, 0x243);
     target->combatantId = combatantId;
     target->active = 1;

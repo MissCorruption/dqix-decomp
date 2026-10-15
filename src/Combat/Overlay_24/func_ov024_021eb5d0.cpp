@@ -336,7 +336,7 @@ void AddEntryAndIncrementCount0215a88c(void*, void*, int);
 void AppendToChainAndIncCount0215ffc4(void* node, void* entry, int v);
 extern "C" int func_ov000_021573a8(void* world, int id, int target, int dmg);
 extern "C" struct Entry_021eb5d0* func_ov000_0215e958(void* world);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(void* world, struct Entry_021eb5d0* e, void* c, short a, short b, int d, unsigned long long f, unsigned char h);
+extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void* world, struct Entry_021eb5d0* e, void* c, short a, short b, int d, unsigned long long f, unsigned char h);
 struct Depth_021eb5d0* FindNodeAtDepth0215fff4(void* node, int a, int b);
 extern "C" int func_ov000_02157288(void* world, int id, struct Rec_021eb5d0* rec);
 extern "C" void func_ov000_0215cd44(void* world, void* entry, void* c, int a, unsigned long long f, int e);
@@ -828,7 +828,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Act_021eb5d0* self, struct World_
                         struct Fighter_021eb5d0* tc3 = (struct Fighter_021eb5d0*)GetCombatantByID((int)self->f10, s4);
                         func_ov000_02159eac(self->f10, ent2, 1);
                         func_ov000_02159eac(self->f10, ent2, 0x2a);
-                        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(
+                        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(
                             self->f10, ent2, tc3, mp, tc3->f138->f0, mpRes, ent2->flags, 0);
                         AppendToChainAndIncCount0215ffc4(self->fc, ent2, 1);
                         self->f10->fe02 = self->f10->fe02 + 1;
@@ -876,7 +876,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Act_021eb5d0* self, struct World_
                         AddEntryAndIncrementCount0215a88c(self->f10, ent4, (unsigned short)sel);
                         pairA = 0;
                         func_ov000_02159eac(self->f10, &pairA, 0x22);
-                        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(
+                        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(
                             self->f10, ent4, me, -s2, me->f138->f0, delta, pairA, 0);
                         AppendToChainAndIncCount0215fe84(self->f8, ent4, 5);
                         self->f8->f1c = s4;

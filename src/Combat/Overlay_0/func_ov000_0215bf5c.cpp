@@ -30,7 +30,7 @@ extern "C" {
 GameObject* _ZN9GameState19GetCombatantByIndexEi(GameState*,int);
 int func_ov000_0215fd90(Flags0215bf5c*,int);
 Out0215bf5c* func_ov000_0215e958(void*);
-void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(void*,Out0215bf5c*,GameObject*,short,short,short,int,int,unsigned char);
+void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void*,Out0215bf5c*,GameObject*,short,short,short,unsigned long long,unsigned char);
 }
 
 struct Root0215bf5c { char p[0x8e00]; unsigned char count0,count1,count2; char q[0x21]; int workCount; };
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov000_0215bf5c(Root0215bf5c* self,List02160094* list) {
         copy->id=node->id;copy->field24=node->field24;
         int second=unit->GetSecond();
         int first=unit->GetFirst();
-        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(self,out,unit,0,first,second,0,0,0);
+        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(self,out,unit,0,first,second,0,0);
         state->id=node->id;state->flag=1;
         AppendToChainAndIncCount0215ffc4(state,out,0);
         work->flags|=4;

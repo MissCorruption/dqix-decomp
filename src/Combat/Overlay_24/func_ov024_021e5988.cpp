@@ -10,7 +10,7 @@ short ApplyHPDelta0215a16c(void* unused, int id, int delta, short* outApplied);
 extern "C" void* func_ov000_0215e958(void* a0);
 extern "C" void func_ov000_02159eac(void* a0, void* buf, int a2);
 void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(void* world, void* out, GameObject* combatant,
+extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void* world, void* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long word, unsigned char byteE);
 void AppendToChainAndIncCount0215fe84(void* obj, void* node, int idx);
 
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov024_021e5988(struct Obj_021e5988* obj, int id, struct
 	local.hi = 0;
 	func_ov000_02159eac(obj->field0x10, &local, 0x25);
 	AddEntryAndIncrementCount0215a88c(obj->field0x10, entry, 0x215);
-	_Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(obj->field0x10, entry, c, -sum, hp,
+	_Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->field0x10, entry, c, -sum, hp,
 	                       GetStatField2_021e5988(c), local.v, 0);
 	AppendToChainAndIncCount0215fe84(obj->field0x8, entry, 2);
 	((unsigned char*)obj->field0x10)[0x8e02]++;

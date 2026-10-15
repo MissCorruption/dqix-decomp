@@ -61,7 +61,7 @@ struct Obj021600cc;
 void AppendNode021600cc(Obj021600cc*, Node021600cc*);
 extern "C" ResultEntry* func_ov000_0215e958(void* self);
 struct OutStruct0215ccbc;
-void PopulateEntry_0215ccbc(int, OutStruct0215ccbc*, GameObject*, short, short, short, int, int, unsigned char);
+void PopulateEntry_0215ccbc(int, OutStruct0215ccbc*, GameObject*, short, short, short, unsigned long long, unsigned char);
 void AppendToChainAndIncCount0215ffc4(void* node, void* entry, int v);
 
 static inline GameObject* GetCombatant(int id) {
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov000_0215c2d0(Battle* self, ActionNode* src) {
         e->hits = 0;
         e->f1c = -1;
         e->f1e = 0;
-        PopulateEntry_0215ccbc((int)self, (OutStruct0215ccbc*)out, c, 0, CurrHP(c), CurrMP(c), 0, 0, 0);
+        PopulateEntry_0215ccbc((int)self, (OutStruct0215ccbc*)out, c, 0, CurrHP(c), CurrMP(c), 0, 0);
         tn->id = e->id;
         tn->active = 1;
         AppendToChainAndIncCount0215ffc4(tn, out, 0);

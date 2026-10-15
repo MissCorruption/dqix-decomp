@@ -31,7 +31,7 @@ int IsFlag0x18Bit0x2000Set_ov000_02153c0c(GameObject*);
 void ClearFlag0x1000AndBytes7eA1_02088e64(unsigned char*);
 void InitStruct02160030(void*);
 void ResetStruct02157cdc(void*);
-void PopulateEntry_0215ccbc(int, OutStruct0215ccbc*, GameObject*, short, short, short, int, int, unsigned char);
+void PopulateEntry_0215ccbc(int, OutStruct0215ccbc*, GameObject*, short, short, short, unsigned long long, unsigned char);
 void AddEntryAndIncrementCount0215a88c(void*, void*, int);
 void AppendToChainAndIncCount0215ffc4(void*, void*, int);
 void AppendNode02160068(Obj02160068*, Node02160068*);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov000_0215a908(BattleEvents* events, int id) {
     summary->combatant = id;
     summary->hp = combatant->currentStats_->primaryStats.currHP;
     summary->mp = combatant->currentStats_->primaryStats.currMP;
-    PopulateEntry_0215ccbc((int)events, entry, combatant, 0, GetHP(combatant), GetMP(combatant), 0, 0, 0);
+    PopulateEntry_0215ccbc((int)events, entry, combatant, 0, GetHP(combatant), GetMP(combatant), 0, 0);
     AddEntryAndIncrementCount0215a88c(events, entry, 0x212);
     target->target = id;
     target->active = 1;

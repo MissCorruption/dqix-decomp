@@ -25,7 +25,7 @@ struct OutStruct0215ccbc {
 
 // USA: func_ov000_0215ccbc
 ARM void PopulateEntry_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
-                                 short valC, short valA, short valB, int wordC, int wordD, unsigned char byteE) {
+                                 short valC, short valA, short valB, unsigned long long words, unsigned char byteE) {
     if (out == NULL) return;
     out->short0xc = valC;
     out->short0xe = valA;
@@ -35,7 +35,7 @@ ARM void PopulateEntry_0215ccbc(int unused, struct OutStruct0215ccbc* out, GameO
     out->word0x18 = *(int*)((char*)combatant->currentStats_->unk1 + 0);
     out->byte0x1d = ((struct Field0x22_0215ccbc*)((char*)combatant->currentStats_->unk1 + 0xe))->mid4;
     out->byte0x1e = ((struct Field0x22_0215ccbc*)((char*)combatant->currentStats_->unk1 + 0xe))->low2;
-    out->word0 = wordC;
-    out->word4 = wordD;
+    out->word0 = words;
+    out->word4 = words >> 32;
     out->byte0x1c = byteE;
 }
