@@ -90,7 +90,7 @@ extern "C" int func_ov024_021eb08c(struct Act_021da9e0* self, int a, int id, int
 extern "C" void func_ov000_0215a908(void* world, int id);
 extern "C" unsigned short func_ov024_021e9b24(struct Act_021da9e0* self, int id, struct Rec_021da9e0* rec, int flag);
 unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(void* world, void* entry, GameObject* c, short a, short b, short d, unsigned long long f, unsigned char h);
+extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void* world, void* entry, GameObject* c, short a, short b, short d, unsigned long long f, unsigned char h);
 
 static inline int IsPartySlot_021da9e0(int id) {
     return id >= 0 && id <= 3;
@@ -258,6 +258,6 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
         AddEntryAndIncrementCount0215a88c(obj->world, entry, 0xc8);
         obj->f6e = 1;
     }
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(obj->world, entry, c, dmg, hp, CurrMP_021da9e0(c), effects.value, obj->fc->f1c.b7 != 0);
+    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->world, entry, c, dmg, hp, CurrMP_021da9e0(c), effects.value, obj->fc->f1c.b7 != 0);
     return entry;
 }

@@ -48,7 +48,7 @@ extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* world);
 extern "C" int func_ov000_02159f18(void* world, unsigned long long bits, int bit);
 unsigned short SelectByIndexRange0to3_021da644(int idx, int a, int b);
 void AddEntryAndIncrementCount0215a88c(void* world, void* entry, int msg);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
+extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(int unused, struct OutStruct0215ccbc* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
 void AppendToChainAndIncCount0215fe84(void* chain, void* node, int idx);
 
@@ -134,14 +134,14 @@ extern "C" ARM void func_ov024_021e62cc(struct Obj_021e62cc* self, int id, struc
         struct OutStruct0215ccbc* entry = func_ov000_0215e958(self->ctx);
         if (!entry) return;
         AddEntryAndIncrementCount0215a88c(self->ctx, entry, SelectByIndexRange0to3_021da644(id, 0x1b4, 0x22b));
-        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih((int)self->ctx, entry, attacker, dmg, result, GetCurrentMP(attacker->currentStats_), bits, 0);
+        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)self->ctx, entry, attacker, dmg, result, GetCurrentMP(attacker->currentStats_), bits, 0);
         AppendToChainAndIncCount0215fe84(self->chain, entry, 4);
         ((unsigned char*)self->ctx)[0x8e02]++;
         if (func_ov000_02159f18(self->ctx, bits, 2)) {
             entry = func_ov000_0215e958(self->ctx);
             if (!entry) return;
             AddEntryAndIncrementCount0215a88c(self->ctx, entry, SelectByIndexRange0to3_021da644(id, 0x1b3, 0x22a));
-            _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih((int)self->ctx, entry, attacker, 0, result, GetCurrentMP(attacker->currentStats_), 0, 0);
+            _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)self->ctx, entry, attacker, 0, result, GetCurrentMP(attacker->currentStats_), 0, 0);
             AppendToChainAndIncCount0215fe84(self->chain, entry, 4);
             ((unsigned char*)self->ctx)[0x8e02]++;
         }

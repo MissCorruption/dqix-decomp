@@ -19,7 +19,7 @@ void AddEntryAndIncrementCount0215a88c(void*,void*,int);
 struct Obj02160068; struct Node02160068; struct Obj021600cc; struct Node021600cc;
 void AppendNode02160068(Obj02160068*,Node02160068*);
 void AppendNode021600cc(Obj021600cc*,Node021600cc*);
-extern "C" { Out* func_ov000_0215e958(void*); void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(void*,Out*,GameObject*,short,short,short,int,int,unsigned char); }
+extern "C" { Out* func_ov000_0215e958(void*); void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void*,Out*,GameObject*,short,short,short,unsigned long long,unsigned char); }
 inline int IsParty(unsigned short n) { int result=0; if(n<=3) result=1; return result; }
 // USA: func_ov000_0215bbbc
 extern "C" ARM void func_ov000_0215bbbc(unsigned char* self,List02160094* list) {
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* self,List02160094* list) 
         node->sentinel=-1; node->field1e=0; node->trigger=0;
         copy->chains[1]=0; copy->counts[1]=0;
         { int second=unit->Second(); int first=unit->First();
-        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(self,out,unit,0,first,second,0,0,0); }
+        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(self,out,unit,0,first,second,0,0); }
         state->id=node->id; state->flag=1;
         AppendToChainAndIncCount0215ffc4(state,out,0);
         work->flags|=4;
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* self,List02160094* list) 
             copy->field22=unit->detail->rawFirst; copy->field24=unit->detail->rawSecond;
             work->flags|=4;
             { int second=unit->Second(); int first=unit->First();
-        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(self,out,unit,0,first,second,0,0,0); }
+        _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(self,out,unit,0,first,second,0,0); }
             AddEntryAndIncrementCount0215a88c(self,out,0x35);
             state->id=node->id; state->flag=1;
             AppendToChainAndIncCount0215ffc4(state,out,0);

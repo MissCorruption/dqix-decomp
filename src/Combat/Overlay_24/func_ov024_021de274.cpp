@@ -29,7 +29,7 @@ void AddEntryAndIncrementCount0215a88c(void* world, void* entry, int msg);
 short ApplyMPDelta0215a1d4(void* world, int id, int delta, short* outApplied);
 extern "C" void func_ov000_02159eac(void* world, unsigned long long* bits, int bit);
 short ConsumeMP0215a124(void* world, int id, int amount);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(void* world, struct OutStruct0215ccbc* out, GameObject* combatant,
+extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void* world, struct OutStruct0215ccbc* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
 
 static inline int GetCurrentHP(GameObject* c) { SDK_NULL_ASSERT(c); return c->currentStats_->primaryStats.currHP; }
@@ -80,7 +80,7 @@ extern "C" ARM OutStruct0215ccbc* func_ov024_021de274(Obj_021de274* obj,short so
    OutStruct0215ccbc* entry=func_ov000_0215e958(obj->world);
    if(!entry)return 0;
    AddEntryAndIncrementCount0215a88c(obj->world,entry,0x26c);
-   _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(obj->world,entry,source,-amount,source->currentStats_->primaryStats.currHP,sourceMP,sourceEffects,0);
+   _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->world,entry,source,-amount,source->currentStats_->primaryStats.currHP,sourceMP,sourceEffects,0);
    AppendToChainAndIncCount0215fe84(obj->chain,entry,0);
    ++*((unsigned char*)obj->world+0x8e02);
   }
@@ -90,6 +90,6 @@ extern "C" ARM OutStruct0215ccbc* func_ov024_021de274(Obj_021de274* obj,short so
  func_ov024_021e8bf0(obj,obj->action,&selection);
  AddEntryAndIncrementCount0215a88c(obj->world,entry,selection);
  Flag_021de274* flag=(Flag_021de274*)((char*)obj->action+0x1c);
- _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(obj->world,entry,target,amount,GetCurrentHP(target),mp,effects,flag->flag!=0);
+ _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->world,entry,target,amount,GetCurrentHP(target),mp,effects,flag->flag!=0);
  return entry;
 }

@@ -31,7 +31,7 @@ void AddEntryAndIncrementCount0215a88c(void* world, void* entry, int msg);
 short ApplyMPDelta0215a1d4(void* world, int id, int delta, short* outApplied);
 extern "C" void func_ov000_02159eac(void* world, unsigned long long* bits, int bit);
 int ConsumeMP0215a124(void* world, int id, int amount);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(void* world, struct OutStruct0215ccbc* out, GameObject* combatant,
+extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void* world, struct OutStruct0215ccbc* out, GameObject* combatant,
                             short valC, short valA, short valB, unsigned long long words, unsigned char byteE);
 
 static inline int GetCurrentHP(GameObject* c) { SDK_NULL_ASSERT(c); return c->currentStats_->primaryStats.currHP; }
@@ -67,6 +67,6 @@ extern "C" ARM struct OutStruct0215ccbc* func_ov024_021dc540(struct Obj_021dc540
     }
     ConsumeMP0215a124(obj->f10, srcId, applied);
     struct Flag_021dc540* fl = (struct Flag_021dc540*)((char*)obj->fc + 0x1c);
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(obj->f10, entry, tgt, -applied, GetCurrentHP(tgt), delta, bits, fl->flag != 0);
+    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->f10, entry, tgt, -applied, GetCurrentHP(tgt), delta, bits, fl->flag != 0);
     return entry;
 }

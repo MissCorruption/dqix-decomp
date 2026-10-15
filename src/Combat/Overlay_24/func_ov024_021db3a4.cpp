@@ -14,7 +14,7 @@ extern "C" unsigned long long func_ov024_021e4b14(Obj021db3a4*, short, int, Para
 extern "C" void* func_ov000_0215e958(void*);
 void AddEntryAndIncrementCount0215a88c(void*, void*, int);
 extern "C" void func_ov000_02159eac(void*, void*, int);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(void*, void*, GameObject*, short, short, short, unsigned long long, unsigned char);
+extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(void*, void*, GameObject*, short, short, short, unsigned long long, unsigned char);
 struct Flags021db3a4 { char pad[0x1c]; unsigned char unused:7; unsigned char flag:1; };
 struct Obj021db3a4 { char pad[0xc]; Flags021db3a4* action; void* context; int count; };
 struct Code021db3a4 { unsigned int code:12; unsigned int rest:20; };
@@ -51,6 +51,6 @@ extern "C" ARM void* func_ov024_021db3a4(Obj021db3a4* obj, short arg, int id, Pa
     unsigned short mp = c->currentStats_->primaryStats.currMP;
     unsigned char flag;
     if (obj->action->flag) flag = 1; else flag = 0;
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(obj->context, entry, c, -applied, hp, mp, effects.value, flag);
+    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(obj->context, entry, c, -applied, hp, mp, effects.value, flag);
     return entry;
 }

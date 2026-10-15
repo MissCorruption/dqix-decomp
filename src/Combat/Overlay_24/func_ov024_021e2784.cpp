@@ -18,7 +18,7 @@ short ApplyHPDelta0215a16c(void* unused, int id, int delta, short* outApplied);
 extern "C" struct OutStruct0215ccbc* func_ov000_0215e958(void* ctx);
 void AddEntryAndIncrementCount0215a88c(void* objRaw, void* listRaw, int c);
 extern "C" void func_ov000_02159eac(void* ctx, struct EffectWords_021e2784* words, int effect);
-extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih(
+extern "C" void _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh(
     int unused, struct OutStruct0215ccbc* out, GameObject* combatant, short valC, short valA, short valB,
     struct EffectWords_021e2784 words, unsigned char byteE);
 
@@ -67,7 +67,7 @@ extern "C" ARM struct OutStruct0215ccbc* func_ov024_021e2784(struct Obj_021e2784
     unsigned short mp = c->currentStats_->primaryStats.currMP;
     unsigned char flag;
     if (obj->action->flag) flag = 1; else flag = 0;
-    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssiih((int)obj->ctx, entry, c, -applied,
+    _Z22PopulateEntry_0215ccbciP17OutStruct0215ccbcP10GameObjectsssyh((int)obj->ctx, entry, c, -applied,
         hp, mp, words, flag);
     return entry;
 }
