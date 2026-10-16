@@ -20660,3 +20660,8 @@ src/NitroSDK/Main/func_020d0f74.cpp:
 src/NitroSDK/Main/GetAlignedFieldSize020d4900_020d4900.cpp:
     complete
     .text start:0x020d4900 end:0x020d49c4
+
+
+src/NitroSDK/Main/DispatchCartridgeReadToArm7_020d06fc.cpp:
+    complete
+    .text start:0x020d06fc end:0x020d0834
