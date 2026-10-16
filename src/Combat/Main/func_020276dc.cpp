@@ -14,10 +14,17 @@ struct Global020fdc4c_020276dc {
     char pad[0x12];
 };
 extern struct Global020fdc4c_020276dc data_020fdc4c;
-extern struct Global020fdc4c_020276dc data_020fdc4c_dup;
+// The ROM loads 0x020fdc4c from two pool words: the store goes through one, both calls' address argument
+// through the other. Reached here through the next object of the block (see func_02020c18).
+extern char data_020fdc50[];
+
+// Two-bit palette tier of each of the four combatants.
+struct PaletteTiers020276dc {
+    unsigned char tiers;
+};
 
 // USA: func_020276dc
-extern "C" ARM void func_020276dc(unsigned char* self) {
+extern "C" ARM void func_020276dc(PaletteTiers020276dc* self) {
     GameState* gs = GameState::GetInstance();
     unsigned i;
     unsigned short buf[4];
@@ -31,13 +38,13 @@ extern "C" ARM void func_020276dc(unsigned char* self) {
 
         if (GetCombatantWithFlag0x100_0200ff1c(gs, i) == 0) continue;
         want = data_020e703e[ClassifyFlag0x800RatioTier02027bd0(i)];
-        cur = self[0];
+        cur = self->tiers;
         sh = i << 1;
         have = (cur >> sh) & 3;
         if (have == want) continue;
 
-        self[0] &= ~(3 << sh);
-        self[0] |= want << sh;
+        self->tiers &= ~(3 << sh);
+        self->tiers |= want << sh;
         {
             const unsigned short* s = data_020e7044;
             unsigned short* d = buf;
@@ -45,7 +52,7 @@ extern "C" ARM void func_020276dc(unsigned char* self) {
             do { *d++ = *s++; } while (--k);
         }
         data_020fdc4c.field0 = buf[want];
-        CleanInvalidateCacheRange(&data_020fdc4c_dup, 2);
-        LoadToSubObjStandardPalette((int)&data_020fdc4c_dup, i * 32 + 0x1e, 2);
+        CleanInvalidateCacheRange(data_020fdc50 - 4, 2);
+        LoadToSubObjStandardPalette((int)(data_020fdc50 - 4), i * 32 + 0x1e, 2);
     }
 }
