@@ -20264,3 +20264,11 @@ src/Combat/Main/RunAlternateQuestScript0209576c.cpp:
 src/Combat/Main/func_02094654.cpp:
     complete
     .text start:0x02094654 end:0x020946f8
+
+src/Combat/Main/func_02009edc.cpp:
+    complete
+    .text start:0x02009edc end:0x0200a180
+
+src/Combat/Main/func_02038598.cpp:
+    complete
+    .text start:0x02038598 end:0x020391ac
