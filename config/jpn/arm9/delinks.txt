@@ -42,19 +42,19 @@ src/Combat/Main/0208e7d0.cpp:
     complete
     .text start:0x0208f0e0 end:0x0208f134
 
-src/Combat/Main/020b0368.cpp:
+src/NitroSDK/Main/020b0368.cpp:
     complete
     .text start:0x020b1e34 end:0x020b2060
 
-src/Combat/Main/020b8cf4.cpp:
+src/NitroSDK/Main/020b8cf4.cpp:
     complete
     .text start:0x020ba7c0 end:0x020ba92c
 
-src/Combat/Main/020c6938.cpp:
+src/NitroSDK/Main/020c6938.cpp:
     complete
     .text start:0x020c8404 end:0x020c8420
 
-src/Combat/Main/020c79a0.cpp:
+src/NitroSDK/Main/020c79a0.cpp:
     complete
     .text start:0x020c946c end:0x020c9488
 
@@ -118,23 +118,23 @@ src/Combat/Main/AccumulateSlotBits20To29AsTenths.cpp:
     complete
     .text start:0x020858e8 end:0x02085958
 
-src/Combat/Main/AcquireFlagBits020bbe1c.cpp:
+src/NitroSDK/Main/AcquireFlagBits020bbe1c.cpp:
     complete
     .text start:0x020bd8e8 end:0x020bd930
 
-src/Combat/Main/AcquireFlushAndReleaseContext020bf1a0.cpp:
+src/NitroSDK/Main/AcquireFlushAndReleaseContext020bf1a0.cpp:
     complete
     .text start:0x020c0c6c end:0x020c0d04
 
-src/Combat/Main/AcquireOrEvictEntryByByte3d020bc734.cpp:
+src/NitroSDK/Main/AcquireOrEvictEntryByByte3d020bc734.cpp:
     complete
     .text start:0x020be200 end:0x020be268
 
-src/Combat/Main/AcquireOrEvictSlotAndLink020bc454.cpp:
+src/NitroSDK/Main/AcquireOrEvictSlotAndLink020bc454.cpp:
     complete
     .text start:0x020bdf20 end:0x020bdfb8
 
-src/Combat/Main/AcquireRefAt0x120.cpp:
+src/NitroSDK/Main/AcquireRefAt0x120.cpp:
     complete
     .text start:0x020c0d68 end:0x020c0da0
 
@@ -346,7 +346,7 @@ src/Combat/Main/AddStringIfPresent0201eff0.cpp:
     complete
     .text start:0x0201ed7c end:0x0201eda8
 
-src/Combat/Main/AddVec3.cpp:
+src/NitroSDK/Main/AddVec3.cpp:
     complete
     .text start:0x020c485c end:0x020c4890
 
@@ -354,7 +354,7 @@ src/Combat/Main/AddWrappedField0x70_0202e784.cpp:
     complete
     .text start:0x0202e2f4 end:0x0202e344
 
-src/Combat/Main/AdjustDeltaThenSetupEffect020c00c8.cpp:
+src/NitroSDK/Main/AdjustDeltaThenSetupEffect020c00c8.cpp:
     complete
     .text start:0x020c1b94 end:0x020c1bcc
 
@@ -386,7 +386,7 @@ src/Combat/Main/AdvanceAndAccumulate02041298.cpp:
     complete
     .text start:0x02041794 end:0x020417f0
 
-src/Combat/Main/AdvanceBattleBlockQueue020d66dc.cpp:
+src/NitroSDK/Main/AdvanceBattleBlockQueue020d66dc.cpp:
     complete
     .text start:0x020d8138 end:0x020d828c
 
@@ -414,7 +414,7 @@ src/Combat/Main/AdvanceOrSnapToTarget0203c960.cpp:
     complete
     .text start:0x0203ce98 end:0x0203cf5c
 
-src/Combat/Main/AdvanceRing020bbc78.cpp:
+src/NitroSDK/Main/AdvanceRing020bbc78.cpp:
     complete
     .text start:0x020bd744 end:0x020bd780
 
@@ -434,7 +434,7 @@ src/Combat/Main/AdvanceTowardOrSnap020412f4.cpp:
     complete
     .text start:0x020417f0 end:0x02041874
 
-src/Combat/Main/AdvanceTweenStep020c0260.cpp:
+src/NitroSDK/Main/AdvanceTweenStep020c0260.cpp:
     complete
     .text start:0x020c1d2c end:0x020c1d44
 
@@ -466,7 +466,7 @@ src/Combat/Main/AimAtFlaggedTargetCombatant_0207964c.cpp:
     complete
     .text start:0x0207a540 end:0x0207a604
 
-src/Combat/Main/AllocAndEnqueueEvent.cpp:
+src/NitroSDK/Main/AllocAndEnqueueEvent.cpp:
     complete
     .text start:0x020d3c48 end:0x020d3c8c
 
@@ -482,7 +482,7 @@ src/Combat/Main/AllocNode0201ebc4.cpp:
     complete
     .text start:0x0201e950 end:0x0201e984
 
-src/Combat/Main/AllocPoolBlockAtIndex_020c8854.cpp:
+src/NitroSDK/Main/AllocPoolBlockAtIndex_020c8854.cpp:
     complete
     .text start:0x020ca320 end:0x020ca428
 
@@ -494,11 +494,11 @@ src/Combat/Main/AllocateAligned4.cpp:
     complete
     .text start:0x02012b50 end:0x02012b6c
 
-src/Combat/Main/AllocateAlignedFromSharedArena020c86fc.cpp:
+src/NitroSDK/Main/AllocateAlignedFromSharedArena020c86fc.cpp:
     complete
     .text start:0x020ca1c8 end:0x020ca234
 
-src/Combat/Main/AllocateAndAppendAllocatorChild.cpp:
+src/NitroSDK/Main/AllocateAndAppendAllocatorChild.cpp:
     complete
     .text start:0x020bf6f0 end:0x020bf72c
 
@@ -530,7 +530,7 @@ src/Combat/Main/AllocateAndClearHeaderArray020286fc.cpp:
     complete
     .text start:0x02027f68 end:0x02027fc0
 
-src/Combat/Main/AllocateAndFillListEntry020be09c.cpp:
+src/NitroSDK/Main/AllocateAndFillListEntry020be09c.cpp:
     complete
     .text start:0x020bfb68 end:0x020bfc08
 
@@ -546,7 +546,7 @@ src/Combat/Main/AllocateAndInsertTimedNode0205f9cc.cpp:
     complete
     .text start:0x02060cb8 end:0x02060db8
 
-src/Combat/Main/AllocateAndLinkEntry020bda58.cpp:
+src/NitroSDK/Main/AllocateAndLinkEntry020bda58.cpp:
     complete
     .text start:0x020bf524 end:0x020bf58c
 
@@ -630,7 +630,7 @@ src/Combat/Main/AllocateEntryArrayFromVariant0207ed1c.cpp:
     complete
     .text start:0x0207fa9c end:0x0207fac8
 
-src/Combat/Main/AllocateFlagBit.cpp:
+src/NitroSDK/Main/AllocateFlagBit.cpp:
     complete
     .text start:0x020bd97c end:0x020bd9c4
 
@@ -930,7 +930,7 @@ src/Combat/Main/AppendNodeToTail020469b4.cpp:
     complete
     .text start:0x020477d4 end:0x02047818
 
-src/Combat/Main/AppendNodeToTail020cee68.cpp:
+src/NitroSDK/Main/AppendNodeToTail020cee68.cpp:
     complete
     .text start:0x020d0934 end:0x020d0980
 
@@ -982,7 +982,7 @@ src/Combat/Main/AppendSubEntryFromDualVariant0209ba70.cpp:
     complete
     .text start:0x0209d7e8 end:0x0209d894
 
-src/Combat/Main/AppendToGlobalList02111800.cpp:
+src/NitroSDK/Main/AppendToGlobalList02111800.cpp:
     complete
     .text start:0x020d0a18 end:0x020d0a30
 
@@ -990,7 +990,7 @@ src/Combat/Main/AppendToNodeList.cpp:
     complete
     .text start:0x02012e78 end:0x02012ea8
 
-src/Combat/Main/AppendToQueue.cpp:
+src/NitroSDK/Main/AppendToQueue.cpp:
     complete
     .text start:0x020cae18 end:0x020cae50
 
@@ -1062,7 +1062,7 @@ src/Combat/Main/ApplyRandomVariance.cpp:
     complete
     .text start:0x020759c4 end:0x02075a34
 
-src/Combat/Main/ApplyRangeDeltaCallback020b1d70.cpp:
+src/NitroSDK/Main/ApplyRangeDeltaCallback020b1d70.cpp:
     complete
     .text start:0x020b383c end:0x020b3960
 
@@ -1138,7 +1138,7 @@ src/Combat/Main/BasicAttackCalculation.cpp:
 	complete
 	.text start:0x02075634 end:0x020758c4
 
-src/Combat/Main/BcdToBinary.cpp:
+src/NitroSDK/Main/BcdToBinary.cpp:
     complete
     .text start:0x020d12b0 end:0x020d1320
 
@@ -1230,15 +1230,15 @@ src/Combat/Main/BlankFunction020a87cc.cpp:
     complete
     .text start:0x020aa550 end:0x020aa554
 
-src/Combat/Main/BlankFunction020c0138.cpp:
+src/NitroSDK/Main/BlankFunction020c0138.cpp:
     complete
     .text start:0x020c1c04 end:0x020c1c08
 
-src/Combat/Main/BlankFunction020c0158.cpp:
+src/NitroSDK/Main/BlankFunction020c0158.cpp:
     complete
     .text start:0x020c1c24 end:0x020c1c28
 
-src/Combat/Main/BlankFunction020c36ec.cpp:
+src/NitroSDK/Main/BlankFunction020c36ec.cpp:
     complete
     .text start:0x020c51b8 end:0x020c51bc
 
@@ -1262,7 +1262,7 @@ src/Combat/Main/BlankFunction020d84f4.cpp:
     complete
     .text start:0x020d9e58 end:0x020d9e5c
 
-src/Combat/Main/BlockReleaseInsertLoop020c015c.cpp:
+src/NitroSDK/Main/BlockReleaseInsertLoop020c015c.cpp:
     complete
     .text start:0x020c1c28 end:0x020c1c78
 
@@ -1274,7 +1274,7 @@ src/Combat/Main/BuildAndAppendVec3Record0201c7c4.cpp:
     complete
     .text start:0x0201c550 end:0x0201c634
 
-src/Combat/Main/BuildAndDispatch020d5898.cpp:
+src/NitroSDK/Main/BuildAndDispatch020d5898.cpp:
     complete
     .text start:0x020d72f4 end:0x020d735c
 
@@ -1322,11 +1322,11 @@ src/Combat/Main/BuildSortedNodeChain020721f8.cpp:
     complete
     .text start:0x02073264 end:0x020732a4
 
-src/Combat/Main/BuildTargetMaskFromBytes.cpp:
+src/NitroSDK/Main/BuildTargetMaskFromBytes.cpp:
     complete
     .text start:0x020be414 end:0x020be474
 
-src/Combat/Main/BuildViewMatrix020c20d4.cpp:
+src/NitroSDK/Main/BuildViewMatrix020c20d4.cpp:
     complete
     .text start:0x020c3ba0 end:0x020c3ca8
 
@@ -1334,7 +1334,7 @@ src/Combat/Main/BumpCounterForValidVariant.cpp:
     complete
     .text start:0x02097138 end:0x02097168
 
-src/Combat/Main/CalcHeadingAngle020c3544.cpp:
+src/NitroSDK/Main/CalcHeadingAngle020c3544.cpp:
     complete
     .text start:0x020c5010 end:0x020c51b8
 
@@ -1346,11 +1346,11 @@ src/Combat/Main/Call0202eab8AndApply020a0d6c.cpp:
     complete
     .text start:0x0202e968 end:0x0202e9a8
 
-src/Combat/Main/Call020bcd30WithFlag1.cpp:
+src/NitroSDK/Main/Call020bcd30WithFlag1.cpp:
     complete
     .text start:0x020be7ec end:0x020be7fc
 
-src/Combat/Main/CallAndReturnTrue020cd584.cpp:
+src/NitroSDK/Main/CallAndReturnTrue020cd584.cpp:
     complete
     .text start:0x020cf050 end:0x020cf060
 
@@ -1438,23 +1438,23 @@ src/Combat/Main/CallFunc020a0db8AtField0x194AndClearFlag2.cpp:
     complete
     .text start:0x0202e9c8 end:0x0202e9f4
 
-src/Combat/Main/CallFunc020bc548OnField0.cpp:
+src/NitroSDK/Main/CallFunc020bc548OnField0.cpp:
     complete
     .text start:0x020bdae4 end:0x020bdaf4
 
-src/Combat/Main/CallFunc020bc594OnField0.cpp:
+src/NitroSDK/Main/CallFunc020bc594OnField0.cpp:
     complete
     .text start:0x020bdb34 end:0x020bdb44
 
-src/Combat/Main/CallFunc020bc79c_020bc4ec.cpp:
+src/NitroSDK/Main/CallFunc020bc79c_020bc4ec.cpp:
     complete
     .text start:0x020bdfb8 end:0x020bdfc4
 
-src/Combat/Main/CallFunc020bd08c_020bbe10.cpp:
+src/NitroSDK/Main/CallFunc020bd08c_020bbe10.cpp:
     complete
     .text start:0x020bd8dc end:0x020bd8e8
 
-src/Combat/Main/CallFunc020c0204OnActiveNode.cpp:
+src/NitroSDK/Main/CallFunc020c0204OnActiveNode.cpp:
     complete
     .text start:0x020bdc4c end:0x020bdc78
 
@@ -1462,27 +1462,27 @@ src/Combat/Main/CallFunc020c895cZeroNeg10200ab10.cpp:
     complete
     .text start:0x0200aa2c end:0x0200aa44
 
-src/Combat/Main/CallFunc020c8b44Then020c8bd4.cpp:
+src/NitroSDK/Main/CallFunc020c8b44Then020c8bd4.cpp:
     complete
     .text start:0x020ca5fc end:0x020ca610
 
-src/Combat/Main/CallFunc020cca80AtField0x5c.cpp:
+src/NitroSDK/Main/CallFunc020cca80AtField0x5c.cpp:
     complete
     .text start:0x020c1b84 end:0x020c1b94
 
-src/Combat/Main/CallFunc020d1e88OnNodeField3c.cpp:
+src/NitroSDK/Main/CallFunc020d1e88OnNodeField3c.cpp:
     complete
     .text start:0x020bdc78 end:0x020bdc98
 
-src/Combat/Main/CallFunc020d4fa4Flag.cpp:
+src/NitroSDK/Main/CallFunc020d4fa4Flag.cpp:
     complete
     .text start:0x020d69e8 end:0x020d6a00
 
-src/Combat/Main/CallFunc020d4fa4Zero.cpp:
+src/NitroSDK/Main/CallFunc020d4fa4Zero.cpp:
     complete
     .text start:0x020d69d8 end:0x020d69e8
 
-src/Combat/Main/CallFunc020d51a8One.cpp:
+src/NitroSDK/Main/CallFunc020d51a8One.cpp:
     complete
     .text start:0x020d6c60 end:0x020d6c70
 
@@ -1498,7 +1498,7 @@ src/Combat/Main/CallHandlerFlag1_020e2fdc.cpp:
     complete
     .text start:0x020e4b7c end:0x020e4b98
 
-src/Combat/Main/CallIfFlag0x24Bit0.cpp:
+src/NitroSDK/Main/CallIfFlag0x24Bit0.cpp:
     complete
     .text start:0x020be690 end:0x020be6ac
 
@@ -1514,7 +1514,7 @@ src/Combat/Main/CallStoredHandlerFn020019ac.cpp:
     complete
     .text start:0x020018c8 end:0x020018e4
 
-src/Combat/Main/CallWithAddr4000330.cpp:
+src/NitroSDK/Main/CallWithAddr4000330.cpp:
     complete
     .text start:0x020c7028 end:0x020c7040
 
@@ -1622,11 +1622,11 @@ src/Combat/Main/CheckDispatchAndUpdateField0x48.cpp:
     complete
     .text start:0x0202d844 end:0x0202d898
 
-src/Combat/Main/CheckEntry5Exists.cpp:
+src/NitroSDK/Main/CheckEntry5Exists.cpp:
     complete
     .text start:0x020d1388 end:0x020d13b0
 
-src/Combat/Main/CheckEntry5For0x27.cpp:
+src/NitroSDK/Main/CheckEntry5For0x27.cpp:
     complete
     .text start:0x020d1378 end:0x020d1388
 
@@ -1762,7 +1762,7 @@ src/Combat/Main/CheckField2ThenSubmitOrError0202d584.cpp:
     complete
     .text start:0x0202d0f4 end:0x0202d15c
 
-src/Combat/Main/CheckField8GeFieldC.cpp:
+src/NitroSDK/Main/CheckField8GeFieldC.cpp:
     complete
     .text start:0x020c1d44 end:0x020c1d5c
 
@@ -1774,7 +1774,7 @@ src/Combat/Main/CheckFields6d0And6d4Equal.cpp:
     complete
     .text start:0x0203a028 end:0x0203a040
 
-src/Combat/Main/CheckFieldsInRange020d5158.cpp:
+src/NitroSDK/Main/CheckFieldsInRange020d5158.cpp:
     complete
     .text start:0x020d6bb4 end:0x020d6c04
 
@@ -1874,15 +1874,15 @@ src/Combat/Main/CheckSlotsAllFree0205e488.cpp:
     complete
     .text start:0x0205f774 end:0x0205f7e4
 
-src/Combat/Main/CheckState0x10.cpp:
+src/NitroSDK/Main/CheckState0x10.cpp:
     complete
     .text start:0x020d1348 end:0x020d1358
 
-src/Combat/Main/CheckState0x11.cpp:
+src/NitroSDK/Main/CheckState0x11.cpp:
     complete
     .text start:0x020d1358 end:0x020d1368
 
-src/Combat/Main/CheckState0x12.cpp:
+src/NitroSDK/Main/CheckState0x12.cpp:
     complete
     .text start:0x020d1368 end:0x020d1378
 
@@ -1926,7 +1926,7 @@ src/Combat/Main/ClampArg1_02008f3c.cpp:
     complete
     .text start:0x02008e58 end:0x02008e78
 
-src/Combat/Main/ClampField0AndDispatch.cpp:
+src/NitroSDK/Main/ClampField0AndDispatch.cpp:
     complete
     .text start:0x020b9388 end:0x020b93c4
 
@@ -1978,7 +1978,7 @@ src/Combat/Main/ClassifyHPRatio020dcc98.cpp:
     complete
     .text start:0x020de6a0 end:0x020de748
 
-src/Combat/Main/ClassifyPointRegion.cpp:
+src/NitroSDK/Main/ClassifyPointRegion.cpp:
     complete
     .text start:0x020cb128 end:0x020cb174
 
@@ -2050,7 +2050,7 @@ src/Combat/Main/ClearAndReturnState020709b4.cpp:
     complete
     .text start:0x02071a20 end:0x02071a34
 
-src/Combat/Main/ClearAndSetBlockFlag020d6610.cpp:
+src/NitroSDK/Main/ClearAndSetBlockFlag020d6610.cpp:
     complete
     .text start:0x020d806c end:0x020d8138
 
@@ -2090,15 +2090,15 @@ src/Combat/Main/ClearBattleFlags0x18And0x58.cpp:
     complete
     .text start:0x020889e0 end:0x02088a08
 
-src/Combat/Main/ClearBattleSaveContext020d3fdc.cpp:
+src/NitroSDK/Main/ClearBattleSaveContext020d3fdc.cpp:
     complete
     .text start:0x020d5a38 end:0x020d5aa8
 
-src/Combat/Main/ClearBattleSubEffectAt0x800.cpp:
+src/NitroSDK/Main/ClearBattleSubEffectAt0x800.cpp:
     complete
     .text start:0x020d79e4 end:0x020d7a2c
 
-src/Combat/Main/ClearBit0At027FFF96.cpp:
+src/NitroSDK/Main/ClearBit0At027FFF96.cpp:
     complete
     .text start:0x020d60e8 end:0x020d6104
 
@@ -2194,7 +2194,7 @@ src/Combat/Main/ClearBytesReturnPtr0200f374.cpp:
     complete
     .text start:0x0200f238 end:0x0200f25c
 
-src/Combat/Main/ClearCallbackTable.cpp:
+src/NitroSDK/Main/ClearCallbackTable.cpp:
     complete
     .text start:0x020d43fc end:0x020d442c
 
@@ -2270,11 +2270,11 @@ src/Combat/Main/ClearField0x0_02046730.cpp:
     complete
     .text start:0x02047550 end:0x0204755c
 
-src/Combat/Main/ClearField0x0_020bc078.cpp:
+src/NitroSDK/Main/ClearField0x0_020bc078.cpp:
     complete
     .text start:0x020bdb44 end:0x020bdb50
 
-src/Combat/Main/ClearField0x0_020bec74.cpp:
+src/NitroSDK/Main/ClearField0x0_020bec74.cpp:
     complete
     .text start:0x020c0740 end:0x020c074c
 
@@ -2306,11 +2306,11 @@ src/Combat/Main/ClearField0x8020733c8.cpp:
     complete
     .text start:0x02074558 end:0x02074568
 
-src/Combat/Main/ClearField0x88Callback.cpp:
+src/NitroSDK/Main/ClearField0x88Callback.cpp:
     complete
     .text start:0x020bf3d4 end:0x020bf3e0
 
-src/Combat/Main/ClearField0x8cCallback.cpp:
+src/NitroSDK/Main/ClearField0x8cCallback.cpp:
     complete
     .text start:0x020bf3bc end:0x020bf3c8
 
@@ -2334,7 +2334,7 @@ src/Combat/Main/ClearField0xd0AndSetFlag0x1IfByte0xd4Not2.cpp:
     complete
     .text start:0x0208c76c end:0x0208c78c
 
-src/Combat/Main/ClearField4At02112160.cpp:
+src/NitroSDK/Main/ClearField4At02112160.cpp:
     complete
     .text start:0x020d340c end:0x020d3420
 
@@ -2342,7 +2342,7 @@ src/Combat/Main/ClearField8ViaPointer0x440.cpp:
     complete
     .text start:0x02043884 end:0x02043898
 
-src/Combat/Main/ClearFieldAndNullSlot020bc084.cpp:
+src/NitroSDK/Main/ClearFieldAndNullSlot020bc084.cpp:
     complete
     .text start:0x020bdb50 end:0x020bdb70
 
@@ -2354,7 +2354,7 @@ src/Combat/Main/ClearFields020dde64.cpp:
     complete
     .text start:0x020df7e0 end:0x020df800
 
-src/Combat/Main/ClearFields0And8And0x20.cpp:
+src/NitroSDK/Main/ClearFields0And8And0x20.cpp:
     complete
     .text start:0x020cae88 end:0x020cae9c
 
@@ -2530,7 +2530,7 @@ src/Combat/Main/ClearFlagBit.cpp:
     complete
     .text start:0x020d90e0 end:0x020d9104
 
-src/Combat/Main/ClearFlagBit020bbef8.cpp:
+src/NitroSDK/Main/ClearFlagBit020bbef8.cpp:
     complete
     .text start:0x020bd9c4 end:0x020bd9e4
 
@@ -2590,7 +2590,7 @@ src/Combat/Main/ClearGlobalBuffer02107850.cpp:
     complete
     .text start:0x020497b4 end:0x020497d0
 
-src/Combat/Main/ClearGlobalFlags020bbe94.cpp:
+src/NitroSDK/Main/ClearGlobalFlags020bbe94.cpp:
     complete
     .text start:0x020bd960 end:0x020bd97c
 
@@ -2610,7 +2610,7 @@ src/Combat/Main/ClearIndexedEntryFields0206e0d0.cpp:
     complete
     .text start:0x0206f224 end:0x0206f254
 
-src/Combat/Main/ClearInnerField14c020bec80.cpp:
+src/NitroSDK/Main/ClearInnerField14c020bec80.cpp:
     complete
     .text start:0x020c074c end:0x020c0764
 
@@ -2626,7 +2626,7 @@ src/Combat/Main/ClearKeyValueList020a0948.cpp:
     complete
     .text start:0x020a26c0 end:0x020a26d4
 
-src/Combat/Main/ClearListEntryIfMatch020be3f4.cpp:
+src/NitroSDK/Main/ClearListEntryIfMatch020be3f4.cpp:
     complete
     .text start:0x020bfec0 end:0x020bff18
 
@@ -2750,7 +2750,7 @@ src/Combat/Main/ClearStruct020a9ea4.cpp:
     complete
     .text start:0x020abaf4 end:0x020abb08
 
-src/Combat/Main/ClearStruct020d19e0.cpp:
+src/NitroSDK/Main/ClearStruct020d19e0.cpp:
     complete
     .text start:0x020d34ac end:0x020d34c0
 
@@ -2846,7 +2846,7 @@ src/Combat/Main/ClearTwoRegions02079f9c.cpp:
     complete
     .text start:0x0207add4 end:0x0207ae00
 
-src/Combat/Main/ClearTwoRegionsAndFifo020c55b0.cpp:
+src/NitroSDK/Main/ClearTwoRegionsAndFifo020c55b0.cpp:
     complete
     .text start:0x020c707c end:0x020c711c
 
@@ -2898,7 +2898,7 @@ src/Combat/Main/CommandDispatch0206f6cc.cpp:
     complete
     .text start:0x0207078c end:0x020708b4
 
-src/Combat/Main/CommitBattleContextBuffer020d4168.cpp:
+src/NitroSDK/Main/CommitBattleContextBuffer020d4168.cpp:
     complete
     .text start:0x020d5bc4 end:0x020d5c34
 
@@ -2918,7 +2918,7 @@ src/Combat/Main/CompareSixBytes.cpp:
     complete
     .text start:0x02011d30 end:0x02011d6c
 
-src/Combat/Main/CompareStrings.cpp:
+src/NitroSDK/Main/CompareStrings.cpp:
     complete
     .text start:0x020d4a7c end:0x020d4aa8
 
@@ -2926,7 +2926,7 @@ src/Combat/Main/CompletedResourceLoads.cpp:
     complete
     .text start:0x02020cf4 end:0x02020f88
 
-src/Combat/Main/Compute020b1020.cpp:
+src/NitroSDK/Main/Compute020b1020.cpp:
     complete
     .text start:0x020b2aec end:0x020b2b80
 
@@ -2942,7 +2942,7 @@ src/Combat/Main/ComputeAndDispatch020338b0.cpp:
     complete
     .text start:0x020333e8 end:0x0203340c
 
-src/Combat/Main/ComputeAndLoadMatrix020c5770.cpp:
+src/NitroSDK/Main/ComputeAndLoadMatrix020c5770.cpp:
     complete
     .text start:0x020c723c end:0x020c72a0
 
@@ -2950,7 +2950,7 @@ src/Combat/Main/ComputeAngleHeightDistance0202ea4c.cpp:
     complete
     .text start:0x0202e5bc end:0x0202e628
 
-src/Combat/Main/ComputeDaySerialFromDate_020cf8e4.cpp:
+src/NitroSDK/Main/ComputeDaySerialFromDate_020cf8e4.cpp:
     complete
     .text start:0x020d13b0 end:0x020d1444
 
@@ -2974,11 +2974,11 @@ src/Combat/Main/ComputeElementPositions.cpp:
     complete
     .text start:0x020e39c4 end:0x020e39ec
 
-src/Combat/Main/ComputeLevelAndByte020d2ac4.cpp:
+src/NitroSDK/Main/ComputeLevelAndByte020d2ac4.cpp:
     complete
     .text start:0x020d4590 end:0x020d4600
 
-src/Combat/Main/ComputeMaskedIndexOffset.cpp:
+src/NitroSDK/Main/ComputeMaskedIndexOffset.cpp:
     complete
     .text start:0x020d82e0 end:0x020d8310
 
@@ -3009,10 +3009,6 @@ src/Combat/Main/ComputeSlope020578e8.cpp:
 src/Combat/Main/ComputeTargetDistance02012798.cpp:
     complete
     .text start:0x02012560 end:0x02012594
-
-src/Combat/Main/ComputeThermometerAreaProduct020b2054.cpp:
-    complete
-    .text start:0x020b3b20 end:0x020b3b7c
 
 src/Combat/Main/ComputeTrajectoryOffsets_020adfa8.cpp:
     complete
@@ -3062,7 +3058,7 @@ src/Combat/Main/ConsumeCounter02048350.cpp:
     complete
     .text start:0x02049170 end:0x02049210
 
-src/Combat/Main/ContinueDmaStream020ca1a0.cpp:
+src/NitroSDK/Main/ContinueDmaStream020ca1a0.cpp:
     complete
     .text start:0x020cbc6c end:0x020cbd18
 
@@ -3142,11 +3138,11 @@ src/Combat/Main/CopyFourHalfwordsToField0x114.cpp:
     complete
     .text start:0x02033aa4 end:0x02033ab4
 
-src/Combat/Main/CopyFrom027ffcf4.cpp:
+src/NitroSDK/Main/CopyFrom027ffcf4.cpp:
     complete
     .text start:0x020cb478 end:0x020cb494
 
-src/Combat/Main/CopyFromField0xa4_020c013c.cpp:
+src/NitroSDK/Main/CopyFromField0xa4_020c013c.cpp:
     complete
     .text start:0x020c1c08 end:0x020c1c24
 
@@ -3194,7 +3190,7 @@ src/Combat/Main/CopySignDouble02008da4.cpp:
     complete
     .text start:0x02008cc0 end:0x02008ce8
 
-src/Combat/Main/CopySinkClamped.cpp:
+src/NitroSDK/Main/CopySinkClamped.cpp:
     complete
     .text start:0x020d4b6c end:0x020d4bc4
 
@@ -3206,7 +3202,7 @@ src/Combat/Main/CopyStringBounded.cpp:
     complete
     .text start:0x0204735c end:0x02047394
 
-src/Combat/Main/CopyStringBounded020d2f28.cpp:
+src/NitroSDK/Main/CopyStringBounded020d2f28.cpp:
     complete
     .text start:0x020d49f4 end:0x020d4a54
 
@@ -3274,7 +3270,7 @@ src/Combat/Main/CopyToOffsetIfSrc02098efc.cpp:
     complete
     .text start:0x0209ab4c end:0x0209ab70
 
-src/Combat/Main/CopyToPaletteAThunk020bbabc.cpp:
+src/NitroSDK/Main/CopyToPaletteAThunk020bbabc.cpp:
     complete
     .text start:0x020bd588 end:0x020bd594
 
@@ -3314,11 +3310,11 @@ src/Combat/Main/CountActiveEntries.cpp:
     complete
     .text start:0x02047720 end:0x0204775c
 
-src/Combat/Main/CountEntriesType1WithId.cpp:
+src/NitroSDK/Main/CountEntriesType1WithId.cpp:
     complete
     .text start:0x020bdb70 end:0x020bdbc4
 
-src/Combat/Main/CountEntriesType2WithIds.cpp:
+src/NitroSDK/Main/CountEntriesType2WithIds.cpp:
     complete
     .text start:0x020bdbc4 end:0x020bdc24
 
@@ -3330,7 +3326,7 @@ src/Combat/Main/CountFlaggedSlotBit15Matches02085318.cpp:
     complete
     .text start:0x02085c38 end:0x02085cac
 
-src/Combat/Main/CountLeadingZeros.cpp:
+src/NitroSDK/Main/CountLeadingZeros.cpp:
     complete
     .text start:0x020cb518 end:0x020cb520
 
@@ -3366,11 +3362,11 @@ src/Combat/Main/CountPositiveSlots02083960.cpp:
     complete
     .text start:0x02084268 end:0x0208429c
 
-src/Combat/Main/CountReadyListNodes020d2768.cpp:
+src/NitroSDK/Main/CountReadyListNodes020d2768.cpp:
     complete
     .text start:0x020d4234 end:0x020d4270
 
-src/Combat/Main/CountSecondaryListNodes020d27a4.cpp:
+src/NitroSDK/Main/CountSecondaryListNodes020d27a4.cpp:
     complete
     .text start:0x020d4270 end:0x020d42ac
 
@@ -3378,11 +3374,11 @@ src/Combat/Main/CountSetBitsAt0x34.cpp:
     complete
     .text start:0x020a5370 end:0x020a53ac
 
-src/Combat/Main/CountSetBitsThenEnqueue020d1f0c.cpp:
+src/NitroSDK/Main/CountSetBitsThenEnqueue020d1f0c.cpp:
     complete
     .text start:0x020d39d8 end:0x020d3a3c
 
-src/Combat/Main/CountTextLines020b0fac.cpp:
+src/NitroSDK/Main/CountTextLines020b0fac.cpp:
     complete
     .text start:0x020b2a78 end:0x020b2aec
 
@@ -3390,31 +3386,31 @@ src/Combat/Main/CountValidCombatants02058618.cpp:
     complete
     .text start:0x02059990 end:0x020599d0
 
-src/Combat/Main/Crc16Compute.cpp:
+src/NitroSDK/Main/Crc16Compute.cpp:
     complete
     .text start:0x020d3794 end:0x020d37bc
 
-src/Combat/Main/Crc16Update.cpp:
+src/NitroSDK/Main/Crc16Update.cpp:
     complete
     .text start:0x020d36b0 end:0x020d36f0
 
-src/Combat/Main/Crc32Compute.cpp:
+src/NitroSDK/Main/Crc32Compute.cpp:
     complete
     .text start:0x020d37bc end:0x020d37e8
 
-src/Combat/Main/Crc32Update.cpp:
+src/NitroSDK/Main/Crc32Update.cpp:
     complete
     .text start:0x020d3730 end:0x020d376c
 
-src/Combat/Main/Crc8Compute.cpp:
+src/NitroSDK/Main/Crc8Compute.cpp:
     complete
     .text start:0x020d376c end:0x020d3794
 
-src/Combat/Main/Crc8Update.cpp:
+src/NitroSDK/Main/Crc8Update.cpp:
     complete
     .text start:0x020d3634 end:0x020d366c
 
-src/Combat/Main/CreateAllocatorHolderInRegion.cpp:
+src/NitroSDK/Main/CreateAllocatorHolderInRegion.cpp:
     complete
     .text start:0x020bf3e0 end:0x020bf450
 
@@ -3490,7 +3486,7 @@ src/Combat/Main/DecrementKeyedStackAmount0207c484.cpp:
     complete
     .text start:0x0207d2bc end:0x0207d354
 
-src/Combat/Main/DelayThenSyncBit0.cpp:
+src/NitroSDK/Main/DelayThenSyncBit0.cpp:
     complete
     .text start:0x020cb2ec end:0x020cb308
 
@@ -3514,7 +3510,7 @@ src/Combat/Main/DeserializeElementBuffers020a8e9c.cpp:
     complete
     .text start:0x020aac20 end:0x020aace4
 
-src/Combat/Main/DestroyAllocator020bd984.cpp:
+src/NitroSDK/Main/DestroyAllocator020bd984.cpp:
     complete
     .text start:0x020bf450 end:0x020bf468
 
@@ -3530,15 +3526,15 @@ src/Combat/Main/DestroyStructAllocGroup0208ba54.cpp:
     complete
     .text start:0x0208c348 end:0x0208c3e0
 
-src/Combat/Main/DetachEntryAndPostRangeEvent0x20.cpp:
+src/NitroSDK/Main/DetachEntryAndPostRangeEvent0x20.cpp:
     complete
     .text start:0x020bffc0 end:0x020c0008
 
-src/Combat/Main/DisableSystemControlBit0.cpp:
+src/NitroSDK/Main/DisableSystemControlBit0.cpp:
     complete
     .text start:0x020ca4d4 end:0x020ca4e4
 
-src/Combat/Main/DisarmVCountAlarm.cpp:
+src/NitroSDK/Main/DisarmVCountAlarm.cpp:
     complete
     .text start:0x020caf68 end:0x020cafb0
 
@@ -3618,11 +3614,11 @@ src/Combat/Main/DispatchEvent020da2fc.cpp:
     complete
     .text start:0x020dbd04 end:0x020dbd24
 
-src/Combat/Main/DispatchEvent1e03020d57f4.cpp:
+src/NitroSDK/Main/DispatchEvent1e03020d57f4.cpp:
     complete
     .text start:0x020d7250 end:0x020d72f4
 
-src/Combat/Main/DispatchEventListByType_020bdce8.cpp:
+src/NitroSDK/Main/DispatchEventListByType_020bdce8.cpp:
     complete
     .text start:0x020bf7b4 end:0x020bf8b8
 
@@ -3638,7 +3634,7 @@ src/Combat/Main/DispatchField0xcHandler.cpp:
     complete
     .text start:0x020dc888 end:0x020dc8a0
 
-src/Combat/Main/DispatchIfEquals1.cpp:
+src/NitroSDK/Main/DispatchIfEquals1.cpp:
     complete
     .text start:0x020d088c end:0x020d08ac
 
@@ -3670,7 +3666,7 @@ src/Combat/Main/DispatchReadyCombatantSlots.cpp:
     complete
     .text start:0x020d9040 end:0x020d90c0
 
-src/Combat/Main/DispatchSizedRequest020d5974.cpp:
+src/NitroSDK/Main/DispatchSizedRequest020d5974.cpp:
     complete
     .text start:0x020d73d0 end:0x020d7418
 
@@ -3682,7 +3678,7 @@ src/Combat/Main/DispatchTargetByte020494c0.cpp:
     complete
     .text start:0x0204a2e0 end:0x0204a318
 
-src/Combat/Main/DispatchToActiveEntries020bc028.cpp:
+src/NitroSDK/Main/DispatchToActiveEntries020bc028.cpp:
     complete
     .text start:0x020bdaf4 end:0x020bdb34
 
@@ -3694,19 +3690,19 @@ src/Combat/Main/DispatchToManagerHandler0209d624.cpp:
     complete
     .text start:0x0209f39c end:0x0209f3d0
 
-src/Combat/Main/DispatchType0x11InitOnce.cpp:
+src/NitroSDK/Main/DispatchType0x11InitOnce.cpp:
     complete
     .text start:0x020d2c10 end:0x020d2c64
 
-src/Combat/Main/DispatchType0x11ShutdownOnce.cpp:
+src/NitroSDK/Main/DispatchType0x11ShutdownOnce.cpp:
     complete
     .text start:0x020d339c end:0x020d33f8
 
-src/Combat/Main/DispatchType0x12.cpp:
+src/NitroSDK/Main/DispatchType0x12.cpp:
     complete
     .text start:0x020d08c8 end:0x020d08e4
 
-src/Combat/Main/DispatchType2Command020bc6fc.cpp:
+src/NitroSDK/Main/DispatchType2Command020bc6fc.cpp:
     complete
     .text start:0x020be1c8 end:0x020be200
 
@@ -3718,19 +3714,19 @@ src/Combat/Main/DispatchWithGlobalContext020daf9c.cpp:
     complete
     .text start:0x020dc9a4 end:0x020dc9dc
 
-src/Combat/Main/Distance3D020c3030.cpp:
+src/NitroSDK/Main/Distance3D020c3030.cpp:
     complete
     .text start:0x020c4afc end:0x020c4b78
 
-src/Combat/Main/Divide32.cpp:
+src/NitroSDK/Main/Divide32.cpp:
     complete
     .text start:0x020c47e4 end:0x020c4820
 
-src/Combat/Main/DmaTransferToFifoAsync020ca2ac.cpp:
+src/NitroSDK/Main/DmaTransferToFifoAsync020ca2ac.cpp:
     complete
     .text start:0x020cbd78 end:0x020cbe30
 
-src/Combat/Main/DotFixedVec3.cpp:
+src/NitroSDK/Main/DotFixedVec3.cpp:
     complete
     .text start:0x020c48c4 end:0x020c4900
 
@@ -3774,7 +3770,7 @@ src/Combat/Main/EmptyDestructor02078894.cpp:
     complete
     .text start:0x020797b0 end:0x020797b4
 
-src/Combat/Main/EmptyInterruptHandler.cpp:
+src/NitroSDK/Main/EmptyInterruptHandler.cpp:
     complete
     .text start:0x020c8494 end:0x020c8498
 
@@ -3794,7 +3790,7 @@ src/Combat/Main/EmptyStub02047198.cpp:
     complete
     .text start:0x02047fb8 end:0x02047fbc
 
-src/Combat/Main/EnableDataTcm.cpp:
+src/NitroSDK/Main/EnableDataTcm.cpp:
     complete
     .text start:0x020ca4a0 end:0x020ca4b0
 
@@ -3802,11 +3798,11 @@ src/Combat/Main/EnableIMEReturnPrev.cpp:
     complete
     .text start:0x020d86a4 end:0x020d86bc
 
-src/Combat/Main/EnableInstructionTcm.cpp:
+src/NitroSDK/Main/EnableInstructionTcm.cpp:
     complete
     .text start:0x020ca490 end:0x020ca4a0
 
-src/Combat/Main/EnableSystemControlBit0.cpp:
+src/NitroSDK/Main/EnableSystemControlBit0.cpp:
     complete
     .text start:0x020ca4c4 end:0x020ca4d4
 
@@ -3818,63 +3814,63 @@ src/Combat/Main/EncodeUtf16Text.cpp:
     complete
     .text start:0x020323f4 end:0x0203295c
 
-src/Combat/Main/EnqueueEvent0x06.cpp:
+src/NitroSDK/Main/EnqueueEvent0x06.cpp:
     complete
     .text start:0x020d3bf8 end:0x020d3c20
 
-src/Combat/Main/EnqueueEvent0x07.cpp:
+src/NitroSDK/Main/EnqueueEvent0x07.cpp:
     complete
     .text start:0x020d3c20 end:0x020d3c48
 
-src/Combat/Main/EnqueueEvent0x09.cpp:
+src/NitroSDK/Main/EnqueueEvent0x09.cpp:
     complete
     .text start:0x020d3988 end:0x020d39b0
 
-src/Combat/Main/EnqueueEvent0x0C.cpp:
+src/NitroSDK/Main/EnqueueEvent0x0C.cpp:
     complete
     .text start:0x020d39b0 end:0x020d39d8
 
-src/Combat/Main/EnqueueEvent0x12.cpp:
+src/NitroSDK/Main/EnqueueEvent0x12.cpp:
     complete
     .text start:0x020d3a3c end:0x020d3a7c
 
-src/Combat/Main/EnqueueEvent0x14.cpp:
+src/NitroSDK/Main/EnqueueEvent0x14.cpp:
     complete
     .text start:0x020d3abc end:0x020d3ae4
 
-src/Combat/Main/EnqueueEvent0x17.cpp:
+src/NitroSDK/Main/EnqueueEvent0x17.cpp:
     complete
     .text start:0x020d3bb0 end:0x020d3bd0
 
-src/Combat/Main/EnqueueEvent0x19.cpp:
+src/NitroSDK/Main/EnqueueEvent0x19.cpp:
     complete
     .text start:0x020d3bd0 end:0x020d3bf8
 
-src/Combat/Main/EnqueueEvent0x1A.cpp:
+src/NitroSDK/Main/EnqueueEvent0x1A.cpp:
     complete
     .text start:0x020d3a7c end:0x020d3a9c
 
-src/Combat/Main/EnqueueEvent0x1B.cpp:
+src/NitroSDK/Main/EnqueueEvent0x1B.cpp:
     complete
     .text start:0x020d3a9c end:0x020d3abc
 
-src/Combat/Main/EnqueueEvent0x3.cpp:
+src/NitroSDK/Main/EnqueueEvent0x3.cpp:
     complete
     .text start:0x020d38fc end:0x020d391c
 
-src/Combat/Main/EnqueueEvent0x4.cpp:
+src/NitroSDK/Main/EnqueueEvent0x4.cpp:
     complete
     .text start:0x020d391c end:0x020d393c
 
-src/Combat/Main/EnqueueEvent0x6Sub4.cpp:
+src/NitroSDK/Main/EnqueueEvent0x6Sub4.cpp:
     complete
     .text start:0x020d3954 end:0x020d396c
 
-src/Combat/Main/EnqueueEvent0x6Sub6.cpp:
+src/NitroSDK/Main/EnqueueEvent0x6Sub6.cpp:
     complete
     .text start:0x020d393c end:0x020d3954
 
-src/Combat/Main/EnqueueEvent0x7.cpp:
+src/NitroSDK/Main/EnqueueEvent0x7.cpp:
     complete
     .text start:0x020d396c end:0x020d3988
 
@@ -3886,7 +3882,7 @@ src/Combat/Main/EnqueueNode.cpp:
     complete
     .text start:0x0205f478 end:0x0205f4d0
 
-src/Combat/Main/EnqueueTailNode.cpp:
+src/NitroSDK/Main/EnqueueTailNode.cpp:
     complete
     .text start:0x020d3f58 end:0x020d3f90
 
@@ -3898,11 +3894,11 @@ src/Combat/Main/EnsureHandleAllocated02046c98.cpp:
     complete
     .text start:0x02047ab8 end:0x02047ae8
 
-src/Combat/Main/EnterCombatMode020cf08c.cpp:
+src/NitroSDK/Main/EnterCombatMode020cf08c.cpp:
     complete
     .text start:0x020d0b58 end:0x020d0bc8
 
-src/Combat/Main/EnterCombatModeAlt020cf1e0.cpp:
+src/NitroSDK/Main/EnterCombatModeAlt020cf1e0.cpp:
     complete
     .text start:0x020d0cac end:0x020d0d28
 
@@ -3914,11 +3910,11 @@ src/Combat/Main/EvalVariantReturnTrue0206ed34.cpp:
     complete
     .text start:0x0206fe88 end:0x0206fe98
 
-src/Combat/Main/EvaluateTween020c022c.cpp:
+src/NitroSDK/Main/EvaluateTween020c022c.cpp:
     complete
     .text start:0x020c1cf8 end:0x020c1d2c
 
-src/Combat/Main/FetchHalfword0xF6.cpp:
+src/NitroSDK/Main/FetchHalfword0xF6.cpp:
     complete
     .text start:0x020d08e4 end:0x020d0920
 
@@ -3934,7 +3930,7 @@ src/Combat/Main/Field0x1cCall0207ecf8OrNull.cpp:
     complete
     .text start:0x02056984 end:0x0205699c
 
-src/Combat/Main/Fill3WordsWithFF.cpp:
+src/NitroSDK/Main/Fill3WordsWithFF.cpp:
     complete
     .text start:0x020b1de4 end:0x020b1e00
 
@@ -3958,7 +3954,7 @@ src/Combat/Main/FillBitArray0x1524WithZero.cpp:
     complete
     .text start:0x0205fb5c end:0x0205fb78
 
-src/Combat/Main/FillBufferAndStoreResult.cpp:
+src/NitroSDK/Main/FillBufferAndStoreResult.cpp:
     complete
     .text start:0x020d2db0 end:0x020d2de8
 
@@ -3966,11 +3962,11 @@ src/Combat/Main/FillIndexBuffer0204e998.cpp:
     complete
     .text start:0x0204fbf4 end:0x0204fc84
 
-src/Combat/Main/FillSinkClamped.cpp:
+src/NitroSDK/Main/FillSinkClamped.cpp:
     complete
     .text start:0x020d4b18 end:0x020d4b6c
 
-src/Combat/Main/FillTilePattern.cpp:
+src/NitroSDK/Main/FillTilePattern.cpp:
     complete
     .text start:0x020b33b4 end:0x020b3404
 
@@ -4046,7 +4042,7 @@ src/Combat/Main/FindBoxContainingPoint0201e8fc.cpp:
     complete
     .text start:0x0201e688 end:0x0201e7e0
 
-src/Combat/Main/FindChunkById.cpp:
+src/NitroSDK/Main/FindChunkById.cpp:
     complete
     .text start:0x020b1d54 end:0x020b1d9c
 
@@ -4346,11 +4342,11 @@ src/Combat/Main/FindOrAllocateNode_02055ed0.cpp:
     complete
     .text start:0x02057248 end:0x020572d4
 
-src/Combat/Main/FindPcmpChunk.cpp:
+src/NitroSDK/Main/FindPcmpChunk.cpp:
     complete
     .text start:0x020b1cf8 end:0x020b1d34
 
-src/Combat/Main/FindPlttChunkAndRelocate.cpp:
+src/NitroSDK/Main/FindPlttChunkAndRelocate.cpp:
     complete
     .text start:0x020b1cbc end:0x020b1cf8
 
@@ -4394,11 +4390,11 @@ src/Combat/Main/FindValueByHalfwordKey.cpp:
     complete
     .text start:0x020d9354 end:0x020d9380
 
-src/Combat/Main/FindValueInRangeList.cpp:
+src/NitroSDK/Main/FindValueInRangeList.cpp:
     complete
     .text start:0x020b2938 end:0x020b2980
 
-src/Combat/Main/FirePendingCallback.cpp:
+src/NitroSDK/Main/FirePendingCallback.cpp:
     complete
     .text start:0x020cfd0c end:0x020cfd3c
 
@@ -4406,7 +4402,7 @@ src/Combat/Main/FlushAndClearBuffer0202adf0.cpp:
     complete
     .text start:0x0202a9a8 end:0x0202a9d0
 
-src/Combat/Main/FlushAndClearQueueNodes020d2c98.cpp:
+src/NitroSDK/Main/FlushAndClearQueueNodes020d2c98.cpp:
     complete
     .text start:0x020d4764 end:0x020d47ac
 
@@ -4414,11 +4410,11 @@ src/Combat/Main/FlushAndDispatchList0204b0e8.cpp:
     complete
     .text start:0x0204bf08 end:0x0204bf3c
 
-src/Combat/Main/FlushAndEnqueue020bd08c.cpp:
+src/NitroSDK/Main/FlushAndEnqueue020bd08c.cpp:
     complete
     .text start:0x020beb58 end:0x020bebdc
 
-src/Combat/Main/FlushGXFifoAndWaitGeometryIdle.cpp:
+src/NitroSDK/Main/FlushGXFifoAndWaitGeometryIdle.cpp:
     complete
     .text start:0x020c6e20 end:0x020c6e48
 
@@ -4498,35 +4494,35 @@ src/Combat/Main/Forward0205ec20.cpp:
     complete
     .text start:0x0205ff0c end:0x0205ff18
 
-src/Combat/Main/Forward020bbb8c.cpp:
+src/NitroSDK/Main/Forward020bbb8c.cpp:
     complete
     .text start:0x020bd658 end:0x020bd664
 
-src/Combat/Main/Forward020bbb98.cpp:
+src/NitroSDK/Main/Forward020bbb98.cpp:
     complete
     .text start:0x020bd664 end:0x020bd670
 
-src/Combat/Main/Forward020bbba4.cpp:
+src/NitroSDK/Main/Forward020bbba4.cpp:
     complete
     .text start:0x020bd670 end:0x020bd67c
 
-src/Combat/Main/Forward020bbbb0.cpp:
+src/NitroSDK/Main/Forward020bbbb0.cpp:
     complete
     .text start:0x020bd67c end:0x020bd688
 
-src/Combat/Main/Forward020bbbbc.cpp:
+src/NitroSDK/Main/Forward020bbbbc.cpp:
     complete
     .text start:0x020bd688 end:0x020bd694
 
-src/Combat/Main/Forward020bbc20.cpp:
+src/NitroSDK/Main/Forward020bbc20.cpp:
     complete
     .text start:0x020bd6ec end:0x020bd6f8
 
-src/Combat/Main/Forward020bbc2c.cpp:
+src/NitroSDK/Main/Forward020bbc2c.cpp:
     complete
     .text start:0x020bd6f8 end:0x020bd704
 
-src/Combat/Main/Forward020bbdcc.cpp:
+src/NitroSDK/Main/Forward020bbdcc.cpp:
     complete
     .text start:0x020bd898 end:0x020bd8a4
 
@@ -4542,15 +4538,15 @@ src/Combat/Main/ForwardAndCopyB8ToC0_0205eb08.cpp:
     complete
     .text start:0x0205fdf4 end:0x0205fe10
 
-src/Combat/Main/ForwardArgsToPairThenFinalize020bb998.cpp:
+src/NitroSDK/Main/ForwardArgsToPairThenFinalize020bb998.cpp:
     complete
     .text start:0x020bd464 end:0x020bd490
 
-src/Combat/Main/ForwardArgsToPairThenFinalize020bb9c4.cpp:
+src/NitroSDK/Main/ForwardArgsToPairThenFinalize020bb9c4.cpp:
     complete
     .text start:0x020bd490 end:0x020bd4bc
 
-src/Combat/Main/ForwardClearBattleSubEffectAt0x800020d68d0.cpp:
+src/NitroSDK/Main/ForwardClearBattleSubEffectAt0x800020d68d0.cpp:
     complete
     .text start:0x020d832c end:0x020d8338
 
@@ -4594,15 +4590,15 @@ src/Combat/Main/ForwardInitStreamHeader0208d854.cpp:
     complete
     .text start:0x0208e110 end:0x0208e11c
 
-src/Combat/Main/ForwardIsFlag4Clear020d0840.cpp:
+src/NitroSDK/Main/ForwardIsFlag4Clear020d0840.cpp:
     complete
     .text start:0x020d230c end:0x020d2318
 
-src/Combat/Main/ForwardObjectFields020afe34.cpp:
+src/NitroSDK/Main/ForwardObjectFields020afe34.cpp:
     complete
     .text start:0x020b1900 end:0x020b191c
 
-src/Combat/Main/ForwardObjectFieldsToDispatch.cpp:
+src/NitroSDK/Main/ForwardObjectFieldsToDispatch.cpp:
     complete
     .text start:0x020b191c end:0x020b1938
 
@@ -4634,7 +4630,7 @@ src/Combat/Main/ForwardToTargetOrDefault0205ebb4.cpp:
     complete
     .text start:0x0205fea0 end:0x0205feac
 
-src/Combat/Main/ForwardWaitForField0x114Bit4ClearIsNull020d0834.cpp:
+src/NitroSDK/Main/ForwardWaitForField0x114Bit4ClearIsNull020d0834.cpp:
     complete
     .text start:0x020d2300 end:0x020d230c
 
@@ -4650,7 +4646,7 @@ src/Combat/Main/FreeObjectSlot0204715c.cpp:
     complete
     .text start:0x02047f7c end:0x02047fb8
 
-src/Combat/Main/FreePoolBlockAtIndex020c895c.cpp:
+src/NitroSDK/Main/FreePoolBlockAtIndex020c895c.cpp:
     complete
     .text start:0x020ca428 end:0x020ca490
 
@@ -4666,11 +4662,11 @@ src/Combat/Main/Func020017f0.cpp:
     complete
     .text start:0x0200170c end:0x02001794
 
-src/Combat/Main/Func020c5b98Thunk020bba74.cpp:
+src/NitroSDK/Main/Func020c5b98Thunk020bba74.cpp:
     complete
     .text start:0x020bd540 end:0x020bd54c
 
-src/Combat/Main/GX_SendFifo48B.cpp:
+src/NitroSDK/Main/GX_SendFifo48B.cpp:
     complete
     .text start:0x020c83e0 end:0x020c8404
 
@@ -4678,15 +4674,15 @@ src/Combat/Main/GateAndDispatchVariants020978fc.cpp:
     complete
     .text start:0x0209954c end:0x02099610
 
-src/Combat/Main/GenCrc16Table.cpp:
+src/NitroSDK/Main/GenCrc16Table.cpp:
     complete
     .text start:0x020d366c end:0x020d36b0
 
-src/Combat/Main/GenCrc32Table.cpp:
+src/NitroSDK/Main/GenCrc32Table.cpp:
     complete
     .text start:0x020d36f0 end:0x020d3730
 
-src/Combat/Main/GenerateCrc8Table.cpp:
+src/NitroSDK/Main/GenerateCrc8Table.cpp:
     complete
     .text start:0x020d35f4 end:0x020d3634
 
@@ -4698,7 +4694,7 @@ src/Combat/Main/Get28ByteElementAt0x334.cpp:
     complete
     .text start:0x0206fbd0 end:0x0206fbe0
 
-src/Combat/Main/Get2DElementStride0x3c.cpp:
+src/NitroSDK/Main/Get2DElementStride0x3c.cpp:
     complete
     .text start:0x020d1444 end:0x020d145c
 
@@ -4714,19 +4710,15 @@ src/Combat/Main/GetActiveScaledSum0205d794.cpp:
     complete
     .text start:0x0205eaa8 end:0x0205eab4
 
-src/Combat/Main/GetAlignedField0x3cSize020d4894.cpp:
+src/NitroSDK/Main/GetAlignedField0x3cSize020d4894.cpp:
     complete
     .text start:0x020d62f0 end:0x020d635c
 
-src/Combat/Main/GetAlignedField0x3eSize020d4900.cpp:
-    complete
-    .text start:0x020d635c end:0x020d6420
-
-src/Combat/Main/GetAnimBankBlock.cpp:
+src/NitroSDK/Main/GetAnimBankBlock.cpp:
     complete
     .text start:0x020b1990 end:0x020b19cc
 
-src/Combat/Main/GetAnimBankBlockAlias020aff00.cpp:
+src/NitroSDK/Main/GetAnimBankBlockAlias020aff00.cpp:
     complete
     .text start:0x020b19cc end:0x020b19d8
 
@@ -4738,39 +4730,39 @@ src/Combat/Main/GetAxisIntValue.cpp:
     complete
     .text start:0x0203afd4 end:0x0203aff8
 
-src/Combat/Main/GetBattleContext.cpp:
+src/NitroSDK/Main/GetBattleContext.cpp:
     complete
     .text start:0x020d5c34 end:0x020d5c44
 
-src/Combat/Main/GetBattleContextField0x14cLow16.cpp:
+src/NitroSDK/Main/GetBattleContextField0x14cLow16.cpp:
     complete
     .text start:0x020d6158 end:0x020d6188
 
-src/Combat/Main/GetBattleContextField0x150.cpp:
+src/NitroSDK/Main/GetBattleContextField0x150.cpp:
     complete
     .text start:0x020d6128 end:0x020d6158
 
-src/Combat/Main/GetBattleField4IfActive.cpp:
+src/NitroSDK/Main/GetBattleField4IfActive.cpp:
     complete
     .text start:0x020d6104 end:0x020d6128
 
-src/Combat/Main/GetBattleReadyCode.cpp:
+src/NitroSDK/Main/GetBattleReadyCode.cpp:
     complete
     .text start:0x020d5c60 end:0x020d5ca8
 
-src/Combat/Main/GetBattleStateCode.cpp:
+src/NitroSDK/Main/GetBattleStateCode.cpp:
     complete
     .text start:0x020d5c44 end:0x020d5c60
 
-src/Combat/Main/GetBattleSubField0xbcForState.cpp:
+src/NitroSDK/Main/GetBattleSubField0xbcForState.cpp:
     complete
     .text start:0x020d6524 end:0x020d65b4
 
-src/Combat/Main/GetBattleSysInnerField1c.cpp:
+src/NitroSDK/Main/GetBattleSysInnerField1c.cpp:
     complete
     .text start:0x020d21b4 end:0x020d21c8
 
-src/Combat/Main/GetBattleSysInnerField4.cpp:
+src/NitroSDK/Main/GetBattleSysInnerField4.cpp:
     complete
     .text start:0x020d21a0 end:0x020d21b4
 
@@ -4838,7 +4830,7 @@ src/Combat/Main/GetByteWithFallback.cpp:
     complete
     .text start:0x0204a2c0 end:0x0204a2e0
 
-src/Combat/Main/GetCellBankBlock.cpp:
+src/NitroSDK/Main/GetCellBankBlock.cpp:
     complete
     .text start:0x020b1b70 end:0x020b1bac
 
@@ -4850,7 +4842,7 @@ src/Combat/Main/GetCharBaseAddrByKind_020e12c0.cpp:
     complete
     .text start:0x020e2eb8 end:0x020e2f4c
 
-src/Combat/Main/GetCharBlock.cpp:
+src/NitroSDK/Main/GetCharBlock.cpp:
     complete
     .text start:0x020b1c70 end:0x020b1cac
 
@@ -4966,11 +4958,11 @@ src/Combat/Main/GetDispcntBits13To15.cpp:
     complete
     .text start:0x020e4764 end:0x020e4778
 
-src/Combat/Main/GetDivResult64.cpp:
+src/NitroSDK/Main/GetDivResult64.cpp:
     complete
     .text start:0x020c4704 end:0x020c4728
 
-src/Combat/Main/GetDivResultFixed20.cpp:
+src/NitroSDK/Main/GetDivResultFixed20.cpp:
     complete
     .text start:0x020c4728 end:0x020c4760
 
@@ -5070,7 +5062,7 @@ src/Combat/Main/GetEngineBDispcntWindowBits.cpp:
     complete
     .text start:0x020e474c end:0x020e4764
 
-src/Combat/Main/GetEntry16IfInRange.cpp:
+src/NitroSDK/Main/GetEntry16IfInRange.cpp:
     complete
     .text start:0x020b1b28 end:0x020b1b40
 
@@ -5134,7 +5126,7 @@ src/Combat/Main/GetEntryUnlessFlag0x8000.cpp:
     complete
     .text start:0x0203e1e0 end:0x0203e20c
 
-src/Combat/Main/GetEntryVarStride.cpp:
+src/NitroSDK/Main/GetEntryVarStride.cpp:
     complete
     .text start:0x020b1bac end:0x020b1bd4
 
@@ -5190,7 +5182,7 @@ src/Combat/Main/GetField0x304ScaleLow.cpp:
     complete
     .text start:0x02086368 end:0x020863a0
 
-src/Combat/Main/GetField0x38.cpp:
+src/NitroSDK/Main/GetField0x38.cpp:
     complete
     .text start:0x020d497c end:0x020d4984
 
@@ -5410,7 +5402,7 @@ src/Combat/Main/GetFourSubstructPointers.cpp:
     complete
     .text start:0x02050394 end:0x020503bc
 
-src/Combat/Main/GetFreeNodeCount020d27e0.cpp:
+src/NitroSDK/Main/GetFreeNodeCount020d27e0.cpp:
     complete
     .text start:0x020d42ac end:0x020d42c8
 
@@ -5434,7 +5426,7 @@ src/Combat/Main/GetGlobalContext020daf90.cpp:
     complete
     .text start:0x020dc998 end:0x020dc9a4
 
-src/Combat/Main/GetGlobalContext02110370.cpp:
+src/NitroSDK/Main/GetGlobalContext02110370.cpp:
     complete
     .text start:0x020bef10 end:0x020bef20
 
@@ -5482,7 +5474,7 @@ src/Combat/Main/GetGlobalStruct02012fe4.cpp:
     complete
     .text start:0x02012dac end:0x02012db8
 
-src/Combat/Main/GetGlobalWord02112140.cpp:
+src/NitroSDK/Main/GetGlobalWord02112140.cpp:
     complete
     .text start:0x020d2c64 end:0x020d2c74
 
@@ -5494,7 +5486,7 @@ src/Combat/Main/GetHalfProductField8.cpp:
     complete
     .text start:0x020e2e80 end:0x020e2ea0
 
-src/Combat/Main/GetHalfword021117b0At0x10.cpp:
+src/NitroSDK/Main/GetHalfword021117b0At0x10.cpp:
     complete
     .text start:0x020cf8a8 end:0x020cf8b8
 
@@ -5522,7 +5514,7 @@ src/Combat/Main/GetIndexedElement020a939c.cpp:
     complete
     .text start:0x020ab120 end:0x020ab154
 
-src/Combat/Main/GetIndexedEntry020bbc68.cpp:
+src/NitroSDK/Main/GetIndexedEntry020bbc68.cpp:
     complete
     .text start:0x020bd734 end:0x020bd744
 
@@ -5546,7 +5538,7 @@ src/Combat/Main/GetIntMax0200bbd8.cpp:
     complete
     .text start:0x0200ba9c end:0x0200baa4
 
-src/Combat/Main/GetInterruptSafeQueueField.cpp:
+src/NitroSDK/Main/GetInterruptSafeQueueField.cpp:
     complete
     .text start:0x020d41b8 end:0x020d41e4
 
@@ -5570,15 +5562,15 @@ src/Combat/Main/GetListEntryChecked.cpp:
     complete
     .text start:0x02027c9c end:0x02027ccc
 
-src/Combat/Main/GetListEntryWord0020bd774.cpp:
+src/NitroSDK/Main/GetListEntryWord0020bd774.cpp:
     complete
     .text start:0x020bf240 end:0x020bf268
 
-src/Combat/Main/GetListEntryWord4020bd79c.cpp:
+src/NitroSDK/Main/GetListEntryWord4020bd79c.cpp:
     complete
     .text start:0x020bf268 end:0x020bf290
 
-src/Combat/Main/GetListEntryWord8020bd8ac.cpp:
+src/NitroSDK/Main/GetListEntryWord8020bd8ac.cpp:
     complete
     .text start:0x020bf378 end:0x020bf3a0
 
@@ -5618,7 +5610,7 @@ src/Combat/Main/GetMaskedKeyInput.cpp:
     complete
     .text start:0x020120d0 end:0x02012108
 
-src/Combat/Main/GetMaskedStatus.cpp:
+src/NitroSDK/Main/GetMaskedStatus.cpp:
     complete
     .text start:0x020cfbe0 end:0x020cfbf4
 
@@ -5666,47 +5658,47 @@ src/Combat/Main/GetOffset0x54FromFallbackChain.cpp:
     complete
     .text start:0x02040f1c end:0x02040f8c
 
-src/Combat/Main/GetOffsetEntry0x10.cpp:
+src/NitroSDK/Main/GetOffsetEntry0x10.cpp:
     complete
     .text start:0x020befe8 end:0x020bf04c
 
-src/Combat/Main/GetOffsetEntry0x14.cpp:
+src/NitroSDK/Main/GetOffsetEntry0x14.cpp:
     complete
     .text start:0x020bf04c end:0x020bf0b0
 
-src/Combat/Main/GetOffsetEntry0x18.cpp:
+src/NitroSDK/Main/GetOffsetEntry0x18.cpp:
     complete
     .text start:0x020bf114 end:0x020bf178
 
-src/Combat/Main/GetOffsetEntry0x1c.cpp:
+src/NitroSDK/Main/GetOffsetEntry0x1c.cpp:
     complete
     .text start:0x020bf1dc end:0x020bf240
 
-src/Combat/Main/GetOffsetEntry0x20.cpp:
+src/NitroSDK/Main/GetOffsetEntry0x20.cpp:
     complete
     .text start:0x020bf178 end:0x020bf1dc
 
-src/Combat/Main/GetOffsetEntry0x24.cpp:
+src/NitroSDK/Main/GetOffsetEntry0x24.cpp:
     complete
     .text start:0x020bf0b0 end:0x020bf114
 
-src/Combat/Main/GetOffsetEntry0x8.cpp:
+src/NitroSDK/Main/GetOffsetEntry0x8.cpp:
     complete
     .text start:0x020bef20 end:0x020bef84
 
-src/Combat/Main/GetOffsetEntry0xc.cpp:
+src/NitroSDK/Main/GetOffsetEntry0xc.cpp:
     complete
     .text start:0x020bef84 end:0x020befe8
 
-src/Combat/Main/GetOrInitStoredValueAt0x2c.cpp:
+src/NitroSDK/Main/GetOrInitStoredValueAt0x2c.cpp:
     complete
     .text start:0x020d0d28 end:0x020d0d60
 
-src/Combat/Main/GetOwnerDataFortuneValue.cpp:
+src/NitroSDK/Main/GetOwnerDataFortuneValue.cpp:
     complete
     .text start:0x020d65b4 end:0x020d6644
 
-src/Combat/Main/GetOwnerDataFortuneValue020d4be8.cpp:
+src/NitroSDK/Main/GetOwnerDataFortuneValue020d4be8.cpp:
     complete
     .text start:0x020d6644 end:0x020d66d8
 
@@ -5766,7 +5758,7 @@ src/Combat/Main/GetPointerFromArray0xbd0.cpp:
     complete
     .text start:0x0207d430 end:0x0207d444
 
-src/Combat/Main/GetPositionVectorMtxStackLevel.cpp:
+src/NitroSDK/Main/GetPositionVectorMtxStackLevel.cpp:
     complete
     .text start:0x020c711c end:0x020c714c
 
@@ -5774,7 +5766,7 @@ src/Combat/Main/GetPreferredPackedField020de234.cpp:
     complete
     .text start:0x020dfbb0 end:0x020dfc20
 
-src/Combat/Main/GetProjectionMtxStackLevel.cpp:
+src/NitroSDK/Main/GetProjectionMtxStackLevel.cpp:
     complete
     .text start:0x020c714c end:0x020c717c
 
@@ -5870,19 +5862,19 @@ src/Combat/Main/GetSection0x1000Count0205e7d0.cpp:
     complete
     .text start:0x0205fabc end:0x0205fac8
 
-src/Combat/Main/GetSequentialValues_020b0f00.cpp:
+src/NitroSDK/Main/GetSequentialValues_020b0f00.cpp:
     complete
     .text start:0x020b29cc end:0x020b2a78
 
-src/Combat/Main/GetSharedHalfwordOrBattleDefault.cpp:
+src/NitroSDK/Main/GetSharedHalfwordOrBattleDefault.cpp:
     complete
     .text start:0x020d6504 end:0x020d6524
 
-src/Combat/Main/GetSharedWordDa0.cpp:
+src/NitroSDK/Main/GetSharedWordDa0.cpp:
     complete
     .text start:0x020ca000 end:0x020ca014
 
-src/Combat/Main/GetSharedWordDc4.cpp:
+src/NitroSDK/Main/GetSharedWordDc4.cpp:
     complete
     .text start:0x020c9fec end:0x020ca000
 
@@ -5930,7 +5922,7 @@ src/Combat/Main/GetSignedByteAt0x14.cpp:
     complete
     .text start:0x020e44b0 end:0x020e44b8
 
-src/Combat/Main/GetSignedField020c39c8.cpp:
+src/NitroSDK/Main/GetSignedField020c39c8.cpp:
     complete
     .text start:0x020c5494 end:0x020c54d8
 
@@ -5946,7 +5938,7 @@ src/Combat/Main/GetState0209ca68.cpp:
     complete
     .text start:0x0209e7e0 end:0x0209e7e8
 
-src/Combat/Main/GetState0x27ffc30Bit0.cpp:
+src/NitroSDK/Main/GetState0x27ffc30Bit0.cpp:
     complete
     .text start:0x020d2e10 end:0x020d2e28
 
@@ -6050,7 +6042,7 @@ src/Combat/Main/GetTableByteOrFF.cpp:
     complete
     .text start:0x020981fc end:0x02098210
 
-src/Combat/Main/GetTableEnd.cpp:
+src/NitroSDK/Main/GetTableEnd.cpp:
     complete
     .text start:0x020b1b40 end:0x020b1b60
 
@@ -6090,7 +6082,7 @@ src/Combat/Main/GetValidElement02040468.cpp:
     complete
     .text start:0x02040964 end:0x020409a8
 
-src/Combat/Main/GetValidElement020c01ac.cpp:
+src/NitroSDK/Main/GetValidElement020c01ac.cpp:
     complete
     .text start:0x020c1c78 end:0x020c1cb8
 
@@ -6110,11 +6102,11 @@ src/Combat/Main/GetWord.cpp:
     complete
     .text start:0x0203aef0 end:0x0203aef8
 
-src/Combat/Main/GxLoadMatrix4x4.cpp:
+src/NitroSDK/Main/GxLoadMatrix4x4.cpp:
     complete
     .text start:0x020c6c38 end:0x020c6c54
 
-src/Combat/Main/HaltSystem020c9be0.cpp:
+src/NitroSDK/Main/HaltSystem020c9be0.cpp:
     complete
     .text start:0x020cb6ac end:0x020cb6bc
 
@@ -6126,15 +6118,15 @@ src/Combat/Main/HandleCommandSlotResult0202d108.cpp:
     complete
     .text start:0x0202cc78 end:0x0202ccf0
 
-src/Combat/Main/HandleCommandType2Event020bc4f8.cpp:
+src/NitroSDK/Main/HandleCommandType2Event020bc4f8.cpp:
     complete
     .text start:0x020bdfc4 end:0x020be014
 
-src/Combat/Main/HandleMsg1SetFlag.cpp:
+src/NitroSDK/Main/HandleMsg1SetFlag.cpp:
     complete
     .text start:0x020d3370 end:0x020d339c
 
-src/Combat/Main/HardwareSqrt.cpp:
+src/NitroSDK/Main/HardwareSqrt.cpp:
     complete
     .text start:0x020c46d0 end:0x020c4704
 
@@ -6166,19 +6158,19 @@ src/Combat/Main/HasHighBit14SetForField4Entry02034340.cpp:
     complete
     .text start:0x02033d9c end:0x02033dfc
 
-src/Combat/Main/HashUpdate020c08ec.cpp:
+src/NitroSDK/Main/HashUpdate020c08ec.cpp:
     complete
     .text start:0x020c23b8 end:0x020c250c
 
-src/Combat/Main/HwDivideRemainder.cpp:
+src/NitroSDK/Main/HwDivideRemainder.cpp:
     complete
     .text start:0x020c4820 end:0x020c485c
 
-src/Combat/Main/HwDivideRounded020c2bf4.cpp:
+src/NitroSDK/Main/HwDivideRounded020c2bf4.cpp:
     complete
     .text start:0x020c46c0 end:0x020c46d0
 
-src/Combat/Main/IncrementCallbackCount.cpp:
+src/NitroSDK/Main/IncrementCallbackCount.cpp:
     complete
     .text start:0x020d442c end:0x020d444c
 
@@ -6250,7 +6242,7 @@ src/Combat/Main/Init020e3c34.cpp:
     complete
     .text start:0x020e57d4 end:0x020e5834
 
-src/Combat/Main/InitActionHandlers020bffc4.cpp:
+src/NitroSDK/Main/InitActionHandlers020bffc4.cpp:
     complete
     .text start:0x020c1a90 end:0x020c1b10
 
@@ -6278,29 +6270,25 @@ src/Combat/Main/InitAllocatorAndStream_0203a974.cpp:
     complete
     .text start:0x0203a3cc end:0x0203a460
 
-src/Combat/Main/InitAllocatorHolder020bdbf0.cpp:
+src/NitroSDK/Main/InitAllocatorHolder020bdbf0.cpp:
     complete
     .text start:0x020bf6bc end:0x020bf6f0
 
-src/Combat/Main/InitAllocatorListZero.cpp:
+src/NitroSDK/Main/InitAllocatorListZero.cpp:
     complete
     .text start:0x020bf6ac end:0x020bf6bc
 
-src/Combat/Main/InitAllocatorObj020bc8d0.cpp:
+src/NitroSDK/Main/InitAllocatorObj020bc8d0.cpp:
     complete
     .text start:0x020be39c end:0x020be414
 
-src/Combat/Main/InitAllocatorPools020bc23c.cpp:
+src/NitroSDK/Main/InitAllocatorPools020bc23c.cpp:
     complete
     .text start:0x020bdd08 end:0x020bddbc
 
 src/Combat/Main/InitAllocatorsAndBuffers0208b8c4.cpp:
     complete
     .text start:0x0208c1b8 end:0x0208c294
-
-src/Combat/Main/InitAllocatorsAndVmPoolOnce.cpp:
-    complete
-    .text start:0x020c04b4 end:0x020c05b8
 
 src/Combat/Main/InitAndAssignBestEntries_020a8304.cpp:
     complete
@@ -6378,7 +6366,7 @@ src/Combat/Main/InitBattleModeAndCommit020758a8.cpp:
     complete
     .text start:0x020767c4 end:0x0207682c
 
-src/Combat/Main/InitBattleModeF00.cpp:
+src/NitroSDK/Main/InitBattleModeF00.cpp:
     complete
     .text start:0x020d5828 end:0x020d5854
 
@@ -6474,7 +6462,7 @@ src/Combat/Main/InitDefaults0208e9f4.cpp:
     complete
     .text start:0x0208f304 end:0x0208f320
 
-src/Combat/Main/InitDisplayAndClearVram020c36f0.cpp:
+src/NitroSDK/Main/InitDisplayAndClearVram020c36f0.cpp:
     complete
     .text start:0x020c51bc end:0x020c5308
 
@@ -6526,7 +6514,7 @@ src/Combat/Main/InitEntryManagerAllocator020d6ec8.cpp:
     complete
     .text start:0x020d88d0 end:0x020d8914
 
-src/Combat/Main/InitExceptionHandlerHook020c8a3c.cpp:
+src/NitroSDK/Main/InitExceptionHandlerHook020c8a3c.cpp:
     complete
     .text start:0x020ca508 end:0x020ca578
 
@@ -6534,11 +6522,11 @@ src/Combat/Main/InitField3b0Struct_0202df68.cpp:
     complete
     .text start:0x0202dad8 end:0x0202dbfc
 
-src/Combat/Main/InitFieldArray.cpp:
+src/NitroSDK/Main/InitFieldArray.cpp:
     complete
     .text start:0x020b1e08 end:0x020b1e28
 
-src/Combat/Main/InitFieldFrom020bd8ac.cpp:
+src/NitroSDK/Main/InitFieldFrom020bd8ac.cpp:
     complete
     .text start:0x020c1bdc end:0x020c1c04
 
@@ -6550,11 +6538,11 @@ src/Combat/Main/InitFields02012244.cpp:
     complete
     .text start:0x02011fc0 end:0x02012014
 
-src/Combat/Main/InitFields020b1d48.cpp:
+src/NitroSDK/Main/InitFields020b1d48.cpp:
     complete
     .text start:0x020b3814 end:0x020b383c
 
-src/Combat/Main/InitFieldsWithData.cpp:
+src/NitroSDK/Main/InitFieldsWithData.cpp:
     complete
     .text start:0x020b3960 end:0x020b398c
 
@@ -6570,19 +6558,15 @@ src/Combat/Main/InitFourNamedSubStructs.cpp:
     complete
     .text start:0x02098254 end:0x020982f0
 
-src/Combat/Main/InitFourWordsAndCallbacksOnce.cpp:
+src/NitroSDK/Main/InitFourWordsAndCallbacksOnce.cpp:
     complete
     .text start:0x020d3c8c end:0x020d3cc4
 
-src/Combat/Main/InitGlobalSystemsOnce020bbd14.cpp:
+src/NitroSDK/Main/InitGlobalSystemsOnce020bbd14.cpp:
     complete
     .text start:0x020bd7e0 end:0x020bd868
 
-src/Combat/Main/InitGridRowsAndFlushCache.cpp:
-    complete
-    .text start:0x020d4514 end:0x020d4590
-
-src/Combat/Main/InitHalfwordReader.cpp:
+src/NitroSDK/Main/InitHalfwordReader.cpp:
     complete
     .text start:0x020b2914 end:0x020b2938
 
@@ -6590,15 +6574,15 @@ src/Combat/Main/InitHalfwords02071688.cpp:
     complete
     .text start:0x020726f4 end:0x02072710
 
-src/Combat/Main/InitIPCAndSubsystems_020d15fc.cpp:
+src/NitroSDK/Main/InitIPCAndSubsystems_020d15fc.cpp:
     complete
     .text start:0x020d30c8 end:0x020d317c
 
-src/Combat/Main/InitIPCCommandDispatch020cd890.cpp:
+src/NitroSDK/Main/InitIPCCommandDispatch020cd890.cpp:
     complete
     .text start:0x020cf35c end:0x020cf3d4
 
-src/Combat/Main/InitIPCHandler020ce270.cpp:
+src/NitroSDK/Main/InitIPCHandler020ce270.cpp:
     complete
     .text start:0x020cfd3c end:0x020cfdd4
 
@@ -6622,11 +6606,11 @@ src/Combat/Main/InitManagerAndAllocateBuffers0209fee4.cpp:
     complete
     .text start:0x020a1c5c end:0x020a1cdc
 
-src/Combat/Main/InitMd5State.cpp:
+src/NitroSDK/Main/InitMd5State.cpp:
     complete
     .text start:0x020c1df4 end:0x020c1e34
 
-src/Combat/Main/InitModule020c9288.cpp:
+src/NitroSDK/Main/InitModule020c9288.cpp:
     complete
     .text start:0x020cad54 end:0x020cad9c
 
@@ -6694,7 +6678,7 @@ src/Combat/Main/InitPaletteTables0202ac74.cpp:
     complete
     .text start:0x0202a82c end:0x0202a8e8
 
-src/Combat/Main/InitPointerTableFromBase_020bd368.cpp:
+src/NitroSDK/Main/InitPointerTableFromBase_020bd368.cpp:
     complete
     .text start:0x020bee34 end:0x020beef8
 
@@ -6702,7 +6686,7 @@ src/Combat/Main/InitPoolTables0207c258.cpp:
     complete
     .text start:0x0207d090 end:0x0207d1b0
 
-src/Combat/Main/InitProtectionRegionsFromSharedWords020c84b4.cpp:
+src/NitroSDK/Main/InitProtectionRegionsFromSharedWords020c84b4.cpp:
     complete
     .text start:0x020c9f80 end:0x020c9fec
 
@@ -6714,11 +6698,11 @@ src/Combat/Main/InitRenderParams0204bf44.cpp:
     complete
     .text start:0x0204cd64 end:0x0204ce50
 
-src/Combat/Main/InitSha1Context020c089c.cpp:
+src/NitroSDK/Main/InitSha1Context020c089c.cpp:
     complete
     .text start:0x020c2368 end:0x020c23b8
 
-src/Combat/Main/InitSharedWordsForAllSlots_020c83b0.cpp:
+src/NitroSDK/Main/InitSharedWordsForAllSlots_020c83b0.cpp:
     complete
     .text start:0x020c9e7c end:0x020c9f80
 
@@ -6726,7 +6710,7 @@ src/Combat/Main/InitSlotEntries020543ec.cpp:
     complete
     .text start:0x02055764 end:0x020557dc
 
-src/Combat/Main/InitSlotSystem020cf020.cpp:
+src/NitroSDK/Main/InitSlotSystem020cf020.cpp:
     complete
     .text start:0x020d0aec end:0x020d0b58
 
@@ -6770,7 +6754,7 @@ src/Combat/Main/InitStreamHeader0208d82c.cpp:
     complete
     .text start:0x0208e0e8 end:0x0208e110
 
-src/Combat/Main/InitStreamHolder020bd110.cpp:
+src/NitroSDK/Main/InitStreamHolder020bd110.cpp:
     complete
     .text start:0x020bebdc end:0x020bec5c
 
@@ -6858,11 +6842,11 @@ src/Combat/Main/InitStruct020a8128.cpp:
     complete
     .text start:0x020a9eac end:0x020a9ef4
 
-src/Combat/Main/InitStruct020c21dc.cpp:
+src/NitroSDK/Main/InitStruct020c21dc.cpp:
     complete
     .text start:0x020c3ca8 end:0x020c3cd4
 
-src/Combat/Main/InitStruct020c7de4.cpp:
+src/NitroSDK/Main/InitStruct020c7de4.cpp:
     complete
     .text start:0x020c98b0 end:0x020c98d8
 
@@ -6898,7 +6882,7 @@ src/Combat/Main/InitStructArray0207d798.cpp:
     complete
     .text start:0x0207e518 end:0x0207e540
 
-src/Combat/Main/InitStructFromFixedTable020c99c8.cpp:
+src/NitroSDK/Main/InitStructFromFixedTable020c99c8.cpp:
     complete
     .text start:0x020cb494 end:0x020cb518
 
@@ -6938,11 +6922,11 @@ src/Combat/Main/InitSubstructAndRegisterHandler0x14.cpp:
     complete
     .text start:0x020dcc30 end:0x020dcc6c
 
-src/Combat/Main/InitSubsystemContextOnce020d1954.cpp:
+src/NitroSDK/Main/InitSubsystemContextOnce020d1954.cpp:
     complete
     .text start:0x020d3420 end:0x020d34ac
 
-src/Combat/Main/InitTaskContext020bf2f8.cpp:
+src/NitroSDK/Main/InitTaskContext020bf2f8.cpp:
     complete
     .text start:0x020c0dc4 end:0x020c0e24
 
@@ -6966,7 +6950,7 @@ src/Combat/Main/InitVec3ParamsVariant8b33.cpp:
     complete
     .text start:0x020a45a8 end:0x020a45e0
 
-src/Combat/Main/InitVibrationIPCHandler_020c983c.cpp:
+src/NitroSDK/Main/InitVibrationIPCHandler_020c983c.cpp:
     complete
     .text start:0x020cb308 end:0x020cb35c
 
@@ -6986,16 +6970,16 @@ src/Combat/Main/InitWithUnitScaleVec0201310c.cpp:
     complete
     .text start:0x02012ed4 end:0x02012f20
 
-src/Combat/Main/InitializeContextRegisters_020c7cb0.cpp:
+src/NitroSDK/Main/InitializeContextRegisters_020c7cb0.cpp:
     complete
     .text start:0x020c977c end:0x020c9800
 
-src/Combat/Main/InitializeGamecardBusOwnership.cpp:
+src/NitroSDK/Main/InitializeGamecardBusOwnership.cpp:
     complete
     .text start:0x020c8848 end:0x020c8914
     .bss start:0x02110f7c end:0x02110f80
 
-src/Combat/Main/InitializeInterruptContextBlock_020c6ad4.cpp:
+src/NitroSDK/Main/InitializeInterruptContextBlock_020c6ad4.cpp:
     complete
     .text start:0x020c85a0 end:0x020c85b8
 
@@ -7011,11 +6995,11 @@ src/Combat/Main/InitializeStruct020280f8.cpp:
     complete
     .text start:0x02027964 end:0x02027970
 
-src/Combat/Main/InsertAllocatorHeaderLocked.cpp:
+src/NitroSDK/Main/InsertAllocatorHeaderLocked.cpp:
     complete
     .text start:0x020c0f24 end:0x020c0f50
 
-src/Combat/Main/InsertAllocatorSortedByByte3d.cpp:
+src/NitroSDK/Main/InsertAllocatorSortedByByte3d.cpp:
     complete
     .text start:0x020be124 end:0x020be174
 
@@ -7023,7 +7007,7 @@ src/Combat/Main/InsertEntryIfNewKey0206ed44.cpp:
     complete
     .text start:0x0206fe98 end:0x0206ffa4
 
-src/Combat/Main/InsertFreeBlock020c87ac.cpp:
+src/NitroSDK/Main/InsertFreeBlock020c87ac.cpp:
     complete
     .text start:0x020ca278 end:0x020ca320
 
@@ -7039,7 +7023,7 @@ src/Combat/Main/InsertNodeAfterHead.cpp:
     complete
     .text start:0x0204785c end:0x020478ac
 
-src/Combat/Main/InsertNodeAtHead.cpp:
+src/NitroSDK/Main/InsertNodeAtHead.cpp:
     complete
     .text start:0x020ca234 end:0x020ca250
 
@@ -7051,15 +7035,15 @@ src/Combat/Main/InsertOrShiftShort02099554.cpp:
     complete
     .text start:0x0209b288 end:0x0209b2e4
 
-src/Combat/Main/InsertQueueNode020d2b34.cpp:
+src/NitroSDK/Main/InsertQueueNode020d2b34.cpp:
     complete
     .text start:0x020d4600 end:0x020d46cc
 
-src/Combat/Main/InsertSortedByByte3dGlobal020bc6a8.cpp:
+src/NitroSDK/Main/InsertSortedByByte3dGlobal020bc6a8.cpp:
     complete
     .text start:0x020be174 end:0x020be1c8
 
-src/Combat/Main/InsertVCountAlarmNode.cpp:
+src/NitroSDK/Main/InsertVCountAlarmNode.cpp:
     complete
     .text start:0x020cad9c end:0x020cae18
 
@@ -7079,7 +7063,7 @@ src/Combat/Main/InvokeAllEntries020966a0.cpp:
     complete
     .text start:0x020982f0 end:0x0209831c
 
-src/Combat/Main/InvokeAndAwaitCallback020ce758.cpp:
+src/NitroSDK/Main/InvokeAndAwaitCallback020ce758.cpp:
     complete
     .text start:0x020d0224 end:0x020d0270
 
@@ -7087,11 +7071,11 @@ src/Combat/Main/InvokeCallback0200efb8.cpp:
     complete
     .text start:0x0200ee7c end:0x0200ee94
 
-src/Combat/Main/InvokeCallbackIfCurrent.cpp:
+src/NitroSDK/Main/InvokeCallbackIfCurrent.cpp:
     complete
     .text start:0x020d447c end:0x020d44c0
 
-src/Combat/Main/InvokeCallbackWithInterruptsDisabled020d27fc.cpp:
+src/NitroSDK/Main/InvokeCallbackWithInterruptsDisabled020d27fc.cpp:
     complete
     .text start:0x020d42c8 end:0x020d42ec
 
@@ -7103,7 +7087,7 @@ src/Combat/Main/InvokeManagerWithParams0209d6bc.cpp:
     complete
     .text start:0x0209f434 end:0x0209f488
 
-src/Combat/Main/InvokeReg0x10IfPowcntBit0Set.cpp:
+src/NitroSDK/Main/InvokeReg0x10IfPowcntBit0Set.cpp:
     complete
     .text start:0x020d02ac end:0x020d02dc
 
@@ -7119,11 +7103,11 @@ src/Combat/Main/InvokeWithCopiedArg0204a984.cpp:
     complete
     .text start:0x0204b7a4 end:0x0204b7e4
 
-src/Combat/Main/InvokeWithFullMaskType2.cpp:
+src/NitroSDK/Main/InvokeWithFullMaskType2.cpp:
     complete
     .text start:0x020d8310 end:0x020d832c
 
-src/Combat/Main/InvokeWithTempHandlerOverride020ce704.cpp:
+src/NitroSDK/Main/InvokeWithTempHandlerOverride020ce704.cpp:
     complete
     .text start:0x020d01d0 end:0x020d0224
 
@@ -7155,7 +7139,7 @@ src/Combat/Main/IsDispatchComplete0202d0e0.cpp:
     complete
     .text start:0x0202cc50 end:0x0202cc78
 
-src/Combat/Main/IsDispatchResultZero020bdc80.cpp:
+src/NitroSDK/Main/IsDispatchResultZero020bdc80.cpp:
     complete
     .text start:0x020bf74c end:0x020bf764
 
@@ -7223,7 +7207,7 @@ src/Combat/Main/IsField0xcNonNegative.cpp:
     complete
     .text start:0x020a540c end:0x020a5420
 
-src/Combat/Main/IsField0xcZero.cpp:
+src/NitroSDK/Main/IsField0xcZero.cpp:
     complete
     .text start:0x020bd450 end:0x020bd464
 
@@ -7367,7 +7351,7 @@ src/Combat/Main/IsPowCnt1Bit15Clear020938cc.cpp:
     complete
     .text start:0x02094200 end:0x02094224
 
-src/Combat/Main/IsPowcntBit0Set.cpp:
+src/NitroSDK/Main/IsPowcntBit0Set.cpp:
     complete
     .text start:0x020d08ac end:0x020d08c8
 
@@ -7375,15 +7359,15 @@ src/Combat/Main/IsPrefixMatch020d857c.cpp:
     complete
     .text start:0x020d9ee0 end:0x020d9f40
 
-src/Combat/Main/IsQueryResultZero020bdcc4.cpp:
+src/NitroSDK/Main/IsQueryResultZero020bdcc4.cpp:
     complete
     .text start:0x020bf790 end:0x020bf7b4
 
-src/Combat/Main/IsQueryResultZeroWildcard020bdc98.cpp:
+src/NitroSDK/Main/IsQueryResultZeroWildcard020bdc98.cpp:
     complete
     .text start:0x020bf764 end:0x020bf790
 
-src/Combat/Main/IsReadyAndBit0Clear.cpp:
+src/NitroSDK/Main/IsReadyAndBit0Clear.cpp:
     complete
     .text start:0x020d2de8 end:0x020d2e10
 
@@ -7411,7 +7395,7 @@ src/Combat/Main/IsValueInRange0201b5d8.cpp:
     complete
     .text start:0x0201b350 end:0x0201b378
 
-src/Combat/Main/IsValuePassedWraparound020d2718.cpp:
+src/NitroSDK/Main/IsValuePassedWraparound020d2718.cpp:
     complete
     .text start:0x020d41e4 end:0x020d4234
 
@@ -7423,31 +7407,31 @@ src/Combat/Main/IsWithinRect0204ea28.cpp:
     complete
     .text start:0x0204fc84 end:0x0204fcb8
 
-src/Combat/Main/IssueBattleCommandSlot0.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot0.cpp:
     complete
     .text start:0x020d6a00 end:0x020d6a60
 
-src/Combat/Main/IssueBattleCommandSlot1.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot1.cpp:
     complete
     .text start:0x020d6a60 end:0x020d6a98
 
-src/Combat/Main/IssueBattleCommandSlot10.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot10.cpp:
     complete
     .text start:0x020d6cb0 end:0x020d6d9c
 
-src/Combat/Main/IssueBattleCommandSlot11.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot11.cpp:
     complete
     .text start:0x020d6eec end:0x020d6f2c
 
-src/Combat/Main/IssueBattleCommandSlot13.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot13.cpp:
     complete
     .text start:0x020d6ff8 end:0x020d70e0
 
-src/Combat/Main/IssueBattleCommandSlot2.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot2.cpp:
     complete
     .text start:0x020d6a98 end:0x020d6ad8
 
-src/Combat/Main/IssueBattleCommandSlot24.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot24.cpp:
     complete
     .text start:0x020d8428 end:0x020d84e0
 
@@ -7455,51 +7439,51 @@ src/Combat/Main/IssueBattleCommandSlot24Dispatch0202cd50.cpp:
     complete
     .text start:0x0202c8c0 end:0x0202c94c
 
-src/Combat/Main/IssueBattleCommandSlot29.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot29.cpp:
     complete
     .text start:0x020d8530 end:0x020d8590
 
-src/Combat/Main/IssueBattleCommandSlot30.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot30.cpp:
     complete
     .text start:0x020d8590 end:0x020d8608
 
-src/Combat/Main/IssueBattleCommandSlot39.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot39.cpp:
     complete
     .text start:0x020d83ac end:0x020d8428
 
-src/Combat/Main/IssueBattleCommandSlot5.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot5.cpp:
     complete
     .text start:0x020d6958 end:0x020d6998
 
-src/Combat/Main/IssueBattleCommandSlot6.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot6.cpp:
     complete
     .text start:0x020d6998 end:0x020d69d8
 
-src/Combat/Main/IssueBattleCommandSlot7.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot7.cpp:
     complete
     .text start:0x020d6ad8 end:0x020d6bb4
 
-src/Combat/Main/IssueBattleCommandSlot8.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot8.cpp:
     complete
     .text start:0x020d6c04 end:0x020d6c60
 
-src/Combat/Main/IssueBattleCommandSlot9.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot9.cpp:
     complete
     .text start:0x020d6c70 end:0x020d6cb0
 
-src/Combat/Main/IssueCategorizedRequestAndPumpHandler020ce6d0.cpp:
+src/NitroSDK/Main/IssueCategorizedRequestAndPumpHandler020ce6d0.cpp:
     complete
     .text start:0x020d019c end:0x020d01d0
 
-src/Combat/Main/IssueCommand0x17.cpp:
+src/NitroSDK/Main/IssueCommand0x17.cpp:
     complete
     .text start:0x020c6c54 end:0x020c6c70
 
-src/Combat/Main/IssueCommand0x19.cpp:
+src/NitroSDK/Main/IssueCommand0x19.cpp:
     complete
     .text start:0x020c6c70 end:0x020c6c8c
 
-src/Combat/Main/IssueCommand0x1A.cpp:
+src/NitroSDK/Main/IssueCommand0x1A.cpp:
     complete
     .text start:0x020c6c8c end:0x020c6ca8
 
@@ -7507,7 +7491,7 @@ src/Combat/Main/IssueOrDispatchCommand0202ccdc.cpp:
     complete
     .text start:0x0202c84c end:0x0202c898
 
-src/Combat/Main/IssueRequestAndPumpHandler020ce614.cpp:
+src/NitroSDK/Main/IssueRequestAndPumpHandler020ce614.cpp:
     complete
     .text start:0x020d00e0 end:0x020d0114
 
@@ -7543,7 +7527,7 @@ src/Combat/Main/LoadObjectResourceFiles02039f04.cpp:
     complete
     .text start:0x0203995c end:0x02039a44
 
-src/Combat/Main/LockAndAcquireGBABus.cpp:
+src/NitroSDK/Main/LockAndAcquireGBABus.cpp:
     complete
     .text start:0x020d2fb0 end:0x020d300c
 
@@ -7583,11 +7567,11 @@ src/Combat/Main/LookupKeyValue.cpp:
     complete
     .text start:0x02012cec end:0x02012d30
 
-src/Combat/Main/LookupRangeEntry020b0eb4.cpp:
+src/NitroSDK/Main/LookupRangeEntry020b0eb4.cpp:
     complete
     .text start:0x020b2980 end:0x020b29cc
 
-src/Combat/Main/LookupRecordAndDispatch020bebb4.cpp:
+src/NitroSDK/Main/LookupRecordAndDispatch020bebb4.cpp:
     complete
     .text start:0x020c0680 end:0x020c06dc
 
@@ -7607,7 +7591,7 @@ src/Combat/Main/LookupValueByKey020a0b3c.cpp:
     complete
     .text start:0x020a28b4 end:0x020a2904
 
-src/Combat/Main/LookupValueByMode_020b0d80.cpp:
+src/NitroSDK/Main/LookupValueByMode_020b0d80.cpp:
     complete
     .text start:0x020b284c end:0x020b2914
 
@@ -7619,7 +7603,7 @@ src/Combat/Main/LookupValuesByIds.cpp:
     complete
     .text start:0x0209ca54 end:0x0209caa8
 
-src/Combat/Main/LookupWord2D.cpp:
+src/NitroSDK/Main/LookupWord2D.cpp:
     complete
     .text start:0x020b2c78 end:0x020b2c94
 
@@ -7627,11 +7611,11 @@ src/Combat/Main/LookupWordField0209cc3c.cpp:
     complete
     .text start:0x0209e9b4 end:0x0209ea40
 
-src/Combat/Main/MTX_Copy44To43_.cpp:
+src/NitroSDK/Main/MTX_Copy44To43_.cpp:
     complete
     .text start:0x020c3cd4 end:0x020c3d08
 
-src/Combat/Main/MakeZeroStruct020d2ce0.cpp:
+src/NitroSDK/Main/MakeZeroStruct020d2ce0.cpp:
     complete
     .text start:0x020d47ac end:0x020d47cc
 
@@ -7639,11 +7623,11 @@ src/Combat/Main/ManagerSelectionWordFlags.cpp:
     complete
     .text start:0x020a076c end:0x020a095c
 
-src/Combat/Main/MapArm7ChannelCodeAndDispatch_020ce648.cpp:
+src/NitroSDK/Main/MapArm7ChannelCodeAndDispatch_020ce648.cpp:
     complete
     .text start:0x020d0114 end:0x020d019c
 
-src/Combat/Main/MarkContextStackTopUnknownSubspace.cpp:
+src/NitroSDK/Main/MarkContextStackTopUnknownSubspace.cpp:
     complete
     .text start:0x020c9540 end:0x020c955c
 
@@ -7659,7 +7643,7 @@ src/Combat/Main/Mat4x3_WriteRotationZ_020c19b8.s:
     complete
     .text start:0x020c3484 end:0x020c34a0
 
-src/Combat/Main/Mat4x4_WriteProjectionUnknown.cpp:
+src/NitroSDK/Main/Mat4x4_WriteProjectionUnknown.cpp:
     complete
     .text start:0x020c44b8 end:0x020c46c0
 
@@ -7723,7 +7707,7 @@ src/Combat/Main/MergeLowNibbleField.cpp:
     complete
     .text start:0x020d9104 end:0x020d9124
 
-src/Combat/Main/MoveMatchingAllocatorsFromList.cpp:
+src/NitroSDK/Main/MoveMatchingAllocatorsFromList.cpp:
     complete
     .text start:0x020c0e24 end:0x020c0e94
 
@@ -7731,11 +7715,11 @@ src/Combat/Main/MoveTowardTargetAndSetAnim_02041470.cpp:
     complete
     .text start:0x0204196c end:0x02041a34
 
-src/Combat/Main/MulVec3Mtx020c17c4.cpp:
+src/NitroSDK/Main/MulVec3Mtx020c17c4.cpp:
     complete
     .text start:0x020c3290 end:0x020c330c
 
-src/Combat/Main/MulVec3MtxTranslate020c2034.cpp:
+src/NitroSDK/Main/MulVec3MtxTranslate020c2034.cpp:
     complete
     .text start:0x020c3b00 end:0x020c3ba0
 
@@ -7751,7 +7735,7 @@ src/Combat/Main/NextCharOrCmd_02003d58.cpp:
     complete
     .text start:0x02003c74 end:0x02003cf8
 
-src/Combat/Main/NormalizeAndScaleVec3_020c2f18.cpp:
+src/NitroSDK/Main/NormalizeAndScaleVec3_020c2f18.cpp:
     complete
     .text start:0x020c49e4 end:0x020c4afc
 
@@ -7767,11 +7751,11 @@ src/Combat/Main/NotifyManagerForSetArrayEntries020e3ed8.cpp:
     complete
     .text start:0x020e5a78 end:0x020e5abc
 
-src/Combat/Main/NotifyMaskedEvent020bcde0.cpp:
+src/NitroSDK/Main/NotifyMaskedEvent020bcde0.cpp:
     complete
     .text start:0x020be8ac end:0x020be8f8
 
-src/Combat/Main/NotifyObjectIfPresent020bec58.cpp:
+src/NitroSDK/Main/NotifyObjectIfPresent020bec58.cpp:
     complete
     .text start:0x020c0724 end:0x020c0740
 
@@ -7823,7 +7807,7 @@ src/Combat/Main/PackRgb555ToField0x7e.cpp:
     complete
     .text start:0x0201d278 end:0x0201d2bc
 
-src/Combat/Main/PatchFontResourceBlocks.cpp:
+src/NitroSDK/Main/PatchFontResourceBlocks.cpp:
     complete
     .text start:0x020b43e8 end:0x020b44c4
 
@@ -7843,7 +7827,7 @@ src/Combat/Main/PickSlotAndSubmitBattleContext_0202cddc.cpp:
     complete
     .text start:0x0202c94c end:0x0202ca6c
 
-src/Combat/Main/PollAndDispatchReadyNode_020d2404.cpp:
+src/NitroSDK/Main/PollAndDispatchReadyNode_020d2404.cpp:
     complete
     .text start:0x020d3ed0 end:0x020d3f58
 
@@ -7859,7 +7843,7 @@ src/Combat/Main/PollOv017Task0209ff6c.cpp:
     complete
     .text start:0x020a1ce4 end:0x020a1d58
 
-src/Combat/Main/PollThenNotifyAndReset_020bbd9c.cpp:
+src/NitroSDK/Main/PollThenNotifyAndReset_020bbd9c.cpp:
     complete
     .text start:0x020bd868 end:0x020bd898
 
@@ -7867,7 +7851,7 @@ src/Combat/Main/PollUntilFieldMatchesOrLimit0202b284.cpp:
     complete
     .text start:0x0202ae34 end:0x0202aea0
 
-src/Combat/Main/PopAndAdvanceQueueEntry020c7ea0.cpp:
+src/NitroSDK/Main/PopAndAdvanceQueueEntry020c7ea0.cpp:
     complete
     .text start:0x020c996c end:0x020c9a10
 
@@ -7875,7 +7859,7 @@ src/Combat/Main/PopAndRequeueNode.cpp:
     complete
     .text start:0x0205f708 end:0x0205f774
 
-src/Combat/Main/PopCount32.cpp:
+src/NitroSDK/Main/PopCount32.cpp:
     complete
     .text start:0x020d35b0 end:0x020d35f4
 
@@ -7883,11 +7867,11 @@ src/Combat/Main/PopCount64_0200a9cc.cpp:
     complete
     .text start:0x0200a8e8 end:0x0200a97c
 
-src/Combat/Main/PopFirstAndDecOwnerRef020bf3c8.cpp:
+src/NitroSDK/Main/PopFirstAndDecOwnerRef020bf3c8.cpp:
     complete
     .text start:0x020c0e94 end:0x020c0ee4
 
-src/Combat/Main/PopFirstFromGlobalList020bf418.cpp:
+src/NitroSDK/Main/PopFirstFromGlobalList020bf418.cpp:
     complete
     .text start:0x020c0ee4 end:0x020c0f24
 
@@ -7899,15 +7883,15 @@ src/Combat/Main/PopMaskedFieldsFromStack0200f1a0.cpp:
     complete
     .text start:0x0200f064 end:0x0200f0c0
 
-src/Combat/Main/PopQueueEntryOrWait020c7fe0.cpp:
+src/NitroSDK/Main/PopQueueEntryOrWait020c7fe0.cpp:
     complete
     .text start:0x020c9aac end:0x020c9b28
 
-src/Combat/Main/PopReadyListNode.cpp:
+src/NitroSDK/Main/PopReadyListNode.cpp:
     complete
     .text start:0x020d4374 end:0x020d43bc
 
-src/Combat/Main/PopSlotFirstAndLink020bc5bc.cpp:
+src/NitroSDK/Main/PopSlotFirstAndLink020bc5bc.cpp:
     complete
     .text start:0x020be088 end:0x020be0dc
 
@@ -7931,10 +7915,6 @@ src/Combat/Main/PopulateElementStructFromTaggedValues0208daf4.cpp:
     complete
     .text start:0x0208e3b0 end:0x0208e4bc
 
-src/Combat/Main/PopulateEntryTableAndLink_020beaec.cpp:
-    complete
-    .text start:0x020c05b8 end:0x020c0680
-
 src/Combat/Main/PopulateListEntry0200ec44.cpp:
     complete
     .text start:0x0200eb08 end:0x0200eb64
@@ -7947,67 +7927,67 @@ src/Combat/Main/PopulateTableRow020a6090.cpp:
     complete
     .text start:0x020a7e34 end:0x020a7f24
 
-src/Combat/Main/PostEvent0x0E.cpp:
+src/NitroSDK/Main/PostEvent0x0E.cpp:
     complete
     .text start:0x020d3b04 end:0x020d3b50
 
-src/Combat/Main/PostEvent0x15.cpp:
+src/NitroSDK/Main/PostEvent0x15.cpp:
     complete
     .text start:0x020d3ae4 end:0x020d3b04
 
-src/Combat/Main/PostEvent0x1E.cpp:
+src/NitroSDK/Main/PostEvent0x1E.cpp:
     complete
     .text start:0x020d3b50 end:0x020d3b70
 
-src/Combat/Main/PostEvent0x1EForIndex.cpp:
+src/NitroSDK/Main/PostEvent0x1EForIndex.cpp:
     complete
     .text start:0x020bfc08 end:0x020bfc74
 
-src/Combat/Main/PostEvent0x1EForIndex020be1a8.cpp:
+src/NitroSDK/Main/PostEvent0x1EForIndex020be1a8.cpp:
     complete
     .text start:0x020bfc74 end:0x020bfce0
 
-src/Combat/Main/PostEvent0x1F.cpp:
+src/NitroSDK/Main/PostEvent0x1F.cpp:
     complete
     .text start:0x020d3b70 end:0x020d3b90
 
-src/Combat/Main/PostEvent0x1FForIndex.cpp:
+src/NitroSDK/Main/PostEvent0x1FForIndex.cpp:
     complete
     .text start:0x020bfce0 end:0x020bfd4c
 
-src/Combat/Main/PostEvent0x20.cpp:
+src/NitroSDK/Main/PostEvent0x20.cpp:
     complete
     .text start:0x020d3b90 end:0x020d3bb0
 
-src/Combat/Main/PostEvent0x20ForIndex.cpp:
+src/NitroSDK/Main/PostEvent0x20ForIndex.cpp:
     complete
     .text start:0x020bfd4c end:0x020bfdb8
 
-src/Combat/Main/PostEventsForTypes020bcbe0.cpp:
+src/NitroSDK/Main/PostEventsForTypes020bcbe0.cpp:
     complete
     .text start:0x020be6ac end:0x020be718
 
-src/Combat/Main/PostRangeEvent0x20.cpp:
+src/NitroSDK/Main/PostRangeEvent0x20.cpp:
     complete
     .text start:0x020bff70 end:0x020bffa0
 
-src/Combat/Main/PrepareAndClearList020be4d4.cpp:
+src/NitroSDK/Main/PrepareAndClearList020be4d4.cpp:
     complete
     .text start:0x020bffa0 end:0x020bffc0
 
-src/Combat/Main/PrepareAndCommit020d0050.cpp:
+src/NitroSDK/Main/PrepareAndCommit020d0050.cpp:
     complete
     .text start:0x020d1b1c end:0x020d1b44
 
-src/Combat/Main/PrepareAndPostEvent1E020be44c.cpp:
+src/NitroSDK/Main/PrepareAndPostEvent1E020be44c.cpp:
     complete
     .text start:0x020bff18 end:0x020bff40
 
-src/Combat/Main/PrepareAndProcess020cddc0.cpp:
+src/NitroSDK/Main/PrepareAndProcess020cddc0.cpp:
     complete
     .text start:0x020cf88c end:0x020cf8a8
 
-src/Combat/Main/PrependNode.cpp:
+src/NitroSDK/Main/PrependNode.cpp:
     complete
     .text start:0x020d0920 end:0x020d0934
 
@@ -8015,7 +7995,7 @@ src/Combat/Main/PrependNodeToHead020469f8.cpp:
     complete
     .text start:0x02047818 end:0x0204785c
 
-src/Combat/Main/PrependToGlobalList02111804.cpp:
+src/NitroSDK/Main/PrependToGlobalList02111804.cpp:
     complete
     .text start:0x020d0a00 end:0x020d0a18
 
@@ -8031,11 +8011,11 @@ src/Combat/Main/ProcessAndCheckPairs02028104.cpp:
     complete
     .text start:0x02027970 end:0x02027988
 
-src/Combat/Main/ProcessAndUnregisterActor020bcc7c.cpp:
+src/NitroSDK/Main/ProcessAndUnregisterActor020bcc7c.cpp:
     complete
     .text start:0x020be748 end:0x020be7bc
 
-src/Combat/Main/ProcessArm7CommandsWhileLocked020ce1d8.cpp:
+src/NitroSDK/Main/ProcessArm7CommandsWhileLocked020ce1d8.cpp:
     complete
     .text start:0x020cfca4 end:0x020cfd00
 
@@ -8071,7 +8051,7 @@ src/Combat/Main/ProcessCombatantTagEntry_020e321c.cpp:
     complete
     .text start:0x020e4dbc end:0x020e4ec8
 
-src/Combat/Main/ProcessCurrentContext020bdc60.cpp:
+src/NitroSDK/Main/ProcessCurrentContext020bdc60.cpp:
     complete
     .text start:0x020bf72c end:0x020bf74c
 
@@ -8087,7 +8067,7 @@ src/Combat/Main/ProcessEntries0207da94.cpp:
     complete
     .text start:0x0207e814 end:0x0207e8d8
 
-src/Combat/Main/ProcessEntries020be604.cpp:
+src/NitroSDK/Main/ProcessEntries020be604.cpp:
     complete
     .text start:0x020c00d0 end:0x020c0190
 
@@ -8111,11 +8091,11 @@ src/Combat/Main/ProcessPendingNode020dbfa4.cpp:
     complete
     .text start:0x020dd9ac end:0x020dd9e8
 
-src/Combat/Main/ProcessPendingQueueIfRegistered.cpp:
+src/NitroSDK/Main/ProcessPendingQueueIfRegistered.cpp:
     complete
     .text start:0x020be8f8 end:0x020be968
 
-src/Combat/Main/ProcessQueueUntilValueCommitted020d2680.cpp:
+src/NitroSDK/Main/ProcessQueueUntilValueCommitted020d2680.cpp:
     complete
     .text start:0x020d414c end:0x020d41b8
 
@@ -8123,7 +8103,7 @@ src/Combat/Main/ProcessRecords0205a498.cpp:
     complete
     .text start:0x0205b834 end:0x0205b8c4
 
-src/Combat/Main/ProcessRingJobs020bbcb4.cpp:
+src/NitroSDK/Main/ProcessRingJobs020bbcb4.cpp:
     complete
     .text start:0x020bd780 end:0x020bd7e0
 
@@ -8139,7 +8119,7 @@ src/Combat/Main/PruneUnflaggedGroups020722a4.cpp:
     complete
     .text start:0x02073310 end:0x020733c8
 
-src/Combat/Main/PumpAndDispatchLoop_020cef94.cpp:
+src/NitroSDK/Main/PumpAndDispatchLoop_020cef94.cpp:
     complete
     .text start:0x020d0a60 end:0x020d0aec
 
@@ -8171,7 +8151,7 @@ src/Combat/Main/PushNodeToList.cpp:
     complete
     .text start:0x02070040 end:0x0207006c
 
-src/Combat/Main/PushQueueEntryOrWait020c7e0c.cpp:
+src/NitroSDK/Main/PushQueueEntryOrWait020c7e0c.cpp:
     complete
     .text start:0x020c98d8 end:0x020c996c
 
@@ -8207,7 +8187,7 @@ src/Combat/Main/ReadBattleField0x64f4Byte.cpp:
     complete
     .text start:0x02011574 end:0x02011588
 
-src/Combat/Main/ReadBits020b29f8.cpp:
+src/NitroSDK/Main/ReadBits020b29f8.cpp:
     complete
     .text start:0x020b44c4 end:0x020b4524
 
@@ -8215,11 +8195,11 @@ src/Combat/Main/ReadFields0x70To0x78.cpp:
     complete
     .text start:0x0202e344 end:0x0202e360
 
-src/Combat/Main/ReadGlobalPair020bb910.cpp:
+src/NitroSDK/Main/ReadGlobalPair020bb910.cpp:
     complete
     .text start:0x020bd3dc end:0x020bd3f8
 
-src/Combat/Main/ReadHalfwordAndAdvance.cpp:
+src/NitroSDK/Main/ReadHalfwordAndAdvance.cpp:
     complete
     .text start:0x020b4524 end:0x020b4538
 
@@ -8227,7 +8207,7 @@ src/Combat/Main/ReadLineUntilNewline_0200d8cc.cpp:
     complete
     .text start:0x0200d790 end:0x0200d7e0
 
-src/Combat/Main/ReadSqrtResultRounded.cpp:
+src/NitroSDK/Main/ReadSqrtResultRounded.cpp:
     complete
     .text start:0x020c4790 end:0x020c47bc
 
@@ -8235,15 +8215,15 @@ src/Combat/Main/ReadStreamBlock0200fd14.cpp:
     complete
     .text start:0x0200fb70 end:0x0200fb94
 
-src/Combat/Main/ReadTwoBitFlags.cpp:
+src/NitroSDK/Main/ReadTwoBitFlags.cpp:
     complete
     .text start:0x020d02dc end:0x020d033c
 
-src/Combat/Main/ReadUncachedField0.cpp:
+src/NitroSDK/Main/ReadUncachedField0.cpp:
     complete
     .text start:0x020d44ec end:0x020d4514
 
-src/Combat/Main/ReadUncachedField4.cpp:
+src/NitroSDK/Main/ReadUncachedField4.cpp:
     complete
     .text start:0x020d44c0 end:0x020d44ec
 
@@ -8275,11 +8255,11 @@ src/Combat/Main/RefreshSlots0x5cFromCallbacks.cpp:
     complete
     .text start:0x020dd36c end:0x020dd3b0
 
-src/Combat/Main/RegisterActorInGlobalLists020bcb70.cpp:
+src/NitroSDK/Main/RegisterActorInGlobalLists020bcb70.cpp:
     complete
     .text start:0x020be63c end:0x020be690
 
-src/Combat/Main/RegisterAllEntries020be6c4.cpp:
+src/NitroSDK/Main/RegisterAllEntries020be6c4.cpp:
     complete
     .text start:0x020c0190 end:0x020c022c
 
@@ -8291,7 +8271,7 @@ src/Combat/Main/RegisterAndRunBufferedScript0201f040.cpp:
     complete
     .text start:0x0201edcc end:0x0201ee7c
 
-src/Combat/Main/RegisterCallbackEntry.cpp:
+src/NitroSDK/Main/RegisterCallbackEntry.cpp:
     complete
     .text start:0x020d444c end:0x020d447c
 
@@ -8315,11 +8295,11 @@ src/Combat/Main/RegisterRecord0202baf4.cpp:
     complete
     .text start:0x0202b6a4 end:0x0202b7b0
 
-src/Combat/Main/RegisterSlotA020cf0fc.cpp:
+src/NitroSDK/Main/RegisterSlotA020cf0fc.cpp:
     complete
     .text start:0x020d0bc8 end:0x020d0c00
 
-src/Combat/Main/RegisterSlotB020cf1a8.cpp:
+src/NitroSDK/Main/RegisterSlotB020cf1a8.cpp:
     complete
     .text start:0x020d0c74 end:0x020d0cac
 
@@ -8339,11 +8319,11 @@ src/Combat/Main/ReleaseAllHandlesAndReset02094ab0.cpp:
     complete
     .text start:0x02095748 end:0x020957c4
 
-src/Combat/Main/ReleaseAndFlushContext020bf238.cpp:
+src/NitroSDK/Main/ReleaseAndFlushContext020bf238.cpp:
     complete
     .text start:0x020c0d04 end:0x020c0d68
 
-src/Combat/Main/ReleaseAndRelinkAllocator020bc79c.cpp:
+src/NitroSDK/Main/ReleaseAndRelinkAllocator020bc79c.cpp:
     complete
     .text start:0x020be268 end:0x020be2ec
 
@@ -8355,11 +8335,11 @@ src/Combat/Main/ReleaseEntryIfInPool.cpp:
     complete
     .text start:0x0209a5c0 end:0x0209a61c
 
-src/Combat/Main/ReleaseFlagBits020bbe64.cpp:
+src/NitroSDK/Main/ReleaseFlagBits020bbe64.cpp:
     complete
     .text start:0x020bd930 end:0x020bd960
 
-src/Combat/Main/ReleaseGlobalObject020d220c.cpp:
+src/NitroSDK/Main/ReleaseGlobalObject020d220c.cpp:
     complete
     .text start:0x020d3cd8 end:0x020d3cec
 
@@ -8387,35 +8367,35 @@ src/Combat/Main/ReleaseSlot020da034.cpp:
     complete
     .text start:0x020dba3c end:0x020dba7c
 
-src/Combat/Main/RelinkAllocatorAndSetByte3d020bc870.cpp:
+src/NitroSDK/Main/RelinkAllocatorAndSetByte3d020bc870.cpp:
     complete
     .text start:0x020be33c end:0x020be39c
 
-src/Combat/Main/RelocateOffsetArray.cpp:
+src/NitroSDK/Main/RelocateOffsetArray.cpp:
     complete
     .text start:0x020b1d9c end:0x020b1de4
 
-src/Combat/Main/RelocateOffsetArrayAtOffset8.cpp:
+src/NitroSDK/Main/RelocateOffsetArrayAtOffset8.cpp:
     complete
     .text start:0x020b1b60 end:0x020b1b70
 
-src/Combat/Main/RelocateOffsetAt0x14.cpp:
+src/NitroSDK/Main/RelocateOffsetAt0x14.cpp:
     complete
     .text start:0x020b1cac end:0x020b1cbc
 
-src/Combat/Main/RelocateOffsetAt0x4.cpp:
+src/NitroSDK/Main/RelocateOffsetAt0x4.cpp:
     complete
     .text start:0x020b1d34 end:0x020b1d44
 
-src/Combat/Main/RelocateOffsetAt0xc.cpp:
+src/NitroSDK/Main/RelocateOffsetAt0xc.cpp:
     complete
     .text start:0x020b1d44 end:0x020b1d54
 
-src/Combat/Main/RelocateTable020b0108.cpp:
+src/NitroSDK/Main/RelocateTable020b0108.cpp:
     complete
     .text start:0x020b1bd4 end:0x020b1c70
 
-src/Combat/Main/RemapRequestTypeAndRunHandler.cpp:
+src/NitroSDK/Main/RemapRequestTypeAndRunHandler.cpp:
     complete
     .text start:0x020d007c end:0x020d00e0
 
@@ -8427,11 +8407,11 @@ src/Combat/Main/RemoveEntryById_0209645c.cpp:
     complete
     .text start:0x020980ac end:0x02098174
 
-src/Combat/Main/RemoveFromGlobalList02111800.cpp:
+src/NitroSDK/Main/RemoveFromGlobalList02111800.cpp:
     complete
     .text start:0x020d0a48 end:0x020d0a60
 
-src/Combat/Main/RemoveFromGlobalList02111804.cpp:
+src/NitroSDK/Main/RemoveFromGlobalList02111804.cpp:
     complete
     .text start:0x020d0a30 end:0x020d0a48
 
@@ -8439,7 +8419,7 @@ src/Combat/Main/RemoveKeyedListValue.cpp:
     complete
     .text start:0x0207d6cc end:0x0207d7bc
 
-src/Combat/Main/RemoveNode.cpp:
+src/NitroSDK/Main/RemoveNode.cpp:
     complete
     .text start:0x020ca250 end:0x020ca278
 
@@ -8511,7 +8491,7 @@ src/Combat/Main/Reset020dae08AndSetByte1.cpp:
     complete
     .text start:0x020dc8a0 end:0x020dc8b8
 
-src/Combat/Main/Reset0210fd74State.cpp:
+src/NitroSDK/Main/Reset0210fd74State.cpp:
     complete
     .text start:0x020be968 end:0x020be980
 
@@ -8643,7 +8623,7 @@ src/Combat/Main/ResetContextIfElapsed020e123c.cpp:
     complete
     .text start:0x020e2e34 end:0x020e2e80
 
-src/Combat/Main/ResetDmaAndTerminateOnFlag_020d11a8.cpp:
+src/NitroSDK/Main/ResetDmaAndTerminateOnFlag_020d11a8.cpp:
     complete
     .text start:0x020d2c74 end:0x020d2d00
 
@@ -8683,7 +8663,7 @@ src/Combat/Main/ResetField0xb2SetState5.cpp:
     complete
     .text start:0x02077c50 end:0x02077c78
 
-src/Combat/Main/ResetField14cAndClearFlags020beeac.cpp:
+src/NitroSDK/Main/ResetField14cAndClearFlags020beeac.cpp:
     complete
     .text start:0x020c0978 end:0x020c09a4
 
@@ -8719,7 +8699,7 @@ src/Combat/Main/ResetFlag0x80AndState.cpp:
     complete
     .text start:0x02088f70 end:0x02088f98
 
-src/Combat/Main/ResetFlagPool.cpp:
+src/NitroSDK/Main/ResetFlagPool.cpp:
     complete
     .text start:0x020bd9e4 end:0x020bda00
 
@@ -8731,15 +8711,15 @@ src/Combat/Main/ResetFourSubStructs.cpp:
     complete
     .text start:0x02012d6c end:0x02012dac
 
-src/Combat/Main/ResetGXAndDisplay020c51dc.cpp:
+src/NitroSDK/Main/ResetGXAndDisplay020c51dc.cpp:
     complete
     .text start:0x020c6ca8 end:0x020c6db4
 
-src/Combat/Main/ResetGlobalState020bb948.cpp:
+src/NitroSDK/Main/ResetGlobalState020bb948.cpp:
     complete
     .text start:0x020bd414 end:0x020bd430
 
-src/Combat/Main/ResetGxEngineState020c52e8.cpp:
+src/NitroSDK/Main/ResetGxEngineState020c52e8.cpp:
     complete
     .text start:0x020c6db4 end:0x020c6e20
 
@@ -8783,11 +8763,11 @@ src/Combat/Main/ResetLowFlagEntries0203a588.cpp:
     complete
     .text start:0x02039fe0 end:0x0203a028
 
-src/Combat/Main/ResetMatrixStacks020c537c.cpp:
+src/NitroSDK/Main/ResetMatrixStacks020c537c.cpp:
     complete
     .text start:0x020c6e48 end:0x020c6ee0
 
-src/Combat/Main/ResetMatrixStacks020c5414.cpp:
+src/NitroSDK/Main/ResetMatrixStacks020c5414.cpp:
     complete
     .text start:0x020c6ee0 end:0x020c6f70
 
@@ -8815,7 +8795,7 @@ src/Combat/Main/ResetObjectState0205e8d4.cpp:
     complete
     .text start:0x0205fbc0 end:0x0205fbd8
 
-src/Combat/Main/ResetQueueAndNotify.cpp:
+src/NitroSDK/Main/ResetQueueAndNotify.cpp:
     complete
     .text start:0x020bd8a4 end:0x020bd8dc
 
@@ -8919,7 +8899,7 @@ src/Combat/Main/ResetSubFlags02049e88.cpp:
     complete
     .text start:0x0204aca8 end:0x0204ace0
 
-src/Combat/Main/ResetTable020c9a54.cpp:
+src/NitroSDK/Main/ResetTable020c9a54.cpp:
     complete
     .text start:0x020cb520 end:0x020cb554
 
@@ -8939,11 +8919,11 @@ src/Combat/Main/ResetTrackerState.cpp:
     complete
     .text start:0x0201eda8 end:0x0201edcc
 
-src/Combat/Main/ResetTween020c01ec.cpp:
+src/NitroSDK/Main/ResetTween020c01ec.cpp:
     complete
     .text start:0x020c1cb8 end:0x020c1cd0
 
-src/Combat/Main/ResetTweenNode020bc610.cpp:
+src/NitroSDK/Main/ResetTweenNode020bc610.cpp:
     complete
     .text start:0x020be0dc end:0x020be124
 
@@ -8959,7 +8939,7 @@ src/Combat/Main/ResetWordListReturnSelf0209ce00.cpp:
     complete
     .text start:0x0209eb78 end:0x0209eb8c
 
-src/Combat/Main/ResolveAndDispatchListEntry020bddec.cpp:
+src/NitroSDK/Main/ResolveAndDispatchListEntry020bddec.cpp:
     complete
     .text start:0x020bf8b8 end:0x020bf93c
 
@@ -8967,7 +8947,7 @@ src/Combat/Main/ResolveEntryRefs0207f72c.cpp:
     complete
     .text start:0x020804a4 end:0x02080524
 
-src/Combat/Main/ResolveEntryValue020bde70.cpp:
+src/NitroSDK/Main/ResolveEntryValue020bde70.cpp:
     complete
     .text start:0x020bf93c end:0x020bf99c
 
@@ -8979,7 +8959,7 @@ src/Combat/Main/ResolveHandleFields02097248.cpp:
     complete
     .text start:0x02098e98 end:0x02098ed0
 
-src/Combat/Main/ResolveOffsetOrPointerEntry.cpp:
+src/NitroSDK/Main/ResolveOffsetOrPointerEntry.cpp:
     complete
     .text start:0x020d49b8 end:0x020d49f4
 
@@ -8988,15 +8968,15 @@ src/Combat/Main/ResourceScriptEntry.cpp:
     .text start:0x020829a0 end:0x02083100
     .bss start:0x02108e2c end:0x02108e40
 
-src/Combat/Main/RestoreContext.cpp:
+src/NitroSDK/Main/RestoreContext.cpp:
     complete
     .text start:0x020c984c end:0x020c9890
 
-src/Combat/Main/RestoreDisplayMode.cpp:
+src/NitroSDK/Main/RestoreDisplayMode.cpp:
     complete
     .text start:0x020c53a0 end:0x020c53e8
 
-src/Combat/Main/RestoreExmemcnt.cpp:
+src/NitroSDK/Main/RestoreExmemcnt.cpp:
     complete
     .text start:0x020d2f7c end:0x020d2fb0
 
@@ -9028,43 +9008,43 @@ src/Combat/Main/ResyncCombatantWithGrottoPosition_0208f748.cpp:
     complete
     .text start:0x0209005c end:0x02090100
 
-src/Combat/Main/RetainGlobalObject020d21f8.cpp:
+src/NitroSDK/Main/RetainGlobalObject020d21f8.cpp:
     complete
     .text start:0x020d3cc4 end:0x020d3cd8
 
-src/Combat/Main/RetargetOrDispatchNode020bc548.cpp:
+src/NitroSDK/Main/RetargetOrDispatchNode020bc548.cpp:
     complete
     .text start:0x020be014 end:0x020be060
 
-src/Combat/Main/RetargetTween020c0204.cpp:
+src/NitroSDK/Main/RetargetTween020c0204.cpp:
     complete
     .text start:0x020c1cd0 end:0x020c1cf8
 
-src/Combat/Main/RetargetTweenIfFlag2Enabled.cpp:
+src/NitroSDK/Main/RetargetTweenIfFlag2Enabled.cpp:
     complete
     .text start:0x020c0c14 end:0x020c0c6c
 
-src/Combat/Main/RetryHelperUntilZero.cpp:
+src/NitroSDK/Main/RetryHelperUntilZero.cpp:
     complete
     .text start:0x020d033c end:0x020d0368
 
-src/Combat/Main/RetrySendIpcCommand.cpp:
+src/NitroSDK/Main/RetrySendIpcCommand.cpp:
     complete
     .text start:0x020cb390 end:0x020cb3bc
 
-src/Combat/Main/ReturnFalse020bb424.cpp:
+src/NitroSDK/Main/ReturnFalse020bb424.cpp:
     complete
     .text start:0x020bcef0 end:0x020bcef8
 
-src/Combat/Main/ReturnFalse020bb434.cpp:
+src/NitroSDK/Main/ReturnFalse020bb434.cpp:
     complete
     .text start:0x020bcf00 end:0x020bcf08
 
-src/Combat/Main/ReturnFalse020bb6f8.cpp:
+src/NitroSDK/Main/ReturnFalse020bb6f8.cpp:
     complete
     .text start:0x020bd1c4 end:0x020bd1cc
 
-src/Combat/Main/ReturnFalse020bb908.cpp:
+src/NitroSDK/Main/ReturnFalse020bb908.cpp:
     complete
     .text start:0x020bd3d4 end:0x020bd3dc
 
@@ -9072,11 +9052,11 @@ src/Combat/Main/ReturnFalse020d84ec.cpp:
     complete
     .text start:0x020d9e50 end:0x020d9e58
 
-src/Combat/Main/ReturnNegOne020bb42c.cpp:
+src/NitroSDK/Main/ReturnNegOne020bb42c.cpp:
     complete
     .text start:0x020bcef8 end:0x020bcf00
 
-src/Combat/Main/ReturnNegOne020bb43c.cpp:
+src/NitroSDK/Main/ReturnNegOne020bb43c.cpp:
     complete
     .text start:0x020bcf08 end:0x020bcf10
 
@@ -9192,7 +9172,7 @@ src/Combat/Main/RunAndCheckFlagBit02080dd4.cpp:
     complete
     .text start:0x020818d4 end:0x02081940
 
-src/Combat/Main/RunAndClearCallback.cpp:
+src/NitroSDK/Main/RunAndClearCallback.cpp:
     complete
     .text start:0x020cbe30 end:0x020cbe5c
 
@@ -9216,7 +9196,7 @@ src/Combat/Main/RunBufferedScript02095870.cpp:
     complete
     .text start:0x020974c0 end:0x0209754c
 
-src/Combat/Main/RunCallbackList.cpp:
+src/NitroSDK/Main/RunCallbackList.cpp:
     complete
     .text start:0x020d09d8 end:0x020d0a00
 
@@ -9224,11 +9204,11 @@ src/Combat/Main/RunCombatFlagStateAction.cpp:
     complete
     .text start:0x020dc5d8 end:0x020dc648
 
-src/Combat/Main/RunDivTableCallback_020bcd30.cpp:
+src/NitroSDK/Main/RunDivTableCallback_020bcd30.cpp:
     complete
     .text start:0x020be7fc end:0x020be8ac
 
-src/Combat/Main/RunField0ScopedOperation.cpp:
+src/NitroSDK/Main/RunField0ScopedOperation.cpp:
     complete
     .text start:0x020bd6c0 end:0x020bd6ec
 
@@ -9236,7 +9216,7 @@ src/Combat/Main/RunFlaggedCallback020db844.cpp:
     complete
     .text start:0x020dd24c end:0x020dd29c
 
-src/Combat/Main/RunHandlerWithFallbackDispatch020ce56c.cpp:
+src/NitroSDK/Main/RunHandlerWithFallbackDispatch020ce56c.cpp:
     complete
     .text start:0x020d0038 end:0x020d007c
 
@@ -9244,7 +9224,7 @@ src/Combat/Main/RunIfFlag100ClearRestoreState.cpp:
     complete
     .text start:0x020dd614 end:0x020dd650
 
-src/Combat/Main/RunJobAtIndex020bbc38.cpp:
+src/NitroSDK/Main/RunJobAtIndex020bbc38.cpp:
     complete
     .text start:0x020bd704 end:0x020bd734
 
@@ -9268,7 +9248,7 @@ src/Combat/Main/RunScriptWithContext0201e1d0.cpp:
     complete
     .text start:0x0201df5c end:0x0201dfd4
 
-src/Combat/Main/RunTweenQueueTick020bd02c.cpp:
+src/NitroSDK/Main/RunTweenQueueTick020bd02c.cpp:
     complete
     .text start:0x020beaf8 end:0x020beb58
 
@@ -9276,11 +9256,11 @@ src/Combat/Main/RunUpdateSequence0209fdf8.cpp:
     complete
     .text start:0x020a1b70 end:0x020a1b80
 
-src/Combat/Main/SaveAndClearDisplayMode.cpp:
+src/NitroSDK/Main/SaveAndClearDisplayMode.cpp:
     complete
     .text start:0x020c5364 end:0x020c53a0
 
-src/Combat/Main/SaveAndConfigureExmemcnt.cpp:
+src/NitroSDK/Main/SaveAndConfigureExmemcnt.cpp:
     complete
     .text start:0x020d2f34 end:0x020d2f7c
 
@@ -9296,7 +9276,7 @@ src/Combat/Main/SaveDivSqrtState_020cd594.s:
     complete
     .text start:0x020cf060 end:0x020cf0a0
 
-src/Combat/Main/SaveStateAndAllocateChild020bdac0.cpp:
+src/NitroSDK/Main/SaveStateAndAllocateChild020bdac0.cpp:
     complete
     .text start:0x020bf58c end:0x020bf5d8
 
@@ -9304,11 +9284,11 @@ src/Combat/Main/ScaleAndNotify0203ad88.cpp:
     complete
     .text start:0x0203a7e0 end:0x0203a854
 
-src/Combat/Main/ScaleMatrixAndCopyTranslation020c1948.cpp:
+src/NitroSDK/Main/ScaleMatrixAndCopyTranslation020c1948.cpp:
     complete
     .text start:0x020c3414 end:0x020c3448
 
-src/Combat/Main/ScaleMatrixRows020c11a4.cpp:
+src/NitroSDK/Main/ScaleMatrixRows020c11a4.cpp:
     complete
     .text start:0x020c2c70 end:0x020c2d30
 
@@ -9320,7 +9300,7 @@ src/Combat/Main/SearchWithLow15Comparator02070fd0.cpp:
     complete
     .text start:0x0207203c end:0x02072050
 
-src/Combat/Main/SelectBattleContextMode2.cpp:
+src/NitroSDK/Main/SelectBattleContextMode2.cpp:
     complete
     .text start:0x020d1b0c end:0x020d1b1c
 
@@ -9372,11 +9352,11 @@ src/Combat/Main/SelectVec3FromSources020406f8.cpp:
     complete
     .text start:0x02040bf4 end:0x02040c70
 
-src/Combat/Main/SendArm7CommandAndUpdateFlags020cdbe4.cpp:
+src/NitroSDK/Main/SendArm7CommandAndUpdateFlags020cdbe4.cpp:
     complete
     .text start:0x020cf6b0 end:0x020cf748
 
-src/Combat/Main/SendBattleEvent020d5900.cpp:
+src/NitroSDK/Main/SendBattleEvent020d5900.cpp:
     complete
     .text start:0x020d735c end:0x020d73d0
 
@@ -9384,11 +9364,11 @@ src/Combat/Main/SendBufferOrReturnZero.cpp:
     complete
     .text start:0x020ad5b0 end:0x020ad62c
 
-src/Combat/Main/SendEncodedMessagePair.cpp:
+src/NitroSDK/Main/SendEncodedMessagePair.cpp:
     complete
     .text start:0x020cff28 end:0x020cffb4
 
-src/Combat/Main/SendLockedArm7Command020ce4e8.cpp:
+src/NitroSDK/Main/SendLockedArm7Command020ce4e8.cpp:
     complete
     .text start:0x020cffb4 end:0x020d0038
 
@@ -9396,19 +9376,15 @@ src/Combat/Main/SendManagerFields0209daa4.cpp:
     complete
     .text start:0x0209f81c end:0x0209f870
 
-src/Combat/Main/SendRetriedArm7CommandsAndWait020ce39c.cpp:
-    complete
-    .text start:0x020cfe68 end:0x020cff28
-
 src/Combat/Main/SendShortBufferOrReturnZero020aba5c.cpp:
     complete
     .text start:0x020ad524 end:0x020ad5b0
 
-src/Combat/Main/Set3DClearColor.cpp:
+src/NitroSDK/Main/Set3DClearColor.cpp:
     complete
     .text start:0x020c7054 end:0x020c707c
 
-src/Combat/Main/SetActionParams.cpp:
+src/NitroSDK/Main/SetActionParams.cpp:
     complete
     .text start:0x020bdcdc end:0x020bdd08
 
@@ -9424,7 +9400,7 @@ src/Combat/Main/SetActiveChildShorts020408c8.cpp:
     complete
     .text start:0x02040dc4 end:0x02040e0c
 
-src/Combat/Main/SetActiveDmaChannel020c3a0c.cpp:
+src/NitroSDK/Main/SetActiveDmaChannel020c3a0c.cpp:
     complete
     .text start:0x020c54d8 end:0x020c5518
 
@@ -9440,11 +9416,11 @@ src/Combat/Main/SetArraySlotFlag0203b718.cpp:
     complete
     .text start:0x0203b170 end:0x0203b1dc
 
-src/Combat/Main/SetBattleContextArrayEntry.cpp:
+src/NitroSDK/Main/SetBattleContextArrayEntry.cpp:
     complete
     .text start:0x020d5aa8 end:0x020d5ac0
 
-src/Combat/Main/SetBattleContextField0xc8IfIdle.cpp:
+src/NitroSDK/Main/SetBattleContextField0xc8IfIdle.cpp:
     complete
     .text start:0x020d6188 end:0x020d61cc
 
@@ -9468,7 +9444,7 @@ src/Combat/Main/SetBitField0.cpp:
     complete
     .text start:0x020e5264 end:0x020e5290
 
-src/Combat/Main/SetBitForListEntry020bcc4c.cpp:
+src/NitroSDK/Main/SetBitForListEntry020bcc4c.cpp:
     complete
     .text start:0x020be718 end:0x020be748
 
@@ -9708,7 +9684,7 @@ src/Combat/Main/SetContextAndQuery0203ab6c.cpp:
     complete
     .text start:0x0203a5c4 end:0x0203a600
 
-src/Combat/Main/SetData020f2284.cpp:
+src/NitroSDK/Main/SetData020f2284.cpp:
     complete
     .text start:0x020c9898 end:0x020c98b0
 
@@ -9716,7 +9692,7 @@ src/Combat/Main/SetDispcntBits13to15.cpp:
     complete
     .text start:0x020e4734 end:0x020e474c
 
-src/Combat/Main/SetDispcntModeAndFlags020c391c.cpp:
+src/NitroSDK/Main/SetDispcntModeAndFlags020c391c.cpp:
     complete
     .text start:0x020c53e8 end:0x020c5450
 
@@ -9768,7 +9744,7 @@ src/Combat/Main/SetEntryBitUnlessMatching020e39d4.cpp:
     complete
     .text start:0x020e5574 end:0x020e55f0
 
-src/Combat/Main/SetEntryByte.cpp:
+src/NitroSDK/Main/SetEntryByte.cpp:
     complete
     .text start:0x020bda00 end:0x020bda18
 
@@ -9840,7 +9816,7 @@ src/Combat/Main/SetEntryFlagById02080b40.cpp:
     complete
     .text start:0x02081640 end:0x02081654
 
-src/Combat/Main/SetEntryHalfword.cpp:
+src/NitroSDK/Main/SetEntryHalfword.cpp:
     complete
     .text start:0x020bda18 end:0x020bda38
 
@@ -10260,7 +10236,7 @@ src/Combat/Main/SetFlagsAt0x244.cpp:
     complete
     .text start:0x020a4618 end:0x020a4628
 
-src/Combat/Main/SetFogState.cpp:
+src/NitroSDK/Main/SetFogState.cpp:
     complete
     .text start:0x020c6f70 end:0x020c6fc8
 
@@ -10276,7 +10252,7 @@ src/Combat/Main/SetFourShortsAtIndex.cpp:
     complete
     .text start:0x0204d474 end:0x0204d4a4
 
-src/Combat/Main/SetGlobalContext02110370.cpp:
+src/NitroSDK/Main/SetGlobalContext02110370.cpp:
     complete
     .text start:0x020beef8 end:0x020bef10
 
@@ -10308,23 +10284,23 @@ src/Combat/Main/SetIndexIfValid0205bcdc.cpp:
     complete
     .text start:0x0205d03c end:0x0205d064
 
-src/Combat/Main/SetIndexedFieldAt0x8020b035c.cpp:
+src/NitroSDK/Main/SetIndexedFieldAt0x8020b035c.cpp:
     complete
     .text start:0x020b1e28 end:0x020b1e34
 
-src/Combat/Main/SetInnerByte0x40.cpp:
+src/NitroSDK/Main/SetInnerByte0x40.cpp:
     complete
     .text start:0x020bdc38 end:0x020bdc4c
 
-src/Combat/Main/SetInnerByte0x41.cpp:
+src/NitroSDK/Main/SetInnerByte0x41.cpp:
     complete
     .text start:0x020bdc24 end:0x020bdc38
 
-src/Combat/Main/SetInnerFlag0x4At0x110.cpp:
+src/NitroSDK/Main/SetInnerFlag0x4At0x110.cpp:
     complete
     .text start:0x020c06dc end:0x020c06fc
 
-src/Combat/Main/SetIntArrayElement020b0334.cpp:
+src/NitroSDK/Main/SetIntArrayElement020b0334.cpp:
     complete
     .text start:0x020b1e00 end:0x020b1e08
 
@@ -10348,7 +10324,7 @@ src/Combat/Main/SetKeyedArrayBit0206e348.cpp:
     complete
     .text start:0x0206f49c end:0x0206f4d8
 
-src/Combat/Main/SetListEntryWord8020bd8d4.cpp:
+src/NitroSDK/Main/SetListEntryWord8020bd8d4.cpp:
     complete
     .text start:0x020bf3a0 end:0x020bf3bc
 
@@ -10396,7 +10372,7 @@ src/Combat/Main/SetModeClamped0209ca70.cpp:
     complete
     .text start:0x0209e7e8 end:0x0209e810
 
-src/Combat/Main/SetModeFlagAndUpdatePermission020d15b4.cpp:
+src/NitroSDK/Main/SetModeFlagAndUpdatePermission020d15b4.cpp:
     complete
     .text start:0x020d3080 end:0x020d30c8
 
@@ -10508,11 +10484,11 @@ src/Combat/Main/SetPairAndByte020e1368.cpp:
     complete
     .text start:0x020e2f60 end:0x020e2f6c
 
-src/Combat/Main/SetProtectionRegion1.cpp:
+src/NitroSDK/Main/SetProtectionRegion1.cpp:
     complete
     .text start:0x020ca4f8 end:0x020ca500
 
-src/Combat/Main/SetProtectionRegion2.cpp:
+src/NitroSDK/Main/SetProtectionRegion2.cpp:
     complete
     .text start:0x020ca500 end:0x020ca508
 
@@ -10520,7 +10496,7 @@ src/Combat/Main/SetPtrAndShorts.cpp:
     complete
     .text start:0x02073c38 end:0x02073c54
 
-src/Combat/Main/SetQueueEntryAndArm020cf134.cpp:
+src/NitroSDK/Main/SetQueueEntryAndArm020cf134.cpp:
     complete
     .text start:0x020d0c00 end:0x020d0c74
 
@@ -10556,15 +10532,15 @@ src/Combat/Main/SetSearchFlagBitAt0xc.cpp:
     complete
     .text start:0x0202bd98 end:0x0202bdcc
 
-src/Combat/Main/SetSharedWordDa0.cpp:
+src/NitroSDK/Main/SetSharedWordDa0.cpp:
     complete
     .text start:0x020ca1b4 end:0x020ca1c8
 
-src/Combat/Main/SetSharedWordDc4.cpp:
+src/NitroSDK/Main/SetSharedWordDc4.cpp:
     complete
     .text start:0x020ca1a0 end:0x020ca1b4
 
-src/Combat/Main/SetSlot0x13Value020d5cc8.cpp:
+src/NitroSDK/Main/SetSlot0x13Value020d5cc8.cpp:
     complete
     .text start:0x020d7724 end:0x020d7790
 
@@ -10652,7 +10628,7 @@ src/Combat/Main/SetStateAndDispatch0209c480.cpp:
     complete
     .text start:0x0209e1f8 end:0x0209e2a8
 
-src/Combat/Main/SetStateAndEnqueueEvent020bc594.cpp:
+src/NitroSDK/Main/SetStateAndEnqueueEvent020bc594.cpp:
     complete
     .text start:0x020be060 end:0x020be088
 
@@ -10716,7 +10692,7 @@ src/Combat/Main/SetSubBg3Priority.cpp:
     complete
     .text start:0x0204b42c end:0x0204b448
 
-src/Combat/Main/SetSubBgMode.cpp:
+src/NitroSDK/Main/SetSubBgMode.cpp:
     complete
     .text start:0x020c5450 end:0x020c546c
 
@@ -10724,7 +10700,7 @@ src/Combat/Main/SetSubDispcntBits13to15.cpp:
     complete
     .text start:0x020e4718 end:0x020e4734
 
-src/Combat/Main/SetSubFields0x34And0x38.cpp:
+src/NitroSDK/Main/SetSubFields0x34And0x38.cpp:
     complete
     .text start:0x020bdcb8 end:0x020bdcdc
 
@@ -10836,7 +10812,7 @@ src/Combat/Main/SetSubstructXY02042c24.cpp:
     complete
     .text start:0x020432fc end:0x02043314
 
-src/Combat/Main/SetTableEntryPointer.cpp:
+src/NitroSDK/Main/SetTableEntryPointer.cpp:
     complete
     .text start:0x020bda38 end:0x020bda50
 
@@ -10852,11 +10828,11 @@ src/Combat/Main/SetTargetHalfwords0202e95c.cpp:
     complete
     .text start:0x0202e4cc end:0x0202e4fc
 
-src/Combat/Main/SetVBlankIrqEnable.cpp:
+src/NitroSDK/Main/SetVBlankIrqEnable.cpp:
     complete
     .text start:0x020c5330 end:0x020c5364
 
-src/Combat/Main/SetVCountCompare.cpp:
+src/NitroSDK/Main/SetVCountCompare.cpp:
     complete
     .text start:0x020c5308 end:0x020c5330
 
@@ -10924,11 +10900,11 @@ src/Combat/Main/SetWordCCAndDispatch020415b0.cpp:
     complete
     .text start:0x02041aac end:0x02041ac0
 
-src/Combat/Main/SetWramCnt.cpp:
+src/NitroSDK/Main/SetWramCnt.cpp:
     complete
     .text start:0x020cb6c8 end:0x020cb6d8
 
-src/Combat/Main/SetWramCntThenReset.cpp:
+src/NitroSDK/Main/SetWramCntThenReset.cpp:
     complete
     .text start:0x020cc7cc end:0x020cc7e4
 
@@ -10984,23 +10960,23 @@ src/Combat/Main/SetupDualPointerTables0205cf28.cpp:
     complete
     .text start:0x0205e258 end:0x0205e2a8
 
-src/Combat/Main/SetupEmitAndFlush020bb9f0.cpp:
+src/NitroSDK/Main/SetupEmitAndFlush020bb9f0.cpp:
     complete
     .text start:0x020bd4bc end:0x020bd4e0
 
-src/Combat/Main/SetupEmitAndFlush020bba14.cpp:
+src/NitroSDK/Main/SetupEmitAndFlush020bba14.cpp:
     complete
     .text start:0x020bd4e0 end:0x020bd504
 
-src/Combat/Main/SetupEmitAndFlush020bbac8.cpp:
+src/NitroSDK/Main/SetupEmitAndFlush020bbac8.cpp:
     complete
     .text start:0x020bd594 end:0x020bd5c0
 
-src/Combat/Main/SetupEmitAndFlush020bbaf4.cpp:
+src/NitroSDK/Main/SetupEmitAndFlush020bbaf4.cpp:
     complete
     .text start:0x020bd5c0 end:0x020bd5ec
 
-src/Combat/Main/SetupEmitAndFlush020bbbc8.cpp:
+src/NitroSDK/Main/SetupEmitAndFlush020bbbc8.cpp:
     complete
     .text start:0x020bd694 end:0x020bd6c0
 
@@ -11032,7 +11008,7 @@ src/Combat/Main/SetupPointerTable0205ba68.cpp:
     complete
     .text start:0x0205cdc8 end:0x0205ce2c
 
-src/Combat/Main/SetupVCountInterrupt_020c945c.cpp:
+src/NitroSDK/Main/SetupVCountInterrupt_020c945c.cpp:
     complete
     .text start:0x020caf28 end:0x020caf68
 
@@ -11068,15 +11044,15 @@ src/Combat/Main/SomeInit02064574.cpp:
     complete
     .text start:0x02065860 end:0x02065908
 
-src/Combat/Main/SpinDrainAfterWait.cpp:
+src/NitroSDK/Main/SpinDrainAfterWait.cpp:
     complete
     .text start:0x020d33f8 end:0x020d340c
 
-src/Combat/Main/SplitSecondsIntoTimeOfDay.cpp:
+src/NitroSDK/Main/SplitSecondsIntoTimeOfDay.cpp:
     complete
     .text start:0x020d15c0 end:0x020d1640
 
-src/Combat/Main/SplitTimestampIntoDateAndTime.cpp:
+src/NitroSDK/Main/SplitTimestampIntoDateAndTime.cpp:
     complete
     .text start:0x020d1640 end:0x020d16cc
 
@@ -11088,11 +11064,11 @@ src/Combat/Main/StartBattleTransition0202b840.cpp:
     complete
     .text start:0x0202b3f0 end:0x0202b4b0
 
-src/Combat/Main/StartHardwareDivide020c2c94.cpp:
+src/NitroSDK/Main/StartHardwareDivide020c2c94.cpp:
     complete
     .text start:0x020c4760 end:0x020c4790
 
-src/Combat/Main/StartHwDivide.cpp:
+src/NitroSDK/Main/StartHwDivide.cpp:
     complete
     .text start:0x020c47bc end:0x020c47e4
 
@@ -11132,7 +11108,7 @@ src/Combat/Main/StoreDecodedShortAt0x28.cpp:
     complete
     .text start:0x0209b9c4 end:0x0209b9e0
 
-src/Combat/Main/StoreField0x3cArrayEntryAndFlush.cpp:
+src/NitroSDK/Main/StoreField0x3cArrayEntryAndFlush.cpp:
     complete
     .text start:0x020d4984 end:0x020d49b8
 
@@ -11144,7 +11120,7 @@ src/Combat/Main/StoreFourShorts.cpp:
     complete
     .text start:0x020e2ea0 end:0x020e2eb8
 
-src/Combat/Main/StoreIfNonNull020ce234.cpp:
+src/NitroSDK/Main/StoreIfNonNull020ce234.cpp:
     complete
     .text start:0x020cfd00 end:0x020cfd0c
 
@@ -11168,11 +11144,11 @@ src/Combat/Main/StoreValidCombatantCount0202c3e0.cpp:
     complete
     .text start:0x0202bf6c end:0x0202bf9c
 
-src/Combat/Main/StoreValueAt0x2c.cpp:
+src/NitroSDK/Main/StoreValueAt0x2c.cpp:
     complete
     .text start:0x020d1320 end:0x020d1330
 
-src/Combat/Main/StoreValueCountingDecreases.cpp:
+src/NitroSDK/Main/StoreValueCountingDecreases.cpp:
     complete
     .text start:0x020cb174 end:0x020cb1b4
 
@@ -11188,7 +11164,7 @@ src/Combat/Main/StoreValueViaField0x14.cpp:
     complete
     .text start:0x0203e020 end:0x0203e030
 
-src/Combat/Main/StoreValueWithInterruptsDisabled020cdac4.cpp:
+src/NitroSDK/Main/StoreValueWithInterruptsDisabled020cdac4.cpp:
     complete
     .text start:0x020cf590 end:0x020cf5b0
 
@@ -11212,7 +11188,7 @@ src/Combat/Main/StoreZeroAndField0xb6ToOut.cpp:
     complete
     .text start:0x0205b4f8 end:0x0205b510
 
-src/Combat/Main/StringLength.cpp:
+src/NitroSDK/Main/StringLength.cpp:
     complete
     .text start:0x020d4a54 end:0x020d4a7c
 
@@ -11224,31 +11200,31 @@ src/Combat/Main/SubmitAndRunScript02072928.cpp:
     complete
     .text start:0x02073a44 end:0x02073ad0
 
-src/Combat/Main/SubmitBattleAction020d68dc.cpp:
+src/NitroSDK/Main/SubmitBattleAction020d68dc.cpp:
     complete
     .text start:0x020d8338 end:0x020d83ac
 
-src/Combat/Main/SubmitBattleContextEntry020d5340.cpp:
+src/NitroSDK/Main/SubmitBattleContextEntry020d5340.cpp:
     complete
     .text start:0x020d6d9c end:0x020d6eec
 
-src/Combat/Main/SubmitBattleContextEntry020d54d0.cpp:
+src/NitroSDK/Main/SubmitBattleContextEntry020d54d0.cpp:
     complete
     .text start:0x020d6f2c end:0x020d6ff8
 
-src/Combat/Main/SubmitBattleContextEntry020d5bfc.cpp:
+src/NitroSDK/Main/SubmitBattleContextEntry020d5bfc.cpp:
     complete
     .text start:0x020d7658 end:0x020d7724
 
-src/Combat/Main/SubmitBattleContextSlot4.cpp:
+src/NitroSDK/Main/SubmitBattleContextSlot4.cpp:
     complete
     .text start:0x020d6918 end:0x020d6958
 
-src/Combat/Main/SubmitCommandType1.cpp:
+src/NitroSDK/Main/SubmitCommandType1.cpp:
     complete
     .text start:0x020d38b4 end:0x020d38d4
 
-src/Combat/Main/SubmitCommandType2.cpp:
+src/NitroSDK/Main/SubmitCommandType2.cpp:
     complete
     .text start:0x020d38d4 end:0x020d38fc
 
@@ -11256,7 +11232,7 @@ src/Combat/Main/SubmitCommandWithPopcount0202bc00.cpp:
     complete
     .text start:0x0202b7b0 end:0x0202b83c
 
-src/Combat/Main/SubmitGeometryJob.cpp:
+src/NitroSDK/Main/SubmitGeometryJob.cpp:
     complete
     .text start:0x020c72a0 end:0x020c72ec
 
@@ -11332,7 +11308,7 @@ src/Combat/Main/SubtractHeightOffset020ae398.cpp:
     complete
     .text start:0x020afe64 end:0x020afec0
 
-src/Combat/Main/SubtractVec3.cpp:
+src/NitroSDK/Main/SubtractVec3.cpp:
     complete
     .text start:0x020c4890 end:0x020c48c4
 
@@ -11376,7 +11352,7 @@ src/Combat/Main/SyncSwapBitState020db360.cpp:
     complete
     .text start:0x020dcd68 end:0x020dcdb0
 
-src/Combat/Main/TailCall020c7198.cpp:
+src/NitroSDK/Main/TailCall020c7198.cpp:
     complete
     .text start:0x020c8c64 end:0x020c8c70
 
@@ -11416,7 +11392,7 @@ src/Combat/Main/TailForward0203b66c.cpp:
     complete
     .text start:0x0203b0c4 end:0x0203b0d0
 
-src/Combat/Main/TailForwardToField0x5c020c0100.cpp:
+src/NitroSDK/Main/TailForwardToField0x5c020c0100.cpp:
     complete
     .text start:0x020c1bcc end:0x020c1bdc
 
@@ -11432,7 +11408,7 @@ src/Combat/Main/TensionBonusCalculation.cpp:
 	complete
 	.text start:0x020758f0 end:0x02075930
 
-src/Combat/Main/TerminateSystem020ce7a4.cpp:
+src/NitroSDK/Main/TerminateSystem020ce7a4.cpp:
     complete
     .text start:0x020d0270 end:0x020d02ac
 
@@ -11560,7 +11536,7 @@ src/Combat/Main/TestFlagBitAt0xe.cpp:
     complete
     .text start:0x0202c104 end:0x0202c148
 
-src/Combat/Main/TestFlagBitsAndDispatch020d6884.cpp:
+src/NitroSDK/Main/TestFlagBitsAndDispatch020d6884.cpp:
     complete
     .text start:0x020d828c end:0x020d82e0
 
@@ -11620,31 +11596,31 @@ src/Combat/Main/TransferBattleObjPaletteEntries020e16f4.cpp:
     complete
     .text start:0x020e32ec end:0x020e3378
 
-src/Combat/Main/TransferBg0CharDataThunk020bba38.cpp:
+src/NitroSDK/Main/TransferBg0CharDataThunk020bba38.cpp:
     complete
     .text start:0x020bd504 end:0x020bd510
 
-src/Combat/Main/TransferBg1CharDataThunk020bba44.cpp:
+src/NitroSDK/Main/TransferBg1CharDataThunk020bba44.cpp:
     complete
     .text start:0x020bd510 end:0x020bd51c
 
-src/Combat/Main/TransferBg3ScreenDataThunk020bba8c.cpp:
+src/NitroSDK/Main/TransferBg3ScreenDataThunk020bba8c.cpp:
     complete
     .text start:0x020bd558 end:0x020bd564
 
-src/Combat/Main/TransferBg3ScreenDataThunk020bbaa4.cpp:
+src/NitroSDK/Main/TransferBg3ScreenDataThunk020bbaa4.cpp:
     complete
     .text start:0x020bd570 end:0x020bd57c
 
-src/Combat/Main/TransferMainOamThunk020bbb20.cpp:
+src/NitroSDK/Main/TransferMainOamThunk020bbb20.cpp:
     complete
     .text start:0x020bd5ec end:0x020bd5f8
 
-src/Combat/Main/TransferMainObjCharDataEntry.cpp:
+src/NitroSDK/Main/TransferMainObjCharDataEntry.cpp:
     complete
     .text start:0x020bd5f8 end:0x020bd604
 
-src/Combat/Main/TransferMainObjPaletteThunk020bbab0.cpp:
+src/NitroSDK/Main/TransferMainObjPaletteThunk020bbab0.cpp:
     complete
     .text start:0x020bd57c end:0x020bd588
 
@@ -11652,47 +11628,47 @@ src/Combat/Main/TransferObjPaletteEntry020e1674.cpp:
     complete
     .text start:0x020e326c end:0x020e32d4
 
-src/Combat/Main/TransferSubBg0CharDataEntry.cpp:
+src/NitroSDK/Main/TransferSubBg0CharDataEntry.cpp:
     complete
     .text start:0x020bd604 end:0x020bd610
 
-src/Combat/Main/TransferSubBg0ScreenBaseEntry.cpp:
+src/NitroSDK/Main/TransferSubBg0ScreenBaseEntry.cpp:
     complete
     .text start:0x020bd634 end:0x020bd640
 
-src/Combat/Main/TransferSubBg1CharDataEntry.cpp:
+src/NitroSDK/Main/TransferSubBg1CharDataEntry.cpp:
     complete
     .text start:0x020bd610 end:0x020bd61c
 
-src/Combat/Main/TransferSubBg1ScreenBaseEntry.cpp:
+src/NitroSDK/Main/TransferSubBg1ScreenBaseEntry.cpp:
     complete
     .text start:0x020bd640 end:0x020bd64c
 
-src/Combat/Main/TransferSubBg2CharDataEntry.cpp:
+src/NitroSDK/Main/TransferSubBg2CharDataEntry.cpp:
     complete
     .text start:0x020bd61c end:0x020bd628
 
-src/Combat/Main/TransferSubBg2ScreenDataEntry.cpp:
+src/NitroSDK/Main/TransferSubBg2ScreenDataEntry.cpp:
     complete
     .text start:0x020bd64c end:0x020bd658
 
-src/Combat/Main/TransferSubBg3CharDataEntry.cpp:
+src/NitroSDK/Main/TransferSubBg3CharDataEntry.cpp:
     complete
     .text start:0x020bd628 end:0x020bd634
 
-src/Combat/Main/TransferToBg0ScreenBaseThunk020bba68.cpp:
+src/NitroSDK/Main/TransferToBg0ScreenBaseThunk020bba68.cpp:
     complete
     .text start:0x020bd534 end:0x020bd540
 
-src/Combat/Main/TransferToBg3CharThunk020bba5c.cpp:
+src/NitroSDK/Main/TransferToBg3CharThunk020bba5c.cpp:
     complete
     .text start:0x020bd528 end:0x020bd534
 
-src/Combat/Main/TransferToBgCharBaseThunk020bba80.cpp:
+src/NitroSDK/Main/TransferToBgCharBaseThunk020bba80.cpp:
     complete
     .text start:0x020bd54c end:0x020bd558
 
-src/Combat/Main/TransferToBgCharBaseThunk020bba98.cpp:
+src/NitroSDK/Main/TransferToBgCharBaseThunk020bba98.cpp:
     complete
     .text start:0x020bd564 end:0x020bd570
 
@@ -11700,7 +11676,7 @@ src/Combat/Main/TransformAndSyncPosition_02059f54.cpp:
     complete
     .text start:0x0205b2cc end:0x0205b398
 
-src/Combat/Main/TranslateMatrix020c189c.cpp:
+src/NitroSDK/Main/TranslateMatrix020c189c.cpp:
     complete
     .text start:0x020c3368 end:0x020c3414
 
@@ -11708,11 +11684,11 @@ src/Combat/Main/TriggerActorResetIfNeeded02076d5c.cpp:
     complete
     .text start:0x02077c78 end:0x02077cbc
 
-src/Combat/Main/TryAcquireLock.cpp:
+src/NitroSDK/Main/TryAcquireLock.cpp:
     complete
     .text start:0x020cfbf4 end:0x020cfc14
 
-src/Combat/Main/TryAcquireLock021142e8.cpp:
+src/NitroSDK/Main/TryAcquireLock021142e8.cpp:
     complete
     .text start:0x020d5ac0 end:0x020d5b18
 
@@ -11728,7 +11704,7 @@ src/Combat/Main/TryAllocateOrAppend0203aaf8.cpp:
     complete
     .text start:0x0203a550 end:0x0203a5c4
 
-src/Combat/Main/TryApplyRecordAndSetFlag020bec30.cpp:
+src/NitroSDK/Main/TryApplyRecordAndSetFlag020bec30.cpp:
     complete
     .text start:0x020c06fc end:0x020c0724
 
@@ -11764,11 +11740,11 @@ src/Combat/Main/TryRunPendingScript02097a04.cpp:
     complete
     .text start:0x02099654 end:0x02099710
 
-src/Combat/Main/TrySetActionFromListEntry.cpp:
+src/NitroSDK/Main/TrySetActionFromListEntry.cpp:
     complete
     .text start:0x020c0274 end:0x020c02f4
 
-src/Combat/Main/TrySetBattleContextField020d5aec.cpp:
+src/NitroSDK/Main/TrySetBattleContextField020d5aec.cpp:
     complete
     .text start:0x020d7548 end:0x020d75b8
 
@@ -11780,7 +11756,7 @@ src/Combat/Main/TryTransitionState0202d224.cpp:
     complete
     .text start:0x0202cd94 end:0x0202ce14
 
-src/Combat/Main/UnblockContexts.cpp:
+src/NitroSDK/Main/UnblockContexts.cpp:
     complete
     .text start:0x020c93b4 end:0x020c941c
 
@@ -11788,19 +11764,19 @@ src/Combat/Main/UnlinkNodeByByteId0206dd68.cpp:
     complete
     .text start:0x0206eebc end:0x0206eef8
 
-src/Combat/Main/UnlinkNodeWithInterruptsDisabled.cpp:
+src/NitroSDK/Main/UnlinkNodeWithInterruptsDisabled.cpp:
     complete
     .text start:0x020d0980 end:0x020d09d8
 
-src/Combat/Main/UnlinkVCountAlarmNode.cpp:
+src/NitroSDK/Main/UnlinkVCountAlarmNode.cpp:
     complete
     .text start:0x020cae50 end:0x020cae88
 
-src/Combat/Main/UnlockAndRestoreInterrupts.cpp:
+src/NitroSDK/Main/UnlockAndRestoreInterrupts.cpp:
     complete
     .text start:0x020d300c end:0x020d3030
 
-src/Combat/Main/UnregisterActorFromGlobalList020bccf0.cpp:
+src/NitroSDK/Main/UnregisterActorFromGlobalList020bccf0.cpp:
     complete
     .text start:0x020be7bc end:0x020be7ec
 
@@ -11816,7 +11792,7 @@ src/Combat/Main/UpdateActiveState0205bc2c.cpp:
     complete
     .text start:0x0205cf8c end:0x0205d03c
 
-src/Combat/Main/UpdateAndDispatch020bf658.cpp:
+src/NitroSDK/Main/UpdateAndDispatch020bf658.cpp:
     complete
     .text start:0x020c1124 end:0x020c1268
 
@@ -11840,7 +11816,7 @@ src/Combat/Main/UpdateCounterAndMaybeComputeSlope02055c30.cpp:
     complete
     .text start:0x02056fa8 end:0x02057044
 
-src/Combat/Main/UpdateDataAccessPermission.cpp:
+src/NitroSDK/Main/UpdateDataAccessPermission.cpp:
     complete
     .text start:0x020ca4e4 end:0x020ca4f8
 
@@ -11864,7 +11840,7 @@ src/Combat/Main/UpdateEncounterState020dac94.cpp:
     complete
     .text start:0x020dc69c end:0x020dc810
 
-src/Combat/Main/UpdateEntries020bed10.cpp:
+src/NitroSDK/Main/UpdateEntries020bed10.cpp:
     complete
     .text start:0x020c07dc end:0x020c08ec
 
@@ -11912,7 +11888,7 @@ src/Combat/Main/UpdateGlobalAndCombatantFlagBytes.cpp:
     complete
     .text start:0x020e5140 end:0x020e5264
 
-src/Combat/Main/UpdateHwRegBitsAndFireCallback020ca24c.cpp:
+src/NitroSDK/Main/UpdateHwRegBitsAndFireCallback020ca24c.cpp:
     complete
     .text start:0x020cbd18 end:0x020cbd78
 
@@ -12000,7 +11976,7 @@ src/Combat/Main/UpdateTimedState0202f380.cpp:
     complete
     .text start:0x0202eef0 end:0x0202ef74
 
-src/Combat/Main/UpdateTweenAndNotify020bceb4.cpp:
+src/NitroSDK/Main/UpdateTweenAndNotify020bceb4.cpp:
     complete
     .text start:0x020be980 end:0x020bea08
 
@@ -12012,11 +11988,11 @@ src/Combat/Main/UpdateVariantRangeState0209bb6c.cpp:
     complete
     .text start:0x0209d8e4 end:0x0209d9fc
 
-src/Combat/Main/UploadCharacterResource.cpp:
+src/NitroSDK/Main/UploadCharacterResource.cpp:
     complete
     .text start:0x020b2060 end:0x020b228c
 
-src/Combat/Main/VaListForwardUnlimited020c7158.cpp:
+src/NitroSDK/Main/VaListForwardUnlimited020c7158.cpp:
     complete
     .text start:0x020c8c24 end:0x020c8c3c
 
@@ -12028,11 +12004,11 @@ src/Combat/Main/ValidateCapturedValue0208b4d4.cpp:
     complete
     .text start:0x0208bdc8 end:0x0208bdfc
 
-src/Combat/Main/ValidateCode0x10OrHalt.cpp:
+src/NitroSDK/Main/ValidateCode0x10OrHalt.cpp:
     complete
     .text start:0x020cb35c end:0x020cb390
 
-src/Combat/Main/ValidateHeaderMagicAndVersion_020c0290.cpp:
+src/NitroSDK/Main/ValidateHeaderMagicAndVersion_020c0290.cpp:
     complete
     .text start:0x020c1d5c end:0x020c1df4
 
@@ -12044,23 +12020,19 @@ src/Combat/Main/ValidateVariantArray0201f894.cpp:
     complete
     .text start:0x0201f620 end:0x0201f65c
 
-src/Combat/Main/VariadicForward020c7130.cpp:
+src/NitroSDK/Main/VariadicForward020c7130.cpp:
     complete
     .text start:0x020c8bfc end:0x020c8c24
 
-src/Combat/Main/VariadicForward020c7170.cpp:
+src/NitroSDK/Main/VariadicForward020c7170.cpp:
     complete
     .text start:0x020c8c3c end:0x020c8c64
 
-src/Combat/Main/Vec3LengthRounded.cpp:
+src/NitroSDK/Main/Vec3LengthRounded.cpp:
     complete
     .text start:0x020c4984 end:0x020c49e4
 
-src/Combat/Main/Vector3fix_CrossProduct.cpp:
-    complete
-    .text start:0x020c4900 end:0x020c4984
-
-src/Combat/Main/VectorizedMemset_020ca594.cpp:
+src/NitroSDK/Main/VectorizedMemset_020ca594.cpp:
     complete
     .text start:0x020cc060 end:0x020cc11c
 
@@ -12068,43 +12040,43 @@ src/Combat/Main/VsnprintfCore02003c80.cpp:
     complete
     .text start:0x02003b9c end:0x02003c04
 
-src/Combat/Main/WaitForCallbackCompletion020ce148.cpp:
+src/NitroSDK/Main/WaitForCallbackCompletion020ce148.cpp:
     complete
     .text start:0x020cfc14 end:0x020cfc54
 
-src/Combat/Main/WaitForInterrupt.cpp:
+src/NitroSDK/Main/WaitForInterrupt.cpp:
     complete
     .text start:0x020cb244 end:0x020cb2ec
 
-src/Combat/Main/WaitForInterrupt020c9bf0.cpp:
+src/NitroSDK/Main/WaitForInterrupt020c9bf0.cpp:
     complete
     .text start:0x020cb6bc end:0x020cb6c8
 
-src/Combat/Main/WaitForSharedFlagBit7020d2820.cpp:
+src/NitroSDK/Main/WaitForSharedFlagBit7020d2820.cpp:
     complete
     .text start:0x020d42ec end:0x020d434c
 
-src/Combat/Main/WaitForVCountZero.cpp:
+src/NitroSDK/Main/WaitForVCountZero.cpp:
     complete
     .text start:0x020c9e14 end:0x020c9e34
 
-src/Combat/Main/WaitUntilChannel7Ready.cpp:
+src/NitroSDK/Main/WaitUntilChannel7Ready.cpp:
     complete
     .text start:0x020d434c end:0x020d4374
 
-src/Combat/Main/WaitWhileChannel0xEBusy.cpp:
+src/NitroSDK/Main/WaitWhileChannel0xEBusy.cpp:
     complete
     .text start:0x020d2d60 end:0x020d2db0
 
-src/Combat/Main/WaitWhileChannelBusy.cpp:
+src/NitroSDK/Main/WaitWhileChannelBusy.cpp:
     complete
     .text start:0x020d3030 end:0x020d3080
 
-src/Combat/Main/WaitWhileFlagsSet.cpp:
+src/NitroSDK/Main/WaitWhileFlagsSet.cpp:
     complete
     .text start:0x020cfbc8 end:0x020cfbe0
 
-src/Combat/Main/WaitWhileInterruptsDisabled020ce188.cpp:
+src/NitroSDK/Main/WaitWhileInterruptsDisabled020ce188.cpp:
     complete
     .text start:0x020cfc54 end:0x020cfca4
 
@@ -12112,11 +12084,11 @@ src/Combat/Main/WalkListByMode0208036c.cpp:
     complete
     .text start:0x02080ea8 end:0x02080fa4
 
-src/Combat/Main/WrapIndexModField020bb964.cpp:
+src/NitroSDK/Main/WrapIndexModField020bb964.cpp:
     complete
     .text start:0x020bd430 end:0x020bd450
 
-src/Combat/Main/WriteByteIfRoom.cpp:
+src/NitroSDK/Main/WriteByteIfRoom.cpp:
     complete
     .text start:0x020d4ae8 end:0x020d4b18
 
@@ -12128,11 +12100,11 @@ src/Combat/Main/WriteEntryAtIndex.cpp:
     complete
     .text start:0x020e56e4 end:0x020e572c
 
-src/Combat/Main/WriteGXFifoZeroBurst.cpp:
+src/NitroSDK/Main/WriteGXFifoZeroBurst.cpp:
     complete
     .text start:0x020c71a8 end:0x020c723c
 
-src/Combat/Main/WriteGlobalPair020bb92c.cpp:
+src/NitroSDK/Main/WriteGlobalPair020bb92c.cpp:
     complete
     .text start:0x020bd3f8 end:0x020bd414
 
@@ -12160,7 +12132,7 @@ src/Combat/Main/WriteToRingBuf_02003c3c.cpp:
     complete
     .text start:0x02003b58 end:0x02003b9c
 
-src/Combat/Main/WriteToRingBuffer_020c0368.cpp:
+src/NitroSDK/Main/WriteToRingBuffer_020c0368.cpp:
     complete
     .text start:0x020c1e34 end:0x020c1efc
 
@@ -12208,11 +12180,11 @@ src/Combat/Main/ZeroWordAndByte0206ee70.cpp:
     complete
     .text start:0x0206ffc4 end:0x0206ffd4
 
-src/Combat/Main/_Z17SetContextEndProcP16ProcessorContextPFviE.cpp:
+src/NitroSDK/Main/_Z17SetContextEndProcP16ProcessorContextPFviE.cpp:
     complete
     .text start:0x020c9774 end:0x020c977c
 
-src/Combat/Main/_Z18GetContextPriorityP16ProcessorContext.cpp:
+src/NitroSDK/Main/_Z18GetContextPriorityP16ProcessorContext.cpp:
     complete
     .text start:0x020c9604 end:0x020c960c
 
@@ -13116,119 +13088,119 @@ src/Combat/Main/func_020ae074.cpp:
     complete
     .text start:0x020afb40 end:0x020afcd8
 
-src/Combat/Main/func_020b07c0.cpp:
+src/NitroSDK/Main/func_020b07c0.cpp:
     complete
     .text start:0x020b228c end:0x020b2384
 
-src/Combat/Main/func_020b26e8.cpp:
+src/NitroSDK/Main/func_020b26e8.cpp:
     complete
     .text start:0x020b41b4 end:0x020b4294
 
-src/Combat/Main/func_020b7ba0.cpp:
+src/NitroSDK/Main/func_020b7ba0.cpp:
     complete
     .text start:0x020b966c end:0x020b9a20
 
-src/Combat/Main/func_020bcf3c.cpp:
+src/NitroSDK/Main/func_020bcf3c.cpp:
     complete
     .text start:0x020bea08 end:0x020beaf8
 
-src/Combat/Main/func_020bd99c.cpp:
+src/NitroSDK/Main/func_020bd99c.cpp:
     complete
     .text start:0x020bf468 end:0x020bf524
 
-src/Combat/Main/func_020bdb0c.cpp:
+src/NitroSDK/Main/func_020bdb0c.cpp:
     complete
     .text start:0x020bf5d8 end:0x020bf6ac
 
-src/Combat/Main/func_020be53c.cpp:
+src/NitroSDK/Main/func_020be53c.cpp:
     complete
     .text start:0x020c0008 end:0x020c00d0
 
-src/Combat/Main/func_020c0430.cpp:
+src/NitroSDK/Main/func_020c0430.cpp:
     complete
     .text start:0x020c1efc end:0x020c1fb4
 
-src/Combat/Main/func_020c04e8.cpp:
+src/NitroSDK/Main/func_020c04e8.cpp:
     complete
     .text start:0x020c1fb4 end:0x020c2368
 
-src/Combat/Main/func_020c0a40.cpp:
+src/NitroSDK/Main/func_020c0a40.cpp:
     complete
     .text start:0x020c250c end:0x020c2708
 
-src/Combat/Main/func_020c1180.cpp:
+src/NitroSDK/Main/func_020c1180.cpp:
     complete
     .text start:0x020c2c4c end:0x020c2c70
 
-src/Combat/Main/func_020c1840.cpp:
+src/NitroSDK/Main/func_020c1840.cpp:
     complete
     .text start:0x020c330c end:0x020c3334
 
-src/Combat/Main/func_020c1868.cpp:
+src/NitroSDK/Main/func_020c1868.cpp:
     complete
     .text start:0x020c3334 end:0x020c3368
 
-src/Combat/Main/func_020c7884.cpp:
+src/NitroSDK/Main/func_020c7884.cpp:
     complete
     .text start:0x020c9350 end:0x020c9364
 
-src/Combat/Main/func_020c7f44.cpp:
+src/NitroSDK/Main/func_020c7f44.cpp:
     complete
     .text start:0x020c9a10 end:0x020c9aac
 
-src/Combat/Main/func_020c8b44.cpp:
+src/NitroSDK/Main/func_020c8b44.cpp:
     complete
     .text start:0x020ca610 end:0x020ca6a0
 
-src/Combat/Main/func_020c8bd4.cpp:
+src/NitroSDK/Main/func_020c8bd4.cpp:
     complete
     .text start:0x020ca6a0 end:0x020ca71c
 
-src/Combat/Main/func_020c93d0.cpp:
+src/NitroSDK/Main/func_020c93d0.cpp:
     complete
     .text start:0x020cae9c end:0x020caf28
 
-src/Combat/Main/func_020c94e4.cpp:
+src/NitroSDK/Main/func_020c94e4.cpp:
     complete
     .text start:0x020cafb0 end:0x020cb128
 
-src/Combat/Main/func_020c976c.cpp:
+src/NitroSDK/Main/func_020c976c.cpp:
     complete
     .text start:0x020cb238 end:0x020cb244
 
-src/Combat/Main/func_020c9b10.cpp:
+src/NitroSDK/Main/func_020c9b10.cpp:
     complete
     .text start:0x020cb5dc end:0x020cb6ac
 
-src/Combat/Main/func_020ca0a8.cpp:
+src/NitroSDK/Main/func_020ca0a8.cpp:
     complete
     .text start:0x020cbb74 end:0x020cbc6c
 
-src/Combat/Main/func_020ca390.cpp:
+src/NitroSDK/Main/func_020ca390.cpp:
     complete
     .text start:0x020cbe5c end:0x020cbe84
 
-src/Combat/Main/func_020ca3b8.cpp:
+src/NitroSDK/Main/func_020ca3b8.cpp:
     complete
     .text start:0x020cbe84 end:0x020cbeb8
 
-src/Combat/Main/func_020ca408.cpp:
+src/NitroSDK/Main/func_020ca408.cpp:
     complete
     .text start:0x020cbed4 end:0x020cbefc
 
-src/Combat/Main/func_020ca50c.cpp:
+src/NitroSDK/Main/func_020ca50c.cpp:
     complete
     .text start:0x020cbfd8 end:0x020cbff4
 
-src/Combat/Main/func_020ca528.cpp:
+src/NitroSDK/Main/func_020ca528.cpp:
     complete
     .text start:0x020cbff4 end:0x020cc010
 
-src/Combat/Main/func_020ca544.cpp:
+src/NitroSDK/Main/func_020ca544.cpp:
     complete
     .text start:0x020cc010 end:0x020cc034
 
-src/Combat/Main/func_020ca568.cpp:
+src/NitroSDK/Main/func_020ca568.cpp:
     complete
     .text start:0x020cc034 end:0x020cc060
 
@@ -13240,63 +13212,51 @@ src/Combat/Main/func_020cd5d4_020cd5d4.s:
     complete
     .text start:0x020cf0a0 end:0x020cf0dc
 
-src/Combat/Main/func_020cdae4.cpp:
+src/NitroSDK/Main/func_020cdae4.cpp:
     complete
     .text start:0x020cf5b0 end:0x020cf6b0
 
-src/Combat/Main/func_020cdc7c.cpp:
+src/NitroSDK/Main/func_020cdc7c.cpp:
     complete
     .text start:0x020cf748 end:0x020cf88c
 
-src/Combat/Main/func_020cdfd8.cpp:
+src/NitroSDK/Main/func_020cdfd8.cpp:
     complete
     .text start:0x020cfaa4 end:0x020cfbc8
 
-src/Combat/Main/func_020ce308.cpp:
+src/NitroSDK/Main/func_020ce308.cpp:
     complete
     .text start:0x020cfdd4 end:0x020cfe68
 
-src/Combat/Main/func_020ceba8.cpp:
+src/NitroSDK/Main/func_020ceba8.cpp:
     complete
     .text start:0x020d0674 end:0x020d088c
 
-src/Combat/Main/func_020d03fc.cpp:
-    complete
-    .text start:0x020d1ec8 end:0x020d20b8
-
-src/Combat/Main/func_020d05ec.cpp:
+src/NitroSDK/Main/func_020d05ec.cpp:
     complete
     .text start:0x020d20b8 end:0x020d21a0
 
-src/Combat/Main/func_020d2220.cpp:
-    complete
-    .text start:0x020d3cec end:0x020d3dc0
-
-src/Combat/Main/func_020d22f4.cpp:
+src/NitroSDK/Main/func_020d22f4.cpp:
     complete
     .text start:0x020d3dc0 end:0x020d3ed0
 
-src/Combat/Main/func_020d24c4.cpp:
+src/NitroSDK/Main/func_020d24c4.cpp:
     complete
     .text start:0x020d3f90 end:0x020d414c
 
-src/Combat/Main/func_020d3df8.cpp:
-    complete
-    .text start:0x020d5854 end:0x020d5a38
-
-src/Combat/Main/func_020d59bc.cpp:
+src/NitroSDK/Main/func_020d59bc.cpp:
     complete
     .text start:0x020d7418 end:0x020d7548
 
-src/Combat/Main/func_020d5b5c.cpp:
+src/NitroSDK/Main/func_020d5b5c.cpp:
     complete
     .text start:0x020d75b8 end:0x020d7658
 
-src/Combat/Main/func_020d63f0.cpp:
+src/NitroSDK/Main/func_020d63f0.cpp:
     complete
     .text start:0x020d7e4c end:0x020d7f78
 
-src/Combat/Main/func_020d651c.cpp:
+src/NitroSDK/Main/func_020d651c.cpp:
     complete
     .text start:0x020d7f78 end:0x020d806c
 
@@ -13428,7 +13388,7 @@ src/Combat/Main/rand.cpp:
     complete
     .text start:0x02003c30 end:0x02003c64
 
-src/Combat/Main/recovered_020c1264.cpp:
+src/NitroSDK/Main/recovered_020c1264.cpp:
     complete
     .text start:0x020c2d30 end:0x020c2d4c
 
@@ -13489,27 +13449,15 @@ src/Filesystem/BackgroundLoader.cpp:
     .bss start:0x02104044 end:0x0210484c
     .text start:0x0202f270 end:0x0203016c
 
-src/Filesystem/CardReadManager.cpp:
-    complete
-    .text start:0x020d2318 end:0x020d2a90
-
-src/Filesystem/CardReadManagerAcquireBus.cpp:
+src/NitroSDK/Filesystem/CardReadManagerAcquireBus.cpp:
     complete
     .text start:0x020d1a98 end:0x020d1b0c
-
-src/Filesystem/CardReadManagerInit.cpp:
-    complete
-    .text start:0x020d1788 end:0x020d1a98
-
-src/Filesystem/DispatchCartridgeReadToArm7.cpp:
-    complete
-    .text start:0x020d21c8 end:0x020d2300
 
 src/Filesystem/ExtendedNitroVM.cpp:
     complete
     .text start:0x020da078 end:0x020da930
 
-src/Filesystem/FileAccessor.cpp:
+src/NitroSDK/Filesystem/FileAccessor.cpp:
     complete
     .text start:0x020ce40c end:0x020cea48
 
@@ -13521,34 +13469,30 @@ src/Filesystem/GPC.cpp:
     complete
     .text start:0x020da9d8 end:0x020db0bc
 
-src/Filesystem/IdentifyBackupDeviceCore.cpp:
+src/NitroSDK/Filesystem/IdentifyBackupDeviceCore.cpp:
     complete
     .text start:0x020d1b44 end:0x020d1ec8
 
-src/Filesystem/LowNitroHandle.cpp:
+src/NitroSDK/Filesystem/LowNitroHandle.cpp:
     complete
     .text start:0x020cdbc8 end:0x020ce40c
 
-src/Filesystem/NarcHandle.cpp:
+src/NitroSDK/Filesystem/NarcHandle.cpp:
     complete
     .text start:0x020b1624 end:0x020b1894
 
-src/Filesystem/NitroVM.cpp:
+src/NitroSDK/Filesystem/NitroVM.cpp:
     complete
     .rodata start:0x020ed7d4 end:0x020ed7f8
     .text start:0x020ccb00 end:0x020cd230
 
-src/Filesystem/NitroVMQueue.cpp:
+src/NitroSDK/Filesystem/NitroVMQueue.cpp:
     complete
     .text start:0x020cd5dc end:0x020cdbc8
 
-src/Filesystem/OverlayFSManagement.cpp:
+src/NitroSDK/Filesystem/OverlayFSManagement.cpp:
     complete
     .text start:0x020cea48 end:0x020ceac8
-
-src/Filesystem/OverlayLoad.cpp:
-    complete
-    .text start:0x020cecbc end:0x020cef60
 
 src/GameState/GameStateInstance.cpp:
 	complete
@@ -13602,67 +13546,43 @@ src/Graphics/Model3D.cpp:
     complete
     .text start:0x0207efe4 end:0x0207fa9c
 
-src/Graphics/NSBXX/Animation.cpp:
+src/NitroSDK/NSBXX/Animation.cpp:
     complete
     .text start:0x020b4598 end:0x020b4908
 
-src/Graphics/NSBXX/AnimationProcessing.cpp:
+src/NitroSDK/NSBXX/AnimationProcessing.cpp:
     complete
     .text start:0x020b559c end:0x020b5aec
 
-src/Graphics/NSBXX/BindPoseScaling.cpp:
+src/NitroSDK/NSBXX/BindPoseScaling.cpp:
     complete
     .text start:0x020b945c end:0x020b94ec
 
-src/Graphics/NSBXX/GeometryFifo.cpp:
+src/NitroSDK/NSBXX/GeometryFifo.cpp:
     complete
     .text start:0x020b8464 end:0x020b8964
 
-src/Graphics/NSBXX/MAM.cpp:
-    complete
-    .text start:0x020ba92c end:0x020bad44
-
-src/Graphics/NSBXX/MAT.cpp:
-    complete
-    .text start:0x020bad44 end:0x020bb168
-
-src/Graphics/NSBXX/MPT.cpp:
-    complete
-    .text start:0x020bb168 end:0x020bb3f8
-
-src/Graphics/NSBXX/NSBXX.cpp:
-    complete
-    .text start:0x020b8964 end:0x020b8e38
-
-src/Graphics/NSBXX/NameLookup.cpp:
-    complete
-    .text start:0x020b8e38 end:0x020b9160
-
-src/Graphics/NSBXX/PatternAnimation.cpp:
+src/NitroSDK/NSBXX/PatternAnimation.cpp:
     complete
     .text start:0x020b9160 end:0x020b930c
 
-src/Graphics/NSBXX/RenderCommandProcs.cpp:
+src/NitroSDK/NSBXX/RenderCommandProcs.cpp:
     complete
     .text start:0x020bb47c end:0x020bcef0
 
-src/Graphics/NSBXX/RenderCommands.cpp:
+src/NitroSDK/NSBXX/RenderCommands.cpp:
     complete
     .text start:0x020b5aec end:0x020b7224
 
-src/Graphics/NSBXX/RenderCommands_10_13.cpp:
+src/NitroSDK/NSBXX/RenderCommands_10_13.cpp:
     complete
     .text start:0x020b7980 end:0x020b8464
 
-src/Graphics/NSBXX/RenderConfig.cpp:
+src/NitroSDK/NSBXX/RenderConfig.cpp:
     complete
     .text start:0x020b518c end:0x020b559c
 
-src/Graphics/NSBXX/TEX.cpp:
-    complete
-    .text start:0x020b4908 end:0x020b518c
-
-src/Graphics/NSBXX/VAV.cpp:
+src/NitroSDK/NSBXX/VAV.cpp:
     complete
     .text start:0x020bb3f8 end:0x020bb47c
 
@@ -13748,20 +13668,20 @@ src/Grotto/Main/TreasureMapMetadata.cpp:
 	complete
 	.text start:0x020a7a5c end:0x020a7e28
 
-src/Memory/AllocatorTypes.cpp:
+src/NitroSDK/Memory/AllocatorTypes.cpp:
     complete
     .rodata start:0x020e926c end:0x020e9284
     .text start:0x020b1894 end:0x020b1900
 
-src/Memory/AllocatorUnion.cpp:
+src/NitroSDK/Memory/AllocatorUnion.cpp:
     complete
     .text start:0x020b1938 end:0x020b1990
 
-src/Memory/HMRFAllocator.cpp:
+src/NitroSDK/Memory/HMRFAllocator.cpp:
     complete
     .text start:0x020b1304 end:0x020b15bc
 
-src/Memory/HPXEAllocator.cpp:
+src/NitroSDK/Memory/HPXEAllocator.cpp:
     complete
     .text start:0x020b0cd8 end:0x020b1304
 
@@ -13771,12 +13691,12 @@ src/Memory/SafeAllocator.cpp:
     .data start:0x020ef80c end:0x020ef810
     .bss start:0x0210484c end:0x02104850
 
-src/Memory/SignedAllocator.cpp:
+src/NitroSDK/Memory/SignedAllocator.cpp:
     complete
     .bss start:0x02109cb4 end:0x02109cc4
     .text start:0x020b0994 end:0x020b0cd8
 
-src/Memory/UnusedSignedAllocator.cpp:
+src/NitroSDK/Memory/UnusedSignedAllocator.cpp:
     complete
     .text start:0x020b15bc end:0x020b1624
 
@@ -13803,47 +13723,43 @@ src/Resource/Script.cpp:
     complete
     .text start:0x0203016c end:0x020307a0
 
-src/System/BGBases.cpp:
+src/NitroSDK/BGBases.cpp:
     complete
     .text start:0x020c6740 end:0x020c6bb0
 
-src/System/BlockCurrentContext.cpp:
+src/NitroSDK/BlockCurrentContext.cpp:
     complete
     .text start:0x020c9364 end:0x020c93b4
 
-src/System/CPSRInterruptState.cpp:
+src/NitroSDK/CPSRInterruptState.cpp:
     complete
     .text start:0x020cb1b4 end:0x020cb238
 
-src/System/Cache.cpp:
+src/NitroSDK/Cache.cpp:
     complete
     .text start:0x020c9d18 end:0x020c9e14
 
-src/System/ColorEffects.cpp:
-    complete
-    .text start:0x020c6bb0 end:0x020c6c38
-
-src/System/ContextLifecycle.cpp:
+src/NitroSDK/ContextLifecycle.cpp:
     complete
     .text start:0x020c9080 end:0x020c9350
 
-src/System/ContextList.cpp:
+src/NitroSDK/ContextList.cpp:
     complete
     .text start:0x020c8c70 end:0x020c8f28
 
-src/System/ContextScheduler.cpp:
+src/NitroSDK/ContextScheduler.cpp:
     complete
     .text start:0x020c96b4 end:0x020c9774
 
-src/System/DMA.cpp:
+src/NitroSDK/DMA.cpp:
     complete
     .text start:0x020cb6d8 end:0x020cbb74
 
-src/System/DMAInterruptHandlers.cpp:
+src/NitroSDK/DMAInterruptHandlers.cpp:
     complete
     .text start:0x020c8520 end:0x020c8560
 
-src/System/GamecardBusOwnership.cpp:
+src/NitroSDK/GamecardBusOwnership.cpp:
     complete
     .text start:0x020c8914 end:0x020c8b4c
 
@@ -13855,40 +13771,40 @@ src/System/GetOBJAssignedVRAMSize.cpp:
     complete
     .text start:0x02094124 end:0x02094200
 
-src/System/IPC.cpp:
+src/NitroSDK/IPC.cpp:
     complete
     .bss start:0x02111344 end:0x021113c8
     .text start:0x020cc7e4 end:0x020ccb00
 
-src/System/InterruptEnableDisable.cpp:
+src/NitroSDK/InterruptEnableDisable.cpp:
     complete
     .text start:0x020c875c end:0x020c8814
 
-src/System/InterruptRegistration.cpp:
+src/NitroSDK/InterruptRegistration.cpp:
     complete
     .text start:0x020c85b8 end:0x020c875c
 
-src/System/LoadToVRAM.cpp:
+src/NitroSDK/LoadToVRAM.cpp:
     complete
     .text start:0x020c72ec end:0x020c83e0
 
-src/System/Mutex.cpp:
+src/NitroSDK/Mutex.cpp:
     complete
     .text start:0x020c9b28 end:0x020c9d18
 
-src/System/ReadyContexts.cpp:
+src/NitroSDK/ReadyContexts.cpp:
     complete
     .text start:0x020c941c end:0x020c946c
 
-src/System/TimerOverflowInterruptHandlers.cpp:
+src/NitroSDK/TimerOverflowInterruptHandlers.cpp:
     complete
     .text start:0x020c8560 end:0x020c85a0
 
-src/System/Timing.cpp:
+src/NitroSDK/Timing.cpp:
     complete
     .text start:0x020ca71c end:0x020cad54
 
-src/System/VRAM.cpp:
+src/NitroSDK/VRAM.cpp:
     complete
     .text start:0x020c5518 end:0x020c6740
 
@@ -14176,7 +14092,7 @@ src/Combat/Main/func_020a629c.cpp:
     complete
     .text start:0x020a8040 end:0x020a819c
 
-src/Combat/Main/ResetSystemAndBoot020c98f0.cpp:
+src/NitroSDK/Main/ResetSystemAndBoot020c98f0.cpp:
     complete
     .text start:0x020cb3bc end:0x020cb478
 
@@ -14280,7 +14196,7 @@ src/Combat/Main/CopyCountedBytesToIntArray02010834.cpp:
     complete
     .text start:0x02010690 end:0x020106ec
 
-src/Combat/Main/InitAndMaybeStartStream020d3c28.cpp:
+src/NitroSDK/Main/InitAndMaybeStartStream020d3c28.cpp:
     complete
     .text start:0x020d568c end:0x020d56e8
 
@@ -14552,7 +14468,7 @@ src/Combat/Main/ForwardParamsToB8bc.cpp:
     complete
     .text start:0x0203b710 end:0x0203b760
 
-src/Combat/Main/CopyToBattleContextBuffer.cpp:
+src/NitroSDK/Main/CopyToBattleContextBuffer.cpp:
     complete
     .text start:0x020d62a4 end:0x020d62f0
 
@@ -14772,7 +14688,7 @@ src/Combat/Main/BlankFunction020984ac.cpp:
     complete
     .text start:0x0209a0fc end:0x0209a100
 
-src/Combat/Main/IncrementSlotIndex020d4dd4.cpp:
+src/NitroSDK/Main/IncrementSlotIndex020d4dd4.cpp:
     complete
     .text start:0x020d6830 end:0x020d68a4
 
@@ -14804,11 +14720,11 @@ src/Combat/Main/func_02029568.cpp:
     complete
     .text start:0x02029120 end:0x020291ec
 
-src/Combat/Main/func_020c3260.cpp:
+src/NitroSDK/Main/func_020c3260.cpp:
     complete
     .text start:0x020c4d2c end:0x020c4dc4
 
-src/Combat/Main/func_020c32f8.cpp:
+src/NitroSDK/Main/func_020c32f8.cpp:
     complete
     .text start:0x020c4dc4 end:0x020c4e58
 
@@ -14872,11 +14788,11 @@ src/Combat/Main/Init0203cfb4.cpp:
     complete
     .text start:0x0203d4ec end:0x0203d52c
 
-src/Combat/Main/BackupPairTableToBuffer.cpp:
+src/NitroSDK/Main/BackupPairTableToBuffer.cpp:
     complete
     .text start:0x020bd1cc end:0x020bd20c
 
-src/Combat/Main/RestorePairTableFromBuffer.cpp:
+src/NitroSDK/Main/RestorePairTableFromBuffer.cpp:
     complete
     .text start:0x020bd20c end:0x020bd24c
 
@@ -14908,7 +14824,7 @@ src/Combat/Main/SetBitfieldStoreBytes0205af38.cpp:
     complete
     .text start:0x0205c2d4 end:0x0205c320
 
-src/Combat/Main/InitGlobalStateAndInstallHandlers020bb780.cpp:
+src/NitroSDK/Main/InitGlobalStateAndInstallHandlers020bb780.cpp:
     complete
     .text start:0x020bd24c end:0x020bd298
 
@@ -14944,7 +14860,7 @@ src/Combat/Main/InitAndRunScriptIfValid02097ac0.cpp:
     complete
     .text start:0x02099710 end:0x02099784
 
-src/Combat/Main/InitStreamFromEntry020c0044.cpp:
+src/NitroSDK/Main/InitStreamFromEntry020c0044.cpp:
     complete
     .text start:0x020c1b10 end:0x020c1b84
 
@@ -14988,7 +14904,7 @@ src/Combat/Main/ResetBigStruct0206ddb8.cpp:
     complete
     .text start:0x0206ef0c end:0x0206ef94
 
-src/Combat/Main/ConfigurePairMode020bb48c.cpp:
+src/NitroSDK/Main/ConfigurePairMode020bb48c.cpp:
     complete
     .text start:0x020bcf58 end:0x020bcfe0
 
@@ -15000,11 +14916,11 @@ src/Combat/Main/SetupPairAndRunBufferedScript_020a818c.cpp:
     complete
     .text start:0x020a9f10 end:0x020a9f9c
 
-src/Combat/Main/DispatchEventEntryForIndex.cpp:
+src/NitroSDK/Main/DispatchEventEntryForIndex.cpp:
     complete
     .text start:0x020bfadc end:0x020bfb68
 
-src/Combat/Main/AllocateAndRegisterEntry020bbf84.cpp:
+src/NitroSDK/Main/AllocateAndRegisterEntry020bbf84.cpp:
     complete
     .text start:0x020bda50 end:0x020bdae4
 
@@ -15020,7 +14936,7 @@ src/Combat/Main/SetupGlobalAndRunScript020a13e4.cpp:
     complete
     .text start:0x020a315c end:0x020a31f4
 
-src/Combat/Main/DetachAndReleaseRefs020bf484.cpp:
+src/NitroSDK/Main/DetachAndReleaseRefs020bf484.cpp:
     complete
     .text start:0x020c0f50 end:0x020c0fec
 
@@ -15028,7 +14944,7 @@ src/Combat/Main/func_0206f01c.cpp:
     complete
     .text start:0x0207016c end:0x02070248
 
-src/Combat/Main/func_020c8548.cpp:
+src/NitroSDK/Main/func_020c8548.cpp:
     complete
     .text start:0x020ca014 end:0x020ca0f8
 
@@ -15144,7 +15060,7 @@ src/Combat/Main/SetBrightnessRegisters0203b540.cpp:
     complete
     .text start:0x0203af98 end:0x0203afd4
 
-src/Combat/Main/EncodeSignFlaggedHalfword.cpp:
+src/NitroSDK/Main/EncodeSignFlaggedHalfword.cpp:
     complete
     .text start:0x020c546c end:0x020c5494
 
@@ -15192,7 +15108,7 @@ src/Combat/Main/AccumulateSlotBitsFromTable02086314.cpp:
     complete
     .text start:0x02086c34 end:0x02086ca0
 
-src/Combat/Main/InitHandlerArrayAndRunScript020d3c84.cpp:
+src/NitroSDK/Main/InitHandlerArrayAndRunScript020d3c84.cpp:
     complete
     .text start:0x020d56e8 end:0x020d5754
 
@@ -15524,7 +15440,7 @@ src/Combat/Main/ResetAndSetFlag0x3c9Bit0_020939dc.cpp:
     complete
     .text start:0x02094308 end:0x02094328
 
-src/Combat/Main/ResetStruct020d3c08.cpp:
+src/NitroSDK/Main/ResetStruct020d3c08.cpp:
     complete
     .text start:0x020d566c end:0x020d568c
 
@@ -15888,7 +15804,7 @@ src/Combat/Main/SetFlagBytes02017d68.cpp:
     complete
     .text start:0x02017b08 end:0x02017b1c
 
-src/Combat/Main/GetElementCount0xb4Stride0x24.cpp:
+src/NitroSDK/Main/GetElementCount0xb4Stride0x24.cpp:
     complete
     .text start:0x020d57d8 end:0x020d57ec
 
@@ -15956,7 +15872,7 @@ src/Combat/Main/GetData02108fe4.cpp:
     complete
     .text start:0x0208e9b8 end:0x0208e9c4
 
-src/Combat/Main/GetDataPtr02114e04_020d6c00.cpp:
+src/NitroSDK/Main/GetDataPtr02114e04_020d6c00.cpp:
     complete
     .text start:0x020d8608 end:0x020d8614
 
@@ -16084,7 +16000,7 @@ src/Combat/Main/Clear12Bytes0206efc4.cpp:
     complete
     .text start:0x02070114 end:0x02070128
 
-src/Combat/Main/OnDMAOrTimerCompletion.cpp:
+src/NitroSDK/Main/OnDMAOrTimerCompletion.cpp:
     complete
     .text start:0x020c8498 end:0x020c8520
 
@@ -16108,7 +16024,7 @@ src/Combat/Main/SetFields1a8And1ac.cpp:
     complete
     .text start:0x020552c4 end:0x020552d0
 
-src/Combat/Main/InvokeBattleAction58.cpp:
+src/NitroSDK/Main/InvokeBattleAction58.cpp:
     complete
     .text start:0x020d68a4 end:0x020d68b4
 
@@ -16152,7 +16068,7 @@ src/Combat/Main/DispatchIfField0xc4NonNeg_0205ebfc.cpp:
     complete
     .text start:0x0205fee8 end:0x0205ff0c
 
-src/Combat/Main/ReleaseRefAt0x120.cpp:
+src/NitroSDK/Main/ReleaseRefAt0x120.cpp:
     complete
     .text start:0x020c0da0 end:0x020c0dc4
 
@@ -16172,7 +16088,7 @@ src/Combat/Main/SetBitfield0205afdc.cpp:
     complete
     .text start:0x0205c378 end:0x0205c3a4
 
-src/Combat/Main/PostRangeEvent0x1F.cpp:
+src/NitroSDK/Main/PostRangeEvent0x1F.cpp:
     complete
     .text start:0x020bff40 end:0x020bff70
 
@@ -16200,15 +16116,15 @@ src/Combat/Main/ResetElapsedState020e1114.cpp:
     complete
     .text start:0x020e2d0c end:0x020e2d4c
 
-src/Combat/Main/TriggerAndPollRegister04fff200.cpp:
+src/NitroSDK/Main/TriggerAndPollRegister04fff200.cpp:
     complete
     .text start:0x020d43bc end:0x020d43fc
 
-src/Combat/Main/InitAllModules020c8368.cpp:
+src/NitroSDK/Main/InitAllModules020c8368.cpp:
     complete
     .text start:0x020c9e34 end:0x020c9e7c
 
-src/Combat/Main/_Z16WaitForInterruptbj.cpp:
+src/NitroSDK/Main/_Z16WaitForInterruptbj.cpp:
     complete
     .text start:0x020c8420 end:0x020c8494
 
@@ -16216,35 +16132,35 @@ src/Combat/Main/SetActionSlotOrDispatch0203ac40.cpp:
     complete
     .text start:0x0203a698 end:0x0203a720
 
-src/Combat/Main/SubmitBlock0x40IfNotBusy.cpp:
+src/NitroSDK/Main/SubmitBlock0x40IfNotBusy.cpp:
     complete
     .text start:0x020c6fc8 end:0x020c6ff8
 
-src/Combat/Main/SubmitBlock0x80IfNotBusy.cpp:
+src/NitroSDK/Main/SubmitBlock0x80IfNotBusy.cpp:
     complete
     .text start:0x020c6ff8 end:0x020c7028
 
-src/Combat/Main/CallWithAddr4000360.cpp:
+src/NitroSDK/Main/CallWithAddr4000360.cpp:
     complete
     .text start:0x020c7040 end:0x020c7054
 
-src/Combat/Main/StoreSharedMemMagicWords.cpp:
+src/NitroSDK/Main/StoreSharedMemMagicWords.cpp:
     complete
     .text start:0x020c8814 end:0x020c8848
 
-src/Combat/Main/GetDataTcmRegionBase.cpp:
+src/NitroSDK/Main/GetDataTcmRegionBase.cpp:
     complete
     .text start:0x020ca4b0 end:0x020ca4c4
 
-src/Combat/Main/AtomicSwap.cpp:
+src/NitroSDK/Main/AtomicSwap.cpp:
     complete
     .text start:0x020cc2ac end:0x020cc2b4
 
-src/Combat/Main/ClearTargetMask.cpp:
+src/NitroSDK/Main/ClearTargetMask.cpp:
     complete
     .text start:0x020be474 end:0x020be49c
 
-src/Combat/Main/func_020d2c00.cpp:
+src/NitroSDK/Main/func_020d2c00.cpp:
     complete
     .text start:0x020d46cc end:0x020d4764
 
@@ -16356,7 +16272,7 @@ src/Combat/Main/func_02096a20.cpp:
     complete
     .text start:0x02098670 end:0x02098888
 
-src/Combat/Main/func_020b1ff8.cpp:
+src/NitroSDK/Main/func_020b1ff8.cpp:
     complete
     .text start:0x020b3ac4 end:0x020b3b20
 
@@ -16384,11 +16300,11 @@ src/Combat/Main/func_0203ba74.cpp:
     complete
     .text start:0x0203b4cc end:0x0203b574
 
-src/Combat/Main/func_020b08b8.cpp:
+src/NitroSDK/Main/func_020b08b8.cpp:
     complete
     .text start:0x020b2384 end:0x020b24e8
 
-src/Combat/Main/func_020b78f8.cpp:
+src/NitroSDK/Main/func_020b78f8.cpp:
     complete
     .text start:0x020b93c4 end:0x020b945c
 
@@ -16416,15 +16332,15 @@ src/Combat/Main/func_020321e0.cpp:
     complete
     .text start:0x02031d18 end:0x02031df8
 
-src/Combat/Main/SetNegatedPairFields020c111c.cpp:
+src/NitroSDK/Main/SetNegatedPairFields020c111c.cpp:
     complete
     .text start:0x020c2be8 end:0x020c2bf4
 
-src/Combat/Main/ScalePairsByTwoFactors.cpp:
+src/NitroSDK/Main/ScalePairsByTwoFactors.cpp:
     complete
     .text start:0x020c2bf4 end:0x020c2c4c
 
-src/Combat/Main/StartDmaWithFlush020ca8e8.cpp:
+src/NitroSDK/Main/StartDmaWithFlush020ca8e8.cpp:
     complete
     .text start:0x020cc3b4 end:0x020cc428
 
@@ -16436,15 +16352,15 @@ src/Combat/Main/BlankFunction02094b2c.cpp:
     complete
     .text start:0x020957c4 end:0x0209588c
 
-src/Combat/Main/func_020ca430.cpp:
+src/NitroSDK/Main/func_020ca430.cpp:
     complete
     .text start:0x020cbefc end:0x020cbf24
 
-src/Combat/Main/CompareBytes.cpp:
+src/NitroSDK/Main/CompareBytes.cpp:
     complete
     .text start:0x020d4aa8 end:0x020d4ae8
 
-src/Combat/Main/GetBoxTestResult.cpp:
+src/NitroSDK/Main/GetBoxTestResult.cpp:
     complete
     .text start:0x020c717c end:0x020c71a8
 
@@ -16468,11 +16384,7 @@ src/Combat/Main/AlwaysFalse02094b44.cpp:
     complete
     .text start:0x02095b40 end:0x02095b94
 
-src/Combat/Main/FindEntryByKind.cpp:
-    complete
-    .text start:0x020d57ec end:0x020d5828
-
-src/Combat/Main/GetGlobalWord021112ec.cpp:
+src/NitroSDK/Main/GetGlobalWord021112ec.cpp:
     complete
     .text start:0x020c9070 end:0x020c9080
 
@@ -16523,10 +16435,6 @@ src/Combat/Main/AppendXYTag.cpp:
 src/Combat/Main/AppendSourceRectTag.cpp:
     complete
     .text start:0x02042238 end:0x02042294
-
-src/Combat/Main/InitListHeaderAndBuildFlagArray.cpp:
-    complete
-    .text start:0x020b930c end:0x020b9388
 
 src/Combat/Main/StoreInitFnPointers_0200f29c.cpp:
     complete
@@ -16592,19 +16500,15 @@ src/Combat/Main/ClearFirstWord0206da74.cpp:
     complete
     .text start:0x0206ebc8 end:0x0206ebd4
 
-src/Combat/Main/GetHolderPair020bd88c.cpp:
-    complete
-    .text start:0x020bf358 end:0x020bf378
-
-src/Combat/Main/SetPairEntryPointers020bb444.cpp:
+src/NitroSDK/Main/SetPairEntryPointers020bb444.cpp:
     complete
     .text start:0x020bcf10 end:0x020bcf58
 
-src/Combat/Main/InitPairSlotStates020bb514.cpp:
+src/NitroSDK/Main/InitPairSlotStates020bb514.cpp:
     complete
     .text start:0x020bcfe0 end:0x020bd054
 
-src/Combat/Main/LookupRecordAndDispatch020be760.cpp:
+src/NitroSDK/Main/LookupRecordAndDispatch020be760.cpp:
     complete
     .text start:0x020c022c end:0x020c0274
 
@@ -16612,11 +16516,11 @@ src/Combat/Main/FindRectContainingPoint020e1eb0.cpp:
     complete
     .text start:0x020e3a50 end:0x020e3abc
 
-src/Combat/Main/GetAlignedSizeByCode020b2a6c.cpp:
+src/NitroSDK/Main/GetAlignedSizeByCode020b2a6c.cpp:
     complete
     .text start:0x020b4538 end:0x020b4598
 
-src/Combat/Main/RegisterType0x11Handler.cpp:
+src/NitroSDK/Main/RegisterType0x11Handler.cpp:
     complete
     .text start:0x020d2be4 end:0x020d2c10
 
@@ -16624,7 +16528,7 @@ src/Combat/Main/CheckBits5To9Equal2.cpp:
     complete
     .text start:0x0204cc40 end:0x0204cc5c
 
-src/Combat/Main/ReturnZero020c7dc4.cpp:
+src/NitroSDK/Main/ReturnZero020c7dc4.cpp:
     complete
     .text start:0x020c9890 end:0x020c9898
 
@@ -16728,11 +16632,11 @@ src/Combat/Main/func_0204700c.cpp:
     complete
     .text start:0x02047e2c end:0x02047f7c
 
-src/Combat/Main/func_020b1938.cpp:
+src/NitroSDK/Main/func_020b1938.cpp:
     complete
     .text start:0x020b3404 end:0x020b3484
 
-src/Combat/Main/SomeHashWrapper_020c0c3c.cpp:
+src/NitroSDK/Main/SomeHashWrapper_020c0c3c.cpp:
     complete
     .text start:0x020c2708 end:0x020c279c
 
@@ -16788,7 +16692,7 @@ src/Combat/Main/AlwaysTrue0208e0bc.cpp:
     complete
     .text start:0x0208e9cc end:0x0208e9d4
 
-src/Combat/Main/ClearMatchingBitsInMaskTable020c9a88.cpp:
+src/NitroSDK/Main/ClearMatchingBitsInMaskTable020c9a88.cpp:
     complete
     .text start:0x020cb554 end:0x020cb5dc
 
@@ -16932,7 +16836,7 @@ src/Combat/Main/func_02047b40.cpp:
     complete
     .text start:0x02048960 end:0x02048cf4
 
-src/Combat/Main/CalculateScalingAmountSmooth.cpp:
+src/NitroSDK/Main/CalculateScalingAmountSmooth.cpp:
     complete
     .text start:0x020b9ed0 end:0x020ba064
 
@@ -16972,7 +16876,7 @@ src/Combat/Main/InitFieldsIfHandleValid0208ad1c.cpp:
     complete
     .text start:0x0208b610 end:0x0208b65c
 
-src/Combat/Main/AttachOrRefreshEntry.cpp:
+src/NitroSDK/Main/AttachOrRefreshEntry.cpp:
     complete
     .text start:0x020c08ec end:0x020c0978
 
@@ -17012,7 +16916,7 @@ src/Combat/Main/func_020793c0.cpp:
     complete
     .text start:0x0207a2b4 end:0x0207a3ec
 
-src/Combat/Main/GetModeValue_020c862c.cpp:
+src/NitroSDK/Main/GetModeValue_020c862c.cpp:
     complete
     .text start:0x020ca0f8 end:0x020ca1a0
 
@@ -17032,7 +16936,7 @@ src/Combat/Main/AppendDotLeaderLabel02042084.cpp:
     complete
     .text start:0x020426d4 end:0x02042738
 
-src/Combat/Main/func_020b1ec0.cpp:
+src/NitroSDK/Main/func_020b1ec0.cpp:
     complete
     .text start:0x020b398c end:0x020b3a14
 
@@ -17600,7 +17504,7 @@ src/Combat/Main/GetByte0214e4a0.cpp:
     complete
     .text start:0x020da068 end:0x020da078
 
-src/Combat/Main/NotifyInnerByte0x3c.cpp:
+src/NitroSDK/Main/NotifyInnerByte0x3c.cpp:
     complete
     .text start:0x020bdc98 end:0x020bdcb8
 
@@ -17612,11 +17516,11 @@ src/Combat/Main/SetFourHalfwords.cpp:
     complete
     .text start:0x02044854 end:0x0204486c
 
-src/Combat/Main/ReleaseActorAndUnlink020bc820.cpp:
+src/NitroSDK/Main/ReleaseActorAndUnlink020bc820.cpp:
     complete
     .text start:0x020be2ec end:0x020be33c
 
-src/Combat/Main/IssueBattleCommandSlot25.cpp:
+src/NitroSDK/Main/IssueBattleCommandSlot25.cpp:
     complete
     .text start:0x020d84e0 end:0x020d8530
 
@@ -17692,7 +17596,7 @@ src/Combat/Main/Forward020d9828.cpp:
     complete
     .text start:0x020db234 end:0x020db240
 
-src/Combat/Main/ClearField0x84Callback.cpp:
+src/NitroSDK/Main/ClearField0x84Callback.cpp:
     complete
     .text start:0x020bf3c8 end:0x020bf3d4
 
@@ -17804,7 +17708,7 @@ src/Combat/Main/ReturnTrue0205e07c.cpp:
     complete
     .text start:0x0205f368 end:0x0205f370
 
-src/Combat/Main/TransferBg2CharDataThunk020bba50.cpp:
+src/NitroSDK/Main/TransferBg2CharDataThunk020bba50.cpp:
     complete
     .text start:0x020bd51c end:0x020bd528
 
@@ -18288,7 +18192,7 @@ src/Combat/Main/func_02058d40.cpp:
     complete
     .text start:0x0205a0b8 end:0x0205aa98
 
-src/Combat/Main/CalculateRotationFrameAligned.cpp:
+src/NitroSDK/Main/CalculateRotationFrameAligned.cpp:
     complete
     .text start:0x020ba064 end:0x020ba47c
 
@@ -18537,7 +18441,7 @@ src/Combat/Main/FormatAndDispatchWeightedEntries_02023218.cpp:
     complete
     .text start:0x02022cbc end:0x02022da0
 
-src/Combat/Main/func_020aff0c.cpp:
+src/NitroSDK/Main/func_020aff0c.cpp:
     complete
     .text start:0x020b19d8 end:0x020b1b28
 
