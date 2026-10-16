@@ -34,7 +34,7 @@ GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* gameState, int combata
 unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 extern "C" int func_02032fdc(GameObject* obj, int a1, int a2);
 extern "C" void func_02057ab8(void* g, int id);
-extern "C" void _Z23SyncBattleState0208f87cPviii(const Vector3fix* pos, int color, int scale, int alpha, int polygonId);
+void SyncBattleState0208f87c(const void* pos, int color, int scale, int alpha, int polygonId);
 void SetRemappedBitAt0xa26_020d76b8(RemapFlagOwner* obj, int index);
 void ClearFlagBit_020d76d8(unsigned char* base, int bit);
 
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov000_02161020(BattleWork02161020* work) {
                 polygonId = NSBXX_Model_GetMaterialPolygonID(model->rawInternalModel_, 0);
             }
             const Vector3fix& pos = c->obj3D_.MaybeGetShadowSource();
-            _Z23SyncBattleState0208f87cPviii(&pos, color, ((Combatant02161020*)c)->shadowScale, alpha, polygonId);
+            SyncBattleState0208f87c(&pos, color, ((Combatant02161020*)c)->shadowScale, alpha, polygonId);
             if (owner != NULL) {
                 SetRemappedBitAt0xa26_020d76b8(owner, i + 0xc0);
             }

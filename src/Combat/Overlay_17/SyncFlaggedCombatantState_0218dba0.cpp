@@ -21,7 +21,7 @@ int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
 
 struct S02037484;
 
-void SyncBattleState0208f87c(void* self, int b, int c, int d);
+void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId);
 
 // USA: func_ov017_0218dba0  (semantic: SyncFlaggedCombatantState_0218dba0)
 extern "C" ARM void func_ov017_0218dba0(int combatantId) {
@@ -73,8 +73,7 @@ extern "C" ARM void func_ov017_0218dba0(int combatantId) {
 
     if (combatant->obj3D_.GetFlag(0x10) == 0) {
         int c = (int)(0.9f * (float)((Object3D*)((unsigned char*)combatant))->GetRadius());
-        volatile int pad8 = 8;
-        SyncBattleState0208f87c(&selfVec, tag, c, d);
+        SyncBattleState0208f87c(&selfVec, tag, c, d, 8);
     } else {
         RenderConfig::SubmitToFifo();
     }

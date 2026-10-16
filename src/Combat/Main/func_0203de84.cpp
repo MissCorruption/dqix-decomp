@@ -14,7 +14,7 @@ struct StateWithFourPtrs02040910;
 void SelectVec3FromSources020406f8(struct Vec3_020406f8* dst, struct Node020406f8* n);
 int GetField2eOrDefault02040adc(struct Obj02040adc* obj);
 int ProcessPendingSubStates(struct StateWithFourPtrs02040910* obj, int arg1);
-extern "C" void _Z23SyncBattleState0208f87cPviii(void* self, int b, int c, int d, int e);
+void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId);
 
 struct Ctx02012fe4 {
 #if defined(jpn)
@@ -63,7 +63,7 @@ extern "C" ARM void func_0203de84(void* self) {
         Object3D* e = roster->nodes[i]->f18;
         if (e != NULL && e->GetFlag(0x10) != 0) continue;
         SelectVec3FromSources020406f8(&vec, (struct Node020406f8*)roster->nodes[i]);
-        _Z23SyncBattleState0208f87cPviii(&vec, a, 0x1000, b,
+        SyncBattleState0208f87c(&vec, a, 0x1000, b,
             GetField2eOrDefault02040adc((struct Obj02040adc*)roster->nodes[i]));
     }
 }
