@@ -20273,3 +20273,9 @@ src/Combat/Main/ApplyBindPoseRotation.cpp:
 src/Combat/Main/func_0206e164.cpp:
     complete
     .text start:0x0206e164 end:0x0206e218
+
+
+src/Combat/Main/func_020a1180.cpp:
+    complete
+    .text start:0x020a1180 end:0x020a1380
+    .bss start:0x02109d94 end:0x02109da4
