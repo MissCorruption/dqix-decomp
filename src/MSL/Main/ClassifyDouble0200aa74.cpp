@@ -1,6 +1,5 @@
 #include <globaldefs.h>
 
-#pragma optimize_for_size off
 
 // USA: func_0200aa74  (semantic: ClassifyDouble0200aa74)
 extern "C" ARM int func_0200aa74(double x) {

@@ -58,11 +58,11 @@ src/NitroSDK/Main/020c79a0.cpp:
     complete
     .text start:0x020c946c end:0x020c9488
 
-src/Combat/Main/AbsInt020017a4.cpp:
+src/MSL/Main/AbsInt020017a4.cpp:
     complete
     .text start:0x020016c0 end:0x020016cc
 
-src/Combat/Main/AbsInt_020017b0.cpp:
+src/MSL/Main/AbsInt_020017b0.cpp:
     complete
     .text start:0x020016cc end:0x020016d8
 
@@ -1178,15 +1178,15 @@ src/Combat/Main/BinarySearchByField4_02097224.cpp:
     complete
     .text start:0x02098e74 end:0x02098e88
 
-src/Combat/Main/BinarySearchByRange0200da70.cpp:
+src/Runtime/Main/BinarySearchByRange0200da70.cpp:
     complete
     .text start:0x0200d934 end:0x0200d998
 
-src/Combat/Main/BlankFunction020017bc.cpp:
+src/MSL/Main/BlankFunction020017bc.cpp:
     complete
     .text start:0x020016d8 end:0x020016dc
 
-src/Combat/Main/BlankFunction0200d890.cpp:
+src/Runtime/Main/BlankFunction0200d890.cpp:
     complete
     .text start:0x0200d754 end:0x0200d758
 
@@ -1358,11 +1358,11 @@ src/Combat/Main/CallField0xa00203aa44.cpp:
     complete
     .text start:0x0203a49c end:0x0203a4bc
 
-src/Combat/Main/CallFieldFunc0200ed8c.cpp:
+src/Runtime/Main/CallFieldFunc0200ed8c.cpp:
     complete
     .text start:0x0200ec50 end:0x0200ec78
 
-src/Combat/Main/CallForEachElement_0200d91c.cpp:
+src/Runtime/Main/CallForEachElement_0200d91c.cpp:
     complete
     .text start:0x0200d7e0 end:0x0200d814
 
@@ -1370,11 +1370,11 @@ src/Combat/Main/CallForEachEntry_0205ae8c.cpp:
     complete
     .text start:0x0205c228 end:0x0205c26c
 
-src/Combat/Main/CallFunc020059ccWith1002005a94.cpp:
+src/MSL/Main/CallFunc020059ccWith1002005a94.cpp:
     complete
     .text start:0x020059b0 end:0x020059c4
 
-src/Combat/Main/CallFunc0200c578OnData02001710.cpp:
+src/MSL/Main/CallFunc0200c578OnData02001710.cpp:
     complete
     .text start:0x0200162c end:0x02001644
 
@@ -1458,7 +1458,7 @@ src/NitroSDK/Main/CallFunc020c0204OnActiveNode.cpp:
     complete
     .text start:0x020bdc4c end:0x020bdc78
 
-src/Combat/Main/CallFunc020c895cZeroNeg10200ab10.cpp:
+src/MSL/Main/CallFunc020c895cZeroNeg10200ab10.cpp:
     complete
     .text start:0x0200aa2c end:0x0200aa44
 
@@ -1510,7 +1510,7 @@ src/Combat/Main/CallLoop0206eb20.cpp:
     complete
     .text start:0x0206fc74 end:0x0206fcb8
 
-src/Combat/Main/CallStoredHandlerFn020019ac.cpp:
+src/MSL/Main/CallStoredHandlerFn020019ac.cpp:
     complete
     .text start:0x020018c8 end:0x020018e4
 
@@ -1922,7 +1922,7 @@ src/Combat/Main/ClampAndUpdateField0x58.cpp:
     complete
     .text start:0x02088768 end:0x020887f8
 
-src/Combat/Main/ClampArg1_02008f3c.cpp:
+src/MSL/Main/ClampArg1_02008f3c.cpp:
     complete
     .text start:0x02008e58 end:0x02008e78
 
@@ -1962,11 +1962,11 @@ src/Combat/Main/ClassifyByTenThousands.cpp:
     complete
     .text start:0x02094060 end:0x020940c0
 
-src/Combat/Main/ClassifyByteRun020095b0.cpp:
+src/MSL/Main/ClassifyByteRun020095b0.cpp:
     complete
     .text start:0x020094cc end:0x02009538
 
-src/Combat/Main/ClassifyDouble0200aa74.cpp:
+src/MSL/Main/ClassifyDouble0200aa74.cpp:
     complete
     .text start:0x0200a990 end:0x0200aa00
 
@@ -2190,7 +2190,7 @@ src/Combat/Main/ClearBytes0x50To0x53.cpp:
     complete
     .text start:0x02012548 end:0x02012560
 
-src/Combat/Main/ClearBytesReturnPtr0200f374.cpp:
+src/Runtime/Main/ClearBytesReturnPtr0200f374.cpp:
     complete
     .text start:0x0200f238 end:0x0200f25c
 
@@ -2910,7 +2910,7 @@ src/Combat/Main/CompactFromIndex020a0a60.cpp:
     complete
     .text start:0x020a27d8 end:0x020a286c
 
-src/Combat/Main/CompareByteBuffers.cpp:
+src/MSL/Main/CompareByteBuffers.cpp:
     complete
     .text start:0x02001a08 end:0x02001a48
 
@@ -3078,7 +3078,7 @@ src/Combat/Main/ConvertIndex.cpp:
     complete
     .text start:0x02012d30 end:0x02012d6c
 
-src/Combat/Main/ConvertU64ToDigits_020096ac.cpp:
+src/MSL/Main/ConvertU64ToDigits_020096ac.cpp:
     complete
     .text start:0x020095c8 end:0x02009694
 
@@ -3186,7 +3186,7 @@ src/Combat/Main/CopyRegionsAndClearField0206e70c.cpp:
     complete
     .text start:0x0206f860 end:0x0206f89c
 
-src/Combat/Main/CopySignDouble02008da4.cpp:
+src/MSL/Main/CopySignDouble02008da4.cpp:
     complete
     .text start:0x02008cc0 end:0x02008ce8
 
@@ -3438,7 +3438,7 @@ src/Combat/Main/Deactivate0202a8cc.cpp:
     complete
     .text start:0x0202a484 end:0x0202a4d4
 
-src/Combat/Main/DecodeAndCopyString020019c8.cpp:
+src/MSL/Main/DecodeAndCopyString020019c8.cpp:
     complete
     .text start:0x020018e4 end:0x0200195c
 
@@ -3446,7 +3446,7 @@ src/Combat/Main/DecodeArgsReturnPtrNonNull0201f864.cpp:
     complete
     .text start:0x0201f5f0 end:0x0201f620
 
-src/Combat/Main/DecodeHeaderFlags0200f1fc.cpp:
+src/Runtime/Main/DecodeHeaderFlags0200f1fc.cpp:
     complete
     .text start:0x0200f0c0 end:0x0200f160
 
@@ -3462,7 +3462,7 @@ src/Combat/Main/DecodeVariantsInto8x8Table.cpp:
     complete
     .text start:0x0209b90c end:0x0209b968
 
-src/Combat/Main/DecodeVlqMaybeTwice_0200f2bc.cpp:
+src/Runtime/Main/DecodeVlqMaybeTwice_0200f2bc.cpp:
     complete
     .text start:0x0200f180 end:0x0200f1b0
 
@@ -3942,9 +3942,6 @@ src/Combat/Main/Fill6BytesWithFFAndReturn.cpp:
     complete
     .text start:0x020a3d74 end:0x020a3d88
 
-src/Combat/Main/FillAndConvertDigitBuffer_0200a300.cpp:
-    complete
-    .text start:0x0200a21c end:0x0200a2c4
 
 src/Combat/Main/FillBitArray0x1524WithFF.cpp:
     complete
@@ -4578,11 +4575,11 @@ src/Combat/Main/ForwardFirstWord020998ac.cpp:
     complete
     .text start:0x0209b5e0 end:0x0209b5f8
 
-src/Combat/Main/ForwardIfNonNull02001728.cpp:
+src/MSL/Main/ForwardIfNonNull02001728.cpp:
     complete
     .text start:0x02001644 end:0x02001658
 
-src/Combat/Main/ForwardIfNonNull0200edb4.cpp:
+src/Runtime/Main/ForwardIfNonNull0200edb4.cpp:
     complete
     .text start:0x0200ec78 end:0x0200ec8c
 
@@ -4654,11 +4651,11 @@ src/Combat/Main/FreeWordListBuffer0209cd24.cpp:
     complete
     .text start:0x0209ea9c end:0x0209eac8
 
-src/Combat/Main/Frexp0200911c.cpp:
+src/MSL/Main/Frexp0200911c.cpp:
     complete
     .text start:0x02009038 end:0x020090f4
 
-src/Combat/Main/Func020017f0.cpp:
+src/MSL/Main/Func020017f0.cpp:
     complete
     .text start:0x0200170c end:0x02001794
 
@@ -5322,7 +5319,7 @@ src/Combat/Main/GetField8.cpp:
     complete
     .text start:0x0203af60 end:0x0203af68
 
-src/Combat/Main/GetField8LowBits.cpp:
+src/Runtime/Main/GetField8LowBits.cpp:
     complete
     .text start:0x0200daa0 end:0x0200dabc
 
@@ -5534,7 +5531,7 @@ src/Combat/Main/GetIntAt0xc.cpp:
     complete
     .text start:0x02071a18 end:0x02071a20
 
-src/Combat/Main/GetIntMax0200bbd8.cpp:
+src/MSL/Main/GetIntMax0200bbd8.cpp:
     complete
     .text start:0x0200ba9c end:0x0200baa4
 
@@ -5914,7 +5911,7 @@ src/Combat/Main/GetShortFromTable0206e3d4.cpp:
     complete
     .text start:0x0206f528 end:0x0206f53c
 
-src/Combat/Main/GetSignBitOfSecondArg0200aa60.cpp:
+src/MSL/Main/GetSignBitOfSecondArg0200aa60.cpp:
     complete
     .text start:0x0200a97c end:0x0200a990
 
@@ -6074,7 +6071,7 @@ src/Combat/Main/GetU16At0x0.cpp:
     complete
     .text start:0x020aac04 end:0x020aac0c
 
-src/Combat/Main/GetU16StringLength02005aa8.cpp:
+src/MSL/Main/GetU16StringLength02005aa8.cpp:
     complete
     .text start:0x020059c4 end:0x020059e0
 
@@ -6718,7 +6715,7 @@ src/Combat/Main/InitSlotTable020e3004.cpp:
     complete
     .text start:0x020e4ba4 end:0x020e4bdc
 
-src/Combat/Main/InitStageAndNotify02001578.cpp:
+src/MSL/Main/InitStageAndNotify02001578.cpp:
     complete
     .text start:0x02001494 end:0x020014b8
 
@@ -7067,7 +7064,7 @@ src/NitroSDK/Main/InvokeAndAwaitCallback020ce758.cpp:
     complete
     .text start:0x020d0224 end:0x020d0270
 
-src/Combat/Main/InvokeCallback0200efb8.cpp:
+src/Runtime/Main/InvokeCallback0200efb8.cpp:
     complete
     .text start:0x0200ee7c end:0x0200ee94
 
@@ -7691,7 +7688,7 @@ src/Combat/Main/MaybeSwapPairTables020555a0.cpp:
     complete
     .text start:0x02056918 end:0x02056984
 
-src/Combat/Main/Memchr02001ac0.cpp:
+src/MSL/Main/Memchr02001ac0.cpp:
     complete
     .text start:0x020019dc end:0x02001a08
 
@@ -7731,7 +7728,7 @@ src/Combat/Main/MultiplyBy100.cpp:
     complete
     .text start:0x020dfb00 end:0x020dfb10
 
-src/Combat/Main/NextCharOrCmd_02003d58.cpp:
+src/MSL/Main/NextCharOrCmd_02003d58.cpp:
     complete
     .text start:0x02003c74 end:0x02003cf8
 
@@ -7863,7 +7860,7 @@ src/NitroSDK/Main/PopCount32.cpp:
     complete
     .text start:0x020d35b0 end:0x020d35f4
 
-src/Combat/Main/PopCount64_0200a9cc.cpp:
+src/MSL/Main/PopCount64_0200a9cc.cpp:
     complete
     .text start:0x0200a8e8 end:0x0200a97c
 
@@ -7879,9 +7876,6 @@ src/Combat/Main/PopInterruptDisableState.cpp:
     complete
     .text start:0x020d9ff8 end:0x020da034
 
-src/Combat/Main/PopMaskedFieldsFromStack0200f1a0.cpp:
-    complete
-    .text start:0x0200f064 end:0x0200f0c0
 
 src/NitroSDK/Main/PopQueueEntryOrWait020c7fe0.cpp:
     complete
@@ -7915,9 +7909,6 @@ src/Combat/Main/PopulateElementStructFromTaggedValues0208daf4.cpp:
     complete
     .text start:0x0208e3b0 end:0x0208e4bc
 
-src/Combat/Main/PopulateListEntry0200ec44.cpp:
-    complete
-    .text start:0x0200eb08 end:0x0200eb64
 
 src/Combat/Main/PopulateStringArrayFromElements020899fc.cpp:
     complete
@@ -8083,7 +8074,7 @@ src/Combat/Main/ProcessObjCallbacks_020db894.cpp:
     complete
     .text start:0x020dd29c end:0x020dd36c
 
-src/Combat/Main/ProcessPendingCallbacks_0200edf4.cpp:
+src/Runtime/Main/ProcessPendingCallbacks_0200edf4.cpp:
     complete
     .text start:0x0200ecb8 end:0x0200ecfc
 
@@ -8143,7 +8134,7 @@ src/Combat/Main/PushInterruptDisableState.cpp:
     complete
     .text start:0x020d9fb8 end:0x020d9ff8
 
-src/Combat/Main/PushNode0200efd0.cpp:
+src/Runtime/Main/PushNode0200efd0.cpp:
     complete
     .text start:0x0200ee94 end:0x0200eeb4
 
@@ -8203,7 +8194,7 @@ src/NitroSDK/Main/ReadHalfwordAndAdvance.cpp:
     complete
     .text start:0x020b4524 end:0x020b4538
 
-src/Combat/Main/ReadLineUntilNewline_0200d8cc.cpp:
+src/Runtime/Main/ReadLineUntilNewline_0200d8cc.cpp:
     complete
     .text start:0x0200d790 end:0x0200d7e0
 
@@ -8231,7 +8222,7 @@ src/Combat/Main/RebaseOffsets.cpp:
     complete
     .text start:0x02042e0c end:0x02042e30
 
-src/Combat/Main/RecalcField28_020017c0.cpp:
+src/MSL/Main/RecalcField28_020017c0.cpp:
     complete
     .text start:0x020016dc end:0x0200170c
 
@@ -9144,7 +9135,7 @@ src/Combat/Main/ReturnTrue020d774c.cpp:
     complete
     .text start:0x020d9154 end:0x020d915c
 
-src/Combat/Main/ReturnZero_0200d950.cpp:
+src/Runtime/Main/ReturnZero_0200d950.cpp:
     complete
     .text start:0x0200d814 end:0x0200d81c
 
@@ -9180,9 +9171,6 @@ src/Combat/Main/RunAndReturnArg0205873c.cpp:
     complete
     .text start:0x02059ab4 end:0x02059ac8
 
-src/Combat/Main/RunAtExitHandlers_020015e8.cpp:
-    complete
-    .text start:0x02001504 end:0x0200162c
 
 src/Combat/Main/RunBufferedScript.cpp:
     complete
@@ -9232,7 +9220,7 @@ src/Combat/Main/RunOrPollScript02095ee0.cpp:
     complete
     .text start:0x02097b30 end:0x02097c40
 
-src/Combat/Main/RunPendingCallbackAndDispatch0200159c.cpp:
+src/MSL/Main/RunPendingCallbackAndDispatch0200159c.cpp:
     complete
     .text start:0x020014b8 end:0x02001504
 
@@ -9608,7 +9596,7 @@ src/Combat/Main/SetByteIfChanged02033b68.cpp:
     complete
     .text start:0x020336a0 end:0x020336c0
 
-src/Combat/Main/SetByteIfNotNull02001998.cpp:
+src/MSL/Main/SetByteIfNotNull02001998.cpp:
     complete
     .text start:0x020018b4 end:0x020018c8
 
@@ -11032,7 +11020,7 @@ src/Combat/Main/ShutdownTask020dae08.cpp:
     complete
     .text start:0x020dc810 end:0x020dc870
 
-src/Combat/Main/SomeCombine0200aae4.cpp:
+src/MSL/Main/SomeCombine0200aae4.cpp:
     complete
     .text start:0x0200aa00 end:0x0200aa2c
 
@@ -11356,27 +11344,27 @@ src/NitroSDK/Main/TailCall020c7198.cpp:
     complete
     .text start:0x020c8c64 end:0x020c8c70
 
-src/Combat/Main/TailCallWithZero020055d4.cpp:
+src/MSL/Main/TailCallWithZero020055d4.cpp:
     complete
     .text start:0x020054f0 end:0x02005500
 
-src/Combat/Main/TailForward02009598.cpp:
+src/MSL/Main/TailForward02009598.cpp:
     complete
     .text start:0x020094b4 end:0x020094c0
 
-src/Combat/Main/TailForward020095a4.cpp:
+src/MSL/Main/TailForward020095a4.cpp:
     complete
     .text start:0x020094c0 end:0x020094cc
 
-src/Combat/Main/TailForward0200efa0.cpp:
+src/Runtime/Main/TailForward0200efa0.cpp:
     complete
     .text start:0x0200ee64 end:0x0200ee70
 
-src/Combat/Main/TailForward0200efac.cpp:
+src/Runtime/Main/TailForward0200efac.cpp:
     complete
     .text start:0x0200ee70 end:0x0200ee7c
 
-src/Combat/Main/TailForward0200f368.cpp:
+src/Runtime/Main/TailForward0200f368.cpp:
     complete
     .text start:0x0200f22c end:0x0200f238
 
@@ -11412,7 +11400,7 @@ src/NitroSDK/Main/TerminateSystem020ce7a4.cpp:
     complete
     .text start:0x020d0270 end:0x020d02ac
 
-src/Combat/Main/TestAndCopyByteToShort02001960.cpp:
+src/MSL/Main/TestAndCopyByteToShort02001960.cpp:
     complete
     .text start:0x0200187c end:0x020018b4
 
@@ -12036,7 +12024,7 @@ src/NitroSDK/Main/VectorizedMemset_020ca594.cpp:
     complete
     .text start:0x020cc060 end:0x020cc11c
 
-src/Combat/Main/VsnprintfCore02003c80.cpp:
+src/MSL/Main/VsnprintfCore02003c80.cpp:
     complete
     .text start:0x02003b9c end:0x02003c04
 
@@ -12128,7 +12116,7 @@ src/Combat/Main/WriteReg040004A40207076c.cpp:
     complete
     .text start:0x020717d8 end:0x02071804
 
-src/Combat/Main/WriteToRingBuf_02003c3c.cpp:
+src/MSL/Main/WriteToRingBuf_02003c3c.cpp:
     complete
     .text start:0x02003b58 end:0x02003b9c
 
@@ -12248,23 +12236,23 @@ src/Combat/Main/__sinit_020e660c.cpp:
     complete
     .init start:0x020e6eec end:0x020e6f80
 
-src/Combat/Main/_d2f.cpp:
+src/MSL/Main/_d2f.cpp:
     complete
     .text start:0x0200ad5c end:0x0200ae60
 
-src/Combat/Main/_fgeq.cpp:
+src/MSL/Main/_fgeq.cpp:
     complete
     .text start:0x0200be2c end:0x0200be88
 
-src/Combat/Main/_fgr.cpp:
+src/MSL/Main/_fgr.cpp:
     complete
     .text start:0x0200be88 end:0x0200bee4
 
-src/Combat/Main/_fleq.cpp:
+src/MSL/Main/_fleq.cpp:
     complete
     .text start:0x0200bee4 end:0x0200bf4c
 
-src/Combat/Main/_fls.cpp:
+src/MSL/Main/_fls.cpp:
     complete
     .text start:0x0200bf4c end:0x0200bfa8
 
@@ -12272,7 +12260,7 @@ src/Combat/Main/_ll_sdiv_0200cd2c.s:
     complete
     .text start:0x0200cbe0 end:0x0200cda0
 
-src/Combat/Main/_s32_div_f.cpp:
+src/Runtime/Main/_s32_div_f.cpp:
     complete
     .text start:0x0200ce08 end:0x0200d014
 
@@ -12280,51 +12268,48 @@ src/Combat/Main/_u32_div_f_0200d150.s:
     complete
     .text start:0x0200d014 end:0x0200d1f8
 
-src/Combat/Main/func_02002b90.cpp:
+src/MSL/Main/func_02002b90.cpp:
     complete
     .text start:0x02002aac end:0x02002bd0
 
-src/Combat/Main/func_02003ddc.cpp:
+src/MSL/Main/func_02003ddc.cpp:
     complete
     .text start:0x02003cf8 end:0x02003e28
 
-src/Combat/Main/func_02005ac4_02005ac4.cpp:
+src/MSL/Main/func_02005ac4_02005ac4.cpp:
     complete
     .text start:0x020059e0 end:0x02005dbc
 
-src/Combat/Main/func_02009d1c.cpp:
+src/MSL/Main/func_02009d1c.cpp:
     complete
     .text start:0x02009c38 end:0x02009d18
 
-src/Combat/Main/func_0200bd10.cpp:
+src/MSL/Main/func_0200bd10.cpp:
     complete
     .text start:0x0200bbd4 end:0x0200bc78
 
-src/Combat/Main/func_0200be50.cpp:
+src/MSL/Main/func_0200be50.cpp:
     complete
     .text start:0x0200bd14 end:0x0200bda0
 
-src/Combat/Main/func_0200bedc.cpp:
+src/MSL/Main/func_0200bedc.cpp:
     complete
     .text start:0x0200bda0 end:0x0200be2c
 
-src/Combat/Main/func_0200d894.cpp:
+src/Runtime/Main/func_0200d894.cpp:
     complete
     .text start:0x0200d758 end:0x0200d76c
 
-src/Combat/Main/func_0200d9e4.cpp:
+src/Runtime/Main/func_0200d9e4.cpp:
     complete
     .text start:0x0200d8a8 end:0x0200d934
 
-src/Combat/Main/func_0200dad4.cpp:
-    complete
-    .text start:0x0200d998 end:0x0200daa0
 
-src/Combat/Main/func_0200e984.cpp:
+src/Runtime/Main/func_0200e984.cpp:
     complete
     .text start:0x0200e848 end:0x0200e8cc
 
-src/Combat/Main/func_0200eff0.cpp:
+src/Runtime/Main/func_0200eff0.cpp:
     complete
     .text start:0x0200eeb4 end:0x0200f064
 
@@ -13372,19 +13357,19 @@ src/Combat/Main/func_020e3c94.cpp:
     complete
     .text start:0x020e5834 end:0x020e5a60
 
-src/Combat/Main/memcpy.cpp:
+src/MSL/Main/memcpy.cpp:
     complete
     .text start:0x0200195c end:0x0200197c
 
-src/Combat/Main/memmove.cpp:
+src/MSL/Main/memmove.cpp:
     complete
     .text start:0x0200197c end:0x020019c8
 
-src/Combat/Main/memset.cpp:
+src/MSL/Main/memset.cpp:
     complete
     .text start:0x020019c8 end:0x020019dc
 
-src/Combat/Main/rand.cpp:
+src/MSL/Main/rand.cpp:
     complete
     .text start:0x02003c30 end:0x02003c64
 
@@ -13392,51 +13377,51 @@ src/NitroSDK/Main/recovered_020c1264.cpp:
     complete
     .text start:0x020c2d30 end:0x020c2d4c
 
-src/Combat/Main/sprintf.cpp:
+src/MSL/Main/sprintf.cpp:
     complete
     .text start:0x02003c04 end:0x02003c30
 
-src/Combat/Main/srand.cpp:
+src/MSL/Main/srand.cpp:
     complete
     .text start:0x02003c64 end:0x02003c74
 
-src/Combat/Main/strcat_02004040.cpp:
+src/MSL/Main/strcat_02004040.cpp:
     complete
     .text start:0x02003f5c end:0x02003f8c
 
-src/Combat/Main/strchr.cpp:
+src/MSL/Main/strchr.cpp:
     complete
     .text start:0x020040d4 end:0x02004110
 
-src/Combat/Main/strcmp.cpp:
+src/MSL/Main/strcmp.cpp:
     complete
     .text start:0x02003f8c end:0x020040a0
 
-src/Combat/Main/strcpy.cpp:
+src/MSL/Main/strcpy.cpp:
     complete
     .text start:0x02003e44 end:0x02003f0c
 
-src/Combat/Main/strlen.cpp:
+src/MSL/Main/strlen.cpp:
     complete
     .text start:0x02003e28 end:0x02003e44
 
-src/Combat/Main/strncmp.cpp:
+src/MSL/Main/strncmp.cpp:
     complete
     .text start:0x020040a0 end:0x020040d4
 
-src/Combat/Main/strncpy.cpp:
+src/MSL/Main/strncpy.cpp:
     complete
     .text start:0x02003f0c end:0x02003f5c
 
-src/Combat/Main/strrchr.cpp:
+src/MSL/Main/strrchr.cpp:
     complete
     .text start:0x02004110 end:0x02004158
 
-src/Combat/Main/strstr.cpp:
+src/MSL/Main/strstr.cpp:
     complete
     .text start:0x02004158 end:0x020041c4
 
-src/Combat/Main/sys_exit.cpp:
+src/Runtime/Main/sys_exit.cpp:
     complete
     .text start:0x0200d780 end:0x0200d790
 
@@ -14060,7 +14045,7 @@ src/Combat/Main/FindSubEntry0209be84.cpp:
     complete
     .text start:0x0209dbfc end:0x0209dc50
 
-src/Combat/Main/func_0200ea68.cpp:
+src/Runtime/Main/func_0200ea68.cpp:
     complete
     .text start:0x0200e92c end:0x0200eb08
 
@@ -14632,7 +14617,7 @@ src/Combat/Main/Trans_0205ce50.cpp:
     complete
     .text start:0x0205e180 end:0x0205e1c4
 
-src/Combat/Main/IncrementDecimalCounter0200961c.cpp:
+src/MSL/Main/IncrementDecimalCounter0200961c.cpp:
     complete
     .text start:0x02009538 end:0x02009588
 
@@ -14672,11 +14657,11 @@ src/Combat/Main/func_0203232c.cpp:
     complete
     .text start:0x02031e64 end:0x02031ea8
 
-src/Combat/Main/UpdateByte4AndBumpCounter.cpp:
+src/MSL/Main/UpdateByte4AndBumpCounter.cpp:
     complete
     .text start:0x02009588 end:0x020095c8
 
-src/Combat/Main/func_020098fc.cpp:
+src/MSL/Main/func_020098fc.cpp:
     complete
     .text start:0x02009818 end:0x020098b4
 
@@ -16288,7 +16273,7 @@ src/Combat/Main/func_020de888.cpp:
     complete
     .text start:0x020e0204 end:0x020e02fc
 
-src/Combat/Main/func_0200d958.cpp:
+src/Runtime/Main/func_0200d958.cpp:
     complete
     .text start:0x0200d81c end:0x0200d8a8
 
@@ -16436,7 +16421,7 @@ src/Combat/Main/AppendSourceRectTag.cpp:
     complete
     .text start:0x02042238 end:0x02042294
 
-src/Combat/Main/StoreInitFnPointers_0200f29c.cpp:
+src/Runtime/Main/StoreInitFnPointers_0200f29c.cpp:
     complete
     .text start:0x0200f160 end:0x0200f180
 
@@ -16792,9 +16777,6 @@ src/Combat/Main/func_0209dcdc.cpp:
     complete
     .text start:0x0209fa54 end:0x0209ff44
 
-src/Combat/Main/func_02009dfc.cpp:
-    complete
-    .text start:0x02009d18 end:0x02009df8
 
 src/Combat/Main/func_02059720.cpp:
     complete
@@ -18144,7 +18126,7 @@ src/Combat/Main/UpdateCombatTextFrame.cpp:
     complete
     .text start:0x02023c44 end:0x02023d8c
 
-src/Combat/Main/func_0200eca0.cpp:
+src/Runtime/Main/func_0200eca0.cpp:
     complete
     .text start:0x0200eb64 end:0x0200ec50
 
@@ -18184,7 +18166,7 @@ src/Combat/Main/func_0206e424.cpp:
     complete
     .text start:0x0206f578 end:0x0206f6ac
 
-src/Combat/Main/sys_readc.cpp:
+src/Runtime/Main/sys_readc.cpp:
     complete
     .text start:0x0200d76c end:0x0200d780
 
@@ -18224,63 +18206,63 @@ src/World/WarpScriptOpcode6b.cpp:
     complete
     .text start:0x0201cdd0 end:0x0201d1b0
 
-src/Combat/Main/func_0200af44.cpp:
+src/MSL/Main/func_0200af44.cpp:
     complete
     .text start:0x0200ae60 end:0x0200aeac
 
-src/Combat/Main/func_0200afe8.cpp:
+src/MSL/Main/func_0200afe8.cpp:
     complete
     .text start:0x0200aeac end:0x0200af38
 
-src/Combat/Main/func_0200b074.cpp:
+src/MSL/Main/func_0200b074.cpp:
     complete
     .text start:0x0200af38 end:0x0200af78
 
-src/Combat/Main/func_0200b0b4.cpp:
+src/MSL/Main/func_0200b0b4.cpp:
     complete
     .text start:0x0200af78 end:0x0200afb4
 
-src/Combat/Main/func_0200b0f0.cpp:
+src/MSL/Main/func_0200b0f0.cpp:
     complete
     .text start:0x0200afb4 end:0x0200b318
 
-src/Combat/Main/func_0200bbe0.cpp:
+src/MSL/Main/func_0200bbe0.cpp:
     complete
     .text start:0x0200baa4 end:0x0200bb3c
 
-src/Combat/Main/func_0200c0e4.cpp:
+src/MSL/Main/func_0200c0e4.cpp:
     complete
     .text start:0x0200bfa8 end:0x0200c010
 
-src/Combat/Main/func_0200c14c.cpp:
+src/MSL/Main/func_0200c14c.cpp:
     complete
     .text start:0x0200c010 end:0x0200c078
 
-src/Combat/Main/func_0200c578.cpp:
+src/Runtime/Main/func_0200c578.cpp:
     complete
     .text start:0x0200c43c end:0x0200c4c0
 
-src/Combat/Main/func_0200c5fc.cpp:
+src/Runtime/Main/func_0200c5fc.cpp:
     complete
     .text start:0x0200c4c0 end:0x0200c4f4
 
-src/Combat/Main/func_0200c630.cpp:
+src/Runtime/Main/func_0200c630.cpp:
     complete
     .text start:0x0200c4f4 end:0x0200c534
 
-src/Combat/Main/func_0200c670.cpp:
+src/Runtime/Main/func_0200c670.cpp:
     complete
     .text start:0x0200c534 end:0x0200c57c
 
-src/Combat/Main/func_0200c6b8.cpp:
+src/Runtime/Main/func_0200c6b8.cpp:
     complete
     .text start:0x0200c57c end:0x0200c5c4
 
-src/Combat/Main/func_0200c7d4.cpp:
+src/Runtime/Main/func_0200c7d4.cpp:
     complete
     .text start:0x0200c698 end:0x0200c878
 
-src/Combat/Main/func_0200cf24.cpp:
+src/Runtime/Main/func_0200cf24.cpp:
     complete
     .text start:0x0200cde8 end:0x0200ce08
 
@@ -18517,9 +18499,6 @@ src/Combat/Main/func_02075df4.cpp:
     complete
     .text start:0x02076d10 end:0x02076f9c
 
-src/Combat/Main/func_02009edc.cpp:
-    complete
-    .text start:0x02009df8 end:0x0200a09c
 
 src/Combat/Main/func_020df374.cpp:
     complete

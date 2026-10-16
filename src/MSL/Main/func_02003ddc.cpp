@@ -1,5 +1,4 @@
 #include <globaldefs.h>
-#pragma optimize_for_size off
 
 struct Mutex;
 int TryLockMutex(Mutex*);

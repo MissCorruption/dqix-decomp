@@ -7,7 +7,6 @@ extern "C" ARM double func_02008f3c(double x);
 extern "C" ARM double func_02008848(double x);
 
 // USA: func_02005ac4
-#pragma optimize_for_size off
 extern "C" ARM double func_02005ac4(double y, double x) {
     int hx = ((int*)&x)[1];
     int hy = ((int*)&y)[1];
@@ -82,4 +81,3 @@ extern "C" ARM double func_02005ac4(double y, double x) {
                               3.1415926535897931160e+00);
     }
 }
-#pragma optimize_for_size reset

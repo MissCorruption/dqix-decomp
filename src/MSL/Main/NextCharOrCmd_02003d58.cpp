@@ -5,7 +5,6 @@ struct StreamCursor02003d58 {
     int field4;
 };
 
-#pragma optimize_for_size off
 
 // USA: func_02003d58  (semantic: NextCharOrCmd_02003d58)
 extern "C" ARM int func_02003d58(StreamCursor02003d58* obj, int val, int cmd) {

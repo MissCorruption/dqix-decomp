@@ -14,7 +14,6 @@ struct PatternList_0200e984 {
 extern "C" ARM int func_0200eff0(void* str, unsigned char* pattern, MatchState_0200e984* state);
 
 // USA: func_0200e984
-#pragma optimize_for_size off
 extern "C" ARM int func_0200e984(void* str, PatternList_0200e984* list) {
     unsigned char* entries = list->entries;
     unsigned int i = 0;

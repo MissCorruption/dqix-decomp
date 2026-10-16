@@ -3,7 +3,6 @@
 extern "C" double _dmul(double a, double b);
 
 // USA: func_0200911c  (semantic: Frexp0200911c)
-#pragma optimize_for_size off
 extern "C" ARM double func_0200911c(double value, int* exp, int pad) {
     int hi = ((int*)&value)[1];
     int lo = ((int*)&value)[0];

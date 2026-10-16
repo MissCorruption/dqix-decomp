@@ -10,7 +10,6 @@ struct VsnprintfState02003c80 {
 };
 
 // USA: func_02003c80
-#pragma optimize_for_size off
 extern "C" ARM unsigned int func_02003c80(char* buf, unsigned int sizeLimit, const char* fmt, void* args) {
     struct VsnprintfState02003c80 local;
     local.buf = buf;
