@@ -59,9 +59,9 @@ extern "C" ARM void *NSBXXNameList_Search(NSBXXNameList *nameList, const char *p
                     int bitInWord  = bitIndex & 0x1f;
                     int bitValue   = (targetWords[wordIndex] >> bitInWord) & 1;
                     int childIndex = node->children_[bitValue];
+                    bitIndex       = treeEntries[childIndex].bitIndex_;
                     prevBitIndex   = node->bitIndex_;
                     node           = &treeEntries[childIndex];
-                    bitIndex       = treeEntries[childIndex].bitIndex_;
 
                 } while (prevBitIndex > bitIndex);
             }
@@ -137,9 +137,9 @@ ARM int NSBXXNameList_SearchIndex(NSBXXNameList *nameList, const char *paddedNam
                     int bitInWord     = bitIndex & 0x1f;
                     int bitValue       = (targetWords[wordIndex] >> bitInWord) & 1;
                     int childIndex        = node->children_[bitValue];
+                    bitIndex           = treeEntries[childIndex].bitIndex_;
                     prevBitIndex       = node->bitIndex_;
                     node       = &treeEntries[childIndex];
-                    bitIndex           = treeEntries[childIndex].bitIndex_;
 
                 } while (prevBitIndex > bitIndex);
             }

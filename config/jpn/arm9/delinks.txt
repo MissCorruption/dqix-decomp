@@ -18677,3 +18677,7 @@ src/NitroSDK/Main/func_020be828.cpp:
 src/NitroSDK/Main/func_020be924.cpp:
     complete
     .text start:0x020c03f0 end:0x020c04b4
+
+src/NitroSDK/NSBXX/NameLookup.cpp:
+    complete
+    .text start:0x020b8e38 end:0x020b9160
