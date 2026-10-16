@@ -20408,3 +20408,11 @@ src/NitroSDK/Main/func_020d16b0.cpp:
     complete
     .text start:0x020d16c0 end:0x020d18b4
     .bss start:0x02112160 end:0x02112180
+
+src/NitroSDK/Main/func_020be828.cpp:
+    complete
+    .text start:0x020be838 end:0x020be934
+
+src/NitroSDK/Main/func_020be924.cpp:
+    complete
+    .text start:0x020be934 end:0x020be9f8
