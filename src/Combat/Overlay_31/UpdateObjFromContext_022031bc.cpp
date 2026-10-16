@@ -8,7 +8,7 @@ struct GlobalStruct0224c980_022031bc {
 	unsigned int field50;
 };
 
-extern "C" GlobalStruct0224c980_022031bc _ZZ18GetGlobal_02201364vE1s;
+extern GlobalStruct0224c980_022031bc data_ov031_0224c980;
 
 struct SomeObj_022031bc {
 	char pad0[0xa];
@@ -26,7 +26,7 @@ ARM void UpdateObjFromContext_022031bc(int a, unsigned short b, unsigned int c) 
 	if (obj == NULL) {
 		return;
 	}
-	unsigned int val = (c == 0x7f000001) ? _ZZ18GetGlobal_02201364vE1s.field50 : c;
+	unsigned int val = (c == 0x7f000001) ? data_ov031_0224c980.field50 : c;
 	obj->field1a = b;
 	obj->field18 = obj->field1a;
 	obj->field20 = val;

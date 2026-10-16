@@ -15,7 +15,7 @@ struct Ctx0224c980_02204710 {
 	unsigned char pad38[0x4c - 0x3c];
 	unsigned int field4c;
 };
-extern "C" Ctx0224c980_02204710 _ZZ18GetGlobal_02201364vE1s;
+extern Ctx0224c980_02204710 data_ov031_0224c980;
 
 // USA: func_ov031_02204710  (semantic: StartSessionAndDispatch_02204710)
 extern "C" ARM int func_ov031_02204710(int* out, int mode) {
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov031_02204710(int* out, int mode) {
 	ResetSessionState02203190();
 
 	if (mode == 1) {
-		UpdateObjFromContext_022031bc(0x44, 0x43, _ZZ18GetGlobal_02201364vE1s.field20);
+		UpdateObjFromContext_022031bc(0x44, 0x43, data_ov031_0224c980.field20);
 	} else {
 		UpdateObjFromContext_022031bc(0x44, 0x43, 0x43 - 0x44);
 	}
@@ -39,20 +39,20 @@ extern "C" ARM int func_ov031_02204710(int* out, int mode) {
 	ZeroField164_02203250();
 
 	if (result == 2) {
-		*out = _ZZ18GetGlobal_02201364vE1s.field4c >> 1;
-		_ZZ18GetGlobal_02201364vE1s.field38 = (_ZZ18GetGlobal_02201364vE1s.field4c + (_ZZ18GetGlobal_02201364vE1s.field4c << 1)) >> 3;
+		*out = data_ov031_0224c980.field4c >> 1;
+		data_ov031_0224c980.field38 = (data_ov031_0224c980.field4c + (data_ov031_0224c980.field4c << 1)) >> 3;
 		return 1;
 	}
 
-	unsigned int half = _ZZ18GetGlobal_02201364vE1s.field38 >> 1;
-	_ZZ18GetGlobal_02201364vE1s.field38 = half;
+	unsigned int half = data_ov031_0224c980.field38 >> 1;
+	data_ov031_0224c980.field38 = half;
 	*out = half;
 
 	switch (mode) {
 	case 1:
 		if (half < 0x3c) {
 			*out = 1;
-			_ZZ18GetGlobal_02201364vE1s.field38 = _ZZ18GetGlobal_02201364vE1s.field4c >> 3;
+			data_ov031_0224c980.field38 = data_ov031_0224c980.field4c >> 3;
 		}
 		break;
 	case 2:

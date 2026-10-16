@@ -13,15 +13,15 @@ struct GlobalStruct0224c980_02200534 {
 
 extern ProcessorContext data_ov031_0224cb28;
 extern ProcessorContext data_ov031_0224cbe8;
-extern "C" GlobalStruct0224c980_02200534 _ZZ18GetGlobal_02201364vE1s;
+extern GlobalStruct0224c980_02200534 data_ov031_0224c980;
 
 // USA: func_ov031_02200534  (semantic: ShutdownAndResetContexts_02200534)
 extern "C" ARM void func_ov031_02200534(void) {
     MarkContextReadyIfInactive_022004d4();
     AwaitContextCompletion(&data_ov031_0224cb28);
     ShutdownContext(&data_ov031_0224cbe8);
-    _ZZ18GetGlobal_02201364vE1s.field54 = 0;
+    data_ov031_0224c980.field54 = 0;
     func_ov031_02200160(0);
-    _ZZ18GetGlobal_02201364vE1s.field58 = 0;
-    _ZZ18GetGlobal_02201364vE1s.field5c = 0;
+    data_ov031_0224c980.field58 = 0;
+    data_ov031_0224c980.field5c = 0;
 }

@@ -14,7 +14,7 @@ struct IPv4Packet02202e44 {
     unsigned short destinationLow;
 };
 struct NetworkState02202e44 { char unknown0[0x40]; void (*release)(void*); char unknown44[0xc]; unsigned int address; };
-extern "C" NetworkState02202e44 _ZZ18GetGlobal_02201364vE1s;
+extern NetworkState02202e44 data_ov031_0224c980;
 extern "C" int func_ov031_022007a4(unsigned int);
 unsigned int ComputeNormalizedChecksum_02200684(void*, unsigned int);
 extern "C" void func_ov031_02200e38(void*, unsigned int, int);
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov031_02202e44(IPv4Packet02202e44* packet, unsigned int
         if (!func_ov031_022007a4(destination)) return;
         if (available < Swap16_02202e44(packet->length)) return;
         if (ComputeNormalizedChecksum_02200684(packet, (packet->header & 15) << 2) != 0xffff) return;
-        if (_ZZ18GetGlobal_02201364vE1s.address == DestinationAddress02202e44(packet))
+        if (data_ov031_0224c980.address == DestinationAddress02202e44(packet))
             func_ov031_02200e38((char*)packet - 8, SourceAddress02202e44(packet), 1);
     }
     int release;
@@ -47,9 +47,9 @@ extern "C" ARM void func_ov031_02202e44(IPv4Packet02202e44* packet, unsigned int
     void* payload = (char*)packet + ((packet->header & 15) << 2);
     unsigned int payloadLength = Swap16_02202e44(packet->length) - ((packet->header & 15) << 2);
     if (packet->protocol == 17) func_ov031_0220296c(packet, payload, payloadLength);
-    else if (_ZZ18GetGlobal_02201364vE1s.address) {
+    else if (data_ov031_0224c980.address) {
         if (packet->protocol == 1) func_ov031_02201bb4(packet, payload, payloadLength);
         else if (packet->protocol == 6) func_ov031_0220284c(packet, payload, payloadLength);
     }
-    if (release) _ZZ18GetGlobal_02201364vE1s.release((char*)packet - 14);
+    if (release) data_ov031_0224c980.release((char*)packet - 14);
 }

@@ -10,20 +10,20 @@ struct StateBlock0224c980_0220419c {
     unsigned char pad1[0x34];
     unsigned int field34;
 };
-extern "C" StateBlock0224c980_0220419c _ZZ18GetGlobal_02201364vE1s;
+extern StateBlock0224c980_0220419c data_ov031_0224c980;
 
 // USA: func_ov031_0220419c
 extern "C" ARM int func_ov031_0220419c(void) {
     int outVal;
     unsigned char* buf = data_ov031_0224ced6;
     unsigned char* ip = func_ov031_02203fdc(buf, 1, &outVal);
-    if (_ZZ18GetGlobal_02201364vE1s.field34 != 0) {
+    if (data_ov031_0224c980.field34 != 0) {
         ip[0] = 0x32;
         ip[1] = 4;
-        ip[2] = (unsigned char)((unsigned short)(_ZZ18GetGlobal_02201364vE1s.field34 >> 16) >> 8);
-        ip[3] = (unsigned char)(_ZZ18GetGlobal_02201364vE1s.field34 >> 16);
-        ip[4] = (unsigned char)((unsigned short)_ZZ18GetGlobal_02201364vE1s.field34 >> 8);
-        ip[5] = (unsigned char)_ZZ18GetGlobal_02201364vE1s.field34;
+        ip[2] = (unsigned char)((unsigned short)(data_ov031_0224c980.field34 >> 16) >> 8);
+        ip[3] = (unsigned char)(data_ov031_0224c980.field34 >> 16);
+        ip[4] = (unsigned char)((unsigned short)data_ov031_0224c980.field34 >> 8);
+        ip[5] = (unsigned char)data_ov031_0224c980.field34;
         ip += 6;
     }
     ip[0] = 0xff;

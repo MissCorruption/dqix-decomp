@@ -10,7 +10,7 @@ struct GlobalStruct0224c980_022032a4 {
 	char pad[0x50];
 	int field50;
 };
-extern "C" GlobalStruct0224c980_022032a4 _ZZ18GetGlobal_02201364vE1s;
+extern GlobalStruct0224c980_022032a4 data_ov031_0224c980;
 
 struct Obj_022032a4 {
 	char pad0[0x4];
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov031_022032a4(Obj_022032a4* obj) {
 		func_ov031_02201f10((int)obj, mode, 0x18);
 
 		int oldIRQ = DisableIRQInterrupts();
-		if (obj->field8 == 2 && _ZZ18GetGlobal_02201364vE1s.field50 != 0) {
+		if (obj->field8 == 2 && data_ov031_0224c980.field50 != 0) {
 			obj->field4 = 1;
 			BlockCurrentContext(NULL);
 		}
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov031_022032a4(Obj_022032a4* obj) {
 		if (obj->field8 == 4) {
 			return 0;
 		}
-		if (_ZZ18GetGlobal_02201364vE1s.field50 == 0) break;
+		if (data_ov031_0224c980.field50 == 0) break;
 		tries = tries + 1;
 	} while (tries < 3);
 	return 1;

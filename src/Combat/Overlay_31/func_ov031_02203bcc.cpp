@@ -16,28 +16,28 @@ struct GlobalStruct0224c980_02203bcc {
 	int field50;
 };
 
-extern "C" GlobalStruct0224c980_02203bcc _ZZ18GetGlobal_02201364vE1s;
+extern GlobalStruct0224c980_02203bcc data_ov031_0224c980;
 
 // USA: func_ov031_02203bcc
 extern "C" ARM int func_ov031_02203bcc(void) {
-	_ZZ18GetGlobal_02201364vE1s.field18();
-	int f50 = _ZZ18GetGlobal_02201364vE1s.field50;
+	data_ov031_0224c980.field18();
+	int f50 = data_ov031_0224c980.field50;
 	if (f50 == 0) {
 		return f50;
 	}
-	func_ov031_02200ccc(_ZZ18GetGlobal_02201364vE1s.field50);
+	func_ov031_02200ccc(data_ov031_0224c980.field50);
 	SleepCurrentContext(0x64);
-	func_ov031_02200ccc(_ZZ18GetGlobal_02201364vE1s.field50);
+	func_ov031_02200ccc(data_ov031_0224c980.field50);
 	unsigned int t0 = (unsigned int)(GetCurrentTimestamp() >> 16);
 	goto checkExit;
 retry:
-	if (_ZZ18GetGlobal_02201364vE1s.field1 != 0) {
+	if (data_ov031_0224c980.field1 != 0) {
 		return func_ov031_02200160(4);
 	}
 	SleepCurrentContext(0x64);
 checkExit:
 	{
-		int r = _ZZ18GetGlobal_02201364vE1s.field48();
+		int r = data_ov031_0224c980.field48();
 		if (r == 0) {
 			return r;
 		}

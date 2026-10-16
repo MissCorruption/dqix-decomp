@@ -5,9 +5,9 @@ struct GlobalStruct0224c980_02200524 {
 	int field3c;
 };
 
-extern "C" GlobalStruct0224c980_02200524 _ZZ18GetGlobal_02201364vE1s;
+extern GlobalStruct0224c980_02200524 data_ov031_0224c980;
 
 // USA: func_ov031_02200524
 ARM void SetGlobal0224c980Field3c_02200524(int v) {
-	_ZZ18GetGlobal_02201364vE1s.field3c = v;
+	data_ov031_0224c980.field3c = v;
 }
