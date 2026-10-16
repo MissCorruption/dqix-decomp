@@ -2027,3 +2027,15 @@ src/Combat/Overlay_3/func_ov003_02173f70.cpp:
     complete
     .text start:0x02173f70 end:0x02174114
     .bss start:0x02180cc8 end:0x02180cd0
+
+src/Combat/Overlay_3/func_ov003_021737e4.cpp:
+    complete
+    .text start:0x021737e4 end:0x02173af4
+
+src/Combat/Overlay_3/func_ov003_02172e84.cpp:
+    complete
+    .text start:0x02172e84 end:0x021733cc
+
+src/Combat/Overlay_3/func_ov003_0217cf10.cpp:
+    complete
+    .text start:0x0217cf10 end:0x0217d53c
