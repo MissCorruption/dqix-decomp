@@ -55,7 +55,7 @@ EffectSource* GetNodeAtIndex02160094(List02160094*, int);
 EffectTarget* GetNodeAtIndex021600f8(List021600f8*, int);
 void InitStruct02078484(InitStruct02078484Struct*);
 EffectWork* GetActiveCombatWork_ov000_02160130();
-void* FindNodeAndProcess02057fb4(void*, int, int);
+void* FindNodeAndProcess02057fb4(void*, int, void*);
 void** GetSlotPtr_021e8cf0_021e8cf0(char*, int);
 
 static inline void ScaleHorizontal(Vector3i* offset, int factor) {
@@ -120,7 +120,7 @@ extern "C" ARM int func_ov025_021e41a0(EffectCommand* command, List021600f8* lis
     }
     EffectWork* work = GetActiveCombatWork_ov000_02160130();
     work->id = command->id;
-    void* instance = FindNodeAndProcess02057fb4(manager, command->id, (int)&effect);
+    void* instance = FindNodeAndProcess02057fb4(manager, command->id, &effect);
     void** slot = GetSlotPtr_021e8cf0_021e8cf0(data_ov025_021ef988.slots, command->slot);
     if (slot) *slot = instance;
     return 1;

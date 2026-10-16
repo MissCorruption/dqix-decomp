@@ -143,7 +143,7 @@ extern "C" float func_0200c700(int);
 short ClampScaledStat_0216352c(int id, float a, float b);
 extern "C" int func_ov000_021635e4(int id, unsigned char mode);
 int IsCombatantStateSpecial02163c0c(void* unused, int id);
-void FindNodeAndProcess02057fb4(void* list, int id, int a3);
+void FindNodeAndProcess02057fb4(void* list, int id, void* config);
 void DispatchIfField0xc4NonNeg_0205ebfc(void* obj, int a, int b);
 int IsIdUnique021ee438(struct Ctx021ee438* obj, int id);
 extern "C" void func_ov025_021dcf14(void* combatWork);
@@ -466,7 +466,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                     if (cw[Field6ff9] != 0 && IsCombatantStateSpecial02163c0c(cw, targetId3) != 0) {
                         params.pos.y += 0xe66;
                     }
-                    FindNodeAndProcess02057fb4(spawnObj, obj->entries[i].k, (int)&params);
+                    FindNodeAndProcess02057fb4(spawnObj, obj->entries[i].k, &params);
                 }
 
                 if (obj->entries[i].d & 0x20) SetMainBrightness((GameResources*)p54, 0x10, 0xf);

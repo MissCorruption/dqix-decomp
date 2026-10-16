@@ -34,7 +34,7 @@ void InitStruct02078484(struct InitStruct02078484Struct* p);
 
 struct Vector3i;
 
-void FindNodeAndProcess02057fb4(void* list, int id, int a3);
+void FindNodeAndProcess02057fb4(void* list, int id, void* config);
 
 int CheckField0NonZero_0202b7d8(int* obj);
 
@@ -72,7 +72,7 @@ extern "C" ARM int func_0207853c(struct Entity0207853c* obj) {
         *(Vector3i*)&s.f2c = *(Vector3i const*)&obj->f44;
         const Vector3fix& tmp = ((Object3D*)obj)->GetScale();
         *(Vector3i*)&s.f44 = *(Vector3i const*)((int*)&tmp);
-        FindNodeAndProcess02057fb4(list, obj->f178, (int)&s);
+        FindNodeAndProcess02057fb4(list, obj->f178, &s);
     }
 
     if (CheckField0NonZero_0202b7d8((int*)g) && GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)g) == 0) {

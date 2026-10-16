@@ -40,7 +40,7 @@ struct InitStruct02078484Struct {
 };
 void InitStruct02078484(struct InitStruct02078484Struct* p);
 
-void FindNodeAndProcess02057fb4(void* list, int id, int a3);
+void FindNodeAndProcess02057fb4(void* list, int id, void* config);
 
 struct Actor02078398 : Object3D {
     char padac[0x6];
@@ -72,7 +72,7 @@ extern "C" ARM void func_02078398(struct Actor02078398* obj) {
                 InitStruct02078484(&s);
                 s.f2c = obj->position_;
                 s.f44 = obj->GetScale();
-                FindNodeAndProcess02057fb4(list, (int)obj->f178, (int)&s);
+                FindNodeAndProcess02057fb4(list, (int)obj->f178, &s);
             }
         }
     }

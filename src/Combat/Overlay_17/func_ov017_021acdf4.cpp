@@ -106,7 +106,7 @@ extern "C" int func_02057e6c(void* mgr, int id, SafeAllocator* alloc, void* data
 void CopyCountedBytesToIntArray02010834(Base02010834* base, int index, int* out, int* outCount);
 extern "C" int func_0202c508(void* p);
 unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
-void FindNodeAndProcess02057fb4(void* list, int id, int params);
+void FindNodeAndProcess02057fb4(void* list, int id, void* params);
 int CheckField0NonZero_0202b7d8(int* p);
 void EnqueueEventTag17_021ce014(int id, unsigned short a, unsigned short b, unsigned short c);
 void SetForwardAndStore0205ebc0(void* obj, int arg1, int arg2);
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov017_021acdf4(Battle021acdf4* self, HeadList020469f8* 
                     params[k].b7 = 0;
                     params[k].position = ((Object3D*)member)->position_;
                     params[k].scale = ((Object3D*)member)->GetScale();
-                    FindNodeAndProcess02057fb4(mgr, 8, (int)&params[k]);
+                    FindNodeAndProcess02057fb4(mgr, 8, &params[k]);
                 }
             }
         }

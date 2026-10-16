@@ -5,7 +5,7 @@ extern "C" void func_020489e8(void* obj);
 struct Bytes02033b88;
 void SetByte0xbeShiftPrev(Bytes02033b88*, int);
 extern "C" void* func_02057924(void);
-void FindNodeAndProcess02057fb4(void*, int, int);
+void FindNodeAndProcess02057fb4(void*, int, void*);
 
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
@@ -105,7 +105,7 @@ extern "C" ARM void func_02048690(void* selfp) {
     s.f48 = f;
     s.f4c = f;
 
-    FindNodeAndProcess02057fb4(list, 2, (int)&s);
+    FindNodeAndProcess02057fb4(list, 2, &s);
     DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 0x32, 0);
 
     self->flagE0 = 0;

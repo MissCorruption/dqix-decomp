@@ -65,7 +65,7 @@ void InitStruct02078484(InitStruct02078484Struct* p);
 extern "C" void* func_ov000_02160f14(void* obj);
 void StoreFields0x1e4And0x1e8IfNonZero_0202ea10(unsigned char* obj, int a, int b);
 short ClampScaledStat_0216352c(int id, float a, float b);
-void FindNodeAndProcess02057fb4(void* list, int id, int argument);
+void FindNodeAndProcess02057fb4(void* list, int id, void* argument);
 extern "C" void* func_02057924(void);
 GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* battleStruct, int combatantId);
 extern "C" void func_ov025_021eb6fc(Obj021eb6fc* self, int force);
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov025_021e9778(void* self) {
                 s.f48 = t;
                 s.f4c = t;
             }
-            FindNodeAndProcess02057fb4(list, 4, (int)&s);
+            FindNodeAndProcess02057fb4(list, 4, &s);
             data_ov025_021ef9a4 |= 0x400;
         }
     }

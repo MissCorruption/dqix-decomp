@@ -75,7 +75,7 @@ void BackupPairTables0207dfac(char* obj);
 struct NodeList02057de0;
 extern "C" void* func_02057924(void);
 int CreateAndRegisterNode02057de0(struct NodeList02057de0* list, int a1, SafeAllocator* alloc, int a2, int a3);
-int FindNodeAndProcess02057fb4(void* list, int id, int params);
+int FindNodeAndProcess02057fb4(void* list, int id, void* params);
 
 struct Vector3i;
 
@@ -365,7 +365,7 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
 
         *(Vector3i*)&params.f2c = *(Vector3i const*)&pos.x;
         *(Vector3i*)&params.f44 = *(Vector3i const*)&scale.x;
-        obj->nodeId = FindNodeAndProcess02057fb4(nodes, 0x11, (int)&params);
+        obj->nodeId = FindNodeAndProcess02057fb4(nodes, 0x11, &params);
 
         struct Vec3s02184354 anchor;
         anchor.x = (short)(pos.x >> 4);

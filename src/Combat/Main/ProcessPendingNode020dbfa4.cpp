@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 extern "C" void* func_02057924(void);
 
-void FindNodeAndProcess02057fb4(void* list, int id, int a3);
+void FindNodeAndProcess02057fb4(void* list, int id, void* config);
 
 struct Obj020dbfa4 {
     char pad0[8];
@@ -14,7 +14,7 @@ struct Obj020dbfa4 {
 // USA: func_020dbfa4
 ARM void ProcessPendingNode020dbfa4(struct Obj020dbfa4* o, int arg1) {
     if (o->word_10 == 2 && o->byte_14 == 0) {
-        FindNodeAndProcess02057fb4(func_02057924(), o->word_8, arg1);
+        FindNodeAndProcess02057fb4(func_02057924(), o->word_8, (void*)arg1);
         o->byte_14 = 1;
     }
 }

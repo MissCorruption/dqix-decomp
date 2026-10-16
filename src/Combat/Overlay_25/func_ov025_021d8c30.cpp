@@ -198,7 +198,7 @@ extern "C" int func_ov025_021ed444(char* obj, int id, int val2, int type, int va
 extern "C" int func_ov025_021ed380(char* obj, int id, int val2, int type, int val3, short val4, unsigned short val5);
 extern "C" void* func_02057924(void);
 void InitStruct02078484(struct InitStruct02078484Struct* p);
-void FindNodeAndProcess02057fb4(void* list, int id, int a3);
+void FindNodeAndProcess02057fb4(void* list, int id, void* config);
 int TestBit0At0x2f4_02085078(unsigned char* obj);
 int TestBit1At0x2f4_020850a4(unsigned char* obj);
 extern "C" int func_ov000_0215fd90(void* entry, int effect);
@@ -536,7 +536,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
                 off.z = slotObj->obj3D_.GetRadius() >> 1;
                 req.offset = off;
                 req.objectId = slotObj->obj3D_.unknown_4_;
-                FindNodeAndProcess02057fb4(list, soundId, (int)&req);
+                FindNodeAndProcess02057fb4(list, soundId, &req);
                 int text;
                 if (critical) {
                     text = IsPartyMember(slotId) ? 0x28 : 0x29;
@@ -614,7 +614,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             }
             if (soundId == 0x21 || soundId == 0x23) off.z = 0xb33;
             req.offset = off;
-            FindNodeAndProcess02057fb4(list, soundId, (int)&req);
+            FindNodeAndProcess02057fb4(list, soundId, &req);
         }
         if (sb->pendingA) {
             func_ov025_021ed444((char*)(sl + MessageQueue), sb->pendingA, -1, 0, 0, -1, 0);
@@ -1081,7 +1081,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
             out.x = 0;
         }
         req.offset = out;
-        FindNodeAndProcess02057fb4(list, soundId, (int)&req);
+        FindNodeAndProcess02057fb4(list, soundId, &req);
     }
 
     if (IsPartyMember(id)) {

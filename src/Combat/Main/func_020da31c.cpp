@@ -30,7 +30,7 @@ struct State0205a180 {
 };
 extern "C" void* func_02057924();
 void InitStruct02078484(InitStruct02078484Struct*);
-void FindNodeAndProcess02057fb4(void*, int, int);
+void FindNodeAndProcess02057fb4(void*, int, void*);
 void* GetInlineRecordByBattleId_02058658(void*, int);
 void StoreZeroAndField0xb6ToOut(State0205a180*);
 void DispatchIfField0xc4NonNeg_0205ebfc(void*, int, int);
@@ -59,7 +59,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
             effect.scale.x = 0x1000;
             effect.scale.y = 0x1000;
             effect.scale.z = 0x1000;
-            FindNodeAndProcess02057fb4(manager, 0x14, (int)&effect);
+            FindNodeAndProcess02057fb4(manager, 0x14, &effect);
         }
         int timer = ((ActorView_020da31c*)actor)->timer;
         int distance = fix32SignedAngleDistance(actor->obj3D_.rotation_.y, ((ActorView_020da31c*)actor)->direction);
@@ -75,7 +75,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
         effect.scale.z = 200;
         sprintf(effect.filename, data_020f2884, data_020f2887);
         effect.flags |= 0x40;
-        FindNodeAndProcess02057fb4(manager, 0x15, (int)&effect);
+        FindNodeAndProcess02057fb4(manager, 0x15, &effect);
         break;
     }
     case 2: {
@@ -95,7 +95,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
             effect.scale.x = 0x3000;
             effect.scale.y = 0x1000;
             effect.scale.z = 0x3000;
-            FindNodeAndProcess02057fb4(manager, 0x14, (int)&effect);
+            FindNodeAndProcess02057fb4(manager, 0x14, &effect);
         }
         if (++event->ticks < 7) return;
         event->ticks = 0;
@@ -107,7 +107,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
         effect.scale.y = 225;
         effect.scale.z = 225;
         sprintf(effect.filename, data_020f2884, data_020f2887);
-        FindNodeAndProcess02057fb4(manager, 0x15, (int)&effect);
+        FindNodeAndProcess02057fb4(manager, 0x15, &effect);
         break;
     }
     case 3: {
@@ -146,7 +146,7 @@ extern "C" ARM void func_020da31c(Event_020da31c* event) {
                 effect.scale.z = 0x199;
                 sprintf(effect.filename, data_020f2884, data_020f2887);
                 effect.flags |= 0xb8;
-                FindNodeAndProcess02057fb4(manager, 0x16, (int)&effect);
+                FindNodeAndProcess02057fb4(manager, 0x16, &effect);
                 event->started = 1;
                 DispatchIfField0xc4NonNeg_0205ebfc(data_02108760, 1, 0);
             } else {
