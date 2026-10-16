@@ -5,7 +5,7 @@ extern Struct021707d8_0215adf8 data_ov004_021707d8;
 
 extern "C" double _dflt(int);
 extern "C" double func_020095a4(double, double);
-extern "C" int func_0200af44(double);
+extern "C" int _dfix(double);
 extern "C" void func_ov011_021848a0(void* obj, int val);
 
 // USA: func_ov004_0215adf8
@@ -14,7 +14,7 @@ ARM int ComputeChecksumAndNotify_0215adf8(void* obj) {
     *(int*)(data_ov004_021707d8.ptr + 0x78) = 0;
     for (i = 0; i < 7; i++) {
         double di = _dflt(i);
-        int weight = func_0200af44(func_020095a4(10.0, di));
+        int weight = _dfix(func_020095a4(10.0, di));
         signed char digit = *(signed char*)(data_ov004_021707d8.ptr + i + 0x3f);
         int total = *(int*)(data_ov004_021707d8.ptr + 0x78);
         total = weight * digit + total;
