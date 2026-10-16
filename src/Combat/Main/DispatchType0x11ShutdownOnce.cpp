@@ -9,19 +9,19 @@ struct ShutdownGuard020d18d0 {
     int _pad1[2];
     int (*callback)(void);
 };
-extern ShutdownGuard020d18d0 data_02112160;
+extern "C" ShutdownGuard020d18d0 _ZZ20GetInitFlags020d16b0vE1s;
 
 // USA: func_020d18d0
 ARM void DispatchType0x11ShutdownOnce_020d18d0(int context, int code) {
     if ((code & 0x3f) == 0x11) {
-        if (data_02112160.done != 0) return;
+        if (_ZZ20GetInitFlags020d16b0vE1s.done != 0) return;
         {
-            int (*cb)(void) = data_02112160.callback;
+            int (*cb)(void) = _ZZ20GetInitFlags020d16b0vE1s.callback;
             int r = 0;
             if (cb != 0) r = cb();
             if (r != 0) SpinDrainAfterWait_020d192c();
         }
-        data_02112160.done = 1;
+        _ZZ20GetInitFlags020d16b0vE1s.done = 1;
         return;
     }
     func_020c9be0();

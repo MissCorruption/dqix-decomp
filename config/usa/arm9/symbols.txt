@@ -7943,7 +7943,7 @@ data_02111f20 kind:bss addr:0x02111f20
 data_02112140 kind:bss addr:0x02112140
 data_02112148 kind:bss addr:0x02112148
 data_0211214c kind:bss addr:0x0211214c
-data_02112160 kind:bss addr:0x02112160
+_ZZ20GetInitFlags020d16b0vE1s kind:bss addr:0x02112160
 data_02112180 kind:bss addr:0x02112180
 data_02112184 kind:bss addr:0x02112184
 data_02112240 kind:bss addr:0x02112240
