@@ -6350,7 +6350,7 @@ data_020e7b60 kind:data(any) addr:0x020e7b60
 data_020e7b68 kind:data(any) addr:0x020e7b68
 data_020e7b70 kind:data(any) addr:0x020e7b70
 data_020e7b98 kind:data(any) addr:0x020e7b98
-data_020e7bb8 kind:data(any) addr:0x020e7bb8
+@246 kind:data(any) addr:0x020e7bb8 local
 data_020e7bd4 kind:data(any) addr:0x020e7bd4
 data_020e7bd6 kind:data(any) addr:0x020e7bd6
 data_020e7bd8 kind:data(any) addr:0x020e7bd8
@@ -7710,7 +7710,7 @@ data_021078a8 kind:bss addr:0x021078a8
 data_021078ac kind:bss addr:0x021078ac
 data_021078e0 kind:bss addr:0x021078e0
 data_021078e4 kind:bss addr:0x021078e4
-data_02107918 kind:bss addr:0x02107918
+sLastTotal$241 kind:bss addr:0x02107918 local
 s_dayThresholds kind:bss addr:0x0210791c local
 s_lightingManager kind:bss addr:0x02107930 local
 data_021079cc kind:bss addr:0x021079cc
