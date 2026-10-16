@@ -2021,3 +2021,9 @@ src/Combat/Overlay_3/func_ov003_02166220.cpp:
     complete
     .text start:0x02166220 end:0x0216664c
 
+
+
+src/Combat/Overlay_3/func_ov003_02173f70.cpp:
+    complete
+    .text start:0x02173f70 end:0x02174114
+    .bss start:0x02180cc8 end:0x02180cd0

@@ -977,6 +977,7 @@ data_ov003_02180cb8 kind:bss addr:0x02180cb8
 data_ov003_02180cc0 kind:bss addr:0x02180cc0
 data_ov003_02180cc4 kind:bss addr:0x02180cc4
 data_ov003_02180cc8 kind:bss addr:0x02180cc8
+allocatorSizesInitialized02173f70 kind:bss addr:0x02180ccc local
 data_ov003_02180cd0 kind:bss addr:0x02180cd0
 data_ov003_02180ce0 kind:bss addr:0x02180ce0
 data_ov003_02180cec kind:bss addr:0x02180cec
