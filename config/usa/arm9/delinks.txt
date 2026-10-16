@@ -20650,3 +20650,8 @@ src/NitroSDK/Main/func_020d0f40.cpp:
 src/NitroSDK/Main/func_020d0f74.cpp:
     complete
     .text start:0x020d0f74 end:0x020d0fc4
+
+
+src/NitroSDK/Main/ColorEffect_ConfigureBrightnessAdjust.cpp:
+    complete
+    .text start:0x020c5100 end:0x020c5128
