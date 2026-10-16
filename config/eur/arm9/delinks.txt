@@ -13036,11 +13036,6 @@ src/NitroSDK/Main/func_020b7ba0.cpp:
     complete
     .text start:0x020b7bb0 end:0x020b7f64
 
-
-src/Graphics/NSBXX/MAM.cpp:
-    complete
-    .text start:0x020b8e70 end:0x020b9288
-
 src/NitroSDK/NSBXX/VAV.cpp:
     complete
     .text start:0x020b993c end:0x020b99c0
@@ -14221,13 +14216,11 @@ src/NitroSDK/Main/_Z18GetContextPriorityP16ProcessorContext.cpp:
     complete
     .text start:0x020c7b48 end:0x020c7b50
 
-
-src/Combat/Main/_Z17SetContextEndProcP16ProcessorContextPFviE.cpp:
+src/NitroSDK/Main/_Z17SetContextEndProcP16ProcessorContextPFviE.cpp:
     complete
     .text start:0x020c7cb8 end:0x020c7cc0
 
-
-src/Combat/Main/InitializeContextRegisters_020c7cb0.cpp:
+src/NitroSDK/Main/InitializeContextRegisters_020c7cb0.cpp:
     complete
     .text start:0x020c7cc0 end:0x020c7d44
 
@@ -14613,8 +14606,7 @@ src/NitroSDK/Main/func_020cdfd8.cpp:
     complete
     .text start:0x020cdfe8 end:0x020ce10c
 
-
-src/Combat/Main/WaitWhileFlagsSet.cpp:
+src/NitroSDK/Main/WaitWhileFlagsSet.cpp:
     complete
     .text start:0x020ce10c end:0x020ce124
 
@@ -14838,8 +14830,7 @@ src/NitroSDK/Main/PrepareAndCommit020d0050.cpp:
     complete
     .text start:0x020d0060 end:0x020d0088
 
-
-src/Combat/Main/GetBattleSysInnerField4.cpp:
+src/NitroSDK/Main/GetBattleSysInnerField4.cpp:
     complete
     .text start:0x020d06e4 end:0x020d06f8
 
@@ -17288,8 +17279,7 @@ src/Combat/Main/0206f81c.cpp:
     complete
     .text start:0x0206f82c end:0x02070388
 
-
-src/Combat/Main/020c6938.cpp:
+src/NitroSDK/Main/020c6938.cpp:
     complete
     .text start:0x020c6948 end:0x020c6964
 
