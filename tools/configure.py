@@ -30,6 +30,11 @@ CC_OVERRIDES_PATH = "tools/cc_overrides.txt"
 MWCC_VERSION = os.environ.get("DQIX_MWCC", "2.0/sp2p2") # minimum version required to match fixed point s64 arithmetic around 0x02030f30 (not sdk code). might need p3 or p4?
 SDK_MWCC_VERSION = "2.0/sp1p2" # OS_VSNPrintf (0x020d3160) overgenerates on sp1p5 and later
 SDK_OPT_LEVEL = "-O4,p"
+LIBRARY_BUILDS = {
+    "sdk": ("NitroSDK", SDK_MWCC_VERSION, [SDK_OPT_LEVEL]),
+    "msl": ("MSL", MWCC_VERSION, ["-O4,p", "-ipa", "file"]),
+    "runtime": ("Runtime", MWCC_VERSION, ["-O4,p", "-char", "unsigned"]),
+}
 DECOMP_ME_COMPILER = "mwcc_30_137"
 CC_FLAGS = " ".join([
     "-O2",                  # Optimize maximally, omit p: it optimizes out things that the game doesn't normally
@@ -140,7 +145,7 @@ WINE_DEP = [WINE] if platform.system != "windows" and WINE == DEFAULT_WIBO_PATH 
 DSD = str(args.dsd or os.path.join('.', str(root_path / f"dsd{EXE}")))
 OBJDIFF = os.path.join('.', str(root_path / f"objdiff-cli{EXE}"))
 CC = os.path.join('.', str(mwcc_path / "mwccarm.exe"))
-SDK_CC = os.path.join('.', str(mwcc_root / SDK_MWCC_VERSION / "mwccarm.exe"))
+LIBRARY_CCS = sorted({os.path.join('.', str(mwcc_root / b[1] / "mwccarm.exe")) for b in LIBRARY_BUILDS.values()} - {CC})
 LD = os.path.join('.', str(mwcc_path / "mwldarm.exe"))
 # Assembler, for the handful of files that cannot be expressed in C: the secure-area BIOS
 # stubs need raw fill bytes emitted next to them and a second exported symbol inside one
@@ -383,7 +388,7 @@ def add_download_tool_builds(n: ninja_syntax.Writer):
     if args.compiler is None:
         n.build(
             rule="download_tool",
-            outputs=[CC, SDK_CC, LD, AS],
+            outputs=[CC, *LIBRARY_CCS, LD, AS],
             variables={
                 "tool": "mwccarm",
                 "tag": "latest",
@@ -507,10 +512,11 @@ def add_mwcc_builds(n: ninja_syntax.Writer, project: Project, mwcc_implicit: lis
         implicit = mwcc_implicit
         # per-file compiler override (see tools/cc_overrides.txt)
         _cc_exe = CC
-        if is_source_file_sdk(source_file):
-            _cc_exe = SDK_CC
-            cc_flags.append(SDK_OPT_LEVEL)
-            implicit = mwcc_implicit + [SDK_CC]
+        library = library_build(source_file)
+        if library:
+            _cc_exe = os.path.join('.', str(mwcc_root / library[1] / "mwccarm.exe"))
+            cc_flags.extend(library[2])
+            implicit = mwcc_implicit + [_cc_exe]
         _ovr = CC_OVERRIDES.get(str(source_file).replace("\\", "/"))
         if _ovr:
             _cc_exe = os.path.join(".", str(mwcc_root / _ovr / "mwccarm.exe"))
@@ -544,8 +550,9 @@ def add_mwcc_builds(n: ninja_syntax.Writer, project: Project, mwcc_implicit: lis
         n.newline()
 
 
-def is_source_file_sdk(src: Path):
-    return src_path / "NitroSDK" in Path(src).parents
+def library_build(src: Path):
+    parents = Path(src).parents
+    return next((b for b in LIBRARY_BUILDS.values() if src_path / b[0] in parents), None)
 
 
 def get_source_files(dirs: list[Path]):
