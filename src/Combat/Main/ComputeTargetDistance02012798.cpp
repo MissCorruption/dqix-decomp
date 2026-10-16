@@ -11,11 +11,11 @@ struct DistObj02012798 {
 
 extern "C" int _dflt(int);
 extern "C" int func_0200b454(int);
-extern "C" int func_0200af44(int);
+extern "C" int _dfix(int);
 
 // USA: func_02012798
 ARM int ComputeTargetDistance02012798(struct DistObj02012798* obj) {
     int dx = obj->tx - obj->x;
     int dy = obj->ty - obj->y;
-    return func_0200af44(func_0200b454(_dflt(dx * dx + dy * dy)));
+    return _dfix(func_0200b454(_dflt(dx * dx + dy * dy)));
 }

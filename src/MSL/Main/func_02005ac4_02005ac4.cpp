@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" ARM double func_0200ab28(double a, double b);
+extern "C" ARM double _dadd(double a, double b);
 extern "C" ARM double _dsub(double a, double b);
 extern "C" ARM double _ddiv(double a, double b);
 extern "C" ARM double func_02008f3c(double x);
@@ -17,7 +17,7 @@ extern "C" ARM double func_02005ac4(double y, double x) {
 
     if (((ix | ((lx | -lx) >> 31)) > 0x7ff00000) ||
         ((iy | ((ly | -ly) >> 31)) > 0x7ff00000)) {
-        return func_0200ab28(x, y);
+        return _dadd(x, y);
     }
     if (((hx - 0x3ff00000) | (int)lx) == 0) return func_02008848(y);
 
