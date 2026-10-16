@@ -20,7 +20,7 @@ struct AddressPacket02200ccc {
     unsigned short targetHigh;
     unsigned short targetLow;
 };
-extern AddressState02200ccc data_ov031_0224c980;
+extern "C" AddressState02200ccc _ZZ18GetGlobal_02201364vE1s;
 extern unsigned char data_ov031_0224ce68[6];
 void CopyHeaderAndDispatch_02200850(void*, unsigned int, void*, unsigned int);
 
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov031_02200ccc(unsigned int address) {
     VectorizedInvertedMemcpy(data_ov031_0224ce68, packet.sender, 6);
     unsigned short targetHigh;
     unsigned short targetLow;
-    unsigned int source = data_ov031_0224c980.address;
+    unsigned int source = _ZZ18GetGlobal_02201364vE1s.address;
     unsigned short sourceHigh = source >> 16;
     unsigned short sourceLow = source;
     targetHigh = address >> 16;

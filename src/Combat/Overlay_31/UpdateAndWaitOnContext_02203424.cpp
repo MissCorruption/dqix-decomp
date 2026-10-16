@@ -10,7 +10,7 @@ struct GlobalStruct0224c980_02203424 {
 	char pad[0x48];
 	FnPtr02203424 field48;
 };
-extern GlobalStruct0224c980_02203424 data_ov031_0224c980;
+extern "C" GlobalStruct0224c980_02203424 _ZZ18GetGlobal_02201364vE1s;
 
 // USA: func_ov031_02203424
 ARM void UpdateAndWaitOnContext_02203424(void) {
@@ -20,7 +20,7 @@ ARM void UpdateAndWaitOnContext_02203424(void) {
 		func_ov031_0220aa30(mgr);
 	}
 	int start = (int)(GetCurrentTimestamp() >> 16);
-	while (data_ov031_0224c980.field48() != 0 && *((unsigned char*)mgr + 8) != 0
+	while (_ZZ18GetGlobal_02201364vE1s.field48() != 0 && *((unsigned char*)mgr + 8) != 0
 	       && (int)(GetCurrentTimestamp() >> 16) - start < 0x27) {
 		DispatchContext02200264();
 	}
