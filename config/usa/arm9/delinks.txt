@@ -20273,3 +20273,188 @@ src/Combat/Main/ApplyBindPoseRotation.cpp:
 src/Combat/Main/func_0206e164.cpp:
     complete
     .text start:0x0206e164 end:0x0206e218
+
+
+src/NitroSDK/Main/Mat3x3_Invert.cpp:
+    complete
+    .text start:0x020c12b4 end:0x020c15a4
+
+
+src/NitroSDK/Main/Mat3x3_Multiply.cpp:
+    complete
+    .text start:0x020c15a4 end:0x020c17c4
+
+
+src/NitroSDK/Main/Mat4x3_Invert.cpp:
+    complete
+    .text start:0x020c19d4 end:0x020c1d60
+
+
+src/NitroSDK/Main/Mat4x3_Multiply.cpp:
+    complete
+    .text start:0x020c1d60 end:0x020c2034
+
+
+src/NitroSDK/Main/Mat4x4_MaybeWriteFrustum.cpp:
+    complete
+    .text start:0x020c28a0 end:0x020c29ec
+
+
+src/NitroSDK/Main/Mat4x4_Multiply.cpp:
+    complete
+    .text start:0x020c223c end:0x020c28a0
+
+
+src/NitroSDK/Main/SyncIfBufferValueChanged_020d1234.cpp:
+    complete
+    .text start:0x020d1234 end:0x020d1294
+
+
+src/NitroSDK/Main/fix32_Atan2.cpp:
+    complete
+    .text start:0x020c338c end:0x020c3544
+
+
+src/NitroSDK/Main/func_020bc2f0.cpp:
+    complete
+    .text start:0x020bc2f0 end:0x020bc454
+
+
+src/NitroSDK/Main/func_020bc9d0.cpp:
+    complete
+    .text start:0x020bc9d0 end:0x020bcb70
+
+
+src/NitroSDK/Main/func_020bd190.cpp:
+    complete
+    .text start:0x020bd190 end:0x020bd368
+
+
+src/NitroSDK/Main/func_020bd7c4.cpp:
+    complete
+    .text start:0x020bd7c4 end:0x020bd88c
+
+
+src/NitroSDK/Main/func_020bded0.cpp:
+    complete
+    .text start:0x020bded0 end:0x020be010
+
+
+src/NitroSDK/Main/func_020c0cd0.cpp:
+    complete
+    .text start:0x020c0cd0 end:0x020c0e88
+
+
+src/NitroSDK/Main/func_020c745c.cpp:
+    complete
+    .text start:0x020c745c end:0x020c75a4
+
+
+src/NitroSDK/Main/func_020cd494.cpp:
+    complete
+    .text start:0x020cd494 end:0x020cd584
+
+
+src/NitroSDK/Main/func_020cd610.cpp:
+    complete
+    .text start:0x020cd610 end:0x020cd890
+
+
+src/NitroSDK/Main/func_020cd908.cpp:
+    complete
+    .text start:0x020cd908 end:0x020cd99c
+
+
+src/NitroSDK/Main/func_020cd99c.cpp:
+    complete
+    .text start:0x020cd99c end:0x020cdac4
+
+
+src/NitroSDK/Main/func_020cddec.cpp:
+    complete
+    .text start:0x020cddec end:0x020cdfd8
+
+
+src/NitroSDK/Main/func_020ce89c.cpp:
+    complete
+    .text start:0x020ce89c end:0x020ceba8
+
+
+src/NitroSDK/Main/func_020d0fc4.cpp:
+    complete
+    .text start:0x020d0fc4 end:0x020d1118
+
+
+src/NitroSDK/Main/func_020d135c.cpp:
+    complete
+    .text start:0x020d135c end:0x020d1468
+
+
+src/NitroSDK/Main/func_020d19f4.cpp:
+    complete
+    .text start:0x020d19f4 end:0x020d1ae4
+
+
+src/NitroSDK/Main/func_020d1d1c.cpp:
+    complete
+    .text start:0x020d1d1c end:0x020d1de8
+
+
+src/NitroSDK/Main/func_020d2d00.cpp:
+    complete
+    .text start:0x020d2d00 end:0x020d2eb0
+
+
+src/NitroSDK/Main/func_020d3160.cpp:
+    complete
+    .text start:0x020d3160 end:0x020d39dc
+
+
+src/NitroSDK/Main/func_020d40bc.cpp:
+    complete
+    .text start:0x020d40bc end:0x020d4168
+
+
+src/NitroSDK/Main/func_020d424c.cpp:
+    complete
+    .text start:0x020d424c end:0x020d42e0
+
+
+src/NitroSDK/Main/func_020d42e0.cpp:
+    complete
+    .text start:0x020d42e0 end:0x020d468c
+
+
+src/NitroSDK/Main/func_020d4770.cpp:
+    complete
+    .text start:0x020d4770 end:0x020d4848
+
+
+src/NitroSDK/Main/func_020d49c4.cpp:
+    complete
+    .text start:0x020d49c4 end:0x020d4aa8
+
+
+src/NitroSDK/Main/func_020d4c7c.cpp:
+    complete
+    .text start:0x020d4c7c end:0x020d4dd4
+
+
+src/NitroSDK/Main/func_020d5684.cpp:
+    complete
+    .text start:0x020d5684 end:0x020d57f4
+
+
+src/NitroSDK/Main/func_020d5d34.cpp:
+    complete
+    .text start:0x020d5d34 end:0x020d5f88
+
+
+src/NitroSDK/Main/func_020d5fd0.cpp:
+    complete
+    .text start:0x020d5fd0 end:0x020d6318
+
+
+src/NitroSDK/Main/func_020d6318.cpp:
+    complete
+    .text start:0x020d6318 end:0x020d63f0
