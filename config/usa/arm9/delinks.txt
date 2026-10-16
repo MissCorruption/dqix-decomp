@@ -20665,3 +20665,8 @@ src/NitroSDK/Main/func_020b1b54.cpp:
 src/NitroSDK/Main/func_020cf9f4.cpp:
     complete
     .text start:0x020cf9f4 end:0x020cfaf4
+
+
+src/NitroSDK/Main/Vector3fix_CrossProduct.cpp:
+    complete
+    .text start:0x020c2e34 end:0x020c2eb8
