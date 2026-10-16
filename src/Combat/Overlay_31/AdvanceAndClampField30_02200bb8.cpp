@@ -10,15 +10,15 @@ struct GlobalStruct0224c980_02200bb8 {
 	unsigned int field5c;
 };
 
-extern GlobalStruct0224c980_02200bb8 data_ov031_0224c980;
+extern "C" GlobalStruct0224c980_02200bb8 _ZZ18GetGlobal_02201364vE1s;
 
 // USA: func_ov031_02200bb8
 ARM void AdvanceAndClampField30_02200bb8(void) {
 	int oldIRQ = DisableIRQInterrupts();
-	data_ov031_0224c980.field30 = data_ov031_0224c980.field30 +
-		*(unsigned short*)(data_ov031_0224c980.field58 + data_ov031_0224c980.field30);
-	if (data_ov031_0224c980.field30 >= data_ov031_0224c980.field5c) {
-		data_ov031_0224c980.field30 = 0;
+	_ZZ18GetGlobal_02201364vE1s.field30 = _ZZ18GetGlobal_02201364vE1s.field30 +
+		*(unsigned short*)(_ZZ18GetGlobal_02201364vE1s.field58 + _ZZ18GetGlobal_02201364vE1s.field30);
+	if (_ZZ18GetGlobal_02201364vE1s.field30 >= _ZZ18GetGlobal_02201364vE1s.field5c) {
+		_ZZ18GetGlobal_02201364vE1s.field30 = 0;
 	}
 	SetIRQInterruptState(oldIRQ);
 }

@@ -9,7 +9,7 @@ struct GlobalStruct0224c980_022017c4 {
     unsigned char pad[0x50];
     unsigned int field50;
 };
-extern GlobalStruct0224c980_022017c4 data_ov031_0224c980;
+extern "C" GlobalStruct0224c980_022017c4 _ZZ18GetGlobal_02201364vE1s;
 
 // USA: func_ov031_022017c4
 extern "C" ARM void func_ov031_022017c4(void* a) {
@@ -18,12 +18,12 @@ extern "C" ARM void func_ov031_022017c4(void* a) {
     VectorizedInvertedMemcpy(obj + 0x8, obj + 0x12, 0xa);
     VectorizedInvertedMemcpy(data_ov031_0224ce68, obj + 0x8, 6);
 
-    unsigned int v = data_ov031_0224c980.field50;
+    unsigned int v = _ZZ18GetGlobal_02201364vE1s.field50;
     unsigned short hi = (unsigned short)(v >> 16);
     hi = (unsigned short)((hi >> 8) | (hi << 8));
     *(unsigned short*)(obj + 0xe) = hi;
 
-    unsigned int v2 = data_ov031_0224c980.field50;
+    unsigned int v2 = _ZZ18GetGlobal_02201364vE1s.field50;
     unsigned short lo = (unsigned short)v2;
     lo = (unsigned short)((lo >> 8) | (lo << 8));
     *(unsigned short*)(obj + 0x10) = lo;

@@ -7,11 +7,11 @@ struct GlobalStruct0224c980_022007a4 {
 	char pad[0x50];
 	int field50;
 };
-extern GlobalStruct0224c980_022007a4 data_ov031_0224c980;
+extern "C" GlobalStruct0224c980_022007a4 _ZZ18GetGlobal_02201364vE1s;
 
 // USA: func_ov031_022007a4  (semantic: IsIdAllowed_022007a4)
 extern "C" ARM int func_ov031_022007a4(int id) {
-	int cur = data_ov031_0224c980.field50;
+	int cur = _ZZ18GetGlobal_02201364vE1s.field50;
 	int allowed = 1;
 	int stageB = 1;
 	int stageA = 1;

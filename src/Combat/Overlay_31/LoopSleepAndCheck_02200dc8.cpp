@@ -9,7 +9,7 @@ struct GlobalStruct0224c980_02200dc8 {
 	int field50;
 };
 
-extern GlobalStruct0224c980_02200dc8 data_ov031_0224c980;
+extern "C" GlobalStruct0224c980_02200dc8 _ZZ18GetGlobal_02201364vE1s;
 
 // USA: func_ov031_02200dc8
 ARM int LoopSleepAndCheck_02200dc8(int a) {
@@ -18,7 +18,7 @@ ARM int LoopSleepAndCheck_02200dc8(int a) {
 		func_ov031_02200ccc(a);
 		unsigned int j = 0;
 		do {
-			if (data_ov031_0224c980.field50 == 0) {
+			if (_ZZ18GetGlobal_02201364vE1s.field50 == 0) {
 				return 0;
 			}
 			SleepCurrentContext(100);
