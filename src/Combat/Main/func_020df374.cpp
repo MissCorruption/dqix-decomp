@@ -85,4 +85,3 @@ extern "C" ARM int func_020df374(SafeAllocator* allocator, EntryContainerDf374* 
     dest->owned = 0;
     return 1;
 }
-

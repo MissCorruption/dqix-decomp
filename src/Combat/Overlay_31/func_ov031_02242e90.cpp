@@ -25,5 +25,3 @@ compare:
     if (folded == right) goto advance;
     return -1;
 }
-
-
