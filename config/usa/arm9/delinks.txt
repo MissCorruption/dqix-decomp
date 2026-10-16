@@ -20088,31 +20088,25 @@ src/Combat/Main/func_020aaf84.cpp:
     complete
     .text start:0x020aaf84 end:0x020ab314
 
-
 src/Combat/Main/func_0201c1f8.cpp:
     complete
     .text start:0x0201c1f8 end:0x0201c3a4
-
 
 src/Combat/Main/func_0202555c.cpp:
     complete
     .text start:0x0202555c end:0x02025b0c
 
-
 src/Combat/Main/func_02071874.cpp:
     complete
     .text start:0x02071874 end:0x02071b38
-
 
 src/Combat/Main/func_0208a03c.cpp:
     complete
     .text start:0x0208a03c end:0x0208a370
 
-
 src/Combat/Main/func_020995f8.cpp:
     complete
     .text start:0x020995f8 end:0x02099888
-
 
 src/Combat/Main/func_020d39dc.cpp:
     complete
@@ -20195,21 +20189,17 @@ src/Combat/Main/func_02074e54.cpp:
     complete
     .text start:0x02074e54 end:0x02075090
 
-
 src/Combat/Main/func_02027974.cpp:
     complete
     .text start:0x02027974 end:0x02027ad8
-
 
 src/Combat/Main/func_0204f41c.cpp:
     complete
     .text start:0x0204f41c end:0x0204f7e8
 
-
 src/Combat/Main/func_0204fd00.cpp:
     complete
     .text start:0x0204fd00 end:0x0204ffc0
-
 
 src/Combat/Main/func_02023b5c.cpp:
     complete
@@ -20223,21 +20213,17 @@ src/Combat/Main/func_020830cc.cpp:
     complete
     .text start:0x020830cc end:0x0208349c
 
-
 src/Combat/Main/func_020a8fd0.cpp:
     complete
     .text start:0x020a8fd0 end:0x020a9288
-
 
 src/Combat/Main/func_020acecc.cpp:
     complete
     .text start:0x020acecc end:0x020ad1f0
 
-
 src/Combat/Main/func_02075df4.cpp:
     complete
     .text start:0x02075df4 end:0x02076080
-
 
 src/Combat/Main/func_02038138.cpp:
     complete
@@ -20250,7 +20236,6 @@ src/Combat/Main/func_0209b448.cpp:
 src/Combat/Main/func_020a95a4.cpp:
     complete
     .text start:0x020a95a4 end:0x020a99d0
-
 
 src/Combat/Main/func_02086f24.cpp:
     complete
@@ -20280,10 +20265,6 @@ src/Combat/Main/func_0204f914.cpp:
 src/Combat/Main/func_020df374.cpp:
     complete
     .text start:0x020df374 end:0x020df618
-
-src/Combat/Main/func_020e0028.cpp:
-    complete
-    .text start:0x020e0028 end:0x020e0280
 
 src/Combat/Main/ApplyBindPoseRotation.cpp:
     complete
