@@ -314,7 +314,7 @@ extern "C" ARM void func_02038598(ActorMotion02038598* self) {
             OrBitsIntoField0_020466e4(inputFlags, 0x400);
             ZoneFeatures::Opcode6aEntry* post = action->startNode;
             if (post->unk_2c.type9.unk_5 & 2) {
-                action->unknown60 = (int)post;
+                action->unknown60 = post;
                 action->command = 6;
                 goto Exit;
             }
@@ -332,7 +332,7 @@ extern "C" ARM void func_02038598(ActorMotion02038598* self) {
         OrBitsIntoField0_020466e4(inputFlags, 0x400);
         ZoneFeatures::Opcode6aEntry* post2 = action->endNode;
         if (post2->unk_2c.type9.unk_5 & 2) {
-            action->unknown60 = (int)post2;
+            action->unknown60 = post2;
             action->command = 6;
             goto Exit;
         }
@@ -414,19 +414,19 @@ extern "C" ARM void func_02038598(ActorMotion02038598* self) {
         event->hasTransform = 0;
         event->duration = -1;
 
-        event->zone = ((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.maybeZone;
-        event->position = ((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.vector_c;
-        event->heading = ((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.unk_3c;
-        event->kind = (unsigned char)((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.unk_3e;
-        event->start = ((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.vector_c;
-        event->end = ((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.vector_18;
-        event->startControl = ((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.vector_24;
-        event->endControl = ((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.vector_30;
+        event->zone = action->unknown60->unk_2c.type9.maybeZone;
+        event->position = action->unknown60->unk_2c.type9.vector_c;
+        event->heading = action->unknown60->unk_2c.type9.unk_3c;
+        event->kind = (unsigned char)action->unknown60->unk_2c.type9.unk_3e;
+        event->start = action->unknown60->unk_2c.type9.vector_c;
+        event->end = action->unknown60->unk_2c.type9.vector_18;
+        event->startControl = action->unknown60->unk_2c.type9.vector_24;
+        event->endControl = action->unknown60->unk_2c.type9.vector_30;
         event->hasTransform = 1;
 
-        if (((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.unk_5 & 4) {
-            event->duration = (const short&)((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.unk_42;
-            event->parameter = ((ZoneFeatures::Opcode6aEntry*)action->unknown60)->unk_2c.type9.unk_40;
+        if (action->unknown60->unk_2c.type9.unk_5 & 4) {
+            event->duration = (const short&)action->unknown60->unk_2c.type9.unk_42;
+            event->parameter = action->unknown60->unk_2c.type9.unk_40;
         }
         if (event->duration == -1) {
             event->duration = 9999;

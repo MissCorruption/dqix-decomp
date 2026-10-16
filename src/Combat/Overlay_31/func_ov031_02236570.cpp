@@ -15,7 +15,7 @@ struct SaveData {
     unsigned short crcTable_[256];
 };
 extern SaveData* data_ov031_02290cfc;
-extern "C" unsigned short _Z21Crc16Compute_020d1cc8PKtPKhj(const unsigned short*, const unsigned char*, unsigned int);
+unsigned short Crc16Compute_020d1cc8(const unsigned short* table, const unsigned char* data, unsigned int length);
 extern "C" void* func_ov031_0223cf4c(int, int);
 extern "C" int func_ov031_0221b024(SaveData*, int*, void*);
 extern "C" void func_ov031_0223cf70(void**);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov031_02236570(int index) {
     int offset = 0;
     do {
         if (dirty[i])
-            data_ov031_02290cfc->slots_[i].checksum_ = _Z21Crc16Compute_020d1cc8PKtPKhj(data_ov031_02290cfc->crcTable_, (const unsigned char*)data_ov031_02290cfc + offset, 254);
+            data_ov031_02290cfc->slots_[i].checksum_ = Crc16Compute_020d1cc8(data_ov031_02290cfc->crcTable_, (const unsigned char*)data_ov031_02290cfc + offset, 254);
         i++;
         offset += 256;
     } while (i < 4);

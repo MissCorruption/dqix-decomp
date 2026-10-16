@@ -31,7 +31,7 @@ struct SubBlock02038508 {
     unsigned char unknown54;
     ZoneFeatures::Opcode6aEntry* startNode;
     ZoneFeatures::Opcode6aEntry* endNode;
-    int unknown60;
+    ZoneFeatures::Opcode6aEntry* unknown60;
 };
 
 void InitBlock02038508(SubBlock02038508* block);
