@@ -633,6 +633,7 @@ data_ov004_021707c4 kind:bss addr:0x021707c4
 data_ov004_021707c8 kind:bss addr:0x021707c8
 data_ov004_021707d8 kind:bss addr:0x021707d8
 data_ov004_021707e8 kind:bss addr:0x021707e8
+data_ov004_021707f0 kind:bss addr:0x021707f0
 data_ov004_02170814 kind:bss addr:0x02170814
 data_ov004_02170818 kind:bss addr:0x02170818
 data_ov004_02170820 kind:bss addr:0x02170820
