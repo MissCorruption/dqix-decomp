@@ -4,13 +4,13 @@
 #include "Resource/Script.h"
 
 struct BitfieldRecord020a1380 {
-    unsigned int f0 : 9;   // bits 0-8
-    unsigned int f1 : 9;   // bits 9-17
-    unsigned int f2 : 9;   // bits 18-26
-    unsigned int f3 : 3;   // bits 27-29
-    unsigned int f4 : 2;   // bits 30-31
-    int next;   // 0x4
-    int prev;   // 0x8
+    unsigned int f0 : 9;
+    unsigned int f1 : 9;
+    unsigned int f2 : 9;
+    unsigned int f3 : 3;
+    unsigned int f4 : 2;
+    int next;
+    int prev;
 };
 void ResetBitfieldRecord(struct BitfieldRecord020a1380* rec);
 
@@ -20,13 +20,11 @@ struct Elem020a1568;
 struct Array020a1568;
 void AppendElement020a1568(struct Array020a1568* arr, struct Elem020a1568* src);
 
-// The 0x10 .bss block at 0x02109d94 is five separate objects. As one struct the ids load (+0xc)
-// cannot be hoisted above the rec store while the count load (+2) stays below it.
-unsigned char data_02109d94;              // flags
-unsigned short data_02109d96;             // id count
+unsigned char data_02109d94;
+unsigned short data_02109d96;
 struct Array020a1568* data_02109d98;
 SafeAllocator* data_02109d9c;
-short* data_02109da0;                     // ids
+short* data_02109da0;
 
 extern const char data_020f1914[];
 

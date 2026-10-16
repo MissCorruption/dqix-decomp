@@ -9,9 +9,6 @@ struct ScriptPalette {
     unsigned short unknown2;
 };
 
-// The script context words, defined here as separate objects (other files view them through
-// data_020fdc4c as one struct). mwcc heap-sorts .bss by size over the reverse definition
-// order, so this order lays them out at +0, +4, +8, +0xc, +0x10.
 unsigned int data_020fdc58;
 SafeAllocator* data_020fdc54;
 #if !defined(jpn)

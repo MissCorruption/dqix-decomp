@@ -14,11 +14,8 @@ struct Global020fdc4c_020276dc {
     char pad[0x12];
 };
 extern struct Global020fdc4c_020276dc data_020fdc4c;
-// The ROM loads 0x020fdc4c from two pool words: the store goes through one, both calls' address argument
-// through the other. Reached here through the next object of the block (see func_02020c18).
 extern char data_020fdc50[];
 
-// Two-bit palette tier of each of the four combatants.
 struct PaletteTiers020276dc {
     unsigned char tiers;
 };
