@@ -7641,6 +7641,9 @@ data_020fdc20 kind:bss addr:0x020fdc20
 data_020fdc40 kind:bss addr:0x020fdc40
 data_020fdc4c kind:bss addr:0x020fdc4c
 data_020fdc50 kind:bss addr:0x020fdc50
+data_020fdc54 kind:bss addr:0x020fdc54
+data_020fdc58 kind:bss addr:0x020fdc58
+data_020fdc5c kind:bss addr:0x020fdc5c
 data_020fdc60 kind:bss addr:0x020fdc60
 data_020fdcb0 kind:bss addr:0x020fdcb0
 data_020fdcb8 kind:bss addr:0x020fdcb8
