@@ -12,7 +12,7 @@ struct BattleCtx020d4900 {
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020d4900
-extern "C" ARM int _Z31GetAlignedField0x3eSize020d4900v(void) {
+ARM int GetAlignedFieldSize020d4900(void) {
     struct BattleCtx020d4900* ctx = (struct BattleCtx020d4900*)GetBattleContext_020d41d8();
     if (func_020d424c(2, 7, 8) != 0) return 0;
     InvalidateDataCacheRange((const void*)((char*)ctx->sub + 0xc), 4);
