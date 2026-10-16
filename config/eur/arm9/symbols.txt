@@ -7769,6 +7769,14 @@ data_02109020 kind:bss addr:0x02109020
 data_02109030 kind:bss addr:0x02109030
 data_02109400 kind:bss addr:0x02109400
 data_02109404 kind:bss addr:0x02109404
+questSkip kind:bss addr:0x02109405
+questSelected kind:bss addr:0x02109406
+questF3 kind:bss addr:0x02109407
+questF4 kind:bss addr:0x02109408
+questIndex kind:bss addr:0x0210940a
+questF8 kind:bss addr:0x0210940c
+questAllocator kind:bss addr:0x02109410
+questTable kind:bss addr:0x02109414
 data_02109418 kind:bss addr:0x02109418
 data_0210941c kind:bss addr:0x0210941c
 data_021098e0 kind:bss addr:0x021098e0
