@@ -4,7 +4,7 @@ struct Node022039b0 { unsigned char pad0[0x8]; unsigned char type; unsigned char
 struct Global02111304 { unsigned char pad0[0x4]; void* ctx; };
 
 extern Global02111304 data_02111304;
-extern unsigned char data_ov031_0224c980;
+extern "C" unsigned char _ZZ18GetGlobal_02201364vE1s;
 
 extern "C" int func_ov031_02201414(void* obj, int id, Node022039b0* node);
 extern "C" int func_ov031_02201364(void* obj, int id, Node022039b0* node);
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov031_022039b0(void* a0, int a1, void* a2, int a3) {
 				result = func_ov031_022037a8(a0, a1, a2, a3, n);
 			}
 		}
-		if (data_ov031_0224c980 == 0) {
+		if (_ZZ18GetGlobal_02201364vE1s == 0) {
 			return result;
 		}
 	}

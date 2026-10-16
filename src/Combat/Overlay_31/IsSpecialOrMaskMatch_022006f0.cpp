@@ -7,14 +7,14 @@ struct GlobalStruct0224c980_022006f0 {
 	unsigned int field50;
 };
 
-extern GlobalStruct0224c980_022006f0 data_ov031_0224c980;
+extern "C" GlobalStruct0224c980_022006f0 _ZZ18GetGlobal_02201364vE1s;
 
 // USA: func_ov031_022006f0
 ARM int IsSpecialOrMaskMatch_022006f0(int a) {
 	int result = 1;
 	if (a != -1 && a != 0x7F000001) {
-		unsigned int mask = data_ov031_0224c980.field1c;
-		if ((a & mask) != (data_ov031_0224c980.field50 & mask)) result = 0;
+		unsigned int mask = _ZZ18GetGlobal_02201364vE1s.field1c;
+		if ((a & mask) != (_ZZ18GetGlobal_02201364vE1s.field50 & mask)) result = 0;
 	}
 	return result;
 }

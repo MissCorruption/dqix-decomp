@@ -28,7 +28,7 @@ struct DhcpContext {
     unsigned long long randomMultiplier;
     unsigned long long randomIncrement;
 };
-extern DhcpContext data_ov031_0224c980;
+extern "C" DhcpContext _ZZ18GetGlobal_02201364vE1s;
 extern unsigned char data_ov031_0224ce68[];
 extern const char data_ov031_02249698[];
 
@@ -46,16 +46,16 @@ extern "C" ARM unsigned char* func_ov031_02203fdc(void* buffer, int messageType,
     VectorizedMemset(buffer, 0, sizeof(BootpHeader));
     header->operationAndHardwareType = 0x101;
     header->hardwareAddressLength = 6;
-    data_ov031_0224c980.randomState = data_ov031_0224c980.randomMultiplier * data_ov031_0224c980.randomState + data_ov031_0224c980.randomIncrement;
-    unsigned int random = data_ov031_0224c980.randomState / 0x100000000ULL;
+    _ZZ18GetGlobal_02201364vE1s.randomState = _ZZ18GetGlobal_02201364vE1s.randomMultiplier * _ZZ18GetGlobal_02201364vE1s.randomState + _ZZ18GetGlobal_02201364vE1s.randomIncrement;
+    unsigned int random = _ZZ18GetGlobal_02201364vE1s.randomState / 0x100000000ULL;
     if (output) *output = random;
     int randomHigh = (unsigned short)(random / 0x10000U);
     header->transactionId.high = (randomHigh >> 8) | (randomHigh << 8);
     int randomLow = (unsigned short)random;
     header->transactionId.low = (randomLow >> 8) | (randomLow << 8);
-    int addressHigh = (unsigned short)(data_ov031_0224c980.clientAddress / 0x10000U);
+    int addressHigh = (unsigned short)(_ZZ18GetGlobal_02201364vE1s.clientAddress / 0x10000U);
     header->clientAddress.high = (addressHigh >> 8) | (addressHigh << 8);
-    int addressLow = (unsigned short)data_ov031_0224c980.clientAddress;
+    int addressLow = (unsigned short)_ZZ18GetGlobal_02201364vE1s.clientAddress;
     header->clientAddress.low = (addressLow >> 8) | (addressLow << 8);
     VectorizedInvertedMemcpy(data_ov031_0224ce68, header->clientHardwareAddress, 6);
     ((unsigned short*)(bytes + sizeof(BootpHeader)))[0] = 0x8263;
