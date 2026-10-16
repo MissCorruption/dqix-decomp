@@ -4591,7 +4591,7 @@ _Z35RelinkAllocatorAndSetByte3d020bc870P21SignedAllocatorHeaderh kind:function(a
 _Z24InitAllocatorObj020bc8d0P15SelfObj020bc8d0 kind:function(arm,size=0x78) addr:0x020be39c
 _Z33BuildTargetMaskFromBytes_020bc948P15BattleTarget948iPh kind:function(arm,size=0x60) addr:0x020be414
 _Z24ClearTargetMask_020bc9a8P15BattleTarget9a8 kind:function(arm,size=0x28) addr:0x020be474
-func_020be49c kind:function(arm,size=0x1a0) addr:0x020be49c
+func_020bc9d0 kind:function(arm,size=0x1a0) addr:0x020be49c
 _Z34RegisterActorInGlobalLists020bcb70P13Actor020bcb70 kind:function(arm,size=0x54) addr:0x020be63c
 _Z18CallIfFlag0x24Bit0P11Foo020bcbc4 kind:function(arm,size=0x1c) addr:0x020be690
 _Z26PostEventsForTypes020bcbe0P11Obj020bcbe0Pv kind:function(arm,size=0x6c) addr:0x020be6ac
@@ -5230,7 +5230,7 @@ func_020cdbe4 kind:function(arm,size=0x98) addr:0x020cf6b0
 func_020cdc7c kind:function(arm,size=0x144) addr:0x020cf748
 _Z25PrepareAndProcess020cddc0Pv kind:function(arm,size=0x1c) addr:0x020cf88c
 _Z34GetHalfword021117b0At0x10_020cdddcv kind:function(arm,size=0x10) addr:0x020cf8a8
-func_020cf8b8 kind:function(arm,size=0x1ec) addr:0x020cf8b8
+func_020cddec kind:function(arm,size=0x1ec) addr:0x020cf8b8
 func_020cdfd8 kind:function(arm,size=0x124) addr:0x020cfaa4
 _Z26WaitWhileFlagsSet_020ce0fci kind:function(arm,size=0x18) addr:0x020cfbc8
 _Z24GetMaskedStatus_020ce114i kind:function(arm,size=0x14) addr:0x020cfbe0
@@ -5468,7 +5468,7 @@ _Z41GetSharedHalfwordOrBattleDefault_020d4aa8v kind:function(arm,size=0x20) addr
 _Z38GetBattleSubField0xbcForState_020d4ac8v kind:function(arm,size=0x90) addr:0x020d6524
 _Z33GetOwnerDataFortuneValue_020d4b58v kind:function(arm,size=0x90) addr:0x020d65b4
 _Z32GetOwnerDataFortuneValue020d4be8v kind:function(arm,size=0x94) addr:0x020d6644
-func_020d66d8 kind:function(arm,size=0x158) addr:0x020d66d8
+func_020d4c7c kind:function(arm,size=0x158) addr:0x020d66d8
 _Z26IncrementSlotIndex020d4dd4v kind:function(arm,size=0x74) addr:0x020d6830
 _Z29InvokeBattleAction58_020d4e48i kind:function(arm,size=0x10) addr:0x020d68a4
 func_020d68b4 kind:function(arm,size=0x64) addr:0x020d68b4
@@ -6305,7 +6305,7 @@ data_020e9454 kind:data(any) addr:0x020e9454
 data_020e9508 kind:data(any) addr:0x020e9508
 data_020e9450 kind:data(any) addr:0x020e955c
 data_020e9b5c kind:data(any) addr:0x020e9b5c
-data_020ed55c kind:data(any) addr:0x020ed55c
+data_020ed450 kind:data(any) addr:0x020ed55c
 data_020ed554 kind:data(any) addr:0x020ed660
 data_020ed764 kind:data(any) addr:0x020ed764
 data_020ed774 kind:data(any) addr:0x020ed774
@@ -7744,9 +7744,9 @@ data_02111bc0 kind:bss addr:0x02111bc0
 data_02112140 kind:bss addr:0x02111de0
 data_02112148 kind:bss addr:0x02111de8
 data_0211214c kind:bss addr:0x02111dec
-data_02112160 kind:bss addr:0x02111e00
-data_02111e20 kind:bss addr:0x02111e20
-data_02111e24 kind:bss addr:0x02111e24
+_ZZ20GetInitFlags020d16b0vE1s kind:bss addr:0x02111e00
+data_02112180 kind:bss addr:0x02111e20
+data_02112184 kind:bss addr:0x02111e24
 data_02112240 kind:bss addr:0x02111ee0
 data_02112328 kind:bss addr:0x02111fc8
 data_0211232c kind:bss addr:0x02111fcc
@@ -7764,9 +7764,9 @@ data_02113f64 kind:bss addr:0x02113f64
 data_021142e0 kind:bss addr:0x02113f80
 data_021142e8 kind:bss addr:0x02113f88
 data_02114308 kind:bss addr:0x02113fa8
-data_02113fd0 kind:bss addr:0x02113fd0
-data_02113fe4 kind:bss addr:0x02113fe4
-data_02113ff4 kind:bss addr:0x02113ff4
+data_02114330 kind:bss addr:0x02113fd0
+data_02114344 kind:bss addr:0x02113fe4
+data_02114354 kind:bss addr:0x02113ff4
 data_02114380 kind:bss addr:0x02114020
 data_02114d80 kind:bss addr:0x02114a20
 data_02114e00 kind:bss addr:0x02114aa0
