@@ -3,7 +3,7 @@
 // KEEP-NAME
 // USA: func_0200af44
 extern "C" ARM
-asm int func_0200af44(double x)
+asm int _dfix(double x)
 {
     bic r3, r1, #0x80000000
     ldr r2, =0x0000041e

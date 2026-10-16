@@ -35,7 +35,7 @@ public:
 
 struct MenuObjectList_021fbf4c;
 
-extern "C" double func_0200ab28(double a, double b);
+extern "C" double _dadd(double a, double b);
 extern "C" unsigned int func_0200af90(double value);
 extern "C" MenuObjectList_021fbf4c* func_ov011_021849c8(void* script);
 extern "C" int func_ov023_021f6bb8(MenuObjectList_021fbf4c* objects);
@@ -87,7 +87,7 @@ extern "C" ARM int func_ov023_021fbf4c(MenuPartNames_021fbf4c* self, void* scrip
 #if defined(jpn)
                     bytes += 0x12c00;
 #else
-                    bytes = func_0200af90(func_0200ab28(bytes, 79872.0));
+                    bytes = func_0200af90(_dadd(bytes, 79872.0));
 #endif
 
                     for (short i = 0; i <= 7; i++)
@@ -98,7 +98,7 @@ extern "C" ARM int func_ov023_021fbf4c(MenuPartNames_021fbf4c* self, void* scrip
 #if defined(jpn)
                     bytes += 0x1c00;
 #else
-                    bytes = func_0200af90(func_0200ab28(bytes, 7987.2));
+                    bytes = func_0200af90(_dadd(bytes, 7987.2));
 #endif
 
                     categories[count++] = 8;
@@ -108,7 +108,7 @@ extern "C" ARM int func_ov023_021fbf4c(MenuPartNames_021fbf4c* self, void* scrip
 #if defined(jpn)
                     bytes += 0x1400;
 #else
-                    bytes = func_0200af90(func_0200ab28(bytes, 4915.2));
+                    bytes = func_0200af90(_dadd(bytes, 4915.2));
 #endif
 
                     categories[count++] = 9;
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov023_021fbf4c(MenuPartNames_021fbf4c* self, void* scrip
 #if defined(jpn)
                     bytes += 0x4000;
 #else
-                    bytes = func_0200af90(func_0200ab28(bytes, 15872.0));
+                    bytes = func_0200af90(_dadd(bytes, 15872.0));
 #endif
 
                     categories[count++] = 11;
