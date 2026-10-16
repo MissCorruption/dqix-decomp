@@ -20289,3 +20289,19 @@ src/NitroSDK/Main/func_020be828.cpp:
 src/NitroSDK/Main/func_020be924.cpp:
     complete
     .text start:0x020be934 end:0x020be9f8
+
+src/Combat/Main/func_020a1180.cpp:
+    complete
+    .text start:0x020a1190 end:0x020a1390
+    .bss start:0x02109d94 end:0x02109da4
+
+src/Combat/Main/func_0204c030.cpp:
+    complete
+    .text start:0x0204c040 end:0x0204c618
+    .rodata start:0x020e7bc8 end:0x020e7be4
+    .bss start:0x02107918 end:0x0210791c
+
+src/Combat/Main/func_02020c18.cpp:
+    complete
+    .text start:0x02020c28 end:0x02020cc8
+    .bss start:0x020fdc4c end:0x020fdc60
