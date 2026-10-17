@@ -6240,8 +6240,8 @@ __sinit_020e6790 kind:function(arm,size=0x164) addr:0x020e6790
 __sinit_020e68f4 kind:function(arm,size=0x38) addr:0x020e68f4
 data_020e692c kind:data(any) addr:0x020e692c
 data_020e69ac kind:data(any) addr:0x020e69ac
-data_020e6aac kind:data(any) addr:0x020e6aac
-data_020e6ab1 kind:data(any) addr:0x020e6ab1
+@91 kind:data(any) addr:0x020e6aac local
+@73 kind:data(any) addr:0x020e6ab1 local
 data_020e6abc kind:data(any) addr:0x020e6abc
 data_020e6acc kind:data(any) addr:0x020e6acc
 data_020e6adc kind:data(any) addr:0x020e6adc
