@@ -20650,3 +20650,13 @@ src/NitroSDK/Main/func_020d0f40.cpp:
 src/NitroSDK/Main/func_020d0f74.cpp:
     complete
     .text start:0x020d0f74 end:0x020d0fc4
+
+
+src/NitroSDK/Main/LoadDataFromCartridgeToMemory.cpp:
+    complete
+    .text start:0x020d0dcc end:0x020d0ec4
+
+
+src/NitroSDK/Main/func_020ce39c.cpp:
+    complete
+    .text start:0x020ce39c end:0x020ce45c
