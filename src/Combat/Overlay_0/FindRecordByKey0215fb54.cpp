@@ -5,7 +5,7 @@ struct Out0215fb54 { int x0; int x1; };
 extern Rec0215fb54 data_ov000_02182e6c[];
 
 // USA: func_ov000_0215fb54
-ARM int FindRecordByKey0215fb54(int unused, short key, Out0215fb54* out) {
+ARM int FindRecordByKey0215fb54(int unused, int key, Out0215fb54* out) {
     Rec0215fb54* p = data_ov000_02182e6c;
     while (p->key != -1) {
         if (p->key == key) {

@@ -5,7 +5,7 @@ struct Out0215fb54 { int ids[2]; };
 
 GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int unused, int id);
 void* GetActiveCombatWork_ov000_02160130(void);
-int FindRecordByKey0215fb54(int unused, short key, struct Out0215fb54* out);
+int FindRecordByKey0215fb54(int unused, int key, struct Out0215fb54* out);
 extern "C" void* _Z26FindNodeByShortKey02162d88Pvs(void* obj, int key);
 
 struct Group_021f45c8 {

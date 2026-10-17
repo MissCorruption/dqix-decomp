@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Out0215fb54 { int x0; int x1; };
-int FindRecordByKey0215fb54(int unused, short key, struct Out0215fb54* out);
+int FindRecordByKey0215fb54(int unused, int key, struct Out0215fb54* out);
 
 // USA: func_ov000_0215fb9c
 ARM int CheckKeyMatch_0215fb9c(int unused, short key) {
