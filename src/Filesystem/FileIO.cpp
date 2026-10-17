@@ -15,8 +15,6 @@
 
 #ifdef jpn
 
-#define data_020e692c data_020e71d4
-
 #define data_020f0db8 data_020f0e84
 #define data_020f0dbc data_020f0e88
 #endif

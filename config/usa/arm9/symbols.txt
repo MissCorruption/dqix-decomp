@@ -6632,15 +6632,15 @@ data_020eed40 kind:data(any) addr:0x020eed40
 data_020eed50 kind:data(any) addr:0x020eed50
 data_020eeda8 kind:data(any) addr:0x020eeda8
 data_020eee30 kind:data(any) addr:0x020eee30
-data_020eeef0 kind:data(any) addr:0x020eeef0
-data_020eeef8 kind:data(any) addr:0x020eeef8
-data_020eef00 kind:data(any) addr:0x020eef00
-data_020eef08 kind:data(any) addr:0x020eef08
-data_020eef0c kind:data(any) addr:0x020eef0c
-data_020eef10 kind:data(any) addr:0x020eef10
-data_020eef18 kind:data(any) addr:0x020eef18
-data_020eef20 kind:data(any) addr:0x020eef20
-data_020eef24 kind:data(any) addr:0x020eef24
+@647 kind:data(any) addr:0x020eeef0 local
+@648 kind:data(any) addr:0x020eeef8 local
+@649 kind:data(any) addr:0x020eef00 local
+@650 kind:data(any) addr:0x020eef08 local
+@651 kind:data(any) addr:0x020eef0c local
+@652 kind:data(any) addr:0x020eef10 local
+@653 kind:data(any) addr:0x020eef18 local
+@654 kind:data(any) addr:0x020eef20 local
+@655 kind:data(any) addr:0x020eef24 local
 data_020eef28 kind:data(any) addr:0x020eef28
 data_020eef2c kind:data(any) addr:0x020eef2c
 data_020eef30 kind:data(any) addr:0x020eef30

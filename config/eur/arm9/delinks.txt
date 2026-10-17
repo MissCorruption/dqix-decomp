@@ -124,10 +124,6 @@ src/MSL/Main/CompareByteBuffers.cpp:
     complete
     .text start:0x02001aec end:0x02001b2c
 
-src/MSL/Main/func_02002b90.cpp:
-    complete
-    .text start:0x02002b90 end:0x02002cb4
-
 src/MSL/Main/WriteToRingBuf_02003c3c.cpp:
     complete
     .text start:0x02003c3c end:0x02003c80
@@ -20466,3 +20462,8 @@ src/MSL/Main/func_020042a8.cpp:
     complete
     .text start:0x020042a8 end:0x020054f4
     .rodata start:0x020e6abc end:0x020e6acc
+
+src/MSL/Main/PrintfFloat.cpp:
+    complete
+    .text start:0x020026b4 end:0x02003418
+    .data start:0x020eeef0 end:0x020eef28

@@ -32,7 +32,7 @@ SDK_MWCC_VERSION = "2.0/sp1p2" # OS_VSNPrintf (0x020d3160) overgenerates on sp1p
 SDK_OPT_LEVEL = "-O4,p"
 LIBRARY_BUILDS = {
     "sdk": ("NitroSDK", SDK_MWCC_VERSION, [SDK_OPT_LEVEL]),
-    "msl": ("MSL", MWCC_VERSION, ["-O4,p", "-ipa", "file"]),
+    "msl": ("MSL", MWCC_VERSION, ["-O4,p", "-ipa", "file", "-str", "nopool"]),
     "runtime": ("Runtime", MWCC_VERSION, ["-O4,p", "-char", "unsigned"]),
 }
 DECOMP_ME_COMPILER = "mwcc_30_137"

@@ -12268,10 +12268,6 @@ src/Combat/Main/_u32_div_f_0200d150.s:
     complete
     .text start:0x0200d014 end:0x0200d1f8
 
-src/MSL/Main/func_02002b90.cpp:
-    complete
-    .text start:0x02002aac end:0x02002bd0
-
 src/MSL/Main/func_02003ddc.cpp:
     complete
     .text start:0x02003cf8 end:0x02003e28
@@ -18812,3 +18808,8 @@ src/MSL/Main/func_0200bdb4.cpp:
 src/MSL/Main/func_02001b2c.cpp:
     complete
     .text start:0x02001a48 end:0x02001af8
+
+src/MSL/Main/PrintfFloat.cpp:
+    complete
+    .text start:0x020025d0 end:0x02003334
+    .data start:0x020eee50 end:0x020eee88
