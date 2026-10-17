@@ -20670,3 +20670,18 @@ src/NitroSDK/Main/CalculateTranslationAmountFrameAligned.cpp:
 src/NitroSDK/Main/CalculateTranslationAmountSmooth.cpp:
     complete
     .text start:0x020b80b4 end:0x020b8210
+
+
+src/NitroSDK/Main/ComputeEntryByteOffset_020cf990.cpp:
+    complete
+    .text start:0x020cf990 end:0x020cf9f4
+
+
+src/NitroSDK/Main/func_020c30ac.cpp:
+    complete
+    .text start:0x020c30ac end:0x020c3194
+
+
+src/NitroSDK/Main/func_020c3194.cpp:
+    complete
+    .text start:0x020c3194 end:0x020c3260
