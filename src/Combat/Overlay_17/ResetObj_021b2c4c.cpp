@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Combat/BattleHeapOwner.h"
 #include "Memory/SafeAllocator.h"
 
 struct ByteHeader0204693c;
@@ -11,7 +12,6 @@ struct Obj021b2c4c {
     SafeAllocator alloc;
 };
 
-extern int data_ov017_021d840c;
 
 // USA: func_ov017_021b2c4c  (semantic: ResetObj_021b2c4c)
 extern "C" ARM void func_ov017_021b2c4c(Obj021b2c4c* p) {

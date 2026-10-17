@@ -69,7 +69,7 @@ void ClearSublistEntriesFlag4_020804fc(void* menu, int group);
 int GetInnerFlagBit0020e28dc(Outer020e28dc* o);
 void UpdateEntryStateAndPosition(Ctx020e263c* ctx, int ticks);
 
-extern unsigned int data_ov003_02180cc8;
+extern unsigned int data_ov003_02180cc8[2];
 extern StateFn021745fc data_020e6d5c;
 extern StateFn021745fc data_ov003_02180aa4[10];
 
@@ -110,9 +110,9 @@ extern "C" ARM bool func_ov003_021745fc(BattleMenu021745fc* self, int ticks) {
     if (self->ctrl_ != NULL && GetInnerFlagBit0020e28dc(self->ctrl_))
         UpdateEntryStateAndPosition((Ctx020e263c*)self->ctrl_, self->ticks_);
 
-    if (!(data_ov003_02180cc8 & 1)) {
+    if (!(data_ov003_02180cc8[0] & 1)) {
         data_ov003_02180aa4[9] = data_020e6d5c;
-        data_ov003_02180cc8 |= 1;
+        data_ov003_02180cc8[0] |= 1;
     }
     if (data_ov003_02180aa4[self->state_] == NULL) {
         ReinitController02043204((char*)GetGlobalField0x1c020421a0());

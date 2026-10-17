@@ -1,3 +1,4 @@
+#include "Combat/MenuNodeChain.h"
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
@@ -30,7 +31,7 @@ struct AlchemyMenuInitializationView {
     void* data;
     SafeAllocator* allocators;
     AlchemyBufferInitializationView* buffers;
-    void* extraBuffer;
+    Manager0207f7f0* extraBuffer;
     AlchemyMenuListOwnerView* listOwner;
     char (*pairBuffer)[0x20];
     char (*sevenBuffer)[0xe0];
@@ -53,7 +54,6 @@ extern unsigned int data_ov006_02160054[];
 void* memcpy(void*, const void*, unsigned int);
 void* memset(void*, int, unsigned int);
 void _Z24InitEntryManager020e2490P20EntryManager020e2490iiPvP13SafeAllocatorih(void*, int, int, void*, SafeAllocator*, int, int);
-void func_0207f84c(void*);
 void _Z17ResetList0204af64P12List0204af64(void*);
 void func_0204c684(void*);
 void _Z12Init0205a198P14Struct0205a198(void*);
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov006_021576a0(AlchemyMenuInitializationView* state, Sa
     }
     state->data = allocator->Allocate(0x4000);
     state->allocators = (SafeAllocator*)allocator->Allocate(0xc8);
-    state->extraBuffer = allocator->Allocate(0x40);
+    state->extraBuffer = static_cast<Manager0207f7f0*>(allocator->Allocate(0x40));
     state->pairBuffer = (char (*)[0x20])allocator->Allocate(0x40);
     state->sevenBuffer = (char (*)[0xe0])allocator->Allocate(0x620);
     state->entryBuffer = (char (*)[0x28])allocator->Allocate(0x488);

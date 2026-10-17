@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Combat/MenuNodeChain.h"
 #if defined(jpn)
 enum { kRegion228 = 0x110 };
 enum { kRegiond0 = 0x10 };
@@ -20,7 +21,6 @@ struct Struct02074bd0;
 struct Obj0207fcb8;
 struct Cont0207fd44;
 struct Cont0207fd88;
-struct NotifyEntriesStruct0207f8bc;
 
 void* GetDataPtr02114e04_020d6c00(void);
 void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
@@ -30,7 +30,6 @@ void ClearFlag0x10IfSet(struct Struct02074bd0* obj);
 void ClearAllBuffers0207fcb8(struct Obj0207fcb8* obj);
 void CallFunc0204b04cOverList0x2c(struct Cont0207fd44* obj);
 void CallFunc0204b088OverList0x2c(struct Cont0207fd88* obj);
-void FlushNotifyEntries(struct NotifyEntriesStruct0207f8bc* p);
 extern "C" void* memset(void* dst, int val, unsigned int len);
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
@@ -51,7 +50,7 @@ struct BattleView0215fb94 {
     SafeAllocator alloc_0x2c8;
     unsigned char pad_0x2dc[0x18];
     unsigned char field_0x2f4[0x30];
-    void* field_0x324;
+    Manager0207f7f0* field_0x324;
     unsigned char pad_0x328[0x8];
     int savedBgMode;
     unsigned char pad_0x334[0x64];
@@ -78,12 +77,12 @@ extern "C" ARM void func_ov003_0215fb94(BattleView0215fb94* view) {
 
     ClearFlag0x10IfSet((struct Struct02074bd0*)view->field_0x2f4);
 
-    void* sub = view->field_0x324;
+    Manager0207f7f0* sub = view->field_0x324;
     if (sub != NULL) {
         ClearAllBuffers0207fcb8((struct Obj0207fcb8*)sub);
         CallFunc0204b04cOverList0x2c((struct Cont0207fd44*)sub);
         CallFunc0204b088OverList0x2c((struct Cont0207fd88*)sub);
-        FlushNotifyEntries((struct NotifyEntriesStruct0207f8bc*)sub);
+        FlushNotifyEntries_0207f8bc(sub);
     }
 
     if (view->charBuffer != NULL) {

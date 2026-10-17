@@ -1,3 +1,5 @@
+#include "Combat/MenuNodeChain.h"
+#include "Combat/MapDisplay.h"
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
@@ -25,7 +27,6 @@ extern "C" void func_ov003_021672e4(void* a, int b, int c);
 struct Struct205563c;
 void ClearSevenWords_0205563c(Struct205563c*);
 extern "C" void func_02032e58(void* a);
-extern "C" void func_0207f84c(void* a);
 extern "C" void func_0204c684(void* a);
 extern "C" void func_020dfec0(void* a, void* b, void* c, unsigned int d);
 extern "C" void func_0204b5b4(void* a, int b);
@@ -86,29 +87,8 @@ extern char data_ov003_02180083[];
 extern short data_ov003_0217f46c[];
 extern char data_ov003_0218008a[];
 
-struct ListEnt {
-    char pad0[0x1c];
-    unsigned char lo : 4;
-    unsigned char hi : 4;
-    char pad1[3];
-};
 
-struct ObjEnt {
-    char pad0[4];
-    void* field4;
-    char pad1[0xe0 - 8];
-};
 
-struct Mgr {
-    char pad0[kManagerPrefix];
-    void* field2c;
-    char pad1[0x38 - 0x30];
-    unsigned char b38;
-    char pad2;
-    unsigned char b3a;
-    unsigned char b3b;
-    unsigned char b3c;
-};
 
 struct Entry28 {
     char pad[0x28];
@@ -135,9 +115,9 @@ struct Scene021615bc {
     void* p318;
     void* p31c;
     void* p320;
-    Mgr* p324;
-    ListEnt* p328;
-    ObjEnt* p32c;
+    Manager0207f7f0* p324;
+    List0204af64* p328;
+    Node0207f7f0* p32c;
     char pad2[4];
     char x334[0x3c];
     void* p370;
@@ -178,7 +158,7 @@ struct Scene021615bc {
 // USA: func_ov003_021615bc
 extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    ListEnt* l;
+    List0204af64* l;
     int i;
     int x;
     int k;
@@ -187,9 +167,9 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
         self->p318 = self->a228.Allocate(kFirstAllocation);
         self->p31c = self->a228.Allocate(0x1c);
         self->p320 = self->a228.Allocate(0x130);
-        self->p324 = (Mgr*)self->a228.Allocate(kManagerAllocation);
-        self->p328 = (ListEnt*)self->a228.Allocate(0x60);
-        self->p32c = (ObjEnt*)self->a228.Allocate(0x380);
+        self->p324 = (Manager0207f7f0*)self->a228.Allocate(kManagerAllocation);
+        self->p328 = (List0204af64*)self->a228.Allocate(0x60);
+        self->p32c = (Node0207f7f0*)self->a228.Allocate(0x380);
         self->p394 = (void**)self->a228.Allocate(0x10);
         func_ov003_021602bc(self);
         func_ov003_021672e4(self->p318, 0, -1);
@@ -235,8 +215,8 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
             l = self->p328 + i;
             SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)l, 0);
             k = data_ov003_0217f454[i];
-            l->lo = 0;
-            l->hi = k;
+            l->b1c_lo = 0;
+            l->b1c_hi = k;
             func_0204b5b4(l, data_ov003_0217f460[i]);
             AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)l, (SafeAllocator*)&self->a264);
             DispatchViaTable0204b5e8((Obj0204b5e8*)l, 0, 0);
@@ -278,7 +258,7 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
             }
             loader->RemoveTask(self->taskId);
             self->taskId = -1;
-            ListEnt* l;
+            List0204af64* l;
             for (int i = 0; i < 3; i++) {
                 l = self->p328 + i;
                 func_0204bc74(l, 0, 0, 0, 0x20, 0x19, 0);
@@ -286,11 +266,11 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
             }
             self->a278.Reset();
             self->p398 = self->a278.Allocate(0x6000);
-            ObjEnt* o;
+            Node0207f7f0* o;
             for (int i = 0; i < 4; i++) {
                 o = self->p32c + i;
                 AllocateBuffer0204c7a8((Obj0204c7a8*)o, (SafeAllocator*)&self->a278, (int)self->p398, 0x400);
-                o->field4 = self->p328 + 1;
+                o->lists = self->p328 + 1;
             }
             self->step = self->step + 1;
         }
@@ -315,9 +295,9 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
     }
     if (self->step == 6) {
 #if defined(jpn)
-        Mgr* m = self->p324;
-        m->b3b = 0x12;
-        m->b3c = 0x10;
+        Manager0207f7f0* m = self->p324;
+        m->field3b = 0x12;
+        m->field3c = 0x10;
 #endif
         if (self->flags464 & 0x20000) {
             Global998* g = (Global998*)GetGlobalField0x1c020421a0();
@@ -327,9 +307,9 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
             self->flags464 &= ~0x20000;
         }
 #if !defined(jpn)
-        Mgr* m = self->p324;
-        m->b3b = 0x12;
-        m->b3c = 0x10;
+        Manager0207f7f0* m = self->p324;
+        m->field3b = 0x12;
+        m->field3c = 0x10;
         DispatchEntryOp0x8_0208108c(m, 0);
         DispatchEntryOp0x8_0208108c(m, 1);
         short* p = data_ov003_0217f46c;
@@ -385,7 +365,7 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
         }
     }
     if (self->step == 8) {
-        Mgr* m = self->p324;
+        Manager0207f7f0* m = self->p324;
 #if defined(jpn)
         self->jpHiraganaEntry = func_02081b80(m, data_ov003_0217e862);
         self->jpKatakanaEntry = func_02081b80(m, data_ov003_0217e865);
@@ -396,10 +376,10 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
         BG3CNT = (BG3CNT & ~3) | 2;
         DISPCNT = (DISPCNT & ~0x1f00) | 0x1f00;
         ColorEffect_ConfigureAlphaBlend((unsigned int*)0x4000050, 2, 9, 0xa, 6);
-        m->field2c = self->p328;
-        m->b38 = 2;
-        InitNodeChain0207f7f0((Manager0207f7f0*)m, (Node0207f7f0*)self->p32c, 4);
-        m->b3a = 2;
+        m->lists = self->p328;
+        m->mode = 2;
+        InitNodeChain0207f7f0(m, self->p32c, 4);
+        m->active = 2;
 #if !defined(jpn)
         func_02081224(m, 0x19);
         func_02081224(m, 0x1a);

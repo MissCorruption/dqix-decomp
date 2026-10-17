@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Combat/MenuNodeChain.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
@@ -11,8 +12,6 @@ enum { kRegionValue60_30 = 0x60 };
 #endif
 
 
-struct NotifyEntriesStruct0207f8bc;
-void FlushNotifyEntries(struct NotifyEntriesStruct0207f8bc* p);
 struct Struct02074bf4;
 void ClearFlag0x11IfSet(struct Struct02074bf4* obj);
 extern "C" int DisableSubBGVRAMBanks(void);
@@ -36,7 +35,7 @@ extern "C" ARM void func_ov003_02167370(char* obj) {
     p1[1] = 0;
 
     if (*(void**)(obj + 0x10) != 0) {
-        FlushNotifyEntries(*(struct NotifyEntriesStruct0207f8bc**)(obj + 0x10));
+        FlushNotifyEntries_0207f8bc(*(Manager0207f7f0**)(obj + 0x10));
     }
     ClearFlag0x11IfSet((struct Struct02074bf4*)(obj + 0x1c));
 
@@ -56,7 +55,7 @@ extern "C" ARM void func_ov003_02167370(char* obj) {
         *(int*)(obj + 0xc) = 0;
     }
     if (*(void**)(obj + 0x10) != 0) {
-        FlushNotifyEntries(*(struct NotifyEntriesStruct0207f8bc**)(obj + 0x10));
+        FlushNotifyEntries_0207f8bc(*(Manager0207f7f0**)(obj + 0x10));
         *(int*)(obj + 0x10) = 0;
     }
     if (*(int*)obj != 0) {

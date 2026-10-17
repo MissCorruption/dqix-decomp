@@ -1,3 +1,4 @@
+#include "Combat/MenuNodeChain.h"
 #if defined(jpn)
 #define R(j,u) (j)
 #define _Z27ConfigureSubsystem_021889f8P11Obj021889f8 func_ov008_0218973c
@@ -28,7 +29,7 @@ struct BestiaryExtendedAllocationState {
     char unknown[0xb4];
     SafeAllocator* allocators;
     char unknownb8[8];
-    void* renderer;
+    Manager0207f7f0* renderer;
     BestiaryExtendedGroup* groups;
     BestiaryExtendedObject* objects;
     void* resourceBuffer;
@@ -41,7 +42,6 @@ struct BestiaryAllocationState;
 extern "C" {
 void _Z12Init0205a198P14Struct0205a198(void*);
 void _Z23ClearField0And40205a234P19ClearTarget0205a234(void*);
-void func_0207f84c(void*);
 void _Z17ResetList0204af64P12List0204af64(void*);
 void func_0204c684(void*);
 void func_ov014_02184300(BestiaryAllocationState*, SafeAllocator*);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov014_021868b8(BestiaryExtendedAllocationState* state, 
         record->category = 0;
         record->subtype = 0;
     }
-    state->renderer = allocator->Allocate(R(0x34,0x40));
+    state->renderer = static_cast<Manager0207f7f0*>(allocator->Allocate(R(0x34,0x40)));
     state->groups = (BestiaryExtendedGroup*)allocator->Allocate(0x40);
     state->objects = (BestiaryExtendedObject*)allocator->Allocate(0x380);
     func_0207f84c(state->renderer);

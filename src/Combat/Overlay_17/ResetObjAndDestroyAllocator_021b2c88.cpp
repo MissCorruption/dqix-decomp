@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Combat/BattleHeapOwner.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 
@@ -6,7 +7,6 @@ void PopStack1AndTrigger_020a1f4c(int flag);
 void PopStack0AndTrigger_020a1e54(int flag);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 
-extern int data_ov017_021d840c;
 extern int data_02114e20;
 
 struct Obj021b2c88 {

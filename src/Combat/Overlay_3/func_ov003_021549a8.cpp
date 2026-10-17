@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Combat/MenuNodeChain.h"
 #if defined(jpn)
 enum { kRegion2d8 = 0x228 };
 enum { kRegion2dc = 0x22c };
@@ -38,8 +39,6 @@ struct Cont0207fd44;
 void CallFunc0204b04cOverList0x2c(struct Cont0207fd44* obj);
 struct Cont0207fd88;
 void CallFunc0204b088OverList0x2c(struct Cont0207fd88* obj);
-struct NotifyEntriesStruct0207f8bc;
-void FlushNotifyEntries(struct NotifyEntriesStruct0207f8bc* p);
 extern "C" int LoadToMainBG1CharacterData(int src, int offset, unsigned int size);
 void ReinitController02043204(char* obj);
 extern "C" void func_02043124(void* self);
@@ -59,7 +58,7 @@ struct Ctrl021549a8 {
     char pad04[0xc - 0x4];
     void* charBuf;
     char pad10[0x18 - 0x10];
-    void* list;
+    Manager0207f7f0* list;
     char pad1c[kRegion160 - 0x1c];
     char flags160[kRegion1d0 - kRegion160];
     int task;
@@ -90,12 +89,12 @@ extern "C" ARM void func_ov003_021549a8(Ctrl021549a8* self) {
     *(unsigned short*)0x4000050 = 0;
     ClearFlag0x10IfSet((struct Struct02074bd0*)self->flags160);
 
-    void* list = self->list;
+    Manager0207f7f0* list = self->list;
     if (list != NULL) {
         ClearAllBuffers0207fcb8((struct Obj0207fcb8*)list);
         CallFunc0204b04cOverList0x2c((struct Cont0207fd44*)list);
         CallFunc0204b088OverList0x2c((struct Cont0207fd88*)list);
-        FlushNotifyEntries((struct NotifyEntriesStruct0207f8bc*)list);
+        FlushNotifyEntries_0207f8bc(list);
     }
 
     if (self->charBuf != NULL) {

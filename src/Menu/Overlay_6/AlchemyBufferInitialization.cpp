@@ -1,3 +1,4 @@
+#include "Combat/MenuNodeChain.h"
 #include <globaldefs.h>
 
 #if defined(jpn)
@@ -20,7 +21,7 @@ struct AlchemyBufferInitializationView {
     void* menuBuffer;
     char (*pairBuffer)[0x20];
     char (*singleBuffer)[0xe0];
-    void* extraBuffer;
+    Manager0207f7f0* extraBuffer;
     char unknown1d8[8];
     char (*entryBuffer)[0x28];
     char unknown1e4[0x8a0];
@@ -37,7 +38,6 @@ void _Z23SetFlagAndData_021dbfa8P11Obj021dbfa8i(void*, void*);
 void _Z20ClearFields_021e20c0Pv(void*);
 void _Z17ResetList0204af64P12List0204af64(void*);
 void func_0204c684(void*);
-void func_0207f84c(void*);
 void _Z12Init0205a198P14Struct0205a198(void*);
 }
 // USA: func_ov006_02154348
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov006_02154348(AlchemyBufferInitializationView* state, 
     state->menuBuffer = allocator->Allocate(kMenuBytes);
     state->pairBuffer = (char (*)[0x20])allocator->Allocate(0x40);
     state->singleBuffer = (char (*)[0xe0])allocator->Allocate(0xe0);
-    state->extraBuffer = allocator->Allocate(kExtraBytes);
+    state->extraBuffer = static_cast<Manager0207f7f0*>(allocator->Allocate(kExtraBytes));
     state->entryBuffer = (char (*)[0x28])allocator->Allocate(0x2a8);
     state->activeAllocator->CreateTypeA(allocator->Allocate(0x258), 0x258);
     state->loadingAllocator->CreateTypeA(allocator->Allocate(0x258), 0x258);
