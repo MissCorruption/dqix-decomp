@@ -20370,3 +20370,53 @@ src/Combat/Main/func_02020c18.cpp:
     complete
     .text start:0x02020c18 end:0x02020cb8
     .bss start:0x020fdc4c end:0x020fdc60
+
+
+src/NitroSDK/Main/CalculateTextureTransformFromMAT.cpp:
+    complete
+    .text start:0x020b9484 end:0x020b9584
+
+
+src/NitroSDK/Main/GetAlphaFromMaterialAnimation.cpp:
+    complete
+    .text start:0x020b8fc8 end:0x020b90b4
+
+
+src/NitroSDK/Main/GetColorFromMaterialAnimation.cpp:
+    complete
+    .text start:0x020b8e60 end:0x020b8fc8
+
+
+src/NitroSDK/Main/InitializeModelAnimationFromJAC.cpp:
+    complete
+    .text start:0x020b7840 end:0x020b78bc
+
+
+src/NitroSDK/Main/MAMAnimationProcessingCallback.cpp:
+    complete
+    .text start:0x020b9188 end:0x020b9278
+
+
+src/NitroSDK/Main/SampleScalarFromMATTrack.cpp:
+    complete
+    .text start:0x020b9278 end:0x020b9378
+
+
+src/NitroSDK/Main/SampleSinCosFromMATTrack.cpp:
+    complete
+    .text start:0x020b9378 end:0x020b9484
+
+
+src/NitroSDK/Main/ScaleFieldy1000_020bec98_020bec98.cpp:
+    complete
+    .text start:0x020bec98 end:0x020becd4
+
+
+src/NitroSDK/Main/ScaleFieldy1000_020becd4_020becd4.cpp:
+    complete
+    .text start:0x020becd4 end:0x020bed10
+
+
+src/Runtime/Main/func_0200e830.cpp:
+    complete
+    .text start:0x0200e830 end:0x0200e984
