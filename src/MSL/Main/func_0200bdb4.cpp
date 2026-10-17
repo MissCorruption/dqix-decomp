@@ -3,7 +3,7 @@
 // KEEP-NAME
 // USA: func_0200bdb4
 extern "C" ARM
-asm int func_0200bdb4(double a, double b)
+asm int _dls(double a, double b)
 {
     mov ip, #0x200000
     cmn ip, r1, lsl #1

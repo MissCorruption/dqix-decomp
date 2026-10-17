@@ -3,7 +3,7 @@
 // USA: func_0200bc78
 //
 // PROVENANCE: pokediamond/arm9/asm/RUNTIME_f_cmp.s — _dgr. MSL runtime double greater-than compare.
-extern "C" ARM asm int func_0200bc78(double a, double b) {
+extern "C" ARM asm int _dgr(double a, double b) {
     mov ip, #0x200000
     cmn ip, r1, lsl #1
     bhs L_ac18

@@ -3,7 +3,7 @@
 // USA: func_0200bedc
 //
 // PROVENANCE: pokediamond/arm9/asm/RUNTIME_f_cmp.s — _dneq. MSL runtime double not-equal compare.
-extern "C" ARM asm int func_0200bedc(double a, double b) {
+extern "C" ARM asm int _dneq(double a, double b) {
     mov ip, #0x200000
     cmn ip, r1, lsl #1
     bhs L_ae70
