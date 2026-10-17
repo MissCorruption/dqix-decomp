@@ -18825,3 +18825,87 @@ src/MSL/Main/func_02009dfc.cpp:
 src/MSL/Main/func_0200a300.cpp:
     complete
     .text start:0x0200a21c end:0x0200a2c4
+
+src/NitroSDK/Main/func_020b6e98.cpp:
+    complete
+    .text start:0x020b8964 end:0x020b8988
+
+src/NitroSDK/Main/func_020b700c.cpp:
+    complete
+    .text start:0x020b8ad8 end:0x020b8b58
+
+src/NitroSDK/Main/func_020b708c.cpp:
+    complete
+    .text start:0x020b8b58 end:0x020b8bd8
+
+src/NitroSDK/Main/func_020b710c.cpp:
+    complete
+    .text start:0x020b8bd8 end:0x020b8c50
+
+src/NitroSDK/Main/func_020b7184.cpp:
+    complete
+    .text start:0x020b8c50 end:0x020b8cc8
+
+src/NitroSDK/Main/func_020b71fc.cpp:
+    complete
+    .text start:0x020b8cc8 end:0x020b8d38
+
+src/NitroSDK/Main/func_020b726c.cpp:
+    complete
+    .text start:0x020b8d38 end:0x020b8d78
+
+src/NitroSDK/Main/func_020b72ac.cpp:
+    complete
+    .text start:0x020b8d78 end:0x020b8db8
+
+src/NitroSDK/Main/func_020b72ec.cpp:
+    complete
+    .text start:0x020b8db8 end:0x020b8df8
+
+src/NitroSDK/Main/func_020b732c.cpp:
+    complete
+    .text start:0x020b8df8 end:0x020b8e38
+
+src/NitroSDK/Main/func_020d084c.cpp:
+    complete
+    .text start:0x020d2318 end:0x020d23a4
+
+src/NitroSDK/Main/func_020d08d8.cpp:
+    complete
+    .text start:0x020d23a4 end:0x020d2404
+
+src/NitroSDK/Main/func_020d0938.cpp:
+    complete
+    .text start:0x020d2404 end:0x020d2458
+
+src/NitroSDK/Main/func_020d098c.cpp:
+    complete
+    .text start:0x020d2458 end:0x020d2528
+
+src/NitroSDK/Main/func_020d0be8.cpp:
+    complete
+    .text start:0x020d26b4 end:0x020d27a4
+
+src/NitroSDK/Main/func_020d0d34.cpp:
+    complete
+    .text start:0x020d2800 end:0x020d2898
+
+src/NitroSDK/Main/func_020d0ec4.cpp:
+    complete
+    .text start:0x020d2990 end:0x020d29f4
+
+src/NitroSDK/Main/func_020d0f28.cpp:
+    complete
+    .text start:0x020d29f4 end:0x020d2a00
+
+src/NitroSDK/Main/func_020d0f34.cpp:
+    complete
+    .text start:0x020d2a00 end:0x020d2a0c
+
+src/NitroSDK/Main/func_020d0f40.cpp:
+    complete
+    .text start:0x020d2a0c end:0x020d2a40
+
+src/NitroSDK/Main/func_020d0f74.cpp:
+    complete
+    .text start:0x020d2a40 end:0x020d2a90

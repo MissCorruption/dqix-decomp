@@ -7740,7 +7740,7 @@ data_02111500 kind:bss addr:0x02111500
 data_02111520 kind:bss addr:0x02111520
 data_021118e0 kind:bss addr:0x02111580
 data_02111ba0 kind:bss addr:0x02111ba0
-data_02111bc0 kind:bss addr:0x02111bc0
+data_02111f20 kind:bss addr:0x02111bc0
 data_02112140 kind:bss addr:0x02111de0
 data_02112148 kind:bss addr:0x02111de8
 data_0211214c kind:bss addr:0x02111dec
