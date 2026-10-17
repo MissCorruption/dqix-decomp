@@ -20650,3 +20650,23 @@ src/NitroSDK/Main/func_020d0f40.cpp:
 src/NitroSDK/Main/func_020d0f74.cpp:
     complete
     .text start:0x020d0f74 end:0x020d0fc4
+
+
+src/NitroSDK/Main/CalculateRotationSmooth.cpp:
+    complete
+    .text start:0x020b89b0 end:0x020b8cf4
+
+
+src/NitroSDK/Main/CalculateScalingAmountFrameAligned.cpp:
+    complete
+    .text start:0x020b8210 end:0x020b8404
+
+
+src/NitroSDK/Main/CalculateTranslationAmountFrameAligned.cpp:
+    complete
+    .text start:0x020b7f54 end:0x020b80b4
+
+
+src/NitroSDK/Main/CalculateTranslationAmountSmooth.cpp:
+    complete
+    .text start:0x020b80b4 end:0x020b8210
