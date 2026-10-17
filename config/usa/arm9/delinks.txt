@@ -20660,3 +20660,13 @@ src/NitroSDK/Main/LoadDataFromCartridgeToMemory.cpp:
 src/NitroSDK/Main/func_020ce39c.cpp:
     complete
     .text start:0x020ce39c end:0x020ce45c
+
+
+src/NitroSDK/Main/InitGridRowsAndFlushCache_020d2a48.cpp:
+    complete
+    .text start:0x020d2a48 end:0x020d2ac4
+
+
+src/NitroSDK/Main/func_020b2054.cpp:
+    complete
+    .text start:0x020b2054 end:0x020b20b0
