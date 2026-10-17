@@ -20680,3 +20680,8 @@ src/NitroSDK/Main/CycleCurrentPriorityContexts.cpp:
 src/NitroSDK/Main/func_020b27c8.cpp:
     complete
     .text start:0x020b27c8 end:0x020b291c
+
+
+src/NitroSDK/Main/LoadOverlayMetadata.cpp:
+    complete
+    .text start:0x020cd0f4 end:0x020cd1f0
