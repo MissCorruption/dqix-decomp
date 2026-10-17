@@ -20650,3 +20650,23 @@ src/NitroSDK/Main/func_020d0f40.cpp:
 src/NitroSDK/Main/func_020d0f74.cpp:
     complete
     .text start:0x020d0f74 end:0x020d0fc4
+
+
+src/NitroSDK/Main/ChangeContextPriority.cpp:
+    complete
+    .text start:0x020c7a90 end:0x020c7b38
+
+
+src/NitroSDK/Main/LoadOverlayMetadataFromNitro.cpp:
+    complete
+    .text start:0x020ccffc end:0x020cd0f4
+
+
+src/NitroSDK/Main/SleepCurrentContext.cpp:
+    complete
+    .text start:0x020c7b40 end:0x020c7be8
+
+
+src/NitroSDK/Main/func_020b1300.cpp:
+    complete
+    .text start:0x020b1300 end:0x020b1540
