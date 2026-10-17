@@ -20525,3 +20525,28 @@ src/MSL/Main/PrintfFloat.cpp:
     complete
     .text start:0x020026b4 end:0x02003418
     .data start:0x020eeef0 end:0x020eef28
+
+
+src/NitroSDK/Main/InitAllocatorsAndVmPoolOnce_020be9e8.cpp:
+    complete
+    .text start:0x020be9e8 end:0x020beaec
+
+
+src/NitroSDK/Main/NSBXX_Model_AdjustPolygonAttrMask.cpp:
+    complete
+    .text start:0x020b6f64 end:0x020b700c
+
+
+src/NitroSDK/Main/NSBXX_Model_SetAllMaterialFlags.cpp:
+    complete
+    .text start:0x020b6ebc end:0x020b6f64
+
+
+src/NitroSDK/Main/func_020d03fc.cpp:
+    complete
+    .text start:0x020d03fc end:0x020d05ec
+
+
+src/NitroSDK/Main/func_020d3df8.cpp:
+    complete
+    .text start:0x020d3df8 end:0x020d3fdc
