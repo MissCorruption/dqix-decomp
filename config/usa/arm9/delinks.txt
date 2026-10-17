@@ -20675,3 +20675,18 @@ src/NitroSDK/Main/NSBXX_DetachTextureImageFromModel.cpp:
 src/NitroSDK/Main/NSBXX_DetachTexturePaletteFromModel.cpp:
     complete
     .text start:0x020b34f8 end:0x020b357c
+
+
+src/NitroSDK/Main/AttachTexturePaletteToModelMaterials.cpp:
+    complete
+    .text start:0x020b3310 end:0x020b33f0
+
+
+src/NitroSDK/Main/NSBXX_LinkTEX0ToMDL0.cpp:
+    complete
+    .text start:0x020b357c end:0x020b362c
+
+
+src/NitroSDK/Main/NSBXX_UnlinkTEX0FromMDL0.cpp:
+    complete
+    .text start:0x020b362c end:0x020b36c0
