@@ -10,7 +10,7 @@ extern char data_02114e54;
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov019_0218c240
-ARM int TriggerDispatchIfFlagOrByte_0218c240(void) {
+ARM int TriggerDispatchIfFlagOrByte_0218c240(void* scene) {
     if (!TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x7f3)) {
         unsigned char v = *((unsigned char*)&data_02114e54 + 0x55);
         if (v == 0) return 0;
