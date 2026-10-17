@@ -3,7 +3,7 @@
 // USA: func_0200bd10
 //
 // PROVENANCE: pokediamond/arm9/asm/RUNTIME_f_cmp.s — _dleq. MSL runtime double less-or-equal compare.
-extern "C" ARM asm int func_0200bd10(double a, double b) {
+extern "C" ARM asm int _dleq(double a, double b) {
     mov ip, #0x200000
     cmn ip, r1, lsl #1
     bhs L_acbc
