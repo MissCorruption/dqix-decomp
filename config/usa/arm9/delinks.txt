@@ -20650,3 +20650,23 @@ src/NitroSDK/Main/func_020d0f40.cpp:
 src/NitroSDK/Main/func_020d0f74.cpp:
     complete
     .text start:0x020d0f74 end:0x020d0fc4
+
+
+src/NitroSDK/Main/func_020b11c8.cpp:
+    complete
+    .text start:0x020b11c8 end:0x020b1300
+
+
+src/NitroSDK/Main/func_020b1540.cpp:
+    complete
+    .text start:0x020b1540 end:0x020b16d8
+
+
+src/NitroSDK/Main/func_020b16d8.cpp:
+    complete
+    .text start:0x020b16d8 end:0x020b18e8
+
+
+src/NitroSDK/Main/func_020b19b8.cpp:
+    complete
+    .text start:0x020b19b8 end:0x020b1b54
