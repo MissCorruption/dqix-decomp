@@ -20670,3 +20670,13 @@ src/NitroSDK/Main/SleepCurrentContext.cpp:
 src/NitroSDK/Main/func_020b1300.cpp:
     complete
     .text start:0x020b1300 end:0x020b1540
+
+
+src/NitroSDK/Main/CycleCurrentPriorityContexts.cpp:
+    complete
+    .text start:0x020c79bc end:0x020c7a74
+
+
+src/NitroSDK/Main/func_020b27c8.cpp:
+    complete
+    .text start:0x020b27c8 end:0x020b291c
