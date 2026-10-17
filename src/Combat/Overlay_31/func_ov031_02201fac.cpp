@@ -11,7 +11,7 @@ struct C980Cache { unsigned char pad0[0x160]; unsigned int f160; };
 
 extern int data_ov031_0224cac4;
 extern Ca80Cache data_ov031_0224ca80;
-extern C980Cache data_ov031_0224c980;
+extern "C" C980Cache _ZZ18GetGlobal_02201364vE1s;
 
 #define SW16_02201fac(v) (unsigned short)(((v) >> 8) | ((v) << 8))
 
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov031_02201fac(Header02201fac* hdr, Src02201fac* src, un
 	VectorizedMemset(dst, 0, 0x64);
 	data_ov031_0224ca80.f4e = SW16_02201fac(src->f2);
 	data_ov031_0224ca80.f5c = SW16_02201fac(src->f0);
-	data_ov031_0224c980.f160 = ((unsigned int)SW16_02201fac(hdr->f0c) << 16) | SW16_02201fac(hdr->f0e);
+	_ZZ18GetGlobal_02201364vE1s.f160 = ((unsigned int)SW16_02201fac(hdr->f0c) << 16) | SW16_02201fac(hdr->f0e);
 	if (src->flags & 0x10) {
 		dst->f28 = ((unsigned int)SW16_02201fac(src->f8) << 16) | SW16_02201fac(src->fa);
 		return func_ov031_02201f10((int)dst, 4, b);

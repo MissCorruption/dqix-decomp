@@ -20370,3 +20370,7 @@ src/Combat/Main/func_02020c18.cpp:
     complete
     .text start:0x02020c18 end:0x02020cb8
     .bss start:0x020fdc4c end:0x020fdc60
+
+src/Combat/Main/func_020d2d00.cpp:
+    complete
+    .text start:0x020d2d00 end:0x020d2eb0

@@ -12,7 +12,7 @@ struct ContextIdentifierRecord {
     unsigned short identifier;
 };
 
-extern ContextIdentifierState data_ov031_0224c980;
+extern "C" ContextIdentifierState _ZZ18GetGlobal_02201364vE1s;
 
 // USA: func_ov031_02203078
 extern "C" ARM unsigned short func_ov031_02203078(void) {
@@ -22,14 +22,14 @@ extern "C" ARM unsigned short func_ov031_02203078(void) {
     ProcessorContext* firstContext = data_02111304.firstContext;
     do {
         duplicate = 0;
-        ++data_ov031_0224c980.currentIdentifier;
-        if (data_ov031_0224c980.currentIdentifier < 1024 ||
-            data_ov031_0224c980.currentIdentifier >= 5000) {
-            data_ov031_0224c980.currentIdentifier = 1024;
+        ++_ZZ18GetGlobal_02201364vE1s.currentIdentifier;
+        if (_ZZ18GetGlobal_02201364vE1s.currentIdentifier < 1024 ||
+            _ZZ18GetGlobal_02201364vE1s.currentIdentifier >= 5000) {
+            _ZZ18GetGlobal_02201364vE1s.currentIdentifier = 1024;
         }
         context = firstContext;
         if (context != NULL) {
-            identifier = data_ov031_0224c980.currentIdentifier;
+            identifier = _ZZ18GetGlobal_02201364vE1s.currentIdentifier;
             do {
                 ContextIdentifierRecord* record = (ContextIdentifierRecord*)context->unknown_A4;
                 if (record != NULL && record->active != 0 &&
@@ -41,5 +41,5 @@ extern "C" ARM unsigned short func_ov031_02203078(void) {
             } while (context != NULL);
         }
     } while (duplicate != 0);
-    return data_ov031_0224c980.currentIdentifier;
+    return _ZZ18GetGlobal_02201364vE1s.currentIdentifier;
 }

@@ -11,7 +11,7 @@ struct Overlay31AddressState {
     char unknown[0x50];
     unsigned int localAddress;
 };
-extern Overlay31AddressState data_ov031_0224c980;
+extern "C" Overlay31AddressState _ZZ18GetGlobal_02201364vE1s;
 extern Overlay31AddressEntry data_ov031_0224ca00[8];
 struct Overlay31TimestampView { unsigned short timestamp; char stride[10]; };
 extern Overlay31TimestampView data_ov031_0224ca0a[];
@@ -20,7 +20,7 @@ int _Z29IsSpecialOrMaskMatch_022006f0i(unsigned int);
 int _Z22IsHighNibbleE_02200790j(unsigned int);
 
 ARM void func_ov031_02200e38(const void* identifier, unsigned int address, int allowInsert) {
-    if (address == 0x7f000001 || address == data_ov031_0224c980.localAddress) return;
+    if (address == 0x7f000001 || address == _ZZ18GetGlobal_02201364vE1s.localAddress) return;
     if (!_Z29IsSpecialOrMaskMatch_022006f0i(address)) return;
     if (_Z22IsHighNibbleE_02200790j(address)) return;
     unsigned short timestamp = GetCurrentTimestamp() >> 16;

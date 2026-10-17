@@ -15,32 +15,32 @@ struct GlobalStruct0224c980_02200af8 {
 	unsigned int field5c;
 };
 
-extern GlobalStruct0224c980_02200af8 data_ov031_0224c980;
+extern "C" GlobalStruct0224c980_02200af8 _ZZ18GetGlobal_02201364vE1s;
 
 // USA: func_ov031_02200af8  (semantic: DequeueOrBlockUntilAvailable_02200af8)  (semantic: DequeueOrBlockUntilAvailable_02200af8)
 extern "C" ARM void* func_ov031_02200af8(unsigned int* outLen) {
 	int oldIRQ = DisableIRQInterrupts();
-	if (data_ov031_0224c980.field30 == data_ov031_0224c980.field28) {
+	if (_ZZ18GetGlobal_02201364vE1s.field30 == _ZZ18GetGlobal_02201364vE1s.field28) {
 		do {
-			data_ov031_0224c980.field54 = (unsigned int)data_02111304.activeContext;
+			_ZZ18GetGlobal_02201364vE1s.field54 = (unsigned int)data_02111304.activeContext;
 			BlockCurrentContext(NULL);
-			data_ov031_0224c980.field54 = 0;
-		} while (data_ov031_0224c980.field30 == data_ov031_0224c980.field28);
+			_ZZ18GetGlobal_02201364vE1s.field54 = 0;
+		} while (_ZZ18GetGlobal_02201364vE1s.field30 == _ZZ18GetGlobal_02201364vE1s.field28);
 	}
 	SetIRQInterruptState(oldIRQ);
 
-	unsigned char* base = data_ov031_0224c980.field58;
+	unsigned char* base = _ZZ18GetGlobal_02201364vE1s.field58;
 	unsigned int value;
 	do {
-		if (data_ov031_0224c980.field5c - data_ov031_0224c980.field30 < 2) {
-			data_ov031_0224c980.field30 = 0;
+		if (_ZZ18GetGlobal_02201364vE1s.field5c - _ZZ18GetGlobal_02201364vE1s.field30 < 2) {
+			_ZZ18GetGlobal_02201364vE1s.field30 = 0;
 		}
-		value = *(unsigned short*)(base + data_ov031_0224c980.field30);
+		value = *(unsigned short*)(base + _ZZ18GetGlobal_02201364vE1s.field30);
 		if (value == 0) {
-			data_ov031_0224c980.field30 = 0;
+			_ZZ18GetGlobal_02201364vE1s.field30 = 0;
 		}
 	} while (value == 0);
 
 	*outLen = value - 2;
-	return data_ov031_0224c980.field58 + data_ov031_0224c980.field30 + 2;
+	return _ZZ18GetGlobal_02201364vE1s.field58 + _ZZ18GetGlobal_02201364vE1s.field30 + 2;
 }

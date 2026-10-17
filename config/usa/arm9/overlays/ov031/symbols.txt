@@ -2671,7 +2671,7 @@ data_ov031_0224c938 kind:data(any) addr:0x0224c938
 data_ov031_0224c93d kind:data(any) addr:0x0224c93d
 data_ov031_0224c94e kind:data(any) addr:0x0224c94e
 data_ov031_0224c954 kind:data(any) addr:0x0224c954
-data_ov031_0224c980 kind:bss addr:0x0224c980
+_ZZ18GetGlobal_02201364vE1s kind:bss addr:0x0224c980
 data_ov031_0224c994 kind:bss addr:0x0224c994
 data_ov031_0224c99c kind:bss addr:0x0224c99c
 data_ov031_0224c9ac kind:bss addr:0x0224c9ac
