@@ -20686,3 +20686,13 @@ src/MSL/Main/func_02008848.cpp:
     complete
     .text start:0x02008848 end:0x02008da4
     .rodata start:0x020e6cc4 end:0x020e6d04
+
+
+src/Combat/Main/func_020def98.cpp:
+    complete
+    .text start:0x020def98 end:0x020df374
+
+
+src/Combat/Main/func_020e0028.cpp:
+    complete
+    .text start:0x020e0028 end:0x020e0280
