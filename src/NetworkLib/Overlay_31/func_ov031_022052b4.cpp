@@ -27,23 +27,20 @@ extern "C" int func_020c7e0c(void*, unsigned int, int);
 
 // USA: func_ov031_022052b4
 extern "C" ARM void func_ov031_022052b4(void* queue) {
-    unsigned int message;
+    QueueJob022052b4* job;
     int interruptState;
+    int result;
     while (1) {
-        PopQueueEntryOrWait020c7fe0(queue, &message, 1);
-        QueueJob022052b4* job = (QueueJob022052b4*)message;
+        PopQueueEntryOrWait020c7fe0(queue, (unsigned int*)&job, 1);
         if (job == NULL) break;
-        int result = job->callback(job);
+        result = job->callback(job);
         interruptState = DisableIRQInterrupts();
         AddContextSwitchLock();
         func_020c7ea0(queue, NULL, 0);
-        job = (QueueJob022052b4*)message;
         if (job->socket) job->socket->result = result;
-        job = (QueueJob022052b4*)message;
         if (job->resultQueue) func_020c7e0c(job->resultQueue, result, 0);
-        CallGlobalWithArg_02205174(message);
+        CallGlobalWithArg_02205174((int)job);
         RemoveContextSwitchLock();
         SetIRQInterruptState(interruptState);
     }
 }
-
