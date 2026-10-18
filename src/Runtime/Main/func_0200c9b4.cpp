@@ -1,8 +1,7 @@
 #include <globaldefs.h>
 
-// Single-precision square root (the runtime's _fsqrt; float twin of func_0200b454's double
-// sqrt). Bit-by-bit restoring root; a negative non-zero argument returns the quiet NaN
-// 0x7fc00000 and sets errno (data_020f3390) to EDOM (33).
+extern int data_020f3390;
+
 // KEEP-NAME
 // USA: func_0200c9b4
 extern "C" ARM
@@ -64,7 +63,7 @@ _La4:
 _Lc0:
     ldr r2, =0x7fc00000
     orr r0, r0, r2
-    ldr r3, =0x020f3390
+    ldr r3, =data_020f3390
     mov r4, #0x21
     str r4, [r3]
     ldmia sp!, {lr}
