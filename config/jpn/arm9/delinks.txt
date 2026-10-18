@@ -18878,3 +18878,7 @@ src/Combat/Main/_fadd_0200b9bc.s:
 src/Combat/Main/InitState0204166c020416e0.cpp:
     complete
     .text start:0x02041c10 end:0x02041c7c
+
+src/Combat/Main/func_02043600.cpp:
+    complete
+    .text start:0x02043de0 end:0x02043f88
