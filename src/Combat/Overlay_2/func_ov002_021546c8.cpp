@@ -30,6 +30,11 @@ struct Req021546c8 {
 
 // USA: func_ov002_021546c8
 extern "C" ARM int func_ov002_021546c8(void *self, struct Req021546c8 *req, void *other, int useAlt) {
+#if defined(jpn)
+    enum { regionalOffset0 = 0x144, regionalOffset1 = 0x8b8 };
+#else
+    enum { regionalOffset0 = 0x150, regionalOffset1 = 0x950 };
+#endif
     if (req == NULL) return 0;
     if (other == NULL) return 0;
 
@@ -57,12 +62,12 @@ extern "C" ARM int func_ov002_021546c8(void *self, struct Req021546c8 *req, void
         }
         GameObject *m = GetCombatantWithFlag0x100_0200ff1c(gs, id);
         if (m == NULL) continue;
-        e->val = func_02084a64(*(void **) ((char *) m + 0x150), req->s0);
+        e->val = func_02084a64(*(void **) ((char *) m + regionalOffset0), req->s0);
         if (e->val <= 0) continue;
         e->kind = 3;
-        func_02083e28(*(void **) ((char *) m + 0x150), 0);
+        func_02083e28(*(void **) ((char *) m + regionalOffset0), 0);
         if (CheckField0NonZero_0202b7d8((int *) w)) {
-            func_ov017_021cf078(id, *(int *) (*(char **) ((char *) m + 0x150) + 0x950) & 0xff, 1);
+            func_ov017_021cf078(id, *(int *) (*(char **) ((char *) m + regionalOffset0) + regionalOffset1) & 0xff, 1);
             func_ov017_021c9e00(id, 0, 0, 1);
         }
         ret = 1;
