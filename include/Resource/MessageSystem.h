@@ -85,7 +85,7 @@ struct MessageSystem {
     unsigned char pad1750[2];
     unsigned short lineGlyphSlots[0x10];
     unsigned short lineGlyphCount;
-    unsigned short h1944;
+    short h1944;
     unsigned char pad1776[2];
     signed char levels[4];
     signed char b194e[4];

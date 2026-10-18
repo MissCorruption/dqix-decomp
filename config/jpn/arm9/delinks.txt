@@ -18982,3 +18982,7 @@ src/Combat/Main/StoreClampedDeltas.cpp:
 src/Combat/Main/func_0206b528.cpp:
     complete
     .text start:0x0206cdcc end:0x0206ce78
+
+src/Combat/Main/func_0206ad74.cpp:
+    complete
+    .text start:0x0206c794 end:0x0206ca50
