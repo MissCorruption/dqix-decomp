@@ -15242,19 +15242,19 @@ src/NitroSDK/Main/CopySinkClamped.cpp:
     complete
     .text start:0x020d3108 end:0x020d3160
 
-src/NitroSDK/Main/ResetStruct020d3c08.cpp:
+src/Combat/Main/ResetStruct020d3c08.cpp:
     complete
     .text start:0x020d3c08 end:0x020d3c28
 
-src/NitroSDK/Main/InitAndMaybeStartStream020d3c28.cpp:
+src/Combat/Main/InitAndMaybeStartStream020d3c28.cpp:
     complete
     .text start:0x020d3c28 end:0x020d3c84
 
-src/NitroSDK/Main/InitHandlerArrayAndRunScript020d3c84.cpp:
+src/Combat/Main/InitHandlerArrayAndRunScript020d3c84.cpp:
     complete
     .text start:0x020d3c84 end:0x020d3cf0
 
-src/NitroSDK/Main/GetElementCount0xb4Stride0x24.cpp:
+src/Combat/Main/GetElementCount0xb4Stride0x24.cpp:
     complete
     .text start:0x020d3d78 end:0x020d3d90
 

@@ -14177,7 +14177,7 @@ src/Combat/Main/CopyCountedBytesToIntArray02010834.cpp:
     complete
     .text start:0x02010690 end:0x020106ec
 
-src/NitroSDK/Main/InitAndMaybeStartStream020d3c28.cpp:
+src/Combat/Main/InitAndMaybeStartStream020d3c28.cpp:
     complete
     .text start:0x020d568c end:0x020d56e8
 
@@ -15089,7 +15089,7 @@ src/Combat/Main/AccumulateSlotBitsFromTable02086314.cpp:
     complete
     .text start:0x02086c34 end:0x02086ca0
 
-src/NitroSDK/Main/InitHandlerArrayAndRunScript020d3c84.cpp:
+src/Combat/Main/InitHandlerArrayAndRunScript020d3c84.cpp:
     complete
     .text start:0x020d56e8 end:0x020d5754
 
@@ -15421,7 +15421,7 @@ src/Combat/Main/ResetAndSetFlag0x3c9Bit0_020939dc.cpp:
     complete
     .text start:0x02094308 end:0x02094328
 
-src/NitroSDK/Main/ResetStruct020d3c08.cpp:
+src/Combat/Main/ResetStruct020d3c08.cpp:
     complete
     .text start:0x020d566c end:0x020d568c
 
@@ -15785,7 +15785,7 @@ src/Combat/Main/SetFlagBytes02017d68.cpp:
     complete
     .text start:0x02017b08 end:0x02017b1c
 
-src/NitroSDK/Main/GetElementCount0xb4Stride0x24.cpp:
+src/Combat/Main/GetElementCount0xb4Stride0x24.cpp:
     complete
     .text start:0x020d57d8 end:0x020d57ec
 
