@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 
 // USA: func_02000970  (semantic: NitroSDK crt0 MIi_UncompressBackward)
-// PROVENANCE: SonicRushAdventure-Decomp/lib/NitroSDK/src/init/ARM9/crt0.c MIi_UncompressBackward
-// (also pokediamond arm9/lib/NitroSDK/src/crt0.c). asm void in the SDK; no predicated instructions,
-// so the body is the SDK text with its register #defines expanded.
 extern "C" ARM asm void func_02000970(void* bottom) {
     cmp r0, #0
     beq exit

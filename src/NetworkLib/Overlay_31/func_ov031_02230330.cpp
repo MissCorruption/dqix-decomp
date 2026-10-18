@@ -16,7 +16,6 @@ extern "C" int func_ov031_0223d634(Box_02230330* box);
 
 extern Box_02230330 data_ov031_022493b8;
 extern Ctx_02230330 data_ov031_02290ca0;
-// .rodata of this file: four separate objects read off one section-base literal
 extern const unsigned char data_ov031_02248f5c[4] = {2, 3, 7, 8};
 extern const Box_02230330 data_ov031_02248f60 = {{204, 52}, {28, 24}};
 extern const Box_02230330 data_ov031_02248f68 = {{143, 52}, {44, 24}};

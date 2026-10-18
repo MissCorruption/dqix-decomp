@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 
 // USA: func_02000a1c  (semantic: NitroSDK crt0 do_autoload)
-// PROVENANCE: SonicRushAdventure-Decomp/lib/NitroSDK/src/init/ARM9/crt0.c do_autoload (also
-// pokediamond arm9/lib/NitroSDK/src/crt0.c), SP1P3_BUG_FOR_CONDITIONAL_ASM_INSTRUCTIONS form: the
-// predicated ldrmi/strmi/strcc are spelled as branch-around, which is what the ROM has.
-extern "C" char BuildInfo[];           // _start_ModuleParams
-extern "C" int AutoloadCallback();     // _start_AutoloadDoneCallback
+extern "C" char BuildInfo[];
+extern "C" int AutoloadCallback();
 
 extern "C" ARM asm void func_02000a1c(void) {
     ldr r0, =BuildInfo

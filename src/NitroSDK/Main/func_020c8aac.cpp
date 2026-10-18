@@ -1,11 +1,8 @@
 #include <globaldefs.h>
 
 // USA: func_020c8aac  (semantic: NitroSDK OSi_ExceptionHandler)
-// PROVENANCE: SonicRushAdventure-Decomp/lib/NitroSDK/src/os/os_exception.c OSi_ExceptionHandler
-// (also pokediamond arm9/lib/NitroSDK/src/OS_exception.c). asm void in the SDK; the predicated
-// movne/bxne are spelled as branch-around, which is what the ROM has (SP1P3 conditional-asm form).
-extern int data_02111588[3];                            // OSi_DebuggerHandler (first word)
-void CallFunc020c8b44Then020c8bd4_020c8b30(void* p);    // OSi_GetAndDisplayContext
+extern int data_02111588[3];
+void CallFunc020c8b44Then020c8bd4_020c8b30(void* p);
 
 extern "C" ARM asm void func_020c8aac(void) {
     ldr r12, =data_02111588
@@ -21,7 +18,7 @@ movne2:
 bxne1:
     bx r12
 bxne2:
-    ldr r12, =0x02000000    // HW_ITCM_END
+    ldr r12, =0x02000000
     stmdb r12!, {r0, r1, r2, r3, sp, lr}
     and r0, sp, #1
     mov sp, r12

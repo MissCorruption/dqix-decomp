@@ -17,7 +17,6 @@ struct ButtonScreen {
     void* labelCell[4];
 };
 extern ButtonScreen* data_ov031_02250c00;
-// .rodata of this file: separate objects read off one section-base literal
 extern const Point16 data_ov031_02248c88 = {28, 20};
 extern const Point16 data_ov031_02248c8c = {12, 4};
 extern const Point16 data_ov031_02248c94 = {120, 18};

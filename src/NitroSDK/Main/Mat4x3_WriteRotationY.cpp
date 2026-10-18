@@ -2,8 +2,6 @@
 
 // KEEP-NAME: the ROM symbol is a curated name, not a func_ tag.
 // USA: func_020c199c
-// PROVENANCE: pokediamond/arm9/lib/NitroSDK/src/FX_mtx43.c:187 -- MTX_RotY43_, an `asm void` in
-// the SDK (sibling of MTX_RotX43_ at 020c197c). THUMB `stmia r0!` has no C form in mwcc.
 struct Mtx43_020c199c { unsigned int v[12]; };
 
 extern "C" THUMB asm void Mat4x3_WriteRotationY(struct Mtx43_020c199c* dst, int s, int c)

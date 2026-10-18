@@ -2,13 +2,6 @@
 
 // KEEP-NAME: the ROM symbol is a curated name, not a func_ tag.
 // USA: func_020ca650
-//
-// Hand-written SDK assembly, transcribed instruction-for-instruction from the ROM.
-// DQIX's SDK build spells every PREDICATED instruction of the reference as an explicit branch
-// pair (`ldrneh r3,[r0,#-1]` becomes `bne L; b M; L: ldrh r3,[r0,#-1]`, `bxeq lr` becomes
-// `beq L; b M; L: bx lr`), same as VectorizedMemset (020ca594).
-//
-// PROVENANCE: pret/pokediamond arm9/lib/NitroSDK/src/MI_memory.c:225 -- MI_CpuCopy8, asm void there too
 extern "C" ARM
 asm void VectorizedInvertedMemcpy(const void *src, void *dst, unsigned int size)
 {

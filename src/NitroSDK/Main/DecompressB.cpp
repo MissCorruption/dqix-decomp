@@ -2,26 +2,19 @@
 
 // KEEP-NAME: the ROM symbol is a curated name, not a func_ tag.
 // USA: func_020cab94  (semantic: NitroSDK MI_ReadUncompHuffman, streaming Huffman decoder)
-// PROVENANCE: NitroSDK src/mi/mi_uncomp_stream.c MI_ReadUncompHuffman(MIUncompContextHuffman*,
-// const void* data, u32 len). Context layout matches MIUncompContextHuffman: destp 0x0,
-// destCount 0x4, treep 0x8, srcTmp 0xc, destTmp 0x10, treeSize(s16) 0x14, srcTmpCnt 0x16,
-// destTmpCnt 0x17, bitSize 0x18, tree[] 0x1c; the caller (ExtendedNitroVM compression types 2/3)
-// sets bitSize = 4/8, treeSize = -1, treep = tree, as MI_InitUncompContextHuffman does. Hand asm
-// (word `ldr [r1], #1` source fetch, stmfd {r4-r12,lr}); no public decomp carries it, so the body
-// is transcribed from the ROM. Predicated addeq/movle are spelled as branch-around (SP1P3 form).
 struct Decompressor;
 
 extern "C" ARM asm int DecompressB(Decompressor* context, const void* data, unsigned int len) {
     stmfd sp!, {r4-r12, lr}
-    ldr r3, [r0, #0]            // destp
-    ldr r4, [r0, #4]            // destCount
-    ldr r5, [r0, #8]            // treep
-    ldr r6, [r0, #0xc]          // srcTmp
-    ldr r7, [r0, #0x10]         // destTmp
-    ldrsh r8, [r0, #0x14]       // treeSize
-    ldrb r9, [r0, #0x16]        // srcTmpCnt
-    ldrb r10, [r0, #0x17]       // destTmpCnt
-    ldrb r11, [r0, #0x18]       // bitSize
+    ldr r3, [r0, #0]
+    ldr r4, [r0, #4]
+    ldr r5, [r0, #8]
+    ldr r6, [r0, #0xc]
+    ldr r7, [r0, #0x10]
+    ldrsh r8, [r0, #0x14]
+    ldrb r9, [r0, #0x16]
+    ldrb r10, [r0, #0x17]
+    ldrb r11, [r0, #0x18]
     cmp r8, #0
     beq decode
     bgt tree_loop

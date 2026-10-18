@@ -1,20 +1,6 @@
 #include <globaldefs.h>
 
 // USA: func_020c0e9c
-// PROVENANCE: NitroSDK libdgt `DGTi_hash2_arm4_small`, the SHA-1 block transform from the prebuilt
-// sha1s-arm4cw.o (hand-written ARM for CodeWarrior). Byte-identical bodies:
-// pokediamond arm9/asm/DGT_sha1s_arm4cw.s, SonicRushAdventure-Decomp lib/NitroSDK/asm/ARM9/dgt_sha1s.s,
-// khdays-decomp libs/nitro/dgt/asm_stubs/auto/DGTi_Hash2ProcessBlock.c (an `asm void`).
-//
-// Hashes 64-byte blocks of src (r1, len bytes in r2) into the five-word state at r0.
-// Its literal pool is the 0x14 bytes just BEFORE this function, read with negative pc offsets:
-//   020c0e88  0x00FF00FF  byte-swap mask
-//   020c0e8c  0x5A827999  K1 (rounds 0-19)
-//   020c0e90  0x6ED9EBA1  K2 (rounds 20-39)
-//   020c0e94  0x8F1BBCDC  K3 (rounds 40-59)
-//   020c0e98  0xCA62C1D6  K4 (rounds 60-79)
-// That pool is not part of this slot (symbol 020c0e9c, size 0x280); it belongs to the same object
-// in the SDK, so landing needs the delink to start at 020c0e88 or the 0x14 bytes owned elsewhere.
 extern "C" ARM asm void func_020c0e9c(void* state, const void* src, unsigned long len)
 {
     stmdb sp!, {r4, r5, r6, r7, r8, r9, r10, r11, ip, lr}
@@ -22,8 +8,8 @@ extern "C" ARM asm void func_020c0e9c(void* state, const void* src, unsigned lon
     sub sp, sp, #0x84
     str r2, [sp, #0x80]
 block:
-    ldr r8, [pc, #-0x28]    // K1 @ 020c0e8c
-    ldr r7, [pc, #-0x30]    // byte-swap mask @ 020c0e88
+    ldr r8, [pc, #-0x28]
+    ldr r7, [pc, #-0x30]
     mov r6, sp
     mov r5, #0
 round1_load:
@@ -78,7 +64,7 @@ round1_expand:
     add r7, r7, #4
     cmp r7, #0x10
     blt round1_expand
-    ldr r8, [pc, #-0xfc]    // K2 @ 020c0e90
+    ldr r8, [pc, #-0xfc]
     mov r7, #0
 round2:
     ldr r2, [r6]
@@ -108,7 +94,7 @@ round2:
     moveq r6, sp
     cmp r7, #0x14
     blt round2
-    ldr r8, [pc, #-0x16c]   // K3 @ 020c0e94
+    ldr r8, [pc, #-0x16c]
     mov r7, #0
 round3:
     ldr r2, [r6]
@@ -140,7 +126,7 @@ round3:
     moveq r6, sp
     cmp r7, #0x14
     blt round3
-    ldr r8, [pc, #-0x1e4]   // K4 @ 020c0e98
+    ldr r8, [pc, #-0x1e4]
     mov r7, #0
 round4:
     ldr r2, [r6]
