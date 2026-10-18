@@ -37,10 +37,12 @@ struct MessageSystem {
     void* textBuffer;
     unsigned short* firstLineBuffer;
     void* secondLineBuffer;
-    unsigned char pad20[0xc];
+    unsigned short* tokenStart;
+    unsigned short* tokenCursor;
+    unsigned char pad28[4];
     char* formatBuffer;
     char* expandedBuffer;
-    unsigned char pad34[4];
+    unsigned int tokenLength;
     unsigned int tokenCount;
     unsigned char pad3c[8];
     unsigned int tokenIndex;

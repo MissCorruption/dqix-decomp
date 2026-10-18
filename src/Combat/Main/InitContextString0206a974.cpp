@@ -1,5 +1,28 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#if defined(jpn)
+#include "Resource/MessageSystem.h"
+int StringLength_020d2ff0(const char*);
+extern "C" void func_0206aa28(void*);
+
+// JPN: func_0206c570
+extern "C" ARM void func_0206c570(void* context, const char* src) {
+    MessageSystem* p = static_cast<MessageSystem*>(context);
+    if (src == NULL) return;
+    {
+        void* buffer = p->textBuffer;
+        memcpy(buffer, src, (p->tokenLength = StringLength_020d2ff0(src)));
+    }
+    {
+        unsigned short* buffer = static_cast<unsigned short*>(p->textBuffer);
+        p->tokenCursor = buffer;
+        p->tokenStart = buffer;
+    }
+    memset(p->firstLineBuffer, 0, 0x140);
+    memset(p->secondLineBuffer, 0, 0x140);
+    func_0206aa28(context);
+}
+#else
 
 extern int StringLength_020d2ff0(const char* s);
 
@@ -40,3 +63,5 @@ ARM void InitContextString0206a974(struct Ctx0206a974* p, const char* src, int b
         memcpy(p->field50, p->field60, len2);
     }
 }
+
+#endif
