@@ -847,8 +847,8 @@ data_ov000_02182b04 kind:data(any) addr:0x02183bbc
 data_ov000_02182b14 kind:data(any) addr:0x02183bcc
 data_ov000_02182b24 kind:data(any) addr:0x02183bdc
 data_ov000_02182b34 kind:data(any) addr:0x02183bec
-data_ov000_02183bfc kind:data(any) addr:0x02183bfc
-data_ov000_02183c0c kind:data(any) addr:0x02183c0c
+data_ov000_02182b44 kind:data(any) addr:0x02183bfc
+data_ov000_02182b54 kind:data(any) addr:0x02183c0c
 data_ov000_02182b64 kind:data(any) addr:0x02183c1c
 data_ov000_02182b74 kind:data(any) addr:0x02183c2c
 data_ov000_02182b84 kind:data(any) addr:0x02183c3c
