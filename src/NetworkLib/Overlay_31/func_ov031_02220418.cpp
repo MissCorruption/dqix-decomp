@@ -1,0 +1,47 @@
+#include <globaldefs.h>
+struct Record02220418 { unsigned short value; };
+struct Body02220418 { unsigned char header[8]; unsigned char records[1]; };
+extern "C" Body02220418* func_ov031_022201d8(void*, unsigned int*, unsigned int*);
+extern "C" Record02220418* func_ov031_02220248(unsigned char**, const void*, unsigned int*, unsigned int*);
+// USA: func_ov031_02220418
+extern "C" THUMB int func_ov031_02220418(void* packet, int* enabled) {
+    unsigned int type, length, recordType, recordLength;
+    unsigned char* cursor;
+    int first;
+    int second;
+    int fifth;
+    Body02220418* body = func_ov031_022201d8(packet, &type, &length);
+    first = 0;
+    cursor = (unsigned char*)body;
+    second = 0;
+    fifth = 0;
+    if (!body) return first;
+    if (type != 1) return first;
+    int remaining = length;
+    cursor += sizeof(body->header);
+    Record02220418* record = func_ov031_02220248(&cursor, (unsigned char*)body + remaining, &recordType, &recordLength);
+    if (record) do {
+        switch (recordType) {
+        case 1: {
+            unsigned short value = record->value;
+            first = (unsigned short)((unsigned char)(value >> 8) | ((value << 8) & 0xff00));
+            break;
+        }
+        case 2: {
+            unsigned short value = record->value;
+            second = (unsigned short)((unsigned char)(value >> 8) | ((value << 8) & 0xff00));
+            break;
+        }
+        case 5: {
+            unsigned short value = record->value;
+            fifth = (unsigned short)((unsigned char)(value >> 8) | ((value << 8) & 0xff00));
+            break;
+        }
+        }
+        record = func_ov031_02220248(&cursor, (unsigned char*)body + remaining, &recordType, &recordLength);
+    } while (record);
+    if (first != 1 || second != 1) return 0;
+    if (fifth >= 1) *enabled = 1;
+    else *enabled = 0;
+    return 1;
+}
