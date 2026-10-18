@@ -1,3 +1,8 @@
-    .rodata     start:0x021d8a40 end:0x021da8b4 kind:rodata align:4
+    .text       start:0x021d8a40 end:0x021da8b4 kind:code align:32
     .ctor       start:0x021da8b4 end:0x021da8cc kind:rodata align:4
     .bss        start:0x021da8e0 end:0x021da900 kind:bss align:32
+
+src/Combat/Overlay_29/__sinit_ov029_021d90ec.s:
+    complete
+    .text start:0x021d90ec end:0x021d9134
+    .ctor start:0x021da8b4 end:0x021da8b8
