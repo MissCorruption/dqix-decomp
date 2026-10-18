@@ -4720,7 +4720,7 @@ _Z18HashUpdate020c08ecP15HashCtx020c08ecPKhj kind:function(arm,size=0x154) addr:
 func_020c0a40 kind:function(arm,size=0x1fc) addr:0x020c250c
 func_020c2708 kind:function(arm,size=0x94) addr:0x020c2708
 func_020c279c kind:function(arm,size=0x1b8) addr:0x020c279c
-func_020c2968 kind:function(arm,size=0x280) addr:0x020c2968
+func_020c0e9c kind:function(arm,size=0x280) addr:0x020c2968
 func_020c111c kind:function(thumb,size=0xc) addr:0x020c2be8
 _Z31ScalePairsByTwoFactors_020c1128PK9Matrix2x2PS_ii kind:function(arm,size=0x58) addr:0x020c2bf4
 Mat3x3_WriteIdentity kind:function(arm,size=0x24) addr:0x020c2c4c
@@ -7739,7 +7739,7 @@ data_02111800 kind:bss addr:0x021114a0
 data_02111804 kind:bss addr:0x021114a4
 data_02111808 kind:bss addr:0x021114a8
 data_02111818 kind:bss addr:0x021114b8
-data_021114c4 kind:bss addr:0x021114c4
+data_02111824 kind:bss addr:0x021114c4
 data_02111500 kind:bss addr:0x02111500
 data_02111520 kind:bss addr:0x02111520
 data_021118e0 kind:bss addr:0x02111580
