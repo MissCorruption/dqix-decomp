@@ -4,8 +4,17 @@
 #include "Filesystem/BackgroundLoader.h"
 
 struct BinarySearchByComparatorStruct;
+#if defined(jpn)
+#define data_ov017_021d7668 data_ov017_021d7aa8
+#define data_ov017_021d7680 data_ov017_021d7ac0
+#define data_ov017_021d7689 data_ov017_021d7ac9
+#endif
 struct ResourceEntry021a28a8 {
+#if defined(jpn)
+    char field_0[0x40];
+#else
     char field_0[0x44];
+#endif
     char ids[0x2b4];
     char monsters[0xc];
     char nodes[0xc];
@@ -13,10 +22,26 @@ struct ResourceEntry021a28a8 {
 struct ResourceInfo021a28a8 { int field_0; int filename; };
 struct ResourceObject021a28a8 { Object3D object; int field_ac; };
 struct ResourceArena021a28a8 {
+#if defined(jpn)
+    char field_0[0xf2c];
+#else
     char field_0[0x113c];
+#endif
     SafeAllocator allocator;
     char pairTables[0x20];
 };
+
+#if defined(jpn)
+typedef char AreaIdsOffset[(int)&((ResourceEntry021a28a8*)0)->ids == 0x40 ? 1 : -1];
+typedef char AreaMonstersOffset[(int)&((ResourceEntry021a28a8*)0)->monsters == 0x2f4 ? 1 : -1];
+typedef char AreaNodesOffset[(int)&((ResourceEntry021a28a8*)0)->nodes == 0x300 ? 1 : -1];
+typedef char ArenaTablesOffset[(int)&((ResourceArena021a28a8*)0)->pairTables == 0xf40 ? 1 : -1];
+#else
+typedef char AreaIdsOffset[(int)&((ResourceEntry021a28a8*)0)->ids == 0x44 ? 1 : -1];
+typedef char AreaMonstersOffset[(int)&((ResourceEntry021a28a8*)0)->monsters == 0x2f8 ? 1 : -1];
+typedef char AreaNodesOffset[(int)&((ResourceEntry021a28a8*)0)->nodes == 0x304 ? 1 : -1];
+typedef char ArenaTablesOffset[(int)&((ResourceArena021a28a8*)0)->pairTables == 0x1150 ? 1 : -1];
+#endif
 void ClearSlotsAndProcess_021a27e8(void*);
 ResourceEntry021a28a8* FindEntryByCurrentId02027cb0();
 int GetCount0209c0ec(char*);
@@ -37,6 +62,7 @@ extern char data_ov017_021d7680[];
 extern char data_ov017_021d7689[];
 
 // USA: func_ov017_021a28a8
+// JPN: func_ov017_021a3338
 extern "C" ARM void func_ov017_021a28a8(ResourceArena021a28a8* arena) {
     GameState* state = GameState::GetInstance();
     SafeAllocator* allocator = &arena->allocator;
@@ -101,3 +127,9 @@ extern "C" ARM void func_ov017_021a28a8(ResourceArena021a28a8* arena) {
     archive.Reset();
     ZeroDestroyGPCPointer(&archive.pGPCFile);
 }
+
+#if defined(jpn)
+#undef data_ov017_021d7668
+#undef data_ov017_021d7680
+#undef data_ov017_021d7689
+#endif
