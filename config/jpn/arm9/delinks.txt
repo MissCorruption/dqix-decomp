@@ -19257,3 +19257,8 @@ src/NitroSDK/Main/func_020d2220.cpp:
 src/Combat/Main/func_02015cd0.cpp:
     complete
     .text start:0x02015a9c end:0x02015cc0
+
+src/Combat/Main/func_0202c04c.cpp:
+    complete
+    .text start:0x0202bbfc end:0x0202bd28
+    .bss start:0x020fed24 end:0x020fed2c
