@@ -3209,3 +3209,8 @@ src/Combat/Overlay_0/func_ov000_0215f1ac.cpp:
 src/Combat/Overlay_0/func_ov000_0215a23c.cpp:
     complete
     .text start:0x0215b9bc end:0x0215c00c
+
+src/Combat/Overlay_0/FindNextFreeSlot_02161bb8.cpp:
+    complete
+    .text start:0x02163324 end:0x02163358
+
