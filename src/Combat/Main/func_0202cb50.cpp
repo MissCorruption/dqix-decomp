@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 #include "System/RequestSubmission.h"
 
+#ifdef jpn
+#define data_021023c0 data_02102100
+#define data_020ef7a8 data_020ef698
+#endif
+
 struct Event0202cb50 {
     unsigned short field0;
     unsigned short result;
