@@ -21011,3 +21011,23 @@ src/NitroSDK/Main/ScaleFieldy1000_020becd4_020becd4.cpp:
 src/MSL/Main/func_02005ea0.cpp:
     complete
     .text start:0x02005ea0 end:0x02007028
+
+src/NitroSDK/Main/InitAllocatorsAndVmPoolOnce_020be9e8.cpp:
+    complete
+    .text start:0x020be9e8 end:0x020beaec
+
+src/NitroSDK/Main/NSBXX_Model_AdjustPolygonAttrMask.cpp:
+    complete
+    .text start:0x020b6f64 end:0x020b700c
+
+src/NitroSDK/Main/NSBXX_Model_SetAllMaterialFlags.cpp:
+    complete
+    .text start:0x020b6ebc end:0x020b6f64
+
+src/NitroSDK/Main/func_020d03fc.cpp:
+    complete
+    .text start:0x020d03fc end:0x020d05ec
+
+src/NitroSDK/Main/func_020d3df8.cpp:
+    complete
+    .text start:0x020d3df8 end:0x020d3fdc
