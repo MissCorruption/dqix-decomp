@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 // USA: func_ov031_0220c92c
-ARM void ShortArrayToBytesBE_0220c92c(unsigned char* dst, unsigned short* src, int count) {
+ARM void ShortArrayToBytesBE_0220c92c(unsigned char* dst, unsigned short* src, int count, int words) {
 	dst = dst + (count - 1);
 	if (count > 1) {
 		do {
