@@ -17,7 +17,7 @@ struct Ctx0206b2c8;
 void InitOrReinitContext0206b2c8(Ctx0206b2c8*, int, void*);
 #endif
 #if defined(jpn)
-extern "C" void func_0205dba0(char*);
+extern "C" void func_0205dba0(unsigned char*);
 #define InitBigStructVariant0205c840 func_0205dba0
 #else
 void InitBigStructVariant0205c840(char* obj);
@@ -27,23 +27,24 @@ extern char data_02108760;
 
 // JPN: func_02069294
 // USA: func_020679d4  (semantic: HandleActorStateTransition_020679d4)
-extern "C" ARM void func_020679d4(char* self, int state) {
 #if defined(jpn)
-    MessageSystem* message = reinterpret_cast<MessageSystem*>(self);
+extern "C" ARM void func_020679d4(MessageSystem* self, int state) {
+#else
+extern "C" ARM void func_020679d4(char* self, int state) {
 #endif
     switch (state) {
     case 0:
         func_0206b104(self);
         DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
 #if defined(jpn)
-        func_0206cbe8(self, 0xff16, message->tokenCursor);
+        func_0206cbe8(self, 0xff16, self->tokenCursor);
 #else
         InitOrReinitContext0206b2c8((Ctx0206b2c8*)self, 0xff16, *(void**)(self + kCursor));
 #endif
 #if defined(jpn)
-        InitBigStructVariant0205c840(reinterpret_cast<char*>(message->pad50));
-        message->b19cd = 1;
-        message->stream40 = 0;
+        InitBigStructVariant0205c840(self->pad50);
+        self->b19cd = 1;
+        self->stream40 = 0;
 #else
         InitBigStructVariant0205c840(self + kControls);
         *(unsigned char*)(self + kFlag) = 1;
@@ -54,20 +55,20 @@ extern "C" ARM void func_020679d4(char* self, int state) {
         DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
     case -2:
 #if defined(jpn)
-        message->w94c[2] = 1;
+        self->w94c[2] = 1;
 #else
         *(int*)(self + kValue) = 1;
 #endif
         func_0206b104(self);
 #if defined(jpn)
-        func_0206cbe8(self, 0xff17, message->tokenCursor);
+        func_0206cbe8(self, 0xff17, self->tokenCursor);
 #else
         InitOrReinitContext0206b2c8((Ctx0206b2c8*)self, 0xff17, *(void**)(self + kCursor));
 #endif
 #if defined(jpn)
-        InitBigStructVariant0205c840(reinterpret_cast<char*>(message->pad50));
-        message->b19cd = 1;
-        message->stream40 = 0;
+        InitBigStructVariant0205c840(self->pad50);
+        self->b19cd = 1;
+        self->stream40 = 0;
 #else
         InitBigStructVariant0205c840(self + kControls);
         *(unsigned char*)(self + kFlag) = 1;

@@ -54,8 +54,8 @@ ARM void InitCombatPairState020652d0(char* obj, int a, int b, int c) {
     SetField0AndPropagate0205bacc((struct Node0205bacc*)(obj + 0x70), 2);
 
 #if defined(jpn)
-    ProcessCombatEntry0205cb74(obj, reinterpret_cast<int>(b));
-    ProcessCombatEntry0205cb74(obj, reinterpret_cast<int>(c));
+    ProcessCombatEntry0205cb74(obj, (int)b);
+    ProcessCombatEntry0205cb74(obj, (int)c);
 #else
     ProcessCombatEntry0205cb74(obj, b);
     ProcessCombatEntry0205cb74(obj, c);

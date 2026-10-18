@@ -53,7 +53,7 @@ extern "C" ARM int func_020a3844(SafeAllocator* alloc) {
     srcOff += 4;
 
     for (unsigned int i = 0; i < count; i++) {
-        unsigned char* offsets = reinterpret_cast<unsigned char*>(resources->pTMapLanguageOffsets);
+        unsigned char* offsets = (unsigned char*)resources->pTMapLanguageOffsets;
         VectorizedInvertedMemcpy(buf + srcOff, offsets + i * 4, 4);
         srcOff += 4;
     }
