@@ -6,8 +6,9 @@ struct S0200ed8c {
     void (*func)(void*, int);
 };
 
-// USA: func_0200ed8c  (semantic: CallFieldFunc0200ed8c)
-extern "C" ARM void func_0200ed8c(S0200ed8c* obj) {
+// KEEP-NAME
+// USA: func_0200ed8c
+extern "C" ARM void __end__catch(S0200ed8c* obj) {
     void* f0 = obj->field0;
     if (f0 != 0 && obj->func != 0) {
         obj->func(f0, -1);

@@ -10,9 +10,9 @@
 	.arm
 	.extern func_0200eca0
 
-	.global func_0200f31c
+	.global __rethrow
 
-func_0200f31c:
+__rethrow:
 	mov ip, sp
 	sub sp, sp, #0x70
 	str r4, [sp, #0x2c]
