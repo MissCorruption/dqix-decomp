@@ -7449,3 +7449,15 @@ src/NetworkLib/Overlay_31/func_ov031_02208c14.cpp:
 src/NetworkLib/Overlay_31/func_ov031_02208400.cpp:
     complete
     .text start:0x02208be0 end:0x02208d88
+
+src/NetworkLib/Overlay_31/func_ov031_02201364.cpp:
+    complete
+    .text start:0x02201b44 end:0x02201bf4
+
+src/NetworkLib/Overlay_31/func_ov031_02207f10.cpp:
+    complete
+    .text start:0x022086f0 end:0x02208be0
+
+src/NetworkLib/Overlay_31/func_ov031_02216360.cpp:
+    complete
+    .text start:0x02216b40 end:0x02216e78

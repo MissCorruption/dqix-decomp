@@ -2176,7 +2176,7 @@ data_ov031_022496dc kind:data(any) addr:0x0224a2dc
 data_ov031_0224a2f4 kind:data(any) addr:0x0224a2f4
 data_ov031_0224a2f8 kind:data(any) addr:0x0224a2f8
 data_ov031_022496fc kind:data(any) addr:0x0224a2fc
-data_ov031_0224a304 kind:data(any) addr:0x0224a304
+data_ov031_02249704 kind:data(any) addr:0x0224a304
 data_ov031_0224a31c kind:data(any) addr:0x0224a31c
 data_ov031_0224a324 kind:data(any) addr:0x0224a324
 data_ov031_0224a330 kind:data(any) addr:0x0224a330
