@@ -20750,3 +20750,31 @@ src/NitroSDK/Main/func_020b2054.cpp:
 src/MSL/Main/func_020015e8.cpp:
     complete
     .text start:0x020015e8 end:0x02001710
+
+src/NitroSDK/Main/func_020b11c8.cpp:
+    complete
+    .text start:0x020b11c8 end:0x020b1300
+
+src/NitroSDK/Main/func_020b1540.cpp:
+    complete
+    .text start:0x020b1540 end:0x020b16d8
+
+src/NitroSDK/Main/func_020b16d8.cpp:
+    complete
+    .text start:0x020b16d8 end:0x020b18e8
+
+src/NitroSDK/Main/func_020b19b8.cpp:
+    complete
+    .text start:0x020b19b8 end:0x020b1b54
+
+src/NitroSDK/Main/func_020b1f48.cpp:
+    complete
+    .text start:0x020b1f48 end:0x020b1ff8
+
+src/NitroSDK/Main/func_020b23a8.cpp:
+    complete
+    .text start:0x020b23a8 end:0x020b245c
+
+src/NitroSDK/Main/func_020b245c.cpp:
+    complete
+    .text start:0x020b245c end:0x020b25c4
