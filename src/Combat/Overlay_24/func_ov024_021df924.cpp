@@ -30,10 +30,18 @@ struct Level021df924 {
 };
 struct Fighter021df924 : GameObject {
     char pad13C[8];
+#if defined(jpn)
+    union {
+        Item021df924* item;
+        Level021df924* info;
+    };
+    Odds021df924* odds;
+#else
     Item021df924* item;
     Odds021df924* odds;
     char pad14C[4];
     Level021df924* info;
+#endif
 };
 struct Message021df924 {
     char pad0[4];
