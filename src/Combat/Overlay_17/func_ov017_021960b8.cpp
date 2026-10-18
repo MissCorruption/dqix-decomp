@@ -10,6 +10,7 @@ enum { kGlobalStateOffset = 0x998, kGlobalFlagOffset = 0x19cb, kSceneFlagOffset 
 #include "Graphics/AtmosphericEffect.h"
 #include "Graphics/LightingManager.h"
 #include "System/Matrix.h"
+#include "Resource/Brightness.h"
 
 struct HeadNode02046b24;
 struct Obj020444e0;
@@ -51,7 +52,6 @@ void ComputeAndLoadMatrix020c5770(int, int, int, int, int, int, int, int, void*)
 void ForwardObjAndField0_021a3b30(int);
 void UpdateInterpTimer020707c8(Timer020707c8*);
 int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
-unsigned int GetBitsInField4_0203b4fc(unsigned int*, unsigned int);
 void ReleaseField0x38IfValid020444e0(Obj020444e0*);
 extern "C" void func_ov017_0219ad84(Battle021960b8*);
 GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*, int);
@@ -104,11 +104,11 @@ extern "C" ARM void func_ov017_021960b8(Battle021960b8* self) {
         GetHeadNodeIdOrMinusOne(self->nodeList) != 3 &&
         GetHeadNodeIdOrMinusOne(self->nodeList) != 10) {
         if ((global->field998 != 0 || global->field19cb != 0) &&
-            GetBitsInField4_0203b4fc(self->flags, 0x8000) == 0) {
+            TestFlags04((GameResources*)(self->flags), 0x8000) == 0) {
             ReleaseField0x38IfValid020444e0((Obj020444e0*)global);
         }
         func_ov017_0219ad84(self);
-        if (GetBitsInField4_0203b4fc(self->flags, 4) == 0) {
+        if (TestFlags04((GameResources*)(self->flags), 4) == 0) {
             for (int i = 0; i < 4; i++) {
                 GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(game, i);
                 if (combatant != NULL && combatant->obj3D_.GetFlag(1) == 0) {
@@ -118,11 +118,11 @@ extern "C" ARM void func_ov017_021960b8(Battle021960b8* self) {
         }
     }
 
-    if (GetBitsInField4_0203b4fc(self->flags, 0x800) == 0) {
+    if (TestFlags04((GameResources*)(self->flags), 0x800) == 0) {
         LightingManager::GetInstance()->DrawBackgroundGradient();
     }
 
-    if (GetBitsInField4_0203b4fc(self->flags, 0x80) == 0 && self->field3658 == 0 && leader != NULL &&
+    if (TestFlags04((GameResources*)(self->flags), 0x80) == 0 && self->field3658 == 0 && leader != NULL &&
         (GetByteField0x252_02039820(leader) != 0 || GetByte0x26c_02039d7c((char*)leader) != 0)) {
         if (data_02114e54.field5f != 0 && data_02114e54.field24 != 0) {
             if (data_ov017_021d8340 == 0) {

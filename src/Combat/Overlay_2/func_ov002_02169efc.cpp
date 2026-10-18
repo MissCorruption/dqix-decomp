@@ -3,6 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct Struct_0205d81c;
 struct Struct_0205def8;
@@ -137,7 +138,7 @@ extern "C" ARM void func_ov002_02169efc(char *self) {
     } else if (state == 4) {
         *(unsigned char *) (g + 0x19af) = 0;
         if (!IsBrightnessTransitionActive(res)) {
-            SetFieldFlag17188_0218d258(func_ov017_0218b5b0());
+            SetFieldFlag17188_0218d258(GetGameResources());
         }
     }
 }

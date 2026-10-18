@@ -10,6 +10,8 @@
 #include <World/Object3D.h>
 #include <Resource/MessageSystem.h>
 #include <Filesystem/BackgroundLoader.h>
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct PlayTime {
     unsigned short hours_;
@@ -105,7 +107,6 @@ struct TouchState {
     unsigned char touching_;
 };
 
-extern unsigned short data_02114e30[];
 extern TouchState data_02114e54;
 
 struct GameResources;
@@ -114,7 +115,6 @@ struct Manager02187664;
 struct Struct_0205d81c;
 
 MessageSystem* GetGlobalField0x1c020421a0();
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 void ResetEntryList0205d6a0(Entry_0205d6a0* window, int value);
 void SetMainBrightness(GameResources* resources, int screen, int brightness);
 void InitConfig02187664(Manager02187664* self, int records);
@@ -122,7 +122,6 @@ Canvas* FindElementByC40205d81c(Struct_0205d81c* window, int canvas);
 int IsBrightnessTransitionActive(GameResources* resources);
 
 extern "C" {
-GameResources* func_ov017_0218b5b0();
 void func_ov023_021eb138(GuideWindow* guide, int value);
 void func_ov023_021eb080(GuideWindow* guide, SafeAllocator* allocator);
 void func_ov023_021eb564(GuideWindow* guide, void* pages, int count);
@@ -140,7 +139,7 @@ void func_ov008_02186cec(BattleRecords* self);
 extern "C" ARM void func_ov008_02185a70(BattleRecords* self, unsigned int ticks)
 {
     MessageSystem* messages = GetGlobalField0x1c020421a0();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     BackgroundLoader::GetInstance();
     FontBankLoader* music = GetGlobal02109400_02094a00();
     unsigned char step = self->step_;
@@ -152,7 +151,7 @@ extern "C" ARM void func_ov008_02185a70(BattleRecords* self, unsigned int ticks)
             return;
         self->step_++;
     }
-    if (step == 1 && (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0xff3) || data_02114e54.touching_))
+    if (step == 1 && (g_keyManager.TestKeysPressed(0xff3) || data_02114e54.touching_))
         self->step_++;
     if (step == 2)
     {

@@ -5,6 +5,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 struct Obj020397cc;
 struct Obj0205eaa0;
@@ -78,7 +79,6 @@ int GetFieldIfFlag4_020100f8(char* obj);
 void ReinitController02043204(char* obj);
 extern "C" void func_02043124(char* obj);
 void SetField0x23cTrue_020a27ac(void* obj);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 void CancelPendingAction020397cc(Obj020397cc* obj, int arg1);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 void* FindEntryPointerByKey0203df78(void* base, int key);
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
     }
 
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     unsigned short* area = func_02012fe4();
     char* msg = GetGlobalField0x1c020421a0();
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         ReinitController02043204(msg);
         func_02043124(msg);
         SetField0x23cTrue_020a27ac(hud);
-        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x2000);
+        ClearFlags00(res, 0x2000);
         self->done = 1;
         return;
     }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* work, int mask);
 int GetCombatWorkFlags0x55f4_ov000_02160fd4(void* work, int mask);
@@ -18,7 +19,6 @@ void SetField0xacMinusOneClearField0xb0_0208b4c0(unsigned char* obj);
 void SetFieldsAndSignalData02184220_ov000_02160d80(void* p, int val);
 extern "C" void func_ov000_021750e4(void* obj);
 void UpdateCombatantFlagByte021760d4(void* obj);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 
 struct Formation021640dc {
     unsigned char field_0x0;
@@ -84,7 +84,7 @@ static inline struct Formation021640dc* GetFormation(struct BattleData021640dc* 
 // USA: func_ov000_021640dc
 extern "C" ARM void func_ov000_021640dc(struct BattleScene021640dc* scene) {
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     if (res->unknown_flag_42e2 != 0) {
         SetCombatWorkFlags0x55f4_ov000_02160fa8(scene, 0x2000000);
         return;
@@ -122,5 +122,5 @@ extern "C" ARM void func_ov000_021640dc(struct BattleScene021640dc* scene) {
     scene->turn.partyId = scene->config->partyId;
     func_ov000_021750e4(&scene->turn);
     UpdateCombatantFlagByte021760d4(&scene->turn);
-    ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x10);
+    ClearFlags00(res, 0x10);
 }

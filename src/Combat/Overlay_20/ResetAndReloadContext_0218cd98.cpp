@@ -2,7 +2,11 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 
-void EncodeSignFlaggedHalfword_020c39a0(short* out, int value);
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
+extern "C" void func_020c39a0(short* out, int value);
 
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void func_ov020_0218cd64(int, int, int, int, int);
@@ -39,7 +43,7 @@ struct ResetContext0218cd98 {
 extern "C" ARM void func_ov020_0218cd98(struct ResetContext0218cd98* self) {
     unsigned char* base = (unsigned char*)self;
 
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     self->allocator.Reset();
     MapVRAMBanksToSubBG(4);
     func_ov020_0218cd64(0, 1, 1, 1, 0);
@@ -83,6 +87,6 @@ extern "C" ARM void func_ov020_0218cd98(struct ResetContext0218cd98* self) {
     volatile unsigned int* reg1000 = (volatile unsigned int*)0x4001000;
     *reg1000 = (*reg1000 & ~0x1f00) | 0x100;
 
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
 }

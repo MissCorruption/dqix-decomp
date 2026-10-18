@@ -6,6 +6,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "System/ColorEffects.h"
 #include "System/Graphics.h"
+#include "Resource/Brightness.h"
 
 struct MonsterListEntry {
     MonsterListEntry* next_;
@@ -101,7 +102,6 @@ struct Manager0207f7f0;
 struct Node0207f7f0;
 
 int* GetWord0x0_0200fb8c(int*);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
 void Set3DClearColor_020c5588(int, int, int, int, int);
 int GetField4Low12(Field4Low12_02097420*);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     if (self->listStep_ == 0)
     {
-        SetBitsInField4_0203b4d8((unsigned int*)func_ov017_0218b5b0(), 0x609fe);
+        SetFlags04(GetGameResources(), 0x609fe);
         SetFogState_020c54a4(0, 0, 0, 0);
         Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
         FontBankLoader* music = GetGlobal02109400_02094a00();

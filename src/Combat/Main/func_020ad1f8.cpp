@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_0202ae18();
 extern "C" void func_0201bd04(void* obj, int a, int b);
@@ -27,7 +28,7 @@ struct Obj020ad1f8 {
 // USA: func_020ad1f8
 extern "C" ARM void func_020ad1f8(struct Obj020ad1f8* obj) {
     GameState* battle = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     func_0202ae18();
     battle->GetPartyMemberByIndex(0);
     GameObject* unk = battle->GetUnknownGameObject();

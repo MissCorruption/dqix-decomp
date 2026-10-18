@@ -7,6 +7,7 @@
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 int GetGlobalField0x1c020421a0();
 struct ResetBytesAndSetByte0x16Data;
@@ -16,14 +17,12 @@ void SetupAndDispatch0205c904(unsigned char* p, int a1);
 struct Container0205a330;
 void IterateEntries0205a330(struct Container0205a330* c, int arg);
 int CheckGlobalObjState2AndInit0205cde8(unsigned char* p);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 int GetScaledSumIfActive0205cecc(void* s);
 int CallFunc0205c570AtField0x1c_0205cb64(void* obj);
 unsigned char GetByte0x4_0200fb9c(char* obj);
 void SetByte0x4_0200fb94(char* obj, unsigned char value);
 int CheckSaveBufferStatus_020ab9c0(int flag);
 extern "C" int func_0205c96c(unsigned char* p, int a1);
-extern unsigned short data_02114e30;
 extern int data_ov020_0218d990[8];
 extern int data_ov020_0218d974[7];
 
@@ -60,7 +59,7 @@ extern "C" ARM void func_ov020_0218c840(struct DispatchState_0218c840* obj) {
             *ime = (*ime & ~0x1f00) | 0x1300;
         }
 
-        int hasFlag = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401);
+        int hasFlag = g_keyManager.TestKeysPressed(0x401);
         int active = GetScaledSumIfActive0205cecc((unsigned char*)obj + 0xc) >= 0;
         if ((hasFlag | active) != 0) {
             int idx = CallFunc0205c570AtField0x1c_0205cb64((unsigned char*)obj + 0xc);

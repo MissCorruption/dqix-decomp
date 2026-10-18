@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Cont0207fe44;
 struct Obj0208203c;
@@ -111,7 +112,7 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
             ResetWithSub0208203c((Obj0208203c *) self->sub308);
             self->p470        = 0;
             unsigned char idx = self->h490 - 0x25;
-            Obj0217e5dc *obj  = (Obj0217e5dc *) func_ov017_0218b5b0();
+            Obj0217e5dc *obj  = (Obj0217e5dc *) GetGameResources();
             _Z16InitObj_0217e5dcP11Obj0217e5dca(obj, idx);
             CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
             self->c4a3  = 0x10;

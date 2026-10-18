@@ -3,6 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 #include "System/OverlayId.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { ArenaSize = 0x2d0fc, ScenePlanes = 0x14, SceneReady = 0x14f8, SceneSize = 0x14fc };
@@ -14,8 +15,6 @@ struct AllocatorUnion;
 struct Obj020397cc;
 
 void CancelPendingAction020397cc(Obj020397cc* obj, int flag);
-void SetBitsInField4_0203b4d8(unsigned int* field, unsigned int bits);
-void ClearBitsInField4_0203b4e8(unsigned int* field, unsigned int bits);
 int GetFieldIfFlag4_020100f8(char* obj);
 void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
 void ClearFlagBits_020a28b0(unsigned char* obj, int mask);
@@ -58,10 +57,10 @@ extern "C" void func_ov017_021c1a24(Task021c17fc* task);
 // USA: func_ov017_021c17fc
 extern "C" ARM void func_ov017_021c17fc(Task021c17fc* task) {
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     GameObject* unknown = gs->GetUnknownGameObject();
     CancelPendingAction020397cc((Obj020397cc*)unknown, 1);
-    SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0xc0);
+    SetFlags04(res, 0xc0);
     unsigned char* flags = (unsigned char*)GetFieldIfFlag4_020100f8((char*)gs);
     SetFlagsAt0x244_020a28a0(flags, 3);
     if (task->step == 0) {
@@ -109,7 +108,7 @@ extern "C" ARM void func_ov017_021c17fc(Task021c17fc* task) {
         if (ready) {
             SetByteField0x253_020397c0(unknown);
             ClearFlagBits_020a28b0(flags, 3);
-            ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0xc0);
+            ClearFlags04(res, 0xc0);
         } else {
             CancelActionAndInsertNode_021a5530((char*)res);
         }

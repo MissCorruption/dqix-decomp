@@ -21,7 +21,7 @@ extern "C" ARM void func_ov017_021c16cc(Obj021c16cc* self) {
 #else
  enum {regionalOffset=0x734};
 #endif
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     int data = (int)BackgroundLoader::GetInstance();
     signed char state = self->field8;
     if (state == 0) {

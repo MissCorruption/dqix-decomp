@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 GameObject* GetCombatantChecked_0200ff94(GameState* battleStruct, int combatantId);
 int HasFlaggedSlotBit22Set020855d0(unsigned char* actor);
@@ -18,7 +19,7 @@ enum { ReactionActorOffset = 0x150 };
 
 // USA: func_0208aa28
 ARM int CanCombatantReactToEffectCategory0208aa28(unsigned char* obj, int combatantId, int flag) {
-    ((unsigned int*)func_ov017_0218b5b0());
+    ((unsigned int*)GetGameResources());
     GameState* battle = GameState::GetInstance();
     GameObject* c1 = GetCombatantChecked_0200ff94(battle, combatantId);
     GameObject* c2 = GetCombatantWithFlag0x100_0200ff1c(battle, combatantId);

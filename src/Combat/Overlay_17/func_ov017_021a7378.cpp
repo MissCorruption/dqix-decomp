@@ -7,6 +7,7 @@
 #include "System/Matrix.h"
 #include "System/Graphics.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
+#include "Resource/GameResources.h"
 
 struct MessageWindow {
     char pad0[0x998];
@@ -221,7 +222,7 @@ extern "C" ARM void func_ov017_021a7378(BattleIntro* self, int arg) {
             self->state = 0x63;
         }
     } else if (self->state == 0x63) {
-        GameResources* res = func_ov017_0218b5b0();
+        GameResources* res = GetGameResources();
         CameraParams* params;
         TailList020469b4* list = (TailList020469b4*)res->unknown_ptr_array_36fc[0];
         TailNode020469b4* resultNode = (TailNode020469b4*)res->unknown_ptr_array_371c[6];

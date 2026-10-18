@@ -4,6 +4,7 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "System/Matrix.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { CombatantSubobject = 0x144, Field9ec = 0x968, Field9e0 = 0x95c, Field826 = 0x7a2, Field4c8 = 0x444, Field4c4 = 0x440, Fieldeb8 = 0xe34, Fieldea8 = 0xe24, Field4d0 = 0x44c, Field4ca = 0x446, Field2a0 = 0x21c, Field46c = 0x3e8, Field18c = 0x180, CameraPosition = 0xc04, EntryList = 0x371c, Field6e4e = 0x703e, Field6efe = 0x70ee, Field6fd8 = 0x71c8, Field6fe8 = 0x71d8, Field7744 = 0x7934, Field7745 = 0x7935, Field7746 = 0x7936, PendingShake = 0x71cc, PendingState = 0x71ec, Auxiliary = 0x224, MessageQueue = 0x80c, CameraBase = 0xb94, ModeByte = 0xdb4 };
@@ -324,7 +325,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* sl, struct EventRow_021d8c
     bool useFacing;
 
     battle = GameState::GetInstance();
-    ov17 = (char*)func_ov017_0218b5b0();
+    ov17 = (char*)GetGameResources();
     func_0202ae18();
     camera = (unsigned char*)GetField0x3b0Value_020100bc(battle);
     popups = (struct Obj0203a48c*)GetData02104b6c_02039e70();

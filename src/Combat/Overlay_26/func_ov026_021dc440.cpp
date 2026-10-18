@@ -9,6 +9,7 @@ void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength
 #include <System/Matrix.h>
 #include <World/Object3D.h>
 #include <std_library_functions.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 struct BattleWork { char pad0[0x7902]; signed char animationState; };
@@ -38,7 +39,6 @@ struct GameResources;
 void SetBrightness(struct GameResources*, int, int);
 void SetMainBrightness(struct GameResources*, int, int);
 extern "C" {
-struct GameResources* func_ov017_0218b5b0();
 void func_ov000_021626a0(BattleWork*, int, int);
 void func_ov000_021637fc(BattleWork*, int);
 void _Z38RunFlaglearAndSetMode02167e6c_02167e6cPh(BattleWork*);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
     unsigned int size;
     char name[0x50];
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     int mode = self->animationState;
     func_ov000_021626a0(self, 0x26, 1);
     func_ov000_021626a0(self, 0x27, 0);

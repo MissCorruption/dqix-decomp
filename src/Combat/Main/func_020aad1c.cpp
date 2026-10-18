@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 struct StateBits5ccc_11544;
 struct FlagWord020466f4;
@@ -15,8 +16,6 @@ extern "C" int func_020a9eb8(void* s, int a1, int a2, int a3);
 void* GetDataPtr02114e04_020d6c00();
 void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int bits);
 void OrBitsIntoField0_020466e4(unsigned int* word, unsigned int bits);
-void SetBitsInWord_0203b4a0(unsigned int* word, unsigned int bits);
-void ClearBitsInWord_0203b4b0(unsigned int* word, unsigned int bits);
 void SetBrightness(struct GameResources* res, int a, int b);
 void SetFlag0x5cccBit0_02011544(struct StateBits5ccc_11544* p);
 int IsFunc020d0840NonZero_02075ca0();
@@ -35,12 +34,12 @@ extern "C" ARM int func_020aad1c(struct Struct020aad1c* s, int a1, int a2, int a
         battle->unknown_5cc8_ = 1;
 #else
         battle->unknown_5cc8_ = 1;
-        GameResources* flagv = func_ov017_0218b5b0();
+        GameResources* flagv = GetGameResources();
 #endif
         unsigned int buf;
         if (func_02075910(0, &buf, 1, 0) == 0) {
 #if defined(jpn)
-            SetBrightness(func_ov017_0218b5b0(), -16, 10);
+            SetBrightness(GetGameResources(), -16, 10);
 #else
             SetBrightness(flagv, -16, 10);
 #endif
@@ -52,14 +51,14 @@ extern "C" ARM int func_020aad1c(struct Struct020aad1c* s, int a1, int a2, int a
 #if !defined(jpn)
             unsigned int* flags = (unsigned int*)GetDataPtr02114e04_020d6c00();
             OrBitsIntoField0_020466e4(flags, 0x2000000);
-            SetBitsInWord_0203b4a0(&flagv->brightnessFlags_0, 0x10);
+            SetFlags00(flagv, 0x10);
 #endif
             int ptr = (int)&data_0211e33c + 0x1c + 0x29000;
             if (func_02075910(0x8000, (void*)(s->field4 = ptr), 0x6fe4, 1) == 0) {
 #if !defined(jpn)
                 flags = (unsigned int*)GetDataPtr02114e04_020d6c00();
                 ClearFlags020466f4((struct FlagWord020466f4*)flags, 0x2000000);
-                ClearBitsInWord_0203b4b0(&flagv->brightnessFlags_0, 0x10);
+                ClearFlags00(flagv, 0x10);
 #endif
                 s->state = 4;
                 return 1;
@@ -76,7 +75,7 @@ extern "C" ARM int func_020aad1c(struct Struct020aad1c* s, int a1, int a2, int a
         if (func_020a9eb8(s, a1, a2, a3) == 0) {
 #if !defined(jpn)
             ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x2000000);
-            ClearBitsInWord_0203b4b0((unsigned int*)func_ov017_0218b5b0(), 0x10);
+            ClearFlags00(GetGameResources(), 0x10);
 #endif
             s->state = 4;
             return 1;
@@ -93,7 +92,7 @@ extern "C" ARM int func_020aad1c(struct Struct020aad1c* s, int a1, int a2, int a
         if (a3 != 0) {
 #if !defined(jpn)
             ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x2000000);
-            ClearBitsInWord_0203b4b0((unsigned int*)func_ov017_0218b5b0(), 0x10);
+            ClearFlags00(GetGameResources(), 0x10);
 #endif
             s->state = 4;
             return 1;
@@ -108,7 +107,7 @@ extern "C" ARM int func_020aad1c(struct Struct020aad1c* s, int a1, int a2, int a
         NotifyU16AndSetFlag02075cb8();
 #if !defined(jpn)
         ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x2000000);
-        ClearBitsInWord_0203b4b0((unsigned int*)func_ov017_0218b5b0(), 0x10);
+        ClearFlags00(GetGameResources(), 0x10);
 #endif
         s->state = 4;
         return 1;

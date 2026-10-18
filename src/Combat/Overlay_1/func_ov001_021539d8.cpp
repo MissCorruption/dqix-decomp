@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/Brightness.h"
 
 struct PairTables021539d8 {
     char storage[0x70];
@@ -157,7 +158,6 @@ void _Z21SetSlotIfIndexBelow32P17SlotArray0203dd10ji(void* list, int index, stru
 int _Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(void* narc, const char* text, void** outFile, unsigned int* outSize, unsigned int count);
 void* _Z36DecompressLZ77FileIntoAllocatedSpaceR13SafeAllocatorPKvRj(SafeAllocator* allocator, void* file, unsigned int* outSize);
 void NSBXX_Model_SetPolygonID(NSBXXInternalModel* model, int id);
-void _Z24SetBitsInField4_0203b4d8Pjj(char* obj, unsigned int bits);
 void __clear(unsigned char* flags, int count);
 }
 
@@ -181,7 +181,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
     GameState* gs = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     struct Global021539d8* global = _Z29GetGlobalPtr021075f4_0203cf4cv();
-    char* base = (char*)func_ov017_0218b5b0();
+    char* base = (char*)GetGameResources();
     void* search = func_0202ae18();
     struct LoadNode021539d8* node;
     struct MotionNode021539d8* motion;
@@ -637,10 +637,10 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
 
     if (self->mode != 0) {
         if (self->mode & 1) {
-            _Z24SetBitsInField4_0203b4d8Pjj(base, 8);
+            SetFlags04((GameResources*)base, 8);
         }
         if (self->mode & 2) {
-            _Z24SetBitsInField4_0203b4d8Pjj(base, 0x10);
+            SetFlags04((GameResources*)base, 0x10);
         }
         if (self->mode & 4) {
             unsigned char used[4];
@@ -663,7 +663,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             }
         }
         if (self->mode & 8) {
-            _Z24SetBitsInField4_0203b4d8Pjj(base, 0x400);
+            SetFlags04((GameResources*)base, 0x400);
         }
         if (self->mode & 0x20) {
             _Z29GetGlobalPtr021075f4_0203cf4cv()->flags |= 2;

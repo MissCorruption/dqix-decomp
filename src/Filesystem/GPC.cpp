@@ -2,6 +2,14 @@
 #include "System/Memory.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020d8524 func_020d9e88
+#endif
+
+#if defined(jpn)
+#define func_020d84f8 func_020d9e5c
+#endif
+
 #pragma dont_inline on
 
 #if defined(jpn)
@@ -150,7 +158,7 @@ bool LoadAndDecompressGPCHeaderAndInnerFileInfo(GPCFile **ppGPC, ExtendedNitroVM
         *pOutReadSuccessful = true;
 
     GPCFile::Header header;
-    ClearAndInit020d84f8(&header, sizeof(GPCFile::Header));
+    func_020d84f8(&header, sizeof(GPCFile::Header));
     unsigned int desiredSignature = data_020f27c0.gpc2Signature;
     header.signature = desiredSignature;
     if (!machine.Read(&header, sizeof(GPCFile::Header)))
@@ -166,7 +174,7 @@ bool LoadAndDecompressGPCHeaderAndInnerFileInfo(GPCFile **ppGPC, ExtendedNitroVM
 
     if (rightAlignOutput)
         outputBuffer = (void*)((((int)outputBuffer + outputCapacity) & ~3) - longerLength);
-    CopyRegionAndFlushCache_020d8524(outputBuffer, &header, sizeof(GPCFile::Header));
+    func_020d8524(outputBuffer, &header, sizeof(GPCFile::Header));
     ((GPCFile::Header*)outputBuffer)->headerLength = 0;
     ((GPCFile::Header*)outputBuffer)->fileInfoLength = 0;
     unsigned int decompressProcOutputLength = 0;

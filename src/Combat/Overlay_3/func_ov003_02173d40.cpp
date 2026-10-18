@@ -33,6 +33,7 @@ enum { kRegion2e0 = 0x2e0 };
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 
 int GetGlobalField0x1c020421a0(void);
 void* GetDataPtr02114e04_020d6c00(void);
@@ -46,8 +47,6 @@ struct Struct02074bd0;
 void ClearFlag0x10IfSet(struct Struct02074bd0* obj);
 struct Struct02074bf4;
 void ClearFlag0x11IfSet(struct Struct02074bf4* obj);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 struct List020727d8 {
     void* entries;
     short capacity;
@@ -78,7 +77,7 @@ struct BattleScene_02173d40 {
 // USA: func_ov003_02173d40
 extern "C" ARM void func_ov003_02173d40(BattleScene_02173d40* scene) {
     GameState* gs = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     unsigned char* global = (unsigned char*)GetGlobalField0x1c020421a0();
     ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x1000);
     global[0x1000 + kRegion9be] = 0;
@@ -94,8 +93,8 @@ extern "C" ARM void func_ov003_02173d40(BattleScene_02173d40* scene) {
     volatile unsigned int* subDispcnt = (volatile unsigned int*)0x4001000;
     *subDispcnt = (*subDispcnt & ~0x1f00) | (scene->subBgPriority << 8);
 
-    ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0, 4);
-    ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x81e);
+    ClearFlags00(resources, 4);
+    ClearFlags04(resources, 0x81e);
     ResetListHeader020727ec(&scene->lists[0]);
     ResetListHeader020727ec(&scene->lists[1]);
     ResetListHeader020727ec(&scene->lists[2]);

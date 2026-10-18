@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 int GetField4340_021bdbe4(unsigned char* base);
 int GetField433c_021bdbd8(unsigned char* base);
 extern "C" void func_ov023_021e5628(void* addr, void* pair);
@@ -10,7 +10,7 @@ struct BitByte021fcd70 { unsigned char bit0 : 1; unsigned char rest : 7; };
 
 // USA: func_ov023_021fcd70  (semantic: SelectAndDispatchPair_021fcd70)
 extern "C" ARM void func_ov023_021fcd70(void* obj) {
-    int h = func_ov017_0218b5b0();
+    int h = (int)GetGameResources();
     Pair021fcd70 p;
     if (h == 0) {
         p.b = 0;

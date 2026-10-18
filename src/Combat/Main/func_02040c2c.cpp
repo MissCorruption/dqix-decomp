@@ -76,7 +76,7 @@ extern "C" ARM void func_02040c2c(struct Obj02040c2c* self, void* context, int e
         if (lm != 0) {
             self->spriteMotion->diffuseColor = lm->spriteDiffuseColor_;
         }
-        if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)func_ov017_0218b5b0()->unknown_ptr_array_36fc[0]) != 4) {
+        if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
             if (!(self->flags & 1) && !(self->flags & 0x20000)) {
                 if (self->settings != 0 && self->settings->mode != 0) {
                     SpriteMotion02040c2c* a = self->spriteMotion;
@@ -108,7 +108,7 @@ extern "C" ARM void func_02040c2c(struct Obj02040c2c* self, void* context, int e
                 self->modelMotion->object.SetDiffuseColor(LightingManager::GetInstance()->modelDiffuseColor_);
             }
         }
-        if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)func_ov017_0218b5b0()->unknown_ptr_array_36fc[0]) != 4) {
+        if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)GetGameResources()->unknown_ptr_array_36fc[0]) != 4) {
             if (!(self->flags & 1) && !(self->flags & 0x20000)) {
                 if (self->settings != 0 && self->settings->mode != 0) {
                     ModelEffect02040c2c* b = self->modelMotion;

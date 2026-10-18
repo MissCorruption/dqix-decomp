@@ -4,7 +4,11 @@
 #include "std_library_functions.h"
 #include "Filesystem/BackgroundLoader.h"
 
-void EncodeSignFlaggedHalfword_020c39a0(short* out, int value);
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
+extern "C" void func_020c39a0(short* out, int value);
 
 extern "C" void MapVRAMBanksToMainBG(int);
 extern "C" void func_ov020_0218c7bc(int, int, int, int, int);
@@ -74,8 +78,8 @@ extern "C" ARM void func_ov020_0218d32c(struct SetupContext0218d32c* self, int m
     unsigned char list3[0x20];
 
     self->allocator.Reset();
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     MapVRAMBanksToMainBG(8);
     func_ov020_0218c7bc(0, 1, 1, 1, 0);
 
@@ -146,6 +150,6 @@ extern "C" ARM void func_ov020_0218d32c(struct SetupContext0218d32c* self, int m
     volatile unsigned int* reg0 = (volatile unsigned int*)0x4000000;
     *reg0 = (*reg0 & ~0x1f00) | 0x1300;
 
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
 }

@@ -8,8 +8,8 @@ enum { RegionOffset8c = 0x8c };
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 int GetGlobalField0x1c020421a0();
 struct StructAllocGroup0208ba54;
 void DestroyStructAllocGroup0208ba54(struct StructAllocGroup0208ba54* self);
@@ -26,7 +26,7 @@ extern int data_02114e20;
 
 // USA: func_ov017_021b8d80  (semantic: ResetStateAndFinalize_021b8d80)
 extern "C" ARM void func_ov017_021b8d80(unsigned char* self) {
-    int handle = func_ov017_0218b5b0();
+    GameResources* handle = GetGameResources();
     if (*(int*)(self + 0x120) > -1) {
         int field4 = (int)BackgroundLoader::GetInstance();
         ((BackgroundLoader*)(field4))->RemoveTask((int)(*(int*)(self + 0x120)));
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021b8d80(unsigned char* self) {
         reg[2] = reg[2] & ~3;
 
         SetCombatModeFromCase020dc2d0(0);
-        SetSubBrightness((GameResources*)handle, 0, 0xf);
+        SetSubBrightness(handle, 0, 0xf);
     }
 
     ResetFieldsToDefault_021b994c((struct Obj_021b994c*)self);

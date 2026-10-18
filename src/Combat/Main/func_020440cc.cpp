@@ -3,6 +3,7 @@
 #include "Resource/MessageSystem.h"
 #include "Resource/MessageUpdate.h"
 #include "Combat/EntryGetterTypes.h"
+#include "Input/Input.h"
 
 struct Input020440cc {
     unsigned char unknown0[0x44];
@@ -12,10 +13,8 @@ struct Input020440cc {
 };
 struct EntryList_203dce4;
 struct Obj0205eaa0;
-extern unsigned short data_02114e30;
 extern Input020440cc data_02114e54;
 extern Obj0205eaa0 data_02108760;
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 void* GetGlobalPtr021075f4_0203cf4c();
 Entry_203dce4* GetEntryUnlessFlag0x8000_0203dce4(EntryList_203dce4*, int);
 extern "C" void func_0206b104(MessageSystem*);
@@ -43,8 +42,8 @@ ARM int MessageSystem::func_020440cc() {
 #else
     if (b19cf) mask |= 0x100;
 #endif
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, mask)) triggered = 1;
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0xf0)) triggered = 1;
+    if (g_keyManager.TestKeysPressed(mask)) triggered = 1;
+    if (g_keyManager.TestKeysPressed(0xf0)) triggered = 1;
     if (data_02114e54.active && data_02114e54.ticks < 20) triggered = 1;
     if (GetIndexedHalfword_020656d0() == 0xff0c) {
         unsigned int ticks = GameState::GetInstance()->GetTickCount();

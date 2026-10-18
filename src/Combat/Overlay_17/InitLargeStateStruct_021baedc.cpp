@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { LaterFieldShift = -0x4 };
@@ -13,9 +14,6 @@ void ResetByteHeader(struct ByteHeader0204693c* p);
 
 struct Obj021bb088;
 void InitTimerObj_021bb088(struct Obj021bb088* p);
-
-extern "C" void* func_ov017_0218b5b0(void);
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
 
 struct BitField0x178_021baedc { unsigned char bit0:1; unsigned char rest:7; };
 
@@ -60,7 +58,7 @@ extern "C" ARM void func_ov017_021baedc(void* self, int flag) {
 	memset(base + 0xc, 0, 0x68);
 	*(unsigned short*)(base + 0x114 + LaterFieldShift) = 0;
 	InitTimerObj_021bb088((struct Obj021bb088*)(base + 0xd0 + LaterFieldShift));
-	if (GetBitsInField0_0203b4c4((unsigned int*)func_ov017_0218b5b0(), 0x1000) == 0) {
+	if (TestFlags00(GetGameResources(), 0x1000) == 0) {
 		((SafeAllocator*)(base + 0x7c + LaterFieldShift))->ResetAllocatorPointer();
 	}
 	*(int*)(base + 0x120 + LaterFieldShift) = 0;

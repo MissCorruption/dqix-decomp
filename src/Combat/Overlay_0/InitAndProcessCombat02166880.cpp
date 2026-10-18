@@ -18,6 +18,7 @@
 #include "GameState/GameState.h"
 #include "System/Timing.h"
 #include "World/Zone3D.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_0202ae18(void);
 void InitStruct02013718(char* obj, int a, int b);
@@ -35,7 +36,7 @@ void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* work, int mask);
 
 // USA: func_ov000_02166880
 ARM void InitAndProcessCombat02166880(unsigned char* obj) {
-    ((int)func_ov017_0218b5b0());
+    ((int)GetGameResources());
     GameState* battle = GameState::GetInstance();
     struct Obj0202fa00* fieldObj = (struct Obj0202fa00*)(int)BackgroundLoader::GetInstance();
     battle->GetProtagonist();

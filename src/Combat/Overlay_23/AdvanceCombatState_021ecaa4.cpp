@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
@@ -33,17 +33,17 @@ struct Obj021ecaa4 {
 
 // USA: func_ov023_021ecaa4  (semantic: AdvanceCombatState_021ecaa4)
 extern "C" ARM void func_ov023_021ecaa4(Obj021ecaa4* obj) {
-    void* result = (void*)func_ov017_0218b5b0();
+    GameResources* result = GetGameResources();
     unsigned char state = obj->f432;
     if (state == 0) {
         if (obj->f60 == 0)
-            SetMainBrightness((GameResources*)result, -16, 15);
+            SetMainBrightness(result, -16, 15);
         else
-            SetSubBrightness((GameResources*)result, -16, 15);
+            SetSubBrightness(result, -16, 15);
         obj->f432++;
     }
     if (state != 1) return;
-    if (IsBrightnessTransitionActive((GameResources*)result)) return;
+    if (IsBrightnessTransitionActive(result)) return;
     if (obj->f44a != 0) {
         if (!(obj->f430 == 0 || obj->f430 == 1)) {
             if (IsAnimationActive0209ca2c((void*)&data_02109bf4)) return;

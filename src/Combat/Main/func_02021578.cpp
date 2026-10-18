@@ -15,14 +15,12 @@ extern "C" void func_02022da0(void*);
 #include "Combat/CombatScriptContext.h"
 #include "World/Zone3D.h"
 #include "Combat/MapDisplay.h"
+#include "Resource/Brightness.h"
 
 extern "C" Zone3D* func_02012fe4(void);
 extern "C" void* func_0203bd08(void);
 void* GetData02105254_0203b628(void);
 extern "C" void func_02021428(void* obj, int amount);
-
-struct AxisFloats0203b5a0;
-int IsAxisIntWithin16(struct AxisFloats0203b5a0* s, int axis);
 
 extern "C" int func_020420e8(void* p, int flag);
 
@@ -91,7 +89,7 @@ extern "C" ARM void func_02021578(MapDisplay* self) {
     GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
     modes = func_02012fe4()->pUnknownStruct_8_;
-    axis = func_ov017_0218b5b0();
+    axis = GetGameResources();
     battleCtx = (char*)func_0203bd08();
     table = (char*)GetData02105254_0203b628();
     state = self->loadStage;
@@ -138,7 +136,7 @@ extern "C" ARM void func_02021578(MapDisplay* self) {
 #endif
     } else if (state == REGION_VALUE(1, 2)) {
         func_02021428(self, 0x19);
-        if (IsAxisIntWithin16((struct AxisFloats0203b5a0*)axis, 1) != 0) return;
+        if (IsBrightnessWithinValidRange((GameResources*)axis, true) != 0) return;
         func_02020720(self);
         func_02020838(self);
         TailForward0203b66c(table);

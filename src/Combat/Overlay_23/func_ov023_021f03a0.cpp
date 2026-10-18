@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 struct ObjectStatePrefix;
 
 struct ArrayContainsByteStruct;
@@ -95,7 +96,6 @@ extern "C" void func_ov000_02163b90(BattleWork*, int);
 extern "C" void func_ov000_021626a0(BattleWork*, int, int);
 void ApplyField41ToGatheredCombatants02163a7c(GatherObj02163a7c*);
 extern "C" void func_ov000_021639b4(BattleWork*);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
 void RunFlagPassAndSetMode02167dd8_02167dd8(unsigned char*);
 extern "C" int func_ov000_02153e40(void*, short*, int, int);
 extern "C" void func_02048cf0(GameObject*, int);
@@ -147,7 +147,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleWork* work) {
     Reset_021eefac* state = _ZZ17GetGlobal021ffefcvE1s;
     MessageController* messages = GetGlobalField0x1c020421a0();
     func_0202ae18();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     ArrayContainsByte_02086ef0((ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(game), state->actorId);
     if (state->state == 0) {
@@ -156,7 +156,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleWork* work) {
         func_ov000_021626a0(work, 4, 0);
         ApplyField41ToGatheredCombatants02163a7c((GatherObj02163a7c*)work);
         func_ov000_021639b4(work);
-        ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x400);
+        ClearFlags04(resources, 0x400);
         RunFlagPassAndSetMode02167dd8_02167dd8((unsigned char*)work);
         void* battle = work->battle;
         int count;

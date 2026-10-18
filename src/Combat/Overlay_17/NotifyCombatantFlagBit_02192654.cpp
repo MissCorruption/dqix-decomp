@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_0202ae18(void);
 extern "C" int func_0202c508(void);
@@ -14,7 +15,7 @@ void ClearField0x17e_020797d0(unsigned char* obj);
 
 // USA: func_ov017_02192654  (semantic: NotifyCombatantFlagBit_02192654)
 extern "C" ARM void func_ov017_02192654(int bit, int id, unsigned char cond) {
-    void* base = func_ov017_0218b5b0();
+    void* base = GetGameResources();
     GameState* battleStruct = GameState::GetInstance();
     func_0202ae18();
     if (func_0202c508()) {

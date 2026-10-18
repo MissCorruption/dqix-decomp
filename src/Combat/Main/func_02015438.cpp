@@ -47,7 +47,7 @@ extern "C" ARM void func_02015438(Zone3D* self) {
             void* actor = battle->GetProtagonist();
             if (actor != 0) {
                 if (GetHeadNodeIdOrMinusOne(
-                        *(struct HeadNode02046b24***)((char*)func_ov017_0218b5b0() + 0x3000 + headOffset)) != 4) {
+                        *(struct HeadNode02046b24***)((char*)GetGameResources() + 0x3000 + headOffset)) != 4) {
                     SetByteField0x253_020397c0(actor);
                 }
             }

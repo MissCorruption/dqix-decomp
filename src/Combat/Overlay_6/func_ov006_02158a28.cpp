@@ -6,6 +6,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Outer020e28dc;
 
@@ -25,12 +26,10 @@ struct Menu {
 };
 
 extern "C" {
-extern unsigned short data_02114e30[];
 extern unsigned char data_02114e54[];
 void func_020813ec(Menu*, int);
 }
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 int GetInnerFlagBit0020e28dc(Outer020e28dc*);
 int GetField0x15UnlessInactive_020e2918(signed char*);
 void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
@@ -135,9 +134,9 @@ struct AlchemyMenu {
 extern "C" ARM unsigned char func_ov006_02158a28(AlchemyMenu* self)
 {
     unsigned char confirmed = 0;
-    if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 1))
+    if (g_keyManager.TestKeysPressed(1))
         confirmed = 1;
-    if ((self->flags_ & 2) && TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x400))
+    if ((self->flags_ & 2) && g_keyManager.TestKeysPressed(0x400))
         confirmed = 1;
     if (self->choice_ != 0 && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->choice_))
     {

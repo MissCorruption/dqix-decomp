@@ -6,6 +6,7 @@
 #include "Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
+#include "Resource/GameResources.h"
 
 struct Vec3 {
     int x;
@@ -141,7 +142,7 @@ extern "C" ARM void func_020e3f1c(struct BattleIntro020e3f1c* intro) {
     ActiveGrottoClass* grotto = &func_02012fe4()->activeGrotto;
     struct Camera020e3f1c* camera = (struct Camera020e3f1c*)GetFieldIfFlag4_020100f8((char*)gs);
     struct Actor020e3f1c* leader = (struct Actor020e3f1c*)gs->GetUnknownGameObject();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
 
     if (func_ov017_021959b4()) {
         StartBattleTimerSequence020e4524((char*)intro);

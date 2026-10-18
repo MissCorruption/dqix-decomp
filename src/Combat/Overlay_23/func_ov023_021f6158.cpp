@@ -1,6 +1,5 @@
 #include <globaldefs.h>
-
-extern "C" void* func_ov017_0218b5b0(void);
+#include "Resource/GameResources.h"
 
 struct Bits021f6158 {
     unsigned int counter : 12;
@@ -32,7 +31,7 @@ extern "C" ARM void func_ov023_021f6158(struct Obj021f6158* obj) {
 #else
  enum {regionalOffset0=0xb48};
 #endif
-    struct Ptr33_021f6158* ptr2 = (struct Ptr33_021f6158*)*(void**)((unsigned char*)func_ov017_0218b5b0() + 0x3000 + regionalOffset0);
+    struct Ptr33_021f6158* ptr2 = (struct Ptr33_021f6158*)*(void**)((unsigned char*)GetGameResources() + 0x3000 + regionalOffset0);
     unsigned char maxCur = ptr2->byte33;
     unsigned int cur = obj->bits.cur;
     int flag = 0;

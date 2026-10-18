@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/GameResources.h"
 
 struct DstStruct0208baec { unsigned char field_0[0xc]; int x, y, width, height; unsigned short value; unsigned short field_1e; unsigned short style; unsigned char flags; unsigned char field_23[5]; };
 
@@ -54,7 +55,7 @@ static inline int NoShortDelay0208cfcc(Obj0208bf28* obj) { return (obj->flags & 
 extern "C" ARM void func_0208cfcc(Obj0208bf28* obj) {
     TransitionOwner0208cfcc* owner;
     BackgroundLoader* loader;
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     loader = BackgroundLoader::GetInstance();
     if (obj->state == 0) {
         int shortDelay = NoShortDelay0208cfcc(obj) == 0;
@@ -103,7 +104,7 @@ extern "C" ARM void func_0208cfcc(Obj0208bf28* obj) {
             obj->state++;
         }
     } else if (obj->state == 2) {
-        if (!IsSubBrightnessTransitionActive(func_ov017_0218b5b0())) {
+        if (!IsSubBrightnessTransitionActive(GetGameResources())) {
             SetBitfieldStoreBytes0205af38((int)&obj->list, (char*)&obj->entries[0], 1, 1);
             SetBitfieldStoreBytes0205af38((int)&obj->list, (char*)&obj->entries[1], 1, 1);
             obj->field_d8 = 0;

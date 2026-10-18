@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
+#include "Input/Input.h"
 
 struct Struct_0205d81c;
 struct Struct_0205def8;
@@ -83,7 +84,6 @@ int GetInnerFlagBit0020e28dc(Outer020e28dc*);
 void UpdateEntryStateAndPosition(Ctx020e263c*, int);
 extern "C" int func_0205d0e0(Struct_0205d81c*, int);
 int CheckFlagOrThreshold_02161b48(char*, int);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 extern "C" void* func_0205ec34();
 int LookupAndForEachNode020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
@@ -93,7 +93,6 @@ int GetField5cb0Value_0201079c(char*);
 void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
 void SetElementFieldC2_0205deb4(Struct_0205d81c*, int, int);
 extern "C" void func_ov002_0215bba8(BattleActor*);
-extern unsigned short data_02114e30[0x10];
 extern unsigned int data_ov002_0216d3a8;
 extern BattleHandler data_020e6d5c;
 extern BattleHandler data_ov002_0216cd74[44];
@@ -131,7 +130,7 @@ extern "C" ARM int func_ov002_02155960(BattleActor* actor, int delta) {
     }
     if (actor->active != 0) {
         if ((actor->state == 4 && actor->mode == 1 && CheckFlagOrThreshold_02161b48((char*)actor, 1) != 0) ||
-                TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800) != 0) {
+                g_keyManager.TestKeysPressed(0x800) != 0) {
             if (manager->blocked == 0)
                 actor->pendingState = 1;
         }
@@ -169,7 +168,7 @@ extern "C" ARM int func_ov002_02155960(BattleActor* actor, int delta) {
     (actor->*data_ov002_0216cd74[actor->state])();
     if (actor->state != 0 && actor->state != 0x1e && actor->state != 0x2a && actor->busy == 0 && actor->mode == 1) {
         manager = (BattleManager*)GetGlobalField0x1c020421a0();
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800) != 0 && manager->blocked == 0) {
+        if (g_keyManager.TestKeysPressed(0x800) != 0 && manager->blocked == 0) {
             if (actor->state == 0x21)
                 CopyByteField0215aa14((char*)actor);
             if (actor->state == 0xf) {

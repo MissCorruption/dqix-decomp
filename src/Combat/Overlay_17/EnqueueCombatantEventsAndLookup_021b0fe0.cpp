@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { Field6fc = 0x4ec, Field718 = 0x508, Field448 = 0x488 };
@@ -72,7 +73,7 @@ extern "C" ARM void func_ov017_021b0fe0(int id) {
 		return;
 	}
 
-	int base = ((int)func_ov017_0218b5b0());
+	int base = ((int)GetGameResources());
 	struct ListHead02046b60* listA = *(struct ListHead02046b60**)((char*)base + 0x3000 + Field6fc);
 	if (!ListContainsId(listA, 0xa)) {
 		return;

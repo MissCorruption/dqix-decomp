@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kMenuCursor = 0x2a, kLayoutToTable = 0x48, kWindowFlags = 0x1054 };
@@ -133,10 +134,8 @@ void CallFunc0204c804OverAllElems(Cont0207fe44* menu);
 extern "C" LayoutElement* func_ov006_02157368(void* layout, short id);
 extern "C" void func_ov006_02158de0(AlchemyMenu* self);
 void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081* menu, int group);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 
 extern "C" char data_02108760[];
-extern "C" unsigned short data_02114e30[];
 
 // USA: func_ov006_0215b7e8
 extern "C" ARM void func_ov006_0215b7e8(AlchemyMenu* self) {
@@ -260,7 +259,7 @@ extern "C" ARM void func_ov006_0215b7e8(AlchemyMenu* self) {
             CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)menu, self->group_);
             return;
         }
-        if (func_ov006_02158b78(self) || TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800))
+        if (func_ov006_02158b78(self) || g_keyManager.TestKeysPressed(0x800))
         {
             CallFunc0204c804OverAllElems((Cont0207fe44*)menu);
             self->state_ = 0xc;

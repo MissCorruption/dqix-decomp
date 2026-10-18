@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
+#include "Resource/GameResources.h"
 
 struct Variant02030b0c;
 struct TaggedValue02030b44;
 struct Vector3i;
-extern "C" int func_ov017_0218b5b0(void);
 
 struct Cont0208e778;
 struct Node0208e778;
@@ -47,7 +47,7 @@ struct Node0208e0c4 {
 
 // USA: func_0208e0c4
 extern "C" ARM int func_0208e0c4(char* v) {
-    SafeAllocator* alloc = (SafeAllocator*)(func_ov017_0218b5b0() + 0x1a0);
+    SafeAllocator* alloc = (SafeAllocator*)((int)GetGameResources() + 0x1a0);
     struct Node0208e0c4* node = (struct Node0208e0c4*)alloc->Allocate(0x70);
     node->next = 0;
     node->dw0.val1 = (unsigned short)((Script::Parameter*)((Variant02030b0c*)v))->ToInt();

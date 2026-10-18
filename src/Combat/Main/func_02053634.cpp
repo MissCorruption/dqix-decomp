@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
+#include "Input/Input.h"
 
 int GetGlobalField0x1c020421a0(void);
 unsigned char GetField0x397cValue_020100b0(GameState* battleStruct);
@@ -22,7 +23,6 @@ void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 void ForwardToTargetOrDefault0205eabc(void* obj, void* target, int arg);
 int SetTargetFieldAndForEach02064a9c(void* param0, void* param1);
 int GetFieldIfFlag4_020100f8(char* obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 void EnqueueEventTag6_021cc2f0(int);
 void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
 void ClearFlagBits_020a28b0(unsigned char* obj, int mask);
@@ -45,7 +45,6 @@ extern char data_020f0477;
 extern char data_020f047e;
 extern int data_02108760;
 extern char data_020f0481;
-extern unsigned short data_02114e30;
 extern char data_020f0486;
 
 #if defined(jpn)
@@ -230,7 +229,7 @@ extern "C" ARM void func_02053634(void* obj) {
             } else {
                 short cid = *(short*)(ctx + 4);
                 if (cid == GetField0x397cValue_020100b0(bs)
-                    && TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0xc03) != 0) {
+                    && g_keyManager.TestKeysPressed(0xc03) != 0) {
                     flag = 1;
                     EnqueueEventTag6_021cc2f0(*(short*)(ctx + 4));
                 } else {

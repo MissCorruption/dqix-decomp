@@ -6,6 +6,7 @@ enum { RegionOffset4447 = 0x4447 };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
 struct SearchStruct0202c1a4;
@@ -34,7 +35,7 @@ extern "C" ARM void func_ov017_0219949c(void* ctx, int combatantId, int matchTyp
     }
 
     if (threshold != *(signed char*)((char*)ctx + RegionOffset4447)) {
-        func_ov017_0218b5b0();
+        GetGameResources();
         EnqueueEventTag154_021d0860(slotId, 1, 1);
         return;
     }

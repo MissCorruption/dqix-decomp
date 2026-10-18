@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 typedef Vector3fix Vec3_021a4e88;
 
@@ -71,7 +72,7 @@ static inline short GetAngleToEntry(Vec3_021a4e88* pos, int base, Entry021a4e88*
 extern "C" ARM int func_ov017_021a4e88(int checkKind, unsigned short* outId) {
     GameState* gs = GameState::GetInstance();
     void* list = GetGlobalPtr021075f4_0203cf4c();
-    Res021a4e88* res = (Res021a4e88*)func_ov017_0218b5b0();
+    Res021a4e88* res = (Res021a4e88*)GetGameResources();
     Obj021a4e88* obj = (Obj021a4e88*)gs->GetUnknownGameObject();
     if (obj == NULL) {
         return -1;

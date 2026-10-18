@@ -1,8 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
-
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
-extern unsigned short data_02114e30;
+#include "Input/Input.h"
 
 struct FlagPair_021b2698 { int a; int b; };
 extern FlagPair_021b2698 data_ov017_021d83f0;
@@ -24,13 +22,13 @@ struct SelfState_021b2698 {
 
 // USA: func_ov017_021b2698  (semantic: CheckStateAndDispatchGlobal_021b2698)
 extern "C" ARM int func_ov017_021b2698(SelfState_021b2698* self) {
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x2000) != 0) {
+    if (g_keyManager.TestKeysPressed(0x2000) != 0) {
         return 3;
     }
     if (func_ov011_02184694(data_ov017_021d83f0.b) != 0) {
         return self->field8;
     }
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     #if defined(jpn)
     void* p = *(void**)((char*)ov + 0x3000 + 0x91c);
 #else

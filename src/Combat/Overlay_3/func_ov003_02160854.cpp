@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define FIRST_SHIFT 0x118
@@ -31,7 +32,6 @@ struct Ctx02160854 {
 };
 
 int GetWord0x0_0200fb8c(int* obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 int IsFieldNotPositive_021a4e70(unsigned char* base);
 int GetInnerFlagBit0020e28dc(Outer020e28dc* o);
 int GetField0x15UnlessInactive_020e2918(signed char* obj);
@@ -39,7 +39,6 @@ void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 int RunAndCheckFlagBit02080dd4(void* obj, int p1, int p2, int p3, unsigned char* outFlag, unsigned char extra);
 
 extern "C" {
-extern unsigned short data_02114e30[];
 extern unsigned char data_02114e54[];
 extern short data_ov003_0217f484[];
 extern short data_ov003_0217f426[];
@@ -52,7 +51,7 @@ void func_ov003_02160794(void* self);
 extern "C" ARM unsigned char func_ov003_02160854(Ctx02160854* self) {
     unsigned char confirmed = 0;
     unsigned char* battleWord = (unsigned char*)GetWord0x0_0200fb8c((int*)GameState::GetInstance());
-    if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x401)) {
+    if (g_keyManager.TestKeysPressed(0x401)) {
         if (IsFieldNotPositive_021a4e70(battleWord)) {
             confirmed = 1;
         }

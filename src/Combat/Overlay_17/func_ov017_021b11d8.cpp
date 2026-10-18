@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct SearchStruct;
 struct SearchStruct0202c1a4;
@@ -47,7 +48,7 @@ extern "C" int func_ov017_02195658(GameResources* res);
 extern "C" ARM void func_ov017_021b11d8(void* obj, void* node) {
     Node021b11d8* self = (Node021b11d8*)obj;
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     SearchStruct* search = (SearchStruct*)func_0202ae18();
     unsigned char mode = self->mode;
     if (mode == 0) {

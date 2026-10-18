@@ -5,6 +5,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Graphics/LightingManager.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/Brightness.h"
 
 struct SearchStruct0202c1a4;
 struct Obj02033874;
@@ -13,7 +14,6 @@ struct StructDE1D4 { char data[0x20]; };
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
-extern "C" GameResources* func_ov017_0218b5b0();
 extern "C" void func_0202c288(void*);
 void SetByte0x1ca_02039880(unsigned char*, int);
 int TestBitBySignedByteIndex_0202c1c0(SearchStruct* obj, int value);
@@ -22,7 +22,6 @@ extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 void CallHelperWithBuf_021907dc(int, int, int, int, int);
 signed char GetSignedByte0x1ca_02039888(void*);
 void SetVecYFromValue02033874(Obj02033874*, int);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
 void SetByte0x5cdaAndClearField0xa_020120d4(unsigned char*, unsigned char);
 void* GetField0x74deForValidIndex_020120a0(char* p, unsigned int index);
 void SetWord0x71f8_0201206c(void*, int);
@@ -131,7 +130,7 @@ extern "C" ARM void func_ov017_021b0bc0(Self021b0bc0* self) {
     unsigned int size;
 
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     SearchStruct* search = (SearchStruct*)func_0202ae18();
     Zone021b0bc0* zone = (Zone021b0bc0*)func_02012fe4();
     func_0202c288(search);
@@ -181,7 +180,7 @@ extern "C" ARM void func_ov017_021b0bc0(Self021b0bc0* self) {
             }
             SetVecYFromValue02033874((Obj02033874*)member, *y);
         }
-        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x40);
+        ClearFlags00(res, 0x40);
 
         Snapshot021b0bc0* snap = self->snapshot;
         SetByte0x5cdaAndClearField0xa_020120d4((unsigned char*)gs, snap->f0);

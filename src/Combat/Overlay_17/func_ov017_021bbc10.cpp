@@ -6,6 +6,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 #include "World/Object3D.h"
+#include "Resource/Brightness.h"
 
 struct ListHead02046b60;
 struct Obj020397cc;
@@ -38,8 +39,6 @@ int GetByte0x26c_02039d7c(char*);
 int GetField0x70_0202e7f0(void* obj);
 void* GetFieldIfFlag4_020100f8(char*);
 int CheckField0NonZero_0202b7d8(int*);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
-int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
 int PeekInputLogA_020a1eb0(void);
 void PushInputLogA_020a1df8(int);
 unsigned int* GetDataPtr02114e04_020d6c00(void);
@@ -82,7 +81,7 @@ extern "C" ARM int func_ov017_021bbc10(Overlay021bbc10* self) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     GameObject* unk = gs->GetUnknownGameObject();
     unsigned char* field4 = (unsigned char*)GetFieldIfFlag4_020100f8((char*)gs);
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     void* search = func_0202ae18();
 
     if (ListContainsId((ListHead02046b60*)res->unknown_ptr_array_36fc[0], 1)) {
@@ -101,8 +100,8 @@ extern "C" ARM int func_ov017_021bbc10(Overlay021bbc10* self) {
     if (self->flagFd == 0 && IsField0Null_02046b08((void**)res->unknown_ptr_array_36fc[1]) == 0) {
         return self->result0a;
     }
-    SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 0x10);
-    if (GetBitsInField0_0203b4c4(&res->brightnessFlags_0, 0x1000) == 0 && PeekInputLogA_020a1eb0() != 1) {
+    SetFlags00(res, 0x10);
+    if (TestFlags00(res, 0x1000) == 0 && PeekInputLogA_020a1eb0() != 1) {
         PushInputLogA_020a1df8(1);
     }
     ClearAllocSlotsAndStore_0215aa14((SafeAllocator*)NULL);

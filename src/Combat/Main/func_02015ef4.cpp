@@ -140,7 +140,7 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
         void* file = 0;
         unsigned int size = 0;
         loader->GetLoadedFileByID(entry->taskID, &file, &size);
-        GameResources* root = func_ov017_0218b5b0();
+        GameResources* root = GetGameResources();
         HeadNode02046b24** head = (HeadNode02046b24**)root->unknown_ptr_array_36fc[0];
         if (file && GetHeadNodeIdOrMinusOne(head) != 4) {
             Foo02048004* slot = &reinterpret_cast<Foo02048004*>(self->unk_600)[entry->owner];
@@ -196,7 +196,7 @@ extern "C" ARM int func_02015ef4(Zone3D* self, int index) {
             }
         }
     }
-    if (static_cast<unsigned char*>(func_ov017_0218b5b0()->unknown_ptr_array_3afc[0x22])[3] != 0) visible = 0;
+    if (static_cast<unsigned char*>(GetGameResources()->unknown_ptr_array_3afc[0x22])[3] != 0) visible = 0;
     if (entry->object && visible) {
         self->unk_23bc[1] = 1;
         int x = 0;

@@ -1,5 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
 
 struct SearchStruct0202c1a4;
 struct ArrayContainsByteStruct;
@@ -53,10 +55,6 @@ struct Save0205ec34 {
     unsigned char flags[1];
 };
 
-extern unsigned short data_02114e30;
-
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
-int TestFlagMask_02012430(unsigned short* flags, int mask);
 extern "C" SearchStruct0202c1a4* func_0202ae18(void);
 extern "C" Save0205ec34* func_0205ec34(void);
 struct Entry_02028bd0* GetEntryTableBase_02027ca4(void);
@@ -74,7 +72,7 @@ int GetSignedByte0x1c8_02039860(void* obj);
 extern "C" void func_ov017_0219344c(Actor02192700* actor, int a, int b, int c, int d, int e);
 
 static inline Ctx02192700* PostFound() {
-    Ctx02192700* res = (Ctx02192700*)func_ov017_0218b5b0();
+    Ctx02192700* res = (Ctx02192700*)GetGameResources();
     Msg02192700 msg;
     InitObj0219a674((unsigned char*)&msg);
     msg.kind = 1;
@@ -97,8 +95,8 @@ static inline void PostNotice(Ctx02192700* res, Actor02192700* member) {
 
 // USA: func_ov017_02192700
 extern "C" ARM void func_ov017_02192700(Ctx02192700* ctx) {
-    if ((GetBitsInField0_0203b4c4(&ctx->flags, 0x20) != 0 && TestFlagMask_02012430(&data_02114e30, 1) != 0) ||
-        GetBitsInField0_0203b4c4(&ctx->flags, 0x2000) != 0) {
+    if ((TestFlags00((GameResources*)(&ctx->flags), 0x20) != 0 && g_keyManager.TestKeysHeld(1) != 0) ||
+        TestFlags00((GameResources*)(&ctx->flags), 0x2000) != 0) {
         return;
     }
     GameState* game = GameState::GetInstance();
@@ -157,7 +155,7 @@ extern "C" ARM void func_ov017_02192700(Ctx02192700* ctx) {
             if (HasFlagBit_0218d4ec(ctx, member->obj3D.unknown_4_) &&
                 TestBitInByteArray_0206dfb0((int)save, save->flags, 0x799) &&
                 func_ov017_02194140(leader, member)) {
-                PostNotice((Ctx02192700*)func_ov017_0218b5b0(), member);
+                PostNotice((Ctx02192700*)GetGameResources(), member);
             }
             if (GetSignedByte0x1c8_02039860(member) >= 0) {
                 continue;

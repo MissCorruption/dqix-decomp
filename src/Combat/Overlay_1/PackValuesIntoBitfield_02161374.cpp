@@ -16,7 +16,7 @@ struct BitfieldHolder_02161374 {
 // KEEP-NAME
 // USA: func_ov001_02161374
 ARM int PackValuesIntoBitfield_02161374(void* values, int count) {
-	BitfieldHolder_02161374* holder = (BitfieldHolder_02161374*)func_ov017_0218b5b0()->unknown_ptr_array_371c[6];
+	BitfieldHolder_02161374* holder = (BitfieldHolder_02161374*)GetGameResources()->unknown_ptr_array_371c[6];
 	for (int i = 0; i < count; i++) {
 		holder->flags |= func_ov017_021d60f4(values);
 		values = (char*)values + 8;

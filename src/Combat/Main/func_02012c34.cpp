@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct AllocatorUnion;
-struct S02012244;
 
 extern "C" {
     void _Z22InitAllModules020c8368v(void);
@@ -22,7 +22,6 @@ extern "C" {
     void _Z23ChangeROMLoadDMAChannelj(int channel);
     void _Z31InitBattleModeAndCommit020758a8v(void);
     void func_020bbd14(void);
-    void _Z18InitFields02012244P9S02012244(S02012244* s);
     void _Z26InitBattlerContext0201282cPh(unsigned char* obj);
     void _Z25ResetElapsedState020e1114v(void);
     void _Z44InitOverlay17ObjAndBumpBattleCounter02012bd8v(void);
@@ -31,7 +30,6 @@ extern "C" {
 extern int data_020f2270;
 extern unsigned char data_02114e00;
 extern AllocatorUnion data_02114e20;
-extern S02012244 data_02114e30;
 extern int data_02114e50;
 extern unsigned char data_02114e54[];
 
@@ -61,7 +59,7 @@ extern "C" ARM void func_02012c34(void) {
     _Z23ChangeROMLoadDMAChannelj(2);
     _Z31InitBattleModeAndCommit020758a8v();
     func_020bbd14();
-    _Z18InitFields02012244P9S02012244(&data_02114e30);
+    g_keyManager.Initialize();
     _Z26InitBattlerContext0201282cPh(data_02114e54);
     _Z25ResetElapsedState020e1114v();
     data_02114e00 = 0;

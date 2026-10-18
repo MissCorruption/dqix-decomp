@@ -5,6 +5,7 @@
 #define IS_JPN 0
 #endif
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 struct IntField0x23c_020a27c4 {
     char pad0[0x23c];
@@ -41,11 +42,9 @@ extern ControlHandler data_020f079c[2];
 #else
 extern ControlHandler data_020f08b8[2];
 #endif
-extern unsigned short data_02114e30[];
 void SetupAndDispatch0205c904(unsigned char*, int);
 int CheckGlobalObjState2AndInit0205cde8(unsigned char*);
 void InitGlobalObjAndSelfPointer0205cd94(unsigned char*);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 int GetFieldIfFlag4_020100f8(char*);
 int GetWord0x0_0200fb8c(int*);
 int GetIntAt0x23c(IntField0x23c_020a27c4*);
@@ -63,8 +62,8 @@ extern "C" ARM void func_020676e0(ControlState* state, int elapsed) {
         return;
     }
     int enabled = 1;
-    bool pressed = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x401) != 0;
-    bool cancelled = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 2) != 0;
+    bool pressed = g_keyManager.TestKeysPressed(0x401) != 0;
+    bool cancelled = g_keyManager.TestKeysPressed(2) != 0;
     GameState* game;
     unsigned char* resource;
     int mode = state->mode;
@@ -74,9 +73,9 @@ extern "C" ARM void func_020676e0(ControlState* state, int elapsed) {
     if (mode != 1 && state->alternateInput) {
         if (field) {
             if ((field->flags & 2) || !GetIntAt0x23c(field))
-                pressed |= TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x200);
+                pressed |= g_keyManager.TestKeysPressed(0x200);
         } else {
-            pressed |= TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x200);
+            pressed |= g_keyManager.TestKeysPressed(0x200);
         }
     }
     int specialMode = 0;

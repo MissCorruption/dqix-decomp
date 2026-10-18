@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/GameResources.h"
 
 struct BigRecord020289c4 {
     unsigned short id;
@@ -32,7 +33,7 @@ extern "C" ARM int func_02028a54(BigRecord020289c4* records, int id)
 {
     GameState* state = GameState::GetInstance();
     func_0202ae18();
-    func_ov017_0218b5b0();
+    GetGameResources();
     func_02012fe4();
     state->GetGrottoStruct();
     for (int i = 0; i < 4; ++i) {

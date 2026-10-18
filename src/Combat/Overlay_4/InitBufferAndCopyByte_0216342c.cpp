@@ -25,7 +25,7 @@ extern "C" ARM void func_ov004_02163a20(void* a) {
 // USA: func_ov004_0216342c
 ARM void InitBufferAndCopyByte_0216342c(void* a) {
 #endif
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     VectorizedMemset(a, 0, sizeof(MapSelectionBuffer));
     MapSelectionBuffer* buffer = (MapSelectionBuffer*)a;
     buffer->savedByte = ((unsigned char*)resources->unknown_41c8)[0x118];

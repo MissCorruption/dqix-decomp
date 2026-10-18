@@ -2,6 +2,7 @@
 #include <GameState/GameState.h>
 #include <Memory/SafeAllocator.h>
 #include <std_library_functions.h>
+#include "Resource/GameResources.h"
 
 struct ScriptArgument { char data[8]; };
 struct ObjectLoadCommand {
@@ -44,7 +45,7 @@ extern const char data_ov001_021657b2[];
 extern "C" ARM int func_ov001_02160da8(ScriptArgument* arguments, int count) {
     GameState* game = GameState::GetInstance();
     ObjectLoadCommand* command;
-    ScriptState* state = (ScriptState*)func_ov017_0218b5b0()->unknown_ptr_array_371c[6];
+    ScriptState* state = (ScriptState*)GetGameResources()->unknown_ptr_array_371c[6];
     SafeAllocator* allocator = data_ov001_021658b8[0];
     unsigned int objectId = state->nextObject + 160;
     if (objectId > 191) return 0;

@@ -1,11 +1,10 @@
 #include <globaldefs.h>
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 // USA: func_ov001_021557e0
 
-extern "C" GameResources* func_ov017_0218b5b0(void);
-int IsChannelValueZero0203b5e0(void* obj, int sel);
 int InitAndCheckField3c_02153994(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c540(void* obj);
@@ -31,7 +30,6 @@ void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
 int CheckField0NonZero_0202b7d8(int* obj);
 unsigned char GetField0x397cValue_020100b0(GameState* battleStruct);
 extern "C" void func_ov017_021917f0(int a, int b);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 void StoreInFirstEmptySlot_020e3368(unsigned char* base, unsigned char val);
 struct Self02154de4;
 int ProcessAndDispatchState_02154de4(struct Self02154de4* self);
@@ -66,8 +64,8 @@ struct Self021557e0 {
 };
 
 extern "C" ARM int func_ov001_021557e0(struct Self021557e0* self) {
-    GameResources* res = func_ov017_0218b5b0();
-    if (IsChannelValueZero0203b5e0(res, 0) != 0) {
+    GameResources* res = GetGameResources();
+    if (IsBrightnessOutsideValidRange((GameResources*)res, false) != 0) {
         self->f101 = 1;
     }
     if (InitAndCheckField3c_02153994() != 1) {
@@ -156,7 +154,7 @@ extern "C" ARM int func_ov001_021557e0(struct Self021557e0* self) {
         }
     }
 
-    SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x1000);
+    SetFlags04(res, 0x1000);
 
     if (self->f50 & 0x200) {
         volatile unsigned int* reg = (volatile unsigned int*)0x4000000;

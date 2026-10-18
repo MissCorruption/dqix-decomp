@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 
 struct WorldObjectPositionView {
     Object3D object;
@@ -44,7 +45,7 @@ void SetVecYFromValue02033874(struct Obj02033874* p, int v);
 // USA: func_020a72ac
 extern "C" ARM void func_020a72ac(struct Ctx020a72ac* p) {
     GameState* gs = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     void* base = func_0202ae18();
     LightingManager::GetInstance();
     Object3D* obj = static_cast<Object3D*>(GetPointerAt0x32c_0200ffc0((struct PointerField32c_ffc0*)gs));

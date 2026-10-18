@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kPotFlags = 0x962 };
@@ -141,11 +142,9 @@ int Check02159564(void* self);
 extern "C" void func_ov006_02159274(AlchemyMenu* self, unsigned char* category, short* item, unsigned char* count);
 void UpdateEntryFlags021596f0(Struct021596f0* self);
 extern "C" int func_ov006_02159834(AlchemyMenu* self);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 extern "C" void func_ov006_02159108(AlchemyMenu* self, unsigned char category, short item, unsigned char count);
 
 extern "C" char data_02108760[];
-extern "C" unsigned short data_02114e30[];
 
 static inline unsigned char GetCategory(AlchemyMenu* self) { return self->category_; }
 
@@ -286,7 +285,7 @@ extern "C" ARM void func_ov006_0215bb7c(AlchemyMenu* self) {
         int result = func_ov006_02159834(self);
         if (result == 1)
             return;
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 1) || result == 2)
+        if (g_keyManager.TestKeysPressed(1) || result == 2)
         {
             DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             ResetWithSub0208203c((Obj0208203c*)self->repeat_);

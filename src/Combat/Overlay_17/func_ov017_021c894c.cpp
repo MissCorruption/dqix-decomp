@@ -26,7 +26,7 @@ struct Msg021c894c {
 // USA: func_ov017_021c894c
 extern "C" ARM void func_ov017_021c894c(unsigned short value) {
     GameState* battleStruct = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     void* data = GetData02100044_0202ae24();
     void* field = GetField6b0_021b8470(res->unknown_ptr_3718);
     if (field == NULL) {

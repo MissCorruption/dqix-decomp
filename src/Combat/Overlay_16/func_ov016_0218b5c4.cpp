@@ -5,6 +5,11 @@
 #include "System/ColorEffects.h"
 #include "System/Graphics.h"
 #include "std_library_functions.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
 
 struct StreamHeader;
 struct Struct020e57e0 { int words[3]; };
@@ -53,7 +58,7 @@ struct NodeList0218b5c4 {
     int owner;
 };
 
-int EncodeSignFlaggedHalfword_020c39a0(short* out, int value);
+extern "C" int func_020c39a0(short* out, int value);
 extern "C" void MapVRAMBanksToMainBG(int v);
 void SetDispcntModeAndFlags020c391c(int mode, int flagsA, int valB);
 extern "C" void func_020a0cc4(unsigned int);
@@ -84,7 +89,6 @@ int GetByteField0x63d6_020115a8(FieldBlock63d6_115a8* gs);
 void InitCombatSubsystems02012efc();
 void ResetGxEngineState020c52e8();
 extern "C" void func_020c5414();
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 void ClearBuffer02029060();
 extern "C" void func_02029988(void* p, int flag);
 void FlushBuffer02029088();
@@ -113,7 +117,6 @@ extern "C" void func_ov016_0218d2f4(char* mainName, char* subName, Self0218b5c4*
 extern "C" void func_ov016_0218caa8(char* name, Self0218b5c4* self, ScriptNode0218b5c4* node, int mode, Struct020e57e0* script);
 
 extern AllocatorUnion data_02114e20;
-extern unsigned short data_02114e30;
 extern char data_02109bf4;
 extern char data_02108760;
 extern const char data_ov016_0219cfc0[];
@@ -138,8 +141,8 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
     unsigned int size;
 
     GameState* gs = GameState::GetInstance();
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     MapVRAMBanksToMainBG(1);
     GX_SetBGCharOffset(0);
     GX_SetBGScrOffset(0);
@@ -190,8 +193,8 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
     RestoreDisplayMode_020c38d4();
     DISPCNTSUB |= 0x10000;
     DISPCNT = (DISPCNT & ~0x1f00) | 0x300;
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
 
     int id = -1;
     if (GetByteField0x63d6_020115a8((FieldBlock63d6_115a8*)gs) != 0) {
@@ -204,12 +207,12 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
         ResetGxEngineState020c52e8();
         func_020c5414();
         DISP3DCNT &= (unsigned short)~0x3020;
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+        if (g_keyManager.TestKeysPressed(1)) {
             ScriptNode0218b5c4* node = GetNthNode_0218e14c((Node0218e14c**)&nodes, self->menu.cursor);
             if (node != 0) {
                 id = node->id;
             }
-        } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) {
+        } else if (g_keyManager.TestKeysPressed(2)) {
             self->f94 = 0;
             break;
         }
@@ -220,8 +223,8 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
         DelayThenSyncBit0_020c9820();
         ProcessRingJobs020bbcb4();
         FlushOrClearBuffer020290ac(0);
-        EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, 0);
-        EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+        func_020c39a0((short*)0x400006c, 0);
+        func_020c39a0((short*)0x400106c, -16);
     }
 
     ClearThreeWords020e57e0(&script);
@@ -255,8 +258,8 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
     }
 
     if (id >= 0) {
-        EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-        EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+        func_020c39a0((short*)0x400006c, -16);
+        func_020c39a0((short*)0x400106c, -16);
         ScriptNode0218b5c4* node = FindNodeByID_0218e124((Node0218e124**)&nodes, id);
         if (node != 0) {
             if (node->fade != 0) {
@@ -294,8 +297,8 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
         }
     }
 
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     SignedAllocatorHeader* signedAlloc = self->allocator.GetSignedAllocator();
     self->allocator.Destroy();
     TailForward02012da4(&data_02114e20, signedAlloc);

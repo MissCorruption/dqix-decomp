@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct Fields020a093c;
 struct KeyMap020a0a08;
@@ -158,7 +159,7 @@ extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records, unsig
     BattleData* battle = static_cast<BattleData*>(GetPtrField0x2a04_02010828(gs));
     func_0202ae18();
     FieldState* field = func_02012fe4();
-    func_ov017_0218b5b0();
+    GetGameResources();
     Global02109418* global = GetGlobal02109418_02094d6c();
     func_020a93e0((char*)save);
 

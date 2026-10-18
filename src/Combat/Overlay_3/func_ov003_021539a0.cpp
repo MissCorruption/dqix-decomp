@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct Loader;
-struct AxisFloats0203b5a0;
 
 struct Packed3x10 {
     unsigned int a : 10;
@@ -109,7 +109,6 @@ extern "C" void func_ov023_021e257c(void*);
 void CleanInvalidateCacheRange(const void*, unsigned int);
 extern "C" void LoadToSubBG0CharacterData(int, int, unsigned int);
 void* GetWord0x0_0200fb8c(int*);
-int IsAxisIntWithin16(AxisFloats0203b5a0*, int);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 
@@ -251,7 +250,7 @@ extern "C" ARM void func_ov003_021539a0(struct Self_021539a0* self) {
         self->task54 = -1;
         self->f10 = self->idx;
         void* axis = GetWord0x0_0200fb8c((int*)gs);
-        if ((self->flags & 2) || !IsAxisIntWithin16((AxisFloats0203b5a0*)axis, 1)) {
+        if ((self->flags & 2) || !IsBrightnessWithinValidRange((GameResources*)axis, true)) {
             self->flags &= ~2;
             self->state++;
         } else {

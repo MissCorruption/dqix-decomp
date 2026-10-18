@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kLayoutOffset = 0xf8 };
@@ -12,9 +13,6 @@ struct AlchemyMenu {
 };
 
 extern "C" short func_ov023_021e29d0(void* layout);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
-
-extern "C" unsigned short data_02114e30[];
 
 // USA: func_ov006_02159bb0
 extern "C" ARM unsigned char func_ov006_02159bb0(AlchemyMenu* self) {
@@ -30,9 +28,9 @@ extern "C" ARM unsigned char func_ov006_02159bb0(AlchemyMenu* self) {
         sort = element == 0x13 ? 1 : 0;
         names = element == 0x26 ? 1 : 0;
     } else {
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 4))
+        if (g_keyManager.TestKeysPressed(4))
             sort = 1;
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x300))
+        if (g_keyManager.TestKeysPressed(0x300))
             names = 1;
     }
     if (sort)

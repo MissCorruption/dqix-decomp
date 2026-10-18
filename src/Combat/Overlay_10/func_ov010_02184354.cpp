@@ -4,6 +4,7 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "Resource/MessageSystem.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define data_ov010_02184a80 data_ov010_02185b40
@@ -163,14 +164,14 @@ extern "C" ARM int func_ov010_02184354(struct Ctx02184354* obj) {
     GameObject* caster;
     struct MoveRecord02184354* move;
 #if defined(jpn)
-    struct Actor02184354* actorInfo = *(Actor02184354**)((char*)func_ov017_0218b5b0() + 0x3988);
+    struct Actor02184354* actorInfo = *(Actor02184354**)((char*)GetGameResources() + 0x3988);
 #else
-    struct Actor02184354* actorInfo = *(Actor02184354**)((char*)func_ov017_0218b5b0() + 0x3ba8);
+    struct Actor02184354* actorInfo = *(Actor02184354**)((char*)GetGameResources() + 0x3ba8);
 #endif
     caster = bs->GetPartyMemberByIndex(actorInfo->combatantId);
     GameObject* active = bs->GetPartyMemberByIndex(GetField0x397cValue_020100b0(bs));
     void* scene = func_0202ae18();
-    void* ov17 = func_ov017_0218b5b0();
+    void* ov17 = GetGameResources();
     move = (struct MoveRecord02184354*)func_02012fe4();
 #if defined(jpn)
     char message[200];

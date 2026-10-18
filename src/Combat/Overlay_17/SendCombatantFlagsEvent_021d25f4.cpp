@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 void* GetData02100044_0202ae24(void);
 int GetFieldAt0x150_02053c6c(unsigned char* obj);
@@ -22,7 +23,7 @@ struct EventBuf021d25f4 {
 
 // USA: func_ov017_021d25f4  (semantic: SendCombatantFlagsEvent_021d25f4)
 extern "C" ARM void func_ov017_021d25f4(int combatantId) {
-    int handle = ((int)func_ov017_0218b5b0());
+    int handle = ((int)GetGameResources());
     void* p = GetData02100044_0202ae24();
     struct EventBuf021d25f4 buf;
     buf.tag = 0x20;

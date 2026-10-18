@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 GameObject* FindCombatantByField16a_021a278c(void* unused, int val);
 
@@ -15,7 +16,7 @@ skip:
 	if (val > 0x7fff)
 		return 0;
 	GameState::GetInstance();
-	void* p = func_ov017_0218b5b0();
+	void* p = GetGameResources();
 	if (p == NULL)
 		return 0;
 	return FindCombatantByField16a_021a278c(p, val) != NULL;

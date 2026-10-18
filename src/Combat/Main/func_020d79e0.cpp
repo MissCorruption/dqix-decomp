@@ -24,7 +24,7 @@ extern char data_020f233d;
 
 // USA: func_020d79e0
 extern "C" ARM void func_020d79e0(void* unused, int selectedMember) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     List02046a3c* list;
     StatusMenuRequest* request = static_cast<StatusMenuRequest*>(res->unknown_ptr_array_3afc[20]);
     list = static_cast<List02046a3c*>(res->unknown_ptr_array_36fc[0]);

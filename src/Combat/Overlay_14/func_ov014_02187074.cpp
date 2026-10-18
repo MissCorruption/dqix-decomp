@@ -13,6 +13,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct MonsterListEntry {
     MonsterListEntry* next_;
@@ -90,7 +91,6 @@ struct Obj0205eaa0;
 Canvas* FindElementByByte0xc4_02081da8(Obj2081*, int);
 bool CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char*);
 void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
-bool TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 void ClearSublistEntriesFlag4_020804fc(void*, int);
 
@@ -103,7 +103,6 @@ void func_ov014_021885bc(MonsterListScreen* self);
 }
 
 extern unsigned char data_02114e54[];
-extern unsigned short data_02114e30[];
 extern char data_02108760[];
 
 inline short TilesToPixels(short tiles)
@@ -135,7 +134,7 @@ extern "C" ARM bool func_ov014_02187074(MonsterListScreen* self)
                 toggle = true;
         }
     }
-    if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 4))
+    if (g_keyManager.TestKeysPressed(4))
         toggle = true;
     if (toggle)
     {

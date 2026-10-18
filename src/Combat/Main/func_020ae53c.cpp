@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { ResourceFlagOffset = 0x41a8 };
@@ -6,7 +7,6 @@ enum { ResourceFlagOffset = 0x41a8 };
 enum { ResourceFlagOffset = 0x4458 };
 #endif
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void* func_0205ec34(void);
 extern "C" unsigned short* func_02012fe4(void);
 extern "C" void func_020aee04(int mode, int value);
@@ -23,7 +23,7 @@ void SetFlagBitAndNotifyOverlay17_020ae4ec(int param0, int param1);
 
 // USA: func_020ae53c
 extern "C" ARM void func_020ae53c(int arg) {
-    char* res = (char*)func_ov017_0218b5b0();
+    char* res = (char*)GetGameResources();
     unsigned char* f = (unsigned char*)func_0205ec34();
     int key;
     func_02012fe4();

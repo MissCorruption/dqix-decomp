@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kMenuCursor = 0x2a, kLayoutToTable = 0x48, kWindowFlags = 0x1054 };
@@ -129,12 +130,10 @@ void SetFlagsSequence_0215729c(void* layout);
 void FilterAndSortEntries02071ffc(Container02071ffc* table, int category, int kind, int sort, short max, short* count);
 void ComputeField_02158cac_02158cac(void* self);
 void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081* menu, int group);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 extern "C" void func_ov006_0215745c(short filter, signed char* category, signed char* kind);
 void ClearField44IfSet_02158c28(StructC28* self);
 
 extern "C" char data_02108760[];
-extern "C" unsigned short data_02114e30[];
 
 // USA: func_ov006_0215b1a0
 extern "C" ARM void func_ov006_0215b1a0(AlchemyMenu* self) {
@@ -201,7 +200,7 @@ extern "C" ARM void func_ov006_0215b1a0(AlchemyMenu* self) {
             CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, 8);
             return;
         }
-        if (func_ov006_02158b78(self) || TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800))
+        if (func_ov006_02158b78(self) || g_keyManager.TestKeysPressed(0x800))
         {
             *self->cursor_ = -1;
             self->cursor_ = 0;

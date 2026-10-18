@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" unsigned short* func_02012fe4(void);
 
 struct Obj0208b4d4 {
@@ -12,7 +12,7 @@ struct Obj0208b4d4 {
 // USA: func_0208b4d4
 ARM int ValidateCapturedValue0208b4d4(struct Obj0208b4d4* obj) {
     unsigned short cur;
-    func_ov017_0218b5b0();
+    (int)GetGameResources();
     cur = *func_02012fe4();
     if (cur != obj->captured) {
         obj->done = 0;

@@ -1,7 +1,5 @@
 #include <globaldefs.h>
-
-extern int data_02114e30;
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
+#include "Input/Input.h"
 
 extern unsigned char data_02114e54;
 void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
@@ -13,7 +11,7 @@ int IsPointInsideElement02080d54(struct Obj2081* obj, int key, int px, int py);
 ARM int CheckFlagAndPointInElement_02186ff0(char* obj) {
 	int result = 0;
 
-	if (TestFlag0SetAndFlag1Clear_02012444((unsigned short*)&data_02114e30, 2)) {
+	if (g_keyManager.TestKeysPressed(2)) {
 		result = 1;
 	}
 

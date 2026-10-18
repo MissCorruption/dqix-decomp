@@ -1,3 +1,5 @@
+#include "Input/Input.h"
+
 #if defined(jpn)
 #include <globaldefs.h>
 #include "GameState/GameState.h"
@@ -15,7 +17,6 @@ int GetField0_0205bafc(void*);
 int ComputeScaledSum0205bb84(Struct_0205bb84*);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 int GetFieldByKey020e0434(Container020e0310*, int);
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
 extern "C" int func_ov009_0218a8b4(CharacterCreationUI*, int, int);
@@ -50,7 +51,6 @@ struct PartyMemberAppearance {
 struct PartyMemberData { char unknown0[0x488]; PartyMemberAppearance appearance; };
 extern TouchState data_02114e54;
 extern Obj0205eaa0 data_02108760;
-extern unsigned short data_02114e30;
 
 #define RESET_NAVIGATION(columns, rows, total, selected) \
     CreationNavigation* navigation = &self->navigation; \
@@ -122,7 +122,7 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
                     func_0205bb04(&self->navigation, self->furthestState[self->sex] - 1);
                     choice = self->furthestState[self->sex] - 1;
                 }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80)) {
+                if (g_keyManager.TestKeysPressed(0x80)) {
                     RESET_NAVIGATION(11, 6, 66, self->keyboardChoice);
                     func_0205bb04(&self->navigation, self->navigation.column);
                     self->keyboardChoice = ComputeScaledSum0205bb84((Struct_0205bb84*)&self->navigation);
@@ -131,11 +131,11 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
                     return -1;
                 }
                 if (choice >= 0) { TAB_CURSOR(choice); }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+                if (g_keyManager.TestKeysPressed(1)) {
                     result = ComputeScaledSum0205bb84((Struct_0205bb84*)&self->navigation) + 101;
                     if (result - 100 <= self->furthestState[self->sex] && result - 100 != self->state)
                         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-                } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) {
+                } else if (g_keyManager.TestKeysPressed(2)) {
                     if (func_02001aec(self->names[self->sex], (const void*)GetFieldByKey020e0434(&self->texts, 0x4272), 10) == 0)
                         result = -3;
                     else {
@@ -145,19 +145,19 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
                 }
                 return result;
             } else if (rows == 6) {
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40) && previous == 0) {
+                if (g_keyManager.TestKeysPressed(0x40) && previous == 0) {
                     RESET_NAVIGATION(8, 1, 8, self->state - 1);
                     navigation->flags3c = 0;
                     TAB_CURSOR(self->state - 1);
                     self->flags |= 0x2000;
                     return -1;
                 }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 8)) {
+                if (g_keyManager.TestKeysPressed(8)) {
                     func_ov009_0218ad0c(self);
-                } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 4)) {
+                } else if (g_keyManager.TestKeysPressed(4)) {
                     func_ov009_0218b850(self);
                     self->flags |= 0x8100;
-                } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+                } else if (g_keyManager.TestKeysPressed(1)) {
                     if (func_ov009_0218aab0(self, self->keyboardChoice) && self->nameFlags[self->sex] == 5) {
                         choice = 65;
                         func_0205bb04(&self->navigation, choice);
@@ -167,7 +167,7 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
                         func_ov009_0218ad0c(self);
                         self->flags &= ~0x200000;
                     }
-                } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) {
+                } else if (g_keyManager.TestKeysPressed(2)) {
                     if (func_02001aec(self->names[self->sex], (const void*)GetFieldByKey020e0434(&self->texts, 0x4272), 10) == 0)
                         result = -3;
                     else {
@@ -184,31 +184,31 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
                     func_0205bb04(&self->navigation, self->furthestState[self->sex] - 1);
                     choice = self->furthestState[self->sex] - 1;
                 }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80)) {
+                if (g_keyManager.TestKeysPressed(0x80)) {
                     func_ov009_02188c2c(self);
                     self->flags |= 0x2000;
                     func_ov009_02188e70(self, ComputeScaledSum0205bb84((Struct_0205bb84*)&self->navigation));
                     return -1;
                 }
                 if (choice >= 0) { TAB_CURSOR(choice); }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+                if (g_keyManager.TestKeysPressed(1)) {
                     result = ComputeScaledSum0205bb84((Struct_0205bb84*)&self->navigation) + 101;
                     if (result - 100 <= self->furthestState[self->sex] && result - 100 != self->state)
                         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-                } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) result = -3;
+                } else if (g_keyManager.TestKeysPressed(2)) result = -3;
                 return result;
             }
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40) && previous == 0) {
+            if (g_keyManager.TestKeysPressed(0x40) && previous == 0) {
                 RESET_NAVIGATION(8, 1, 8, self->state - 1);
                 navigation->flags3c = 0;
                 TAB_CURSOR(self->state - 1);
                 self->flags |= 0x2000;
                 return -1;
             }
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+            if (g_keyManager.TestKeysPressed(1)) {
                 result = -2;
                 DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-            } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) result = -3;
+            } else if (g_keyManager.TestKeysPressed(2)) result = -3;
         }
     }
     self->flags &= ~0x10;
@@ -263,7 +263,6 @@ int GetField0_0205bafc(void*);
 int ComputeScaledSum0205bb84(Struct_0205bb84*);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 
 struct TouchState {
     char pad0[0x24];
@@ -316,7 +315,6 @@ struct CharacterCreation {
 };
 extern TouchState data_02114e54;
 extern Obj0205eaa0 data_02108760;
-extern unsigned short data_02114e30;
 extern "C" int func_ov009_02189854(CharacterCreation*, int, int);
 extern "C" void func_0205bb04(Navigation*, int);
 extern "C" int func_0205bf58(Navigation*, unsigned int);
@@ -392,7 +390,7 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreation* self) {
                     func_0205bb04(&self->controls.navigation, self->maxSteps[self->gender] - 1);
                     choice = self->maxSteps[self->gender] - 1;
                 }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80)) {
+                if (g_keyManager.TestKeysPressed(0x80)) {
                     RESET_NAVIGATION(11, 6, 66, 0);
                     self->flags |= 0x2000;
                     if (self->savedEntries) self->list->entries = self->savedEntries;
@@ -401,14 +399,14 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreation* self) {
                     return -1;
                 }
                 if (choice >= 0) { TAB_CURSOR(choice); }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+                if (g_keyManager.TestKeysPressed(1)) {
                     result = ComputeScaledSum0205bb84((Struct_0205bb84*)&self->controls.navigation) + 101;
                     if (result - 100 <= self->maxSteps[self->gender] && result - 100 != self->state)
                         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
                 }
                 return result;
             }
-            if (!self->blocked && TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40)) {
+            if (!self->blocked && g_keyManager.TestKeysPressed(0x40)) {
                 self->savedEntries = self->list->entries;
                 self->list->entries = 0;
                 RESET_NAVIGATION(8, 1, 8, self->state - 1);
@@ -423,32 +421,32 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreation* self) {
                     func_0205bb04(&self->controls.navigation, self->maxSteps[self->gender] - 1);
                     choice = self->maxSteps[self->gender] - 1;
                 }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80)) {
+                if (g_keyManager.TestKeysPressed(0x80)) {
                     func_ov009_02188c2c(self);
                     self->flags |= 0x2000;
                     func_ov009_02188e70(self, ComputeScaledSum0205bb84((Struct_0205bb84*)&self->controls.navigation));
                     return -1;
                 }
                 if (choice >= 0) { TAB_CURSOR(choice); }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+                if (g_keyManager.TestKeysPressed(1)) {
                     result = ComputeScaledSum0205bb84((Struct_0205bb84*)&self->controls.navigation) + 101;
                     if (result - 100 <= self->maxSteps[self->gender] && result - 100 != self->state)
                         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-                } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) result = -3;
+                } else if (g_keyManager.TestKeysPressed(2)) result = -3;
                 if (result == 108) SetupPointerTable0205ba68((Struct_0205ba68*)&self->controls.navigation, 11, 6, 0);
                 return result;
             }
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40) && previous == 0) {
+            if (g_keyManager.TestKeysPressed(0x40) && previous == 0) {
                 RESET_NAVIGATION(8, 1, 8, self->state - 1);
                 controls->navigation.field3c = 0;
                 TAB_CURSOR(self->state - 1);
                 self->flags |= 0x2000;
                 return -1;
             }
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+            if (g_keyManager.TestKeysPressed(1)) {
                 result = -2;
                 DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-            } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) result = -3;
+            } else if (g_keyManager.TestKeysPressed(2)) result = -3;
         }
     }
     self->flags &= ~0x10;

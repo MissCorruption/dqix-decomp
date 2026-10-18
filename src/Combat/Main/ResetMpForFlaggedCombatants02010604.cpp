@@ -8,6 +8,10 @@ enum { kOffset97c = 0x97c, kOffset18c = 0x18c, kOffset980 = 0x980, kOffset970 = 
 
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
 extern "C" void func_ov017_021d2400(void);
@@ -24,7 +28,7 @@ int RestoreMaxMpToFull(struct Combatant020482bc* c);
 struct Bytes02033b88;
 int SetByte0xbeShiftPrev(struct Bytes02033b88* p, int val);
 
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 
 extern int data_020f83d8;
 
@@ -73,7 +77,7 @@ ARM void ResetMpForFlaggedCombatants02010604(GameState* obj, int arg1, int arg2,
     if (*(int*)((char*)obj + 0x5000 + kOffsetcb0) == 0x10 && *(int*)((char*)obj + 0x5000 + kOffsetcb4) == 2 &&
         *(int*)((char*)obj + 0x5000 + kOffsetcb8) == 1) {
         void* g2 = func_0205ec34();
-        SetOrClearBitInArray_0206df6c(g2, (unsigned char*)((char*)g2 + 0x8c), 0x113a, 0);
+        func_0206df6c(g2, (unsigned char*)((char*)g2 + 0x8c), 0x113a, 0);
     }
 
     *((unsigned char*)&data_020f83d8 + kOffset729) = 0;

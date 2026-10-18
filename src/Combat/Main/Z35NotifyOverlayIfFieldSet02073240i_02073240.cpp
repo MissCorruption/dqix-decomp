@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 void ApplyCombatantEffectByIndex020730e0(int id, int index);
 int CallHelperIfCheckPasses_0218fcf8(int a, int b, int c);
@@ -23,6 +24,6 @@ ARM void NotifyOverlayIfField0x9cSet02073240(int arg0) {
 
     if (*(unsigned short*)((char*)obj + 0x9c) == 0) return;
 
-    int x = (int)func_ov017_0218b5b0();
+    int x = (int)GetGameResources();
     CallHelperIfCheckPasses_0218fcf8(x, arg0, *(unsigned short*)((char*)obj + 0x9c));
 }

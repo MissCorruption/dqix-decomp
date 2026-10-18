@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Obj02061bd8;
 
@@ -56,7 +57,7 @@ static inline int GetHP(CombatantStatus02161ab8* status) { return status->hp; }
 // USA: func_ov001_02161ab8
 extern "C" ARM int func_ov001_02161ab8(char* self, int count) {
     GameState* gs = GameState::GetInstance();
-    Work02161ab8* work = (Work02161ab8*)func_ov017_0218b5b0()->unknown_ptr_array_371c[6];
+    Work02161ab8* work = (Work02161ab8*)GetGameResources()->unknown_ptr_array_371c[6];
     int id = func_ov017_021d60f4(self);
     Entry02161ab8* e;
     for (e = work->head; e != NULL; e = e->next) {

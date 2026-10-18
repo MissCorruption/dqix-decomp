@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kRegionValue1EA_1E6 = 0x1e6 };
@@ -12,7 +13,6 @@ enum { kRegionValue1E6_1E2 = 0x1e6 };
 struct IntField0x23c_020a27c4;
 int GetFieldIfFlag4_020100f8(char* obj);
 int GetIntAt0x23c(struct IntField0x23c_020a27c4* obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 extern "C" int func_ov003_021550dc(void* obj);
 extern "C" int func_ov003_02155208(void* self);
 
@@ -28,7 +28,6 @@ void ResetWithSub0208203c(struct Obj0208203c* obj);
 struct Obj020e25e8;
 void ResetSelectionState020e25e8(struct Obj020e25e8* obj);
 
-extern unsigned short data_02114e30;
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov003_02155618
@@ -40,7 +39,7 @@ extern "C" ARM int func_ov003_02155618(char* obj) {
     GameState* battle = GameState::GetInstance();
     struct IntField0x23c_020a27c4* p = (struct IntField0x23c_020a27c4*)GetFieldIfFlag4_020100f8((char*)battle);
     if (p != 0 && ((*((unsigned char*)p + 0x244) & 2) != 0 || GetIntAt0x23c(p) == 0)) {
-        flagB = (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x200) != 0) ? 1 : 0;
+        flagB = (g_keyManager.TestKeysPressed(0x200) != 0) ? 1 : 0;
     }
 
     if (func_ov003_021550dc(obj) != 0 || flagB != 0) {

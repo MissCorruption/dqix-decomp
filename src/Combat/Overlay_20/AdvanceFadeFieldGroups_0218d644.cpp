@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-void EncodeSignFlaggedHalfword_020c39a0(short* out, int value);
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
+extern "C" void func_020c39a0(short* out, int value);
 
 struct FadeFieldGroups_0218d644 {
 #if defined(jpn)
@@ -29,7 +33,7 @@ extern "C" ARM void func_ov020_0218d644(struct FadeFieldGroups_0218d644* obj) {
             obj->f4e8 = (float)obj->f4ec;
             obj->f4f0 = 0;
         }
-        EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, (int)obj->f4e8);
+        func_020c39a0((short*)0x400006c, (int)obj->f4e8);
     }
     int hasFade2 = obj->f4fc > 0;
     if (!hasFade2) return;
@@ -39,5 +43,5 @@ extern "C" ARM void func_ov020_0218d644(struct FadeFieldGroups_0218d644* obj) {
         obj->f4f4 = (float)obj->f4f8;
         obj->f4fc = 0;
     }
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, (int)obj->f4f4);
+    func_020c39a0((short*)0x400106c, (int)obj->f4f4);
 }

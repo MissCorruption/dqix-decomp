@@ -5,11 +5,9 @@
 #endif
 #include <globaldefs.h>
 #include "World/Object3D.h"
+#include "Input/Input.h"
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 void ForwardField4To02057334_02055774(int* obj);
-
-extern unsigned short data_02114e30;
 
 struct SubP_0218e60c {
     char pad0xc[0xc];
@@ -28,7 +26,7 @@ struct S0218e60c {
 ARM void HandleFlagAndDispatch_0218e60c(struct S0218e60c* obj) {
     int ok = 0;
     if (obj->field0x3a != 0) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x100) != 0) {
+        if (g_keyManager.TestKeysPressed(0x100) != 0) {
             ok = 1;
         }
     } else {

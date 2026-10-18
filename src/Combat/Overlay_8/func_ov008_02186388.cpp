@@ -3,6 +3,7 @@
 #include <GameState/GameState.h>
 #include <Filesystem/BackgroundLoader.h>
 #include <Resource/MessageSystem.h>
+#include "Input/Input.h"
 
 struct PlayTime {
     unsigned short hours_;
@@ -154,7 +155,6 @@ struct Obj0205eaa0;
 
 extern char data_ov008_0218b400[] __attribute__((aligned(4)));
 extern unsigned char data_0211e33c[];
-extern unsigned short data_02114e30[];
 extern TouchState data_02114e54;
 extern Obj0205eaa0 data_02108760;
 
@@ -171,7 +171,6 @@ void AppendString02042058(char* text, const char* append);
 Canvas* FindElementByC40205d81c(Struct_0205d81c* window, int canvas);
 struct Manager02187664;
 void InitConfig02187664(Manager02187664*, int);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 void SelectCoordsByFlag0x24_02012a84(unsigned char* touch, int* x, int* y);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int value);
 
@@ -292,7 +291,7 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
         int x;
         int y;
         int ok = 0;
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x403))
+        if (g_keyManager.TestKeysPressed(0x403))
             ok = 1;
         SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
         if (data_02114e54.touching_)

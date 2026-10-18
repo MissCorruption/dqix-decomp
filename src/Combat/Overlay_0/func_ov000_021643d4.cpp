@@ -4,6 +4,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Zone3D.h"
 #include "World/ZoneTerrain.h"
+#include "Resource/Brightness.h"
 
 struct GameResources;
 struct Struct020338d4;
@@ -163,7 +164,6 @@ struct CombatRoot {
 };
 
 extern "C" int func_0202ae18(BackgroundLoader*);
-extern "C" GameResources* func_ov017_0218b5b0();
 int FindEntryByCurrentId02027cb0();
 Actor* FindCombatantByField16a_021a278c(void*, int);
 int TestBitAt0x34_020a35e0(unsigned char*, unsigned char);
@@ -195,10 +195,6 @@ void SetCombatWorkFlags0x55f4_ov000_02160fa8(void*, int);
 struct Struct_0203cfb4;
 void Init0203cfb4(Struct_0203cfb4*);
 extern "C" void func_ov017_021a316c(int ov);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
-void SetBitsInField8_0203b510(unsigned int*, unsigned int);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
 void GetField02163524(void*);
 extern "C" void func_ov000_0216d2d0(void* p);
 void SetIntField540_0216f700(void* p, int v);
@@ -239,7 +235,7 @@ extern float data_ov000_0218423c[5];
 extern "C" ARM void func_ov000_021643d4(CombatRoot* c) {
     GameState* gs = GameState::GetInstance();
     int search = func_0202ae18(BackgroundLoader::GetInstance());
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     int ov = (int)resources;
     EntryInfo* entry = (EntryInfo*)FindEntryByCurrentId02027cb0();
     Zone3D* obj14 = func_02012fe4();
@@ -348,18 +344,18 @@ extern "C" ARM void func_ov000_021643d4(CombatRoot* c) {
     }
     Init0203cfb4((Struct_0203cfb4*)glob);
     func_ov017_021a316c(ov);
-    SetBitsInField4_0203b4d8((unsigned int*)ov, 0x80);
-    SetBitsInField4_0203b4d8((unsigned int*)ov, 4);
-    SetBitsInField4_0203b4d8((unsigned int*)ov, 0x10);
+    SetFlags04((GameResources*)ov, 0x80);
+    SetFlags04((GameResources*)ov, 4);
+    SetFlags04((GameResources*)ov, 0x10);
     GetField02163524(c);
-    SetBitsInField4_0203b4d8((unsigned int*)ov, 2);
-    SetBitsInWord_0203b4a0((unsigned int*)ov, 4);
-    SetBitsInWord_0203b4a0((unsigned int*)ov, 0x20);
-    SetBitsInField4_0203b4d8((unsigned int*)ov, 0x10);
-    SetBitsInField4_0203b4d8((unsigned int*)ov, 0x40);
-    SetBitsInField4_0203b4d8((unsigned int*)ov, 0x80);
+    SetFlags04((GameResources*)ov, 2);
+    SetFlags00((GameResources*)ov, 4);
+    SetFlags00((GameResources*)ov, 0x20);
+    SetFlags04((GameResources*)ov, 0x10);
+    SetFlags04((GameResources*)ov, 0x40);
+    SetFlags04((GameResources*)ov, 0x80);
     GetInitState(*obj14).ByteB6() = 0;
-    SetBitsInField8_0203b510((unsigned int*)ov, 4);
+    SetFlags08((GameResources*)ov, 4);
     func_ov000_0216d2d0(c->sub_c18);
     SetIntField540_0216f700(c->sub_c18, c->f29c);
     c->fe20 = 0x800;
@@ -442,7 +438,7 @@ extern "C" ARM void func_ov000_021643d4(CombatRoot* c) {
         gs->SetTimeOfDay(TimeOfDay_Evening);
         lm->mode = 3;
     }
-    ClearBitsInWord_0203b4b0((unsigned int*)ov, 0x800);
+    ClearFlags00((GameResources*)ov, 0x800);
     BattleBlk blk;
     LoadBattleBlock020ac4c0(&blk);
     AddClamped24BitFieldAt0x3c_020a07e0((S_a07e0*)&blk, 1);

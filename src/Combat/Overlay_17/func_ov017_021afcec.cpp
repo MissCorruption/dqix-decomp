@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 
 struct GameResources;
 int GetGlobalField0x1c020421a0(void);
@@ -11,7 +12,6 @@ void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
 extern "C" void func_ov017_021afb8c(char* self, char* name);
 extern "C" void* __clear(void* dst, int count);
 extern "C" void func_02042764(char* name, void* buf, int flag);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 extern "C" void func_ov017_0218b5c0(int set, int bit);
 void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
 void ClearFlag658_0219aa5c(unsigned char* obj);
@@ -28,7 +28,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
  enum {regionalOffset0=0x284};
 #endif
     GameState* bs = GameState::GetInstance();
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     unsigned char* g = (unsigned char*)GetGlobalField0x1c020421a0();
     unsigned int* dataPtr = (unsigned int*)GetDataPtr02114e04_020d6c00();
 
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov017_021afcec(unsigned char* obj) {
 
 #endif
     }
-    SetBitsInField4_0203b4d8(&ov->brightnessFlags_0, 0x40);
+    SetFlags04(ov, 0x40);
     func_ov017_0218b5c0(0, -1);
     DispatchWithGlobalContext020daf9c(1, 1, 0, 1);
 #if defined(jpn)

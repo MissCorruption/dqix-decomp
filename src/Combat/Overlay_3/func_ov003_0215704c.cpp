@@ -1,6 +1,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
 extern "C" {
 int _Z26FindMappedMemberId02080468Pvi(void *, int);
@@ -10,7 +11,6 @@ void _Z20ResetWithSub0208203cP11Obj0208203c(void *);
 void _Z31ResetIfFlagAndCategory_021538f4Pvi(void *, int);
 int _Z29GetArrayEntryByIndex_02156034Pv(void *);
 void *_Z19GetWord0x0_0200fb8cPi(void *);
-int _Z17IsAxisIntWithin16P18AxisFloats0203b5a0i(void *, int);
 int _Z31IsSubBrightnessTransitionActiveP13GameResources(void *);
 int func_ov003_021550dc(void *);
 void _Z28DispatchWithShortB4_0205eaa0P11Obj0205eaa0ii(void *, int, int);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov003_0215704c(struct Ctrl0215704c *self) {
             ok = 0;
         }
         void *res = _Z19GetWord0x0_0200fb8cPi(GameState::GetInstance());
-        if (_Z17IsAxisIntWithin16P18AxisFloats0203b5a0i(res, 1) == 0) {
+        if (IsBrightnessWithinValidRange((GameResources*)res, true) == 0) {
             ok = 0;
         }
         if (_Z31IsSubBrightnessTransitionActiveP13GameResources(res) != 0) {
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov003_0215704c(struct Ctrl0215704c *self) {
             self->state = self->state + 1;
         }
     } else if (state == 8) {
-        char *x = (char *) func_ov017_0218b5b0();
+        char *x = (char *) GetGameResources();
         if (_Z23GetHeadNodeIdOrMinusOnePP16HeadNode02046b24(*(void **) (x + 0x3000 + 0x700)) == 0x13) {
             return;
         }

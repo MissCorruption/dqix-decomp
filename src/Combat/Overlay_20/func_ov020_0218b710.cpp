@@ -3,6 +3,11 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
 
 struct FieldGroup4e8_0218d7ac;
 struct FieldGroup4f4_0218d800;
@@ -28,7 +33,7 @@ struct Obj0203bdb0;
 struct AllocGroup0218d8d8;
 
 void DelayThenSyncBit0_020c9820();
-void EncodeSignFlaggedHalfword_020c39a0(short* out, int value);
+extern "C" void func_020c39a0(short* out, int value);
 int GetWord0x7f6c_0201201c(void* obj);
 void SetWord0x7f6c_02012010(void* obj, int value);
 unsigned char GetByte0x4_0200fb9c(char* obj);
@@ -59,7 +64,6 @@ void CallFunc0204b04cOverList0x98(Cont0205d274* obj);
 void InitEntries0205d2bc(Obj0205d2bc* obj);
 void ProcessRingJobs020bbcb4();
 void InitCombatSubsystems02012efc();
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 void LockStagedTextureVRAMCopying();
 void ConfigurePairMode020bb48c(unsigned int mode, int installHandlers);
 void InitGlobalStateAndInstallHandlers020bb780(void* arg, int flag);
@@ -117,7 +121,6 @@ extern "C" void MapVRAMBanksToTextureImage(int);
 extern "C" void MapVRAMBanksToTexturePalette(int);
 
 extern AllocatorUnion data_02114e20;
-extern unsigned short data_02114e30;
 extern unsigned char data_02114e54[];
 extern char data_02108760[];
 extern char data_02109bf4[];
@@ -221,11 +224,11 @@ static inline int IsFadeActive(Sequence0218b710* self) { return self->fadeTimer 
 extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
     GameState* gs = GameState::GetInstance();
     DelayThenSyncBit0_020c9820();
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     if (GetWord0x7f6c_0201201c(gs) == 1) {
-        EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, 16);
-        EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, 16);
+        func_020c39a0((short*)0x400006c, 16);
+        func_020c39a0((short*)0x400106c, 16);
     }
     RestoreDisplayMode_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
@@ -240,16 +243,16 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         }
     }
 
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     volatile unsigned short* bgcnt = (volatile unsigned short*)0x4000008;
     bgcnt[0] = bgcnt[0] & ~0x3;
     bgcnt[1] = (bgcnt[1] & ~0x3) | 0x1;
     DelayThenSyncBit0_020c9820();
     RestoreDisplayMode_020c38d4();
     *(volatile unsigned int*)0x4001000 |= 0x10000;
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
 
     if (GetByte0x4_0200fb9c((char*)gs) != 6) {
         self->alloc.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x10000), 0x10000);
@@ -357,13 +360,13 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
 
         while (self->state != -1) {
             InitCombatSubsystems02012efc();
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1) || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) ||
-                TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x400) || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x800) ||
+            if (g_keyManager.TestKeysPressed(1) || g_keyManager.TestKeysPressed(2) ||
+                g_keyManager.TestKeysPressed(0x400) || g_keyManager.TestKeysPressed(0x800) ||
                 data_02114e54[0x55] != 0) {
                 break;
             }
             DelayThenSyncBit0_020c9820();
-            EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, 0);
+            func_020c39a0((short*)0x400006c, 0);
             WriteControlAndToggle020d86d0(0, 1);
         }
 
@@ -373,8 +376,8 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
     }
 
     DelayThenSyncBit0_020c9820();
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     volatile unsigned short* mainBg = (volatile unsigned short*)0x4000008;
     volatile unsigned short* subBg = (volatile unsigned short*)0x400100a;
     mainBg[0] = (mainBg[0] & ~0x3) | 0x1;
@@ -445,7 +448,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                     func_ov020_0218d854(self);
                     InitCombatSubsystems02012efc();
                     if (self->timer <= 2500) {
-                        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0xf0b) || data_02114e54[0x55] != 0) break;
+                        if (g_keyManager.TestKeysPressed(0xf0b) || data_02114e54[0x55] != 0) break;
                     }
                 }
                 func_ov020_0218d644(self);
@@ -467,7 +470,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                     if (!IsTimerActive(self)) break;
                     func_ov020_0218d854(self);
                     InitCombatSubsystems02012efc();
-                    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0xf0b) || data_02114e54[0x55] != 0) break;
+                    if (g_keyManager.TestKeysPressed(0xf0b) || data_02114e54[0x55] != 0) break;
                 }
                 func_ov020_0218d644(self);
                 DelayThenSyncBit0_020c9820();
@@ -550,8 +553,8 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
             SyncMainSubOam0203bdb0((Obj0203bdb0*)ctx);
             ProcessRingJobs020bbcb4();
             func_020bbd9c();
-            EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, 0);
-            EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, 0);
+            func_020c39a0((short*)0x400006c, 0);
+            func_020c39a0((short*)0x400106c, 0);
         }
 
         if (GetByte0x4_0200fb9c((char*)gs) == 0) {
@@ -563,6 +566,6 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
 
     ResetAllocatorAndDispatchState_0218d8d8((AllocGroup0218d8d8*)self);
     CopyInternalFields0207df50((Foo0207df50*)self->pairTables);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
 }

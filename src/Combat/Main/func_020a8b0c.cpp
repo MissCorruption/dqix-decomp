@@ -6,6 +6,7 @@ enum { kManagerPrefix = 0x36fc };
 #endif
 #include <GameState/GameState.h>
 #include <std_library_functions.h>
+#include "Resource/GameResources.h"
 struct Obj020a8b0c { char pad[4]; unsigned char mask; char pad2[3]; int progress, step, limit; signed char count; };
 struct Actor020a8b0c { Object3D obj; short height, y; };
 struct Field020a8b0c { char pad[0xc]; unsigned char flag; };
@@ -31,7 +32,7 @@ extern "C" ARM void func_020a8b0c(Obj020a8b0c* self, int index) {
     Actor020a8b0c* actor = (Actor020a8b0c*)state->GetPartyMemberByIndex(index);
     Field020a8b0c* field = GetField0x3f8Address_0200fd0c(state);
     Party020874bc* party;
-    HeadNode02046b24** head = ((Manager020a8b0c*)func_ov017_0218b5b0())->head;
+    HeadNode02046b24** head = ((Manager020a8b0c*)GetGameResources())->head;
     party = (Party020874bc*)GetPtrField0x2a04_02010828(state);
     int height = actor->height;
     field->flag = 0;

@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 #include "Combat/SearchEntry.h"
+#include "Resource/GameResources.h"
 struct SearchStruct {
     int state;
     unsigned short counter;
@@ -159,7 +160,7 @@ selectorFound:
                     SetSearchFlagBitAt0xc_0202c1e8(object, i);
                     SetSearchFlagBit0202c660(object, i);
                     if (object->IsActive()) {
-                        GameResources* resources = func_ov017_0218b5b0();
+                        GameResources* resources = GetGameResources();
                         memset(resources->partyNames[i], 0, sizeof(resources->partyNames[i]));
                     }
                 }

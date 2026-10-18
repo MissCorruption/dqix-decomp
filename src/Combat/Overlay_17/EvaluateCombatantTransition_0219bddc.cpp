@@ -6,6 +6,7 @@ enum { RegionOffset840 = 0x840 };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
@@ -20,7 +21,7 @@ extern "C" int func_ov017_0219c774(int a, int b, int c);
 
 // USA: func_ov017_0219bddc  (semantic: EvaluateCombatantTransition_0219bddc)
 extern "C" ARM int func_ov017_0219bddc(unsigned char* p0) {
-    func_ov017_0218b5b0();
+    GetGameResources();
     GameState* bs = GameState::GetInstance();
     void* search = func_0202ae18();
     void* obj8 = func_0205ec34();

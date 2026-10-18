@@ -2,18 +2,18 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <System/Cache.h>
 #include <System/LoadToVRAM.h>
+#include "Resource/GameResources.h"
 struct Obj020a629c { char pad[0xa]; unsigned char ready, state; int task; };
 struct Resource020a629c { char pad[0xc]; unsigned int size; char data[1]; };
 struct Palette020a629c { char pad[0xc]; char data[0x200]; };
 struct ActiveEntry02046900;
 struct Rec020467f0;
-extern "C" void* func_ov017_0218b5b0();
 extern char data_020f1b28;
 int CountActiveEntries(ActiveEntry02046900*);
 void* FindRecordByIndex(Rec020467f0*, int, void**, int*);
 // USA: func_020a629c
 extern "C" ARM void func_020a629c(Obj020a629c* self) {
-    func_ov017_0218b5b0();
+    GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     if (self->state == 0) {
         self->task = loader->QueueLoadFile(&data_020f1b28, 0);

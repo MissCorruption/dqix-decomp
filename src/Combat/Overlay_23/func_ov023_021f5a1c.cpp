@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 extern "C" void* func_0205ec34(void);
 struct Variant02030b0c;
 
@@ -9,7 +13,7 @@ int GetPackedNibbleFlag0x8(struct PackedNibbleArray0206e2dc* obj, int index);
 struct PackedNibbleArray0206e2a0;
 void SetPackedNibbleFlag0x8(struct PackedNibbleArray0206e2a0* obj, int index);
 
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 
 struct Bits13At10c_021f5a1c {
     unsigned short low13 : 13;
@@ -35,7 +39,7 @@ extern "C" ARM int func_ov023_021f5a1c(struct Variant02030b0c* list, int count) 
         if (flag == 0) {
             SetPackedNibbleFlag0x8((struct PackedNibbleArray0206e2a0*)obj, v);
             data_ov023_021fff08.ptr->bits.low13 |= 0x40;
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char*)((char*)obj + 0x8c), 0x797, 1);
+            func_0206df6c(obj, (unsigned char*)((char*)obj + 0x8c), 0x797, 1);
         }
     }
     return 1;

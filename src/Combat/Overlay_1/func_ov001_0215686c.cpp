@@ -7,6 +7,10 @@
 #include "std_library_functions.h"
 #include "Combat/MapDisplay.h"
 
+#if defined(jpn)
+#define func_020c39c8 func_020c5494
+#endif
+
 struct Q0215686c {
     char pad[0xd2];
     short v;
@@ -39,10 +43,7 @@ struct ResPtr0215686c {
     unsigned char* p2c;
 };
 
-int GetBitsInField0_0203b4c4(unsigned int* p, unsigned int bits);
-int GetSignedField020c39c8(volatile unsigned short* p);
-struct AxisFloats0203b57c;
-int GetAxisIntValue(AxisFloats0203b57c*, int);
+extern "C" int func_020c39c8(volatile unsigned short* p);
 extern "C" void* func_0202ae18(void);
 void* GetDataPtr02114e04_020d6c00(void);
 void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
@@ -64,10 +65,10 @@ extern "C" ARM void func_ov001_0215686c(void) {
         flag = 0;
     }
 
-    GameResources* res = func_ov017_0218b5b0();
-    int axis = GetAxisIntValue((AxisFloats0203b57c*)res, 1);
+    GameResources* res = GetGameResources();
+    int axis = GetBrightness((GameResources*)res, true);
     if (flag == 0) {
-        axis = GetSignedField020c39c8((volatile unsigned short*)0x0400006c);
+        axis = func_020c39c8((volatile unsigned short*)0x0400006c);
     }
 
     if (axis != -0x10 && axis != 0x10) {
@@ -82,7 +83,7 @@ extern "C" ARM void func_ov001_0215686c(void) {
     func_0202ae18();
 
     if (!(o->f50 & 0x20)) {
-        if (GetBitsInField0_0203b4c4(&res->brightnessFlags_0, 0x1000) == 0) {
+        if (TestFlags00(res, 0x1000) == 0) {
             goto cont;
         }
     }

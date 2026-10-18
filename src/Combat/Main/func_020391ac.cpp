@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <System/Matrix.h>
+#include "Resource/GameResources.h"
 
 struct Obj02033b68;
 struct Obj02033834;
@@ -65,7 +66,7 @@ extern "C" ARM void func_020391ac(FollowingActor* actor) {
     void** resource;
     if (actor->followFlags & 1)
         return;
-    resource = (void**)func_ov017_0218b5b0()->unknown_ptr_array_36fc[0];
+    resource = (void**)GetGameResources()->unknown_ptr_array_36fc[0];
     game = GameState::GetInstance();
     leader = (FollowingActor*)game->GetPartyMemberByIndex(actor->partyIndex);
     target = (FollowingActor*)game->GetPartyMemberByIndex(actor->targetIndex);

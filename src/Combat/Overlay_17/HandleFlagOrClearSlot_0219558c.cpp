@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
 extern "C" void func_ov017_02195398(int, int);
@@ -23,7 +24,7 @@ extern "C" ARM void func_ov017_0219558c(unsigned char* obj, int value) {
  enum {regionalOffset0=0xb34};
 #endif
 	GameState* battleStruct = GameState::GetInstance();
-	int x = ((int)func_ov017_0218b5b0());
+	int x = ((int)GetGameResources());
 	struct SearchStruct* search = (struct SearchStruct*)func_0202ae18();
 	if (value == 0) {
 		SetFlagAndCleanup_02195618(obj);

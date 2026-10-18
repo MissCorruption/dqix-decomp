@@ -2,6 +2,7 @@
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Input/Input.h"
 
 struct BestiaryUpdateMonster { char unknown[0xc]; short id; };
 struct BestiaryUpdateDescriptor { char unknown[0x1c]; float rotationY; };
@@ -26,9 +27,6 @@ typedef void (BestiaryUpdateState::*BestiaryUpdateHandler)();
 extern "C" {
 void func_ov014_02185c48(void*);
 void* _Z29BinarySearchByField4_02097224P29BinarySearch020971a8Containeri(void*, short);
-int _Z21TestFlagMask_02012430Pti(void*, int);
-int _Z29TestFlagInSecondWord_02012468Ptj(void*, int);
-extern char data_02114e30[];
 extern void* data_ov014_02189800[4];
 extern BestiaryUpdateHandler data_020e6d5c;
 extern BestiaryUpdateHandler data_ov014_021895a0[];
@@ -59,17 +57,17 @@ extern "C" ARM void func_ov014_02184700(BestiaryUpdateState* state) {
             state->rotateRight = 0;
             nextReturning = returning;
             speed = 0;
-            if (_Z21TestFlagMask_02012430Pti(data_02114e30, 0x200) && _Z21TestFlagMask_02012430Pti(data_02114e30, 0x100)) {
+            if (g_keyManager.TestKeysHeld(0x200) && g_keyManager.TestKeysHeld(0x100)) {
                 if (!returning) {
                     nextReturning = 1;
                     state->rotateLeft = 1;
                     state->rotateRight = 1;
                 }
-            } else if (_Z21TestFlagMask_02012430Pti(data_02114e30, 0x200) && !_Z29TestFlagInSecondWord_02012468Ptj(data_02114e30, 0x100)) {
+            } else if (g_keyManager.TestKeysHeld(0x200) && !g_keyManager.TestKeysReleased(0x100)) {
                 manual = 1;
                 state->rotateLeft = 1;
                 speed = 0xcc;
-            } else if (_Z21TestFlagMask_02012430Pti(data_02114e30, 0x100) && !_Z29TestFlagInSecondWord_02012468Ptj(data_02114e30, 0x200)) {
+            } else if (g_keyManager.TestKeysHeld(0x100) && !g_keyManager.TestKeysReleased(0x200)) {
                 manual = 1;
                 state->rotateRight = 1;
                 speed = -0xcc;
@@ -79,7 +77,7 @@ extern "C" ARM void func_ov014_02184700(BestiaryUpdateState* state) {
                 int difference = target - oldRotation.y;
                 if (oldRotation.y >= target + 0x3243) difference = target + 0x6487 - oldRotation.y;
                 speed = difference / 5;
-                if (!_Z21TestFlagMask_02012430Pti(data_02114e30, 0x100) && !_Z21TestFlagMask_02012430Pti(data_02114e30, 0x200) && oldRotation.y == target) nextReturning = 0;
+                if (!g_keyManager.TestKeysHeld(0x100) && !g_keyManager.TestKeysHeld(0x200) && oldRotation.y == target) nextReturning = 0;
             }
             if (manual || returning) {
                 speed *= GameState::GetInstance()->GetTickCount();

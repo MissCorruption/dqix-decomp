@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 struct Obj2081;
 struct Cont0207fdf0;
@@ -64,7 +65,6 @@ void CallFunc0204c804OnMatchingKey_0207fdcc(struct Obj2081* obj, int key);
 unsigned short GetInnerShort_0217b200(void** obj);
 int SumKeyedLookups02086bf4(char* table, int key);
 int ComputeTimeRemaining_02179e18(struct Obj02179e18* elem);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 void RefillAndResetEntry_02175d78(char* obj);
 
 extern "C" int func_ov003_02179f34(void* self);
@@ -85,7 +85,6 @@ extern "C" int func_ov003_021764f4(void* self);
 extern "C" void func_ov003_02175df4(void* self);
 
 extern struct Obj0205eaa0 data_02108760;
-extern unsigned short data_02114e30;
 
 // USA: func_ov003_0217ab34
 extern "C" ARM void func_ov003_0217ab34(struct Menu_0217ab34* self) {
@@ -226,7 +225,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Menu_0217ab34* self) {
             func_ov003_0217726c(self);
         }
         int pressed = func_ov003_021782a0(self);
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401) != 0 || pressed == 1) {
+        if (g_keyManager.TestKeysPressed(0x401) != 0 || pressed == 1) {
             DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
             CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0*)menu, 0);
             self->nextState = 0xd;
@@ -240,7 +239,7 @@ extern "C" ARM void func_ov003_0217ab34(struct Menu_0217ab34* self) {
                 self->nextState = 0x11;
                 self->step = 4;
             }
-        } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) != 0 || pressed == -1) {
+        } else if (g_keyManager.TestKeysPressed(2) != 0 || pressed == -1) {
             CallFunc0204c804OnMatchingKey_0207fdcc(menu, 9);
             CallFunc0204c804OnMatchingKey_0207fdcc(menu, 10);
             ResetWithSub0208203c((struct Obj0208203c*)self->repeat);

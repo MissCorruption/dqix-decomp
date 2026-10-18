@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-
-extern "C" int func_ov017_0218b5b0(void);
+#include "Resource/GameResources.h"
 
 struct ByteHeader0204693c;
 void ResetByteHeader(struct ByteHeader0204693c* p);
@@ -13,7 +12,7 @@ extern "C" void func_02046e70(void* obj, int a, int b);
 
 // USA: func_ov017_021b621c  (semantic: Init021b621c)
 extern "C" ARM void func_ov017_021b621c(unsigned char* self, int a, int b) {
-	func_ov017_0218b5b0();
+	(int)GetGameResources();
 	ResetByteHeader((struct ByteHeader0204693c*)self);
 	self[0] = 0x16;
 	func_02046e70(self + 0xc, a, b);

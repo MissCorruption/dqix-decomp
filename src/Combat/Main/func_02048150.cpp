@@ -1,15 +1,15 @@
 #include <globaldefs.h>
 #include "Combat/CombatantRecovery.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 struct ArrayContainsByteStruct;
 int ArrayContainsByte_02086ef0(ArrayContainsByteStruct*, int);
-extern "C" GameResources* func_ov017_0218b5b0();
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 
 // USA: func_02048150
 extern "C" ARM void func_02048150(GameObject* object, int hp, int notify) {
     GameState* state = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     ArrayContainsByteStruct* list = (ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(state);
     CombatantStatus* runtime = object->combatFields_.savedState_130_;
     int hadFlag = 0;

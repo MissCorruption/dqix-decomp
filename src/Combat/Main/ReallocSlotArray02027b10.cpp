@@ -6,8 +6,7 @@ enum { slotArrayOffset = 0x9cc };
 enum { slotArrayOffset = 0xa98 };
 #endif
 #include "Memory/SafeAllocator.h"
-
-extern "C" int func_ov017_0218b5b0(void);
+#include "Resource/GameResources.h"
 
 struct S02027b10 {
     char pad0[slotArrayOffset];
@@ -19,7 +18,7 @@ struct S02027b10 {
 
 // USA: func_02027b10  (semantic: ReallocSlotArray02027b10)
 extern "C" ARM void func_02027b10(struct S02027b10* obj, unsigned int count) {
-    int base = func_ov017_0218b5b0();
+    int base = (int)GetGameResources();
     SafeAllocator* alloc;
     if (obj->f0xa9c != 0) {
         alloc = (SafeAllocator*)(base + 0x128);

@@ -4,6 +4,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 #include "System/Matrix.h"
+#include "Resource/Brightness.h"
 
 struct BattleState;
 struct PartyState;
@@ -89,8 +90,6 @@ void SetMainBrightness(GameResources*, int, int);
 void SetForwardAndStore0205eb54(void* obj, int arg1, int arg2);
 void DispatchIfField0xc4NonNeg_0205eb90(void* obj, int a, int b);
 void ForwardField0xc0_0205eb80(void* obj);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void InitStruct02078484(InitStruct02078484Struct* req);
 int FindNodeAndProcess02057fb4(void* list, int id, void* req);
 void SetField41AndScaleSub02049f50(Obj02049f50* obj, int val, int count);
@@ -121,7 +120,7 @@ extern char data_02108760[];
 
 // USA: func_ov026_021db5a4
 extern "C" ARM void func_ov026_021db5a4(BattleWork* self) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
 
     if (self->phase == 0) {
         if (func_ov000_021759f4(self->list)) {
@@ -168,7 +167,7 @@ extern "C" ARM void func_ov026_021db5a4(BattleWork* self) {
         self->fadeActive = 1;
         func_ov000_021626a0(self, 0x26, 0);
         func_ov000_021626a0(self, 0x27, 0);
-        SetBitsInField4_0203b4d8((unsigned int*)res, 0x100000);
+        SetFlags04((GameResources*)res, 0x100000);
         InitStruct02078484(&req);
         req.b0 = 1;
         req.f10 = 1;
@@ -208,7 +207,7 @@ extern "C" ARM void func_ov026_021db5a4(BattleWork* self) {
             func_02057f00(func_02057924(), 0x1e);
             self->objId7722 = self->objId7724 = -1;
             func_ov000_021626a0(self, 0x26, 1);
-            ClearBitsInField4_0203b4e8((unsigned int*)res, 0x100000);
+            ClearFlags04((GameResources*)res, 0x100000);
             self->phase = 5;
         }
     } else if (self->phase == 5) {

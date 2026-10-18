@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Graphics/NSBXX/RenderConfig.h"
 #include "Graphics/Vector.h"
+#include "Input/Input.h"
 
 struct ViewerCameraState0218e670
 {
@@ -27,9 +28,7 @@ struct CameraOutputs0218e670
 };
 
 extern CameraOutputs0218e670 data_ov015_02194564;
-extern unsigned short data_02114e30;
 ViewerCamera0218e670* GetFieldIfFlag2_020100cc(char*);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 extern "C" void func_020c5414();
 extern "C" void func_0202eab8(ViewerCamera0218e670*);
 
@@ -48,7 +47,7 @@ extern "C" ARM void func_ov015_0218e670(ViewerCameraState0218e670* self)
     bool update = false;
     if (self->inputEnabled)
     {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x100))
+        if (g_keyManager.TestKeysPressed(0x100))
             update = true;
     }
     else

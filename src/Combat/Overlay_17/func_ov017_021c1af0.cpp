@@ -4,6 +4,7 @@
 #include "Graphics/Vector.h"
 #include "World/Zone3D.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct State021c1af0 { unsigned char pad0, done; char pad2[6]; int step, alternate; };
 struct Action021c1af0 {
@@ -67,7 +68,7 @@ extern "C" ARM void func_ov017_021c1af0(State021c1af0* state) {
         Obj02046574* controller = GetGlobalField0x1c020421a0();
         int* search = func_0202ae18();
         if (!CheckField0NonZero_0202b7d8(search) || (CheckField0NonZero_0202b7d8(search) && GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)search) == 0)) {
-            GameResources* resources = func_ov017_0218b5b0();
+            GameResources* resources = GetGameResources();
             TailList020469b4* list = static_cast<TailList020469b4*>(resources->unknown_ptr_array_36fc[0]);
             TailNode020469b4* node = static_cast<TailNode020469b4*>(resources->unknown_ptr_array_371c[6]);
             if (func_ov017_0219ff58(resources, 1, 0, 0)) {

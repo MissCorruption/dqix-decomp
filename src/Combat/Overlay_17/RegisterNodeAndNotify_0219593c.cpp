@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void func_ov017_021b8d1c(void*);
 struct N528cList;
 struct N528cNode* FindNodeByHalfwordKey_0206528c(struct N528cList* list, int key);
@@ -27,7 +27,7 @@ ARM void RegisterNodeAndNotify_0219593c(void) {
 #else
  enum {regionalOffset0=0x710, regionalOffset1=0x6fc, regionalOffset2=0xb00};
 #endif
-	char* base = (char*)(int)func_ov017_0218b5b0();
+	char* base = (char*)(int)GetGameResources();
 	struct TailNode_0219593c* node = *(struct TailNode_0219593c**)(base + 0x3000 + regionalOffset0);
 	unsigned char* flagObj;
 

@@ -5,6 +5,12 @@
 #include "Resource/GameResources.h"
 #include "System/OverlayId.h"
 #include "World/Object3D.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct Obj020397cc;
 struct StateFlags3c9;
@@ -99,13 +105,11 @@ void InitCombatPairAndResetGlobal_021adb50(char* self);
 unsigned char* GetField0x3f8Address_0200fd0c(GameState* gs);
 void InitStruct02070378(char* obj);
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* flags, int mask);
 void CopyInternalFields0207df50(Foo0207df50* p);
 void ResetGlobalObjAndInitSelfPointer0205ce94(unsigned char* obj);
 extern "C" int func_02057e6c(void* mgr, int id, SafeAllocator* alloc, void* data, unsigned int length, Foo0207df50* fields);
 void CopyCountedBytesToIntArray02010834(Base02010834* base, int index, int* out, int* outCount);
 extern "C" int func_0202c508(void* p);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 void FindNodeAndProcess02057fb4(void* list, int id, void* params);
 int CheckField0NonZero_0202b7d8(int* p);
 void EnqueueEventTag17_021ce014(int id, unsigned short a, unsigned short b, unsigned short c);
@@ -125,7 +129,7 @@ void SetBit5_021b2c0c(S021b2c0c* obj, unsigned int v);
 void SetBit3_021b2bdc(S021b2bdc* obj, unsigned int v);
 void AllocateAndCopyBuf20_021689d8(SafeAllocator* a, void* target);
 extern "C" void* func_0205ec34(void);
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 int IsBrightnessTransitionActive(GameResources* resources);
 extern "C" void func_02057f00(void* mgr, int id);
 void ForwardField0xc0_0205ebec(void* obj);
@@ -153,7 +157,6 @@ extern "C" void func_ov017_021adb1c(Battle021acdf4* self);
 extern AllocatorUnion data_02114e20;
 extern char data_ov017_021d795c;
 extern char data_ov017_021d7978;
-extern unsigned short data_02114e30;
 extern unsigned char data_02114e54[];
 extern char data_02108760;
 extern char data_ov017_021d798f;
@@ -171,7 +174,7 @@ static inline BattleHud021acdf4* GetBattleHud(GameResources* res) {
 // USA: func_ov017_021acdf4
 extern "C" ARM void func_ov017_021acdf4(Battle021acdf4* self, HeadList020469f8* list) {
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     GameObject* leader = gs->GetUnknownGameObject();
     void* mgr = func_02057924();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
@@ -219,7 +222,7 @@ extern "C" ARM void func_ov017_021acdf4(Battle021acdf4* self, HeadList020469f8* 
             return;
         }
         if (self->special && !self->noEvent) {
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401) == 0 && data_02114e54[0x54] == 0) {
+            if (g_keyManager.TestKeysPressed(0x401) == 0 && data_02114e54[0x54] == 0) {
                 return;
             }
         }
@@ -264,7 +267,7 @@ extern "C" ARM void func_ov017_021acdf4(Battle021acdf4* self, HeadList020469f8* 
         for (int k = 0; k < count; k++) {
             GameObject* member = gs->GetGameObjectByIndex(ids[k]);
             if (member && ((Object3D*)member)->IsVisible() && ((Object3D*)member)->GetInheritedAlpha()) {
-                if (GetBitsInField4_0203b4fc((unsigned int*)res, 4) == 0 || leaderId == ids[k]) {
+                if (TestFlags04((GameResources*)res, 4) == 0 || leaderId == ids[k]) {
                     params[k].f00 = 0;
                     params[k].f10 = 1;
                     params[k].f12 = 0;
@@ -369,7 +372,7 @@ extern "C" ARM void func_ov017_021acdf4(Battle021acdf4* self, HeadList020469f8* 
                 Battle021acdf4* other;
                 gs2 = GameState::GetInstance();
                 ctx = GetField0x3f8Address_0200fd0c(gs2);
-                res2 = func_ov017_0218b5b0();
+                res2 = GetGameResources();
                 other = (Battle021acdf4*)res2->unknown_ptr_array_3afc[9];
                 InitStruct02070378((char*)ctx);
                 ctx[4] = 0;
@@ -406,7 +409,7 @@ extern "C" ARM void func_ov017_021acdf4(Battle021acdf4* self, HeadList020469f8* 
             }
             if (func_0202c508(func_0202ae18())) {
                 unsigned char* flags = (unsigned char*)func_0205ec34();
-                SetOrClearBitInArray_0206df6c(flags, flags + 0x8c, 0x113d, 1);
+                func_0206df6c(flags, flags + 0x8c, 0x113d, 1);
             }
             if (self->noEvent) {
                 self->state = 6;

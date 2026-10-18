@@ -4,6 +4,7 @@
 #include "Resource/MessageUpdate.h"
 #include "Resource/MessageSystem.h"
 #include "World/Zone3D.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 #define func_ov017_021a624c func_ov017_021a6c40
@@ -35,7 +36,6 @@ void* GetData02153637_020e2ff8();
 extern "C" void func_ov017_0218d8cc(GameResources*);
 unsigned char GetByte0x4_0200fb9c(char*);
 int GetWord0x7f6c_0201201c(void*);
-unsigned int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
 void Stub(GameResources*);
 extern "C" void func_ov017_021941fc(GameResources*);
 void CopyByteField0x253To0x252_02039830(void*);
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* self) {
     int paused = 0;
     if (GetByte0x4_0200fb9c((char*)state) == 6 || GetWord0x7f6c_0201201c(state) == 5) paused = 1;
     int dispatch = 0;
-    if (GetBitsInField0_0203b4c4(&self->brightnessFlags_0, 0x4000)) dispatch = 1;
+    if (TestFlags00(self, 0x4000)) dispatch = 1;
     Stub(self);
     func_ov017_021941fc(self);
     if (!paused) {
@@ -116,7 +116,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* self) {
         (*(Vector3i*)(self->unknown_432c + 0x1c)) = actor->obj3D_.position_;
     }
     InitObj0219a674(self->interactionSelection);
-    if (!GetBitsInField0_0203b4c4(&self->brightnessFlags_0, 4)) {
+    if (!TestFlags00(self, 4)) {
         func_02015438(world);
         if (dispatch) DispatchByFlag020d9834(1);
     }
@@ -168,12 +168,12 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* self) {
         if (data_ov017_021d82fc.active) DispatchEvent020da2fc(&data_ov017_021d82fc);
         ProcessArray020579b4(array, ticks);
         if (!world->unknown_424_) func_ov017_02192700(self);
-        if (!GetBitsInField0_0203b4c4(&self->brightnessFlags_0, 16))
+        if (!TestFlags00(self, 16))
             ClearIfMatchAndFinalize_021a3498((Ctx021a3498*)self->unknown_ptr_array_36fc[1]);
-        if (!GetBitsInField0_0203b4c4(&self->brightnessFlags_0, 128))
+        if (!TestFlags00(self, 128))
             ClearIfMatchAndFinalize_021a3498((Ctx021a3498*)self->unknown_ptr_array_36fc[2]);
         func_020d7b04(reset);
-        if (GetBitsInField0_0203b4c4(&self->brightnessFlags_0, 0x1000)) TailCallWithState_021d9734();
+        if (TestFlags00(self, 0x1000)) TailCallWithState_021d9734();
         if (dispatch) DispatchByFlag020d9834(1);
     }
     func_ov017_0219ca88(self);

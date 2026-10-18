@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "Resource/GameResources.h"
 
 struct FlagWord02046708;
 struct Obj020397cc;
@@ -105,7 +106,7 @@ extern "C" ARM void func_ov017_02190884(int id, int* out, int* count, int clearB
     }
 
     SearchStruct0202c1a4* search = func_0202ae18();
-    GameResources* ctx = func_ov017_0218b5b0();
+    GameResources* ctx = GetGameResources();
     if (ctx == NULL) {
         return;
     }

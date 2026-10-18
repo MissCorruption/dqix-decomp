@@ -12,7 +12,6 @@
 #define SIGNATURE_FIMG 0x46494d47
 #define SIGNATURE_FNTB 0x464e5442
 
-
 bool IsFileValidNarc(const unsigned char* buffer)
 {
     const NarcHandle::ArchiveHeader& narc = *(const NarcHandle::ArchiveHeader*)buffer;

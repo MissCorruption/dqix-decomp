@@ -2,12 +2,12 @@
 
 #include "Combat/Main/BattleList.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 void ProcessCombatState020534ac(char* combatant);
 int GetIntField0x260_02039750(void* obj);
 int GetField0x3acValue_020100a8(GameState* gameState);
 int GetIndexedEntryField0x178_02053604(signed char* obj);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 
 struct Entry_02199684 { unsigned char pad[0x14]; int val; unsigned char pad2[0x20 - 0x18]; };
 void FillEntriesEncoded_02199684(Entry_02199684* arr, int count, int value);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov017_0219a18c(unsigned char* self) {
     }
 
     CallFunc0204b04cOverList0x98(*(Cont0205d274**)(self + 0x3000 + regionalOffset5));
-    if (GetBitsInField4_0203b4fc((unsigned int*)self, 0x10000) == 0) {
+    if (TestFlags04((GameResources*)self, 0x10000) == 0) {
         InitEntries0205d2bc(*(Obj0205d2bc**)(self + 0x3000 + regionalOffset5));
     }
     ClearAndEncodeEntries_021996bc((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2);

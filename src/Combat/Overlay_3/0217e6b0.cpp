@@ -8,6 +8,7 @@
 #include "System/LoadToVRAM.h"
 #include "System/OverlayId.h"
 #include "System/VRAM.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { kRegionValue6C_8C = 0x8c };
@@ -83,15 +84,6 @@ struct SceneSwap0217e6b0 {
 
 void CancelPendingAction020397cc(Obj020397cc* obj, int arg1);
 int IsField0Null_02046b08(void** obj);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void SetBitsInField8_0203b510(unsigned int* obj, unsigned int mask);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField8_0203b520(unsigned int* obj, unsigned int mask);
-int GetWord_0203b498(unsigned int* obj);
-int GetField4_0203b4d0(unsigned int* obj);
-int GetField8_0203b508(unsigned int* obj);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
@@ -165,7 +157,7 @@ static inline GXDispCnt GX_GetDispCnt(void) {
 // USA: func_ov003_0217e6b0
 extern "C" ARM void func_ov003_0217e6b0(SceneSwap0217e6b0* self) {
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     GameObject* leader = gs->GetUnknownGameObject();
     CancelPendingAction020397cc((Obj020397cc*)leader, 1);
 
@@ -173,8 +165,8 @@ extern "C" ARM void func_ov003_0217e6b0(SceneSwap0217e6b0* self) {
         if (!IsField0Null_02046b08((void**)res->unknown_ptr_array_36fc[1])) {
             return;
         }
-        SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 0x10);
-        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0xc0);
+        SetFlags00(res, 0x10);
+        SetFlags04(res, 0xc0);
         SetBrightness(res, -0x10, 0xf);
         self->state++;
     } else if (self->state == 1) {
@@ -203,11 +195,11 @@ extern "C" ARM void func_ov003_0217e6b0(SceneSwap0217e6b0* self) {
         self->dispCntFlags = DISPCNT & 0x300010;
         self->subDispCntFlags = DISPCNTSUB & 0x300010;
         self->clearColor = GetFieldAt0x7e_0201e830((S_e830*)((char*)func_02012fe4() + kRegionValue6C_8C));
-        self->word = GetWord_0203b498(&res->brightnessFlags_0);
-        self->field4 = GetField4_0203b4d0(&res->brightnessFlags_0);
-        self->field8 = GetField8_0203b508(&res->brightnessFlags_0);
-        SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 4);
-        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x8de);
+        self->word = GetFlags00(res);
+        self->field4 = GetFlags04(res);
+        self->field8 = GetFlags08(res);
+        SetFlags00(res, 4);
+        SetFlags04(res, 0x8de);
         ResetOverlayAndAllocator_0219bf74();
         res->allocator_array_38[0].Reset();
         CopyInternalFields0207df50((Foo0207df50*)res->unknown_2cc);
@@ -295,14 +287,14 @@ extern "C" ARM void func_ov003_0217e6b0(SceneSwap0217e6b0* self) {
         memset(blank, 0, 0x20);
         CleanInvalidateCacheRange(blank, 0x20);
         LoadToMainBG1CharacterData(blank, 0, 0x20);
-        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, -1);
-        ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, -1);
-        ClearBitsInField8_0203b520(&res->brightnessFlags_0, -1);
-        SetBitsInWord_0203b4a0(&res->brightnessFlags_0, self->word);
-        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, self->field4);
-        SetBitsInField8_0203b510(&res->brightnessFlags_0, self->field8);
-        SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 4);
-        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 2);
+        ClearFlags00(res, -1);
+        ClearFlags04(res, -1);
+        ClearFlags08(res, -1);
+        SetFlags00(res, self->word);
+        SetFlags04(res, self->field4);
+        SetFlags08(res, self->field8);
+        SetFlags00(res, 4);
+        SetFlags04(res, 2);
         GetFieldAt0x150_02053c6c((unsigned char*)gs->GetProtagonist());
         ProcessCombatantsIfFlagged_0218f79c(res);
         ProcessSlotField58_021a2840(res);
@@ -324,14 +316,14 @@ extern "C" ARM void func_ov003_0217e6b0(SceneSwap0217e6b0* self) {
             SetNodeStatus2_021b66f0((unsigned char*)res);
         }
         func_ov003_0217e67c(self);
-        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x10);
+        ClearFlags00(res, 0x10);
         func_ov017_0219bd1c(1, 0, 0, 0);
         self->state++;
     } else if (self->state == 6) {
         if (*(int*)((char*)func_02012fe4() + kRegionValue424_444) != 0) {
             return;
         }
-        ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 2);
+        ClearFlags04(res, 2);
         CallHelperFourTimesWithSelf_0218f758(res);
         SetMainBrightness(res, 0, 0xf);
         self->state++;
@@ -344,7 +336,7 @@ extern "C" ARM void func_ov003_0217e6b0(SceneSwap0217e6b0* self) {
             return;
         }
         SetByteField0x253_020397c0(leader);
-        ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0xc0);
+        ClearFlags04(res, 0xc0);
         return;
     }
     CancelPendingAction020397cc((Obj020397cc*)leader, 1);

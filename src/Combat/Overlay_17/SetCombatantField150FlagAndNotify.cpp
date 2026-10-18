@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct TagInfo_021d26a4 {
     unsigned char pad[4];
@@ -15,7 +16,7 @@ extern "C" void func_ov017_02191aac(void* obj, int mode, int idx, unsigned char 
 
 // USA: func_ov017_021d26a4  (semantic: SetCombatantField150FlagAndNotify)
 extern "C" ARM void func_ov017_021d26a4(void* unused, TagInfo_021d26a4* info, GameState* battleStruct, void* base) {
-    int flagBase = ((int)func_ov017_0218b5b0());
+    int flagBase = ((int)GetGameResources());
     GameObject* combatant = battleStruct->GetPartyMemberByIndex(info->id);
     if (combatant == 0) {
         return;

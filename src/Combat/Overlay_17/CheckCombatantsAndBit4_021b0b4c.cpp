@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
 extern "C" void func_ov017_0218f5a4(void* ov, int id, int b, int c, int d);
 
 // USA: func_ov017_021b0b4c
 ARM int CheckCombatantsAndBit4_021b0b4c(void*) {
 	GameState* bs = GameState::GetInstance();
-	GameResources* ov = func_ov017_0218b5b0();
+	GameResources* ov = GetGameResources();
 
 	int i;
 	for (i = 0; i < 4; i++) {
@@ -18,5 +18,5 @@ ARM int CheckCombatantsAndBit4_021b0b4c(void*) {
 		}
 	}
 
-	return GetBitsInField0_0203b4c4((unsigned int*)ov, 0x10) == 0 ? 1 : 0;
+	return TestFlags00((GameResources*)ov, 0x10) == 0 ? 1 : 0;
 }

@@ -16,14 +16,11 @@
 #include "System/Cache.h"
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 void* GetWord0x0_0200fb8c(int*);
 void OrGlobalFlag0x40_020dc2bc();
 extern "C" void func_02074af4(void*);
-unsigned int GetWord_0203b498(unsigned int*);
-unsigned int GetField4_0203b4d0(unsigned int*);
-unsigned int GetField8_0203b508(unsigned int*);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 
@@ -68,10 +65,10 @@ extern "C" ARM void func_ov028_021d8dd0(unsigned char* self) {
     } else if (state == 2) {
         OrGlobalFlag0x40_020dc2bc();
         func_02074af4(self + 0xc);
-        *(unsigned int*)(self + 0x74) = GetWord_0203b498((unsigned int*)word);
-        *(unsigned int*)(self + 0x78) = GetField4_0203b4d0((unsigned int*)word);
-        *(unsigned int*)(self + 0x7c) = GetField8_0203b508((unsigned int*)word);
-        SetBitsInField4_0203b4d8((unsigned int*)word, 0x90);
+        *(unsigned int*)(self + 0x74) = GetFlags00((GameResources*)word);
+        *(unsigned int*)(self + 0x78) = GetFlags04((GameResources*)word);
+        *(unsigned int*)(self + 0x7c) = GetFlags08((GameResources*)word);
+        SetFlags04((GameResources*)word, 0x90);
         void* buf40 = *(void**)(self + 0x40);
         SetFieldGroupFromFlags02097bc4((struct FieldSet02097bc4*)(self + 0x20), 2);
         func_02097c18(self + 0x20, 2, 0, 0, 0, 0, 0x180, 0);

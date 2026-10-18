@@ -9,6 +9,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
+#include "Resource/Brightness.h"
 
 #define BG0CNT (*(volatile unsigned short*)(0x04000008))
 #define BG1CNT (*(volatile unsigned short*)(0x0400000a))
@@ -94,9 +95,6 @@ extern "C" void func_0202e5d8(void* camera, int x, int y, int z);
 extern "C" void func_0202e0a4(void* camera);
 void SetField0x238False_020a27a0(void* camera);
 void SetField0x3b0Value_020100c4(GameState* gameState, int camera);
-extern "C" GameResources* func_ov017_0218b5b0();
-void SetBitsInField4_0203b4d8(unsigned int* resources, unsigned int bits);
-void ClearBitsInField4_0203b4e8(unsigned int* resources, unsigned int bits);
 void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
 void Set3DClearColor_020c5588(int, int, int, int, int);
 
@@ -194,9 +192,9 @@ extern "C" ARM void func_ov014_0218580c(MonsterInfoScreen* self) {
         func_0202e0a4(self->camera_);
         SetField0x238False_020a27a0(self->camera_);
         SetField0x3b0Value_020100c4(gameState, (int)self->camera_);
-        GameResources* resources = func_ov017_0218b5b0();
-        SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x6093e);
-        ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x20);
+        GameResources* resources = GetGameResources();
+        SetFlags04(resources, 0x6093e);
+        ClearFlags04(resources, 0x20);
         SetFogState_020c54a4(0, 0, 0, 0);
         Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
         LightingManager::GetInstance()->fogEnabled_ = false;

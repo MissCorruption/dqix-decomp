@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { kRegionValueEC_E8 = 0xe8 };
@@ -16,12 +17,9 @@ enum { kRegionValue3C9_139 = 0x3c9 };
 
 int GetGlobalField0x1c020421a0();
 
-extern "C" int func_ov017_0218b5b0(void);
 int UpdatePlayClocks020ac4f8(int commit);
 struct MainBgControlBackup02074af4;
 extern "C" ARM void func_02074af4(struct MainBgControlBackup02074af4* obj);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
 int* GetGlobal02109030_020936f8(void);
 void ReleaseHandleAndClearFlags(struct Obj020941b0* p);
@@ -40,7 +38,7 @@ struct S021728fc {
 
 // USA: func_ov003_021728fc  (semantic: SetupMainBgAndReleaseHandle_021728fc)
 extern "C" ARM void func_ov003_021728fc(S021728fc* obj) {
-    unsigned int* field4 = (unsigned int*)func_ov017_0218b5b0();
+    GameResources* field4 = GetGameResources();
     if (obj->field_ee != 0) return;
 
     UpdatePlayClocks020ac4f8(0);
@@ -62,8 +60,8 @@ extern "C" ARM void func_ov003_021728fc(S021728fc* obj) {
     bg[3] = (bg[3] & ~3) | 3;
     bg[1] = (bg[1] & 0x43) | 0xf00;
 
-    SetBitsInWord_0203b4a0(field4, mask);
-    SetBitsInField4_0203b4d8(field4, 0x8de);
+    SetFlags00(field4, mask);
+    SetFlags04(field4, 0x8de);
 
     Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
 

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct SearchStruct0202c1a4;
 struct Obj021eea98;
@@ -74,7 +75,7 @@ extern "C" ARM int func_ov023_021f00fc(BattleScene_021f00fc* self)
     GameState* gameState = GameState::GetInstance();
     GetGlobalField0x1c020421a0();
     void* unk = func_0202ae18();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     if (!CheckField0NonZero_0202b7d8((int*)unk) || self->info_->leader_ == GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)unk))
     {
         unsigned char alive[4];

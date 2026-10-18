@@ -4,11 +4,15 @@
 #include <Graphics/LightingManager.h>
 #include <World/Zone3D.h>
 #include <std_library_functions.h>
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct StreamHeader;
 struct SetFlagStruct;
 struct ColorHolder0204bd7c;
-struct AxisFloats0203b57c;
 struct Obj02071488 {
     unsigned char chapter, entry;
     char pad_2[2];
@@ -86,7 +90,7 @@ int RunScriptAndAdjustObj02071488(StreamHeader*, int, int, Obj02071488*);
 unsigned int* GetDataPtr02114e04_020d6c00();
 void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
 extern "C" void* func_0205ec34();
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
 ColorHolder0204bd7c* GetPtrField0x114_02033fa0(void*);
 int ConvertColorToDecimalOffset30000(ColorHolder0204bd7c*);
@@ -101,11 +105,9 @@ void SetSlotByte020107dc(char*, int);
 int CheckField0NonZero_0202b7d8(int*);
 extern "C" int func_0202c508(int*);
 extern "C" void func_ov017_021d0924(int, int, int, unsigned short);
-int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
 extern "C" void func_ov017_021bc6e0(LoadEvent021bbfc4*, int, int);
 int GetField0xcd0209c3ac(char*);
 extern "C" void func_0209c2e0(void*, int, int);
-int GetAxisIntValue(AxisFloats0203b57c*, int);
 void SetMainBrightness(GameResources*, int, int);
 extern char data_02109bf4[];
 
@@ -113,7 +115,7 @@ extern char data_02109bf4[];
 extern "C" ARM int func_ov017_021bbfc4(LoadEvent021bbfc4* self) {
     GameState* game = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     int* search = func_0202ae18();
     GameObject* original = game->GetUnknownGameObject();
     GetFieldIfFlag4_020100f8((char*)game);
@@ -178,7 +180,7 @@ extern "C" ARM int func_ov017_021bbfc4(LoadEvent021bbfc4* self) {
     int reposition;
     int exists;
     Flags021bbfc4* flags = (Flags021bbfc4*)func_0205ec34();
-    if (self->reset) SetOrClearBitInArray_0206df6c(flags, flags->bits, self->key + 0x38e, 0);
+    if (self->reset) func_0206df6c(flags, flags->bits, self->key + 0x38e, 0);
     exists = 0;
     if (TestBitInByteArray_0206dfb0((int)flags, flags->bits, self->key + 0x38e)) exists = 1;
     if (exists) {
@@ -242,7 +244,7 @@ extern "C" ARM int func_ov017_021bbfc4(LoadEvent021bbfc4* self) {
             ticket->rotation = player->obj3D_.rotation_.y;
             ticket->positioned = 1;
         }
-        if (GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000)) ticket->flags |= 9;
+        if (TestFlags00(resources, 0x1000)) ticket->flags |= 9;
         ticket->restart = restart;
         SetFlag0x9c6_020213fc((SetFlagStruct*)resources->unknown_ptr_36d0, 1);
         func_ov017_021bb27c(self);
@@ -253,7 +255,7 @@ extern "C" ARM int func_ov017_021bbfc4(LoadEvent021bbfc4* self) {
     self->status = GetField0xcd0209c3ac(data_02109bf4);
     if (self->script.kind == 3) func_0209c2e0(data_02109bf4, 0, 0);
     if (((self->flags & 1) || (self->flags & 4)) && !self->restart) {
-        int brightness = GetAxisIntValue((AxisFloats0203b57c*)resources, 0);
+        int brightness = GetBrightness((GameResources*)resources, false);
         if (brightness > 0) SetMainBrightness(resources, 16, 30);
         else SetMainBrightness(resources, -16, 30);
         self->ready = 1;
@@ -261,5 +263,5 @@ extern "C" ARM int func_ov017_021bbfc4(LoadEvent021bbfc4* self) {
     }
     if (self->restart && self->refresh) self->refresh = 0;
     self->restart = 0;
-    return GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000) ? 13 : 12;
+    return TestFlags00(resources, 0x1000) ? 13 : 12;
 }

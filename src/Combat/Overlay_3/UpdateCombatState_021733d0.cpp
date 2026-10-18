@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { kRegionValueEE_EA = 0xea };
@@ -18,7 +19,6 @@ enum { kRegionValue460_35C = 0x460 };
 enum { kRegionValueEC_E8 = 0xec };
 #endif
 
-extern "C" void* func_ov017_0218b5b0(unsigned char* self);
 struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
 extern "C" int func_02012fe4(void);
@@ -29,16 +29,16 @@ void ResetFieldsB68AndB74_0216fb6c(char* obj);
 
 // USA: func_ov003_021733d0  (semantic: UpdateCombatState_021733d0)
 extern "C" ARM void func_ov003_021733d0(unsigned char* self) {
-    int* p = (int*)func_ov017_0218b5b0(self);
+    GameResources* p = GetGameResources();
     if (self[kRegionValueEE_EA] == 0) {
-        SetMainBrightness((GameResources*)p, -16, 24);
+        SetMainBrightness(p, -16, 24);
         self[kRegionValueEE_EA] = 1;
         return;
     }
     if (self[kRegionValueEE_EA] != 1) {
         return;
     }
-    if (IsMainBrightnessTransitionActive((GameResources*)p) != 0) {
+    if (IsMainBrightnessTransitionActive(p) != 0) {
         return;
     }
     int r4 = func_02012fe4();

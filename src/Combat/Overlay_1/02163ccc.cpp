@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" int func_ov017_021d60f4(void* a);
 extern "C" void func_ov017_021b621c(void* node, SafeAllocator* allocator, void* obj);
 extern SafeAllocator* data_ov001_021658b8[8];
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov001_02163ccc(char* self, int mode) {
     int idx;
 
     allocator = data_ov001_021658b8[0];
-    base = func_ov017_0218b5b0();
+    base = (char*)GetGameResources();
 #if defined(jpn)
     list = *(char**)(base + 0x3000 + 0x4ec);
     node = *(char**)(base + 0x3000 + 0x93c);

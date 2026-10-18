@@ -1,6 +1,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -11,7 +12,6 @@ struct Obj0205dee8;
 void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
                                                                         unsigned char keyHigh);
 int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *p, int n);
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
 int CheckFlagOrThreshold_02161b48(char *base, int a);
@@ -31,7 +31,6 @@ extern "C" void func_ov023_021dc134(char *obj, int item, int flag);
 extern "C" void func_ov023_021dbfd0(char *obj, SafeAllocator *alloc);
 extern "C" void func_ov023_021dcae0(char *obj, int item);
 extern "C" void func_ov023_021dca88(char *obj);
-extern "C" unsigned short data_02114e30[];
 extern "C" char data_02108760[];
 
 static inline int InRange02162e50(int v) {
@@ -73,7 +72,7 @@ extern "C" ARM void func_ov002_02162e50(char *base) {
         int prev = *(short *) (base + 0x1b00 + 0xe8);
         *(short *) (base + 0x1b00 + 0xe8) =
             GetActiveScaledSum0205d794((struct Struct_0205c570 *) (base + 0x2c8 + 0xc00));
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 4) || func_0205df38(base + 0x2c8 + 0xc00, 0x28)) {
+        if (g_keyManager.TestKeysPressed(4) || func_0205df38(base + 0x2c8 + 0xc00, 0x28)) {
             if (*(short *) (base + 0x1b00 + 0xe6) == *(signed char *) (base + 0x1c00 + 0x73)) {
                 func_ov002_0215b458(base, 1);
                 *(short *) (base + 0x1c00 + 0x22) =
@@ -86,7 +85,7 @@ extern "C" ARM void func_ov002_02162e50(char *base) {
             GetInventoryItemByID(base, *(short *) (base + 0x1b00 + 0xe8), *(signed char *) (base + 0x1c00 + 0x20));
         func_ov023_021dcae0(base + 0x50, *(short *) (base + 0x1c00 + 0x22));
         if (prev != *(short *) (base + 0x1b00 + 0xe8)) return;
-        int a = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x601);
+        int a = g_keyManager.TestKeysPressed(0x601);
         int b = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(base + 0x2c8 + 0xc00), 0x14);
         if ((a | b) ? 1 : 0) {
             *(unsigned char *) (base + 0xf80) = *(int *) (base + 0x1000 + 0xbb8);

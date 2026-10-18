@@ -6,11 +6,11 @@ enum {regionalOffset0=0x6fc, regionalOffset1=0x734, regionalOffset2=0xcc};
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/GameResources.h"
 
 void PopStack0AndTrigger_020a1e54(int flag);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 extern "C" void func_020a0c0c(void);
-extern "C" void* func_ov017_0218b5b0(void);
 struct ListHead02046b60;
 int ListContainsId(struct ListHead02046b60* list, int id);
 extern "C" void* func_0202ae18(void);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov017_021b67d8(struct Obj021b67d8* self) {
     func_020a0c0c();
 
     int flag = 1;
-    struct Ctx021b67d8* ctx = (struct Ctx021b67d8*)((char*)func_ov017_0218b5b0() + 0x3000);
+    struct Ctx021b67d8* ctx = (struct Ctx021b67d8*)((char*)GetGameResources() + 0x3000);
     struct ListHead02046b60* list = ctx->list6fc;
     unsigned char* field = ctx->field734;
 

@@ -93,14 +93,11 @@ void SetupAndDispatch0205c904(unsigned char* obj, int v);
 int TestMaskBitBySignedByteIndex_0202bd34(SearchStruct* obj, int index);
 unsigned char GetField0x397cValue_020100b0(GameState* gs);
 void AppendNodeToTail(TailList020469b4* list, TailNode020469b4* node);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 void ResetEightRegionsAndFlags_02093a14(char* obj);
 void SetCombatModeFromCase020dc2d0(int v);
 void InvokeIfInputLogBIs3_021dbd1c_ov000_02163b14(void* p, void* q);
 void InvokeIfInputLogBIs3_021dbe44_ov000_02163b40(void* p);
 void Set3DClearColor_020c5588(int a, int b, int c, int d, int e);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 void ClearListUntilFlagZero(ClearList02046968* list);
 void SetByteField0x253_020397c0(void* obj);
 void CopyByteField0x253To0x252_02039830(void* obj);
@@ -127,7 +124,7 @@ struct CombatantView {
 // USA: func_ov017_021af66c
 extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     SearchStruct* search = (SearchStruct*)func_0202ae18();
     CombatantView* combatant = (CombatantView*)gs->GetUnknownGameObject();
     FlagWord020466f4* flags = (FlagWord020466f4*)GetDataPtr02114e04_020d6c00();
@@ -171,7 +168,7 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
                 node->phase = 3;
                 AppendNodeToTail((TailList020469b4*)list, (TailNode020469b4*)node);
             }
-            ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x40);
+            ClearFlags00(res, 0x40);
         } else {
             func_ov017_0219577c(0, 0, 0);
             CombatMenuNode* node = static_cast<CombatMenuNode*>(res->unknown_ptr_array_371c[6]);
@@ -205,8 +202,8 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
     if (obj->restoreDisplay != 0) {
         SetMainBrightness(res, obj->mainBrightness, 0);
         Set3DClearColor_020c5588(obj->clearColor, 0, 0x7fff, 0, 0);
-        ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0xffffffff);
-        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, obj->field4Bits);
+        ClearFlags04(res, 0xffffffff);
+        SetFlags04(res, obj->field4Bits);
     }
     obj->unkB = 0;
     ClearListUntilFlagZero((ClearList02046968*)list);
@@ -227,7 +224,7 @@ extern "C" ARM void func_ov017_021af66c(CombatStepObj* obj, void* list) {
     func_ov017_0218b5c0(1, -1);
     DispatchWithGlobalContext020daf9c(0, 1, 0, 1);
     DISPCNT = (DISPCNT & ~0x1f00) | (obj->bgMode << 8);
-    ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x40);
+    ClearFlags04(res, 0x40);
     if (obj->allocation != 0) {
         TailForward02012da4(&data_02114e20, obj->allocation);
         obj->allocation = 0;

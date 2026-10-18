@@ -10,11 +10,10 @@ enum { kSceneHeapSize = 0x24000, kSceneObjectSize = 0x33c, kSceneFieldOffset = 0
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/Brightness.h"
 
 int GetWord0x0_0200fb8c(int* obj);
 int GetFieldIfFlag4_020100f8(char* obj);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void ClearFlagBits_020a28b0(unsigned char* obj, int mask);
 void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
 void SetByteField0x253_020397c0(void* obj);
@@ -55,7 +54,7 @@ extern "C" ARM void func_ov017_021c1404(struct Obj021c1404* obj) {
 	int* word0 = (int*)GetWord0x0_0200fb8c((int*)battle);
 	GameObject* combatant = battle->GetUnknownGameObject();
 	int fieldVal = GetFieldIfFlag4_020100f8((char*)battle);
-	SetBitsInField4_0203b4d8((unsigned int*)word0, 0xc0);
+	SetFlags04((GameResources*)word0, 0xc0);
 	if (combatant) {
 		CancelPendingAction020397cc((struct Obj020397cc*)combatant, 1);
 	}
@@ -108,7 +107,7 @@ extern "C" ARM void func_ov017_021c1404(struct Obj021c1404* obj) {
 	int* dispReg = (int*)0x4000000;
 	unsigned int memField = *(unsigned int*)((char*)data_ov017_021d8478 + kSceneFieldOffset);
 	*dispReg = (memField << 8) | (*dispReg & ~0x1f00);
-	ClearBitsInField4_0203b4e8((unsigned int*)word0, 0xc0);
+	ClearFlags04((GameResources*)word0, 0xc0);
 	SetByteField0x253_020397c0(combatant);
 	ClearFlagBits_020a28b0((unsigned char*)fieldVal, 3);
 	func_ov017_021c1394(obj);

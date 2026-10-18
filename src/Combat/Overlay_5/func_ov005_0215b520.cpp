@@ -4,6 +4,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_020c51a4 func_020c6c70
+#endif
+
+#if defined(jpn)
 #define REGION(j,u) (j)
 #define data_ov005_0215cbec data_ov005_0215dfcc
 #define data_ov005_0215cbdc data_ov005_0215dfbc
@@ -16,7 +20,7 @@ struct MemberScreen {
     int member;
 };
 
-void IssueCommand0x19_020c51a4(int cmd);
+extern "C" void func_020c51a4(int cmd);
 
 struct BackgroundResourceEntry;
 struct Obj0204b8d0 {
@@ -111,7 +115,7 @@ extern "C" ARM void func_ov005_0215b520(Scene0215b520* self) {
         func_ov005_0215792c(self, 1);
         self->flags |= 0x100;
         void* gs = (void*)GameState::GetInstance();
-        GameResources* res = func_ov017_0218b5b0();
+        GameResources* res = GetGameResources();
         MemberScreen* holder = GetField1c_021a193c((int*)res->unknown_ptr_array_36fc[3]);
         short* tbl = GetField150Ptr0x488((Field150Holder02052e14*)GetCombatantWithFlag0x100_0200ff1c((GameState*)gs, holder->member));
         self->accum += self->step;
@@ -141,7 +145,7 @@ extern "C" ARM void func_ov005_0215b520(Scene0215b520* self) {
                 G3_MTX_TRANS = -0x200000;
                 Matrix4x3 rot;
                 rot = RotationMatrixY(0x3244);
-                IssueCommand0x19_020c51a4((int)&rot);
+                func_020c51a4((int)&rot);
                 func_02047554(&self->models[k + 4], 0, 1);
                 G3_MTX_POP = 1;
                 G3_MTX_PUSH = 0;
@@ -226,7 +230,7 @@ extern "C" ARM void func_ov005_0215b520(Scene0215b520* self) {
         }
     } else if (state == 1 && self->phase == 2) {
         void* gs = (void*)GameState::GetInstance();
-        GameResources* res = func_ov017_0218b5b0();
+        GameResources* res = GetGameResources();
         MemberScreen* holder = GetField1c_021a193c((int*)res->unknown_ptr_array_36fc[3]);
         short* tbl = GetField150Ptr0x488((Field150Holder02052e14*)GetCombatantWithFlag0x100_0200ff1c((GameState*)gs, holder->member));
         self->accum += self->step;
@@ -256,7 +260,7 @@ extern "C" ARM void func_ov005_0215b520(Scene0215b520* self) {
                 G3_MTX_TRANS = -0x200000;
                 Matrix4x3 rot;
                 rot = RotationMatrixY(0x3244);
-                IssueCommand0x19_020c51a4((int)&rot);
+                func_020c51a4((int)&rot);
                 func_02047554(&self->models[k + 4], 0, 1);
                 G3_MTX_POP = 1;
                 G3_MTX_PUSH = 0;
@@ -290,7 +294,7 @@ extern "C" ARM void func_ov005_0215b520(Scene0215b520* self) {
         }
     }
 #if defined(jpn)
-    GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]);
+    GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     short item = self->slots[self->modeB].item;
     self->infoWindow.flags |= 0x80;
     func_ov023_021dcba4(&self->infoWindow, item);

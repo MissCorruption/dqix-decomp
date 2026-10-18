@@ -13,6 +13,7 @@ extern "C" int func_020e04f8(void*, void*, const char*, short, bool);
 #include "System/OverlayId.h"
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 struct BattleStruct {
     int unk0;
     int unk4;
@@ -169,7 +170,7 @@ extern "C" ARM void func_0206f81c(void* a0) {
     struct TailList020469b4* tailList;
     int vec[3];
     struct BattleStruct* battle = (BattleStruct*)GameState::GetInstance();
-    void* g = func_ov017_0218b5b0();
+    void* g = GetGameResources();
     void* gBase = (char*)g + 0x3000;
     tailList = *(struct TailList020469b4**)((char*)gBase + REGION_VALUE(0x4ec, 0x6fc));
     searchPtr = func_0202ae18();
@@ -396,7 +397,7 @@ extern "C" ARM void func_0206f81c(void* a0) {
                                 func_ov017_021c3fb4(cid, 1);
                                 func_ov017_021c4418(cid, flag10);
                             }
-                            void* g2 = func_ov017_0218b5b0();
+                            void* g2 = GetGameResources();
                             void* field700 = *(void**)((char*)g2 + 0x3000 + REGION_VALUE(0x4f0, 0x700));
                             void* field704 = *(void**)((char*)g2 + 0x3000 + REGION_VALUE(0x4f4, 0x704));
                             inst = BackgroundLoader::GetInstance();
@@ -436,7 +437,7 @@ extern "C" ARM void func_0206f81c(void* a0) {
                                             func_ov017_021c3fb4(cid, 1);
                                             func_ov017_021c4418(cid, -1);
                                         }
-                                        void* g2 = func_ov017_0218b5b0();
+                                        void* g2 = GetGameResources();
                                         void* field700 = *(void**)((char*)g2 + 0x3000 + REGION_VALUE(0x4f0, 0x700));
                                         void* field704 = *(void**)((char*)g2 + 0x3000 + REGION_VALUE(0x4f4, 0x704));
                                         BackgroundLoader* inst = BackgroundLoader::GetInstance();
@@ -492,7 +493,7 @@ extern "C" ARM void func_0206f81c(void* a0) {
             }
 
             case 0x91: {
-                void* g2 = func_ov017_0218b5b0();
+                void* g2 = GetGameResources();
                 unsigned short sub = *(unsigned short*)(node + 2);
                 struct HeadList020469f8* subTail = *(struct HeadList020469f8**)((char*)g2 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
                 switch (sub) {

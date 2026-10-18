@@ -129,7 +129,7 @@ static inline void SetB60(struct Save840* s, unsigned char v) { s->fb60 = v; }
 // USA: func_ov003_0216c00c
 extern "C" ARM void func_ov003_0216c00c(char* obj) {
     struct BattleStruct* battle = (BattleStruct*)GameState::GetInstance();
-    GameResources* ov17 = func_ov017_0218b5b0();
+    GameResources* ov17 = GetGameResources();
     char* g = (char*)GetGlobalField0x1c020421a0();
     void* ctx = func_02012fe4();
     void* w = func_0202ae18();
@@ -561,7 +561,7 @@ phase2:;
             func_ov003_0216d8d4(obj, 0x72, -1, -1, -1);
             *(int*)(g + 0x2c8) = 1;
         } else {
-            void* mb = func_ov017_0218b5b0();
+            void* mb = GetGameResources();
             struct CombatantStruct* c3 = *(struct CombatantStruct**)((char*)mb + 0x3000 + 0xb48);
             struct {
                 unsigned char count;
@@ -591,7 +591,7 @@ phase2:;
             return;
         }
         if (fr != 1) return;
-        void* mb = func_ov017_0218b5b0();
+        void* mb = GetGameResources();
         struct CombatantStruct* c4 = *(struct CombatantStruct**)((char*)mb + 0x3000 + 0xb48);
         char nameBuf[0x28];
         VectorizedMemset(nameBuf, 0, 0x28);
@@ -621,7 +621,7 @@ phase2:;
         *(short*)(obj + 6) = 0x14;
         return;
     } else if (state == 0x14) {
-        void* mb = func_ov017_0218b5b0();
+        void* mb = GetGameResources();
         void* p = *(void**)((char*)mb + 0x3000 + 0xb4c);
         if (*((unsigned char*)p + 2) == 0) {
             *(short*)(obj + 6) = 0xc;

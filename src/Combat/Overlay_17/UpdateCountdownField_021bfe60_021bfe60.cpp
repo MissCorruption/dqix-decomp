@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 void SetByteField0x253_020397c0(void* obj);
 int GetFieldIfFlag4_020100f8(char* obj);
 void SetField0x23cTrue_020a27ac(void* obj);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 
 // USA: func_ov017_021bfe60
 ARM int UpdateCountdownField_021bfe60_021bfe60(unsigned char* self) {
@@ -21,13 +21,13 @@ ARM int UpdateCountdownField_021bfe60_021bfe60(unsigned char* self) {
     if (combatant != NULL) {
         SetByteField0x253_020397c0(combatant);
     }
-    void* ov = func_ov017_0218b5b0();
+    void* ov = GetGameResources();
     int flag = GetFieldIfFlag4_020100f8((char*)battle);
     if (flag != 0) {
         SetField0x23cTrue_020a27ac((void*)flag);
     }
     if (ov != NULL) {
-        ClearBitsInField4_0203b4e8((unsigned int*)ov, 0x80);
+        ClearFlags04((GameResources*)ov, 0x80);
     }
     *field8 = 0x12c;
     return 6;

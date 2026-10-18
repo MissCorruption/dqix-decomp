@@ -16,8 +16,6 @@ struct FlagWord02046708;
 struct List0209497c;
 struct List020949bc;
 struct Obj020235c8;
-struct AxisFloats0203b5a0;
-struct AxisFloats0203b5f8;
 struct ScrollState02027438;
 
 void *GetDataPtr02114e04_020d6c00();
@@ -41,9 +39,6 @@ extern "C" int func_020e0a78(void *receiver);
 extern "C" void func_020e0f74(void *receiver);
 extern "C" void func_02026f34(void *receiver);
 void ProcessCombatantState020235c8(Obj020235c8 *receiver);
-int IsAxisIntWithin16(AxisFloats0203b5a0 *resources, int axis);
-int IsChannelValueZero0203b5e0(void *resources, int axis);
-int IsAxisIntZero(AxisFloats0203b5f8 *resources, int axis);
 extern "C" void func_02027438(ScrollState02027438 *receiver);
 
 struct CombatUpdateReceiverView {
@@ -66,7 +61,7 @@ extern "C" ARM void func_0202343c(void *receiver) {
     CombatUpdateReceiverView *state = static_cast<CombatUpdateReceiverView *>(receiver);
     if (TestFlags02046708(static_cast<FlagWord02046708 *>(GetDataPtr02114e04_020d6c00()), 0x41)) return;
 
-    GameResources *resources = func_ov017_0218b5b0();
+    GameResources *resources = GetGameResources();
     int *list                = GetGlobal02109030_020936f8();
     if (state->field9c3 || state->loadState <= 0) {
         if (ListContainsId0209497c(reinterpret_cast<List0209497c *>(list), 4)) {
@@ -93,7 +88,7 @@ extern "C" ARM void func_0202343c(void *receiver) {
         state->brightnessPending = 1;
         state->brightnessDelay   = 0;
     }
-    if (IsAxisIntWithin16(reinterpret_cast<AxisFloats0203b5a0 *>(resources), 0) && IsChannelValueZero0203b5e0(resources, 1)) {
+    if (IsBrightnessWithinValidRange((GameResources*)resources, false) && IsBrightnessOutsideValidRange((GameResources*)resources, true)) {
         if (state->field9c6 || state->field9c7) return;
         if (!state->brightnessPending) return;
         if (state->brightnessDelay) {
@@ -104,6 +99,6 @@ extern "C" ARM void func_0202343c(void *receiver) {
         SetSubBrightness(resources, 0, 25);
         state->brightnessPending = 0;
     } else {
-        if (IsAxisIntZero(reinterpret_cast<AxisFloats0203b5f8 *>(resources), 1)) state->brightnessPending = 0;
+        if (IsBrightnessZero((GameResources*)resources, true)) state->brightnessPending = 0;
     }
 }

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 #if defined(jpn)
 #define IS_JPN 1
 #else
@@ -9,12 +10,10 @@
 #define func_020947f0 func_020950d8
 #endif
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" void func_02094654(void* obj);
 extern "C" void func_020947f0(void* obj);
 
-int IsChannelValueZero0203b5e0(void* obj, int sel);
 int CheckField0NonZero_0202b7d8(int* obj);
 
 struct ListHead02046b60;
@@ -32,13 +31,13 @@ struct FlagBits02093f68 {
 
 // USA: func_02093f68
 ARM void UpdateChannelStateIfEligible02093f68(char* obj) {
-    int base1 = func_ov017_0218b5b0();
+    int base1 = (int)GetGameResources();
     int chVal = *(int*)(base1 + (IS_JPN ? 0x34ec : 0x36fc));
 
-    if (IsChannelValueZero0203b5e0((void*)base1, 1)) return;
+    if (IsBrightnessOutsideValidRange((GameResources*)base1, true)) return;
     if (((unsigned char*)obj)[(IS_JPN ? 0x13d : 0x3cd)] & 2) return;
 
-    int base2 = func_ov017_0218b5b0();
+    int base2 = (int)GetGameResources();
 
     if (CheckField0NonZero_0202b7d8((int*)func_0202ae18())
         || *(int*)(base2 + (IS_JPN ? 0x41e4 : 0x4494))

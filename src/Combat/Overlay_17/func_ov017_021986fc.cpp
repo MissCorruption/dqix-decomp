@@ -3,6 +3,11 @@
 #include "Combat/LootPickupEvent.h"
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct Node021986fc {
     unsigned int unk0 : 16;
@@ -49,17 +54,15 @@ Cont0208f3b4* GetData02109020_0208e9e8(void);
 void* GetField0x3b0Value_020100bc(GameState*);
 void InitObj0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Event021986fc*);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
 extern "C" SearchStruct0202c1a4* func_0202ae18(void);
 int GetSearchStructCurrentArrEntry(SearchStruct0202c1a4*);
 extern "C" void* func_0205ec34(void);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void RemoveNodeByKey0208f3b4(Cont0208f3b4*, int);
 int GetRandomTableEntry0208e7d0(Obj0208e7d0*);
 void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
 
-extern unsigned short data_02114e30[];
 extern Cursor021986fc data_02114e54;
 
 // USA: func_ov017_021986fc
@@ -103,7 +106,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* self) {
     if (!found) return;
 
     int proceed = 0;
-    if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 1)) proceed = 1;
+    if (g_keyManager.TestKeysPressed(1)) proceed = 1;
     int cursorX = -1;
     int cursorY = -1;
     if (data_02114e54.active && data_02114e54.mode < 10) { cursorX = data_02114e54.x; cursorY = data_02114e54.y; }
@@ -118,7 +121,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* self) {
     node->mask = ~mask & node->mask;
     node->entry->fields.timer = node->entry->fields.count * 30;
     void* base = func_0205ec34();
-    SetOrClearBitInArray_0206df6c(base, (unsigned char*)base + 0x8c, node->id + 0xc12, 1);
+    func_0206df6c(base, (unsigned char*)base + 0x8c, node->id + 0xc12, 1);
     RemoveNodeByKey0208f3b4(GetData02109020_0208e9e8(), key);
     if (node->id >= 0x62) node->unk0 = GetRandomTableEntry0208e7d0(list);
     ResetHeaderAndAllocator_021ae800(((Obj021ae800*)self->unknown_ptr_array_3afc[11]));

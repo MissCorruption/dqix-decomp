@@ -44,7 +44,7 @@ struct Obj021735c4 {
 
 // USA: func_ov003_021735c4
 extern "C" ARM void func_ov003_021735c4(struct Obj021735c4* self) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     func_020a620c(self->fade);
 

@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "System/Matrix.h"
+#include "Resource/GameResources.h"
 
 extern char data_0211e33c[];
 
@@ -22,7 +23,7 @@ void SetFlag0x5cccBit0_02011544(struct StateBits5ccc_11544* p);
 // USA: func_020abd20
 extern "C" ARM int func_020abd20() {
     GameState* gs = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     unsigned char* zone = (unsigned char*)func_02012fe4();
     gs->unknown_5cc8_ = 0;
     char buf[8];

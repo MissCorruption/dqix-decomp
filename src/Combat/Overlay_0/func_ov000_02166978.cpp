@@ -7,8 +7,8 @@ enum { stateOffset = 0x5711, workOffset = 0x3760, pointerOffset = 0x5254, modeOf
 #endif
 #include "Filesystem/BackgroundLoader.h"
 #include "System/Graphics.h"
+#include "Resource/GameResources.h"
 
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" void func_02012de8(void);
 extern "C" void func_ov000_021723a8(void* obj, void* src);
 extern "C" void func_ov000_02172128(void* obj, void* src);
@@ -17,7 +17,7 @@ void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* work, int mask);
 
 // USA: func_ov000_02166978
 extern "C" ARM void func_ov000_02166978(unsigned char* obj) {
-    char* res = func_ov017_0218b5b0();
+    char* res = (char*)GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     *(signed char*)(obj + stateOffset) = 0;
     for (;;) {

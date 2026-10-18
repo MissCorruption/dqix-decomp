@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 int GetSubstructByte0x56_02049ee8(unsigned char* obj);
 int GetThresholdOrDefault021681f8(int id, int count);
@@ -52,7 +53,7 @@ extern "C" ARM void func_ov000_021677fc(Owner_021677fc* obj) {
     int g;
     char* sub;
     GameState* battle = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     struct BattleData_021677fc* data = obj->data;
     obj->totalWidth = 0;
     obj->maxHeight = 0;

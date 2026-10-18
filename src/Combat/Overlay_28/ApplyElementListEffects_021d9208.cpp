@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define func_0204f41c func_02050678
@@ -43,9 +44,6 @@ extern char data_ov028_021da41d[];
 #else
 extern "C" void func_0204f41c(void* buf, int scaled, int byteField, void* d, unsigned char nibble0, unsigned char field3, short* p1, short* p2, int flagC);
 #endif
-int TestFlagMask_02012430(unsigned short*, int);
-
-extern int data_02114e30;
 
 // USA: func_ov028_021d9208  (semantic: ApplyElementListEffects_021d9208)  (semantic: ApplyElementListEffects_021d9208)
 extern "C" ARM void func_ov028_021d9208(char* self, int arg1) {
@@ -195,7 +193,7 @@ extern "C" ARM void func_ov028_021d9208(char* self, int arg1) {
 fail:
     found = 0;
 exitLoop:
-    TestFlagMask_02012430((unsigned short*)&data_02114e30, 0x2000);
+    g_keyManager.TestKeysHeld(0x2000);
     if (found != 0) {
         *(unsigned char*)(self + 0x80) = 2;
         *(unsigned char*)(self + 0x81) = 0;

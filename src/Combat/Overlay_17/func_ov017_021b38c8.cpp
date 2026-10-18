@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct Field150Holder02052e2c;
 struct ResourceSlot021b38c8 { char storage[0x70]; };
@@ -48,7 +49,7 @@ extern "C" ARM int func_ov017_021b38c8(Reload021b38c8* self) {
     Scale021b38c8* scale = GetField150Ptr0x488_02052e2c((Field150Holder02052e2c*)combatant);
     if (!scale) return 0;
     if (!combatant->obj3D_.pModel_) {
-        GameResources* resources = func_ov017_0218b5b0();
+        GameResources* resources = GetGameResources();
         int partyMember = 0;
         if (self->combatant >= 0 && self->combatant <= 3) partyMember = 1;
         char* slot;

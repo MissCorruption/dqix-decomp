@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_ov000_0215e9fc(int a, short* buf, int max, int start);
 extern "C" int func_ov000_0215ec1c(int a, short* buf, int max, int start);
@@ -36,7 +37,7 @@ extern "C" ARM void func_ov025_021dc168(struct Obj021dc168* obj) {
     GameState* bs = GameState::GetInstance();
     int field29c = obj->field29c;
     GetField0x3b0Value_020100bc(bs);
-    func_ov017_0218b5b0();
+    GetGameResources();
 
     short buf[12];
     int n = 0;

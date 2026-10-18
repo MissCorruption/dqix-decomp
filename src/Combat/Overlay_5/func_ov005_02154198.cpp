@@ -5,6 +5,7 @@
 #include <System/Cache.h>
 #include <System/LoadToVRAM.h>
 #include <std_library_functions.h>
+#include "Resource/Brightness.h"
 
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 
@@ -16,7 +17,6 @@ struct List0204afb4;
 extern "C" void func_ov023_021dc354(void* window);
 void Set3DClearColor_020c5588(int a, int b, int c, int d, int e);
 unsigned int* GetWord0x0_0200fb8c(int* gameState);
-void ClearBitsInField4_0203b4e8(unsigned int* p, unsigned int bits);
 void ResetEntryList0205d6a0(Entry_0205d6a0* window, int a);
 extern "C" void func_0205d048(void* window);
 void ClearFlag0x10IfSet(Struct02074bd0* state);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov005_02154198(EquipmentMenu* self) {
     func_ov023_021dc354(self->infoWindow_);
     Set3DClearColor_020c5588(self->unk_3dc2, 0x10, 0x7fff, 0, 0);
     GameState* gameState = GameState::GetInstance();
-    ClearBitsInField4_0203b4e8(GetWord0x0_0200fb8c((int*)gameState), 0x800);
+    ClearFlags04((GameResources*)(GetWord0x0_0200fb8c((int*)gameState)), 0x800);
     REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | (self->layers_ << 8);
     ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
     func_0205d048(self->window_);

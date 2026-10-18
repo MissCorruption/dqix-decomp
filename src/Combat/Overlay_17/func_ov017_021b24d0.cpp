@@ -21,7 +21,6 @@ extern "C" void func_ov011_02184550(char* obj, SafeAllocator* allocator, void* d
 void InitAndCreateTypeB021845c8(char* obj, void* buffer, unsigned int size);
 void InitEntry02184640(char* obj, char* entry);
 extern "C" void func_ov011_02184694(char* obj);
-void SetBitsInField4_0203b4d8(unsigned int* field, unsigned int bits);
 void Set3DClearColor_020c5588(int a, int b, int c, int d, int e);
 
 struct Flags021b24d0 {
@@ -55,7 +54,7 @@ struct Task021b24d0 {
 
 // USA: func_ov017_021b24d0
 extern "C" ARM int func_ov017_021b24d0(Task021b24d0* task) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     if (IsBrightnessTransitionActive(res)) {
         return task->result;
@@ -97,7 +96,7 @@ extern "C" ARM int func_ov017_021b24d0(Task021b24d0* task) {
 #endif
     func_ov011_02184694(data_ov017_021d83f0.scene);
     if (!task->keepField4Bits) {
-        SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x609fe);
+        SetFlags04(res, 0x609fe);
     }
     Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
     return 2;

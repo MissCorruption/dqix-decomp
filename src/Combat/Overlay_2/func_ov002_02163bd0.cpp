@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -26,7 +27,6 @@ void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8 *s, int clear, int k
 extern "C" int func_0205df38(void *list, int key);
 int CheckAnyByteMatches020dcbbc(unsigned char *arr, int count, int b, int c, int d);
 void SetElementFieldC2_0205deb4(struct Struct_0205d81c *s, int a, int b);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *p, int n);
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
 int LookupValueByKey020a0b3c(struct KeyMap020a0b3c *map, int key);
@@ -49,7 +49,6 @@ extern "C" void func_ov002_0215a7b4(char *base, int a, short b, int c, int d);
 extern "C" void func_ov002_0215b2c8(char *self);
 extern "C" void func_ov002_0216bfd4(char *self, int a);
 extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
-extern "C" unsigned short data_02114e30[];
 extern "C" char data_02108760[];
 
 #define L(base) ((base) + 0x2c8 + 0xc00)
@@ -126,7 +125,7 @@ extern "C" ARM void func_ov002_02163bd0(char *base) {
         }
         SetElementFieldC2_0205deb4((struct Struct_0205d81c *) L(base), 0xd, 1);
         if (old != *(short *) (base + 0x1b00 + 0xee)) return;
-        int ta = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x601);
+        int ta = g_keyManager.TestKeysPressed(0x601);
         int tb = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(L(base)), 0x14);
         if (((ta | tb) ? 1 : 0) || flag) {
             GameObject *pr = gs->GetProtagonist();

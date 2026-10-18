@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" unsigned short func_ov017_021bbc04(void* obj);
 extern "C" void func_ov017_021bbbec(void* obj, unsigned short v);
 void SetField11c_021bbbf8(void* obj, unsigned short v);
@@ -12,7 +12,7 @@ extern "C" ARM int func_ov001_02162210(void) {
 #else
     enum { queueOffset = 0x734 };
 #endif
-    unsigned char* self = (unsigned char*)func_ov017_0218b5b0();
+    unsigned char* self = (unsigned char*)GetGameResources();
     void* work = *(void**)(self + 0x3000 + queueOffset);
     unsigned short val = func_ov017_021bbc04(work);
     if (val != 0) {

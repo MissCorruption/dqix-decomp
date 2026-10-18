@@ -24,7 +24,7 @@ struct SelfState_021b5f00 {
 
 // USA: func_ov017_021b5f00  (semantic: CheckStateAndDispatchResetOrAdvance_021b5f00)
 extern "C" ARM int func_ov017_021b5f00(SelfState_021b5f00* self) {
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     if (self->field54 != 0) {
         func_ov017_0218d644(ov, (char*)self + 0x2c, 0);
         void* reset = GetGlobalResetObj020d7a50();

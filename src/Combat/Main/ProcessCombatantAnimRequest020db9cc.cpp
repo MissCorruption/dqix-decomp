@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020db9cc func_020dd3d4
+#endif
+
 void PushInterruptDisableState_020d8654(void);
 void InitCombatantVisualState_020db264(void* obj, int arg1, int arg2, int arg3, int arg4);
 struct Struct020db9a8;
@@ -10,7 +14,7 @@ extern "C" void func_020db894(void* obj);
 extern "C" void func_020d8694(void);
 
 // USA: func_020db9cc
-ARM int ProcessCombatantAnimRequest020db9cc(void* obj, int arg1, int arg2, int arg3) {
+extern "C" ARM int func_020db9cc(void* obj, int arg1, int arg2, int arg3) {
     char* p = (char*)obj;
     if (*(int*)(p + 0x40) == 0) return 1;
     if (*(unsigned char*)(p + 0x50) == 0) return 1;

@@ -2,6 +2,7 @@
 
 #include "GameState/GameState.h"
 #include "Grotto/Main/DetailedTreasureMapData.h"
+#include "Resource/GameResources.h"
 
 struct ZoneState { unsigned short zoneId; };
 struct DetailedMapFlags {
@@ -12,7 +13,6 @@ struct DetailedMapFlags {
 #endif
     unsigned char field260;
 };
-GameResources* func_ov017_0218b5b0();
 void* GetField0x3f8Address_0200fd0c(GameState*);
 int IsInRange0201b588(int);
 void ClearOrFillBattleRegion02027ad8(int, int);
@@ -32,7 +32,7 @@ void ExportDetailedTreasureMapData(const TreasureMapMetadata*, DetailedTreasureM
 extern "C" ARM void func_0208fa8c(DetailedTreasureMapData* map) {
     ZoneState* current;
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     int* session = func_0202ae18();
     current = (ZoneState*)GetField0x3f8Address_0200fd0c(game);
     GrottoStruct* grotto = game->GetGrottoStruct();

@@ -7,8 +7,8 @@ enum { flagsOffset = 0x55f4, workOffset = 0xec8, combatantOffset = 0x6fd6, state
 #endif
 #include "GameState/GameState.h"
 #include "Graphics/NSBXX/RenderConfig.h"
+#include "Resource/Brightness.h"
 
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 extern "C" void func_02016874(void* big);
 extern "C" void func_ov000_02161020(void* obj);
 struct Vector3i;
@@ -18,16 +18,16 @@ extern "C" void func_ov025_021df864(void* arg);
 // USA: func_ov000_02160b54  (semantic: RefreshCombatantAndDispatch_02160b54)
 extern "C" ARM void func_ov000_02160b54(unsigned char* obj) {
     GameState* battle = GameState::GetInstance();
-    unsigned int* v = ((unsigned int*)func_ov017_0218b5b0());
+    unsigned int* v = ((unsigned int*)GetGameResources());
     GetField0x3b0Value_020100bc(battle);
     if (!(*(int*)(obj + flagsOffset) & 0x200)) {
         return;
     }
-    if (GetBitsInField4_0203b4fc(v, 0x100000) == 0) {
+    if (TestFlags04((GameResources*)v, 0x100000) == 0) {
         func_02016874(obj + workOffset);
     }
     func_ov000_02161020(obj);
-    if (GetBitsInField4_0203b4fc(v, 4) == 0) {
+    if (TestFlags04((GameResources*)v, 4) == 0) {
         GameObject* c1 = battle->GetGameObjectByIndex(*(short*)(obj + combatantOffset));
         GameObject* c2 = battle->GetGameObjectByIndex(0xc8);
         if (c2 != 0) {

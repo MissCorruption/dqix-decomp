@@ -29,6 +29,7 @@ extern "C" char data_ov017_021d83c0[];
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Zone3D.h"
 #include "Graphics/LightingManager.h"
+#include "Resource/Brightness.h"
 
 struct HeadList020469f8;
 struct HeadNode020469f8;
@@ -41,7 +42,6 @@ struct S_a01ec;
 struct MainBlock0205859c;
 struct Struct020a27cc;
 struct Struct020A2800;
-struct AxisFloats0203b57c;
 struct EffectParam02070900;
 struct Rgb02070900;
 struct Timer020707c8;
@@ -206,7 +206,6 @@ void InitObjFromCombatant020e4c74(void* out, GameObject* obj);
 int CallFunc020e0434With02153694_020e51cc(int value);
 extern "C" int sprintf(char* dst, const char* fmt, ...);
 extern "C" void func_02046608(void* ctrl, int a, char* fmt, char* dst, int b, int c, int d);
-int GetAxisIntValue(AxisFloats0203b57c* s, int axis);
 extern "C" int abs(int x);
 extern "C" void* func_020704fc(void);
 void SetColoredEffectParam02070900(EffectParam02070900* p, Rgb02070900* rgb, unsigned int v);
@@ -237,7 +236,7 @@ int GetSignedByte0x1ca_02039888(void* obj);
 // USA: func_ov017_021b790c
 extern "C" ARM void func_ov017_021b790c(BattleScene021b790c* self, ListHead02046b60* list) {
     GameState* gs = GameState::GetInstance();
-    char* res = (char*)func_ov017_0218b5b0();
+    char* res = (char*)GetGameResources();
     GameObject* obj = gs->GetUnknownGameObject();
     Controller021b790c* ctrl = GetGlobalField0x1c020421a0();
     Search021b790c* search = func_0202ae18();
@@ -432,7 +431,7 @@ extern "C" ARM void func_ov017_021b790c(BattleScene021b790c* self, ListHead02046
                 func_02046608(ctrl, 0xc, name, text, 0xe3, 0, 1);
             }
 #endif
-            if (abs(GetAxisIntValue((AxisFloats0203b57c*)res, 0)) == 0x10) {
+            if (abs(GetBrightness((GameResources*)res, false)) == 0x10) {
                 void* effect = func_020704fc();
                 Obj021b790c rgb;
                 __clear(&rgb, sizeof(rgb));

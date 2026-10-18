@@ -2,6 +2,8 @@
 #include "System/Matrix.h"
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
 
 struct CameraDispatch {
     int active;
@@ -34,9 +36,7 @@ struct BattleCamera {
 
 GameResources* GetWord0x0_0200fb8c(int* obj);
 int GetField0x70_0202e7f0(void* obj);
-int TestFlagMask_02012430(unsigned short* pad, int mask);
 int IsBrightnessTransitionActive(GameResources* resources);
-int IsChannelValueZero0203b5e0(void* resources, int axis);
 int fix32SignedAngleDistance(int a, int b);
 int fix32abs(int x);
 int fix32ReduceAngle0To2Pi(int angle);
@@ -55,8 +55,6 @@ extern "C" int func_020a299c(struct BattleCamera* obj, const Vector3i* v, const 
 extern "C" void func_0202eab8(void* obj);
 extern "C" void func_0202e5d8(void* obj, int x, int y, int z);
 
-extern unsigned short data_02114e30;
-
 static inline int FxMul(int a, int b) {
     return (int)(((long long)a * b + 0x800) >> 12);
 }
@@ -70,10 +68,10 @@ extern "C" ARM void func_020a212c(BattleCamera* self, int checkInput) {
     int left = 0;
     int right = 0;
     if (checkInput) {
-        left = TestFlagMask_02012430(&data_02114e30, 0x200);
-        right = TestFlagMask_02012430(&data_02114e30, 0x100);
+        left = g_keyManager.TestKeysHeld(0x200);
+        right = g_keyManager.TestKeysHeld(0x100);
     }
-    if (IsBrightnessTransitionActive(res) || IsChannelValueZero0203b5e0(res, 0)) {
+    if (IsBrightnessTransitionActive(res) || IsBrightnessOutsideValidRange((GameResources*)res, false)) {
         left = 0;
         right = 0;
     }

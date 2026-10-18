@@ -8,6 +8,7 @@
 #endif
 #include <globaldefs.h>
 #include <GameState/GameState.h>
+#include "Resource/GameResources.h"
 
 struct Dst02157174;
 struct Src02157174;
@@ -83,7 +84,7 @@ extern "C" ARM void func_ov005_02156ecc(EquipmentMenu* self, int x, int y) {
     if (self->dragged_ < 0)
         return;
     GameState::GetInstance();
-    MemberScreen* screen = GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]);
+    MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     Vector3fix position = self->dragModel_.position_;
     MenuModel* model = self->slots_[self->dragged_].model_;
     position.z = 0;

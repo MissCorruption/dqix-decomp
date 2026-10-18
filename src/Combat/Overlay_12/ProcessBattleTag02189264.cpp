@@ -5,8 +5,8 @@ enum { kStepOffset = 0x1370, kFirstResetOffset = 0x131c, kSecondResetOffset = 0x
 #endif
 
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
-extern "C" void* func_ov017_0218b5b0(void* self);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
@@ -15,26 +15,25 @@ extern "C" void func_ov023_021e6594(void* self);
 void* GetDataPtr02114e04_020d6c00(void);
 struct FlagWord020466f4;
 void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 
 // USA: func_ov012_02189264  (semantic: ProcessBattleTag02189264)
 extern "C" ARM void func_ov012_02189264(char* self) {
-    void* handle = func_ov017_0218b5b0(self);
+    GameResources* handle = GetGameResources();
     unsigned char state = *(unsigned char*)(self + kStepOffset);
     if (state == 0) {
-        SetSubBrightness((GameResources*)handle, ~0xf, 0xf);
+        SetSubBrightness(handle, ~0xf, 0xf);
         (*(unsigned char*)(self + kStepOffset))++;
         return;
     }
     if (state != 1) return;
-    if (IsSubBrightnessTransitionActive((GameResources*)handle) != 0) return;
+    if (IsSubBrightnessTransitionActive(handle) != 0) return;
 
     *(int*)(self + kFirstResetOffset) = 0;
     *(int*)(self + kSecondResetOffset) = 0;
     func_ov023_021e7340(self + kCardOffset);
     func_ov023_021e6594(self);
     ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0xf);
-    ClearBitsInWord_0203b4b0((unsigned int*)handle, 0x10);
+    ClearFlags00(handle, 0x10);
     *(int*)(self + kFinishedOffset) = 1;
     *(unsigned char*)(self + kStepOffset) = 0;
 }

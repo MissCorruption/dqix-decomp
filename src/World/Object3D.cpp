@@ -13,6 +13,10 @@
 #include "Graphics/VRAMStaging.h"
 
 #if defined(jpn)
+#define func_020d8524 func_020d9e88
+#endif
+
+#if defined(jpn)
 #define func_020d1d1c func_020d37e8
 
 #endif
@@ -1022,7 +1026,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
                     narc.Destroy();
                     return false;
                 }
-                CopyRegionAndFlushCache_020d8524(allocation, fileBytes, allocSize);
+                func_020d8524(allocation, fileBytes, allocSize);
                 fileBytes = allocation;
             }
             if (!SetModelFromFile(allocator, const_cast<void*>(fileBytes), fileLength, Model3D::TextureStagingMode_Normal))
@@ -1076,7 +1080,7 @@ bool Object3D::InternalLoadFromCHRArchive(ObjectArchiveLoadInfo* loadInfo)
                     narc.Destroy();
                     return false;
                 }
-                CopyRegionAndFlushCache_020d8524(allocation, fileBytes, fileLength);
+                func_020d8524(allocation, fileBytes, fileLength);
                 fileBytes = allocation;
             }
             Animation3D* anim3D = &animPackage->pAnim3Ds->data[fileType];

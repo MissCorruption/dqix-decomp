@@ -15,6 +15,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/MessageSystem.h"
+#include "Input/Input.h"
 
 struct PlayTime {
     unsigned short hours_;
@@ -128,7 +129,6 @@ struct Obj0205eaa0;
 
 extern char data_ov008_0218b400[] __attribute__((aligned(4)));
 extern unsigned char data_0211e33c[];
-extern unsigned short data_02114e30[];
 extern Obj0205eaa0 data_02108760;
 
 GameResources* GetWord0x0_0200fb8c(int* gameState);
@@ -145,7 +145,6 @@ int GetField0x3acValue_020100a8(GameState* gameState);
 const char* GetFieldByKey020e0434(Container020e0310* texts, int id);
 void AppendString02042058(char* text, const char* append);
 int ComputeScaledSum0205bb84(Struct_0205bb84* cursor);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int value);
 
 extern "C" {
@@ -317,7 +316,7 @@ extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
             self->top_ = selected;
 #endif
         unsigned char kind = self->items_[selected];
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x401) || result == 1)
+        if (g_keyManager.TestKeysPressed(0x401) || result == 1)
         {
             if (!func_0202c540(func_0202ae18()) || kind != 5)
             {
@@ -329,7 +328,7 @@ extern "C" ARM void func_ov008_02185dc0(BattleRecords* self, unsigned int ticks)
                 return;
             }
         }
-        else if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x806) || result == -2)
+        else if (g_keyManager.TestKeysPressed(0x806) || result == -2)
         {
             self->state_ = 13;
             self->step_ = 0;

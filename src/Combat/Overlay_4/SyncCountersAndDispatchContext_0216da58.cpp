@@ -12,7 +12,7 @@ extern "C" int _s32_div_f(int a, int b);
 // USA: func_ov004_0216da58  (semantic: SyncCountersAndDispatchContext_0216da58)
 extern "C" ARM int func_ov004_0216da58() {
     GameState* bs = GameState::GetInstance();
-    GameResources* obj = func_ov017_0218b5b0();
+    GameResources* obj = GetGameResources();
     int frames = _s32_div_f(1000, 0x22);
     if (GetByte0x4_0200fb9c((char*)bs) == 8) {
         SetBrightness(obj, 0x10, frames);

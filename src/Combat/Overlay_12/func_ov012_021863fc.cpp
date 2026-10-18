@@ -7,6 +7,7 @@
 #include "System/Cache.h"
 #include "System/LoadToVRAM.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 
 struct Messages021863fc
 {
@@ -114,7 +115,6 @@ struct TableA68;
 
 int GetWord0x0_0200fb8c(int* gameState);
 int IsField0Null_02046b08(void** p);
-void SetBitsInWord_0203b4a0(unsigned int* word, unsigned int bits);
 void* GetDataPtr02114e04_020d6c00();
 void OrBitsIntoField0_020466e4(unsigned int* word, unsigned int bits);
 Messages021863fc* GetGlobalField0x1c020421a0();
@@ -166,7 +166,7 @@ extern "C" ARM void func_ov012_021863fc(ProfileEditor021863fc* self)
     {
         if (IsField0Null_02046b08(*(void***)((char*)resources + 0x3700)))
         {
-            SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 0x10);
+            SetFlags00(resources, 0x10);
             OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0xf);
             self->text_ = (char*)GetGlobalField0x1c020421a0()->unk_5c;
             unsigned int female = 0;

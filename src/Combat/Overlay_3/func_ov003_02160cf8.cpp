@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { kRegionValue23C_124 = 0x124 };
@@ -49,7 +50,7 @@ struct Self02160cf8 {
 
 // USA: func_ov003_02160cf8
 extern "C" ARM int func_ov003_02160cf8(struct Self02160cf8* self) {
-	GameResources* res = func_ov017_0218b5b0();
+	GameResources* res = GetGameResources();
 	void* dataPtr = GetDataPtr02114e04_020d6c00();
 	int result = 0;
 

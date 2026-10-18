@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
+#include "Resource/Brightness.h"
 
 struct AxisFloats0203b5f8;
-int IsAxisIntZero(struct AxisFloats0203b5f8* s, int axis);
 int GetGlobalField0x1c020421a0(void);
 struct Info02011930;
 unsigned char GetAndConsumeNameEntries02011930(void* obj, struct Info02011930* info, void* name1, void* name2);
@@ -20,9 +20,9 @@ ARM int HandleAxisZeroNameEntry_021650f8(void* a1) {
  enum { fieldOffset = 0x998 };
 #endif
     GameState* battle = GameState::GetInstance();
-    struct AxisFloats0203b5f8* axis = ((struct AxisFloats0203b5f8*)func_ov017_0218b5b0());
-    if (IsAxisIntZero(axis, 0) == 0) goto ret0;
-    if (IsAxisIntZero(axis, 1) != 0) goto mainlogic;
+    struct AxisFloats0203b5f8* axis = ((struct AxisFloats0203b5f8*)GetGameResources());
+    if (IsBrightnessZero((GameResources*)axis, false) == 0) goto ret0;
+    if (IsBrightnessZero((GameResources*)axis, true) != 0) goto mainlogic;
 ret0:
     return 0;
 
@@ -36,7 +36,7 @@ mainlogic:
 
     if (CopyToRegion0x6482IfDst_020119f8((char*)battle, NULL) != 0) {
         StoreInvalidTreasureMapMetadata_02011a40((char*)GameState::GetInstance());
-        func_ov017_0218d77c((int)((struct AxisFloats0203b5f8*)func_ov017_0218b5b0()), 2);
+        func_ov017_0218d77c((int)((struct AxisFloats0203b5f8*)GetGameResources()), 2);
         func_ov011_021848a0(a1, 0x64);
         goto end;
     }

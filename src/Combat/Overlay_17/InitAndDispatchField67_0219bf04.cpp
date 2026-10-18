@@ -15,7 +15,7 @@ extern "C" ARM void func_ov017_0219bf04(unsigned char flag, int mode) {
  enum {regionalOffset0=0x4400, regionalOffset1=0xb2};
 #endif
 	GameState* battleStruct = GameState::GetInstance();
-	GameResources* ov = func_ov017_0218b5b0();
+	GameResources* ov = GetGameResources();
 	InitFieldsFromCombatant_0219bcac(flag);
 	char* obj = (char*)GetField0x3f8Address_0200fd0c(battleStruct);
 	obj[0x6e] = 1;

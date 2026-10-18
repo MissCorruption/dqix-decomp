@@ -55,7 +55,7 @@ extern "C" ARM int func_ov004_02164738(void* a) {
 
     GameState* state = GameState::GetInstance();
     char* zone = (char*)func_02012fe4();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     unsigned char* buf = (unsigned char*)res->unknown_ptr_36d0;
     res->unknown_41c8[0x42e0 - 0x41c8] = *(unsigned char*)(data_ov004_02171010 + 0x1000 + flagOffset);
     FreeBuffer020263e4((Struct020263e4*)buf);

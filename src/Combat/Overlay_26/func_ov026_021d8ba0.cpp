@@ -7,6 +7,7 @@
 #include "Combat/Main/BattleList.h"
 #include "Util/Random.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/Brightness.h"
 
 struct Container_021dae60;
 struct BattleWork;
@@ -98,11 +99,8 @@ void ClearField00209a804(int*);
 void SetupAndRunBufferedScript0209a8b4(Ctx0209a8b4*, SafeAllocator*, StreamHeader*, int);
 void ForwardField0xc0_0205eb80(void*);
 int GetField0x0(S0204671c*);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
 void ResetField0x930And0x934_ov000_02180b3c(void*);
 ViewInfo* GetPtrField612_0216f208(void*);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
 void InitCombatantPosition_0216118c(void*, int);
 void ClearFlagIfParityMismatch02163710_02163710(void*, int);
 void RunFlaglearAndSetMode02167e6c_02167e6c(unsigned char*);
@@ -135,7 +133,6 @@ TagValueEntry020e385c* GetData02153660_020e3808();
 int IsEntryCompleteOrMissing020e3ad0(TagValueEntry020e385c*, int, int);
 unsigned char* FindEntryByTagAndValue(TagValueEntry020e385c*, int, int);
 void ResetTaggedEntryAndNotifyOverlay020e3994(TagValueEntry020e385c*, int, int);
-int IsChannelValueZero0203b5e0(void*, int);
 void SetBrightness(GameResources*, int, int);
 int IsField0Null_02046b08(void**);
 void UpdateFieldIfDiffers_02174514_02174514(void*);
@@ -450,7 +447,7 @@ extern "C" ARM void func_ov026_021d8ba0(BattleWork* self) {
     unsigned char autoMode;
 
     gs = GameState::GetInstance();
-    res = func_ov017_0218b5b0();
+    res = GetGameResources();
     link = func_0202ae18();
     battle = self->battle;
     slot = FindSlotById_021dae60((Container_021dae60*)self->list, GetField0x3acValue_020100a8(gs));
@@ -534,7 +531,7 @@ state1:
         self->savedField = GetField0x0((S0204671c*)GetDataPtr02114e04_020d6c00());
         self->cursorLock = 0;
         SetCombatWorkFlags0x55f4_ov000_02160fa8(self, 0x80000);
-        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x10);
+        ClearFlags00(res, 0x10);
         func_ov000_0218048c(self->list);
         ResetField0x930And0x934_ov000_02180b3c(self->list);
         self->ready = 0;
@@ -555,10 +552,10 @@ state1:
         if (self->dispMode == 2) {
             autoMode = 0;
         }
-        ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x800);
+        ClearFlags00(res, 0x800);
         if (GetPtrField612_0216f208(self->view)->count <= 0) {
             self->posInit = 1;
-            ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x400);
+            ClearFlags04(res, 0x400);
             InitCombatantPosition_0216118c(self, 1);
         }
         ClearFlagIfParityMismatch02163710_02163710(self, 1);
@@ -826,7 +823,7 @@ state1:
                 return;
             }
         }
-        if (((POWCNT & 0x8000) >> 15) == 1 && (IsChannelValueZero0203b5e0(res, 0) || IsChannelValueZero0203b5e0(res, 1)) && self->phase == 0) {
+        if (((POWCNT & 0x8000) >> 15) == 1 && (IsBrightnessOutsideValidRange((GameResources*)res, false) || IsBrightnessOutsideValidRange((GameResources*)res, true)) && self->phase == 0) {
             SetBrightness(res, 0, 0xf);
             if (ctrl->busy == 0) {
                 void* work = GetGlobalField0x1c020421a0()->scriptWork;
@@ -846,7 +843,7 @@ state1:
     if (self->state == 4) {
         int revived;
         int i;
-        if (((POWCNT & 0x8000) >> 15) == 1 && (IsChannelValueZero0203b5e0(res, 0) || IsChannelValueZero0203b5e0(res, 1)) && self->phase == 0) {
+        if (((POWCNT & 0x8000) >> 15) == 1 && (IsBrightnessOutsideValidRange((GameResources*)res, false) || IsBrightnessOutsideValidRange((GameResources*)res, true)) && self->phase == 0) {
             SetBrightness(res, 0, 0xf);
             func_ov026_021dd8a8(battle, self->party);
             self->revivePending = 0;
@@ -1178,7 +1175,7 @@ state1:
         if (IsField0Null_02046b08((void**)res->unknown_ptr_array_36fc[1]) == 0) {
             return;
         }
-        SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 0x10);
+        SetFlags00(res, 0x10);
         memset(self->slotDone, 0, 0x10);
         self->party->field30 = 0;
         ClearCombatWorkFlags0x55f4_ov000_02160fbc(self, 0x4000000);

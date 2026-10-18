@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Input/Input.h"
 
 struct GameState;
 struct GameObject;
@@ -27,7 +28,6 @@ void InitBattleTag02161174(char* self);
 extern "C" void func_ov002_0216bfd4(char* self, int v);
 int CheckFlagOrThreshold_02161b48(char* self, int v);
 void EnqueueEventTag170_021d0198(int a, int b, int c, int d);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 extern "C" void func_ov002_0216c28c(char* self, int v);
@@ -78,7 +78,6 @@ struct Slot0216acf0 {
 extern Totals020fdcb0 data_020fdcb0[];
 extern char data_02108760;
 extern unsigned char data_02114e54[];
-extern unsigned short data_02114e30;
 
 #define U8(o) (*(unsigned char*)(self + (o)))
 #define S8(o) (*(signed char*)(self + (o)))
@@ -268,10 +267,10 @@ extern "C" ARM void func_ov002_0216acf0(char* self) {
             int ticks = _ZNK9GameState12GetTickCountEv(_ZN9GameState11GetInstanceEv());
             if (ticks == 0) ticks = 1;
             int ok = 0;
-            int flag = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+            int flag = g_keyManager.TestKeysPressed(0x601);
             if (AnySet(flag, IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0x2c8 + 0xc00), 0x14)) ||
                 CheckFlagOrThreshold_02161b48(self, 1) != 0 ||
-                TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0xf0) != 0 || data_02114e54[0x55] != 0) {
+                g_keyManager.TestKeysPressed(0xf0) != 0 || data_02114e54[0x55] != 0) {
                 ok = 1;
             }
             switch (U8(0x1c7b)) {

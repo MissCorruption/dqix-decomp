@@ -4,6 +4,10 @@
 #include "Graphics/LightingManager.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 struct Buf020a94f8 {
     int checksum;
     unsigned char resumed;
@@ -100,7 +104,7 @@ void CopyBlobIntoBattleStruct020a9ba4(void*);
 void CopyBlobIntoBattleStruct020a9d78(void*);
 void* GetPtrField0x2a04_02010828(GameState*);
 void ClearRegion020865ec(char*);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 
 // USA: func_020aaf84
 extern "C" ARM int func_020aaf84(int* output, int unused, int alternate, int quiet) {
@@ -187,7 +191,7 @@ extern "C" ARM int func_020aaf84(int* output, int unused, int alternate, int qui
     lighting->timeOfDayIndex_ = state->GetTimeOfDay();
     lighting->SetZone(func_02012fe4());
     lighting->RecomputeAdvancedLighting();
-    SetOrClearBitInArray_0206df6c(context, context->bits, 3, 0);
+    func_0206df6c(context, context->bits, 3, 0);
     ClearFlags020466f4((FlagWord020466f4*)flags, 0x2000000);
     BackgroundLoader::RemoveLockGlobal();
     return 1;

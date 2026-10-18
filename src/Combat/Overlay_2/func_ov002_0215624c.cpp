@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct_0205d81c;
 struct Struct_0205c570;
@@ -18,7 +19,6 @@ struct Struct0205de24;
 struct ActiveEntry02046900;
 struct Container020e0310;
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *obj, int mask);
 unsigned char *FindElementForFieldB0_0205d8c4(struct Struct_0205d81c *s);
 int IsField0x9cEqual3_0204c7cc(unsigned char *obj);
 void SetFieldAt0x30_0205bc24(void *obj, int value);
@@ -92,7 +92,6 @@ struct Layer0215624c {
     unsigned char hi : 4;
 };
 
-extern unsigned short data_02114e30;
 extern struct Tbl0216c96c data_ov002_0216c96c;
 extern char data_ov002_0216ced4[];
 extern char data_ov002_0216cee8[];
@@ -109,10 +108,10 @@ extern char data_ov002_0216cf11[];
 extern "C" ARM void func_ov002_0215624c(char *self) {
     BackgroundLoader *loader = BackgroundLoader::GetInstance();
 
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601)) {
+    if (g_keyManager.TestKeysPressed(0x601)) {
         U8(0x1c2f) = 1;
     }
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x802)) {
+    if (g_keyManager.TestKeysPressed(0x802)) {
         U8(0x1c2f)  = 0;
         S32(0x1bb8) = 0x2b;
         if (S32(0x1bc4) >= 0) {

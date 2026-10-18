@@ -1,11 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 void EnqueueEventTag33_021d2738(unsigned char a, unsigned char b);
 
 // USA: func_ov017_021c12b0
 ARM void EnqueueTag33ForListedCombatant_021c12b0(unsigned char param) {
-	void* self = func_ov017_0218b5b0();
+	void* self = GetGameResources();
 	int* list = *(int**)((char*)self + 0x3000
 #if defined(jpn)
         + 0x50c

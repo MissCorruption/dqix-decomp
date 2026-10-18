@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define REGION_OFFSET_0 0x1a8
@@ -15,7 +16,6 @@
 #endif
 
 
-extern "C" int func_ov017_0218b5b0(void);
 void RestorePairTables0207df90(char* obj);
 void BackupPairTables0207dfac(char* obj);
 extern "C" int func_020bb7cc(int a, int b, int c);
@@ -29,7 +29,7 @@ struct Foo0216733c {
 
 // USA: func_ov000_0216733c  (semantic: SyncPairTablesAndFill_0216733c)
 extern "C" ARM void func_ov000_0216733c(char* arg0) {
-    func_ov017_0218b5b0();
+    (int)GetGameResources();
     struct Foo0216733c* foo = (struct Foo0216733c*)(arg0 + REGION_OFFSET_0);
     foo->p2 = foo->p1;
     RestorePairTables0207df90(arg0 + REGION_OFFSET_0);

@@ -6,6 +6,7 @@ enum { RegionOffset718 = 0x718 };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void func_ov017_021b848c(void* h, void* buf, int a, int b, int c, int d, int e, int f);
@@ -39,7 +40,7 @@ extern "C" ARM void func_ov017_021c616c(int unused0, unsigned char* evtRaw, Game
     if (hdr != NULL && hdr->field8 == evt->field4) {
         func_ov017_021b848c(table, evt->flags, evt->fieldc, 0, evt->field6, evt->fieldd, 1, evt->fielde);
     } else {
-        void* x = func_ov017_0218b5b0();
+        void* x = GetGameResources();
         GameObject* c = FindCombatantByField16a_021a278c(x, evt->field4);
         if (c != NULL) {
             TrySetMode02076ccc(c, 9);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void func_ov017_021d6134(void* p, int flag);
 
 struct S734 { 
@@ -19,7 +19,7 @@ extern "C" ARM int func_ov001_02160a7c(char* obj, int count) {
     enum { queueOffset = 0x3734 };
 #endif
     int flag;
-    void* ov17 = func_ov017_0218b5b0();
+    void* ov17 = GetGameResources();
     struct S734* s = *(struct S734**)((char*)ov17 + queueOffset);
     func_ov017_021d6134(obj, s->f_cd);
     obj += 8;

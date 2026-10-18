@@ -21,6 +21,7 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* memset(void* dst, int value, unsigned int length);
 extern "C" int sprintf(char* buffer, const char* format, ...);
@@ -289,10 +290,10 @@ extern "C" ARM void func_ov008_02184a4c(Obj02184a4c* obj) {
 #if defined(jpn)
     Ov17Data02184a4c* ov17;
     GameState* gs = GameState::GetInstance();
-    ov17 = (Ov17Data02184a4c*)func_ov017_0218b5b0();
+    ov17 = (Ov17Data02184a4c*)GetGameResources();
 #else
     GameState* gs = GameState::GetInstance();
-    Ov17Data02184a4c* ov17 = (Ov17Data02184a4c*)func_ov017_0218b5b0();
+    Ov17Data02184a4c* ov17 = (Ov17Data02184a4c*)GetGameResources();
 #endif
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     void* scene = func_0202ae18();

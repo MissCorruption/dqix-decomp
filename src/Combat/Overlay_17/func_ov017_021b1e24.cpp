@@ -52,7 +52,7 @@ static inline void SetPair(State021b1e24* state, int first, int second) {
 // USA: func_ov017_021b1e24
 extern "C" ARM void func_ov017_021b1e24(Task021b1e24* task) {
     GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     if (task->step == 0) {
         if (task->heap == NULL || task->busy != 0) {
             task->failed = 1;

@@ -14,7 +14,7 @@ extern char data_020f294f[];
 // USA: func_020dc3d4
 ARM void RestartTaskWithDebugLog020dc3d4(void) {
     char buf[0x18];
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     MapDisplay* display = resources->unknown_ptr_36d0;
     func_02020720(display);
     sprintf(buf, data_020f2948, func_02012fe4() + 0x26);

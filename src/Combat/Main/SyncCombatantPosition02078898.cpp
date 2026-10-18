@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Vec3 { int x; int y; int z; };
 
@@ -47,7 +48,7 @@ ARM int SyncCombatantPosition02078898(struct Entity02078898* p) {
     GameObject* combatant = bs->GetMaybeWanderingMonsterByIndex(id);
     if (combatant == 0) return 0;
 
-    void* ov = func_ov017_0218b5b0();
+    void* ov = GetGameResources();
     char* g = (char*)ov + 0x3000;
     void* g734 = *(void**)(g + PositionContextOffset);
 

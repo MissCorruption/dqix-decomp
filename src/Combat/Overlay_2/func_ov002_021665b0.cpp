@@ -1,6 +1,7 @@
 #include "Resource/ActionDataTables.h"
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 struct Status_021665b0 {
     int flags;
@@ -111,7 +112,6 @@ void* LookupElementByKey02079ee0(void*, int);
 extern "C" short func_ov002_021538e4(char** obj, Elem_021665b0* elem, void* sub, int target);
 extern "C" void func_ov002_021594e8(Menu_021665b0* self, int key, int target, int actor);
 char* GetGlobalField0x1c020421a0(void);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* flags, int mask);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 extern "C" int func_0205d97c(char* obj);
@@ -121,8 +121,6 @@ struct Struct_0205def8;
 void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
 extern "C" void func_ov016_0218b5c0(int a, int b);
 extern "C" void func_ov017_0218b5f8(int a);
-
-extern unsigned short data_02114e30;
 
 // USA: func_ov002_021665b0
 extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
@@ -670,12 +668,12 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
         signed char result = self->result;
         if (!(result != 0 && result != 1)) {
             ctl[0x19ca] = 0;
-            int pressed = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+            int pressed = g_keyManager.TestKeysPressed(0x601);
             int cancel = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)((char*)self + 0xec8), 0x14)) ? 1 : 0;
             int single = func_0205d97c((char*)self + 0xec8) == 1 ? 1 : 0;
             int flagged = CheckFlagOrThreshold_02161b48((char*)self, 1);
-            int left = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0xf0);
-            if (single | (flagged | (cancel | (left | TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x100))))) {
+            int left = g_keyManager.TestKeysPressed(0xf0);
+            if (single | (flagged | (cancel | (left | g_keyManager.TestKeysPressed(0x100))))) {
                 ReinitController02043204(ctl);
                 self->nextA = 0x15;
                 self->nextB = 0x2b;
@@ -686,7 +684,7 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
                 self->state = 0;
                 self->acted = 0;
                 changed = 1;
-            } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x800)) {
+            } else if (g_keyManager.TestKeysPressed(0x800)) {
                 ReinitController02043204(ctl);
                 self->nextA = 0x2b;
                 self->nextB = 0x2b;

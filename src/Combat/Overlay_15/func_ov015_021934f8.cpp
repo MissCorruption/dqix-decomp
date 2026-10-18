@@ -5,6 +5,15 @@
 #include "Resource/FontBankLoader.h"
 #include "System/Graphics.h"
 #include "System/VRAM.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_020c39c8 func_020c5494
+#endif
+
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
 
 struct Struct0218b810;
 struct Obj02192600;
@@ -49,7 +58,7 @@ struct Battle021934f8 {
 };
 
 void SetWord0x0_0200fb84(int*, int);
-void EncodeSignFlaggedHalfword_020c39a0(short*, int);
+extern "C" void func_020c39a0(short*, int);
 extern "C" void* func_0203bd08();
 void InitBattleContext0203bd24(char*);
 void LockStagedTextureVRAMCopying();
@@ -103,8 +112,6 @@ extern "C" void func_020439b0(void*, int);
 extern "C" void func_ov015_02192700(void*);
 void EmptyStub02012de4(AllocatorUnion*);
 void InitCombatSubsystems02012efc();
-int TestFlagMask_02012430(unsigned short*, int);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 void DispatchToActiveEntries020bc028(int);
 extern "C" void func_ov015_02190e88(void*);
 extern "C" void func_ov015_02191294(void*);
@@ -116,7 +123,7 @@ void ResetXYField0203aa08(void*);
 extern "C" void func_020bbd9c();
 extern "C" unsigned long long _ll_udiv(unsigned long long, unsigned long long);
 extern "C" float func_0200c76c(unsigned long long);
-int GetSignedField020c39c8(unsigned short volatile*);
+extern "C" int func_020c39c8(unsigned short volatile*);
 void SyncMainSubOam0203bdb0(Obj0203bdb0*);
 void FlushOrClearBuffer020290ac(int);
 
@@ -126,7 +133,6 @@ extern const char* data_020f2a30;
 extern int data_ov015_02193cdc[];
 extern char data_02108760;
 extern int data_ov015_02194528[];
-extern unsigned short data_02114e30;
 
 #define POWCNT1 (*(volatile unsigned short*)0x04000304)
 #define MASTER_BRIGHT ((short*)0x0400006c)
@@ -151,8 +157,8 @@ extern "C" ARM void func_ov015_021934f8(Battle021934f8* self)
     while (!AlwaysTrue02094b4c(global))
         loader->RemoveAllLocks();
 
-    EncodeSignFlaggedHalfword_020c39a0(MASTER_BRIGHT, -16);
-    EncodeSignFlaggedHalfword_020c39a0(MASTER_BRIGHT_SUB, -16);
+    func_020c39a0(MASTER_BRIGHT, -16);
+    func_020c39a0(MASTER_BRIGHT_SUB, -16);
     char* context = (char*)func_0203bd08();
     InitBattleContext0203bd24(context);
     LockStagedTextureVRAMCopying();
@@ -176,8 +182,8 @@ extern "C" ARM void func_ov015_021934f8(Battle021934f8* self)
     DISPCNTSUB = (DISPCNTSUB & 0xffcfffef) | 0x10;
     UpdateVRAMStagingVRAMBanks();
     UnlockStagedTextureVRAMCopying();
-    EncodeSignFlaggedHalfword_020c39a0(MASTER_BRIGHT, 0);
-    EncodeSignFlaggedHalfword_020c39a0(MASTER_BRIGHT_SUB, 0);
+    func_020c39a0(MASTER_BRIGHT, 0);
+    func_020c39a0(MASTER_BRIGHT_SUB, 0);
     POWCNT1 &= ~0x8000;
     Finish3DRendering();
     func_020c51dc();
@@ -261,9 +267,9 @@ extern "C" ARM void func_ov015_021934f8(Battle021934f8* self)
     {
         InitCombatSubsystems02012efc();
         int quit;
-        if (TestFlagMask_02012430(&data_02114e30, 4) && TestFlagMask_02012430(&data_02114e30, 8))
+        if (g_keyManager.TestKeysHeld(4) && g_keyManager.TestKeysHeld(8))
             quit = 1;
-        else if (self->quitRequested == 0 && TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2))
+        else if (self->quitRequested == 0 && g_keyManager.TestKeysPressed(2))
             quit = 1;
         else
             quit = 0;
@@ -272,7 +278,7 @@ extern "C" ARM void func_ov015_021934f8(Battle021934f8* self)
             DispatchToActiveEntries020bc028(0);
             break;
         }
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 8))
+        if (g_keyManager.TestKeysPressed(8))
             func_ov015_02192544(self);
         switch (self->phase)
         {
@@ -310,7 +316,7 @@ extern "C" ARM void func_ov015_021934f8(Battle021934f8* self)
         }
         loader->RemoveAllLocks();
         self->prevTime = _ll_udiv(GetCurrentTimestamp() * 64000, 33514);
-        if (GetSignedField020c39c8((unsigned short volatile*)MASTER_BRIGHT) > -16)
+        if (func_020c39c8((unsigned short volatile*)MASTER_BRIGHT) > -16)
             DelayThenSyncBit0_020c9820();
         GetCurrentTimestamp();
         SyncMainSubOam0203bdb0((Obj0203bdb0*)context);

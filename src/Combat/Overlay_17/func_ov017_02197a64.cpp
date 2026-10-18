@@ -8,6 +8,7 @@ enum { RegionOffset6c = 0x6c };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 #include "Graphics/Vector.h"
+#include "Input/Input.h"
 
 struct Obj020968d0;
 
@@ -67,21 +68,18 @@ void InitObj0219a674(unsigned char* self);
 extern "C" int func_02094b9c(void* a, void* b);
 int BuildAndForwardVec_0218da48(void* obj, int angle, int c, int d, unsigned char e);
 int CheckAndComputeDistance020968d0(Obj020968d0* obj, int* outDist);
-int TestFlagMask_02012430(unsigned short* flags, int mask);
 extern "C" void __clear(void* buf, int count);
 struct Vec3;
 short GetAbsAngleDeltaBetween_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" void func_ov017_0219b33c(Self02197a64* self, GroupEvent02197a64* event);
 extern "C" void func_ov017_02198f84(Self02197a64* self);
 
-extern unsigned short data_02114e30;
-
 #define FACING_LIMIT ((int)(0.8f * 4096.0f))
 
 // USA: func_ov017_02197a64
 extern "C" ARM void func_ov017_02197a64(Self02197a64* self) {
     GameState* gs = GameState::GetInstance();
-    Resources02197a64* res = (Resources02197a64*)func_ov017_0218b5b0();
+    Resources02197a64* res = (Resources02197a64*)GetGameResources();
     void* cache = func_02012fe4();
     Leader02197a64* leader = (Leader02197a64*)gs->GetUnknownGameObject();
     Vector3fix filter = leader->position;
@@ -114,7 +112,7 @@ extern "C" ARM void func_ov017_02197a64(Self02197a64* self) {
             int facing = Vector3fix_InnerProduct(&dir, &fwd);
             int along = Vector3fix_InnerProduct(&dir, &heading);
             if ((heading.x != 0 || heading.z != 0) &&
-                (CheckAndComputeDistance020968d0(field, NULL) != 0 || TestFlagMask_02012430(&data_02114e30, 0xf0) != 0)) {
+                (CheckAndComputeDistance020968d0(field, NULL) != 0 || g_keyManager.TestKeysHeld(0xf0) != 0)) {
                 facing = along;
             }
             if (node->flags & 0x10) {

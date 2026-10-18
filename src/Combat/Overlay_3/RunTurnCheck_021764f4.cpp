@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kRegionValue1002_F7E = 0xf7e };
@@ -17,8 +18,6 @@ enum { kRegionValueFF8_F74 = 0xff8 };
 extern "C" int func_ov003_021765b4(void* self);
 extern "C" int func_ov003_021766e8(void* self);
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
-
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 
@@ -31,7 +30,6 @@ void ResetWithSub0208203c(struct Obj0208203c* obj);
 struct Obj020e25e8;
 void ResetSelectionState020e25e8(struct Obj020e25e8* obj);
 
-extern unsigned short data_02114e30;
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov003_021764f4  (semantic: RunTurnCheck_021764f4)
@@ -45,7 +43,7 @@ extern "C" ARM int func_ov003_021764f4(unsigned char* self) {
     if (func_ov003_021765b4(self) != 0) {
         goto dispatch;
     }
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x200) == 0) {
+    if (g_keyManager.TestKeysPressed(0x200) == 0) {
         goto alt;
     }
 dispatch:

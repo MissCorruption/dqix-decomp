@@ -2,6 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/GameResources.h"
 
 struct FlagWord020466f4;
 
@@ -29,7 +30,7 @@ void ClearFlags020466f4(FlagWord020466f4* p, unsigned int flags);
 
 // USA: func_ov031_022439d8
 extern "C" ARM int func_ov031_022439d8(Struct022439d8* ctx) {
-	void* base = func_ov017_0218b5b0();
+	void* base = GetGameResources();
 	BackgroundLoader* loader = BackgroundLoader::GetInstance();
 	GameObject* obj = GameState::GetInstance()->GetUnknownGameObject();
 	if (obj != 0) {

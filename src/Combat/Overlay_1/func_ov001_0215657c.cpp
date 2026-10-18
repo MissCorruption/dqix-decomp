@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/GameResources.h"
 
 struct Transition0215657c {
     char field_0;
@@ -57,7 +58,7 @@ extern int data_02109bf4 __attribute__((aligned(4)));
 extern "C" ARM int func_ov001_0215657c(Transition0215657c* transition, void* list) {
     if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) return transition->state;
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     game->GetUnknownGameObject();
     char* field = GetFieldIfFlag4_020100f8((char*)game);
     int blocked = 0;
@@ -72,7 +73,7 @@ extern "C" ARM int func_ov001_0215657c(Transition0215657c* transition, void* lis
     }
     if (blocked) {
         GameState* state = GameState::GetInstance();
-        GameResources* display = func_ov017_0218b5b0();
+        GameResources* display = GetGameResources();
         Obj02046574* message = GetGlobalField0x1c020421a0();
         GameObject* member = GetCombatantWithFlag0x100_0200ff1c(state, 0);
         if (member) {

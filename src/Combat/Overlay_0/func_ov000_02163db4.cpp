@@ -25,7 +25,6 @@ void TeardownAndResetState020d7aa0(Obj020d7aa0*);
 extern "C" void func_ov017_021bd5d0(int);
 int IsField0Null_02046b08(void**);
 extern "C" void func_ov017_02191234(GameResources*);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
 unsigned int* GetDataPtr02114e04_020d6c00();
 void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
 extern "C" void func_02012de8();
@@ -40,7 +39,6 @@ void SetupContextForMode0205ea20(void*, int);
 extern "C" void func_ov017_021c812c(int, int);
 void EmptyStub_ov017_021c8398(int, int);
 void NoOp_021c839c(int, int);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 void SetFieldsAndSignalData02184220_ov000_02160d80(void*, int);
 extern unsigned char data_02108760;
 struct BattleConfig02163db4 {
@@ -61,7 +59,7 @@ static inline void ClearPartyBit(unsigned char* config, unsigned char index) {
 // USA: func_ov000_02163db4
 extern "C" ARM void func_ov000_02163db4(BattleScene02163db4* scene) {
     GameState* state = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     func_0202ae18();
     EffectParam020708c8* effect = func_020704fc();
@@ -99,7 +97,7 @@ extern "C" ARM void func_ov000_02163db4(BattleScene02163db4* scene) {
     if (loader->GetNumQueuedTasks() > 0) return;
     if (!IsField0Null_02046b08((void**)resources->unknown_ptr_array_36fc[1])) return;
     func_ov017_02191234(resources);
-    SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 0x10);
+    SetFlags00(resources, 0x10);
     unsigned int* data = GetDataPtr02114e04_020d6c00();
     OrBitsIntoField0_020466e4(data, 1);
     OrBitsIntoField0_020466e4(data, 2);
@@ -129,7 +127,7 @@ extern "C" ARM void func_ov000_02163db4(BattleScene02163db4* scene) {
         SetCombatWorkFlags0x55f4_ov000_02160fa8(scene, 0x200000);
     }
     if (scene->field_ec8 == 0x785d || scene->field_ec8 == 0x77f7 || scene->field_ec8 == 0x77f5) {
-        SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x200000);
+        SetFlags04(resources, 0x200000);
     }
     SetFieldsAndSignalData02184220_ov000_02160d80(scene, 1);
 }

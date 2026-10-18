@@ -3,6 +3,7 @@
 #endif
 
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define LOW_REGION(j, u) (j)
@@ -10,9 +11,7 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 int CheckByteSetAndByteClear_02012aac(unsigned char* obj);
-void InvalidateBattlerField0x18_0201250c(unsigned char* obj);
 
 struct Obj0205dee8;
 void SetFieldB0AndUpdate0205dee8(struct Obj0205dee8* obj, int val);
@@ -23,7 +22,6 @@ void ResetEntryList0205d6a0(struct Entry_0205d6a0* a, int flag);
 extern "C" void func_ov013_02186c64(void* obj, int a, int b);
 extern "C" void func_ov013_02185cc0(void* obj);
 
-extern unsigned short data_02114e30;
 extern char data_02114e54;
 
 struct SkillPointMenu {
@@ -75,12 +73,12 @@ extern "C" ARM void func_ov013_0218678c(SkillPointMenu* menu) {
 
     if (menu->previousState != menu->state) return;
 
-    if (!TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x613) && !CheckByteSetAndByteClear_02012aac((unsigned char*)&data_02114e54)) {
+    if (!g_keyManager.TestKeysPressed(0x613) && !CheckByteSetAndByteClear_02012aac((unsigned char*)&data_02114e54)) {
         return;
     }
 
     menu->state = 1;
-    InvalidateBattlerField0x18_0201250c((unsigned char*)&data_02114e30);
+    g_keyManager.CancelCurrentKeyRepeat();
     SetFieldB0AndUpdate0205dee8((struct Obj0205dee8*)menu->window, 2);
     ResetEntryList0205d6a0((struct Entry_0205d6a0*)menu->window, 0);
     menu->unknownStateBytes[1] = 0;

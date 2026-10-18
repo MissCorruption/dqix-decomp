@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "System/Matrix.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
@@ -98,7 +99,6 @@ struct Field3f8_0201a600 {
 
 extern "C" {
 GameState* _ZN9GameState11GetInstanceEv();
-Resources0201a600* func_ov017_0218b5b0();
 GrottoStruct0201a600* _ZN9GameState15GetGrottoStructEv(GameState* gs);
 int _ZNK19TreasureMapMetadata10GetMapTypeEv(void* metadata);
 void* _ZN9GameState20GetUnknownGameObjectEv(GameState* gs);
@@ -142,7 +142,7 @@ static inline int FxSquare0201a600(int a) {
 // USA: func_0201a600
 extern "C" ARM int func_0201a600(Zone0201a600* self) {
     GameState* gs = _ZN9GameState11GetInstanceEv();
-    Resources0201a600* res = func_ov017_0218b5b0();
+    Resources0201a600* res = (Resources0201a600*)GetGameResources();
     ActiveGrotto0201a600* grotto = &self->grotto;
     void* spawner = GetSpawner0201a600(res);
     GrottoStruct0201a600* grottoData = _ZN9GameState15GetGrottoStructEv(gs);

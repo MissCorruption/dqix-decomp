@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
 
 extern "C" void func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
@@ -23,7 +25,6 @@ void StepValueTowardTarget02052ae8(struct Obj02052ae8* obj);
 int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
 int IsCountAtLeast4_0219a370(unsigned char* base);
 int IsField0Null_02046b08(void** obj);
-int TestFlagMask_02012430(unsigned short* obj, int mask);
 
 struct BitField0203402c;
 int CheckField0xc4Low15BitsNonZero(struct BitField0203402c* p);
@@ -35,10 +36,6 @@ int GetFieldIfFlag4_020100f8(char* obj);
 
 struct S020a2c70;
 int MarkStateIfFlag020a2c70(struct S020a2c70* p);
-
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 
 struct Obj02052e44;
 int InitFieldsIfInRange02052e44(Obj02052e44*, signed char);
@@ -57,8 +54,6 @@ void AddClamped10BitFieldAt0x14_020a0140(struct S_a0140* p, unsigned int amount)
 int CopyInBattleField0x7540_020ac494(void* src);
 
 void SetByte0x2c4To2IfByte0x2c5Set_020a2c8c(unsigned char* obj);
-
-extern unsigned short data_02114e30;
 
 #if defined(jpn)
 enum { ActorRegionOffset = 12, BattleRegionOffset = 0x2d4, StatusRegionOffset = 0x1d0,
@@ -105,7 +100,7 @@ struct Obj02037d88 {
 extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
     void* bs = GameState::GetInstance();
     func_0202ae18();
-    unsigned char* r6 = (unsigned char*)((int)func_ov017_0218b5b0());
+    unsigned char* r6 = (unsigned char*)((int)GetGameResources());
 
     int flagBit = (obj->flags1ce & 4) != 0;
     if (flagBit) {
@@ -161,7 +156,7 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
         if (val80 != 0
             && IsCountAtLeast4_0219a370(r6) != 0
             && IsField0Null_02046b08((void**)val6fc) != 0
-            && TestFlagMask_02012430(&data_02114e30, 2) != 0
+            && g_keyManager.TestKeysHeld(2) != 0
             && CheckField0xc4Low15BitsNonZero((struct BitField0203402c*)obj) == 0
             && ((struct GlobalOuter020421a0*)GetGlobalField0x1c020421a0())->sub.flag == 0) {
 
@@ -175,26 +170,26 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
                 if (p2 != 0) {
                     if (IsCountAtLeast4_0219a370(r6) != 0) {
                         if (MarkStateIfFlag020a2c70((struct S020a2c70*)p2) != 0) {
-                            SetBitsInField4_0203b4d8((unsigned int*)r6, 0x80);
+                            SetFlags04((GameResources*)r6, 0x80);
                         }
                     }
                 }
             }
 
             int result = 0;
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40)) {
+            if (g_keyManager.TestKeysPressed(0x40)) {
                 signed char val = ptr2a04[0x2c8d];
                 result = InitFieldsIfInRange02052e44((struct Obj02052e44*)obj, val);
                 obj->field260 = 0;
-            } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x10)) {
+            } else if (g_keyManager.TestKeysPressed(0x10)) {
                 signed char val = ptr2a04[0x2c8f];
                 result = InitFieldsIfInRange02052e44((struct Obj02052e44*)obj, val);
                 obj->field260 = 2;
-            } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x20)) {
+            } else if (g_keyManager.TestKeysPressed(0x20)) {
                 signed char val = ptr2a04[0x2c8e];
                 result = InitFieldsIfInRange02052e44((struct Obj02052e44*)obj, val);
                 obj->field260 = 1;
-            } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80)) {
+            } else if (g_keyManager.TestKeysPressed(0x80)) {
                 result = FilterBytesAndInit02052f44((struct Obj02052f44*)obj, (signed char*)(ptr2a04 + 0x2c90), 4);
                 obj->field260 = 3;
             }
@@ -222,7 +217,7 @@ extern "C" ARM void func_02037d88(struct Obj02037d88* obj) {
                         } else if (stateByte == 2) {
                             short v = *(short*)(state + 2);
                             if (v < 0x199) {
-                                ClearBitsInField4_0203b4e8((unsigned int*)r6, 0x80);
+                                ClearFlags04((GameResources*)r6, 0x80);
                             }
                         }
                     }

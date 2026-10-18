@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Util/Random.h"
+#include "Input/Input.h"
 
 struct NameParts0217df08 { char* singular; char* plural; unsigned int flags; };
 
@@ -75,7 +76,6 @@ extern "C" void __clear(void*, int);
 void TrimTrailingLetterCode_0217aa08(char*, char*);
 extern "C" void func_020e4f18(NameParts0217df08*, NameParts0217df08*, int);
 extern "C" void func_0204500c(Messages0217df08*, char*, int, int);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 extern "C" void func_02043124(Messages0217df08*);
 void ReinitController02043204(char*);
 extern "C" void func_ov000_0217c638(Battle0217df08* obj, int arg1, int arg2);
@@ -83,7 +83,6 @@ extern "C" void func_ov000_02176e3c(Battle0217df08* obj, int zero, int val, int 
 
 extern const char data_ov000_02184070[];
 extern const char data_ov000_0218408a[];
-extern unsigned char data_02114e30;
 
 // USA: func_ov000_0217df08
 extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2) {
@@ -213,7 +212,7 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
             self->state++;
         }
     } else if (self->state == 2) {
-        if (g->active == 0 || TestFlag0SetAndFlag1Clear_02012444((unsigned short*)&data_02114e30, 0x800) != 0) {
+        if (g->active == 0 || g_keyManager.TestKeysPressed(0x800) != 0) {
             func_02043124(g);
             ReinitController02043204((char*)g);
             self->state = 0;

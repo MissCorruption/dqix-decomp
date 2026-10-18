@@ -5,10 +5,10 @@ enum { RegionalOffset = 0x44c4 };
 #endif
 
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0205ec34(void);
 extern "C" int* func_0202ae18(void);
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" int func_0202c508(void* obj);
 extern "C" void func_ov017_021d0924(int kind, unsigned char index, int flags, unsigned short packedTime);
 
@@ -30,7 +30,7 @@ extern "C" ARM void func_020703c8(int index, int hour, int minute, int second) {
     unsigned char curSecond;
     void* entry = func_0205ec34();
     int* state = func_0202ae18();
-    char* owner = *(char**)(func_ov017_0218b5b0() + RegionalOffset);
+    char* owner = *(char**)((char*)GetGameResources() + RegionalOffset);
 
     GetEntry3Bytes_0206dee8((EntryDEE8*)entry, index, &curHour, &curMinute, &curSecond);
     if (curSecond + (curHour * 10000 + curMinute * 100) >= second + (hour * 10000 + minute * 100)) {

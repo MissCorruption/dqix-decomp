@@ -5,6 +5,7 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 #include "Resource/Script.h"
+#include "Resource/Brightness.h"
 
 extern "C" unsigned short* func_02012fe4(void);
 extern "C" char* func_0203bd08(void);
@@ -15,9 +16,6 @@ void InitSubScreenDisplay_020209d0(void* context);
 void TailForward0203b66c(char* obj);
 void InitSubObject0203bd78(char* obj);
 void InitBattleContext0203bd24(char* obj);
-
-struct AxisFloats0203b5a0;
-int IsAxisIntWithin16(struct AxisFloats0203b5a0* s, int axis);
 
 int DispatchCharTransfer0203b784(int* arr1, int idx, int category, int addr, unsigned int len, unsigned int len2);
 void SetArraySlotFlag0203b718(void* objPtr, int mode, int idx, int fillByte);
@@ -91,7 +89,7 @@ extern "C" ARM void func_020227dc(MapDisplay* ctx) {
     GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     unsigned short* p6 = func_02012fe4();
-    char* axisObj = ((char*)func_ov017_0218b5b0());
+    char* axisObj = ((char*)GetGameResources());
     char* p8 = func_0203bd08();
     void* dataPtr = GetData02105254_0203b628();
     int i;
@@ -114,7 +112,7 @@ extern "C" ARM void func_020227dc(MapDisplay* ctx) {
     if (loader->GetTaskStatus(ctx->taska28) == 0) return;
 
     func_02021428(ctx, 0x19);
-    if (IsAxisIntWithin16((struct AxisFloats0203b5a0*)axisObj, 1) != 0) return;
+    if (IsBrightnessWithinValidRange((GameResources*)axisObj, true) != 0) return;
 
     func_02020720(ctx);
     InitSubScreenDisplay_020209d0(ctx);

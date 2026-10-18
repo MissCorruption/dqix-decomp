@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_02012fe4(void);
 
@@ -45,7 +46,7 @@ struct Roster0203de84 {
 extern "C" ARM void func_0203de84(void* self) {
     struct Roster0203de84* roster = (struct Roster0203de84*)self;
     void* v = GetField0x3b0Value_020100bc(GameState::GetInstance());
-    func_ov017_0218b5b0();
+    GetGameResources();
     struct Ctx02012fe4* ctx = (struct Ctx02012fe4*)func_02012fe4();
     unsigned short a = ctx->f38;
     int b = ctx->f3c;

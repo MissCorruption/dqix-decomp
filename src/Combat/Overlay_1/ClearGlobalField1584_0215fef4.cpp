@@ -1,6 +1,5 @@
 #include <globaldefs.h>
-
-extern "C" char* func_ov017_0218b5b0(void);
+#include "Resource/GameResources.h"
 
 // USA: func_ov001_0215fef4
 ARM int ClearGlobalField1584_0215fef4(void) {
@@ -9,6 +8,6 @@ ARM int ClearGlobalField1584_0215fef4(void) {
 #else
     enum { fieldOffset = 0x630 };
 #endif
-	*(int*)((func_ov017_0218b5b0() + 0x3000) + fieldOffset) = 0;
+	*(int*)(((char*)GetGameResources() + 0x3000) + fieldOffset) = 0;
 	return 1;
 }

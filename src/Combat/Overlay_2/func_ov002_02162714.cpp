@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -10,7 +11,6 @@ void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char 
                                                                         unsigned char keyHigh);
 int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 int CheckFlagOrThreshold_02161b48(char *self, int flag);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *obj, int mask);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 int GetWord0x0_0200fb8c(int *p);
@@ -24,7 +24,6 @@ extern "C" void func_ov002_02161cf0(char *self);
 extern "C" void func_ov002_0215c474(char *self);
 extern "C" void func_ov002_02156e90(char *self);
 
-extern unsigned short data_02114e30;
 extern Obj0205eaa0 data_02108760;
 
 // USA: func_ov002_02162714
@@ -44,7 +43,7 @@ extern "C" ARM void func_ov002_02162714(char *self) {
         if (old != *(short *) (self + 0x1be4)) {
             return;
         }
-        int a  = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+        int a  = g_keyManager.TestKeysPressed(0x601);
         int b  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0xec8), 0x14);
         int ok = (a | b) ? 1 : 0;
         if (ok) {

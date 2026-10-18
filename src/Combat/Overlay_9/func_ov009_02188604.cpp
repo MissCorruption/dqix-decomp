@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define func_ov009_02188604 func_ov009_021893c4
@@ -26,11 +27,9 @@ extern "C" Vector3fix func_ov023_021e613c(void* character);
 int fix32ReduceAngle0To2Pi(int angle);
 void InitWordsQuad_021e60e0(void* character, unsigned int angle);
 void SelectCoordsByFlag0x24_02012a84(unsigned char* touch, int* x, int* y);
-int TestFlagMask_02012430(unsigned short* pad, int buttons);
 void SetFourWordBlocks_021e6088(void* character, Words021e60c4* rotation);
 
 extern TouchState data_02114e54;
-extern char data_02114e30[];
 
 struct CharacterCreation {
 #if defined(jpn)
@@ -103,9 +102,9 @@ extern "C" ARM void func_ov009_02188604(CharacterCreation* self, unsigned int ti
         }
         if (touched == 0)
         {
-            if (TestFlagMask_02012430((unsigned short*)data_02114e30, 0x200))
+            if (g_keyManager.TestKeysHeld(0x200))
                 left = 1;
-            if (TestFlagMask_02012430((unsigned short*)data_02114e30, 0x100))
+            if (g_keyManager.TestKeysHeld(0x100))
                 right = 1;
         }
         if (left != 0 && right != 0)

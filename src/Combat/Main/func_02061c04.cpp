@@ -3,7 +3,12 @@
 #include "GameState/Field3b0.h"
 #include "GameState/BattleRecordSnapshot.h"
 #include "World/ZoneChest.h"
-void SetOrClearBitInArray_0206df6c(void *obj, unsigned char *arr, int idx, int flag);
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+extern "C" void func_0206df6c(void *obj, unsigned char *arr, int idx, int flag);
 extern "C" void *func_0202ae18(void);
 int CheckField0NonZero_0202b7d8(int *ctx);
 struct SearchStruct0202c1a4;
@@ -260,14 +265,14 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     } lr;
     switch (msg->cmd) {
     case 0x64: {
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 1);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 1);
         void *ctx = func_0202ae18();
         if (CheckField0NonZero_0202b7d8((int *)ctx) && !GetSearchStructCurrentArrEntry((SearchStruct0202c1a4 *)ctx))
             func_ov017_021d0924(0, 0, msg->p1, 1);
         return 1;
     }
     case 0x65: {
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 0);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 0);
         void *ctx = func_0202ae18();
         if (CheckField0NonZero_0202b7d8((int *)ctx) && !GetSearchStructCurrentArrEntry((SearchStruct0202c1a4 *)ctx))
             func_ov017_021d0924(0, 0, msg->p1, 0);
@@ -275,7 +280,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     }
     case 0x66: {
         unsigned char slot = *((unsigned char *)obj + 0x332);
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 3, msg->p1, 1);
+        func_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 3, msg->p1, 1);
         void *ctx = func_0202ae18();
         if (CheckField0NonZero_0202b7d8((int *)ctx) && !GetSearchStructCurrentArrEntry((SearchStruct0202c1a4 *)ctx))
             func_ov017_021d0924(3, *((unsigned char *)obj + 0x332), msg->p1, 1);
@@ -283,7 +288,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     }
     case 0x67: {
         unsigned char slot = *((unsigned char *)obj + 0x332);
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 3, msg->p1, 0);
+        func_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 3, msg->p1, 0);
         void *ctx = func_0202ae18();
         if (CheckField0NonZero_0202b7d8((int *)ctx) && !GetSearchStructCurrentArrEntry((SearchStruct0202c1a4 *)ctx))
             func_ov017_021d0924(3, *((unsigned char *)obj + 0x332), msg->p1, 0);
@@ -291,7 +296,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     }
     case 0x68: {
         unsigned char slot = *((unsigned char *)obj + 0x332);
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 0x10, msg->p1, 1);
+        func_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 0x10, msg->p1, 1);
         void *ctx = func_0202ae18();
         if (CheckField0NonZero_0202b7d8((int *)ctx) && !GetSearchStructCurrentArrEntry((SearchStruct0202c1a4 *)ctx))
             func_ov017_021d0924(5, *((unsigned char *)obj + 0x332), msg->p1, 1);
@@ -299,14 +304,14 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     }
     case 0x69: {
         unsigned char slot = *((unsigned char *)obj + 0x332);
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 0x10, msg->p1, 0);
+        func_0206df6c(obj, (unsigned char *)obj + slot * 0x1c + 0x10, msg->p1, 0);
         void *ctx = func_0202ae18();
         if (CheckField0NonZero_0202b7d8((int *)ctx) && !GetSearchStructCurrentArrEntry((SearchStruct0202c1a4 *)ctx))
             func_ov017_021d0924(5, *((unsigned char *)obj + 0x332), msg->p1, 0);
         return 1;
     }
     case 0x6a: {
-        void *p = func_ov017_0218b5b0();
+        void *p = GetGameResources();
         unsigned char *r5 = *(unsigned char **)((char *)p + 0x4000 + REGION_VALUE(0x214, 0x4c4));
         ClearNibble0206ece8((int)r5, msg->p1, r5, 0x80);
         ClearNibble0206ece8((int)r5, msg->p1, r5 + 0x80, 0x80);
@@ -315,7 +320,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     case 0x6b: {
         void *ctx = func_0202ae18();
         if (func_0202c508(ctx))
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113a, ((unsigned char *)msg)[2] == 0);
+            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113a, ((unsigned char *)msg)[2] == 0);
         return 1;
     }
     case 0x6c: {
@@ -412,9 +417,9 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         if (func_020961b0(GetGlobal02109418_02094d6c(), msg->p1) == 0)
             return 0;
         if (!TestBitInByteArray_0206dfb0((int)obj, (unsigned char *)obj + 0x8c, 0x119d)) {
-            void *p = func_ov017_0218b5b0();
+            void *p = GetGameResources();
             void *list = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x119d, 1);
+            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x119d, 1);
             void *node = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x9a0, 0xbc0));
             Init020d9ae8((Struct020d9ae8 *)node, 1);
             AppendNodeToTail((TailList020469b4 *)list, (TailNode020469b4 *)node);
@@ -425,7 +430,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         int isTwo = GetPackedNibbleField((PackedNibbleArray0206e120*)obj, msg->p1) == 2;
         if (!isTwo)
             return 1;
-        void *p = func_ov017_0218b5b0();
+        void *p = GetGameResources();
         void *list = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *node = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x99c, 0xbbc));
         Init020d9dec((Struct020d9dec*)node, 0);
@@ -509,13 +514,13 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
             EnqueueEventTag141_021ce110((unsigned char)msg->p2, 1, msg->p1, 1);
         switch (msg->p2) {
         case 3:
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 1);
+            func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 1);
             func_ov017_021d0924(0, 0, msg->p1, 1);
             if (func_0202c540(ctx))
                 func_0206e748(obj, 0, 0, msg->p1, 1);
             break;
         case 4: {
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 3, msg->p1, 1);
+            func_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 3, msg->p1, 1);
             func_ov017_021d0924(3, *((unsigned char *)obj + 0x332), msg->p1, 1);
             if (func_0202c540(ctx)) {
                 int slot1 = GetSlot332(obj);
@@ -524,7 +529,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
             break;
         }
         case 5: {
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 0x10, msg->p1, 1);
+            func_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 0x10, msg->p1, 1);
             func_ov017_021d0924(5, *((unsigned char *)obj + 0x332), msg->p1, 1);
             if (func_0202c540(ctx)) {
                 int slot2 = GetSlot332(obj);
@@ -543,13 +548,13 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
             EnqueueEventTag141_021ce110((unsigned char)msg->p2, 0, msg->p1, 1);
         switch (msg->p2) {
         case 3:
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 0);
+            func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1, 0);
             func_ov017_021d0924(0, 0, msg->p1, 0);
             if (func_0202c540(ctx))
                 func_0206e748(obj, 0, 0, msg->p1, 0);
             break;
         case 4: {
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 3, msg->p1, 0);
+            func_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 3, msg->p1, 0);
             func_ov017_021d0924(3, *((unsigned char *)obj + 0x332), msg->p1, 0);
             if (func_0202c540(ctx)) {
                 int slot3 = GetSlot332(obj);
@@ -558,7 +563,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
             break;
         }
         case 5: {
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 0x10, msg->p1, 0);
+            func_0206df6c(obj, (unsigned char *)obj + *((unsigned char *)obj + 0x332) * 0x1c + 0x10, msg->p1, 0);
             func_ov017_021d0924(5, *((unsigned char *)obj + 0x332), msg->p1, 0);
             if (func_0202c540(ctx)) {
                 int slot4 = GetSlot332(obj);
@@ -611,7 +616,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     case 0x8f: {
         if (msg->p1 == 2)
             return 1;
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         void *mem = ((SafeAllocator *)((char *)base + 0x164))->Allocate(0x30);
         if (mem) {
             func_02012fe4();
@@ -679,10 +684,10 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         AppendNodeToListField30_0206445c((int)obj, (AppendNode *)msg, (AppendList *)param3);
         return 1;
     case 0x92:
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x776, 1);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x776, 1);
         return 1;
     case 0x93:
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x776, 0);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x776, 0);
         return 1;
     case 0x94: {
         GameState *battle = GameState::GetInstance();
@@ -720,7 +725,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0x97: {
-        void *p = func_ov017_0218b5b0();
+        void *p = GetGameResources();
         void *list = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *node = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x940, 0xb60));
         InitObj021bdbf0((unsigned char*)node);
@@ -767,7 +772,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return func_02061c04(obj, &m9f, param3);
     }
     case 0xa0:
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x113f, 1);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x113f, 1);
         return 1;
     case 0xa1: {
         lr.fb.flags &= ~1;
@@ -783,9 +788,9 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     }
     case 0xa2:
         if (msg->p1 != 0)
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113b, 0);
+            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113b, 0);
         else
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113b, 1);
+            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113b, 1);
         return 1;
     case 0xc0: {
         GameState *battle = GameState::GetInstance();
@@ -809,7 +814,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xa4: {
-        void *p = func_ov017_0218b5b0();
+        void *p = GetGameResources();
         func_ov017_021c1a98(p, 0);
         return 1;
     }
@@ -851,7 +856,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     case 0xae:
         return 1;
     case 0xaf:
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x1136, 0);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x1136, 0);
         return 1;
     case 0xb0: {
         void *global = GetGlobal02109418_02094d6c();
@@ -870,7 +875,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xb2: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         void *list = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *node = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x948, 0xb68));
         InitContext020e1154((void *)0xbb8);
@@ -884,10 +889,10 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         GameState *battle = GameState::GetInstance();
         void *p = GetPtrField0x2a04_02010828((GameState*)battle);
         if (msg->p1 != 0) {
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113c, 1);
+            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113c, 1);
             *(unsigned int *)((char *)p + 0x2c94) = msg->p2;
         } else {
-            SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113c, 0);
+            func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x113c, 0);
             *(unsigned int *)((char *)p + 0x2c94) = *(unsigned int *)((char *)battle + REGION_VALUE(0x7c34, 0x7e74));
             void *ctx = func_0202ae18();
             if (CheckField0NonZero_0202b7d8((int *)ctx) && !GetSearchStructCurrentArrEntry((SearchStruct0202c1a4 *)ctx))
@@ -896,7 +901,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xb4: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         void *list = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         if (!ListContainsId((ListHead02046b60*)list, 0xa))
             return 1;
@@ -914,7 +919,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     case 0xb7:
         return 1;
     case 0xb8: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         void *list = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *node = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x968, 0xb88));
         InitState60_021aa16c((Obj021aa16c*)node);
@@ -922,12 +927,12 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xb9: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         Something_021a6b9c(base, 0);
         return 1;
     }
     case 0xba:
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x1138, msg->p1);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x1138, msg->p1);
         return 1;
     case 0xbb:
         *(unsigned short *)((char *)obj + 0x2ca) = 0;
@@ -962,7 +967,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xbd: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         void *list = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *node = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x50c, 0x71c));
         func_ov017_021a5568(node);
@@ -1022,7 +1027,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xc3:
-        func_ov017_0218b5b0();
+        GetGameResources();
         return 1;
     case 0xc4:
         return 1;
@@ -1091,7 +1096,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         int lvl = *((unsigned char *)ctx + 0x100d);
         if (lvl <= 1)
             return 0;
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         void *rec = *(void **)((char *)base + 0x3000 + REGION_VALUE(0x500, 0x710));
         ResetFieldsToDefault_021b994c((Obj_021b994c*)rec);
         *((unsigned char *)rec + 0x130) = 1;
@@ -1113,11 +1118,11 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xca:
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x1198, 1);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0x1198, 1);
         return 1;
     case 0xcb: {
         GameState *battle = GameState::GetInstance();
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         for (int i = 0; i < 4; i++) {
             GameObject *combatant = GetCombatantWithFlag0x100_0200ff1c(battle, i);
             if (!combatant)
@@ -1144,10 +1149,10 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xcc:
-        func_ov017_02191484(func_ov017_0218b5b0());
+        func_ov017_02191484(GetGameResources());
         return 1;
     case 0xcd: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         ResetStruct020d3c08((char*)cdLocal);
         InitAndMaybeStartStream020d3c28((Obj020d3c28*)cdLocal);
         void *elem = GetElementCount0xb4Stride0x24_020d3d78((unsigned char*)cdLocal, msg->p1);
@@ -1158,12 +1163,12 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xce: {
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x79a, 1);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x79a, 1);
         void *ctx = func_0202ae18();
         if (func_0202c508(ctx)) {
             int rowBase;
             GameState *battle = GameState::GetInstance();
-            void *base = func_ov017_0218b5b0();
+            void *base = GetGameResources();
             void *table = GetEntryTableBase_02027ca4();
             for (int a = 0; a < 4; a++) {
                 void *elem = GetElementStride0x318((Element0x318_02028bac*)table, a);
@@ -1190,8 +1195,8 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
     case 0xcf: {
         void *pool = &data_02108844;
         if (pool)
-            SetOrClearBitInArray_0206df6c(pool, (unsigned char *)pool + 0x8c, 0x384, msg->p1);
-        void *base = func_ov017_0218b5b0();
+            func_0206df6c(pool, (unsigned char *)pool + 0x8c, 0x384, msg->p1);
+        void *base = GetGameResources();
         for (int i = 0; i < 4; i++)
             *(unsigned short *)((char *)base + REGION_VALUE(0x4100, 0x4400) + i * 2 + REGION_VALUE(0x9a, 0x4a)) =
                 *(unsigned short *)((char *)msg + i * 2 + 4);
@@ -1209,7 +1214,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xd1: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         void *ctx = func_0202ae18();
         func_0202c288();
         int lvl = *((unsigned char *)ctx + 0x100d);
@@ -1225,7 +1230,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 0;
     }
     case 0xd2: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         SetFieldFromHelper491_02198f70(base, *((signed char *)base + REGION_VALUE(0x4196, 0x4446)));
         return 1;
     }
@@ -1261,7 +1266,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         lr.d1 = (msg->p3 == 0);
         lr.d2 = msg->p4;
         lr.d3 = (msg->p5 == 0);
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         SetName56AndFlag_0218d7b0((unsigned char*)base, (char*)&lr.d0);
         return 1;
     }
@@ -1274,7 +1279,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xd7: {
-        void *base = func_ov017_0218b5b0();
+        void *base = GetGameResources();
         func_ov017_021a8614(base, (short)msg->p1, msg->p2, msg->p3, msg->p4, msg->p5);
         return 1;
     }
@@ -1292,7 +1297,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xd9: {
-        void *p = func_ov017_0218b5b0();
+        void *p = GetGameResources();
         void *list = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *node = *(void **)((char *)p + 0x3000 + REGION_VALUE(0x94c, 0xb6c));
         InitObj021beba4((char*)node);
@@ -1322,7 +1327,7 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         func_020aee04(msg->p1, ((unsigned char *)msg)[4]);
         return 1;
     case 0xdd: {
-        void *p = func_ov017_0218b5b0();
+        void *p = GetGameResources();
         func_ov017_021c1a98(p, 1);
         return 1;
     }
@@ -1332,13 +1337,13 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xdf:
-        SetOrClearBitInArray_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x799, msg->p1);
+        func_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x799, msg->p1);
         return 1;
     case 0xe0:
-        SetOrClearBitInArray_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x798, msg->p1);
+        func_0206df6c(&data_02108844, (unsigned char *)&data_02108844 + 0x8c, 0x798, msg->p1);
         return 1;
     case 0xe3: {
-        void *p = func_ov017_0218b5b0();
+        void *p = GetGameResources();
         (void)p;
         _Z27InitAndAppendEntity020dac40P12Root020dac40();
         return 1;
@@ -1372,13 +1377,13 @@ extern "C" ARM int func_02061c04(void *obj, CmdMsg64 *msg, void *param3) {
         return 1;
     }
     case 0xe6:
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0xbea, msg->p2);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, msg->p1 + 0xbea, msg->p2);
         return 1;
     case 0xe7: {
         void *ctx = func_0202ae18();
         if (func_0202c540(ctx))
             return 1;
-        SetOrClearBitInArray_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x796, msg->p1);
+        func_0206df6c(obj, (unsigned char *)obj + 0x8c, 0x796, msg->p1);
         char *battle = (char*)GameState::GetInstance();
         BattleRecordSnapshot* st = (BattleRecordSnapshot*)((char *)&((struct Blk7400 *)SubA(battle))[1] + 0x3c);
         BattleRecordCapture* snap = &st->capture;

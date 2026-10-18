@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -20,7 +21,6 @@ int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 char *FindElementByC40205d81c(struct Struct_0205d81c *s, int key);
 int IsElementFlagBit40Set_0216197c(int key, struct Struct_0205d81c *s);
 extern "C" void func_ov002_0215b9a4(void *self, int mode, int flag);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *pad, int buttons);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 Obj020d7aa0 *GetGlobalResetObj020d7a50();
@@ -35,7 +35,6 @@ extern "C" void func_ov017_021bff8c(int a, int b);
 int CheckFlagOrThreshold_02161b48(char *self, int v);
 extern "C" void func_ov002_02156e90(void *obj);
 
-extern "C" unsigned short data_02114e30;
 extern "C" char data_02108760;
 
 #define OBJ (self + 0x2c8 + 0xc00)
@@ -71,7 +70,7 @@ extern "C" ARM void func_ov002_02166168(char *self) {
         if (old != *(short *) (self + 0x1bfe)) {
             func_ov002_0215b9a4(self, 0x16, 0);
         }
-        int t  = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+        int t  = g_keyManager.TestKeysPressed(0x601);
         int u  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)OBJ, 0x14);
         int ok = (t | u) ? 1 : 0;
         if (ok) {

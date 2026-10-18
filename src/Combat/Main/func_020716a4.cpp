@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 struct Variant02030b0c {
     int tag;
     union { int i; float f; } u;
@@ -12,7 +16,7 @@ extern "C" void func_0206dfe8(void* p, int a, int b);
 
 void ClearRegions0206e080(char* obj, int slot);
 void ClearIndexedEntryFields0206e0d0(char* obj, int slot);
-void SetOrClearBitInArray_0206df6c(void* obj, unsigned char* arr, int idx, int flag);
+extern "C" void func_0206df6c(void* obj, unsigned char* arr, int idx, int flag);
 
 void SetField5cb0AndRecordByte0_02010774(char* obj, int v);
 void SetField5cb4AndRecordByte1_020107a8(char* obj, int v);
@@ -72,13 +76,13 @@ extern "C" ARM int func_020716a4(struct Variant02030b0c* args, int count) {
         args = args + 1;
         switch (v >> 16) {
         case 2:
-            SetOrClearBitInArray_0206df6c(entry, (unsigned char*)entry + *(unsigned char*)((char*)entry + 0x332) * 0x1c + 3, (unsigned short)v, 1);
+            func_0206df6c(entry, (unsigned char*)entry + *(unsigned char*)((char*)entry + 0x332) * 0x1c + 3, (unsigned short)v, 1);
             break;
         case 1:
-            SetOrClearBitInArray_0206df6c(entry, (unsigned char*)entry + *(unsigned char*)((char*)entry + 0x332) * 0x1c + 0x10, (unsigned short)v, 1);
+            func_0206df6c(entry, (unsigned char*)entry + *(unsigned char*)((char*)entry + 0x332) * 0x1c + 0x10, (unsigned short)v, 1);
             break;
         case 0:
-            SetOrClearBitInArray_0206df6c(entry, (unsigned char*)entry + 0x8c, (unsigned short)v, 1);
+            func_0206df6c(entry, (unsigned char*)entry + 0x8c, (unsigned short)v, 1);
             break;
         }
     }

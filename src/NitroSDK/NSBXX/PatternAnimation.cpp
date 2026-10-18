@@ -1,7 +1,6 @@
 #include "Graphics/NSBXX/NSBXX.h"
 #include <asmhacks.h>
 
-
 #define SUBFILE_OFFSETS(nsb) ((uint32_t*)((intptr_t)(nsb) + nsb->headerSize_))
 
 void* NSBXX_GetFirstSubfile(NSBXXContainer* nsbxx)
@@ -52,7 +51,6 @@ const char* NSBXX_PatternAnimation_GetTextureName(NSBXXAnimationMPT* anim, unsig
 {
     if (anim != NULL && idx < anim->numTextureNames_)
     {
-        DECLARE_ASM_NOP();
         return (const char*)((intptr_t)anim + anim->textureNamesOffset_ + idx * 0x10);
     }
     return NULL;
@@ -62,7 +60,6 @@ const char* NSBXX_PatternAnimation_GetPaletteName(NSBXXAnimationMPT* anim, unsig
 {
     if (anim != NULL && idx < anim->numPaletteNames_)
     {
-        DECLARE_ASM_NOP();
         return (const char*)((intptr_t)anim + anim->paletteNamesOffset_ + idx * 0x10);
     }
     return NULL;

@@ -1,12 +1,10 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
 struct HeadNode02046b24;
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void func_ov017_021d6134(void* obj, int val);
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
 int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
 
 // USA: func_ov001_02162f8c
 ARM int NotifyOrSetHeadMatchBit_02162f8c(void* obj) {
@@ -15,8 +13,8 @@ ARM int NotifyOrSetHeadMatchBit_02162f8c(void* obj) {
 #else
     enum { headOffset = 0x700 };
 #endif
-	unsigned int* p = (unsigned int*)func_ov017_0218b5b0();
-	if (GetBitsInField0_0203b4c4(p, 0x10) != 0) {
+	unsigned int* p = (unsigned int*)GetGameResources();
+	if (TestFlags00((GameResources*)p, 0x10) != 0) {
 		func_ov017_021d6134(obj, 0);
 		return 1;
 	}
@@ -25,7 +23,7 @@ ARM int NotifyOrSetHeadMatchBit_02162f8c(void* obj) {
 	int notMatch = (id != 0x13);
 	func_ov017_021d6134(obj, notMatch == 0);
 	if (notMatch) {
-		SetBitsInWord_0203b4a0(p, 0x10);
+		SetFlags00((GameResources*)p, 0x10);
 	}
 	return 1;
 }

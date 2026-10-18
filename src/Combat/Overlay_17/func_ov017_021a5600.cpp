@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 struct Obj020397cc { char padding[0xb2]; short field_b2; };
 struct FlagWord02046708;
@@ -42,8 +43,6 @@ extern "C" void func_ov017_021a55b0(BattleState021a5600*);
 extern "C" void func_ov017_02191108(GameResources*, int, int, int, int);
 FlagWord02046708* GetDataPtr02114e04_020d6c00();
 void CancelPendingAction020397cc(Obj020397cc*, int);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
 unsigned char* GetFieldIfFlag4_020100f8(char*);
 void SetFlagsAt0x244_020a28a0(unsigned char*, unsigned char);
 void ClearFlagBits_020a28b0(unsigned char*, int);
@@ -64,12 +63,12 @@ extern char* data_ov017_021d83ac;
 // USA: func_ov017_021a5600
 extern "C" ARM void func_ov017_021a5600(BattleState021a5600* self) {
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     Obj020397cc* actor = (Obj020397cc*)game->GetUnknownGameObject();
     FlagWord02046708* flags = GetDataPtr02114e04_020d6c00();
     CancelPendingAction020397cc(actor, 1);
     actor->field_b2 = 0;
-    SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0xc0);
+    SetFlags04(resources, 0xc0);
     unsigned char* action = GetFieldIfFlag4_020100f8((char*)game);
     SetFlagsAt0x244_020a28a0(action, 3);
     int ticks = game->GetTickCount();
@@ -118,7 +117,7 @@ extern "C" ARM void func_ov017_021a5600(BattleState021a5600* self) {
         if (list && (ListContainsId(list, 2) || ListContainsId(list, 47))) clear = 0;
         if (clear) {
             ClearFlagBits_020a28b0(action, 3);
-            ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0xc0);
+            ClearFlags04(resources, 0xc0);
             SetByteField0x253_020397c0(actor);
         }
         func_ov017_02191108(resources, 1, 1, 0, 1);

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 int TestBitAt0x34_020a35e0(unsigned char* obj, unsigned char index);
@@ -47,7 +48,7 @@ extern "C" ARM void func_ov017_021c6d50() {
  enum { regionalOffset=0x718 };
 #endif
     GameState* bs = GameState::GetInstance();
-    unsigned char* table = *(unsigned char**)((char*)func_ov017_0218b5b0() + 0x3000 + regionalOffset);
+    unsigned char* table = *(unsigned char**)((char*)GetGameResources() + 0x3000 + regionalOffset);
     unsigned char* search = (unsigned char*)func_ov017_021b8478(table);
     void* data = GetData02100044_0202ae24();
 

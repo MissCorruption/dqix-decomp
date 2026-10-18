@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void func_ov017_021d6134(void*, int);
 
 // USA: func_ov001_02161a1c
@@ -10,7 +10,7 @@ ARM int DispatchFieldOrDefault_02161a1c(void* ctx) {
 #else
     enum { queueOffset = 0x734, objectOffset = 0x160, flagOffset = 0x164 };
 #endif
-    char* p = (char*)func_ov017_0218b5b0() + 0x3000;
+    char* p = (char*)GetGameResources() + 0x3000;
     char* q = *(char**)(p + queueOffset);
     int v = *(int*)(q + objectOffset);
     if (v == 0) {

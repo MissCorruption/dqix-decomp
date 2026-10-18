@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "System/Memory.h"
+#include "Resource/GameResources.h"
 
 extern const char data_ov031_0224c94e[];
 
@@ -21,8 +22,6 @@ struct Obj02245750 {
 	unsigned char field0xc[8];
 };
 
-extern "C" int func_ov017_0218b5b0(void);
-
 // USA: func_ov031_02245750  (semantic: CheckTagAndRegisterSlot_02245750)
 extern "C" ARM int func_ov031_02245750(void* unused, Obj02245750* obj) {
 #if defined(jpn)
@@ -37,7 +36,7 @@ extern "C" ARM int func_ov031_02245750(void* unused, Obj02245750* obj) {
 		idx++;
 	}
 	if (idx == 0xe) return 0;
-	char* base = (char*)func_ov017_0218b5b0();
+	char* base = (char*)GetGameResources();
 	char* p = base + 0x3000;
 	unsigned char* q = *(unsigned char**)(p + regionalOffset0);
 	q[0x28] = (unsigned char)idx;

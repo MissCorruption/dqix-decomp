@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Entry0207d9bc;
 struct Obj02053f7c;
@@ -51,7 +52,7 @@ extern "C" ARM void func_ov017_021c8c44(int id, Evt021c8c44* evt, GameState* gs,
     int flag = evt->flag != 0;
     int target = evt->target;
     GameState* inst = GameState::GetInstance();
-    void* timers = func_ov017_0218b5b0()->unknown_ptr_36d0;
+    void* timers = GetGameResources()->unknown_ptr_36d0;
     int i;
 
     for (i = 0; i < 4; i++) {

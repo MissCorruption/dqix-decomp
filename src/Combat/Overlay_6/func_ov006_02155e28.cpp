@@ -427,7 +427,7 @@ extern "C" ARM void func_ov006_02155e28(struct CombatLoader02155e28* self) {
         self->state++;
     } else if (state == 15) {
         if (loader->GetTaskStatus(self->taskId) == 0) return;
-        GameResources* res = func_ov017_0218b5b0();
+        GameResources* res = GetGameResources();
         self->modelAlloc.CreateTypeA(res->allocator_array_38[0].Allocate(0x8000), 0x8000);
         self->modelAlloc.Reset();
         RestorePairTables0207df90(res->unknown_2cc);

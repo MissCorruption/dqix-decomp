@@ -4,6 +4,11 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 #if defined(jpn)
 enum { kTextBufferCapacity = 0x800 };
@@ -76,7 +81,7 @@ void Init0206f510(char*);
 extern "C" void func_0206f550(char*, char*, char*);
 extern "C" int func_020ac2d4(int, void*, Item021ac3b0*, int);
 extern "C" void func_020ac104(int, Item021ac3b0*, int);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void SetByteField0x253_020397c0(void*);
 int LookupAndForEachNode020649b0(void*, int, void*);
 extern "C" void func_0206f81c(Lookup021ac3b0*);
@@ -92,7 +97,7 @@ extern AllocatorUnion data_02114e20;
 // USA: func_ov017_021ac3b0
 extern "C" ARM void func_ov017_021ac3b0(Event021ac3b0* self) {
     GameState* game = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     GameObject* leader = game->GetUnknownGameObject();
     Zone021ac3b0* zone = func_02012fe4();
     Controller021ac3b0* controller = GetGlobalField0x1c020421a0();
@@ -202,7 +207,7 @@ extern "C" ARM void func_ov017_021ac3b0(Event021ac3b0* self) {
                     func_020ac104(0, items, count);
                 }
             }
-            SetOrClearBitInArray_0206df6c(flags, flags->bits, self->info->index + 0x114c, 1);
+            func_0206df6c(flags, flags->bits, self->info->index + 0x114c, 1);
         }
         FontBankLoader* state = GetGlobal02109400_02094a00(); func_02094ab0(state);
         BlankFunction02094b34(state, 0x6f, 0x1388, 1, 1);

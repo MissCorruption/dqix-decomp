@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
 
 struct SearchStruct;
 struct Obj_021bd3a4;
@@ -17,8 +19,6 @@ extern "C" int func_0202c540(struct SearchStruct* obj);
 extern "C" void __clear(void* buf, int n);
 extern "C" void func_02037d88(GameObject* obj);
 extern "C" void func_ov017_0218e210(int id, int flag);
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
-int TestFlagMask_02012430(unsigned short* flags, int mask);
 int HasFlag3orFlag2And9a_021bd3a4(struct Obj_021bd3a4* obj);
 void DispatchByFlag020d9834(int flag);
 int GetSignedByte0x1c8_02039860(void* obj);
@@ -26,8 +26,6 @@ int GetSignedByte0x1c9_02039874(void* obj);
 void DispatchWithZeroExtras_02193428(void* a, void* b);
 void StepValueTowardTarget02052ae8(struct Obj02052ae8* obj);
 Object3D* GetField4334_021bdbc0(unsigned char* ov);
-
-extern unsigned short data_02114e30;
 
 // USA: func_ov017_0218e674
 extern "C" ARM void func_ov017_0218e674(unsigned char* ov) {
@@ -46,15 +44,15 @@ extern "C" ARM void func_ov017_0218e674(unsigned char* ov) {
     battle->GetEffectiveDeltaTime();
 
     int flag = 1;
-    if ((GetBitsInField0_0203b4c4((unsigned int*)ov, 0x20) != 0 && TestFlagMask_02012430(&data_02114e30, flag) != 0) ||
-        GetBitsInField0_0203b4c4((unsigned int*)ov, 0x2000) != 0) {
+    if ((TestFlags00((GameResources*)ov, 0x20) != 0 && g_keyManager.TestKeysHeld(flag) != 0) ||
+        TestFlags00((GameResources*)ov, 0x2000) != 0) {
         flag = 0;
     }
     if (HasFlag3orFlag2And9a_021bd3a4(*(struct Obj_021bd3a4**)(ov + 0x3000 + regionalOffset0)) != 0) {
         flag = 0;
     }
     int dispatch = 0;
-    if (GetBitsInField0_0203b4c4((unsigned int*)ov, 0x4000) != 0) dispatch = 1;
+    if (TestFlags00((GameResources*)ov, 0x4000) != 0) dispatch = 1;
 
     int count = 0;
     for (int i = 0; i < party->count; i++) {

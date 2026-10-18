@@ -3,6 +3,7 @@
 #include "Resource/GameResources.h"
 #include "System/Matrix.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -24,7 +25,6 @@ struct TailList020469b4;
 struct TailNode020469b4;
 void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char keyLow, unsigned char keyHigh);
 int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *p, int n);
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
 int CheckFlagOrThreshold_02161b48(char *base, int a);
@@ -56,7 +56,6 @@ extern "C" int func_0202c508(int *p);
 extern "C" void func_ov023_021dca88(char *obj);
 extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
 extern "C" void func_ov017_021d1a18(int a, int b, int c, int d);
-extern "C" unsigned short data_02114e30[];
 extern "C" char data_02108760[];
 
 // USA: func_ov002_02165b44
@@ -72,7 +71,7 @@ extern "C" ARM void func_ov002_02165b44(char *base) {
         *(unsigned int *) (base + 0x2000 + 0x47c) |= 4;
         func_ov002_02161b98(base);
         *(short *) (base + 0x1b00 + 0xfc) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (base + 0x2c8 + 0xc00));
-        int ta                            = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x601);
+        int ta                            = g_keyManager.TestKeysPressed(0x601);
         int tb = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(base + 0x2c8 + 0xc00), 0x14);
         if ((ta | tb) ? 1 : 0) {
             GameState *gs = GameState::GetInstance();
@@ -154,7 +153,7 @@ extern "C" ARM void func_ov002_02165b44(char *base) {
                         *pos                                        = v;
                         func_ov017_021d1a18(*(short *) (e + 0x1a), *(short *) (e + 0x1c), 0, 0);
                     }
-                    char *g = (char *) func_ov017_0218b5b0();
+                    char *g = (char *) GetGameResources();
                     InitAndInsertNode_021acd30(g, 0, 0, 0);
                     struct TailList020469b4 *tl;
                     unsigned char *node = *(unsigned char **) (g + 0x3000 + 0x70c);
@@ -177,7 +176,7 @@ extern "C" ARM void func_ov002_02165b44(char *base) {
                 } else {
                     DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 0x64, 0);
                 }
-                InitAndInsertNode_021acd30((char *) func_ov017_0218b5b0(), 0, 0, 1);
+                InitAndInsertNode_021acd30((char *) GetGameResources(), 0, 0, 1);
                 return;
             }
             if (kind == 0) {

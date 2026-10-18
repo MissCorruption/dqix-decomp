@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 struct Struct_0205c570;
 struct Obj0205eaa0;
 struct S_10088;
 
 int GetActiveScaledSum0205d794(struct Struct_0205c570* s);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
@@ -82,7 +82,6 @@ struct MenuObj_0217bb2c {
 };
 
 extern MenuGlobals_0217bb2c data_ov000_02184294;
-extern unsigned short data_02114e30;
 extern char data_02108760;
 
 // USA: func_ov000_0217bb2c
@@ -114,7 +113,7 @@ extern "C" ARM int func_ov000_0217bb2c(MenuObj_0217bb2c* obj, int arg1, int arg2
         }
         return result;
     }
-    int t = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int t = g_keyManager.TestKeysPressed(0x601);
     int active = (t | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)obj->window, 0x14)) != 0;
     if (active) {
         GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), obj->order[obj->cursor]);

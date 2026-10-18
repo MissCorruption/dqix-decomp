@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kRegionValue1E6_1E2 = 0x1e2 };
@@ -9,10 +10,8 @@ enum { kRegionValue1E6_1E2 = 0x1e6 };
 struct Outer020e28dc;
 struct Obj2081;
 
-extern unsigned short data_02114e30;
 extern unsigned char data_02114e54;
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 int GetInnerFlagBit0020e28dc(struct Outer020e28dc* o);
 int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
 void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
@@ -29,7 +28,7 @@ struct Ctx02155208 {
 // USA: func_ov003_02155208  (semantic: CheckStateAtCoords_02155208)
 extern "C" ARM int func_ov003_02155208(struct Ctx02155208* self) {
     int flag = 0;
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) flag = 1;
+    if (g_keyManager.TestKeysPressed(2)) flag = 1;
 
     if (self->ptr1c != NULL && GetInnerFlagBit0020e28dc(self->ptr1c)) {
         if (IsFlag0x2Active020e2984(self->ptr1c)) {

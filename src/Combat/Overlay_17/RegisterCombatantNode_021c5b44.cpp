@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 GameObject* FindCombatantByField16a_021a278c(void* unused, int val);
 struct ListHead02046b38;
@@ -44,7 +45,7 @@ struct Buf021c5b44 {
 // USA: func_ov017_021c5b44  (semantic: RegisterCombatantNode_021c5b44)
 extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int combatantId, unsigned int arg2, unsigned char arg3, unsigned char arg4) {
     GameState::GetInstance();
-    void* baseRaw = (void*)(int)((int)func_ov017_0218b5b0());
+    void* baseRaw = (void*)(int)((int)GetGameResources());
     struct Ctx021c5b44* ctx = (struct Ctx021c5b44*)((char*)baseRaw + 0x3000);
     int id2 = -1;
     void* list = ctx->list6fc;

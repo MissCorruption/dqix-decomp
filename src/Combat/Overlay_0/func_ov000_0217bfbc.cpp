@@ -1,24 +1,23 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 #if defined(jpn)
 enum { flagOffset = 0x484, tableArg0 = 0, tableArg3 = 2, tableArg4 = 1 };
 #else
 enum { flagOffset = 0x444, tableArg0 = 2, tableArg3 = 1, tableArg4 = 0 };
 #endif
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 extern "C" int func_0205d97c(int);
 extern "C" void func_ov000_0217629c(void* obj);
 extern "C" void func_ov000_0217ab8c(void* obj, int a, int b);
 extern "C" void func_ov000_02176e3c(int a, void* obj, int c, int d, int e, int f);
 
-extern unsigned short data_02114e30;
 extern int data_ov000_02184294[3];
 
 // USA: func_ov000_0217bfbc
 extern "C" ARM int func_ov000_0217bfbc(void* objRaw, int arg1, int arg2) {
     char* obj = (char*)objRaw;
-    int flags = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
-    flags |= TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x802);
+    int flags = g_keyManager.TestKeysPressed(0x601);
+    flags |= g_keyManager.TestKeysPressed(0x802);
     int c = (func_0205d97c(*(int*)(obj + 0x38)) == 2) ? 1 : 0;
     if ((flags | c) != 0) {
         *(unsigned char*)(obj + flagOffset) = 0;

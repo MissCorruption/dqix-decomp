@@ -20,6 +20,10 @@
 #include "Resource/Brightness.h"
 #include "System/ColorEffects.h"
 
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
 #define REG_BLDCNT 0x04000050
 #define REG_BLDCNT_SUB 0x04001050
 #define REG_MASTER_BRIGHT ((short*)0x0400006c)
@@ -70,7 +74,7 @@ void BackupPairTables0207dfac(char* a);
 void DispatchIfField0xc4NonNeg_0205ebfc(void* sound, int a, int b);
 void OrBitsIntoField0_020466e4(unsigned int* field, unsigned int bits);
 void ClearFlags020466f4(FlagWord020466f4* field, unsigned int bits);
-void EncodeSignFlaggedHalfword_020c39a0(short* reg, int brightness);
+extern "C" void func_020c39a0(short* reg, int brightness);
 void ForwardField0xc0_0205ebec(void* sound);
 #if defined(jpn)
 #define SetStatValue021855dc func_ov009_021867bc
@@ -339,8 +343,8 @@ extern "C" ARM void func_ov009_02187b34(CharacterCreation* self)
     case 10:
         if (IsBrightnessTransitionActive(resources))
             break;
-        EncodeSignFlaggedHalfword_020c39a0(REG_MASTER_BRIGHT, -16);
-        EncodeSignFlaggedHalfword_020c39a0(REG_MASTER_BRIGHT_SUB, -16);
+        func_020c39a0(REG_MASTER_BRIGHT, -16);
+        func_020c39a0(REG_MASTER_BRIGHT_SUB, -16);
         ClearFlags020466f4((FlagWord020466f4*)unknown, 0x100);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT, 0x1f, 0);
         ColorEffect_ConfigureBrightnessAdjust(REG_BLDCNT_SUB, 0x1f, 0);

@@ -5,6 +5,7 @@
 #include "Memory/AllocatorUnion.h"
 #include "World/LootableContainer.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct StructDE234_020de234 {
     int a, b, c, d;
@@ -100,7 +101,7 @@ extern "C" ARM int func_ov017_021bf7ac(struct Obj021bf7ac* obj) {
                     obj->allocator.ResetAllocatorPointer();
                     obj->allocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x4000), 0x4000);
                     obj->allocator.Reset();
-                    func_ov017_0218d510((int)func_ov017_0218b5b0(), &obj->allocator);
+                    func_ov017_0218d510((int)GetGameResources(), &obj->allocator);
                 } else {
                     char path[0x80];
                     sprintf(path, data_ov017_021d7ee8, (signed char)elem->field10High, GetPreferredPackedField020de234(elem, 0));

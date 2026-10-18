@@ -38,9 +38,6 @@ void* GetField0x3b0Value_020100bc(GameState*);
 extern "C" void* func_0205ec34(void*);
 int ListContainsNode(ListHead02046b38*, ListNode02046b38*);
 int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
-unsigned int GetBitsInField8_0203b534(unsigned int*, unsigned int);
-void ClearBitsInField8_0203b520(unsigned int*, unsigned int);
-void SetBitsInField8_0203b510(unsigned int*, unsigned int);
 int IsField0Null_02046b08(void**);
 void SetObjFieldIfFound_0219bed0(void*);
 unsigned char GetByte0x4_0200fb9c(char*);
@@ -70,10 +67,10 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* resources) {
     if (ListContainsNode((ListHead02046b38*)resources->unknown_ptr_array_36fc[0], (ListNode02046b38*)resources->unknown_ptr_array_36fc[4])) return;
     if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) == 4) return;
     if (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)resources->unknown_ptr_array_36fc[0]) == 10) return;
-    if (GetBitsInField8_0203b534(&resources->brightnessFlags_0, 8)) {
+    if (TestFlags08(resources, 8)) {
         if (static_cast<unsigned char*>(resources->unknown_ptr_array_36fc[5])[3]) return;
         if (IsMainBrightnessTransitionActive(resources)) return;
-        ClearBitsInField8_0203b520(&resources->brightnessFlags_0, 8);
+        ClearFlags08(resources, 8);
     }
     if (ListContainsNode((ListHead02046b38*)resources->unknown_ptr_array_36fc[0], (ListNode02046b38*)resources->unknown_ptr_array_371c[0])) return;
     if (IsField0Null_02046b08((void**)resources->unknown_ptr_array_36fc[0]) && !IsBrightnessTransitionActive(resources) && ((unsigned char*)resources->unknown_42e3)[6]) {
@@ -107,7 +104,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* resources) {
                 }
                 if (handled) {
                     if (!static_cast<unsigned char*>(resources->unknown_ptr_array_36fc[5])[3]) break;
-                    SetBitsInField8_0203b510(&resources->brightnessFlags_0, 8);
+                    SetFlags08(resources, 8);
                     return;
                 }
             }

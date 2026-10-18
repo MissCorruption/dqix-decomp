@@ -2,6 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct OffsetTable02072e34 {
     int v[11];
@@ -108,7 +109,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
     int i;
 
     GameState* gs = GameState::GetInstance();
-    res = func_ov017_0218b5b0();
+    res = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     struct Member021b3e14* member = (struct Member021b3e14*)gs->GetPartyMemberByIndex(self->id);
     models = member->models154;
@@ -249,7 +250,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
     }
 
     if (done) {
-        GameResources* res2 = func_ov017_0218b5b0();
+        GameResources* res2 = GetGameResources();
         func_02053cf8((struct Obj02053cf8*)member);
         FillNameBytes02053e10((struct Obj02053e10*)member);
         int f = 0;

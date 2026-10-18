@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "System/OverlayId.h"
+#include "Resource/GameResources.h"
 
 struct S021b2ba0;
 struct S021b2bdc;
@@ -9,7 +10,6 @@ struct TailList020469b4;
 struct TailNode020469b4;
 struct SafeAllocator;
 
-extern "C" void* func_ov017_0218b5b0();
 void InitObjState_021b2174(unsigned char* obj);
 void SetNameChecked_021b2ba0(S021b2ba0* obj, char* name);
 void SetFields30And34_021b2bd0(void* obj, int handler, int overlayId);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov017_0219c520() {
 #else
  enum {regionalOffset0=0x3b4c, regionalOffset1=0x36fc};
 #endif
-    void* res = func_ov017_0218b5b0();
+    void* res = GetGameResources();
     TailList020469b4* list;
     unsigned char* obj = *(unsigned char**)((char*)res + regionalOffset0);
     list = *(TailList020469b4**)((char*)res + regionalOffset1);

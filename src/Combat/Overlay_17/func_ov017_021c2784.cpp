@@ -60,7 +60,7 @@ struct Obj_021c2784 {
 // USA: func_ov017_021c2784
 extern "C" ARM void func_ov017_021c2784(Obj_021c2784* obj) {
     GameState* battleStruct = GameState::GetInstance();
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     struct SearchStruct* search = func_0202ae18();
     void* reset = GetGlobalResetObj020d7a50();
 

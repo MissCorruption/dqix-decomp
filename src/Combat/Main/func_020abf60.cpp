@@ -7,9 +7,13 @@ enum { BattleTableOffset = 0x75f0 };
 #endif
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 extern "C" void* func_0205ec34(void);
 int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 struct Container_02097430;
 struct Node_02097430 {
     unsigned char unknown0[0x1a];
@@ -41,7 +45,7 @@ extern "C" ARM int func_020abf60(void* entriesData) {
         TestBitInByteArray_0206dfb0((int)events, events->bits, 0x1143) != 0) {
         return 0;
     }
-    SetOrClearBitInArray_0206df6c(events, events->bits, 0x1143, 1);
+    func_0206df6c(events, events->bits, 0x1143, 1);
     unsigned int* table = reinterpret_cast<GameProgressRecords*>(GameState::GetInstance())->records;
     short* keys = data_020e90d4;
     int i;

@@ -3,7 +3,6 @@
 #include "System/Interrupts.h"
 #include "System/GamecardBusOwnership.h"
 
-
 unsigned int SetReadContextPriority(unsigned int priority)
 {
     CardReadManager* manager = (CardReadManager*)&data_021118e0;

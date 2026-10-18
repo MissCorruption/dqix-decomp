@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/CombatantRecovery.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct SearchStruct0202c1a4;
 struct Foo02033b58;
@@ -25,7 +26,7 @@ extern "C" ARM void func_ov017_021bd5d0(void) {
     GameState* battle = GameState::GetInstance();
     void* g = func_0202ae18();
     GameObject* combatant = battle->GetGameObjectByIndex(0);
-    void* other = func_ov017_0218b5b0();
+    void* other = GetGameResources();
     struct CombatantStatus* p = combatant->combatFields_.savedState_130_;
 
     if (p->GetFlags() & 1) {

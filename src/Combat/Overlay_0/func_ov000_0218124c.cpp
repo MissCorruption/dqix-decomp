@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Struct0200fb08;
 struct EntryList0204af14;
@@ -20,7 +21,7 @@ extern "C" ARM void func_ov000_0218124c(unsigned char* obj, int idx, void* targe
         return;
     }
     unsigned char entryIdx = icon + 15;
-    if (func_ov017_021bdbcc(func_ov017_0218b5b0()) != 0) entryIdx = 15;
+    if (func_ov017_021bdbcc(GetGameResources()) != 0) entryIdx = 15;
     void* entry = GetEntryByIndexStride0x10((EntryList0204af14*)(obj + 0x8c4), entryIdx);
     CallFunc0204b620IfField0x14_0204b938(target, entry, x, y, (unsigned short)(idx + 2));
 }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_ov000_0216733c(struct BattleScene021663a0* scene);
 extern "C" void func_ov000_02166540(struct BattleScene021663a0* scene, int id, int kind, int group);
@@ -49,7 +50,7 @@ struct BattleScene021663a0 {
 // USA: func_ov000_021663a0
 extern "C" ARM void func_ov000_021663a0(struct BattleScene021663a0* scene) {
     GameState* gs = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     struct Formation021663a0* formation = &scene->data->formation;
     int count = 0;
     func_ov000_0216733c(scene);

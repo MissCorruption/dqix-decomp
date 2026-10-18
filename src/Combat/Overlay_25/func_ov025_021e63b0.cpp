@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/GameResources.h"
 
 struct CloneSource { unsigned char padding0[0x20]; unsigned short id; };
 struct CloneTargets { unsigned char padding0[0x10]; CloneSource* head; };
@@ -125,7 +126,7 @@ extern "C" ARM int func_ov025_021e63b0(void* unused, CloneTargets* targets) {
             clone->SetScale(&source->obj3D_.GetScale());
             clone->unknown_2_ = sourceId;
             if (((CloneStats*)source->currentStats_)->flags & 0x8000000) {
-                GameResources* resources = func_ov017_0218b5b0();
+                GameResources* resources = GetGameResources();
                 clone->SetAlphaScaleFactor(0);
                 func_ov017_02191aac(resources, 1, sourceId, 2);
             }

@@ -44,7 +44,6 @@ struct LookupRecord02154f24
 void* GetGlobalPtr021075f4_0203cf4c();
 extern "C" LoadArguments02154f24* func_02012fe4();
 extern "C" void* func_0202ae18();
-unsigned int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
 void EmptyStub02012de4(AllocatorUnion*);
 extern "C" void func_020a0cc4(int);
 extern "C" void func_0203e0a0(void*, int);
@@ -81,12 +80,12 @@ static inline SafeAllocator* GetAllocator02154f24(GameResources* resources, int 
 extern "C" ARM int func_ov001_02154f24(LoadState02154f24* self)
 {
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     void* list = GetGlobalPtr021075f4_0203cf4c();
     LoadArguments02154f24* arguments = func_02012fe4();
     void* other = func_0202ae18();
-    if (!GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000))
+    if (!TestFlags00(resources, 0x1000))
     {
         if (!AlwaysTrue02094b4c(GetGlobal02109400_02094a00()))
         {
@@ -100,7 +99,7 @@ extern "C" ARM int func_ov001_02154f24(LoadState02154f24* self)
     EmptyStub02012de4(&data_02114e20);
     func_020a0cc4(0x40400);
     EmptyStub02012de4(&data_02114e20);
-    if ((self->flags & 1) && !GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000))
+    if ((self->flags & 1) && !TestFlags00(resources, 0x1000))
     {
         func_0203e0a0(list, arguments->slot);
         func_ov017_021a316c(resources);
@@ -127,7 +126,7 @@ extern "C" ARM int func_ov001_02154f24(LoadState02154f24* self)
     {
         size += self->savedSize;
     }
-    if (!GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000))
+    if (!TestFlags00(resources, 0x1000))
     {
         void* memory = AllocateAligned4_02012d88(&data_02114e20, size);
         self->allocator.CreateTypeA(memory, size);

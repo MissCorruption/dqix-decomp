@@ -3,6 +3,10 @@
 #include "Resource/Brightness.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 struct Struct020865b0;
 struct Obj02033874;
 struct FlagWord020466f4;
@@ -78,7 +82,7 @@ extern "C" void func_ov017_021cca5c(int, int);
 extern "C" void func_ov017_021ccb58(int, int);
 extern "C" void* func_0205ec34(void);
 extern "C" void func_0206e424(void*, int);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
 extern "C" void func_ov017_02191234(unsigned char*);
 void SetCombatModeFromCase020dc2d0(int);
@@ -187,7 +191,7 @@ extern "C" ARM int func_ov003_02166a90(SelectionPage02166a90* self, int key) {
         func_0206e424(func_0205ec34(), self->slot);
         state->GetPartyMemberByIndex(self->slot);
         PartyFlags02166a90* flags = (PartyFlags02166a90*)func_0205ec34();
-        SetOrClearBitInArray_0206df6c(flags, flags->flags, 0x784, 1);
+        func_0206df6c(flags, flags->flags, 0x784, 1);
         self->step = 0;
         ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x41);
         func_ov017_02191234((unsigned char*)resources);

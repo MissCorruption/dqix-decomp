@@ -1,6 +1,7 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct ArrayContainsByteStruct;
 int ArrayContainsByte_02086ef0(ArrayContainsByteStruct *arr, int value);
@@ -35,7 +36,7 @@ extern "C" ARM int func_ov002_02154230(char *base, struct Act02154230 *act, int 
     if (act == NULL) return 0;
     if (target == 0) return 0;
     GameState *gs                  = GameState::GetInstance();
-    GameResources *res             = func_ov017_0218b5b0();
+    GameResources *res             = GetGameResources();
     ArrayContainsByteStruct *party = (ArrayContainsByteStruct *) GetPtrField0x2a04_02010828(gs);
     int *ctx                       = func_0202ae18();
     struct Rec02154230 *recs       = (struct Rec02154230 *) ((char *) act + 8);

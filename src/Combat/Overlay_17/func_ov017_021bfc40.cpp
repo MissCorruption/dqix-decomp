@@ -3,13 +3,13 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 int HasNonZeroByteAtOfField498_0218d75c_0218d75c(void* obj);
 int GetByteField0x252_02039820(void* obj);
 void SetByteField0x253_020397c0(void* obj);
 int GetFieldIfFlag4_020100f8(char* obj);
 void SetField0x23cTrue_020a27ac(void* obj);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 int GetGlobalField0x1c020421a0(void);
 
 struct Vec3copy0202ec84 { unsigned int v[3]; };
@@ -36,10 +36,10 @@ struct Obj021bfc40 {
 extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
     GameState* battle = GameState::GetInstance();
     int ticks = battle->GetTickCount();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
 
     if (self->skip != 0) {
-        GameResources* res2 = func_ov017_0218b5b0();
+        GameResources* res2 = GetGameResources();
         if (HasNonZeroByteAtOfField498_0218d75c_0218d75c(res2) != 0) {
             return 4;
         }
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
             SetField0x23cTrue_020a27ac((void*)flag);
         }
         if (res2 != NULL) {
-            ClearBitsInField4_0203b4e8(&res2->brightnessFlags_0, 0x80);
+            ClearFlags04(res2, 0x80);
         }
         self->countdown = 0;
         self->timer = 0;
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Obj021bfc40* self) {
             SetField0x23cTrue_020a27ac((void*)flag);
         }
         if (res != NULL) {
-            ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x80);
+            ClearFlags04(res, 0x80);
         }
     }
 

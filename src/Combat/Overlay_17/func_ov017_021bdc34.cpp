@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/GameResources.h"
 
 struct Foo0207df50 { unsigned char fields[0x70]; };
 struct S021a11b4;
@@ -47,7 +48,7 @@ extern const char data_ov017_021d7e61[], data_ov017_021d7e6c[], data_ov017_021d7
 // USA: func_ov017_021bdc34
 extern "C" ARM void func_ov017_021bdc34(LoadState021bdc34* self) {
     GameState* game = GameState::GetInstance();
-    LoadGlobals021bdc34* globals = (LoadGlobals021bdc34*)func_ov017_0218b5b0();
+    LoadGlobals021bdc34* globals = (LoadGlobals021bdc34*)GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     LoadActor021bdc34* actor = (LoadActor021bdc34*)GetCombatantWithFlag0x100_0200ff1c(game, 0);
     if (actor == 0) return;

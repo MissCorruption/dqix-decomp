@@ -8,6 +8,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/Brightness.h"
 
 #define REG_DISPCNT (*(volatile unsigned int*)0x04000000)
 #define REG_BG0CNT (*(volatile unsigned short*)0x04000008)
@@ -127,7 +128,6 @@ extern "C" void func_ov008_0218aa24(void* self);
 
 char* GetWord0x0_0200fb8c(int* gameState);
 int IsField0Null_02046b08(void** field);
-void SetBitsInWord_0203b4a0(unsigned int* word, unsigned int bits);
 unsigned int* GetDataPtr02114e04_020d6c00();
 void OrBitsIntoField0_020466e4(unsigned int* field, unsigned int bits);
 MessageSystem* GetGlobalField0x1c020421a0();
@@ -230,7 +230,7 @@ extern "C" ARM void func_ov008_021895a8(VisitorTalk* self)
             + 0x3700)))
 #endif
             return;
-        SetBitsInWord_0203b4a0((unsigned int*)func_ov017_0218b5b0(), 0x10);
+        SetFlags00(GetGameResources(), 0x10);
         OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 0xd);
         unsigned int female;
         self->text_ = (char*)GetGlobalField0x1c020421a0()->unk_5c;

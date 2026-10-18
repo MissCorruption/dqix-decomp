@@ -4,6 +4,7 @@
 #include "Filesystem/FileIO.h"
 #include "System/Memory.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_020a395c(void);
 int AllocateIndexedSlot020a36cc(void** out, unsigned int idx);
@@ -18,7 +19,7 @@ extern const char data_020f1ab0[];
 // USA: func_020a3720  (semantic: AllocateAndReloadTreasureMapLanguageBuffers_020a3720)
 extern "C" ARM int func_020a3720(void) {
     GameState* battleStruct = GameState::GetInstance();
-    int base = ((int)func_ov017_0218b5b0());
+    int base = ((int)GetGameResources());
     unsigned char* buf = battleStruct->GetTreasureMapLanguageData();
     if (buf != 0 || *(void**)(base + 0x4000 + (
 #if defined(jpn)

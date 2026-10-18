@@ -181,7 +181,7 @@ extern "C" ARM void func_ov026_021dd8a8(BattleState* battle, PartyState* party) 
         }
     }
 
-    res = func_ov017_0218b5b0();
+    res = GetGameResources();
     zone = NULL;
     view = NULL;
     none = (int)zone;

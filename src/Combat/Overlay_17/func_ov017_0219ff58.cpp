@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
+#include "Resource/GameResources.h"
 
 struct Combatant02048260;
 struct Combatant020482bc;
@@ -62,7 +63,7 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* ov, int flagA, int flagB, 
     GameState* battle = GameState::GetInstance();
     if (CheckBitsInField0x63dc_02011b50(battle, 1) != 0) {
         if (revive != 0) {
-            func_ov017_0218b5b0();
+            GetGameResources();
             signed char leader = GetField0x3acValue_020100a8(battle);
             Combatant0219ff58* c = (Combatant0219ff58*)battle->GetPartyMemberByIndex(leader);
             if (c != NULL) {

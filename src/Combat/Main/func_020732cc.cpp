@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern void* GetPtrField0x2a04_02010828(GameState* battleStruct);
 GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* battleStruct, int combatantId);
@@ -31,7 +32,7 @@ enum { CombatantSlotOffset = 0x150 };
 // USA: func_020732cc
 extern "C" ARM void func_020732cc(int arg0) {
     GameState* gs = GameState::GetInstance();
-    void* res = func_ov017_0218b5b0();
+    void* res = GetGameResources();
     void* p2a04 = GetPtrField0x2a04_02010828(gs);
     GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(gs, arg0);
     if (combatant != NULL) {

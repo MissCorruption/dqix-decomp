@@ -2,6 +2,7 @@
 
 #include <World/Object3D.h>
 #include <Graphics/NSBXX/RenderConfig.h>
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 #define IS_JPN 1
@@ -9,17 +10,14 @@
 #define IS_JPN 0
 #endif
 
-extern "C" void* func_ov017_0218b5b0(const void* p);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
-
 extern "C" void func_020ca528(void* a, void* b);
 extern int data_0210a0cc;
 
 // USA: func_0208f87c
 ARM void SyncBattleState0208f87c(const void* self, int b, int c, int d, int polygonId) {
-    void* ov = func_ov017_0218b5b0(self);
+    void* ov = GetGameResources();
     Object3D* r4 = *(Object3D**)((char*)ov + (IS_JPN ? 0x34bc : 0x36cc));
-    if (GetBitsInField4_0203b4fc((unsigned int*)ov, 0x200400) != 0) {
+    if (TestFlags04((GameResources*)ov, 0x200400) != 0) {
         return;
     }
     if (r4->pModel_ == 0) {

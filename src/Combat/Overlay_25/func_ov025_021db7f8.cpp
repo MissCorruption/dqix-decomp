@@ -5,6 +5,7 @@ enum {regionalOffset0=0x29c, regionalOffset1=0x2a0, regionalOffset2=0xe90, regio
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_ov000_0215e9fc(void* party, short* buf, int max, int start);
 extern "C" int func_ov000_0215ec1c(void* party, short* buf, int max, int start);
@@ -48,7 +49,7 @@ extern "C" ARM void func_ov025_021db7f8(BattleCtrl_021db7f8* obj) {
         }
     }
     SetOrInitField_02182498(obj->field6ffc, 1);
-    SetFlag320_02195530((unsigned char*)func_ov017_0218b5b0());
+    SetFlag320_02195530((unsigned char*)GetGameResources());
     GetGlobalField0x1c020421a0()[regionalOffset5] = 0;
     obj->fieldE90 = 0;
     obj->fieldE94 = 0;

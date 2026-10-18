@@ -10,6 +10,7 @@ enum { RegionOffset600 = 0x600, RegionOffset2cc = 0x2cc };
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/GameResources.h"
 
 struct Struct0218d618;
 int IsField10Eq2_0218d618(struct Struct0218d618* p);
@@ -31,7 +32,7 @@ void Forward02047b30(void* a, int b, int c, int d);
 // USA: func_ov017_021b5dc4
 extern "C" ARM int func_ov017_021b5dc4(char* self) {
     if (*(unsigned char*)(self + 0x54) != 0) {
-        if (!IsField10Eq2_0218d618((struct Struct0218d618*)((char*)func_ov017_0218b5b0())))
+        if (!IsField10Eq2_0218d618((struct Struct0218d618*)((char*)GetGameResources())))
             return 3;
     } else {
         BackgroundLoader* loader = BackgroundLoader::GetInstance();
@@ -51,7 +52,7 @@ extern "C" ARM int func_ov017_021b5dc4(char* self) {
                     MaybeInvoke0204719c_02047230((struct Foo02048004*)*(int*)(self + 0x20));
                     func_0204719c((struct Foo02048004*)*(int*)(self + 0x20));
                     unsigned char local[0x70];
-                    short* mid = (short*)(((char*)func_ov017_0218b5b0()) + RegionOffset2cc);
+                    short* mid = (short*)(((char*)GetGameResources()) + RegionOffset2cc);
                     CopyState0207dfc8((struct State0207dfc8*)((char*)mid + 0x230), (struct State0207dfc8*)local);
                     RestorePairTables0207df90((char*)local);
                     Forward02047b30((void*)*(int*)(self + 0x20), (int)outPtr, (int)outSize, (int)(self + 0x40));

@@ -150,7 +150,7 @@ extern "C" ARM int func_ov017_021ab860(int arg0, unsigned char arg1) {
         }
     }
     if (data_ov017_021d83b0.entryId != 0) {
-        GameResources* res = func_ov017_0218b5b0();
+        GameResources* res = GetGameResources();
         InitState28_021abb68((struct Obj021abb68*)res->unknown_ptr_array_3afc[6], arg1);
         InsertNodeAfterHead((struct List02046a3c*)res->unknown_ptr_array_36fc[0],
                             (struct Node02046a3c*)res->unknown_ptr_array_3afc[6]);

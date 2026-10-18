@@ -15,6 +15,10 @@ enum { kGlobalDisplayOffset = 0x508, kControllerBackupOffset = 0x1e28, kSceneAll
 #include "Memory/SafeAllocator.h"
 #include "System/OverlayId.h"
 
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
 struct AllocatorUnion;
 struct Foo0207df50;
 struct S_02010124;
@@ -28,7 +32,7 @@ void PushInputLogA_020a1df8(int value);
 void PopStack0AndTrigger_020a1e54(int value);
 extern "C" void func_020a1940(unsigned int id);
 void SetWord0x0_0200fb84(int* obj, int value);
-void EncodeSignFlaggedHalfword_020c39a0(short* reg, int value);
+extern "C" void func_020c39a0(short* reg, int value);
 extern "C" void* func_0203bd08(void);
 void InitBattleContext0203bd24(char* context);
 int* GetGlobalPtr02105244_0203bd14();
@@ -120,8 +124,8 @@ extern "C" ARM void func_ov021_0218b5fc(Battle0218b5fc* self) {
     func_020a1940(OVERLAY_ID(23));
     GameState* gs = GameState::GetInstance();
     SetWord0x0_0200fb84((int*)gs, (int)self);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     BackgroundLoader::GetInstance()->MaybeReset();
     void* context = func_0203bd08();
     InitBattleContext0203bd24((char*)context);

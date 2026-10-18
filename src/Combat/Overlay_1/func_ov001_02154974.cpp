@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct Node02154974 {
     unsigned char kind : 4;
@@ -52,7 +53,6 @@ void _Z30ReleaseOrDecrementSlot0204039cP17Container0204039ci(void* container, in
 void _Z13Reset02040504Pi(int* entry);
 void _Z21SetSlotIfIndexBelow32P17SlotArray0203dd10ji(void* list, int index, int arg);
 void _Z20CallByIndex_0215acd4i(int index);
-void _Z26ClearBitsInField4_0203b4e8Pjj(unsigned int* obj, unsigned int bits);
 }
 
 void* EmptyStub0203d004(void* list);
@@ -63,7 +63,7 @@ extern char data_ov001_02164bd1[];
 extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
     GameState* gs = GameState::GetInstance();
     struct Global02154974* global = _Z29GetGlobalPtr021075f4_0203cf4cv();
-    GameResources* base = func_ov017_0218b5b0();
+    GameResources* base = GetGameResources();
     struct Other02154974* other;
     struct Node02154974* node;
     struct Node02154974* walk;
@@ -142,10 +142,10 @@ extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
         return;
     }
     if (self->mode & 1) {
-        _Z26ClearBitsInField4_0203b4e8Pjj(&base->brightnessFlags_0, 8);
+        ClearFlags04(base, 8);
     }
     if (self->mode & 2) {
-        _Z26ClearBitsInField4_0203b4e8Pjj(&base->brightnessFlags_0, 0x10);
+        ClearFlags04(base, 0x10);
     }
     if (self->mode & 4) {
         int j;
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov001_02154974(struct Self02154974* self) {
         }
     }
     if (self->mode & 8) {
-        _Z26ClearBitsInField4_0203b4e8Pjj(&base->brightnessFlags_0, 0x400);
+        ClearFlags04(base, 0x400);
     }
     if (self->mode & 0x20) {
         _Z29GetGlobalPtr021075f4_0203cf4cv()->flags &= ~2;

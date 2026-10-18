@@ -2,6 +2,7 @@
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { Field105 = 0x125, Field10c = 0x12c };
@@ -15,9 +16,6 @@ int GetFieldIfFlag4_020100f8(char* obj);
 void ClearFlagBits_020a28b0(unsigned char* obj, int mask);
 void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
 void SetField0x23cTrue_020a27ac(void* obj);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
 void CallHelperFourTimesWithSelf_0218f758(void* self);
 
@@ -62,7 +60,7 @@ struct SelfState_021b2758 {
 // USA: func_ov017_021b2758
 extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
     GameState* battleStruct = GameState::GetInstance();
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     SetField0x3b0Value_020100c4(battleStruct, self->field0x44);
 
     if (data_ov017_021d83f0.slot != 0) {
@@ -73,10 +71,10 @@ extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
         func_020a0c0c();
     }
 
-    ClearBitsInWord_0203b4b0(&ov->brightnessFlags_0, 0x10);
+    ClearFlags00(ov, 0x10);
     if (self->field0x38.b.bit0) {
         func_02012fe4();
-        ClearBitsInWord_0203b4b0(&ov->brightnessFlags_0, 4);
+        ClearFlags00(ov, 4);
         func_ov017_0219bd1c(1, 0, 0, 0);
         self->field0x38.raw &= ~2;
         void* p = GetField0x3f8Address_0200fd0c(battleStruct);
@@ -101,8 +99,8 @@ extern "C" ARM int func_ov017_021b2758(SelfState_021b2758* self) {
     }
 
     if (!self->field0x38.b.bit5) {
-        ClearBitsInField4_0203b4e8(&ov->brightnessFlags_0, 0x609fe);
-        SetBitsInField4_0203b4d8(&ov->brightnessFlags_0, self->field0x40);
+        ClearFlags04(ov, 0x609fe);
+        SetFlags04(ov, self->field0x40);
     }
 
     Data02107930_021b2758* d = (Data02107930_021b2758*)LightingManager::GetInstance();

@@ -1,8 +1,12 @@
 #include <globaldefs.h>
 
-int GetSignedField020c39c8(volatile unsigned short* p);
+#if defined(jpn)
+#define func_020c39c8 func_020c5494
+#endif
+
+extern "C" int func_020c39c8(volatile unsigned short* p);
 
 // USA: func_020dbfe0
 ARM int GetMasterBrightnessSub_020dbfe0() {
-    return GetSignedField020c39c8((volatile unsigned short*)0x400106c);
+    return func_020c39c8((volatile unsigned short*)0x400106c);
 }

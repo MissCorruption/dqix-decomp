@@ -7,6 +7,8 @@
 #include "Resource/Brightness.h"
 #include "System/Graphics.h"
 #include "System/ColorEffects.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct AllocatorUnion;
 struct Obj02086b98;
@@ -86,7 +88,6 @@ void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 void CallFunc0204c804OverAllElems(struct Cont0207fe44* obj);
 void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
 int CheckCoordsInsideElement_021ab1a4(struct Ctx021ab1a4* ctx);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
 unsigned char GetField0x5729Value_02010750(char* gs);
 extern "C" void func_ov017_021d1a18(int a, int b, int c, int d);
@@ -97,7 +98,6 @@ void SetField0x5729Value_0201075c(char* gs, unsigned char value);
 void InitActorContext0209c20c(struct Actor0209c20c* actor);
 
 extern AllocatorUnion data_02114e20;
-extern unsigned short data_02114e30;
 extern struct Obj0205eaa0 data_02108760;
 #if defined(jpn)
 extern char data_ov017_021d7ddc[];
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
     Scene021aa59c* scene;
     GameState* gs = GameState::GetInstance();
     func_0202ae18();
-    res = func_ov017_0218b5b0();
+    res = GetGameResources();
     GetGlobalField0x1c020421a0();
     CountHead* nodes = (CountHead*)res->unknown_ptr_array_36fc[0];
     scene = (Scene021aa59c*)func_02012fe4();
@@ -338,7 +338,7 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
                 } else if (CheckCoordsInsideElement_021ab1a4((Ctx021ab1a4*)self) != 0) {
                     redraw = true;
                 }
-            } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401) != 0 || data_02114e54.flag55 != 0) {
+            } else if (g_keyManager.TestKeysPressed(0x401) != 0 || data_02114e54.flag55 != 0) {
                 func_020813ec(menu, self->key);
                 SetThreeEntryFlags_021ab060((Obj021ab060*)self);
                 ClearFlags020466f4((FlagWord020466f4*)flags, 0x200);

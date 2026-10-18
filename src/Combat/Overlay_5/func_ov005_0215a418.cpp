@@ -5,6 +5,11 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <Graphics/Vector.h>
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_020c51a4 func_020c6c70
+#endif
 
 #if defined(jpn)
 #define LOW_REGION(j, u) (j)
@@ -12,7 +17,7 @@
 #define LOW_REGION(j, u) (u)
 #endif
 
-void IssueCommand0x19_020c51a4(int cmd);
+extern "C" void func_020c51a4(int cmd);
 
 char* GetField1c_021a193c(int*);
 struct Field150Holder02052e14;
@@ -45,7 +50,7 @@ struct Scene0215a418 {
 // USA: func_ov005_0215a418
 extern "C" ARM void func_ov005_0215a418(Scene0215a418* self) {
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     char* holder = GetField1c_021a193c((int*)res->unknown_ptr_array_36fc[3]);
     short* tbl = GetField150Ptr0x488((Field150Holder02052e14*)(GetCombatantWithFlag0x100_0200ff1c(gs,*(int*)(holder + LOW_REGION(0x4f8, 0x4fc)))));
     if (self->mode != 0) return;
@@ -68,7 +73,7 @@ extern "C" ARM void func_ov005_0215a418(Scene0215a418* self) {
         G3_MTX_TRANS = y;
         G3_MTX_TRANS = -0x200000;
         Matrix4x3 mtxCopy = RotationMatrixY(0x3244);
-        IssueCommand0x19_020c51a4((int)&mtxCopy);
+        func_020c51a4((int)&mtxCopy);
         func_02047554((Entry0215a418*)((char*)ents + off), 0, 1);
         G3_MTX_POP = 1;
         G3_MTX_PUSH = 0;

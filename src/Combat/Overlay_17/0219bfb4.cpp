@@ -85,7 +85,7 @@ static inline unsigned char GetScriptIndex(int slot, int offset) {
 
 // USA: func_ov017_0219bfb4
 extern "C" ARM void func_ov017_0219bfb4(int mode, unsigned short id) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     GameState* gs = GameState::GetInstance();
     char* party = (char*)GetPtrField0x2a04_02010828(gs);
     char* record = (char*)GetField0x3f8Address_0200fd0c(gs);

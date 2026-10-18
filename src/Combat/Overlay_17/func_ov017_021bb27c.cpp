@@ -2,6 +2,7 @@
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/Brightness.h"
 
 struct Flags02033fdc;
 struct Foo02033b58;
@@ -57,7 +58,6 @@ struct Bounds021bb27c { int zone; Vector3fix origin, extent, destination; };
 int GetFieldIfFlag4_020100f8(char*);
 extern "C" int* func_0202ae18();
 extern "C" Zone021bb27c* func_02012fe4();
-unsigned int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
 void DestroyActiveAllocators_0215aa5c();
 void ClearFlag0x4At0xe0(Flags02033fdc*);
 void SetByteSavingPrevious(Foo02033b58*, unsigned char);
@@ -67,8 +67,6 @@ int CheckField0NonZero_0202b7d8(int*);
 void SetField0x158_02053ec8(void*, int);
 void ResetTransformState02053f04(void*);
 int GetField0x397cValue_020100b0(GameState*);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
 void TailForward02012da4(AllocatorUnion*, void*);
 FlagWord020466f4* GetDataPtr02114e04_020d6c00();
 void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
@@ -101,14 +99,14 @@ static inline Detail021bb27c* GetEncounterDetail(GameResources* resources) {
 extern "C" ARM void func_ov017_021bb27c(Event021bb27c* self) {
     int* search;
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     ListHead02046b60* list = (ListHead02046b60*)resources->unknown_ptr_array_36fc[0];
     Detail021bb27c* detail = GetEncounterDetail(resources);
     GameObject* leader = game->GetUnknownGameObject();
     void* controlled = (void*)GetFieldIfFlag4_020100f8((char*)game);
     search = func_0202ae18();
     Zone021bb27c* zone = func_02012fe4();
-    if (!GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000)) {
+    if (!TestFlags00(resources, 0x1000)) {
         DestroyActiveAllocators_0215aa5c();
     }
     if (self->zone == 0x7343 || self->zone == 0x7346 || self->zone == 0x7349) zone->key = self->zone;
@@ -151,14 +149,14 @@ extern "C" ARM void func_ov017_021bb27c(Event021bb27c* self) {
         }
     }
     if (resources) {
-        ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x1040);
-        ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0, 0x10);
-        ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0, 0x800);
-        ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0, 0x4000);
+        ClearFlags04(resources, 0x1040);
+        ClearFlags00(resources, 0x10);
+        ClearFlags00(resources, 0x800);
+        ClearFlags00(resources, 0x4000);
     }
     void* allocation = self->nestedAllocator.GetSignedAllocator();
     if (allocation) { self->nestedAllocator.Destroy(); self->allocator.Free(allocation); }
-    if (!GetBitsInField0_0203b4c4(&resources->brightnessFlags_0, 0x1000)) {
+    if (!TestFlags00(resources, 0x1000)) {
         allocation = self->allocator.GetSignedAllocator();
         if (allocation) { self->allocator.Destroy(); TailForward02012da4(&data_02114e20, allocation); }
     }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_ov011_021849c8(void* obj);
 extern "C" void* func_ov023_021f6880(void* obj, int id);
@@ -35,6 +36,6 @@ extern "C" ARM int func_ov004_02165a1c(void* self) {
         CopyInToRegion0x6482_02011a24((char*)state, base + stat * 0x1c);
     }
     func_ov011_021848a0(self, 0x73);
-    func_ov017_0218d77c(func_ov017_0218b5b0(), 2);
+    func_ov017_0218d77c(GetGameResources(), 2);
     return 0;
 }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 int GetWord0x0_0200fb8c(int* obj);
 int IsSubBrightnessTransitionActive(GameResources*);
@@ -9,8 +10,6 @@ void ClearFlag0x11IfSet(struct Struct02074bf4*);
 
 struct StructAllocGroup0208ba54;
 void DestroyStructAllocGroup0208ba54(struct StructAllocGroup0208ba54*);
-
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
@@ -56,5 +55,5 @@ ARM void AdvanceState0208d340(struct Obj0208d340* obj) {
     *(short*)((char*)reg + 0x50) = 0;
     obj->fd5 = obj->fd5 + 1;
     DestroyStructAllocGroup0208ba54((struct StructAllocGroup0208ba54*)obj);
-    ClearBitsInWord_0203b4b0((unsigned int*)GetWord0x0_0200fb8c((int*)GameState::GetInstance()), 0x6000);
+    ClearFlags00((GameResources*)(GetWord0x0_0200fb8c((int*)GameState::GetInstance())), 0x6000);
 }

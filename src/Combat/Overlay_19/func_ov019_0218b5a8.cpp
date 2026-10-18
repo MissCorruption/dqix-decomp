@@ -9,6 +9,10 @@
 #include "Graphics/NSBXX/RenderConfig.h"
 #include "Combat/MapDisplay.h"
 
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
 struct ClearTarget0205a234 {
     int field0;
     unsigned short field4;
@@ -28,7 +32,7 @@ void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
 void InitStruct0205a444(char* obj);
 void Init0205a198(Struct0205a198* obj);
 void ClearField0And40205a234(ClearTarget0205a234* obj);
-void EncodeSignFlaggedHalfword_020c39a0(short* reg, int value);
+extern "C" void func_020c39a0(short* reg, int value);
 void SetWord0x0_0200fb84(int* obj, int value);
 char* GetData02105254_0203b628();
 void ClearThreeRegions0203b634(char* obj);
@@ -214,8 +218,8 @@ extern "C" ARM void func_ov019_0218b5a8(TitleScene0218b5a8* self) {
         Init0205a198(&self->entries[i]);
     }
     ClearField0And40205a234(&self->tail);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
     SetWord0x0_0200fb84((int*)gs, (int)self);
     loader->MaybeReset();
     ClearThreeRegions0203b634(GetData02105254_0203b628());

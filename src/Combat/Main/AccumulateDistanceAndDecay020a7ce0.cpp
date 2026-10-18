@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "System/Matrix.h"
+#include "Resource/GameResources.h"
 #if defined(jpn)
 enum { kContextField = 0x524 };
 enum { kDistanceField = 0x7d4 };
@@ -9,7 +10,6 @@ enum { kDistanceField = 0x794 };
 #endif
 
 extern "C" void* func_02012fe4(void);
-extern "C" void* func_ov017_0218b5b0(void);
 
 extern "C" int _s32_div_f(int a, int b);
 
@@ -24,7 +24,7 @@ struct Obj020a7ce0 {
 // USA: func_020a7ce0  (semantic: AccumulateDistanceAndDecay020a7ce0)
 extern "C" ARM void func_020a7ce0(struct Obj020a7ce0* p) {
     void* ctx = func_02012fe4();
-    void* ov = func_ov017_0218b5b0();
+    void* ov = GetGameResources();
     char* g = (char*)ov + 0x3000;
     void* g734 = *(void**)(g + kContextField);
     if (((unsigned char*)g734)[3] != 0) return;

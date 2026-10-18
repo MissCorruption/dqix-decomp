@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { Field718 = 0x508, Field700 = 0x4f0 };
@@ -29,7 +30,7 @@ struct Ctx021b08f4 {
 // USA: func_ov017_021b08f4  (semantic: UpdateSlotFlagsAndGetByteA_021b08f4)
 extern "C" ARM unsigned char func_ov017_021b08f4(Ctx021b08f4* obj) {
     GameState::GetInstance();
-    int ctx = ((int)func_ov017_0218b5b0());
+    int ctx = ((int)GetGameResources());
     char* base = (char*)ctx + 0x3000;
     void* p718 = *(void**)(base + Field718);
     void* p700 = *(void**)(base + Field700);

@@ -2,6 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 int GetWord0x0_0200fb8c(int*);
 extern "C" void func_ov005_02155424(void* self);
@@ -12,7 +13,6 @@ extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePa
 extern "C" void func_020dfec0(void* dest, void* allocator, void* fileData, unsigned int size);
 char* GetGlobalField0x1c020421a0();
 void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fog);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int bits);
 int* GetData02105254_0203b628();
 void SetupBankModeAndTransfer_0203b678(int* obj, int a, int b);
 void TailForward0203b66c(char*);
@@ -182,7 +182,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         BackgroundLoader::RemoveLockGlobal();
         self->fe10 = *(int*)(GetGlobalField0x1c020421a0() + 0x5c);
         Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
-        SetBitsInField4_0203b4d8((unsigned int*)word, 0x800);
+        SetFlags04((GameResources*)word, 0x800);
         int* bank = GetData02105254_0203b628();
         SetupBankModeAndTransfer_0203b678(bank, 0, 1);
         TailForward0203b66c((char*)bank);
@@ -336,7 +336,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         self->flags.bits.b3 = 1;
 
         GameState::GetInstance();
-        char* res = (char*)func_ov017_0218b5b0();
+        char* res = (char*)GetGameResources();
         int v = *(int*)(GetField1c_021a193c((int*)(*(int*)(res + 0x3708))) + 0x4fc);
         func_020dc7e8(5, (signed char)v);
         self->effectAlloc.Reset();

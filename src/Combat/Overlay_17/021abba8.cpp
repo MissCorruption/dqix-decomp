@@ -12,6 +12,11 @@ enum { kContextPointerOffset = 0x154 };
 #include "Resource/GameResources.h"
 #include "System/OverlayId.h"
 #include "World/Object3D.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct Obj020397cc;
 struct ListHead02046b60;
@@ -74,7 +79,6 @@ int ListContainsId(ListHead02046b60* list, int id);
 extern "C" void func_ov017_021ac2a8(void* obj);
 extern "C" void func_02046a8c(void* list, void* node);
 int IsField0Null_02046b08(void** obj);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
 int GetGlobal02109400_02094a00(void);
 extern "C" void func_02094ab0(int g);
 extern "C" void func_020a0cc4(unsigned int size);
@@ -88,12 +92,11 @@ void SetForwardAndStore0205ebc0(void* obj, int arg1, int arg2);
 void DispatchIfField0xc4NonNeg_0205ebfc(void* obj, int a, int b);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 void CallListIfFlagsSet_02197528(void);
 void SetByteField0x253_020397c0(void* obj);
 void ForwardField0xc0_0205ebec(void* obj);
 extern "C" void* func_0205ec34(void);
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 int CheckBitsInField0x63dc_02011b50(void* obj, int mask);
 void InitObjState_021b2174(unsigned char* obj);
 void SetNameChecked_021b2ba0(S021b2ba0* obj, char* name);
@@ -113,7 +116,7 @@ extern AllocatorUnion data_02114e20;
 extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* list) {
     GameState* gs = GameState::GetInstance();
     void* search = func_0202ae18();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     GameObject* leader = gs->GetUnknownGameObject();
     void* mgr = func_02057924();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
@@ -128,7 +131,7 @@ extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* 
                 func_02046a8c(list, res->unknown_ptr_array_36fc[4]);
             }
         } else if (IsField0Null_02046b08((void**)res->unknown_ptr_array_36fc[1])) {
-            SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 0x10);
+            SetFlags00(res, 0x10);
             func_02094ab0(GetGlobal02109400_02094a00());
             func_020a0cc4(0x2800);
             self->task = loader->QueueLoadFile(&data_ov017_021d78da, NULL);
@@ -253,7 +256,7 @@ extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* 
                     }
                 }
             }
-            ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x10);
+            ClearFlags00(res, 0x10);
             CallListIfFlagsSet_02197528();
             self->done = 1;
             SetByteField0x253_020397c0(leader);
@@ -261,7 +264,7 @@ extern "C" ARM void func_ov017_021abba8(Loader021abba8* self, ListHead02046b60* 
             ForwardField0xc0_0205ebec(&data_02108760);
             if (func_0202c508(search)) {
                 unsigned char* flags = (unsigned char*)func_0205ec34();
-                SetOrClearBitInArray_0206df6c(flags, flags + 0x8c, 0x113d, 1);
+                func_0206df6c(flags, flags + 0x8c, 0x113d, 1);
             }
             if (CheckBitsInField0x63dc_02011b50(gs, 1) && self->active != 0) {
                 TailList020469b4* tail;

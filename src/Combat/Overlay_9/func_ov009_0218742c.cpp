@@ -4,6 +4,7 @@
 #include "System/ColorEffects.h"
 #include "Util/Random.h"
 #include "std_library_functions.h"
+#include "Input/Input.h"
 
 struct PackedStats0218742c {
     unsigned int first : 10;
@@ -67,7 +68,6 @@ void SetElementFieldC2_0205deb4(Struct_0205d81c*, int, int);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 int GetActiveScaledSum0205d794(Struct_0205c570*);
 int IsActiveElementFlag2Set0205da38(Obj_0205da38*, int);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
 void ClearBuffer0204b010(Obj0204b010*, void*);
 extern "C" void func_0204bc74(void*, int, int, int, int, int, int);
@@ -95,7 +95,6 @@ extern "C" void func_020830cc(void*, Snapshot0218742c*);
 extern "C" void func_02086778(void*, Snapshot0218742c*, unsigned char, unsigned char);
 extern "C" void* func_ov003_0215f4fc(void*, const char*);
 extern Obj0205eaa0 data_02108760;
-extern unsigned short data_02114e30[];
 extern unsigned char data_ov009_0218a9b4[];
 extern char data_ov009_0218ad2c[];
 extern char data_0211e33c[] __attribute__((aligned(4)));
@@ -123,15 +122,15 @@ extern "C" ARM void func_ov009_0218742c(Menu0218742c* menu) {
         menu->selection = GetActiveScaledSum0205d794((Struct_0205c570*)menu->entryList);
         int cancel = 0;
         int active = IsActiveElementFlag2Set0205da38((Obj_0205da38*)menu->entryList, 0x14);
-        int confirm = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 1);
-        int alternate = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x400);
+        int confirm = g_keyManager.TestKeysPressed(1);
+        int alternate = g_keyManager.TestKeysPressed(0x400);
         if (active | (confirm | alternate)) {
             DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
             switch (menu->selection) {
             case 0: ++menu->step; break;
             case 1: cancel = 1; break;
             }
-        } else if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 2)) cancel = 1;
+        } else if (g_keyManager.TestKeysPressed(2)) cancel = 1;
         if (menu->step == 3) {
             ResetEntryList0205d6a0((Entry_0205d6a0*)menu->entryList, 0);
             SetElementFieldC2_0205deb4((Struct_0205d81c*)menu->entryList, 3, 2);

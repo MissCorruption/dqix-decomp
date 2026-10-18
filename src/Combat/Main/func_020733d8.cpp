@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
 #include "Graphics/Vector.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0205ec34(void);
 int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
@@ -95,7 +96,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
     }
 
     GameState* gameState = GameState::GetInstance();
-    GameResources* globalB = func_ov017_0218b5b0();
+    GameResources* globalB = GetGameResources();
     unsigned short savedId = *(unsigned short*)self;
     int timer = *(int*)(self + 8) + gameState->GetTrueDeltaTime();
     *(int*)(self + 8) = timer;

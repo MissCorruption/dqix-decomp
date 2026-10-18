@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" int* func_0202ae18(void);
 int CheckField0NonZero_0202b7d8(int* obj);
@@ -13,7 +14,7 @@ int TestFlagBitAt0xe_0202c578(struct SearchStruct* obj, int value);
 // USA: func_020e35a0
 ARM void UpdateGlobalAndCombatantFlagBytes_020e35a0(unsigned char* p) {
     GameState* battleStruct = GameState::GetInstance();
-    int obj2 = ((int)func_ov017_0218b5b0());
+    int obj2 = ((int)GetGameResources());
     int* searchObj = func_0202ae18();
     if (!CheckField0NonZero_0202b7d8(searchObj)) return;
 

@@ -3,6 +3,7 @@
 #include <GameState/GameState.h>
 #include <Memory/SafeAllocator.h>
 #include <System/Graphics.h>
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 #define func_ov003_0215fce8 func_ov003_0215fe94
@@ -43,7 +44,6 @@ struct MenuWork {
 struct PartySlots { char pad_0[0xf78]; signed char slots[4]; unsigned char count; };
 void CancelPendingAction020397cc(Obj020397cc*, int);
 int GetWord0x0_0200fb8c(int*);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 int GetFieldIfFlag4_020100f8(char*);
 void SetFlagsAt0x244_020a28a0(unsigned char*, unsigned char);
 extern "C" void func_020a0cc4(int);
@@ -58,7 +58,6 @@ extern "C" int func_ov003_0215fce8(MenuData*, unsigned int);
 extern "C" void func_ov003_0215fb94(MenuData*);
 extern "C" void func_ov017_021b67d8(MenuWork*);
 int ListContainsId(ListHead02046b60*, int);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
 void SetByteField0x253_020397c0(void*);
 extern "C" int func_ov017_021959b4();
 void SetField0x23cTrue_020a27ac(void*);
@@ -73,7 +72,7 @@ extern "C" ARM void func_ov017_021b688c(MenuWork* work) {
     Obj020397cc* object = (Obj020397cc*)game->GetUnknownGameObject();
     CancelPendingAction020397cc(object, 1);
     GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)game);
-    SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0xc0);
+    SetFlags04(resources, 0xc0);
     SetFlagsAt0x244_020a28a0((unsigned char*)GetFieldIfFlag4_020100f8((char*)game), 1);
     if (work->state == 0) {
         func_020a0cc4(0x1b800);
@@ -119,7 +118,7 @@ extern "C" ARM void func_ov017_021b688c(MenuWork* work) {
             CancelPendingAction020397cc(object, 1);
             return;
         }
-        ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0xc0);
+        ClearFlags04(resources, 0xc0);
         SetByteField0x253_020397c0(object);
         unsigned char* flags = (unsigned char*)GetFieldIfFlag4_020100f8((char*)game);
         if (!func_ov017_021959b4()) SetField0x23cTrue_020a27ac(flags);

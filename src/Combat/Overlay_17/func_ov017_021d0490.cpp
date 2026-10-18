@@ -92,7 +92,7 @@ extern "C" ARM void func_ov017_021d0490(int mode) {
     GameState* battle = GameState::GetInstance();
     void* link = func_0202ae18();
     unsigned short* data = (unsigned short*)func_02012fe4();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     Actor021d0490* actor = GetActor(res);
     Zone021d0490* zone = GetZone(res);
     Zone021d0490* other = GetOther(res);

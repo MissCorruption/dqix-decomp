@@ -2,6 +2,7 @@
 #include "System/Matrix.h"
 #include "Graphics/NSBXX/RenderConfig.h"
 #include "Graphics/NSBXX/GeometryFifo.h"
+#include "Resource/Brightness.h"
 
 struct Container02057a6c;
 
@@ -9,7 +10,6 @@ extern "C" void __clear(void* ptr, int size);
 void CopyVec3sAndDispatch_02196048(int*, int*, int*);
 extern "C" Container02057a6c* func_02057924(void);
 extern "C" int func_020ca4b4(const void* src, void* dst, int size);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 void UpdateEntriesWhereFlag2Set02057a6c(Container02057a6c* c);
 void ForwardObjAndField0_021a3af0(int obj);
 
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_02195ecc(Battle02195ecc* self, unsigned int mode)
 
     if (mode & 1) {
         Container02057a6c* entries = func_02057924();
-        if (GetBitsInField4_0203b4fc(self->flags, 0x20) == 0) {
+        if (TestFlags04((GameResources*)(self->flags), 0x20) == 0) {
             UpdateEntriesWhereFlag2Set02057a6c(entries);
         }
     }

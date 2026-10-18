@@ -1,11 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-
-extern "C" int func_ov017_0218b5b0(void);
+#include "Resource/GameResources.h"
 
 // USA: func_ov003_02160344  (semantic: FormatEntriesFromBase_02160344)
 extern "C" ARM void func_ov003_02160344(char* obj) {
-    char* base = (char*)func_ov017_0218b5b0() + 0x35c;
+    char* base = (char*)GetGameResources() + 0x35c;
     int i = 0;
     base = base + 0x4000;
     for (; i < 4; i++) {

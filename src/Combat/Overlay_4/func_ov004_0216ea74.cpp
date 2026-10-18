@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Zone3D.h"
+#include "Resource/Brightness.h"
 
 struct S_e830;
 
@@ -34,11 +35,6 @@ extern "C" void* func_ov011_021845f8(void* ctx, int v);
 extern "C" void* func_02012fe4(void);
 extern "C" int func_ov017_021b2090(PackedField017 a, PackedField017 b);
 int GetFieldAt0x7e_0201e830(struct S_e830* p);
-unsigned int GetWord_0203b498(unsigned int* obj);
-unsigned int GetField4_0203b4d0(unsigned int* obj);
-unsigned int GetField8_0203b508(unsigned int* obj);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 void Set3DClearColor_020c5588(int, int, int, int, int);
 void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
 int RegisterSlotA020cf0fc(int);
@@ -101,12 +97,12 @@ extern "C" ARM int func_ov004_0216ea74(SafeAllocator* a) {
     if (!p) return 0;
     data_ov004_02171048.ptr->half0c = GetFieldAt0x7e_0201e830(p);
 
-    unsigned int* obj = (unsigned int*)func_ov017_0218b5b0();
-    data_ov004_02171048.ptr->word00 = GetWord_0203b498(obj);
-    data_ov004_02171048.ptr->word04 = GetField4_0203b4d0(obj);
-    data_ov004_02171048.ptr->word08 = GetField8_0203b508(obj);
-    SetBitsInWord_0203b4a0(obj, 4);
-    SetBitsInField4_0203b4d8(obj, 0x8de);
+    GameResources* obj = GetGameResources();
+    data_ov004_02171048.ptr->word00 = GetFlags00(obj);
+    data_ov004_02171048.ptr->word04 = GetFlags04(obj);
+    data_ov004_02171048.ptr->word08 = GetFlags08(obj);
+    SetFlags00(obj, 4);
+    SetFlags04(obj, 0x8de);
 
     Set3DClearColor_020c5588(0, 0x1f, 0x7fff, 0, 0);
     SetFogState_020c54a4(0, 0, 0, 0);

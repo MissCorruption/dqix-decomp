@@ -4,6 +4,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct EquipmentMenu {
     char unk_0[R(0xee0, 0xee4)];
@@ -30,7 +31,6 @@ struct MenuContext {
 
 struct Entry_0205d6a0;
 
-extern "C" MenuContext* func_ov017_0218b5b0();
 MemberScreen* GetField1c_021a193c(int* p);
 void ResetEntryList0205d6a0(Entry_0205d6a0* window, int unk);
 extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov005_02159850(EquipmentMenu* self) {
     self->menuStep_ = 0;
     self->menuChoice_ = 0;
     self->menuState_ = 0;
-    MemberScreen* screen = GetField1c_021a193c(func_ov017_0218b5b0()->unknown_ptr_3708);
+    MemberScreen* screen = GetField1c_021a193c(((MenuContext*)GetGameResources())->unknown_ptr_3708);
     screen->flags_ |= 0x81;
     self->flags_ |= 0xc;
 }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Bytes02033b88;
 #if defined(jpn)
@@ -28,7 +29,7 @@ static inline int NotEqual(unsigned short value, unsigned short key) { return !E
 extern "C" ARM void func_ov017_0219cdc0(unsigned short destinationZone, int wholeParty, signed char memberId) {
     GameState* state = GameState::GetInstance();
     void* search = func_0202ae18();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     int special = !NotEqual(destinationZone, 10100);
     unsigned short category = (destinationZone / 100) * 100;
     int recover = (special | (category == 4100)) != 0;

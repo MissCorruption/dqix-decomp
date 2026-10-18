@@ -1,10 +1,10 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define func_02022bb0 func_02022644
 #endif
 
-extern "C" int func_ov017_0218b5b0(void);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_02022bb0(void* obj);
@@ -25,7 +25,7 @@ struct Obj02022d78 {
 // USA: func_02022d78
 ARM void SetActiveModeSavingPrevious02022d78(struct Obj02022d78* obj, int newValue) {
     if (obj->activeFlag != 0) {
-        SetSubBrightness((GameResources*)func_ov017_0218b5b0(), -16, 0);
+        SetSubBrightness(GetGameResources(), -16, 0);
     }
     func_02022bb0(obj);
     obj->prevValue = obj->curValue;

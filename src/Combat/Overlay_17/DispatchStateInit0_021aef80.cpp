@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202b900(void* arr, void* buf);
 struct ElementArray0202bad4;
@@ -14,13 +14,12 @@ void* GetDataPtr02114e04_020d6c00(void);
 int* GetGlobal02109030_020936f8(void);
 void ResetAndSetFlag0x3c9Bit0_020939dc(void* obj);
 extern "C" void func_02094030(int*, short, short, signed char);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
 void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
 void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
 
 // USA: func_ov017_021aef80  (semantic: DispatchStateInit0_021aef80)
 extern "C" ARM unsigned char func_ov017_021aef80(void* self) {
-    unsigned int* flags = (unsigned int*)func_ov017_0218b5b0();
+    GameResources* flags = GetGameResources();
     void* arr = func_0202ae18();
     int status = func_0202b900(arr, (char*)self + 9);
     int i;
@@ -47,7 +46,7 @@ extern "C" ARM unsigned char func_ov017_021aef80(void* self) {
         return 3;
     }
 
-    SetBitsInWord_0203b4a0(flags, 0x40);
+    SetFlags00(flags, 0x40);
     *(short*)((char*)self + 0x12) = 0;
     DispatchWithGlobalContext020daf9c(1, 1, 0, 1);
     OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0x800000);

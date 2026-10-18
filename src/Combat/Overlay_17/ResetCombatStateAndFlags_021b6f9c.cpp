@@ -8,6 +8,7 @@ enum { RegionOffset4400 = 0x4400, RegionOffsetae = 0xae, RegionOffset6fc = 0x6fc
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 extern "C" void func_ov000_021604f0(void);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
@@ -17,7 +18,6 @@ void SetByteField0x253_020397c0(void* obj);
 struct Obj02053f7c;
 void SetField0x1b2IfMatchOrFlag02053f7c(Obj02053f7c* obj, unsigned short a, int b);
 ARM void EnqueueEventTag127ForParty_021c3f70(unsigned short tag);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 extern "C" void func_020a0c0c(void);
 struct ListHead02046b60;
 int ListContainsId(ListHead02046b60* list, int id);
@@ -33,7 +33,7 @@ extern AllocatorUnion data_02114e20;
 
 // USA: func_ov017_021b6f9c  (semantic: ResetCombatStateAndFlags_021b6f9c)
 extern "C" ARM void func_ov017_021b6f9c(char* self) {
-    char* ov = (char*)func_ov017_0218b5b0();
+    char* ov = (char*)GetGameResources();
     unsigned short f6b6 = *(unsigned short*)(self + 0x600 + 0xb6);
     int f28 = *(int*)(self + 0x28);
     unsigned int flag2000 = f6b6 & 0x2000;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_021b6f9c(char* self) {
     *(unsigned short*)(self + 0x600 + 0xb6) = 0;
     *(int*)(self + 0x6b8) = 0;
 
-    ClearBitsInWord_0203b4b0((unsigned int*)ov, 0x800);
+    ClearFlags00((GameResources*)ov, 0x800);
     func_020a0c0c();
 
     int* p36fc = *(int**)(ov + 0x3000 + RegionOffset6fc);

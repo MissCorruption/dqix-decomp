@@ -1,7 +1,6 @@
 #include "System/Mutex.h"
 #include "System/Interrupts.h"
 
-
 extern "C"
 {
 }
@@ -98,7 +97,7 @@ bool TryLockMutex(Mutex* mutex)
     return success;
 }
 
-// usa: _Z27AddMutexToContextLockedListP16ProcessorContextP5Mutex
+// usa: func_020c8204
 // can be made static later
 void AddMutexToContextLockedList(ProcessorContext* context, Mutex* mutex)
 {
@@ -114,7 +113,7 @@ void AddMutexToContextLockedList(ProcessorContext* context, Mutex* mutex)
     context->lockedMutexes.pLast = mutex;
 }
 
-// usa: _Z32RemoveMutexFromContextLockedListP16ProcessorContextP5Mutex
+// usa: func_020c8228
 // can be made static later
 void RemoveMutexFromContextLockedList(ProcessorContext* context, Mutex* mutex)
 {

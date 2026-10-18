@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
-extern "C" int func_ov017_0218b5b0(void);
 int CheckField0NonZero_0202b7d8(int* obj);
 struct SearchStruct;
 struct SearchStruct0202c1a4;
@@ -26,7 +26,7 @@ struct FlagsByte0xc1_020341e0 {
 // USA: func_020341e0
 extern "C" ARM void func_020341e0(Vec3Int_020341e0* dst, void* obj) {
     void* thing = func_0202ae18();
-    func_ov017_0218b5b0();
+    (int)GetGameResources();
     if (CheckField0NonZero_0202b7d8((int*)thing)) {
         short field4 = *(short*)((char*)obj + 4);
         if (GetEntryBySignedByteIndex_0202c178((struct SearchStruct*)thing, field4)) {

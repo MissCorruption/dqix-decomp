@@ -6,9 +6,9 @@ enum {regionalOffset0=0x2e8, regionalOffset1=0x4400, regionalOffset2=0xc2};
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 int GetField0x3acValue_020100a8(GameState* battleStruct);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
 
 struct Src_021b7104 {
     unsigned char f0;
@@ -51,7 +51,7 @@ struct Dst_021b7104 {
 // USA: func_ov017_021b7104
 extern "C" ARM void func_ov017_021b7104(Dst_021b7104* dst, Src_021b7104* src) {
     GameState* battle = GameState::GetInstance();
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
 
     dst->f22 = src->f1;
     dst->f24 = src->f4;
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_021b7104(Dst_021b7104* dst, Src_021b7104* src) {
     dst->f21 = src->f12;
 
     if (src->f0 != 0 && src->f14 == 0) {
-        SetBitsInWord_0203b4a0(&ov->brightnessFlags_0, 0x800);
+        SetFlags00(ov, 0x800);
     }
 
     *((unsigned char*)ov + 0x4000 + regionalOffset0) = 0;

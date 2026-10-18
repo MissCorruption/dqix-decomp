@@ -44,7 +44,7 @@ extern "C" ARM int func_02095578(void) {
     bs = GameState::GetInstance();
     move = func_02012fe4();
     header = (struct HeaderStruct0209562c*)&data_02109418;
-    res = func_ov017_0218b5b0();
+    res = GetGameResources();
     (int)BackgroundLoader::GetInstance();
     type = ((Holder02095578*)res)->GetAt(1);
     id = *(unsigned short*)move;

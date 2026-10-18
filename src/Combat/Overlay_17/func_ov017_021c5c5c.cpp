@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
+#include "Resource/GameResources.h"
 
 struct ListHead02046b60;
 
@@ -72,7 +73,7 @@ int IsField0Null_02046b08(void** list);
 // USA: func_ov017_021c5c5c
 extern "C" ARM int func_ov017_021c5c5c(int unused, int id) {
     GameState* gs = GameState::GetInstance();
-    Ctx_021c5c5c* ctx = (Ctx_021c5c5c*)func_ov017_0218b5b0();
+    Ctx_021c5c5c* ctx = (Ctx_021c5c5c*)GetGameResources();
     Combatant_021c5c5c* leader;
     ListHead02046b60* list = ctx->list;
     leader = (Combatant_021c5c5c*)gs->GetUnknownGameObject();

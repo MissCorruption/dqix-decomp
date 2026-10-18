@@ -1,6 +1,5 @@
 #include <globaldefs.h>
-
-extern unsigned short data_02114e30;
+#include "Input/Input.h"
 
 struct RectList020e1eb0 {
     char pad0[8];
@@ -8,7 +7,6 @@ struct RectList020e1eb0 {
 };
 
 int FindRectIndexForCurrentCoords020e1e4c(struct RectList020e1eb0* list);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 extern "C" long long _s32_div_f(int a, int b);
 
 struct Sel020e269c {
@@ -34,20 +32,20 @@ extern "C" ARM void func_020e269c(struct Sel020e269c* self) {
         self->cur = idx;
         return;
     }
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80)) {
+    if (g_keyManager.TestKeysPressed(0x80)) {
         self->cur = (int)(_s32_div_f(self->cur + 1, step) >> 32);
         self->flag = 0;
         return;
     }
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40)) {
+    if (g_keyManager.TestKeysPressed(0x40)) {
         signed char v = self->cur;
         self->cur = (v > 0) ? v - 1 : step - 1;
         self->flag = 0;
         return;
     }
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1) ||
-        TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x400) ||
-        TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x200)) {
+    if (g_keyManager.TestKeysPressed(1) ||
+        g_keyManager.TestKeysPressed(0x400) ||
+        g_keyManager.TestKeysPressed(0x200)) {
         self->prev = self->cur;
     }
 }

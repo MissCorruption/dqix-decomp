@@ -12,6 +12,8 @@ extern const char data_020f07b4[], data_020f07b9[], data_020f07c0[], data_020f07
 #define REGION_FLAG(jpnField, usaField) (message->usaField)
 #endif
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct Vec3_020406f8 {
     int v[3];
@@ -80,7 +82,6 @@ extern "C" void func_ov017_0218b5f8(signed char a);
 struct ListHead02046b60;
 int ListContainsId(ListHead02046b60*, int);
 void CallHelperIfFlag_021a5ab0(void* p);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 void* GetGlobalPtr021075f4_0203cf4c();
 struct EntryList_203dce4;
 void* GetEntryUnlessFlag0x8000_0203dce4(EntryList_203dce4*, int);
@@ -107,7 +108,6 @@ extern "C" void func_0205e944(void* p, int v);
 
 extern unsigned char data_02109bf4;
 extern unsigned char data_02108760;
-extern unsigned char data_02114e30;
 extern unsigned char data_02114e54;
 
 // USA: func_02065990
@@ -303,7 +303,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 nm.f1 = message->b19c7 == 0;
                 nm.f2 = *(unsigned short*)(self + REGION_VALUE(0x174e, 0x187e));
                 nm.f4 = 1;
-                SetName56AndFlag_0218d7b0(((unsigned char*)func_ov017_0218b5b0()), (char*)&nm);
+                SetName56AndFlag_0218d7b0(((unsigned char*)GetGameResources()), (char*)&nm);
                 *(int*)(self + REGION_VALUE(0x44, 0x78)) = *(int*)(self + REGION_VALUE(0x44, 0x78)) + 1;
                 return;
             } else if (tok == REGION_VALUE(0xff1e, 0xff1c)) {
@@ -333,7 +333,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                     if (okv) {
                         func_ov016_0218b5c0(1, val);
                         func_ov017_0218b5f8(val);
-                        unsigned char* who = ((unsigned char*)func_ov017_0218b5b0());
+                        unsigned char* who = ((unsigned char*)GetGameResources());
                         if (ListContainsId((ListHead02046b60*)(*(void**)(who + REGION_VALUE(0x34ec, 0x36fc))), 0xc) != 0) {
                             CallHelperIfFlag_021a5ab0(*(void**)(who + REGION_VALUE(0x350c, 0x371c)));
                         }
@@ -363,7 +363,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                 ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] =
                     ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] - 1;
                 if (((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] > 0) {
-                    if (TestFlag0SetAndFlag1Clear_02012444((unsigned short*)&data_02114e30, 0xfe3) == 0 &&
+                    if (g_keyManager.TestKeysPressed(0xfe3) == 0 &&
                         (&data_02114e54)[0x55] == 0) {
                         return;
                     }

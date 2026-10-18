@@ -2,6 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { PoolOffset = 0x27c };
@@ -36,7 +37,7 @@ extern "C" ARM int func_02046cc8(void* self) {
     }
 
     GameState::GetInstance();
-    base = func_ov017_0218b5b0();
+    base = GetGameResources();
     allocator = *(SafeAllocator**)((char*)self + 0x38);
     if (allocator == NULL) {
         allocator = (SafeAllocator*)((char*)self + 0x24);

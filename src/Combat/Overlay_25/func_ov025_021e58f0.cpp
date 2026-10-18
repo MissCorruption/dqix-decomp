@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Combat/Main/ElementLookup.h"
 #include "World/Zone3D.h"
+#include "Resource/GameResources.h"
 
 struct CombatWork_021e58f0 {
 #if defined(jpn)
@@ -43,7 +44,7 @@ extern Reset021e3158 data_ov025_021ef9a8;
 extern "C" ARM int func_ov025_021e58f0(Args_021e58f0* args) {
     CombatWork_021e58f0* work = GetActiveCombatWork_ov000_02160130();
     Zone3D* zone = &work->zone;
-    ZoneInfo_021e58f0* info = func_ov017_021b8478(func_ov017_0218b5b0()->unknown_ptr_3718);
+    ZoneInfo_021e58f0* info = func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
     if (data_ov025_021ef988.phase == 0) {
         unsigned short id = info->zoneId;
         if (args->zoneName != 0) {

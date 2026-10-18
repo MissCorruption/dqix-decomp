@@ -3,7 +3,6 @@
 #include "System/Interrupts.h"
 #include <globaldefs.h>
 
-
 int DefaultNitroReadProc(NitroHandle* handle, void* dst, unsigned int offset, unsigned int len);
 int DefaultNitroWriteProc(NitroHandle* handle, const void* src, unsigned int offset, unsigned int len);
 int MemoryMappedMetadataReadProc(NitroHandle* handle, void* dst, unsigned int offset, unsigned int len);

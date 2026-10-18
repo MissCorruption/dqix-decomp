@@ -60,7 +60,7 @@ extern "C" void func_ov017_0219b33c(GameResources* res, Event0218dfd8* event);
 
 // USA: func_ov017_0218dfd8
 extern "C" ARM int func_ov017_0218dfd8(Actor0218dfd8* self) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     if (((Header0218dfd8*)res->unknown_ptr_array_36fc[4])->busy != 0) {
         return 0;
     }

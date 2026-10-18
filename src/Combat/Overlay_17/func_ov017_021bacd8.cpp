@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { Fieldf43c = 0xf454, Field3fc = 0x414 };
@@ -10,8 +11,6 @@ enum { Fieldf43c = 0xf43c, Field3fc = 0x3fc };
 #endif
 
 int GetFieldIfFlag4_020100f8(char* obj);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
 void ClearFlagBits_020a28b0(unsigned char* obj, int mask);
 void SetByteField0x253_020397c0(void* obj);
@@ -48,10 +47,10 @@ struct Obj021bacd8 {
 // USA: func_ov017_021bacd8  (semantic: AdvanceAllocatorSetup_021bacd8)
 extern "C" ARM void func_ov017_021bacd8(Obj021bacd8* self) {
     GameState* battle = GameState::GetInstance();
-    unsigned int* ov = ((unsigned int*)func_ov017_0218b5b0());
+    unsigned int* ov = ((unsigned int*)GetGameResources());
     GameObject* c = battle->GetUnknownGameObject();
     int flagResult = GetFieldIfFlag4_020100f8((char*)battle);
-    SetBitsInField4_0203b4d8(ov, 0xc0);
+    SetFlags04((GameResources*)ov, 0xc0);
     CancelPendingAction020397cc((struct Obj020397cc*)c, 1);
     SetFlagsAt0x244_020a28a0((unsigned char*)flagResult, 3);
     int scale = (int)battle->GetTickCount();
@@ -100,7 +99,7 @@ extern "C" ARM void func_ov017_021bacd8(Obj021bacd8* self) {
         return;
     }
     func_ov017_021bac8c((struct Obj021bac8c*)self);
-    ClearBitsInField4_0203b4e8(ov, 0xc0);
+    ClearFlags04((GameResources*)ov, 0xc0);
     SetByteField0x253_020397c0(c);
     ClearFlagBits_020a28b0((unsigned char*)flagResult, 3);
     func_020a0c0c();

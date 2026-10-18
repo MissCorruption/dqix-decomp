@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void* func_ov011_021845f8(void* ctx, int v);
 extern "C" void func_ov011_021848a0(void* obj, int val);
 extern "C" void* func_ov017_021b1d44(void* p, int a, int b);
@@ -18,7 +18,7 @@ extern Struct02171048_0216f3b0 data_ov004_02171048;
 
 // USA: func_ov004_0216f3b0
 extern "C" ARM int func_ov004_0216f3b0(void* a) {
-    void* actorRaw = func_ov017_0218b5b0();
+    void* actorRaw = GetGameResources();
 #if defined(jpn)
     void* list = *(void**)((char*)actorRaw + 0x3000 + 0x4ec);
     void* five = *(void**)((char*)actorRaw + 0x3000 + 0x928);

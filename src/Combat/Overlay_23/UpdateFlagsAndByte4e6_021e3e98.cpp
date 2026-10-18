@@ -4,11 +4,9 @@ enum {regionalOffset0=0x4e0, regionalOffset1=0x4e4, regionalOffset2=0x56c, regio
 enum {regionalOffset0=0x4e4, regionalOffset1=0x4e8, regionalOffset2=0x634, regionalOffset3=0x3dcc, regionalOffset4=0x4e6};
 #endif
 #include <globaldefs.h>
+#include "Input/Input.h"
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 extern "C" int func_ov023_021e29d0(void* a);
-
-extern unsigned short data_02114e30;
 
 struct Obj021e3e98 {
     void* f0;
@@ -34,7 +32,7 @@ extern "C" ARM void func_ov023_021e3e98(struct Obj021e3e98* obj) {
         return;
     }
 
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) != 0) {
+    if (g_keyManager.TestKeysPressed(2) != 0) {
         cond = 1;
     }
     if (!cond) {

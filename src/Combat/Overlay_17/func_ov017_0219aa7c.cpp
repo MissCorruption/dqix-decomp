@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 struct Vec3_020406f8 { int x, y, z; };
 struct Vec3copy0202ec84 { int x, y, z; };
@@ -19,7 +20,6 @@ struct FocusActions0219aa7c { FocusAction0219aa7c entries[15]; };
 extern const FocusActions0219aa7c data_ov017_021d64f4;
 extern const FocusAction0219aa7c data_020e6d5c;
 extern unsigned char data_02114e54[];
-extern unsigned short data_02114e30[];
 void* GetField0x3b0Value_020100bc(GameState*);
 int CheckSubstructByte0x7cPositive_020535c8(signed char*);
 EntryList_203dce4* GetGlobalPtr021075f4_0203cf4c();
@@ -31,7 +31,6 @@ void SetVec3At0x1c(Vec3Target0203a46c*, int, int, int);
 int IsField0Null_02046b08(void**);
 int GetChainedTableByte_020479fc(ChainRoot*);
 unsigned char GetLinkedFlagByte_020479b8(LookupBase*);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 extern "C" void __clear(void*, unsigned int);
 
 // USA: func_ov017_0219aa7c
@@ -90,7 +89,7 @@ extern "C" ARM void func_ov017_0219aa7c(GameResources* self) {
         int limit_y = *reinterpret_cast<int*>(data_02114e54 + 0x3c);
         if (x < limit_x && y < limit_y && limit_x < x + width && limit_y < y + height) dispatch = 1;
     }
-    if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 1)) dispatch = 1;
+    if (g_keyManager.TestKeysPressed(1)) dispatch = 1;
     if (dispatch) {
         FocusActions0219aa7c actions = data_ov017_021d64f4;
         actions.entries[3] = data_020e6d5c;

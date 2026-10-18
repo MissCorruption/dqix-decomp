@@ -31,7 +31,7 @@ static inline unsigned char* GetPtr3718(GameResources* resources) { SDK_NULL_ASS
 // USA: func_ov001_021567c4
 extern "C" ARM unsigned short func_ov001_021567c4(State_021567c4* self) {
 	GameState* gameState = GameState::GetInstance();
-	GameResources* resources = func_ov017_0218b5b0();
+	GameResources* resources = GetGameResources();
 	gameState->GetUnknownGameObject();
 	char* camera = GetFieldIfFlag4_020100f8((char*)gameState);
 	GetPtr3718(resources)[1] = 1;

@@ -27,7 +27,7 @@ extern "C" ARM void func_ov017_021bf534(struct Obj_021bf534* obj) {
 #endif
     GameState* battleStruct = GameState::GetInstance();
     GameObject* combatant = battleStruct->GetUnknownGameObject();
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     if (ov) {
         CallIfField498_0218d5ac(ov);
     }

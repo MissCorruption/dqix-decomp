@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 
 struct SearchState021c37a4 {
     char unk0[0x100d];
@@ -100,7 +101,6 @@ extern "C" void __clear(void* buf, int len);
 void Clear0x20BytesAt0x74de_02012084(unsigned char* obj);
 void ClearFieldKeepBit0x10_02011af0(void* obj);
 extern "C" void func_02046a8c(void* a, void* b);
-void SetBitsInWord_0203b4a0(unsigned int* word, unsigned int bits);
 void BlankFunction020d84e0(void);
 extern "C" void func_0202b0f4(void* obj);
 extern "C" void func_0205e22c(void* obj);
@@ -159,7 +159,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     GameState* gs = GameState::GetInstance();
     Battle021c37a4* battle = (Battle021c37a4*)gs;
     SearchState021c37a4* search = (SearchState021c37a4*)func_0202ae18();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     void* d100044 = GetData02100044_0202ae24();
     void* d153637 = GetData02153637_020e2ff8();
     void* d153634 = GetData02153634_020e3580();
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         func_02046a8c(res->unknown_ptr_array_36fc[0], res->unknown_ptr_array_3afc[0x14]);
     }
 
-    SetBitsInWord_0203b4a0(&res->brightnessFlags_0, 2);
+    SetFlags00(res, 2);
     BlankFunction020d84e0();
     func_0202b0f4(search);
     func_0205e22c(d100044);

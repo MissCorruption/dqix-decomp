@@ -8,6 +8,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "System/Graphics.h"
+#include "Resource/Brightness.h"
 
 struct Obj020397cc;
 
@@ -23,8 +24,6 @@ struct Task0217e3b8
 
 unsigned int* GetWord0x0_0200fb8c(int* gameState);
 char* GetFieldIfFlag4_020100f8(char* gameState);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void CancelPendingAction020397cc(Obj020397cc* obj, int arg1);
 void SetByteField0x253_020397c0(void* obj);
 void SetFlagsAt0x244_020a28a0(unsigned char* camera, unsigned char flags);
@@ -51,7 +50,7 @@ extern "C" ARM void func_ov003_0217e3b8(Task0217e3b8* self)
     unsigned int* resources = GetWord0x0_0200fb8c((int*)gameState);
     GameObject* object = gameState->GetUnknownGameObject();
     char* camera = GetFieldIfFlag4_020100f8((char*)gameState);
-    SetBitsInField4_0203b4d8(resources, 0xc0);
+    SetFlags04((GameResources*)resources, 0xc0);
     CancelPendingAction020397cc((Obj020397cc*)object, 1);
     SetFlagsAt0x244_020a28a0((unsigned char*)camera, 3);
     int ticks = gameState->GetTickCount();
@@ -98,7 +97,7 @@ extern "C" ARM void func_ov003_0217e3b8(Task0217e3b8* self)
     {
         DISPCNT = (DISPCNT & ~0x1f00) | (GetField224_021685c4(self->menu) << 8);
         func_ov003_0217e36c(self);
-        ClearBitsInField4_0203b4e8(resources, 0xc0);
+        ClearFlags04((GameResources*)resources, 0xc0);
         SetByteField0x253_020397c0(object);
         ClearFlagBits_020a28b0((unsigned char*)camera, 3);
         func_020a0c0c();

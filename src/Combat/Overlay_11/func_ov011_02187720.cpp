@@ -10,6 +10,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/GameResources.h"
 
 struct TaggedNumber02184c30 {
     int type;
@@ -20,7 +21,6 @@ int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
 extern "C" ARM void* func_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* ctx, int v);
 extern "C" ARM void* func_ov011_021849c8(void* ctx);
-extern "C" ARM void* func_ov017_0218b5b0(void);
 extern "C" ARM int func_ov023_021fc518(void* obj, void* script, int id, int heapId, int unk2, int unk);
 void InitTenAllocatorsAndClearFields_021e4e8c(void* model);
 
@@ -72,7 +72,7 @@ extern "C" ARM int func_ov011_02187720(struct TaggedNumber02184c30* params, int 
         return 0;
 
     heap->allocator.GetSizeWithLargestBlockRemoved();
-    unk = (*(int**)((char*)func_ov017_0218b5b0() + R(0x392c, 0x3b4c)))[0x13];
+    unk = (*(int**)((char*)GetGameResources() + R(0x392c, 0x3b4c)))[0x13];
     object = heap->allocator.Allocate(sizeof(MenuObject02187720));
     if (object == 0)
         return 0;

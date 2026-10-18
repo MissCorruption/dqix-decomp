@@ -4,6 +4,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 struct Obj020397cc; struct ListHead02046b60; struct Foo0207df50; struct Base02010834; struct TailList020469b4; struct TailNode020469b4;
 struct StateE468 {
     unsigned char tag,done; char pad2[6]; int state,timer; Vector3i position; int field1c,task;
@@ -44,13 +45,13 @@ extern AllocatorUnion data_02114e20; extern char data_ov017_021d7e80[]; extern c
 extern "C" void func_0202ae18(); extern "C" void* func_02057924(); extern "C" unsigned char* func_02012fe4();
 void CancelPendingAction020397cc(Obj020397cc*,int); void SetOrClearBit_0201bf98(unsigned char*,int,int);
 int ListContainsId(ListHead02046b60*,int); extern "C" void func_02046b8c(void*,int); extern "C" void func_02046a8c(void*,void*);
-void EnqueueEventTag33_021d2738(unsigned char,unsigned char); int IsField0Null_02046b08(void**); void SetBitsInWord_0203b4a0(unsigned int*,unsigned int);
+void EnqueueEventTag33_021d2738(unsigned char,unsigned char); int IsField0Null_02046b08(void**); 
 void* GetGlobal02109400_02094a00(); extern "C" void func_02094ab0(void*); extern "C" void func_020a0cc4(unsigned int);
 void* AllocateAligned4_02012d88(AllocatorUnion*,unsigned int); void CopyInternalFields0207df50(Foo0207df50*);
 extern "C" void func_02057e6c(void*,int,SafeAllocator*,void*,unsigned int,Foo0207df50*);
 int IsMainBrightnessTransitionActive(GameResources*); void CopyCountedBytesToIntArray02010834(Base02010834*,int,int*,int*);
 void FindNodeAndProcess02057fb4(void*,int,void*); void SetForwardAndStore0205ebc0(void*,int,int); void DispatchIfField0xc4NonNeg_0205ebfc(void*,int,int);
-void SetBrightness(GameResources*,int,int); void ClearBitsInWord_0203b4b0(unsigned int*,unsigned int); void CallListIfFlagsSet_02197528();
+void SetBrightness(GameResources*,int,int);  void CallListIfFlagsSet_02197528();
 WorldE468* GetField0x3f8Address_0200fd0c(GameState*); extern "C" void VectorizedMemset(void*,int,int);
 void InitAndResetHeader_0219e310(unsigned char*,int); void AppendNodeToTail(TailList020469b4*,TailNode020469b4*);
 void SetByteField0x253_020397c0(void*); extern "C" void func_ov017_021beb48(StateE468*); void ForwardField0xc0_0205ebec(void*);
@@ -58,7 +59,7 @@ void SetByteField0x253_020397c0(void*); extern "C" void func_ov017_021beb48(Stat
 // USA: func_ov017_021be468
 extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) {
     GameState* game=GameState::GetInstance(); func_0202ae18();
-    GameResources* resources=func_ov017_0218b5b0();
+    GameResources* resources=GetGameResources();
     GameObject* actor=game->GetUnknownGameObject();
     void* battle=func_02057924(); BackgroundLoader* loader=BackgroundLoader::GetInstance(); unsigned char* zone=func_02012fe4();
     if(self->state==0) {
@@ -68,7 +69,7 @@ extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) 
             if(ListContainsId(list,0x34)) func_02046a8c(list,resources->unknown_ptr_array_3afc[28]);
             if(ListContainsId(list,0x2e)) { func_02046a8c(list,resources->unknown_ptr_array_3afc[21]); EnqueueEventTag33_021d2738((unsigned char)actor->obj3D_.unknown_4_,0); }
             if(IsField0Null_02046b08((void**)resources->unknown_ptr_array_36fc[1])) {
-                SetBitsInWord_0203b4a0(&resources->brightnessFlags_0,0x10); func_02094ab0(GetGlobal02109400_02094a00()); func_020a0cc4(0x2800);
+                SetFlags00(resources, 0x10); func_02094ab0(GetGlobal02109400_02094a00()); func_020a0cc4(0x2800);
                 self->task=loader->QueueLoadFile(data_ov017_021d7e80,0); self->state++;
             }
         }
@@ -116,7 +117,7 @@ extern "C" ARM void func_ov017_021be468(StateE468* self,ListHead02046b60* list) 
         self->timer++;
         if(self->timer>85) {
             for(int i=0;i<5;i++) if(self->actors&(1<<i)) { GameObject* member=game->GetGameObjectByIndex(i); if(member!=NULL) member->obj3D_.DisableFlag(1); }
-            ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0,0x10); CallListIfFlagsSet_02197528();
+            ClearFlags00(resources, 0x10); CallListIfFlagsSet_02197528();
             WorldE468* world=GetField0x3f8Address_0200fd0c(game); VectorizedMemset(world,0,0x70);
             world->field4=1; world->field8=1; world->field9=1; world->fieldb=-1;
             world->field20=-1; world->field24=-1; world->field28=-1; world->field2c=-1; world->field1e=-1; world->fieldc=0; world->field6c=-1;

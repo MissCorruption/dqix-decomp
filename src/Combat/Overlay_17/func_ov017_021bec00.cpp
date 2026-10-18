@@ -59,7 +59,6 @@ extern "C" void func_02042b98(PopupController021bec00*, int, int, int, int);
 extern "C" void func_ov017_021bef84(PopupState021bec00*);
 PopupController021bec00* GetGlobalField0x1c020421a0();
 void CancelPendingAction020397cc(Obj020397cc*, int);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
 GrottoTransitionData* GetField0x3f8Address_0200fd0c(GameState*);
 void InitAndResetHeader_0219e310(unsigned char*, int);
@@ -72,7 +71,7 @@ extern char data_ov017_021d7e98[], data_ov017_021d7eb2[];
 extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
     GameState* game = GameState::GetInstance();
     func_0202ae18();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     PopupController021bec00* controller = GetGlobalField0x1c020421a0();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     ActiveGrottoClass* grotto = &func_02012fe4()->grotto;
@@ -81,7 +80,7 @@ extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
     controller->flag19ae = 0;
     if (self->state == 0) {
         CancelPendingAction020397cc((Obj020397cc*)game->GetUnknownGameObject(), 1);
-        SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0xc0);
+        SetFlags04(resources, 0xc0);
         FontBankLoader* music = GetGlobal02109400_02094a00();
         BlankFunction02094b30(music, 0x203, 0);
         if (AlwaysTrue02094b4c(music)) {

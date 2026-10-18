@@ -10,6 +10,7 @@ enum { kRegiond0 = 0xd0 };
 #endif
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "Resource/GameResources.h"
 
 struct FlagWord02046708;
 struct Obj020e25e8;
@@ -19,7 +20,6 @@ struct Global02109030 {
     unsigned char flag3c9 : 1;
 };
 
-extern "C" GameResources* func_ov017_0218b5b0(void);
 void* GetDataPtr02114e04_020d6c00(void);
 Global02109030* GetGlobal02109030_020936f8(void);
 int GetGlobalField0x1c020421a0(void);
@@ -49,7 +49,7 @@ struct BattleView02165730 {
 
 // USA: func_ov003_02165730
 extern "C" ARM void func_ov003_02165730(BattleView02165730* view) {
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     void* flagData = GetDataPtr02114e04_020d6c00();
 
     if (view->step == 0) {

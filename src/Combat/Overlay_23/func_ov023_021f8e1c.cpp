@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_020c39c8 func_020c5494
+#endif
 
 struct Vec3_021f8e1c {
     int x;
@@ -88,9 +93,7 @@ struct Owner02047a3c;
 struct Obj0205eaa0;
 
 unsigned short GetShortField1b0_02184a00(struct Obj_02184a00* obj);
-int GetSignedField020c39c8(volatile unsigned short* p);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
-int TestFlagMask_02012430(unsigned short* obj, int mask);
+extern "C" int func_020c39c8(volatile unsigned short* p);
 void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 void* AddOffset20_021f7318(void* p);
 unsigned char GetEntryByteIfFlag0x84(struct Owner02047a5c* owner, int index);
@@ -115,14 +118,13 @@ extern "C" Vec3_021f8e1c func_ov023_021f8b78(void* src, void* other);
 extern "C" void func_ov023_021f98e0(void* obj, void* other);
 extern "C" int func_ov023_021f9da8(void* obj, void* other, int x, int y);
 
-extern unsigned short data_02114e30;
 extern unsigned char data_02114e54[];
 extern struct Obj0205eaa0 data_02108760;
 extern unsigned int data_ov023_021fff24;
 extern const unsigned short data_ov023_021fd922[];
 
-static inline int GetMasterBrightnessMain_021f8e1c() { return GetSignedField020c39c8((volatile unsigned short*)0x400006c); }
-static inline int GetMasterBrightnessSub_021f8e1c() { return GetSignedField020c39c8((volatile unsigned short*)0x400106c); }
+static inline int GetMasterBrightnessMain_021f8e1c() { return func_020c39c8((volatile unsigned short*)0x400006c); }
+static inline int GetMasterBrightnessSub_021f8e1c() { return func_020c39c8((volatile unsigned short*)0x400106c); }
 
 // USA: func_ov023_021f8e1c
 extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
@@ -160,7 +162,7 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
 
     if (!locked) {
         for (int i = 0; i < 5; i++) {
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, data_ov023_021fd922[i])) {
+            if (g_keyManager.TestKeysPressed(data_ov023_021fd922[i])) {
                 int played = 0;
                 if (pressSe[i] != 0) {
                     func_ov011_021848a0(other, pressSe[i]);
@@ -179,39 +181,39 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
 
     int cancel = 0;
     if (self->noCancel != 0) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x400)) {
+        if (g_keyManager.TestKeysPressed(0x400)) {
             cancel = 1;
         }
     }
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1) || cancel) {
+    if (g_keyManager.TestKeysPressed(1) || cancel) {
         done = 1;
     }
-    int up = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40);
-    int down = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80);
-    int left = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x20);
-    int right = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x10);
+    int up = g_keyManager.TestKeysPressed(0x40);
+    int down = g_keyManager.TestKeysPressed(0x80);
+    int left = g_keyManager.TestKeysPressed(0x20);
+    int right = g_keyManager.TestKeysPressed(0x10);
 
     if (done == 0) {
         unsigned int dt = GameState::GetInstance()->GetEffectiveDeltaTime();
-        if (TestFlagMask_02012430(&data_02114e30, 0x40)) {
+        if (g_keyManager.TestKeysHeld(0x40)) {
             if (data_ov023_021fff24 < dt) {
                 up = 1;
             } else {
                 data_ov023_021fff24 -= dt;
             }
-        } else if (TestFlagMask_02012430(&data_02114e30, 0x80)) {
+        } else if (g_keyManager.TestKeysHeld(0x80)) {
             if (data_ov023_021fff24 < dt) {
                 down = 1;
             } else {
                 data_ov023_021fff24 -= dt;
             }
-        } else if (TestFlagMask_02012430(&data_02114e30, 0x20)) {
+        } else if (g_keyManager.TestKeysHeld(0x20)) {
             if (data_ov023_021fff24 < dt) {
                 left = 1;
             } else {
                 data_ov023_021fff24 -= dt;
             }
-        } else if (TestFlagMask_02012430(&data_02114e30, 0x10)) {
+        } else if (g_keyManager.TestKeysHeld(0x10)) {
             if (data_ov023_021fff24 < dt) {
                 right = 1;
             } else {
@@ -439,7 +441,7 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
         }
     }
 
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) {
+    if (g_keyManager.TestKeysPressed(2)) {
         if (locked) {
             return;
         }
@@ -451,7 +453,7 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
         }
     }
 
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x400)) {
+    if (g_keyManager.TestKeysPressed(0x400)) {
         if (self->noCancel == 0 && !locked) {
             col = self->col;
             row = self->row;

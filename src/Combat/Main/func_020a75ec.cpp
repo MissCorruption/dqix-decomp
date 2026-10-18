@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define func_020a78dc func_020a9660
@@ -32,7 +34,6 @@ struct Bytes02033b88;
 struct Vec3copy0202ec84;
 extern short data_020e9450[];
 extern InputWork020a75ec data_02114e54;
-extern unsigned short data_02114e30[];
 extern "C" Zone3D* func_02012fe4();
 extern "C" void func_020332ac(WrappedActor020a75ec*);
 extern "C" void func_020a78dc(WrappedActor020a75ec*);
@@ -41,7 +42,6 @@ void* GetPtrField0x2a04_02010828(GameState*);
 void* GetField0x3b0Value_020100bc(GameState*);
 int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
 extern "C" void* func_0205ec34();
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 int IsField0Null_02046b08(void**);
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
 int SetByte0xbeShiftPrev(Bytes02033b88*, int);
@@ -90,7 +90,7 @@ extern "C" ARM void func_020a75ec(WrappedActor020a75ec* actor) {
         actor->object.position_ = position;
         actor->previousPosition = position;
     }
-    GameResources* scene = func_ov017_0218b5b0();
+    GameResources* scene = GetGameResources();
     void* head = scene->unknown_ptr_array_36fc[0];
     if (!ListContainsId((ListHead02046b60*)head, 3) && !ListContainsId((ListHead02046b60*)head, 1)) {
         unsigned char* party = (unsigned char*)GetPtrField0x2a04_02010828(state);
@@ -120,7 +120,7 @@ extern "C" ARM void func_020a75ec(WrappedActor020a75ec* actor) {
 #if !defined(jpn)
     unsigned char* flags = (unsigned char*)func_0205ec34();
 #endif
-    if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 2) || hit) {
+    if (g_keyManager.TestKeysPressed(2) || hit) {
         if (IsField0Null_02046b08((void**)head)
 #if !defined(jpn)
             && TestBitInByteArray_0206dfb0((int)flags, flags + 0x8c, 43)

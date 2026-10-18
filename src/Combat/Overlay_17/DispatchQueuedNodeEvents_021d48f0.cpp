@@ -4,7 +4,6 @@
 
 struct BitArrayObj0205e830;
 int TestBitInArray0x1524(struct BitArrayObj0205e830* obj, int index);
-extern "C" GameResources* func_ov017_0218b5b0(void);
 void* GetData02100044_0202ae24(void);
 extern "C" void* func_0202ae18(void);
 
@@ -17,7 +16,7 @@ extern Handler021d7f98 data_ov017_021d7f98[];
 // USA: func_ov017_021d48f0  (semantic: DispatchQueuedNodeEvents_021d48f0)
 extern "C" ARM void func_ov017_021d48f0(void) {
     GameState* bs = GameState::GetInstance();
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     void* data = GetData02100044_0202ae24();
     void* extra = func_0202ae18();
     int outVal;

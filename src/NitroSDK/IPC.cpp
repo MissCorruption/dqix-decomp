@@ -3,7 +3,6 @@
 #include <globaldefs.h>
 #include <asmhacks.h>
 
-
 #define IPC_FIFO_SYNC (*(volatile unsigned short*)0x04000180)
 #define IPC_FIFO_CONTROL (*(volatile unsigned short*)0x04000184)
 #define IPC_FIFO_SEND (*(volatile unsigned int*)0x04000188)
@@ -140,7 +139,6 @@ IPCResult SendCommandToArm7(int channel, int argument, bool flag)
 
     if (IPC_FIFO_CONTROL & FIFO_CONTROL_MASK_ERROR)
     {
-        DECLARE_ASM_NOP();
         IPC_FIFO_CONTROL |=
             FIFO_CONTROL_MASK_ERROR // acknowledge the error
             | FIFO_CONTROL_MASK_ENABLE;

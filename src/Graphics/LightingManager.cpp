@@ -401,7 +401,7 @@ void LightingManager::GetCurrentAdvancedLightingValues(unsigned short *outMaybeA
             lerpFactor /= s_dayTransitionLength;
         }
 
-        void* ov17thing = func_ov017_0218b5b0()->unknown_ptr_3718;
+        void* ov17thing = GetGameResources()->unknown_ptr_3718;
         if (ov17thing != NULL)
         {
             void* ov0thing = func_ov017_021b8468(ov17thing);
@@ -616,7 +616,7 @@ void LightingManager::SetZone(Zone3D *zone) { pZone_ = zone; }
 void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *model)
 {
     GameState* gameState = GameState::GetInstance();
-    (void)func_ov017_0218b5b0();
+    (void)GetGameResources();
 
     if (pZone_ == NULL)
         return;
@@ -675,7 +675,7 @@ void LightingManager::ModelTransformTintBrightnessContrast(NSBXXInternalModel *m
     modelDiffuseColor_ = lightingInfo->basic_.modelDiffuseColor[index];
     edgeColor_ = lightingInfo->basic_.edgeColor[index];
     RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
-    _Z34SetupCombatantAllocations_021901acv(func_ov017_0218b5b0());
+    _Z34SetupCombatantAllocations_021901acv(GetGameResources());
     tint_4a_ = modelDiffuseColor_;
 
     for (meshIndex = 0; meshIndex < model->numMeshes_; meshIndex++)
@@ -739,7 +739,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
     int index;
     LightingInfo* info = &zone->lighting_;
     gameState = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     char* struct0205ec34 = func_0205ec34();
 
     if (info->maybeMode_ == 2)
@@ -747,7 +747,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
         info->advanced_.FillMissingEntries();
         info->fogList.FillMissingEntries();
         RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
-        _Z34SetupCombatantAllocations_021901acv(func_ov017_0218b5b0());
+        _Z34SetupCombatantAllocations_021901acv(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
     else if (info->maybeMode_ == 1)
@@ -797,7 +797,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
         };
         _Z28CallWithAddr4000330_020c555ci(edgeColors);
         RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
-        _Z34SetupCombatantAllocations_021901acv(func_ov017_0218b5b0());
+        _Z34SetupCombatantAllocations_021901acv(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
     else
@@ -813,7 +813,7 @@ void LightingManager::ProcessZoneChange(Zone3D *newZone)
         };
         _Z28CallWithAddr4000330_020c555ci(edgeColors);
         RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
-        _Z34SetupCombatantAllocations_021901acv(func_ov017_0218b5b0());
+        _Z34SetupCombatantAllocations_021901acv(GetGameResources());
         tint_4a_ = modelDiffuseColor_;
     }
     RenderConfig::SetLightVector(0, 0, 0, 0);
@@ -832,7 +832,7 @@ void LightingManager::RecomputeAdvancedLighting()
     if (zone == NULL)
         return;
     GameState* gameState = GameState::GetInstance();
-    (void)func_ov017_0218b5b0();
+    (void)GetGameResources();
     if (zone->lighting_.maybeMode_ == 1 || zone->lighting_.maybeMode_ != 2)
         return;
 
@@ -944,7 +944,7 @@ void LightingManager::SubmitToRenderConfig()
     Zone3D* zone = pZone_;
     if (zone == NULL)
         return;
-    (void)func_ov017_0218b5b0();
+    (void)GetGameResources();
     RenderConfig::SetDiffuseAmbientColors(modelDiffuseColor_, 0, false);
     if (zone->lighting_.maybeMode_ == 2)
     {
@@ -1008,7 +1008,7 @@ void LightingManager::DrawBackgroundGradient()
     unsigned short outerColor;
     unsigned short innerColor;
     LightingInfo* lightingInfo = &pZone_->lighting_;
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     if (lightingInfo->maybeMode_ == 1)
     {
         int index = timeOfDayIndex_;

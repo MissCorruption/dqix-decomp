@@ -2,6 +2,7 @@
 #include "Graphics/LightingManager.h"
 #include "World/ZoneResourceTree.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 // USA: func_020177d4
 extern "C" ARM void func_020177d4(Zone3D *zone, void *resourceNode, SafeAllocator *allocator) {
@@ -39,7 +40,7 @@ extern "C" ARM void func_020177d4(Zone3D *zone, void *resourceNode, SafeAllocato
     }
 
     int timeOfDay        = lighting->timeOfDayIndex_;
-    void *overrideObject = func_ov017_0218b5b0()->unknown_ptr_3718;
+    void *overrideObject = GetGameResources()->unknown_ptr_3718;
     if (overrideObject != NULL && IsField600B4Zero_021b8b54(overrideObject)) {
         unsigned char *overrideData = static_cast<unsigned char *>(func_ov017_021b8478(overrideObject));
         timeOfDay                   = overrideData[5];

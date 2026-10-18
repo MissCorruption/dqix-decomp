@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 void* GetField02163524(void* obj);
 void* GetGlobalField0x1c020421a0(void);
 extern "C" void func_ov000_0216dbf0(void* obj, int a, int b, int c);
@@ -23,7 +23,7 @@ extern "C" struct Timer021ef974 _ZZ16GetTimer021ef974vE1s;
 
 // USA: func_ov025_021dc880
 extern "C" ARM void func_ov025_021dc880(unsigned char* obj) {
-    func_ov017_0218b5b0();
+    GetGameResources();
     GetField02163524(obj);
     void* global = GetGlobalField0x1c020421a0();
 

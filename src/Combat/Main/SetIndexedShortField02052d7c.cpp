@@ -1,11 +1,15 @@
 #include <globaldefs.h>
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 #if defined(jpn)
 enum { kPointerOffset = 0x144 };
 #else
 enum { kPointerOffset = 0x150 };
 #endif
 
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 extern "C" void* func_0205ec34(void);
 
 struct Obj02052d7c {
@@ -22,7 +26,7 @@ extern "C" ARM void func_02052d7c(struct Obj02052d7c* obj, int index, short valu
 
     if (index != 7 && index != 8) {
         void* ctx = func_0205ec34();
-        SetOrClearBitInArray_0206df6c(ctx, (unsigned char*)ctx + 0x8c, 0x113f, 1);
+        func_0206df6c(ctx, (unsigned char*)ctx + 0x8c, 0x113f, 1);
     }
 
     ptr = obj->f150;

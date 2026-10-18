@@ -6,6 +6,7 @@
 #include "System/BGBases.h"
 #include "System/Matrix.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct GameObject;
 
@@ -34,7 +35,6 @@ struct Scene0217bf78 {
     int field_160;
 };
 
-extern "C" GameResources *func_ov017_0218b5b0(void);
 void SetField0x238False_020a27a0(void *obj);
 void SetField0x23cTrue_020a27ac(void *obj);
 int GetField0x70_0202e7f0(void *obj);
@@ -61,7 +61,7 @@ extern int data_02108760;
 // USA: func_ov003_0217bf78
 extern "C" ARM void func_ov003_0217bf78(Scene0217bf78 *self) {
     BackgroundLoader *loader = BackgroundLoader::GetInstance();
-    GameResources *resources = func_ov017_0218b5b0();
+    GameResources *resources = GetGameResources();
 
     if (self->state == 0) {
         GameState *gs          = GameState::GetInstance();

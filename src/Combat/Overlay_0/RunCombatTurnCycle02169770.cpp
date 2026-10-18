@@ -20,6 +20,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Util/Random.h"
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 extern "C" void func_0202ae18(void);
 int GetField0x3acValue_020100a8(GameState* battleStruct);
 void SeedRandom32Wrapper_0215faa4(struct Random* random, unsigned int stateHi, unsigned int stateLo);
@@ -29,7 +33,7 @@ extern "C" void func_ov000_0215e6e8(void* p);
 void ClearCombatWorkFlags0x55f4_ov000_02160fbc(void* work, int mask);
 extern "C" void func_ov000_02160e48(void* obj);
 extern "C" void* func_0205ec34(void);
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 void* GetPtrField0x2a04_02010828(GameState* battleStruct);
 void EnqueueEventTag23Field_021d0d58(void);
 
@@ -58,7 +62,7 @@ ARM void RunCombatTurnCycle02169770(unsigned char* obj) {
     if (*(int*)((char*)*(int**)(obj + REGION_OFFSET_5) + 0xc) == 0x19 &&
         *(signed char*)((char*)*(void**)(obj + REGION_OFFSET_0) + 0x8e00 + 0x14) == 1) {
         void* ctx = func_0205ec34();
-        SetOrClearBitInArray_0206df6c(ctx, (unsigned char*)ctx + 0x8c, 3, 1);
+        func_0206df6c(ctx, (unsigned char*)ctx + 0x8c, 3, 1);
         *(int*)((char*)GetPtrField0x2a04_02010828(battle) + 0x2000 + 0xc94) = 0x6d;
         EnqueueEventTag23Field_021d0d58();
     }

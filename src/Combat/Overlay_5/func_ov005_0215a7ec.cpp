@@ -16,6 +16,7 @@
 #endif
 #include <globaldefs.h>
 #include <GameState/GameState.h>
+#include "Resource/GameResources.h"
 
 struct Outer020e28dc;
 struct Struct_0205c570;
@@ -69,12 +70,12 @@ extern "C" ARM void func_ov005_0215a7ec(EquipmentMenu* self) {
                 else if (sum == 1)
                     y = 0x65;
             }
-            func_ov023_021e3304(GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]), x - 8, y - 2);
+            func_ov023_021e3304(GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]), x - 8, y - 2);
         }
     }
     if (self->state_ == 0) {
         short y = self->kind_ * 0x18 + 4;
-        void* cursor = GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]);
+        void* cursor = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         func_ov023_021e3304(cursor, 0x74, y);
     }
 }

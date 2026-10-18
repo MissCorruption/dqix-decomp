@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #include "Resource/Script.h"
+#include "Resource/GameResources.h"
 
 extern signed char data_ov003_02180cd0;
 extern const char data_ov003_02180bd8[];
@@ -20,7 +21,7 @@ struct Self0217be40 {
 // USA: func_ov003_0217be40
 extern "C" ARM void func_ov003_0217be40(struct Self0217be40* self) {
 	BackgroundLoader* loader = BackgroundLoader::GetInstance();
-	GameResources* res = func_ov017_0218b5b0();
+	GameResources* res = GetGameResources();
 
 	if (self->step == 0) {
 		GameState::GetInstance();

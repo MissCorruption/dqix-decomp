@@ -6,6 +6,7 @@ enum { kRegionalFieldOffset = 0x5cc8 };
 #endif
 
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 void* GetDataPtr02114e04_020d6c00(void);
 struct FlagWord02046708;
@@ -21,7 +22,7 @@ void SetFlag0x5cccBit0_02011544(struct StateBits5ccc_11544* state);
 // USA: func_0202b1f4  (semantic: PollFlagAndFinalizeState_0202b1f4)
 extern "C" ARM int func_0202b1f4(int* outPtr) {
     GameState* battleStruct = GameState::GetInstance();
-    int ctx = ((int)func_ov017_0218b5b0());
+    int ctx = ((int)GetGameResources());
     struct FlagWord02046708* flagWord = (struct FlagWord02046708*)GetDataPtr02114e04_020d6c00();
     if (TestFlags02046708(flagWord, 0x1000000)) {
         return 3;

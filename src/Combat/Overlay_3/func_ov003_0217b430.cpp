@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Obj2081;
 struct Cont0207fdf0;
@@ -40,7 +41,6 @@ unsigned short GetInnerShort_0217b200(void **obj);
 extern "C" int func_0207c7a0(void *map, int value, int key);
 unsigned int ComputeTimeRemaining_02179e18(struct Obj02179e18 *obj);
 extern "C" int func_ov003_021782a0(struct Obj2081 *obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *obj, int mask);
 void CallFunc0204c804OnMatchingKey_0207fdcc(struct Obj2081 *obj, int key);
 extern "C" void func_ov003_02176468(unsigned char *self);
 extern "C" int func_ov003_021764f4(unsigned char *self);
@@ -48,7 +48,6 @@ void RefillAndResetEntry_02175d78(char *obj);
 extern "C" void func_ov003_02175df4(void *self);
 
 extern struct Obj0205eaa0 data_02108760;
-extern unsigned short data_02114e30;
 
 static inline int ElemKind(struct Element020de650 *e) {
     unsigned int w = e->word;
@@ -195,7 +194,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *self) {
             func_ov003_0217726c((char *) self);
         }
         int hit = func_ov003_021782a0((struct Obj2081 *) self);
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401) != 0 || hit == 1) {
+        if (g_keyManager.TestKeysPressed(0x401) != 0 || hit == 1) {
             DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
             CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0 *) elemObj, 0);
             *(short *) (self + 0x1000 + 0x36) = 0xd;
@@ -211,7 +210,7 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *self) {
             *(unsigned char *) (self + 0x1000 + 0x3f) = 4;
             return;
         }
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) != 0 || hit == -1) {
+        if (g_keyManager.TestKeysPressed(2) != 0 || hit == -1) {
             CallFunc0204c804OnMatchingKey_0207fdcc((struct Obj2081 *) elemObj, 9);
             CallFunc0204c804OnMatchingKey_0207fdcc((struct Obj2081 *) elemObj, 0xa);
             ResetWithSub0208203c((struct Obj0208203c *) (self + 0x88c));

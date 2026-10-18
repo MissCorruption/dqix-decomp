@@ -5,6 +5,7 @@
 #include "Combat/Main/BattleList.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 struct BattleStruct {
     int unk0;
     int unk4;
@@ -307,7 +308,7 @@ extern "C" ARM void func_ov002_02157d40(struct BattleMenu* p) {
         if (p->command == 0xd7) {
             flagA = 1;
             flagB = 1;
-            char* ov = (char*)func_ov017_0218b5b0();
+            char* ov = (char*)GetGameResources();
             *ListField22(ov) = p->actor;
             func_ov017_021c12fc(ov, 1, 0);
         } else if (p->command == 0xd9) {
@@ -481,7 +482,7 @@ extern "C" ARM void func_ov002_02157d40(struct BattleMenu* p) {
                 }
             }
         } else if (p->command == 0xcf) {
-            unsigned char* ov = (unsigned char*)func_ov017_0218b5b0();
+            unsigned char* ov = (unsigned char*)GetGameResources();
             unsigned char* list;
             unsigned char* node = *(unsigned char**)(ov + 0x3bac);
             list = *(unsigned char**)(ov + 0x36fc);
@@ -576,7 +577,7 @@ extern "C" ARM void func_ov002_02157d40(struct BattleMenu* p) {
             p->nextState = 0x2b;
             return;
         } else if (p->command == 0xd5) {
-            unsigned char* rec = *(unsigned char**)((unsigned char*)func_ov017_0218b5b0() + 0x36d0);
+            unsigned char* rec = *(unsigned char**)((unsigned char*)GetGameResources() + 0x36d0);
             p->msgId = 0x7543;
             flagA = 1;
             if (func_0202c540(checkPtr) != 0 && IsInRange0201b588(*obj) == 0) {
@@ -597,7 +598,7 @@ extern "C" ARM void func_ov002_02157d40(struct BattleMenu* p) {
             flagB = 1;
         } else if (p->command == 0xd3) {
             int ok = 1;
-            unsigned char* rec = *(unsigned char**)((unsigned char*)func_ov017_0218b5b0() + 0x36d0);
+            unsigned char* rec = *(unsigned char**)((unsigned char*)GetGameResources() + 0x36d0);
             p->countA = 0;
             p->countB = 0;
             flagA = ok;
@@ -644,7 +645,7 @@ extern "C" ARM void func_ov002_02157d40(struct BattleMenu* p) {
             p->state = 0x26;
             p->nextState = 0x26;
         } else if (p->command == 0xce) {
-            unsigned char* ov = (unsigned char*)func_ov017_0218b5b0();
+            unsigned char* ov = (unsigned char*)GetGameResources();
             unsigned char* list;
             unsigned char* node = *(unsigned char**)(ov + 0x3bb0);
             list = *(unsigned char**)(ov + 0x36fc);
@@ -829,7 +830,7 @@ extern "C" ARM void func_ov002_02157d40(struct BattleMenu* p) {
                         func_ov017_021c3fb4(p->target, 1);
                         func_ov017_021c4418(p->target, -1);
                     }
-                    void* ov = func_ov017_0218b5b0();
+                    void* ov = GetGameResources();
                     BackgroundLoader::GetInstance();
                     func_ov017_0218f5a4(ov, p->target, 1, 0, 0);
                 }

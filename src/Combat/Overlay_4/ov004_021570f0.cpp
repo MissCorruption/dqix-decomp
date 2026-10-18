@@ -12,6 +12,7 @@
 #include "World/ZoneLootableRecord.h"
 extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/FileIO.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 #define R(j, u) (j)
@@ -391,7 +392,6 @@ extern "C" int func_0207c378(struct KeyedList0207c378*, int, int, int);
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
-extern "C" struct GameResources* func_ov017_0218b5b0(void);
 extern "C" void func_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" void func_ov011_021848a0(void*, int);
 
@@ -473,7 +473,7 @@ extern "C" ARM int func_ov004_02157a28(void* a, int flag) {
             func_ov017_021c4418(id, -1);
             if (did) func_ov017_021c9e00(id, 0, 0, 1);
         }
-        GameResources* res = func_ov017_0218b5b0();
+        GameResources* res = GetGameResources();
         HeadNode02046b24** headA = (HeadNode02046b24**)res->unknown_ptr_array_36fc[1];
         Ctx021a3498* ctxB = (Ctx021a3498*)res->unknown_ptr_array_36fc[2];
         BackgroundLoader* loader = BackgroundLoader::GetInstance();
@@ -595,11 +595,6 @@ void Zero4Bytes_020e526c(void*);
 void Clear12Bytes020e46c4(void*);
 extern "C" void* func_02012fe4(void);
 unsigned short GetFieldAt0x7e_0201e830(struct S_e830* p);
-unsigned int GetWord_0203b498(unsigned int* obj);
-unsigned int GetField4_0203b4d0(unsigned int* obj);
-unsigned int GetField8_0203b508(unsigned int* obj);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 void Set3DClearColor_020c5588(int, int, int, int, int);
 void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
 void SetDataPtr_021f5598(void*);
@@ -690,12 +685,12 @@ extern "C" ARM int func_ov004_02157db8(void* a) {
     if (!p) return 0;
     ((Blk_02157db8*)data_ov004_021707e0)->half0c = GetFieldAt0x7e_0201e830((struct S_e830*)p);
 
-    unsigned int* obj = (unsigned int*)func_ov017_0218b5b0();
-    ((Blk_02157db8*)data_ov004_021707e0)->word00 = GetWord_0203b498(obj);
-    ((Blk_02157db8*)data_ov004_021707e0)->word04 = GetField4_0203b4d0(obj);
-    ((Blk_02157db8*)data_ov004_021707e0)->word08 = GetField8_0203b508(obj);
-    SetBitsInWord_0203b4a0(obj, 4);
-    SetBitsInField4_0203b4d8(obj, 0x8de);
+    unsigned int* obj = (unsigned int*)GetGameResources();
+    ((Blk_02157db8*)data_ov004_021707e0)->word00 = GetFlags00((GameResources*)obj);
+    ((Blk_02157db8*)data_ov004_021707e0)->word04 = GetFlags04((GameResources*)obj);
+    ((Blk_02157db8*)data_ov004_021707e0)->word08 = GetFlags08((GameResources*)obj);
+    SetFlags00((GameResources*)obj, 4);
+    SetFlags04((GameResources*)obj, 0x8de);
 
     int pad0 = 0;
     Set3DClearColor_020c5588(0, 0x1f, 0x7fff, 0, 0);
@@ -781,11 +776,6 @@ enum { stateOffset_02158298 = 0x8c, battleOffset = 0xc, pointerOffset = 0x3500 }
 enum { stateOffset_02158298 = 0x6c, battleOffset = 0x26c, pointerOffset = 0x3710 };
 #endif
 
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField8_0203b520(unsigned int* obj, unsigned int mask);
-void SetBitsInField8_0203b510(unsigned int* obj, unsigned int mask);
-
 struct S_e828;
 void SetFieldAt0x7e_0201e828(S_e828*, unsigned short);
 
@@ -803,13 +793,13 @@ struct Outer26c_02158298 { char pad[0x5d00]; struct BitField5d00c_02158298 area;
 // USA: func_ov004_02158298  (semantic: SyncFlagWordsAndDispatch_02158298)
 extern "C" ARM int func_ov004_02158298(void) {
     GameState* battle = GameState::GetInstance();
-    unsigned int* word = (unsigned int*)((int)func_ov017_0218b5b0());
-    ClearBitsInWord_0203b4b0(word, ~0);
-    ClearBitsInField4_0203b4e8(word, ~0);
-    ClearBitsInField8_0203b520(word, ~0);
-    SetBitsInWord_0203b4a0(word, ((Masks021707d8_02158298*)data_ov004_021707e0)->m0);
-    SetBitsInField4_0203b4d8(word, ((Masks021707d8_02158298*)data_ov004_021707e0)->m4);
-    SetBitsInField8_0203b510(word, ((Masks021707d8_02158298*)data_ov004_021707e0)->m8);
+    unsigned int* word = (unsigned int*)((int)GetGameResources());
+    ClearFlags00((GameResources*)word, ~0);
+    ClearFlags04((GameResources*)word, ~0);
+    ClearFlags08((GameResources*)word, ~0);
+    SetFlags00((GameResources*)word, ((Masks021707d8_02158298*)data_ov004_021707e0)->m0);
+    SetFlags04((GameResources*)word, ((Masks021707d8_02158298*)data_ov004_021707e0)->m4);
+    SetFlags08((GameResources*)word, ((Masks021707d8_02158298*)data_ov004_021707e0)->m8);
 
     void* p = func_02012fe4();
     if (!p) return 0;
@@ -897,7 +887,7 @@ extern "C" ARM int func_ov004_021583a8(void* self) {
     static unsigned char sShown0;
     static unsigned char sShown1;
     GameState* game = GameState::GetInstance();
-    Ctx021583a8* ctx = (Ctx021583a8*)func_ov017_0218b5b0();
+    Ctx021583a8* ctx = (Ctx021583a8*)GetGameResources();
     TableA68* table;
     Obj5* o;
     int count;
@@ -1070,7 +1060,7 @@ int GetFieldB0_02184540(struct Obj_02184540* obj);
 
 // USA: func_ov004_0215883c
 extern "C" ARM int func_ov004_0215883c(void* a) {
-    void* actorRaw = func_ov017_0218b5b0();
+    void* actorRaw = GetGameResources();
     void* list = *(void**)((char*)actorRaw + 0x3000 + listOffset);
     unsigned char flag = data_ov004_021707e0[0x13];
     void* five = *(void**)((char*)actorRaw + 0x3000 + stateOffset_0215883c);
@@ -3424,7 +3414,7 @@ enum { taskOffset_0215bb54 = 0x3b48, messageFlagOffset_0215bb54 = 0x998 };
 
 // USA: func_ov004_0215bb54
 extern "C" ARM int func_ov004_0215bb54(void* obj) {
-    void* five = *(void**)((unsigned char*)func_ov017_0218b5b0() + taskOffset_0215bb54);
+    void* five = *(void**)((unsigned char*)GetGameResources() + taskOffset_0215bb54);
     unsigned char flag = data_ov004_021707e0[0x13];
     if (flag == 0) {
         void* obj2 = func_ov011_021845f8((unsigned char*)obj, (int)1);
@@ -3479,7 +3469,7 @@ extern "C" void func_0204500c(void*, const char*, int, int);
 // USA: func_ov004_0215bc9c
 extern "C" ARM int func_ov004_0215bc9c(void* obj) {
     int g;
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     void* list = resources->unknown_ptr_array_36fc[0];
     void* five = resources->unknown_ptr_array_3afc[19];
     void* table = (void*)DispatchAdjustmentIfType4_02157018(obj, 4);
@@ -3862,7 +3852,7 @@ extern "C" ARM int func_ov004_0215c30c(void* ctx) {
     BackgroundLoader::AddLockGlobal();
     unsigned int size;
     void* file = LoadFileIntoMemory("data/menu/dqa_rox.spr", data_0211e33c, &size);
-    char* pairs = GetPairTable(func_ov017_0218b5b0(), 0);
+    char* pairs = GetPairTable(GetGameResources(), 0);
     void* model = AddOffset20_021f7318(block);
     CopyInternalFields0207df50((struct Foo0207df50*)pairs);
     RestorePairTables0207df90(pairs);
@@ -4239,7 +4229,7 @@ extern "C" ARM int func_ov004_0215c974(void* obj) {
         SetStateAndDispatch0209c3b4((struct Actor0209c3b4*)data_02109bf4, b->low7);
         SetModeClamped0209ca70(data_02109bf4, data_ov004_021707e0[0x2d]);
     } else if (data_ov004_021707e0[0x14] != 0) {
-        void* raw = func_ov017_0218b5b0();
+        void* raw = GetGameResources();
         void* five = *(void**)((char*)raw + taskOffset_0215c974);
         rec = (char*)GetOffsetPtrromField_021b1fc0_021b1fc0(five);
         base = *(char**)((char*)five + 0x34);

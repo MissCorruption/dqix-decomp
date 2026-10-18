@@ -6,6 +6,10 @@
 #include "System/Interrupts.h"
 #include "System/VRAM.h"
 
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
 #define IRQ_MASTER_ENABLE (*(volatile unsigned short*)0x04000208)
 #define SUB_BG0_SCROLL (*(volatile unsigned int*)0x04001010)
 
@@ -49,7 +53,7 @@ struct Obj0204b8d0;
 struct List0204b0e8;
 struct Struct0200fb08;
 
-void EncodeSignFlaggedHalfword_020c39a0(short*, int);
+extern "C" void func_020c39a0(short*, int);
 void ClearField0x0_020bc078(int*);
 void CallField0xa00203aa44(void*);
 int TryAllocateOrAppend0203aaf8(void*, void*, int*);
@@ -84,8 +88,8 @@ extern const char data_ov016_0219d030[];
 // USA: func_ov016_0218caa8
 extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218caa8* node, int mode, void* script)
 {
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x0400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x0400106c, -16);
+    func_020c39a0((short*)0x0400006c, -16);
+    func_020c39a0((short*)0x0400106c, -16);
     data_ov016_0219d0c0.node = node;
     data_ov016_0219d0c0.displayState[0] = 0;
     data_ov016_0219d0c0.displayState[1] = 0;
@@ -206,8 +210,8 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
     }
     DelayThenSyncBit0_020c9820();
     data_ov016_0219d0c0.owner = owner;
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x0400006c, 0);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x0400106c, 0);
+    func_020c39a0((short*)0x0400006c, 0);
+    func_020c39a0((short*)0x0400106c, 0);
     func_ov016_0218c04c(name, script);
     SetInterruptHandler(1, (const void*)InitOverlay17ObjAndBumpBattleCounter02012bd8);
 }

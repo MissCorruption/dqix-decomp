@@ -7,6 +7,7 @@ enum { kListOffset = 0x36fc, kModeOffset = 0x27b4 };
 #endif
 
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct ListHead02046b60;
 extern int ListContainsId(struct ListHead02046b60* list, int id);
@@ -20,7 +21,7 @@ struct Obj020ad4c4 {
 // USA: func_020ad4c4
 ARM int CheckAndInvoke020ad4c4(struct Obj020ad4c4* obj) {
     GameState* battleStruct = GameState::GetInstance();
-    int base = ((int)func_ov017_0218b5b0());
+    int base = ((int)GetGameResources());
     struct ListHead02046b60* list = *(struct ListHead02046b60**)(base + kListOffset);
     if (ListContainsId(list, 4)) {
         return 0;

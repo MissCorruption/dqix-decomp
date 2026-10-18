@@ -6,6 +6,7 @@ enum { RegionOffset6c = 0x6c };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_02012fe4(void);
 int fix32ReduceAngle0To2Pi(int angle);
@@ -26,7 +27,7 @@ extern "C" ARM void func_ov017_0219c598(int* srcVec3, short* srcAngle, int force
     GameState* battleStruct = GameState::GetInstance();
     unsigned char* field3f8 = (unsigned char*)GetField0x3f8Address_0200fd0c(battleStruct);
     void* dataBase = func_02012fe4();
-    ((int)func_ov017_0218b5b0());
+    ((int)GetGameResources());
     unsigned char* field2a04 = (unsigned char*)GetPtrField0x2a04_02010828(battleStruct);
     GameObject* combatant = battleStruct->GetUnknownGameObject();
 

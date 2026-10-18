@@ -12,8 +12,8 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_ov017_021959b4(void);
 struct GameResources;
@@ -34,7 +34,7 @@ struct Obj02184694 {
 
 // USA: func_ov011_02184694  (semantic: InitOrRefreshNodeState_02184694)
 extern "C" ARM int func_ov011_02184694(Obj02184694* obj) {
-    int ctx = func_ov017_0218b5b0();
+    int ctx = (int)GetGameResources();
     func_0202ae18();
     if (obj->flag_1cd == 0) {
         int flag = func_ov017_021959b4();

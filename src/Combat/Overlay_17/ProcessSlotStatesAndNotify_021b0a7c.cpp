@@ -14,7 +14,7 @@ extern "C" ARM void func_ov017_021b0a7c(unsigned char* obj) {
     GameResources* ov;
     int i;
     bs = GameState::GetInstance();
-    ov = func_ov017_0218b5b0();
+    ov = GetGameResources();
     base = obj + 0x1b;
     for (i = 0; i < 4; i++) {
         if (base[i] != 0) {

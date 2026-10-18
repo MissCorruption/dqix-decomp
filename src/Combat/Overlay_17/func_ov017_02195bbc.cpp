@@ -3,8 +3,8 @@
 #include "Graphics/LightingManager.h"
 #include "System/Graphics.h"
 #include "World/Zone3D.h"
+#include "Resource/Brightness.h"
 
-struct AxisFloats0203b5a0;
 struct Obj0203dde0;
 struct Container02057a10;
 struct Struct020a66a4;
@@ -15,14 +15,11 @@ struct Obj0208f410;
 extern "C" Zone3D* func_02012fe4();
 extern "C" Container02057a10* func_02057924();
 void* GetFieldPtrAt0x5ca4_02010768(void* obj);
-bool IsAxisIntWithin16(AxisFloats0203b5a0* s, int axis);
 void ForwardObjAndField0_021a3dcc(int obj);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 extern "C" void func_02016874(Zone3D* self);
 unsigned char GetByte0x4_0200fb9c(char* obj);
 int GetWord0x7f6c_0201201c(void* gs);
 extern "C" void func_0202343c(void* obj);
-int IsChannelValueZero0203b5e0(void* obj, int index);
 Obj0203dde0* GetGlobalPtr021075f4_0203cf4c();
 extern "C" void func_0203de84(void* self);
 void UpdateEntrySubObjects0203dde0(Obj0203dde0* obj);
@@ -75,16 +72,16 @@ extern "C" ARM void func_ov017_02195bbc(Battle02195bbc* self) {
     entries = func_02057924();
     field5ca4 = (Zone3D**)GetFieldPtrAt0x5ca4_02010768(gs);
 
-    if (IsAxisIntWithin16((AxisFloats0203b5a0*)self, 0)) {
+    if (IsBrightnessWithinValidRange((GameResources*)self, false)) {
         ForwardObjAndField0_021a3dcc(self->nodeList);
-        if (GetBitsInField4_0203b4fc(self->flags, 2) == 0) {
+        if (TestFlags04((GameResources*)(self->flags), 2) == 0) {
             func_02016874(zone);
         }
     }
     if (GetByte0x4_0200fb9c((char*)gs) != 6 && GetWord0x7f6c_0201201c(gs) != 5) {
         func_0202343c(self->f36d0);
     }
-    if (IsChannelValueZero0203b5e0(self, 0) != 0) {
+    if (IsBrightnessOutsideValidRange((GameResources*)self, false) != 0) {
         return;
     }
 
@@ -92,7 +89,7 @@ extern "C" ARM void func_ov017_02195bbc(Battle02195bbc* self) {
     GXFIFO_MATRIX_IDENTITY = 0;
 
     if (GetByte0x4_0200fb9c((char*)gs) != 6 && GetWord0x7f6c_0201201c(gs) != 5 &&
-        GetBitsInField4_0203b4fc(self->flags, 8) == 0) {
+        TestFlags04((GameResources*)(self->flags), 8) == 0) {
         g = GetGlobalPtr021075f4_0203cf4c();
         func_0203de84(g);
         UpdateEntrySubObjects0203dde0(g);
@@ -105,7 +102,7 @@ extern "C" ARM void func_ov017_02195bbc(Battle02195bbc* self) {
         func_02016874(*field5ca4);
     }
 
-    if (GetBitsInField4_0203b4fc(self->flags, 0x100) == 0) {
+    if (TestFlags04((GameResources*)(self->flags), 0x100) == 0) {
         state = GameState::GetInstance();
         func_0202ae18();
         ctx = func_02012fe4();
@@ -125,17 +122,17 @@ extern "C" ARM void func_ov017_02195bbc(Battle02195bbc* self) {
         }
     }
 
-    if (self->f4488 != 0 && GetBitsInField4_0203b4fc(self->flags, 0x20) == 0) {
+    if (self->f4488 != 0 && TestFlags04((GameResources*)(self->flags), 0x20) == 0) {
         UpdateEntriesWhereFlag2Clear02057a10(entries);
     }
     UpdateCombatantBitsFromField_02196398_02196398(self->flags);
-    if (GetBitsInField4_0203b4fc(self->flags, 0x20000) == 0) {
+    if (TestFlags04((GameResources*)(self->flags), 0x20000) == 0) {
         func_020a66a4((Struct020a66a4*)self);
     }
-    if (GetBitsInField4_0203b4fc(self->flags, 0x40000) == 0) {
+    if (TestFlags04((GameResources*)(self->flags), 0x40000) == 0) {
         ProcessSlotEntry020aca30((Struct020aca30*)self);
     }
-    if (self->f4488 == 0 && GetBitsInField4_0203b4fc(self->flags, 0x20) == 0) {
+    if (self->f4488 == 0 && TestFlags04((GameResources*)(self->flags), 0x20) == 0) {
         UpdateEntriesWhereFlag2Clear02057a10(entries);
     }
     if (self->f3718[3] != 0) {
@@ -147,7 +144,7 @@ extern "C" ARM void func_ov017_02195bbc(Battle02195bbc* self) {
     if (self->f3b5c[3] != 0) {
         EmptyFunc_021b65d8(self->f3b5c);
     }
-    if (GetBitsInField4_0203b4fc(self->flags, 2) == 0) {
+    if (TestFlags04((GameResources*)(self->flags), 2) == 0) {
         MaybeNotifyGrottoState0208f820((Struct0208f820*)zone->unk_2664);
     }
     LightingManager::GetInstance()->MaybeComputeHorizonPosition();

@@ -2,6 +2,7 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_020dc920(int a, int b, int c, int d);
 extern "C" int func_0207c378(void* obj, int value, int amount, int key);
@@ -124,7 +125,7 @@ extern "C" ARM void func_ov017_021d27e4(void* unused0, Evt021d27e4* evt, GameSta
                     func_ov017_021c9e00(second, 0, 0, 1);
                     func_ov017_021c3fb4(second, 1);
                     func_ov017_021c4418(second, -1);
-                    GameResources* g = func_ov017_0218b5b0();
+                    GameResources* g = GetGameResources();
                     BackgroundLoader::GetInstance();
                     func_ov017_0218f5a4(g, second, 1, 0, 0);
                     ((EnqueueTag34Fn)EnqueueEventTag34_021d27a0)(2, first, second);

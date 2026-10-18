@@ -4,6 +4,10 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 
+#if defined(jpn)
+#define func_020daf90 func_020dc998
+#endif
+
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
 extern "C" int func_0202c540(void* p);
@@ -11,7 +15,7 @@ extern "C" void func_0205ac40(void* a, void* b);
 
 int GetIntField0x260_02039750(void* obj);
 int GetGlobalField0x1c020421a0();
-void* GetGlobalContext020daf90(void);
+extern "C" void* func_020daf90(void);
 int IsField0Null_02046b08(void** obj);
 
 struct Something02015a2c;
@@ -73,7 +77,7 @@ extern "C" ARM void func_ov017_021a63d0(unsigned char* base) {
     int f260 = GetIntField0x260_02039750(GameState::GetInstance()->GetProtagonist());
     int glob1c = GetGlobalField0x1c020421a0();
     void* g = func_02012fe4();
-    void* ctx = GetGlobalContext020daf90();
+    void* ctx = func_020daf90();
 
     if (GameState::GetInstance()->GetGrottoStruct()->unknown_0[0] == 0) return;
 

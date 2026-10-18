@@ -2,6 +2,11 @@
 #include "Combat/Main/BattleList.h"
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 #if defined(jpn)
 enum { kRegionSelfShift = 0x84, kRegionElementCursor = 0x2a };
 #else
@@ -42,7 +47,6 @@ void ResetWithSub0208203c(struct Obj0208203c* obj);
 struct Element020de650* FindElementByKey020dedd0(struct Container020dedd0* c, int key);
 void CallFunc0204c804OnMatchingKey_0207fdcc(struct Obj2081* obj, int key);
 void CallFunc0204c804OnNonMatchingKey(struct Cont0207fdf0* obj, int key);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 signed char LookupValueByKey020a0b3c(struct KeyMap020a0b3c* map, int key);
 unsigned int ComputeRatio_02175898(char* obj, void* s);
 int CheckRatioWithinCap_021758cc(char* self, int cap);
@@ -50,7 +54,7 @@ void TrySpendResource_02175924(char* self);
 int EvalOrDispatch020de194(void* obj);
 int GetGlobalField0x1c020421a0();
 void ReinitController02043204(char* obj);
-void SetOrClearBitInArray_0206df6c(void* a, unsigned char* b, int c, int d);
+extern "C" void func_0206df6c(void* a, unsigned char* b, int c, int d);
 void ZeroInitReturn020de824(void* obj);
 void InitStruct0207cbe8(char* obj);
 extern "C" unsigned int _u32_div_f(unsigned int a, unsigned int b);
@@ -86,7 +90,6 @@ extern "C" void* func_0205ec34(void);
 extern "C" int func_02081f20(void* obj, int scaleCount);
 extern "C" void func_0207ccf0(void* ctx, int key, int cap, int elemId, int a5, int a6, int a7);
 
-extern unsigned short data_02114e30;
 extern struct Obj0205eaa0 data_02108760;
 
 static inline void SetSelection(unsigned char* self, signed char v) {
@@ -290,7 +293,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* self) {
         }
 
         int hitZone = func_ov003_021782a0((struct Obj2081*)self);
-        int flagTest = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401);
+        int flagTest = g_keyManager.TestKeysPressed(0x401);
         if (flagTest != 0 || hitZone == 1) {
             DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
             CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0*)elemObj, 0);
@@ -303,7 +306,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* self) {
             return;
         }
 
-        int flagTest2 = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2);
+        int flagTest2 = g_keyManager.TestKeysPressed(2);
         if (flagTest2 != 0 || hitZone == -1) {
             CallFunc0204c804OnMatchingKey_0207fdcc(elemObj, 9);
             CallFunc0204c804OnMatchingKey_0207fdcc(elemObj, 0xa);
@@ -351,7 +354,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* self) {
         short key = *(short*)(self + (0x1000 + 0x3a - kRegionSelfShift));
         if (st34 == 0x20 && key == 0x55f0) {
                 void* base = func_0205ec34();
-                SetOrClearBitInArray_0206df6c(base, (unsigned char*)base + 0x8c, 0x1139, 1);
+                func_0206df6c(base, (unsigned char*)base + 0x8c, 0x1139, 1);
             }
             return;
         }

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 #if defined(jpn)
 #define REGION_MEMBER_SHORT_OFFSET 0x2a
 #define REGION_MENU_LEADING_SIZE 0x20
@@ -75,7 +76,6 @@ short FindMappedMemberId02080468(void* obj, int id);
 void ResetWithSub0208203c(Obj0208203c*);
 void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081*, int);
 int CheckFlagAndPointInElement_02186ff0(char*);
-bool TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 
 extern "C" {
@@ -85,7 +85,6 @@ void func_020813ec(Menu* menu, short group);
 bool func_ov014_02186f10(MonsterListScreen* self);
 }
 
-extern unsigned short data_02114e30[];
 extern char data_02108760[];
 
 // USA: func_ov014_02187c04
@@ -131,7 +130,7 @@ extern "C" ARM void func_ov014_02187c04(MonsterListScreen* self)
             CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
             self->cursor_ = NULL;
         }
-        else if (CheckFlagAndPointInElement_02186ff0((char*)self) || TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800))
+        else if (CheckFlagAndPointInElement_02186ff0((char*)self) || g_keyManager.TestKeysPressed(0x800))
         {
             self->listState_ = 5;
             self->listStep_ = 0;

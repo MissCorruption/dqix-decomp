@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-
-extern "C" int func_ov017_0218b5b0(void);
+#include "Resource/GameResources.h"
 
 struct Obj0208e4f8 {
     int field0;
@@ -13,7 +12,7 @@ struct Obj0208e4f8 {
 
 // USA: func_0208e4f8
 ARM void ResetAllocatorAndClearState(struct Obj0208e4f8* p) {
-    int base = func_ov017_0218b5b0();
+    int base = (int)GetGameResources();
     SafeAllocator* alloc = (SafeAllocator*)(base + 0x1a0);
     alloc->Reset();
     p->field4 = 0;

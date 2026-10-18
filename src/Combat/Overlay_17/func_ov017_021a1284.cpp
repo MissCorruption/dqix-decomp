@@ -2,6 +2,7 @@
 #include <GameState/GameState.h>
 #include <Filesystem/BackgroundLoader.h>
 #include <World/Zone3D.h>
+#include "Resource/Brightness.h"
 
 struct Foo0207df50;
 struct Obj020397cc;
@@ -75,7 +76,6 @@ extern "C" void func_0204500c(void*, unsigned char*, int, int);
 void ReinitController02043204(char*);
 void SetField0x98Bit0_0203d008(unsigned char*);
 extern "C" void func_0203e0a0(EntryList_203dce4*, unsigned short);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
 extern "C" void func_020a0cc4(unsigned int);
 void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020a0c0c();
@@ -110,13 +110,10 @@ int CheckField0NonZero_0202b7d8(int*);
 int ArrayContainsByte_02086ef0(ArrayContainsByteStruct*, int);
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
 extern "C" void func_ov017_0219ba0c(GameResources*, int);
 int IsField0Null_02046b08(void**);
 void CallFuncForEachOfFour_020732a8();
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 unsigned char* GetFieldIfFlag4_020100f8(char*);
 void ClearFlagBits_020a28b0(unsigned char*, int);
 void SetByteField0x253_020397c0(void*);
@@ -156,7 +153,7 @@ extern "C" ARM void func_ov017_021a1284(TransferEvent021a1284* self, void* unuse
         ReinitController02043204((char*)global);
         SetField0x98Bit0_0203d008((unsigned char*)entries);
         func_0203e0a0(entries, zone->currentZoneID_);
-        SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 0x10);
+        SetFlags00(resources, 0x10);
         func_020a0cc4(0x17600);
         void* buffer = AllocateAligned4_02012d88(&data_02114e20, 0x17600);
         if (!buffer) {
@@ -238,7 +235,7 @@ extern "C" ARM void func_ov017_021a1284(TransferEvent021a1284* self, void* unuse
                 func_ov017_021c4418(i, -1);
             }
         }
-        ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0, 0x10);
+        ClearFlags00(resources, 0x10);
         func_ov017_0219ba0c(resources, 0);
         self->stage = 5;
     } else if (self->stage == 5) {
@@ -246,9 +243,9 @@ extern "C" ARM void func_ov017_021a1284(TransferEvent021a1284* self, void* unuse
         CallFuncForEachOfFour_020732a8();
         func_ov017_0219bd1c(1, 0, 0, 0);
         if (zone->currentZoneID_ == 0x2710 || zone->currentZoneID_ == 0x2774) {
-            ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x601fe);
-            SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x10004);
-        } else ClearBitsInField4_0203b4e8(&resources->brightnessFlags_0, 0x601fe);
+            ClearFlags04(resources, 0x601fe);
+            SetFlags04(resources, 0x10004);
+        } else ClearFlags04(resources, 0x601fe);
         self->stage = 6;
     } else if (self->stage == 6) {
         if (((ZoneTransfer021a1284*)func_02012fe4())->pending) return;

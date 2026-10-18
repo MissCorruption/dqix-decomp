@@ -2,9 +2,8 @@
 #include "Resource/FontBankLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/Brightness.h"
 
-extern "C" int func_ov017_0218b5b0(void);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void TailForward02012da4(AllocatorUnion*, void*);
 extern AllocatorUnion data_02114e20;
 
@@ -31,6 +30,6 @@ extern "C" ARM void func_ov017_021a92a0(struct Obj021a92a0* self) {
         TailForward02012da4(&data_02114e20, handle);
     }
 
-    ClearBitsInField4_0203b4e8((unsigned int*)func_ov017_0218b5b0(), 0x40);
+    ClearFlags04(GetGameResources(), 0x40);
     *(volatile unsigned int*)0x4000000 = (*(volatile unsigned int*)0x4000000 & ~0x1f00) | (self->field24 << 8);
 }

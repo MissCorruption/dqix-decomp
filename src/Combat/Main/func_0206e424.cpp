@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 struct SpellSlot0206e424 {
     unsigned int field_0x0;
     unsigned int field_0x4;
@@ -32,7 +36,7 @@ struct S_a04c8 {
 extern SlotOrder0206e424 data_020e87b4;
 int GetFieldAt0x150_02053c6c(unsigned char*);
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void LoadBattleBlock020ac4c0(void*);
 void AddClamped11BitFieldAt0x14_020a04c8(S_a04c8*, unsigned int);
 void CopyInBattleField0x7540_020ac494(void*);
@@ -61,7 +65,7 @@ extern "C" ARM void func_0206e424(LearnedSpellFlags0206e424* owner, int combatan
             unsigned short spellId = slot->spellId;
             if (spellId) {
                 if (!TestBitInByteArray_0206dfb0((int)owner, owner->bits, spellId + 0xc76)) {
-                    SetOrClearBitInArray_0206df6c(owner, owner->bits, spellId + 0xc76, 1);
+                    func_0206df6c(owner, owner->bits, spellId + 0xc76, 1);
                     learned++;
                 }
             }

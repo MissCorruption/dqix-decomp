@@ -79,7 +79,7 @@ void Zone3D::SwitchZone_0201383c(unsigned short newID, int)
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     void* uVar3 = _Z25GetPtrField0x468_02011584Pv(gameState);
-    (void)func_ov017_0218b5b0();
+    (void)GetGameResources();
     GameObject* iVar4 = gameState->GetUnknownGameObject();
 
     pAllocator_68_ = pAllocator_4c_;

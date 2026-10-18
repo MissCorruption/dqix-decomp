@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct SearchStruct;
 struct Obj_021bd3a4 { unsigned char pad0[2]; unsigned char f2; unsigned char f3; unsigned char pad1[0x96]; unsigned char f9a; };
@@ -8,7 +9,6 @@ struct F8Bits_021925e0 {
     unsigned int high5 : 5;
 };
 
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" struct SearchStruct* func_0202ae18(void);
 extern "C" int func_0202c540(struct SearchStruct* obj);
 int HasFlag3orFlag2And9a_021bd3a4(struct Obj_021bd3a4* obj);
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov017_021925e0(void) {
 #else
  enum {regionalOffset0=0x734, regionalOffset1=0x101, regionalOffset2=0xf8, regionalOffset3=0xff, regionalOffset4=0xcf};
 #endif
-    char* base = func_ov017_0218b5b0();
+    char* base = (char*)GetGameResources();
     unsigned char* obj = *(unsigned char**)(base + 0x3000 + regionalOffset0);
     if (!func_0202c540(func_0202ae18())) {
         goto ret0;

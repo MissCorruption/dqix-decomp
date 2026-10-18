@@ -93,9 +93,9 @@ extern "C" ARM int func_ov005_02158b3c(void* object, void* buffer) {
     func_02046380(g);
     GameState* game = GameState::GetInstance();
 #if defined(jpn)
-    int id = ((CombatantTail*)GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]))->index;
+    int id = ((CombatantTail*)GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]))->index;
 #else
-    CombatantTail* tail = (CombatantTail*)GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]);
+    CombatantTail* tail = (CombatantTail*)GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     int id = tail->index;
 #endif
     Combatant_02158b3c* combatant = (Combatant_02158b3c*)GetCombatantWithFlag0x100_0200ff1c(game, id);

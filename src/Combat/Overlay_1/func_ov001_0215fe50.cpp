@@ -5,10 +5,10 @@
 #endif
 #include <globaldefs.h>
 #include "Combat/Overlay_1/EventArgs.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021d60f4(void*);
 extern "C" void* func_ov001_0215ab20(int idx);
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void func_ov017_0219b43c(void* mgr, int a, EventVec3* pos, int b, int c);
 
 // USA: func_ov001_0215fe50
@@ -33,6 +33,6 @@ extern "C" ARM int func_ov001_0215fe50(void* self, int mode) {
     if (mode >= 4) {
         c = func_ov017_021d60f4(self);
     }
-    func_ov017_0219b43c(func_ov017_0218b5b0(), a, &v, b, c);
+    func_ov017_0219b43c(GetGameResources(), a, &v, b, c);
     return 1;
 }

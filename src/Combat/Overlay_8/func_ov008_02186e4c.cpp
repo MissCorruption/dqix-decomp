@@ -2,6 +2,7 @@
 #include <Memory/SafeAllocator.h>
 #include <Graphics/Vector.h>
 #include <World/Object3D.h>
+#include "Input/Input.h"
 
 struct PlayTime {
     unsigned short hours_;
@@ -79,10 +80,6 @@ struct BattleRecords {
     PlayTime times_[2];
 };
 
-extern unsigned short data_02114e30[];
-
-int TestFlagMask_02012430(unsigned short* pad, int buttons);
-
 // USA: func_ov008_02186e4c
 extern "C" ARM void func_ov008_02186e4c(BattleRecords* self, unsigned int ticks)
 {
@@ -132,9 +129,9 @@ extern "C" ARM void func_ov008_02186e4c(BattleRecords* self, unsigned int ticks)
     {
         int left = 0;
         int right = 0;
-        if (TestFlagMask_02012430(data_02114e30, 0x200))
+        if (g_keyManager.TestKeysHeld(0x200))
             left = 1;
-        if (TestFlagMask_02012430(data_02114e30, 0x100))
+        if (g_keyManager.TestKeysHeld(0x100))
             right = 1;
         if (left && right)
         {

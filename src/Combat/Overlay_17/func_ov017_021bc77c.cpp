@@ -10,6 +10,11 @@ enum { kGamePositionOffset = 0x71e4, kGamePositionY = 0x71f0, kGamePositionState
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Graphics/LightingManager.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 enum { kInvalidId = -1 };
 
@@ -27,10 +32,9 @@ int TestFlagBitAt0x2744_0201bfc0(unsigned char*, int);
 void InitContext020e1154(void*);
 void SetField0x238True_020a2794(void* p);
 void ApplyVecFromField0x21e_020a2744(char*);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov017_0219b624(void* res);
 void TailForward02012da4(AllocatorUnion* a, void* p);
-int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
 void* AllocateAligned4_02012d88(AllocatorUnion* a, unsigned int size);
 extern "C" void func_ov017_021a2fa0(void* res);
 int CheckField0NonZero_0202b7d8(int*);
@@ -47,8 +51,6 @@ extern "C" unsigned char* func_ov017_021b8478(unsigned char* p);
 extern "C" void func_02046a8c(void* a, unsigned char* b);
 int GetState0209ca68(char*);
 extern "C" void func_0209c530(void* p);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
 unsigned char* GetField0x3f8Address_0200fd0c(GameState* gs);
 void* GetData02153660_020e3808();
 int GetField0x3acValue_020100a8(GameState* gs);
@@ -208,7 +210,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         return self->fa;
     }
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     void* x34 = func_0202ae18();
     GameObject* unk = gs->GetUnknownGameObject();
     GameObject* party0 = gs->GetPartyMemberByIndex(0);
@@ -229,7 +231,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         Block_021bc77c blk = self->blk;
         unsigned char b9c = self->b9c;
         gs2 = GameState::GetInstance();
-        GameResources* res2 = func_ov017_0218b5b0();
+        GameResources* res2 = GetGameResources();
         p2 = func_02012fe4();
         func_0202ae18();
         if (!(blk.flags & 0x400)) {
@@ -254,10 +256,10 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
     SetField0x238True_020a2794(f28);
     ApplyVecFromField0x21e_020a2744((char*)f28);
     if (self->blk.s46 > kInvalidId) {
-        SetOrClearBitInArray_0206df6c(bits, bits + 0x8c, self->blk.s46 + 0x38e, 1);
+        func_0206df6c(bits, bits + 0x8c, self->blk.s46 + 0x38e, 1);
     }
     if (self->sa0 > kInvalidId && self->b9c) {
-        SetOrClearBitInArray_0206df6c(bits, bits + 0x8c, self->sa0 + 0xbea, 1);
+        func_0206df6c(bits, bits + 0x8c, self->sa0 + 0xbea, 1);
     }
     if (self->b9a) {
         func_ov017_0219b624(res);
@@ -270,7 +272,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
         }
         self->alloc138 = 0;
     }
-    if (!GetBitsInField0_0203b4c4(&res->brightnessFlags_0, 0x1000) || self->u11a == 0) {
+    if (!TestFlags00(res, 0x1000) || self->u11a == 0) {
         int size = self->i90;
         if (size) {
             SafeAllocator* sa = GetAllocator_021bc77c(res, 7);
@@ -324,11 +326,11 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
                 if (GetState0209ca68((char*)data_02109bf4) == 2) {
                     func_0209c530(data_02109bf4);
                 }
-                ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 4);
-                ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x10);
-                ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 2);
-                ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 4);
-                ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 0x800);
+                ClearFlags04(res, 4);
+                ClearFlags04(res, 0x10);
+                ClearFlags04(res, 2);
+                ClearFlags00(res, 4);
+                ClearFlags00(res, 0x800);
             }
         }
     } else {
@@ -392,7 +394,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
             void* x = func_0202ae18();
             p3 = func_02012fe4();
             bits3 = func_0205ec34();
-            res3 = func_ov017_0218b5b0();
+            res3 = GetGameResources();
             unsigned char* o = RES_PTR(res3, 734);
             unsigned char buf = 0;
             unsigned short cur = *p3;
@@ -431,7 +433,7 @@ extern "C" ARM int func_ov017_021bc77c(Self_021bc77c* self, void* arg) {
                 goto checked;
             }
             if (!r) {
-                ClearBitsInWord_0203b4b0(&res3->brightnessFlags_0, 0x10);
+                ClearFlags00(res3, 0x10);
             }
             ok = r == 0;
         }

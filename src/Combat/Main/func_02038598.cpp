@@ -4,6 +4,8 @@
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "World/ZoneObjectResourceLoading.h"
 #include "World/Zone3D.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 static inline fix32_t FX_MulInline(fix32_t v1, fix32_t v2) {
     return ((long long)v1 * v2 + 0x800LL) >> 12;
@@ -72,7 +74,6 @@ struct FlagWord020466f4 { unsigned int flags; };
 struct ListHead02046b60;
 struct TailList020469b4;
 struct TailNode020469b4;
-extern "C" GameResources* func_ov017_0218b5b0();
 extern "C" Zone3D* func_02012fe4();
 extern "C" void func_ov017_02191108(void*, int, int, int, int);
 void* GetDataPtr02114e04_020d6c00();
@@ -86,8 +87,6 @@ void SetVec3038500_02038500(Vec3038500*, int, int, int);
 void SetHalf0xc6AndCopyVec3_02033e18(void*, int*, short);
 int GetField4328_0218d268(void*);
 int GetField0x3acValue_020100a8(GameState*);
-int IsFlag0x80Set_020123cc(unsigned short*);
-int IsFlag0x40Set_020123b8(unsigned short*);
 int ListContainsId(ListHead02046b60*, int);
 void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
 void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
@@ -96,7 +95,6 @@ void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
 extern const char data_020efb44[];
 extern const char data_020efb4e[];
 extern const char data_020efb5a[];
-extern unsigned short data_02114e30;
 extern ActorInputState02038598 data_02114e54;
 
 // USA: func_02038598
@@ -108,7 +106,7 @@ extern "C" ARM void func_02038598(ActorMotion02038598* self) {
     unsigned int* inputFlags;
     unsigned char side;
     ListHead02046b60* list;
-    resources = func_ov017_0218b5b0();
+    resources = GetGameResources();
     list = (ListHead02046b60*)resources->unknown_ptr_array_36fc[0];
     zone = func_02012fe4();
     fields = (ActorFields02038598*)self->resources.unk_ac;
@@ -206,13 +204,13 @@ extern "C" ARM void func_02038598(ActorMotion02038598* self) {
         Vector3fix posCopy = self->resources.obj3D_.position_;
         Vector3fix touchStart, touchEnd;
 
-        GameResources* touchResources = func_ov017_0218b5b0();
+        GameResources* touchResources = GetGameResources();
         ActorTouch02038598* touch = (ActorTouch02038598*)GetField4328_0218d268(touchResources);
 
         side = 0;
-        if (IsFlag0x80Set_020123cc(&data_02114e30)) {
+        if (g_keyManager.IsDownHeld()) {
             side = 1;
-        } else if (IsFlag0x40Set_020123b8(&data_02114e30)) {
+        } else if (g_keyManager.IsUpHeld()) {
             side = 2;
         }
 
@@ -399,7 +397,7 @@ extern "C" ARM void func_02038598(ActorMotion02038598* self) {
     if (state == 6) {
         GameState* bs = GameState::GetInstance();
         ActorActionEvent02038598* event = (ActorActionEvent02038598*)GetField0x3f8Address_0200fd0c(bs);
-        GameResources* transitionResources = func_ov017_0218b5b0();
+        GameResources* transitionResources = GetGameResources();
         GetField0x3acValue_020100a8(bs);
         VectorizedMemset(event, 0, 0x70);
         event->active = 1;

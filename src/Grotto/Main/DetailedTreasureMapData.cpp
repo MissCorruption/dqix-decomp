@@ -336,7 +336,7 @@ void DetailedTreasureMapData::LegacyBossMapData::Populate(
     unsigned short readUnknown = 0;
     unsigned short readStringLen = 0;
 
-    TreasureMapLanguageDataOffsets* langData = func_ov017_0218b5b0()->pTMapLanguageOffsets;
+    TreasureMapLanguageDataOffsets* langData = GetGameResources()->pTMapLanguageOffsets;
     unsigned char* dataPtr = GameState::GetInstance()->GetTreasureMapLanguageData();
 
     int readOffset = langData->legacyBossData;
@@ -476,7 +476,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateUnknownData()
     unknown_66_ = 1;
     unknown_4f_ = 0;
 
-    int readOffset = func_ov017_0218b5b0()->pTMapLanguageOffsets->unknown_18;
+    int readOffset = GetGameResources()->pTMapLanguageOffsets->unknown_18;
 
     TMAPLANGDATA_READ(readOffset, &numValues, 2);
     for (unsigned short i = 0; i < numValues; i++)
@@ -505,7 +505,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateEnviron()
     unsigned char readEnviron = 0;
     unsigned char readChance = 0;
 
-    int readOffset = func_ov017_0218b5b0()->pTMapLanguageOffsets->environs;
+    int readOffset = GetGameResources()->pTMapLanguageOffsets->environs;
 
     unsigned char percentile = 0;
 
@@ -540,7 +540,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateFloorCount()
     unsigned char readMinFloors = 0;
     unsigned char readMaxFloors = 0;
 
-    int readOffset = func_ov017_0218b5b0()->pTMapLanguageOffsets->floorRangesByQuality;
+    int readOffset = GetGameResources()->pTMapLanguageOffsets->floorRangesByQuality;
 
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
     for (unsigned short i = 0; i < numEntries; i++)
@@ -571,7 +571,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateMonsterRank()
     unsigned char readMinRank = 0;
     unsigned char readMaxRank = 0;
 
-    int readOffset = func_ov017_0218b5b0()->pTMapLanguageOffsets->startingMonsterRanksByQuality;
+    int readOffset = GetGameResources()->pTMapLanguageOffsets->startingMonsterRanksByQuality;
 
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
     for (unsigned short i = 0; i < numEntries; i++)
@@ -601,7 +601,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateBoss()
     unsigned char readMinBoss = 0;
     unsigned char readMaxBoss = 0;
 
-    TreasureMapLanguageDataOffsets* offsets = func_ov017_0218b5b0()->pTMapLanguageOffsets;
+    TreasureMapLanguageDataOffsets* offsets = GetGameResources()->pTMapLanguageOffsets;
     int readOffset = offsets->bossRangesByQuality;
 
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
@@ -660,7 +660,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateUnusedChestRanks()
         return;
 
     unsigned short numEntries = 0;
-    int readOffset = func_ov017_0218b5b0()->pTMapLanguageOffsets->seeminglyChestRanksByMonsterRank;
+    int readOffset = GetGameResources()->pTMapLanguageOffsets->seeminglyChestRanksByMonsterRank;
 
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
 
@@ -694,7 +694,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePrefix()
     unsigned char readMinPrefixIdx = 0;
     unsigned char readMaxPrefixIdx = 0;
 
-    int readOffset = func_ov017_0218b5b0()->pTMapLanguageOffsets->prefixRangesByMonsterRank;
+    int readOffset = GetGameResources()->pTMapLanguageOffsets->prefixRangesByMonsterRank;
 
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
     for (unsigned short i = 0; i < numEntries; i++)
@@ -726,7 +726,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateSuffix()
     unsigned char readMinSuffixIdx = 0;
     unsigned char readMaxSuffixIdx = 0;
 
-    int readOffset = func_ov017_0218b5b0()->pTMapLanguageOffsets->suffixRangesByBoss;
+    int readOffset = GetGameResources()->pTMapLanguageOffsets->suffixRangesByBoss;
 
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
     for (unsigned short i = 0; i < numEntries; i++)
@@ -758,7 +758,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateLocaleRank()
     unsigned char readMinLocaleRank = 0;
     unsigned char readMaxLocaleRank = 0;
 
-    int readOffset = func_ov017_0218b5b0()->pTMapLanguageOffsets->localeRankRangesByFloorCount;
+    int readOffset = GetGameResources()->pTMapLanguageOffsets->localeRankRangesByFloorCount;
 
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
     for (unsigned short i = 0; i < numEntries; i++)
@@ -805,7 +805,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
     int readOffset;
 
     unsigned char* langData = GameState::GetInstance()->GetTreasureMapLanguageData();
-    int* offsetArray = (int*)(func_ov017_0218b5b0()->pTMapLanguageOffsets);
+    int* offsetArray = (int*)(GetGameResources()->pTMapLanguageOffsets);
 
     unsigned char partOrder[3];
     switch (_Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState::GetInstance()))
@@ -911,7 +911,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
     int readOffset;
 
     unsigned char* langData = GameState::GetInstance()->GetTreasureMapLanguageData();
-    int* offsetArray = (int*)(func_ov017_0218b5b0()->pTMapLanguageOffsets);
+    int* offsetArray = (int*)(GetGameResources()->pTMapLanguageOffsets);
 
     unsigned char partOrder[3];
     switch (_Z24NormalizeField5_0200fb08P14Struct0200fb08(GameState::GetInstance()))
@@ -1021,7 +1021,7 @@ void DetailedTreasureMapData::RegularMapData::GenerateNameBuffers()
     char tempBuffer[256];
 
     unsigned char* langData = GameState::GetInstance()->GetTreasureMapLanguageData();
-    TreasureMapLanguageDataOffsets* offsetArray = func_ov017_0218b5b0()->pTMapLanguageOffsets;
+    TreasureMapLanguageDataOffsets* offsetArray = GetGameResources()->pTMapLanguageOffsets;
 
     readOffset = offsetArray->prefixNames;
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);
@@ -1087,7 +1087,7 @@ void DetailedTreasureMapData::RegularMapData::GeneratePopupName()
     char tempBuffer[64];
 
     unsigned char* langData = GameState::GetInstance()->GetTreasureMapLanguageData();
-    TreasureMapLanguageDataOffsets* offsetArray = func_ov017_0218b5b0()->pTMapLanguageOffsets;
+    TreasureMapLanguageDataOffsets* offsetArray = GetGameResources()->pTMapLanguageOffsets;
 
     readOffset = offsetArray->prefixNames;
     TMAPLANGDATA_READ(readOffset, &numEntries, 2);

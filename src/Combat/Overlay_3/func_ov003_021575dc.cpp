@@ -6,6 +6,11 @@
 #include "std_library_functions.h"
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 struct CombatantStruct {
     unsigned short flags;
     char unk[0x132];
@@ -28,7 +33,7 @@ void SetFlag_02158a50_02158a50(unsigned char*);
 struct Struct0209c830;
 void SetValueAndActivate0209c830(Struct0209c830*, int);
 int IsAnimationActive0209ca2c(void* obj);
-void SetOrClearBitInArray_0206df6c(void* a, unsigned char* b, int c, int d);
+extern "C" void func_0206df6c(void* a, unsigned char* b, int c, int d);
 void* ZeroInitReturn020de824(void* obj);
 void InitStruct0207cbe8(char* obj);
 void InitStruct0207cc0c(char* obj);
@@ -255,7 +260,7 @@ extern "C" ARM void func_ov003_021575dc(void* self) {
         if (field950 > 0) {
             void* base = func_0205ec34();
             if (TestBitInByteArray_0206dfb0((int)base, (unsigned char*)base + 0x8c, field950 + 0x8b + 0x1100) == 0) {
-                SetOrClearBitInArray_0206df6c(base, (unsigned char*)base + 0x8c, field950 + 0x8b + 0x1100, 1);
+                func_0206df6c(base, (unsigned char*)base + 0x8c, field950 + 0x8b + 0x1100, 1);
                 evt[0] = 0x16;
                 evt[1] = 0x17;
                 *(unsigned char*)(s + 0x1f9) = *(unsigned char*)(s + 0x1f9) + 1;
@@ -400,7 +405,7 @@ extern "C" ARM void func_ov003_021575dc(void* self) {
             *(unsigned char*)(s + 0x1f9) = *(unsigned char*)(s + 0x1f9) + 1;
         }
     } else if (state == 0x68) {
-        GameResources* r = func_ov017_0218b5b0();
+        GameResources* r = GetGameResources();
         if (IsBrightnessTransitionActive(r) != 0) {
             return;
         }

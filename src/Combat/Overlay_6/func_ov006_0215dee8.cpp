@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kMenuCursor = 0x2a, kLayoutToTable = 0x48, kWindowFlags = 0x1054 };
@@ -165,12 +166,10 @@ extern "C" int func_ov006_02153a78(void* ingredients, int times);
 void SetEntryLowNibbleAndElement02080c68(void* menu, int id, int value);
 extern "C" void func_ov006_0215f9e8(AlchemyMenu* self);
 extern "C" unsigned char func_ov006_021599c0(AlchemyMenu* self);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 extern "C" void func_ov006_0215a5dc(AlchemyMenu* self);
 int CheckFlagOrByte55_02158c70();
 
 extern "C" char data_02108760[];
-extern "C" unsigned short data_02114e30[];
 
 // USA: func_ov006_0215dee8
 extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
@@ -380,7 +379,7 @@ extern "C" ARM void func_ov006_0215dee8(AlchemyMenu* self) {
         unsigned char result = func_ov006_021599c0(self);
         if (result == 1)
             return;
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 1) || result == 2)
+        if (g_keyManager.TestKeysPressed(1) || result == 2)
         {
             DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             ResetWithSub0208203c((Obj0208203c*)self->repeat_);

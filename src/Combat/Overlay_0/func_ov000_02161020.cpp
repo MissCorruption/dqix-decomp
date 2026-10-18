@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct RemapFlagOwner;
 
@@ -31,7 +32,6 @@ struct Combatant02161020 {
 extern "C" void* func_02057924(void);
 extern "C" RenderCtx02161020* func_02012fe4(void);
 GameObject* GetCombatantWithFlag0x400_0200fea4(GameState* gameState, int combatantId);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 extern "C" int func_02032fdc(GameObject* obj, int a1, int a2);
 extern "C" void func_02057ab8(void* g, int id);
 void SyncBattleState0208f87c(const void* pos, int color, int scale, int alpha, int polygonId);
@@ -41,7 +41,7 @@ void ClearFlagBit_020d76d8(unsigned char* base, int bit);
 // USA: func_ov000_02161020
 extern "C" ARM void func_ov000_02161020(BattleWork02161020* work) {
     GameState* bs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     void* g = func_02057924();
     RenderCtx02161020* ctx = func_02012fe4();
     RemapFlagOwner* owner = work->remapOwner;
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov000_02161020(BattleWork02161020* work) {
             continue;
         }
         int drawn = 0;
-        if (GetBitsInField4_0203b4fc(&res->brightnessFlags_0, 0x200) == 0) {
+        if (TestFlags04(res, 0x200) == 0) {
             drawn = func_02032fdc(c, 1, drawn);
         }
         if (drawn != 0) {

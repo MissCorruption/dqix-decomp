@@ -43,7 +43,7 @@ extern "C" ARM void func_ov023_021e3084(void* obj) {
         return;
     }
 
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     Pair021e3084 attachments;
     if (resources == NULL) {
         attachments.secondAttachment = NULL;

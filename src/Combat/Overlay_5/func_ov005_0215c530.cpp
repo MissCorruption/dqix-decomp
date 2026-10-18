@@ -227,7 +227,7 @@ extern "C" ARM void func_ov005_0215c530(Menu0215c530* self)
         }
         else
         {
-            signed char member = GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3])->member;
+            signed char member = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->member;
             Item0215c530 item;
             ItemDef0215c530 def;
             InitStruct020de1d4((StructDE1D4*)&item);

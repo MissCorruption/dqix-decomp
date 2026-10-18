@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -25,7 +26,6 @@ void ResetAndReposition020e280c(struct Obj020e280c *self, void *b);
 int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 char *GetFieldIfFlag4_020100f8(char *obj);
 int GetIntAt0x23c(struct IntField0x23c_020a27c4 *obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *p, int n);
 int GetField0x15UnlessInactive_020e2918(signed char *param);
 int GetSignedByteAt0x14_020e2910(signed char *p);
 void ResetSelectionState020e25e8(struct Obj020e25e8 *obj);
@@ -44,7 +44,6 @@ void SetFieldB0AndUpdate0205dee8(struct Obj0205dee8 *o, int v);
 void SetIndexIfValid0205bcdc(struct Struct_0205bcdc *s, int index);
 extern "C" void func_0205bb04(void *s, int n);
 int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
-extern "C" unsigned short data_02114e30[];
 extern "C" char data_02108760[];
 extern "C" unsigned char data_ov002_0216d3ac;
 
@@ -133,7 +132,11 @@ extern "C" ARM void func_ov002_0216a300(char *base) {
         int ok  = 0;
         char *f = GetFieldIfFlag4_020100f8((char *) GameState::GetInstance());
         if (f != NULL && ((*(unsigned char *) (f + 0x244) & 2) || GetIntAt0x23c((struct IntField0x23c_020a27c4 *) f) == 0)) {
-            ok = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x200) ? 1 : 0;
+            if (g_keyManager.TestKeysPressed(0x200)) {
+                ok = 1;
+            } else {
+                ok = 0;
+            }
         }
         *(short *) (base + 0x1c00 + 0x12) = GetField0x15UnlessInactive_020e2918(*(signed char **) (base + 4));
         if (*(short *) (base + 0x1c00 + 0x12) >= 0 || ok) {

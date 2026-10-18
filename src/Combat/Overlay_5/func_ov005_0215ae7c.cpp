@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define func_ov005_0215ae7c func_ov005_0215c33c
@@ -37,7 +38,6 @@ struct EquipmentMenu
 };
 
 MessageSystem* GetGlobalField0x1c020421a0();
-extern "C" GameResources* func_ov017_0218b5b0(void);
 MemberScreen* GetField1c_021a193c(int* obj);
 short* GetField150Ptr0x488(Field150Holder02052e14* member);
 extern "C" void func_020462d0(MessageSystem* messages, unsigned short* codes, int count);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov005_0215ae7c(EquipmentMenu* self)
     MessageSystem* messages = GetGlobalField0x1c020421a0();
     GameState* gameState = GameState::GetInstance();
     Field150Holder02052e14* member =
-        (Field150Holder02052e14*)GetCombatantWithFlag0x100_0200ff1c(gameState, GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3])->member_);
+        (Field150Holder02052e14*)GetCombatantWithFlag0x100_0200ff1c(gameState, GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->member_);
     if (member == NULL)
         return;
     short* equipment = GetField150Ptr0x488(member);

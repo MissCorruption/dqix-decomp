@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021d60f4(void* a);
 extern int AbsPlus159IfNegative0215ad2c(int x);
@@ -39,7 +40,7 @@ extern "C" ARM int func_ov001_0216066c(void* self) {
     (int)BackgroundLoader::GetInstance();
     allocator = data_ov001_021658b8[0];
     id = AbsPlus159IfNegative0215ad2c(func_ov017_021d60f4(self));
-    base = ((int)func_ov017_0218b5b0());
+    base = ((int)GetGameResources());
 #if defined(jpn)
     base = *(int*)((char*)base + 0x3000 + 0x524);
 #else

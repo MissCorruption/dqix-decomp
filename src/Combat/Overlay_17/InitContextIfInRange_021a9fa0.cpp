@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" ARM unsigned short* func_02012fe4(void);
 ARM int GetFieldIfFlag4_020100f8(char* obj);
@@ -10,7 +11,7 @@ ARM void InitContext020e1154(void* obj);
 // USA: func_ov017_021a9fa0  (semantic: InitContextIfInRange_021a9fa0)
 extern "C" ARM void func_ov017_021a9fa0(void* obj) {
 	GameState* battle = GameState::GetInstance();
-	((int)func_ov017_0218b5b0());
+	((int)GetGameResources());
 	unsigned short* w = func_02012fe4();
 	SetField0x23cTrue_020a27ac((void*)GetFieldIfFlag4_020100f8((char*)battle));
 	if (IsValueInRange0201b5d8(*w))

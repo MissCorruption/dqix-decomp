@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { globalOffset = 0x4c };
@@ -13,7 +14,6 @@ void SetFlag0x2IfByte0xd4Not3_0208beb4(unsigned char* obj);
 extern "C" void func_0208bb78(void* obj, int count);
 struct StructAllocGroup0208ba54;
 void DestroyStructAllocGroup0208ba54(struct StructAllocGroup0208ba54*);
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
 int StoreArgIfMatched_02153948(unsigned short arg);
 
 struct Obj02156108 {
@@ -36,7 +36,7 @@ struct Obj02156108 {
 extern "C" ARM int func_ov001_02156108(struct Obj02156108* self) {
     GameState* battle = GameState::GetInstance();
     char* g6 = GetGlobalField0x1c020421a0();
-    unsigned int* obj17 = (unsigned int*)((int)func_ov017_0218b5b0());
+    unsigned int* obj17 = (unsigned int*)((int)GetGameResources());
 
     if ((self->flags0x50 & 0x2) || (self->flags0x50 & 0x8)) {
         void* ptr = self->field0x120;
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov001_02156108(struct Obj02156108* self) {
         self->field0x120 = 0;
     }
 
-    if (GetBitsInField0_0203b4c4(obj17, 0x1000) == 0) {
+    if (TestFlags00((GameResources*)obj17, 0x1000) == 0) {
         FontBankLoader* val = GetGlobal02109400_02094a00();
         BlankFunction02094b40(val);
         func_02094ab0(val);

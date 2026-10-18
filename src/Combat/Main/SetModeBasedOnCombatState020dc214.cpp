@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { kObjectOffset = 0x4c0 };
@@ -7,7 +8,6 @@ enum { kObjectOffset = 0x6d0 };
 #endif
 
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void* func_02012fe4(void);
 struct Obj02022d78;
 void SetActiveModeSavingPrevious02022d78(struct Obj02022d78*, int);
@@ -15,7 +15,7 @@ int IsInRange0201b588(int);
 
 // USA: func_020dc214
 ARM void SetModeBasedOnCombatState020dc214(int mode) {
-    int base = func_ov017_0218b5b0();
+    int base = (int)GetGameResources();
     void* raw = *(void**)(base + 0x3000 + kObjectOffset);
     unsigned short id = *(unsigned short*)func_02012fe4();
     struct Obj02022d78* obj = (struct Obj02022d78*)raw;

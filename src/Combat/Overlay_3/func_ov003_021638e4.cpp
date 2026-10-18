@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct Scene {
     char pad0[0x464];
@@ -84,7 +85,7 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
     unsigned char *gp;
     void *list;
     BackgroundLoader *loader;
-    res    = (char *) func_ov017_0218b5b0();
+    res    = (char *) GetGameResources();
     list   = *(void **) (res + 0x3000 + 0x6fc);
     gs     = GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();

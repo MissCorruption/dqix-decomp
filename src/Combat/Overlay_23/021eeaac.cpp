@@ -63,7 +63,7 @@ extern "C" ARM int func_ov023_021eeaac(char* self) {
 #else
  enum {regionalOffset0=0xeac, regionalOffset1=0x5904, regionalOffset2=0x5900, regionalOffset3=0x58d0, regionalOffset4=0x29c, regionalOffset5=0x590c, regionalOffset6=0x5901};
 #endif
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     int* g = _ZZ17GetGlobal021ffefcvE1s;
     SafeAllocator* alloc = GetAllocator(res, 5);

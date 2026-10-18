@@ -49,7 +49,6 @@ struct EquipmentMenu
 
 extern "C" void func_ov005_021562b8(EquipmentMenu* self);
 extern "C" void func_ov005_0215730c(EquipmentMenu* self);
-extern "C" GameResources* func_ov017_0218b5b0(void);
 MemberScreen* GetField1c_021a193c(int* obj);
 Element020de650* FindElementByKey020dedd0(Container020dedd0* c, int key);
 extern "C" int func_020dd4c4(signed char member, Element020de650* entry);
@@ -69,7 +68,7 @@ extern "C" ARM void func_ov005_0215bf58(EquipmentMenu* self)
     }
     if (!touchHandled)
         func_ov005_0215730c(self);
-    int member = GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3])->member_;
+    int member = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->member_;
     Element020de650* entry = FindElementByKey020dedd0(self->items_, self->slots_[self->slot_].item_);
     if (entry != NULL)
     {

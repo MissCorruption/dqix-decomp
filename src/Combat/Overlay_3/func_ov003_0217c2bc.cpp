@@ -2,6 +2,7 @@
 #include "Resource/Brightness.h"
 #include <globaldefs.h>
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 
 struct Struct0209c830;
 
@@ -15,7 +16,6 @@ struct Scene0217c2bc {
     unsigned char timer;
 };
 
-extern "C" GameResources *func_ov017_0218b5b0(void);
 void DispatchIfField0xc4NonNeg_0205ebfc(void *obj, int a, int b);
 extern "C" void func_ov003_0217cb3c(Scene0217c2bc *self, int mainScreen, int alternate);
 void Set3DClearColor_020c5588(int a, int b, int c, int d, int e);
@@ -27,7 +27,7 @@ extern struct Struct0209c830 data_02109bf4;
 
 // USA: func_ov003_0217c2bc
 extern "C" ARM void func_ov003_0217c2bc(Scene0217c2bc *self) {
-    GameResources *resources = func_ov017_0218b5b0();
+    GameResources *resources = GetGameResources();
 
     if (self->state == 0) {
         self->timer = 0x4b;

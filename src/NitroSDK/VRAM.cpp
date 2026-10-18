@@ -1,7 +1,6 @@
 #include "System/VRAM.h"
 #include "System/Graphics.h"
 
-
 #if defined(jpn)
 #define data_02111222 data_02110ec2
 

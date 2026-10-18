@@ -5,6 +5,7 @@
 #include "Filesystem/FileIO.h"
 #include "System/Memory.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 void ReleaseBattleBuffers020a39d8(SafeAllocator* alloc);
 extern "C" void func_020c9be0(void);
@@ -15,7 +16,7 @@ extern const char data_020f1ab0[];
 // USA: func_020a3844  (semantic: LoadTreasureMapLanguageBuffers_020a3844)
 extern "C" ARM int func_020a3844(SafeAllocator* alloc) {
     GameState* battleStruct = GameState::GetInstance();
-    int base = ((int)func_ov017_0218b5b0());
+    int base = ((int)GetGameResources());
     unsigned char* word = battleStruct->GetTreasureMapLanguageData();
     if (word != 0 || *(void**)(base + 0x4000 + 0x48c) != 0) {
         ReleaseBattleBuffers020a39d8(alloc);

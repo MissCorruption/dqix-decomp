@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kMenuPrefix = 0xe0, kCellWidth = 12, kRectXIndex = 1, kResetOffset = 0x134 };
@@ -50,9 +51,6 @@ void ClearFlagFields_02169658(void* self);
 void ClearBytes0x4cTo0x4e(Struct_0205bc10* obj);
 int GetActiveScaledSum0205d794(Struct_0205c570* chan);
 void UpdateEntryAndField4ea_021694b8(void* self, int v);
-int TestFlagMask_02012430(unsigned short* flags, int mask);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* flags, int mask);
-int TestFlagInSecondWord_02012468(unsigned short* flags, unsigned int mask);
 void ResetState0205bf3c(Struct_0205bf3c* obj);
 int ComputeScaledSum0205bb84(Struct_0205bb84* obj);
 int NormalizeField5_0200fb08(Struct0200fb08* gs);
@@ -71,7 +69,6 @@ struct InputState {
 };
 
 extern InputState data_02114e54;
-extern unsigned short data_02114e30;
 extern unsigned char data_ov003_0217f544[];
 extern unsigned char data_ov003_0217f545[];
 extern unsigned char data_ov003_0217f546[];
@@ -295,10 +292,10 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                 }
             }
         } else {
-            if (TestFlagMask_02012430(&data_02114e30, 0x40) || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40) ||
-                TestFlagInSecondWord_02012468(&data_02114e30, 0x40) || TestFlagMask_02012430(&data_02114e30, 0x80) ||
-                TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80) ||
-                TestFlagInSecondWord_02012468(&data_02114e30, 0x80)) {
+            if (g_keyManager.TestKeysHeld(0x40) || g_keyManager.TestKeysPressed(0x40) ||
+                g_keyManager.TestKeysReleased(0x40) || g_keyManager.TestKeysHeld(0x80) ||
+                g_keyManager.TestKeysPressed(0x80) ||
+                g_keyManager.TestKeysReleased(0x80)) {
                 ResetState0205bf3c((Struct_0205bf3c*)((char*)self + kResetOffset));
                 int old = cells[cur];
                 int n = GetField0_0205bafc(self->list);
@@ -316,12 +313,12 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                 if (before != after) {
                     func_ov003_021696f4(self, after);
                 }
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x10) && self->cursor == 3) {
+                if (g_keyManager.TestKeysPressed(0x10) && self->cursor == 3) {
                     for (int i = 0; i < 4; i++) {
                         self->cells[i] = 0;
                     }
                     self->code = 1;
-                } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x20) && self->cursor == 0) {
+                } else if (g_keyManager.TestKeysPressed(0x20) && self->cursor == 0) {
                     for (int i = 0; i < 4; i++) {
                         self->cells[i] = self->alt[i];
                     }
@@ -377,11 +374,11 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                 }
             }
         }
-        int a = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1);
-        int b = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x400);
+        int a = g_keyManager.TestKeysPressed(1);
+        int b = g_keyManager.TestKeysPressed(0x400);
         if ((a | b) != 0) {
             hit1 = 1;
-        } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) != 0) {
+        } else if (g_keyManager.TestKeysPressed(2) != 0) {
             hit2 = 1;
         }
         if (hit1 != 0) {

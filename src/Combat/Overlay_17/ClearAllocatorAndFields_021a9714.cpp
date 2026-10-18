@@ -1,9 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Resource/Brightness.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 extern int data_02114e20;
 
 // USA: func_ov017_021a9714  (semantic: ClearAllocatorAndFields_021a9714)
@@ -17,6 +16,6 @@ extern "C" ARM void func_ov017_021a9714(char* self) {
     allocator->ResetAllocatorPointer();
     self[8] = 0;
     *(int*)(self + 0x20) = 0;
-    void* h = func_ov017_0218b5b0();
-    ClearBitsInField4_0203b4e8((unsigned int*)h, 0xc0);
+    void* h = GetGameResources();
+    ClearFlags04((GameResources*)h, 0xc0);
 }

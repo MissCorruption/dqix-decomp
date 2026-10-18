@@ -3,6 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/GameResources.h"
 #include "System/Memory.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { kBackupAllocator = 0x6c0, kBackupBuffer = 0x6c4, kBackupSize = 0x6c8,
@@ -22,7 +23,6 @@ struct Struct0205a198 { char bytes[0x28]; };
 struct Rec020467f0;
 struct SetFlagStruct;
 struct ToggleState;
-struct AxisFloats0203b5a0;
 struct Script020e081c {
     char unknown0[0x40];
     Struct0205a198* records;
@@ -43,7 +43,6 @@ void TailForward0203b66c(char*);
 void InitBattleContext0203bd24(char*);
 void Init0205a198(Struct0205a198*);
 void InitStruct0205a444(char*);
-int IsAxisIntWithin16(AxisFloats0203b5a0*, int);
 int ProcessRecords0205a498(void*, Rec020467f0*, int, void*);
 void* GetGlobalPtr02105244_0203bd14();
 extern "C" void* func_0203be4c(char*);
@@ -68,7 +67,7 @@ extern "C" ARM void func_020e081c(char* self) {
     GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     func_02012fe4();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     char* battle = func_0203bd08();
     char* table = GetData02105254_0203b628();
     SafeAllocator* allocator = GetResourceAllocator(resources, 12);
@@ -98,7 +97,7 @@ extern "C" ARM void func_020e081c(char* self) {
         if (!loader->GetTaskStatus(*(int*)(self + kBaseTask))) return;
         if (!loader->GetTaskStatus(*(int*)(self + kObjectTask))) return;
         func_02021428(self, 0x19);
-        if (IsAxisIntWithin16((AxisFloats0203b5a0*)resources, 1)) return;
+        if (IsBrightnessWithinValidRange((GameResources*)resources, true)) return;
         void* file = 0;
         unsigned int length = 0;
         loader->GetLoadedFileByID(*(int*)(self + kObjectTask), &file, &length);

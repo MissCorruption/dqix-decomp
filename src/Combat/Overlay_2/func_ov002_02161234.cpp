@@ -3,6 +3,7 @@
 #include "Filesystem/FileIO.h"
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct Container020e0310;
 struct Obj02046574;
@@ -68,7 +69,7 @@ extern "C" ARM void func_ov002_02161234(char *self, char *dst) {
     GetFieldByKey020e0434((struct Container020e0310 *) (self + 0x20), 0x270e);
     GameState *gs = GameState::GetInstance();
     char *msgs    = GetGlobalField0x1c020421a0();
-    func_ov017_0218b5b0();
+    GetGameResources();
     func_02046380(msgs);
     char *name;
     short sel;
@@ -103,7 +104,7 @@ extern "C" ARM void func_ov002_02161234(char *self, char *dst) {
     }
     if (*(short *) (self + 0x1c26) != -1) {
         if (InParty02161234(sel)) {
-            name          = (char *) func_ov017_0218b5b0() + 0x435c + sel * 0x30;
+            name          = (char *) GetGameResources() + 0x435c + sel * 0x30;
             GameObject *m = gs->GetPartyMemberByIndex(sel);
             if (m != 0) {
                 name = *(char **) ((char *) m + 0x134);
@@ -125,7 +126,7 @@ extern "C" ARM void func_ov002_02161234(char *self, char *dst) {
         }
     } else {
         if (InParty02161234(sel)) {
-            name          = (char *) func_ov017_0218b5b0() + 0x435c + sel * 0x30;
+            name          = (char *) GetGameResources() + 0x435c + sel * 0x30;
             GameObject *m = gs->GetPartyMemberByIndex(sel);
             if (m != 0) {
                 name = *(char **) ((char *) m + 0x134);

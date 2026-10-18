@@ -10,6 +10,7 @@
 #include "Graphics/NSBXX/RenderConfig.h"
 #include "System/VRAM.h"
 #include "System/Matrix.h"
+#include "Resource/Brightness.h"
 struct ObjectStatePrefix;
 
 #if defined(jpn)
@@ -124,10 +125,6 @@ struct ArrayContainsByteStruct {
 };
 int ArrayContainsByte_02086ef0(struct ArrayContainsByteStruct* s, int val);
 
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField8_0203b520(unsigned int* obj, unsigned int mask);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
-
 struct Entry0207d9bc;
 void ResetEntryByKey0207da7c(struct Entry0207d9bc* arr, unsigned short key);
 int GetCombatWorkFlags0x55f4_ov000_02160fd4(void* work, int mask);
@@ -241,7 +238,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
     unsigned int size;
 
     GameState* battle = GameState::GetInstance();
-    int ovBase = (int)func_ov017_0218b5b0();
+    int ovBase = (int)GetGameResources();
     struct SearchStruct* search = (struct SearchStruct*)func_0202ae18();
     unsigned short* p30 = func_02012fe4();
     func_0203bd08();
@@ -286,7 +283,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
     }
 
     ConfigureModeByByte_0218d274_0218d274((void*)ovBase);
-    ClearBitsInField4_0203b4e8((unsigned int*)ovBase, 0x200000);
+    ClearFlags04((GameResources*)ovBase, 0x200000);
     ResetEntryByKey0207da7c((struct Entry0207d9bc*)dataPtr20, *(unsigned short*)(*(unsigned char**)(work + kWorkConfig) + 8));
     *(unsigned char*)(globalBase + kGlobalTransitionFlag) = 0;
 
@@ -423,13 +420,13 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
         ClearCombatantSlot_0200fd48(battle, k + 0xc0);
     }
 
-    ClearBitsInField4_0203b4e8((unsigned int*)ovBase, 0x80);
-    ClearBitsInField4_0203b4e8((unsigned int*)ovBase, 4);
-    ClearBitsInField4_0203b4e8((unsigned int*)ovBase, 0x10);
-    ClearBitsInField4_0203b4e8((unsigned int*)ovBase, 0x40);
-    ClearBitsInField4_0203b4e8((unsigned int*)ovBase, 2);
-    ClearBitsInWord_0203b4b0((unsigned int*)ovBase, 0x20);
-    ClearBitsInWord_0203b4b0((unsigned int*)ovBase, 0x10);
+    ClearFlags04((GameResources*)ovBase, 0x80);
+    ClearFlags04((GameResources*)ovBase, 4);
+    ClearFlags04((GameResources*)ovBase, 0x10);
+    ClearFlags04((GameResources*)ovBase, 0x40);
+    ClearFlags04((GameResources*)ovBase, 2);
+    ClearFlags00((GameResources*)ovBase, 0x20);
+    ClearFlags00((GameResources*)ovBase, 0x10);
     func_ov000_021626a0(work, 0x26, 1);
     *(volatile unsigned short*)0x04000304 &= ~0x8000;
     LockStagedTextureVRAMCopying();
@@ -609,7 +606,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
         }
     }
 
-    ClearBitsInWord_0203b4b0((unsigned int*)ovBase, 4);
+    ClearFlags00((GameResources*)ovBase, 4);
 
     if (*(int*)(work + kWorkStoreParams) != 0) {
         StoreBattleParams0201bf38((unsigned char*)p30, 1, work[kWorkParamA], work[kWorkParamB], *(unsigned short*)(work + kWorkParamC));
@@ -626,7 +623,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
     ClearFlags020466f4(fw, 2);
     ClearFlags020466f4(fw, 0x200);
     ClearFlags020466f4(fw, 0x2000);
-    ClearBitsInField8_0203b520((unsigned int*)ovBase, 4);
+    ClearFlags08((GameResources*)ovBase, 4);
     ClearFlags020466f4(fw, 0x40000);
 
     if (ClassifyField0x81fe_ov000_0215fc60((char*)p29c)) {
@@ -637,7 +634,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* work) {
         }
         *(*(unsigned char**)(work + kWorkData) + 0x8e14) = 1;
     }
-    ClearBitsInField4_0203b4e8((unsigned int*)ovBase, 0x400);
+    ClearFlags04((GameResources*)ovBase, 0x400);
 
     if (func_0202c540(search)) {
         CallHelperWithBuf_021907dc(ovBase, 0, 1, 1, 1);
