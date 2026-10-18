@@ -88,7 +88,7 @@ void ClearPackedTriples02082cdc(Obj02082cdc*);
 void InitFlagsAndTimers020827c4(Obj020827c4*);
 void CopyStruct02082d38(Struct02082d38*, Struct02082d38*);
 void InitIndexedElements02083508(Obj02083508*);
-void CopyFrom027ffcf4_020c99ac(void*);
+extern "C" void CopyFrom027ffcf4_020c99ac(void*);
 extern char data_020f1010[];
 extern char data_020ef078[];
 

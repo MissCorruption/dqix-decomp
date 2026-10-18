@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* func_ov031_0223c560(int a, int b);
-void CopyFrom027ffcf4_020c99ac(void* dst);
+extern "C" void CopyFrom027ffcf4_020c99ac(void* dst);
 int VariadicForward020c7170(int a, int b, int c, ...);
 extern "C" void func_ov031_0223dd60(void*, const void*, int);
 extern "C" void func_ov031_0223c980(void* obj, int a, int b, int c, int d, int e, int f, void* g);
