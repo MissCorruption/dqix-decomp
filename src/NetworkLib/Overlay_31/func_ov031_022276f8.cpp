@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void* func_ov031_0223cf4c(unsigned int id, unsigned int size);
 
 struct ArrBasePair022276b4;

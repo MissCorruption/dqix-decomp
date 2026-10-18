@@ -14,6 +14,10 @@ extern "C" int func_020e04f8(void*, void*, const char*, short, bool);
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 struct BattleStruct {
     int unk0;
     int unk4;

@@ -2,6 +2,10 @@
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);

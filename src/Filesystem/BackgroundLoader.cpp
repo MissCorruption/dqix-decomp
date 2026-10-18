@@ -4,6 +4,10 @@
 #include "Filesystem/FileIO.h"
 #include "Resource/ResourceMutex.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 #pragma dont_inline on
 
 #ifdef jpn

@@ -2,6 +2,10 @@
 #include "System/Interrupts.h"
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 struct TransferState0221f1e8 {
     char pad_0[0xc];
     int mode;

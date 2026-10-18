@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 typedef void (*Handler022127c0)(void*, int, int);
 struct Obj0224e5c0 { Handler022127c0 fn; };
 extern Obj0224e5c0* data_ov031_0224e5c0;

@@ -2,6 +2,10 @@
 #include "System/DMA.h"
 #include "System/Interrupts.h"
 
+#if defined(jpn)
+#define func_020ca0a8 func_020cbb74
+#endif
+
 #define REG_GXSTAT (*(volatile unsigned long*)0x04000600)
 
 typedef void (*GXCommandDMACallback)(void* arg);

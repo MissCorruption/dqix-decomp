@@ -22,6 +22,10 @@
 #include <World/Object3D.h>
 #include <Filesystem/BackgroundLoader.h>
 
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
 struct PlayTime {
     unsigned short hours_;
     unsigned char minutes_;

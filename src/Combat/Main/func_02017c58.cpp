@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 enum { NodeListOffset = 0x43c };
 #else
 enum { NodeListOffset = 0x41c };

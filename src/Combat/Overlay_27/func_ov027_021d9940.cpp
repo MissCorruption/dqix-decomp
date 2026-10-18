@@ -12,6 +12,10 @@
 #include <globaldefs.h>
 #include "System/Interrupts.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern char* data_ov027_021e33ec;
 
 extern "C" ARM void func_ov027_021d9d5c(int index);

@@ -10,6 +10,10 @@
 #include "Graphics/NSBXX/NSBXX.h"
 
 #if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
 
 #define data_020ef0f0 data_020ef02c
 #endif

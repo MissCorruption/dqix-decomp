@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 char* GetOffset400_02235c70(void);
 extern "C" void func_020ca408(void* src, void* dst, int size);
 void GetFields181c_02227520(int* a, int* b);

@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Data021b9e30 {
     unsigned char byte0, byte1, byte2, pad3;
     int field4, field8, fieldc, field10;

@@ -8,6 +8,10 @@ enum { BattleTableOffset = 0x75f0 };
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 #define func_0206df6c func_0206f0c0
 #endif
 

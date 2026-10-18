@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
 extern "C" void func_020ca390(int, void*, unsigned int);
 extern "C" void func_ov031_0221bfe8(void*);
 extern "C" void* func_ov031_0221b8e4(void*);

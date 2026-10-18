@@ -5,6 +5,10 @@
 #include "World/Object3D.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 int GetGlobalField0x1c020421a0(void);
 unsigned char GetField0x397cValue_020100b0(GameState* battleStruct);
 int GetSignedByte0x1c9_02039874(void* obj);

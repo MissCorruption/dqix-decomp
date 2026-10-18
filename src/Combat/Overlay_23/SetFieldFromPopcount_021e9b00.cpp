@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void* obj);
 unsigned short BuildBitmask0206e384(unsigned char* obj);
 extern "C" void func_ov017_021d6134(void*, int);

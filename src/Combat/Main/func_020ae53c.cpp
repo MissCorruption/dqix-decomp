@@ -2,6 +2,10 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 enum { ResourceFlagOffset = 0x41a8 };
 #else
 enum { ResourceFlagOffset = 0x4458 };

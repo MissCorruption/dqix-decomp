@@ -31,6 +31,10 @@ extern "C" char data_ov017_021d83c0[];
 #include "Graphics/LightingManager.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct HeadList020469f8;
 struct HeadNode020469f8;
 struct ListHead02046b60;

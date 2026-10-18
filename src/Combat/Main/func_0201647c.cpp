@@ -4,6 +4,10 @@
 #include <Filesystem/FileIO.h>
 #include <World/ZoneChest.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct ZoneNode {
     unsigned int id : 16;
     unsigned int field_0x2 : 16;

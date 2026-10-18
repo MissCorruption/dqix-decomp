@@ -6,6 +6,10 @@
 #include "World/Zone3D.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Member020236dc : CombatantRecovery {
     unsigned char padding190[0x1b2 - 0x190];
     unsigned short field1b2;

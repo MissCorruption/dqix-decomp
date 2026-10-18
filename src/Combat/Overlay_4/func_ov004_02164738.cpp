@@ -8,6 +8,10 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 enum { countOffset = 0x9f4, flagOffset = 0x9fb, valueOffset = 0xa10, nameOffset = 0x19ff, recordStride = 0x1e4, stateFlag = 0x29e, resetOffset = 0x790 };
 #else
 enum { countOffset = 0x8f4, flagOffset = 0x8fb, valueOffset = 0x910, nameOffset = 0x18ff, recordStride = 0x1c4, stateFlag = 0x4de, resetOffset = 0x962 };

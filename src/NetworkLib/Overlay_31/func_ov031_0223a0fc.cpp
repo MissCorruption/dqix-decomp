@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct BattleState0223a0fc {
     unsigned char field_0x0[0xc];
     unsigned short field_0xc;

@@ -3,6 +3,10 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct SearchState021c37a4 {
     char unk0[0x100d];
     unsigned char mode;

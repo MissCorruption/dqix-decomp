@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct SettingsWriteBuffer0221aed8 {
     unsigned char data[0xf0];
     unsigned char signature[14];

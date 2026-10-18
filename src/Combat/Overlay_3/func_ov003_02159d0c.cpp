@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 enum { kRegionValue9A0_870 = 0x870 };
 enum { kRegionValue9AE_7DE = 0x7de };
 enum { kRegionValue960_800 = 0x800 };

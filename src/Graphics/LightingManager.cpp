@@ -5,6 +5,10 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct FifoCommandInfo
 {
     unsigned char numOperands;

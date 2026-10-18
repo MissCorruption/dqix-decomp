@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 
 #if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
 enum { kRegionValue4000_3000 = 0x3000 };
 enum { kRegionValue7C_94 = 0x94 };
 enum { kRegionValue5C_28 = 0x28 };

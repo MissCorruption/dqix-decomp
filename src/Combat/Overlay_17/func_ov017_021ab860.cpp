@@ -6,6 +6,10 @@
 #include "Combat/Main/CopyRecord0200fbb4.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 enum { kResourceHeaderOffset = 0x4fc, kResourceTailOffset = 0x4ec,
        kTargetIdOffset = 0x41fe, kTargetArgOffset = 0x4200 };
 #define data_ov017_021d83bc data_ov017_021d8c7c

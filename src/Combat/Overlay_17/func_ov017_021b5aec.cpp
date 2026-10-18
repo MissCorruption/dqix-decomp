@@ -3,6 +3,10 @@
 #include "World/LootableContainer.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct ActorEntry {
     unsigned short id;
     char unk2[0x22];

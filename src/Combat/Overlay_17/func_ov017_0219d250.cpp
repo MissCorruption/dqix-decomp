@@ -6,6 +6,10 @@
 #include "Resource/MessageSystem.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Entry0219d250 {
     unsigned short id;
     unsigned char unk2[3];

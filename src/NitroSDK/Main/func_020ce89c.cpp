@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9bf0 func_020cb6bc
+#endif
+
 #define IME (*(volatile unsigned short*)0x04000208)
 #define IF (*(volatile unsigned long*)0x04000214)
 #define IE_TIMER0 0x8

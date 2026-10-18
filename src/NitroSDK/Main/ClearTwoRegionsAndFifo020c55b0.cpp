@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/DMA.h"
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 extern "C" void func_020ca3ec(int value, void* dst, int size);
 extern int data_020f2270;
 

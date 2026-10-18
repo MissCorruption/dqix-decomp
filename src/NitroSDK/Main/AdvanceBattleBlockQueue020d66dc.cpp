@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
 unsigned int DisableIRQInterrupts();
 unsigned int SetIRQInterruptState(int mask);
 unsigned short GetBattleContextField0x14cLow16_020d46fc(void);

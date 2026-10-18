@@ -23,6 +23,10 @@
 #include "World/Object3D.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* memset(void* dst, int value, unsigned int length);
 extern "C" int sprintf(char* buffer, const char* format, ...);
 extern "C" void* __clear(void* dst, int count);

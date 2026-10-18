@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 #define SPI_END 0x1000000
 #define SPI_DATA_MASK 0xffff
 

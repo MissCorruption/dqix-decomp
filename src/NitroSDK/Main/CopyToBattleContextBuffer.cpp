@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca4b4 func_020cbf80
+#endif
+
 void* GetBattleContext_020d41d8(void);
 int GetBattleStateCode_020d41e8(void);
 void InvalidateDataCacheRange(const void* addr, unsigned int size);

@@ -1,3 +1,7 @@
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Overlay8EntryView {
     unsigned char unknown000[0x744];
     unsigned char entries[8];

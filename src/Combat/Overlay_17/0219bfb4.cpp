@@ -13,6 +13,10 @@ enum { kStatusOffset = 0x23ec, kStatusFlagOffset = 0x262, kFieldXOffset = 0x2786
 #include "System/OverlayId.h"
 #include "World/Object3D.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct StreamHeader;
 struct Struct020a8170;
 struct Container020a83fc;

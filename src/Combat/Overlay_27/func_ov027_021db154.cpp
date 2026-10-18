@@ -1,5 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 extern "C" unsigned short func_ov027_021dab38(unsigned short* data, int len);
 extern "C" void func_020ca390(int val, void* dst, unsigned int size);
 extern "C" void func_020ca3b8(int src, void* dst, int size);

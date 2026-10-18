@@ -7,6 +7,10 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Struct02033b88;
 struct EntryList_203dce4;
 struct Container0204039c;

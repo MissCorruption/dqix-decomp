@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 void* FindRecordByShortField020108f0(void* obj, int value);
 void* FindSlotWithNegShort02010954(char* base);
 void SetPointerFields02053c4c(char* obj, char* p);

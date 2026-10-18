@@ -7,6 +7,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct SearchStruct0202c1a4;
 struct Obj02033874;
 struct Obj02053f7c;

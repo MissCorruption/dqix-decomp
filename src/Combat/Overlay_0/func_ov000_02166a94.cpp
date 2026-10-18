@@ -4,6 +4,10 @@
 #include <Resource/GameResources.h>
 #include <World/Object3D.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct BattleEffectResource02166a94 { int state; char pad_4[0x84]; };
 struct BattleWork02166a94 {
     char pad_0[4];

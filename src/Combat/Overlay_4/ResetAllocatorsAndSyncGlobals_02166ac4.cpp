@@ -11,6 +11,10 @@ enum { resetFlagOffset = 0x962 };
 #include "std_library_functions.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 extern char* data_ov004_0217101c[2];
 #define CurrentBase0217101c data_ov004_0217101c[1]
 #else

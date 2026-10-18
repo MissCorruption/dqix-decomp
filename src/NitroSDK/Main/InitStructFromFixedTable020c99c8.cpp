@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 extern "C" void func_020ca3b8(void* src, void* dst, unsigned int len);
 
 struct BitField3_020c99c8 { unsigned short v : 3; };

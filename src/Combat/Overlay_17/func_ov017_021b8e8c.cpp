@@ -7,6 +7,10 @@
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Obj020397cc;
 struct Obj0205eaa0;
 struct Obj020d7aa0;

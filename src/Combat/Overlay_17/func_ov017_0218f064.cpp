@@ -2,6 +2,10 @@
 #include <GameState/GameState.h>
 #include <World/Zone3D.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct Foo0207df50;
 struct S021a11b4;
 struct Obj02048104;

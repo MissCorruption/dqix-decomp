@@ -5,6 +5,10 @@
 #include "Util/Random.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0202ae18(void);
 extern "C" unsigned char* func_02012fe4(void);
 struct PointerField32c_ffc0;

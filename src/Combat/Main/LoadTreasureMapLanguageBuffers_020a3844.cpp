@@ -7,6 +7,10 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 void ReleaseBattleBuffers020a39d8(SafeAllocator* alloc);
 extern "C" void func_020c9be0(void);
 

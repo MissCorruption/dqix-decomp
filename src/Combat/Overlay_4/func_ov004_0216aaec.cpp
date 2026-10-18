@@ -12,6 +12,10 @@ enum { kTextBytes = 0x960, kPanelOffset = 4 };
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct IdList0216aaec {
     int ids[7];
 };

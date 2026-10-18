@@ -2,6 +2,10 @@
 
 #include "System/Cache.h"
 
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 extern "C" int func_020d424c(int, int, int);
 extern "C" int func_020ca3b8(int, void*, int);
 void SetBattleContextArrayEntry_020d404c(int index, int value);

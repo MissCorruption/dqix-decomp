@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct InnerStruct02239e68 {
 	unsigned char pad0[0x40];
 	int field40;

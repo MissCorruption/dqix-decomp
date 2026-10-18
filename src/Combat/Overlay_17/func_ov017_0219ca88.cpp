@@ -5,6 +5,10 @@
 #include "Resource/Brightness.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Vec3 { int x, y, z; };
 struct Bounds { Vector3fix upper, lower; };
 struct ListHead02046b38;

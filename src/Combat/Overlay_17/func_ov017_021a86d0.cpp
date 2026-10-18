@@ -64,6 +64,10 @@ extern "C" int fix32_Atan2(int y, int x);
 #include "Filesystem/BackgroundLoader.h"
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 struct AllocatorUnion;
 void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020dfec0(void* cont, void* alloc, void* data, unsigned int length);

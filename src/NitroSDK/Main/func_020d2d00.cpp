@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020d2d00 func_020d47cc
+#endif
+
 struct InstrumentParameters020d2d00 {
     unsigned short wave[2];
     unsigned char originalKey;

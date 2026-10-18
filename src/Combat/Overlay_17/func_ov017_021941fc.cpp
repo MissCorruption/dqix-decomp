@@ -82,6 +82,10 @@ enum {
 #include "Resource/Brightness.h"
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct SearchStruct;
 struct SearchStruct0202c1a4;
 struct StateFlags3c9 {

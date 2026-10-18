@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 void* CallWithConst32_02211b54(void* context, void* size);
 void SetGlobal0224e5a4IfNotNine_ov031_02211b08(int state, int result);
 extern "C" void func_020c9be0(void* allocation);

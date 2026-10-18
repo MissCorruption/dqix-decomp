@@ -9,6 +9,10 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Messages021863fc
 {
     char unk_0[0x5c];

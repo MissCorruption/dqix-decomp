@@ -7,6 +7,10 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 enum { kTaskOffset = 0x1cc, kPartyResourceOffset = 0x50c, kGlobalFieldOffset = 0x868, kManagerListOffset = 0x20, kManagerStateOffset = 0x2c, kManagerFlagOffset = 0x2e };
 extern "C" void _Z22SetIndexedName02046574P11Obj02046574iPc(void*, int, char*);
 extern "C" void func_0204500c(void*, void*, int);

@@ -12,6 +12,10 @@ enum { MainIndex = 0, ListIndex = 1, FlagOffset = 0x962, WindowPrefix = 0x1800, 
 #include "System/LoadToVRAM.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct StreamHeader0208d82c {
     unsigned int w0;
     unsigned short h4, h6;

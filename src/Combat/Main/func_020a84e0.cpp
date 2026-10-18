@@ -4,6 +4,10 @@
 #include "World/Zone3D.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct FlagWord02046708 { unsigned int flags; };
 
 void* GetDataPtr02114e04_020d6c00(void);

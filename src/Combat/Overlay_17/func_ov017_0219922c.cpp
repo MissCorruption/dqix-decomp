@@ -7,6 +7,10 @@ enum { RegionOffset6bc = 0x6bc, RegionOffset3600 = 0x3600, RegionOffsetb6 = 0xb6
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void);
 int LookupAndForEachNode020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);

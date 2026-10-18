@@ -7,6 +7,10 @@ enum { kRegionalFieldOffset = 0x4446 };
 #endif
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct ZoneNode02198e30 {
     unsigned short id;
     short param;

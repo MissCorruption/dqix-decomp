@@ -7,6 +7,10 @@
 #include <Memory/HMRFAllocator.h>
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Struct_0203cf58;
 struct TagValueEntry020e385c;
 struct LoadState02154f24

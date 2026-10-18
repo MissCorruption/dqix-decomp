@@ -9,6 +9,10 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset18c = 0x18c, RegionOffset998 = 0x998
 #include "Input/Input.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 #define func_020c39c8 func_020c5494
 #endif
 

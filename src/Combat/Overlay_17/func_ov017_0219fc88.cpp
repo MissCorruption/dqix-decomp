@@ -8,6 +8,10 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset734 = 0x734, RegionOffset6d0 = 0x6d0
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_02012fe4(void);
 void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
 

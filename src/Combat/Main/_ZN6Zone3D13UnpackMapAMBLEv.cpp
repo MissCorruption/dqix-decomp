@@ -8,6 +8,10 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" {
     void func_020c9be0();
     void _ZN6Zone3D26QueueLoadATS_AMBL_02014b04Ev(void* obj);

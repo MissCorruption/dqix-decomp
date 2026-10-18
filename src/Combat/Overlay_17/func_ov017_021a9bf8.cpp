@@ -6,6 +6,10 @@
 #include "System/Memory.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Obj020397cc;
 struct Obj02046574;
 struct Src02011818 {

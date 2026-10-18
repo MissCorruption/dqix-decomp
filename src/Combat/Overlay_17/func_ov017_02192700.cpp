@@ -3,6 +3,10 @@
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct SearchStruct0202c1a4;
 struct ArrayContainsByteStruct;
 

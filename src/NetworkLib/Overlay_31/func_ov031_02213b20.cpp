@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 struct SortEntry02213b20 { unsigned char field0; unsigned char id; unsigned char level; unsigned char flags; };
 struct SortRecord02213b20 { unsigned char data[0xc0]; };
 struct SortState02213b20 { unsigned char field0[0x444]; SortEntry02213b20 entries[11]; SortRecord02213b20 records[11]; };

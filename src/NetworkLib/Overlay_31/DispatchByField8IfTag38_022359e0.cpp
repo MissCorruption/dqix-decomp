@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct Struct022359e0 { unsigned short field0; unsigned short field2; unsigned char pad4[4]; unsigned short field8; };
 
 extern "C" void func_ov031_02235a44(struct Struct022359e0* a);

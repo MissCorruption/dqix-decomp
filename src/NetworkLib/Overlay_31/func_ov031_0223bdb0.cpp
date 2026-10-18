@@ -1,6 +1,18 @@
 #include <globaldefs.h>
 #include <Graphics/NSBXX/RenderCommands_Common.h>
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 struct PackedRecordTableEntry {
     unsigned short count;
     unsigned short reserved;

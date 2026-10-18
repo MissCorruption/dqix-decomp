@@ -1,6 +1,18 @@
 #include <globaldefs.h>
 #include "Filesystem/NitroVM.h"
 
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 extern "C" void func_020ca390(int val, void* dst, unsigned int size);
 extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 extern "C" int func_020ca3b8(int src, int dst, int size);

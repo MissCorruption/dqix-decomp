@@ -1,5 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 extern unsigned char data_ov031_02290ce4;
 extern "C" ARM void func_ov031_02234960(void);
 extern "C" void func_ov031_02223998(int idx);

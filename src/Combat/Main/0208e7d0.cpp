@@ -2,6 +2,10 @@
 #include "Util/Random.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Obj0208e7d0 {
     char pad0[0xc];
     short* table;

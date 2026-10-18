@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 struct HashCtx020c08ec {
     unsigned int unk0[5];
     unsigned int totalLo;

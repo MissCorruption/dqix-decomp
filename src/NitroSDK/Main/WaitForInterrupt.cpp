@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/Interrupts.h"
 
+#if defined(jpn)
+#define func_020c9bf0 func_020cb6bc
+#endif
+
 extern "C" void func_020c9bf0(void);
 extern char data_027e0000;
 

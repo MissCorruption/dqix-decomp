@@ -6,6 +6,10 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
 enum { kBackupAllocator = 0x6c0, kBackupBuffer = 0x6c4, kBackupSize = 0x6c8,
        kStage = 0x916, kActive = 0x917, kBaseTask = 0x950, kObjectTask = 0x95c,
        kBackupBytes = 0x2500, kDisplay = 0x200, kDisplayWidth = 0x608 };

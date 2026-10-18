@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Entry_02028bd0;
 
 struct Member_0219dac4 {

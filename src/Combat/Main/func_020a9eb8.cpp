@@ -6,6 +6,10 @@
 #include "Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Struct020a99d0 {
     unsigned short header[70];
     unsigned char flagBits[0x15f];

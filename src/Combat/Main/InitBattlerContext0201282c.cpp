@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern void* data_020fb3cc;
 
 void ResetBattlerState0201289c(unsigned char* obj);

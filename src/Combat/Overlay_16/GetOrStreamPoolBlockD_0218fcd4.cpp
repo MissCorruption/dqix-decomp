@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca4b4 func_020cbf80
+#endif
+
 extern "C" int func_020ca4b4(void*, void*, int);
 
 struct PoolState_0218fcd4 {

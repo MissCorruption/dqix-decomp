@@ -8,6 +8,10 @@ enum { RegionOffset840 = 0x840 };
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_0205ec34(void);
 extern "C" void* func_02012fe4(void);

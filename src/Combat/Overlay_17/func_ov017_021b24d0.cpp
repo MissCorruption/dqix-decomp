@@ -6,6 +6,10 @@
 #include "System/OverlayId.h"
 
 #if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
 enum { Field105 = 0x125, Field2cc = 0x27c };
 #else
 enum { Field105 = 0x105, Field2cc = 0x2cc };

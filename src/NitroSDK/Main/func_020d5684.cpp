@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "System/Cache.h"
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 typedef void (*WMCallbackFunc)(void* arg);
 
 struct WMStatus

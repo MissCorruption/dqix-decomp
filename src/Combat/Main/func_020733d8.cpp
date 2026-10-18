@@ -4,6 +4,10 @@
 #include "Graphics/Vector.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void);
 int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
 int FindCombatantWithNegativeField2_021a20c0(int unused, int mult, int limit);

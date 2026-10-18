@@ -6,6 +6,10 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void func_020a395c(void);
 int AllocateIndexedSlot020a36cc(void** out, unsigned int idx);
 extern "C" void func_020c9be0(void);

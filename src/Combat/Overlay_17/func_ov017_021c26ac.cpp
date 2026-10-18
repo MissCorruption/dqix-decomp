@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/OverlayId.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct AllocatorUnion;
 
 #if defined(jpn)

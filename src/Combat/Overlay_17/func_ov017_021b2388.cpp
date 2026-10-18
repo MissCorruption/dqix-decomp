@@ -12,6 +12,10 @@ enum { RegionOffset3700 = 0x3700 };
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 int GetFieldIfFlag4_020100f8(char* obj);
 struct Obj020397cc;
 void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020d2d00 func_020d47cc
+#endif
+
 struct ZeroStruct020d2ce0 {
     int a;
     int b;

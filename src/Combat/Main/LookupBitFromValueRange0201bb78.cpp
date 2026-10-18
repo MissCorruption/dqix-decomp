@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" unsigned char* func_0205ec34(void* obj, int val);
 int ConvertIndex_02012f68(int x);
 int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);

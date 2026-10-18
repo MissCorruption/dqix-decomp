@@ -13368,7 +13368,11 @@ src/Grotto/Main/TreasureMapDataStructs.cpp:
 src/Grotto/Main/DetailedTreasureMapData.cpp:
     complete
     .rodata start:0x020e914c end:0x020e9188
-    .text start:0x020a5c20 end:0x020a7a5c
+    .text start:0x020a5c20 end:0x020a7588
+
+src/Grotto/Main/DetailedTreasureMapLoad.cpp:
+    complete
+    .text start:0x020a78c0 end:0x020a7a5c
 
 src/Grotto/Main/TreasureMapMetadata.cpp:
 	complete
@@ -18746,10 +18750,6 @@ src/Combat/Main/ResetSelf_020e62a0.cpp:
 src/Combat/Main/ResetStruct_020e5ce8.cpp:
     complete
     .init start:0x020e65c8 end:0x020e65dc
-
-src/Combat/Main/StaticInit020e66a0.cpp:
-    complete
-    .init start:0x020e6f80 end:0x020e6fdc
 
 src/Combat/Main/Trans_020e60e0.cpp:
     complete

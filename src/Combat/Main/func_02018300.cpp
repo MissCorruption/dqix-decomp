@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Entry_02028bd0;
 struct Obj02028c64;
 struct Obj0205eaa0;

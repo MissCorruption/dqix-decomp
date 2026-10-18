@@ -7,6 +7,10 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct StructDE234_020de234 {
     int a, b, c, d;
     unsigned int field10Low : 10;

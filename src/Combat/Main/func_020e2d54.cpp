@@ -4,6 +4,10 @@
 #include "Graphics/NSBXX/GeometryFifo.h"
 #include "Graphics/NSBXX/RenderCommands_Common.h"
 
+#if defined(jpn)
+#define func_020ca430 func_020cbefc
+#endif
+
 #define REG_GXFIFO (*(volatile unsigned int*)0x04000400)
 struct Bone020e2d54 { unsigned short flags; char pad_2[0xa]; int scaleZ; };
 struct Output020e2d54 {

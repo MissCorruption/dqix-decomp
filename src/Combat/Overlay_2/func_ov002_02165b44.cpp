@@ -5,6 +5,10 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Struct0205de24;
 struct Struct_0205c570;
 struct Obj_0205da38;

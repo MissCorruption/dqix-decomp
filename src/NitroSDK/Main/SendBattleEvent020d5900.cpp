@@ -1,5 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 void* GetBattleContext_020d41d8(void);
 int GetBattleStateCode_020d41e8(void);
 void SetBattleContextArrayEntry_020d404c(int index, int value);

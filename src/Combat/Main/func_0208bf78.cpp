@@ -6,6 +6,10 @@
 #include "Resource/CharacterCreationUI.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct StreamHeader0208d82c;
 struct StreamHeader;
 struct ActiveEntry02046900;

@@ -5,6 +5,10 @@
 #include "System/Matrix.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern char data_0211e33c[];
 
 extern "C" void* func_02012fe4();

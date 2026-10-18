@@ -3,6 +3,10 @@
 #include "System/ProcessorContext.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct RuntimeA518 {
     void* allocator;
     void* allocatorContext;

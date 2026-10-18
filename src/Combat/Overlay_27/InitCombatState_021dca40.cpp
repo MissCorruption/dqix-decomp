@@ -2,6 +2,10 @@
 #include "System/Interrupts.h"
 #include "System/IPC.h"
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
 struct CombatCtx021dca40 {
 	unsigned int field0;
 	unsigned int field4;

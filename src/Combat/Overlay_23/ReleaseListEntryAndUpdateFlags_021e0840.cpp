@@ -3,6 +3,10 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct List0202fec8;
 struct Struct020dfc40;
 void ResetAndDetach020dfc6c(struct Struct020dfc40* p);

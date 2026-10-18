@@ -3,6 +3,10 @@
 #include <System/ColorEffects.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 #define GUIDE_WINDOW_MAIN_SCREEN 8
 #define GUIDE_WINDOW_NO_DIMMING 0x20
 #define GUIDE_WINDOW_OPENING 0x40

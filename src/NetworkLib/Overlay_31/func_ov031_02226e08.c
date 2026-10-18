@@ -1,5 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 void* func_ov031_0223cf4c(unsigned int len, int align);
 void func_020ca390(int val, void* dst, unsigned int size);
 void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);

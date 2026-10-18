@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 void ResetDMAChannel(int id);
 int TerminateSystem020ce7a4(void);
 extern "C" void func_020c976c(unsigned int id);

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void* func_ov031_0223cf4c(unsigned int len, int align);
 extern "C" int func_020cd908(void* p);
 extern "C" void func_020cd99c(void* p);

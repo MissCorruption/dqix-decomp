@@ -2,6 +2,10 @@
 #include <GameState/GameState.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Struct_0205d81c;
 struct Struct_0205def8;
 struct Outer020e28dc;
