@@ -2260,3 +2260,23 @@ src/Combat/Overlay_24/func_ov024_021e9f68.cpp:
 src/Combat/Overlay_24/func_ov024_021dc93c.cpp:
     complete
     .text start:0x021dd1e8 end:0x021dd77c
+
+src/Combat/Overlay_24/func_ov024_021e9b74.cpp:
+    complete
+    .text start:0x021ea340 end:0x021ea734
+
+src/Combat/Overlay_24/func_ov024_021f9030.cpp:
+    complete
+    .text start:0x021f97fc end:0x021f9e2c
+
+src/Combat/Overlay_24/func_ov024_021fb91c.cpp:
+    complete
+    .text start:0x021fc0e8 end:0x021fc4f8
+
+src/Combat/Overlay_24/func_ov024_021e62cc.cpp:
+    complete
+    .text start:0x021e6b64 end:0x021e7030
+
+src/Combat/Overlay_24/func_ov024_021fb490.cpp:
+    complete
+    .text start:0x021fbc5c end:0x021fc0e8

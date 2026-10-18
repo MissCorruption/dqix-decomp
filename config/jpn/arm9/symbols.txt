@@ -3715,7 +3715,7 @@ _Z26PushHandleIntoRing0209ae9cP15Variant02030b0c kind:function(arm,size=0x98) ad
 _Z19ResetObject0209af34P25ResetObject0209af34Struct kind:function(arm,size=0x24) addr:0x0209ccac
 _Z33SetupAndRunBufferedScript0209af58PvP12StreamHeaderiii kind:function(arm,size=0x7c) addr:0x0209ccd0
 func_0209afd4 kind:function(arm,size=0x474) addr:0x0209cd4c
-func_0209d1c0 kind:function(arm,size=0x48c) addr:0x0209d1c0
+func_0209b448 kind:function(arm,size=0x48c) addr:0x0209d1c0
 _Z25FindSubByKeyAndId0209b8d4P13Entry0209b8d4iiPi kind:function(arm,size=0x70) addr:0x0209d64c
 _Z20FindSlotById0209b944P17SlotEntry0209b944iiPi kind:function(arm,size=0x44) addr:0x0209d6bc
 _Z26StoreCellWordHalf_0209b988P20StoreCellWordHalfRowiiP23StoreCellWordHalfSource kind:function(arm,size=0x20) addr:0x0209d700
@@ -6261,8 +6261,8 @@ data_020e8e14 kind:data(any) addr:0x020e8f28
 data_020e8e20 kind:data(any) addr:0x020e8f34
 data_020e8f40 kind:data(any) addr:0x020e8f40
 data_020e8f88 kind:data(any) addr:0x020e8f88
-data_020e8f8c kind:data(any) addr:0x020e8f8c
-data_020e8f90 kind:data(any) addr:0x020e8f90
+data_020e8e78 kind:data(any) addr:0x020e8f8c
+data_020e8e7c kind:data(any) addr:0x020e8f90
 data_020e8ebc kind:data(any) addr:0x020e8fd0
 data_020e8ec4 kind:data(any) addr:0x020e8fd8
 data_020e8ed8 kind:data(any) addr:0x020e8fec
