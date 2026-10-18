@@ -20730,3 +20730,23 @@ src/NitroSDK/Main/LockCardReadManager.cpp:
 src/NitroSDK/Main/VerifyDownloadPlayStruct.cpp:
     complete
     .text start:0x020cd30c end:0x020cd3a0
+
+src/NitroSDK/Main/LoadDataFromCartridgeToMemory.cpp:
+    complete
+    .text start:0x020d0dcc end:0x020d0ec4
+
+src/NitroSDK/Main/func_020ce39c.cpp:
+    complete
+    .text start:0x020ce39c end:0x020ce45c
+
+src/NitroSDK/Main/InitGridRowsAndFlushCache_020d2a48.cpp:
+    complete
+    .text start:0x020d2a48 end:0x020d2ac4
+
+src/NitroSDK/Main/func_020b2054.cpp:
+    complete
+    .text start:0x020b2054 end:0x020b20b0
+
+src/MSL/Main/func_020015e8.cpp:
+    complete
+    .text start:0x020015e8 end:0x02001710
