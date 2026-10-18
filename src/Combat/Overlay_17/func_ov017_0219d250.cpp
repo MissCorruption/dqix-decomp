@@ -4,6 +4,11 @@
 #include "World/Object3D.h"
 #include "World/Zone3D.h"
 #include "Resource/MessageSystem.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct Entry0219d250 {
     unsigned short id;
@@ -170,7 +175,6 @@ void Init0203cfb4(Struct_0203cfb4*);
 struct MainBlock0205859c;
 void ResetBattleEncounterState0205859c(MainBlock0205859c*);
 void UpdateFlagsFromField12_0219e234(Battle0219d250*, Request0219d250*, Entry0219d250*, void*);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 extern "C" void func_ov017_0219fda0(Battle0219d250* self);
 void InitEntriesAndAllocators_0219fec0(void* self);
 int IsIdInRange020981e4(int, int);
@@ -392,7 +396,7 @@ extern "C" ARM void func_ov017_0219d250(Battle0219d250* self, unsigned char arg)
     self->b42ea = gs->GetTimeOfDay();
     self->h42ec = 0;
     if (!(request->flags6e & 1)) {
-        SetBitsInField4_0203b4d8((unsigned int*)self, 1);
+        SetFlags04((GameResources*)self, 1);
     }
     if ((other == NULL || other->id != 3) && entry->id == 3) {
         func_ov017_0219fda0(self);

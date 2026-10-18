@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 void* GetData02100044_0202ae24(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void __clear(void* buf, int size);
 extern "C" void func_02042764(char* name, void* buf, int flag);
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_021d0b30(unsigned short a, unsigned short b, char
 
     if (a != 0) return;
 
-    unsigned char* base = (unsigned char*)func_ov017_0218b5b0();
+    unsigned char* base = (unsigned char*)GetGameResources();
     unsigned char* entry = base + regionalOffset0 + 0x4000 + b * regionalOffset1;
     if (entry == 0) return;
 

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
+#include "Resource/GameResources.h"
 
 extern "C" {
     void* func_0202ae18(GrottoStruct* grotto);
@@ -41,7 +42,7 @@ ARM void SetCombatModeFromCase020dc2d0(int mode) {
     int flag2;
     StructWithNibble020dc2d0* field8 = *(StructWithNibble020dc2d0**)((char*)ptr + 0x8);
 
-    int base = ((int)func_ov017_0218b5b0());
+    int base = ((int)GetGameResources());
     flag1 = 0;
     void* list = *(void**)(base + 0x3000 + CombatModeListOffset);
     flag2 = flag1;

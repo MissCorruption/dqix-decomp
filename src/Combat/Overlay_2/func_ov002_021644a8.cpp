@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 void FindAndLinkMatchingEntry0205de24(Struct0205de24*, unsigned char, unsigned char);
@@ -13,7 +14,6 @@ extern "C" void func_ov002_0215b9a4(char *self, unsigned char key, int flag);
 struct Struct_0205def8;
 void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
 void * FindElementByC40205d81c(Struct_0205d81c*, int);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 struct Obj0205eaa0;
@@ -23,7 +23,6 @@ extern "C" void func_ov002_02156e90(char *base);
 struct Obj0205dee8;
 void SetFieldB0AndUpdate0205dee8(Obj0205dee8*, int);
 
-extern int data_02114e30;
 extern int data_02108760;
 
 // USA: func_ov002_021644a8
@@ -60,7 +59,7 @@ extern "C" ARM void func_ov002_021644a8(char *self) {
         if (saved != *(short *) (self + 0x1bf0)) {
             return;
         }
-        int t = TestFlag0SetAndFlag1Clear_02012444((unsigned short*)&data_02114e30, 0x601);
+        int t = g_keyManager.TestKeysPressed(0x601);
         int u = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0xec8), 0x14);
         int hit = (t | u) != 0;
         if (hit != 0) {

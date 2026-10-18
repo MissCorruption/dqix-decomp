@@ -2,6 +2,7 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include <Filesystem/BackgroundLoader.h>
+#include "Resource/GameResources.h"
 
 struct SearchStruct0202c1a4;
 struct S_10088;
@@ -266,7 +267,7 @@ extern "C" ARM int func_ov023_021edf54(Scene_021edf54* self) {
     if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0)
         return self->endState_;
 
-    Resources_021edf54* resources = (Resources_021edf54*)func_ov017_0218b5b0();
+    Resources_021edf54* resources = (Resources_021edf54*)GetGameResources();
     Renderer_021edf54* renderer = GetGlobalField0x1c020421a0();
     mode = func_0202ae18();
 

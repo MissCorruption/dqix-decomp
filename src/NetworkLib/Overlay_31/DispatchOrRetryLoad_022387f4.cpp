@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 void SetGlobal02290d14_02239108(unsigned short v);
 int SetFlagThenDispatch_021dcc24_021dcc24(int a);
 extern "C" int func_ov031_0223883c(int a);

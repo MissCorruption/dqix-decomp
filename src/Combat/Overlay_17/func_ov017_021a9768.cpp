@@ -3,6 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 #include "System/OverlayId.h"
+#include "Resource/Brightness.h"
 
 struct AllocatorUnion;
 struct Obj020397cc;
@@ -13,8 +14,6 @@ struct Manager0218936c;
 
 extern "C" SearchStruct* func_0202ae18(void);
 void CancelPendingAction020397cc(Obj020397cc* obj, int flag);
-void SetBitsInField4_0203b4d8(unsigned int* field, unsigned int bits);
-void ClearBitsInField4_0203b4e8(unsigned int* field, unsigned int bits);
 extern "C" void func_020a0cc4(unsigned int size);
 extern "C" void func_020a0c0c(void);
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
@@ -55,11 +54,11 @@ extern "C" void func_ov017_021a9714(Task021a9768* task);
 // USA: func_ov017_021a9768
 extern "C" ARM void func_ov017_021a9768(Task021a9768* task) {
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     GameObject* unknown = gs->GetUnknownGameObject();
     SearchStruct* search = func_0202ae18();
     CancelPendingAction020397cc((Obj020397cc*)unknown, 1);
-    SetBitsInField4_0203b4d8((unsigned int*)res, 0xc0);
+    SetFlags04((GameResources*)res, 0xc0);
     if (task->step == 0) {
 #if defined(jpn)
         func_020a0cc4(0x1c704);
@@ -130,6 +129,6 @@ extern "C" ARM void func_ov017_021a9768(Task021a9768* task) {
     PopStack1AndTrigger_020a1f4c(1);
     func_ov017_021a9714(task);
     func_020a0c0c();
-    ClearBitsInField4_0203b4e8((unsigned int*)res, 0x80);
+    ClearFlags04((GameResources*)res, 0x80);
     task->failed = 1;
 }

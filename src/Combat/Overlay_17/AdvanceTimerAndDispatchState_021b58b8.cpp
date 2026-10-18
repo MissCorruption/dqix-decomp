@@ -8,14 +8,13 @@ enum { kResourceNodeOffset = 0x70c };
 
 #include "Resource/GameResources.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct Obj020397cc;
 void CancelPendingAction020397cc(Obj020397cc* obj, int arg1);
 int GetFieldIfFlag4_020100f8(char* obj);
 void SetField0x238False_020a27a0(void* obj);
 void SetField0x238True_020a2794(void* obj);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void SetByteField0x253_020397c0(void* obj);
 void CallIfField498_0218d5ac(void* obj);
 struct ListHead02046b38;
@@ -53,9 +52,9 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
                 if (flag != 0) {
                     SetField0x238False_020a27a0((void*)flag);
                 }
-                GameResources* ov = func_ov017_0218b5b0();
+                GameResources* ov = GetGameResources();
                 if (ov != 0) {
-                    SetBitsInField4_0203b4d8(&ov->brightnessFlags_0, 0x80);
+                    SetFlags04(ov, 0x80);
                 }
             } else if (self->field54 == 0) {
                 SetByteField0x253_020397c0((void*)combatant);
@@ -64,15 +63,15 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
                 if (flag != 0) {
                     SetField0x238True_020a2794((void*)flag);
                 }
-                GameResources* ov = func_ov017_0218b5b0();
+                GameResources* ov = GetGameResources();
                 if (ov != 0) {
-                    ClearBitsInField4_0203b4e8(&ov->brightnessFlags_0, 0x80);
+                    ClearFlags04(ov, 0x80);
                 }
             }
         }
     }
 
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     if (ov != 0) {
         CallIfField498_0218d5ac((void*)ov);
     }
@@ -88,6 +87,6 @@ extern "C" ARM void func_ov017_021b58b8(SelfState_021b58b8* self, ListNode02046b
         func_ov017_021b5a30(self);
     }
     if (self->field1 != 0) {
-        ClearBitsInField4_0203b4e8(&ov->brightnessFlags_0, 0x40);
+        ClearFlags04(ov, 0x40);
     }
 }

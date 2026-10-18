@@ -2,6 +2,10 @@
 #include "Memory/HPXEAllocator.h"
 #include "System/Interrupts.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void func_020c9be0(void);
 extern HPXEAllocator* data_ov031_02290d3c;
 

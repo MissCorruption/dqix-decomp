@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct Obj02046574;
 struct StoreStruct;
@@ -47,7 +48,7 @@ extern "C" ARM void func_ov002_0215e644(char *base, char *dst) {
     StoreInArray0x8b0_020465c0((struct StoreStruct *) g, 6, LdH(*(char **) ((char *) m + 0x134), 0x36));
     StoreInArray0x8b0_020465c0((struct StoreStruct *) g, 7, (*(unsigned int *) f << 12) >> 22);
     int job          = *(int *) (f + 0x950);
-    GameResources *v = func_ov017_0218b5b0();
+    GameResources *v = GetGameResources();
     if (func_ov017_021bdbcc(v)) job = 0;
     char *s = (char *) GetFieldByKey020e0434((struct Container020e0310 *) (base + 0x20),
                                                                       (short) (job + 0x834));

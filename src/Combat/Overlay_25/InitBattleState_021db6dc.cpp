@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Foo02033b58;
 void SetByteSavingPrevious(struct Foo02033b58* p, unsigned char v);
@@ -26,7 +27,7 @@ extern "C" ARM void func_ov025_021db6dc(void* arg) {
     char* obj = (char*)arg;
     GameState* bs = GameState::GetInstance();
     int g = GetGlobalField0x1c020421a0();
-    int handle = ((int)func_ov017_0218b5b0());
+    int handle = ((int)GetGameResources());
 
     func_ov025_021e88d8(obj + RegionOffset2a8);
     SetField_021e8a4c(obj + RegionOffset2a8, *(int*)(obj + RegionOffset29c));

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 struct EventNodeRoot021759f4 {
@@ -64,7 +65,6 @@ struct EventSource {
     unsigned char result;
 };
 
-extern "C" GameResources* func_ov017_0218b5b0(void);
 extern "C" struct Combatant020A36A8* func_ov017_021b8478(void* obj);
 int MatchesActiveIndex020a36a8(struct Combatant020A36A8* obj);
 extern "C" struct EventSource* func_ov017_021b8468(void* obj);
@@ -76,9 +76,9 @@ extern unsigned short data_ov000_02183444[];
 // USA: func_ov000_021759f4
 extern "C" ARM int func_ov000_021759f4(struct TeamWork* work) {
 #if defined(jpn)
-    void* node = ((EventNodeRoot021759f4*)func_ov017_0218b5b0())->node;
+    void* node = ((EventNodeRoot021759f4*)GetGameResources())->node;
 #else
-    void* node = func_ov017_0218b5b0()->unknown_ptr_3718;
+    void* node = GetGameResources()->unknown_ptr_3718;
 #endif
     struct Combatant020A36A8* active = func_ov017_021b8478(node);
     if (work->flags & 0x200) {

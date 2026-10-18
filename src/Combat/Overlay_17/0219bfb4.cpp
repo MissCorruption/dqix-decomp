@@ -13,6 +13,10 @@ enum { kStatusOffset = 0x23ec, kStatusFlagOffset = 0x262, kFieldXOffset = 0x2786
 #include "System/OverlayId.h"
 #include "World/Object3D.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct StreamHeader;
 struct Struct020a8170;
 struct Container020a83fc;
@@ -85,7 +89,7 @@ static inline unsigned char GetScriptIndex(int slot, int offset) {
 
 // USA: func_ov017_0219bfb4
 extern "C" ARM void func_ov017_0219bfb4(int mode, unsigned short id) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     GameState* gs = GameState::GetInstance();
     char* party = (char*)GetPtrField0x2a04_02010828(gs);
     char* record = (char*)GetField0x3f8Address_0200fd0c(gs);

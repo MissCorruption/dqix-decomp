@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c5188 func_020c6c54
+#endif
+
 extern "C" void Mat4x3_WriteViewMatrix(int, int, int, void*);
-void IssueCommand0x17_020c5188(int cmd);
+extern "C" void func_020c5188(int cmd);
 
 // USA: func_020c57d4
 ARM void SubmitGeometryJob_020c57d4(int a, int b, int c, int flag, void* buf) {
@@ -10,5 +14,5 @@ ARM void SubmitGeometryJob_020c57d4(int a, int b, int c, int flag, void* buf) {
     Mat4x3_WriteViewMatrix(a, b, c, dst);
     if (!flag) return;
     *(volatile int*)0x4000440 = 2;
-    IssueCommand0x17_020c5188((int)dst);
+    func_020c5188((int)dst);
 }

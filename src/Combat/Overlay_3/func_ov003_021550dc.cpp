@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kRegionValue36_2A = 0x2a };
@@ -15,10 +16,8 @@ struct Menu {
     short cursor_;
 };
 
-extern unsigned short data_02114e30;
 extern unsigned char data_02114e54;
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 int GetInnerFlagBit0020e28dc(struct Outer020e28dc* o);
 int GetField0x15UnlessInactive_020e2918(signed char* param);
 void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
@@ -39,7 +38,7 @@ struct Ctx021550dc {
 // USA: func_ov003_021550dc
 extern "C" ARM unsigned char func_ov003_021550dc(Ctx021550dc* self) {
     unsigned char confirmed = 0;
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401)) {
+    if (g_keyManager.TestKeysPressed(0x401)) {
         confirmed = 1;
     }
     if (self->choice_ != NULL && GetInnerFlagBit0020e28dc(self->choice_)) {

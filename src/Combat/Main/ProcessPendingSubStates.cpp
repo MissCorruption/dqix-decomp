@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 #if defined(jpn)
 enum { kRegionalFieldOffset = 0x2e4 };
 #else
@@ -19,7 +20,6 @@ struct Field18Obj02040910 {
     unsigned char bit0 : 1;
 };
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void func_ov017_0218eafc(int arg0, int arg1);
 int Dispatch0203cd64(char* obj, int arg1);
 
@@ -44,7 +44,7 @@ ARM int ProcessPendingSubStates(struct StateWithFourPtrs02040910* obj, int arg1)
             return 1;
         }
         signed short val = *(signed short*)((char*)p + 4);
-        int r = func_ov017_0218b5b0();
+        int r = (int)GetGameResources();
         func_ov017_0218eafc(r, val);
         return 1;
     }

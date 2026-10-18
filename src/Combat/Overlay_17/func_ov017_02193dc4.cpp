@@ -87,7 +87,7 @@ extern "C" ARM int func_ov017_02193dc4(Actor02193dc4* self) {
     int i;
 
     GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     zone = (Zone02193dc4*)func_02012fe4();
     Probe02193dc4 probe;
     Vector3i pos = self->position_;

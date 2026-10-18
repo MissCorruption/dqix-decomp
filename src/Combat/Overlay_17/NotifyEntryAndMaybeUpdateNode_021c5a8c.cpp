@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 extern "C" void func_0202ae18(void);
 extern "C" int func_0202c508(void);
@@ -7,7 +8,6 @@ void* GetData02108ea8_0207d78c(void);
 struct Entry0207d9bc;
 struct Entry0207d9bc* FindEntryByHalfword(struct Entry0207d9bc* arr, unsigned short key);
 extern "C" void func_0207d7f4(void* arr, unsigned short key, int val, int flag, int a2, unsigned short b2, unsigned char c2);
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" void* func_ov017_021b8478(void* obj);
 extern "C" void func_ov017_021b88d0(void* node, int a, unsigned short key);
 
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov017_021c5a8c(int a, int key) {
             func_0207d7f4(arr, key, a, 1, e[4], *(unsigned short*)(e + 2), *(unsigned char*)(e + 5));
         }
 
-        void* base = (char*)func_ov017_0218b5b0() + 0x3000;
+        void* base = (char*)GetGameResources() + 0x3000;
         void* node = *(void**)((char*)base + regionalOffset0);
         void* ret = func_ov017_021b8478(node);
         unsigned short val = *(unsigned short*)((char*)ret + 8);

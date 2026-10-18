@@ -4,6 +4,7 @@
 #include "Graphics/LightingManager.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct BattleContext021b7284;
 
@@ -196,7 +197,7 @@ extern "C" ARM void func_ov017_021b7284(BattleScene021b7284* self) {
     unsigned char useAlt = self->useAlt;
     unsigned short id = self->id;
     GameState* state = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     memset(&out, 0, sizeof(out));
 
     if (encounter >= 0) {
@@ -272,7 +273,7 @@ done:
     func_ov000_0215d414(self->context, &req);
     self->field_6ac = self->allocator.Allocate(0x780c);
     func_ov000_02160140(self->field_6ac);
-    ClearFlag320_02195540((unsigned char*)func_ov017_0218b5b0());
+    ClearFlag320_02195540((unsigned char*)GetGameResources());
     params.context = self->context;
     params.allocator = &self->allocator;
     params.info = &self->info;

@@ -4,6 +4,15 @@
 #include "Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 #include "World/LootableContainer.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct Obj020397cc;
 struct Obj02033834;
@@ -73,8 +82,6 @@ void CallIfField498_0218d5ac(void* res);
 void* GetFieldIfFlag4_020100f8(char* gs);
 void SetField0x238False_020a27a0(void* obj);
 void SetField0x238True_020a2794(void* obj);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void SetVecYByMode02033834(Obj02033834* obj, int arg);
 extern "C" int* func_0202ae18(void);
 unsigned char* GetElementStride0x24_020177a8(unsigned char* p, int i);
@@ -113,7 +120,7 @@ void ForwardField0xc0_0205eb80(void* obj);
 void SetForwardAndStore0205eb54(void* obj, int arg1, int arg2);
 void DispatchIfField0xc4NonNeg_0205eb90(void* obj, int a, int b);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 extern "C" void func_ov017_021cdb00(int, int, int, int);
 int HasNonZeroByteAtOfField498_0218d75c_0218d75c(void* obj);
 void SetIndexedName02046574(Obj02046574* obj, int index, char* str);
@@ -136,7 +143,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
     GetElement02094d5cList* list = (GetElement02094d5cList*)(save + 0x2724);
     void* reset = GetGlobalResetObj020d7a50();
     GameObject* member = gs->GetPartyMemberByIndex(self->member);
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     TailList020469b4* tail = (TailList020469b4*)res->unknown_ptr_array_36fc[0];
 
     if (member == NULL) {
@@ -154,7 +161,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
             SetField0x238False_020a27a0(camera);
         }
         if (res) {
-            SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x80);
+            SetFlags04(res, 0x80);
         }
         *(unsigned short*)((char*)member + 0xb2) = 0;
         SetVecYByMode02033834((Obj02033834*)member, self->mode);
@@ -231,7 +238,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
             self->allocator.ResetAllocatorPointer();
             self->allocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x4000), 0x4000);
             self->allocator.Reset();
-            func_ov017_0218d510(func_ov017_0218b5b0(), &self->allocator);
+            func_ov017_0218d510(GetGameResources(), &self->allocator);
         }
     } else if (self->state == 8) {
         self->timer += gs->GetEffectiveDeltaTime();
@@ -263,7 +270,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
         }
     } else if (self->state == 2) {
         if (member->obj3D_.normalizedAnimationTime_ >= 0xb33) {
-            if (self->special && !IsField10Eq2_0218d618((Struct0218d618*)func_ov017_0218b5b0())) {
+            if (self->special && !IsField10Eq2_0218d618((Struct0218d618*)GetGameResources())) {
                 return;
             }
             if (!self->ambush && !self->special) {
@@ -276,7 +283,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
                     SetField0x238True_020a2794(camera);
                 }
                 if (res) {
-                    ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x80);
+                    ClearFlags04(res, 0x80);
                 }
             }
             self->state = 4;
@@ -338,7 +345,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
                 chest = mgr2->GetContainerByID(elem2->containerId, &pos2);
             }
             if (chest) {
-                GameResources* res2 = func_ov017_0218b5b0();
+                GameResources* res2 = GetGameResources();
                 if (self->special) {
                     func_ov017_0218d644(res2, &chest->position, 0);
                 }
@@ -356,10 +363,10 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
                 int id = chest->uniqueID;
                 unsigned char* flags = (unsigned char*)func_0205ec34();
                 if (chest->containerType == 0) {
-                    SetOrClearBitInArray_0206df6c(flags, flags + 0x8c, id + 0x212, 1);
+                    func_0206df6c(flags, flags + 0x8c, id + 0x212, 1);
                     func_ov017_021cdb00(1, id, 1, -1);
                 } else if (!self->useList) {
-                    SetOrClearBitInArray_0206df6c(flags, flags + 0x8c, id + 0x79e, 1);
+                    func_0206df6c(flags, flags + 0x8c, id + 0x79e, 1);
                 }
                 chest->unk_4_0 = 0;
                 chest->lootType = 0;
@@ -368,7 +375,7 @@ extern "C" ARM void func_ov017_021adcb0(Chest021adcb0* self) {
         self->state = 5;
     } else if (self->state == 5) {
         if (self->special) {
-            if (!HasNonZeroByteAtOfField498_0218d75c_0218d75c(func_ov017_0218b5b0())) {
+            if (!HasNonZeroByteAtOfField498_0218d75c_0218d75c(GetGameResources())) {
                 GameObject* leader = gs->GetUnknownGameObject();
                 if (leader) {
                     SetByteField0x253_020397c0(leader);

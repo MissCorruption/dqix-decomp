@@ -55,7 +55,6 @@ struct Obj020d7aa0;
 void TeardownAndResetState020d7aa0(Obj020d7aa0*);
 struct Obj020397cc;
 void CancelPendingAction020397cc(Obj020397cc*, int);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(void* reg, int plane1, int plane2, int ev1, int ev2);
 void* GetGlobalPtr021075f4_0203cf4c(void);
 void* FindEntryPointerByKey0203df78(void* p, int key);
@@ -63,6 +62,12 @@ extern "C" Vector3fix _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node02
 extern "C" int fix32_Atan2(int y, int x);
 #include "Combat/EntryGetterTypes.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 struct AllocatorUnion;
 void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020dfec0(void* cont, void* alloc, void* data, unsigned int length);
@@ -89,7 +94,6 @@ void SetupGlobalObjType1AndInitSelfPointer_0205cd28(unsigned char* obj);
 struct Container0205a330;
 void IterateEntries0205a330(Container0205a330*, int);
 int GetScaledSumIfActive0205cecc(void* obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* flags, int mask);
 int CallFunc0205c570AtField0x1c_0205cb64(void* obj);
 void ReinitController02043204(char* obj);
 void SetupGlobalObjType3AndInitSelfPointer_0205ce50(unsigned char* obj);
@@ -119,7 +123,6 @@ extern char data_ov017_021d77f0[];
 extern char data_ov017_021d780a[];
 extern char data_02114e20[];
 extern char data_02108760[];
-extern unsigned short data_02114e30;
 
 static inline unsigned int GX_GetVisiblePlane(void) {
     return (*(volatile unsigned int*)0x4000000 & 0x1f00) >> 8;
@@ -142,7 +145,7 @@ extern "C" ARM void func_ov017_021a86d0(Self021a86d0* self, void* list) {
         self->planes = GX_GetVisiblePlane();
         GX_SetVisiblePlane(0x11);
         CancelPendingAction020397cc((Obj020397cc*)gs->GetProtagonist(), 1);
-        SetBitsInField4_0203b4d8((unsigned int*)func_ov017_0218b5b0(), 0x40);
+        SetFlags04(GetGameResources(), 0x40);
         ColorEffect_ConfigureAlphaBlend((void*)0x4000050, 0x10, 1, 0x1f, 0);
         void* tbl = GetGlobalPtr021075f4_0203cf4c();
         void* node = NULL;
@@ -256,10 +259,10 @@ extern "C" ARM void func_ov017_021a86d0(Self021a86d0* self, void* list) {
         IterateEntries0205a330((Container0205a330*)cont, gs->GetTickCount());
         g[MessageDone] = 0;
         int sel = GetScaledSumIfActive0205cecc(self->sub);
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1)) {
+        if (g_keyManager.TestKeysPressed(1)) {
             DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             sel = CallFunc0205c570AtField0x1c_0205cb64(self->sub);
-        } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) {
+        } else if (g_keyManager.TestKeysPressed(2)) {
             sel = -2;
         }
         if (self->count > sel && sel >= 0) {
@@ -303,7 +306,7 @@ extern "C" ARM void func_ov017_021a86d0(Self021a86d0* self, void* list) {
         int chapter;
         int part;
         unsigned char* bits = func_0205ec34();
-        char* res = (char*)func_ov017_0218b5b0();
+        char* res = (char*)GetGameResources();
         void* tail = *(void**)(res + ResourceTail);
         unsigned char* ctx = GetField0x3f8Address_0200fd0c(gs);
         VectorizedMemset(ctx, 0, 0x70);

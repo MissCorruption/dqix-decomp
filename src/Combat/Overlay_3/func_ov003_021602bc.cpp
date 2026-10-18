@@ -13,14 +13,13 @@ enum { kRegion435c = 0x435c };
 
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
-
-extern "C" void* func_ov017_0218b5b0(void);
+#include "Resource/GameResources.h"
 
 struct FmtTable021602bc { char rows[4][kRegion30]; };
 
 // USA: func_ov003_021602bc
 extern "C" ARM void func_ov003_021602bc(char* obj) {
-    char* langData = (char*)func_ov017_0218b5b0();
+    char* langData = (char*)GetGameResources();
 
     for (int i = 0; i < 4; i++) {
         (*(void***)(obj + kRegion394))[i] = 0;

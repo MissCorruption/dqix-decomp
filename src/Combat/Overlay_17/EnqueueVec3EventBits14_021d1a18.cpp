@@ -6,6 +6,7 @@ enum { RegionOffset2774 = 0x2774, RegionOffset2780 = 0x2780 };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct SearchStruct0202c1a4 {
     char pad[0x1038];
@@ -48,7 +49,7 @@ extern "C" ARM void func_ov017_021d1a18(int a, short b, short c, unsigned char d
     if (!CheckField0NonZero_0202b7d8(func_0202ae18())) return;
     if (GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)func_0202ae18()) != 0) return;
 
-    ((int)func_ov017_0218b5b0());
+    ((int)GetGameResources());
     GameState* bs = GameState::GetInstance();
     void* base = func_02012fe4(GetField0x3f8Address_0200fd0c(bs));
     void* p = GetData02100044_0202ae24();

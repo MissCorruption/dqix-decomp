@@ -8,6 +8,7 @@ enum { kOffset6fc = 0x6fc, kOffset744 = 0x744, kOffsetb68 = 0xb68, kOffset745 = 
 
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
+#include "Resource/Brightness.h"
 
 extern "C" void func_ov017_021a9bc4(void* node, int flag);
 extern "C" void func_ov017_021a9a9c(void* node, int b1, int b2, int h3, int extra);
@@ -17,9 +18,6 @@ extern "C" void func_020ae53c(int arg);
 
 void* GetPtrField0x2a04_02010828(GameState* battleStruct);
 int IsField0Null_02046b08(void** obj);
-
-struct AxisFloats0203b5f8 { unsigned char pad0[0xc]; float f0c; unsigned char pad10[8]; float f18; };
-int IsAxisIntZero(AxisFloats0203b5f8* s, int axis);
 
 struct TailNode020469b4 { char unk0[2]; unsigned char inList; char unk3; TailNode020469b4* next; };
 struct TailList020469b4 { TailNode020469b4* head; TailNode020469b4* tail; };
@@ -36,14 +34,14 @@ int AreListedCombatantsBit0Set(Obj02086b98* o);
 // USA: func_0201bdac
 ARM void DispatchField0x744FlagsAndNotify_0201bdac(unsigned char* src) {
     GameState* bs = GameState::GetInstance();
-    unsigned char* ov = (unsigned char*)func_ov017_0218b5b0();
+    unsigned char* ov = (unsigned char*)GetGameResources();
     TailList020469b4* list = *(TailList020469b4**)(ov + 0x3000 + kOffset6fc);
     void* table = func_0202ae18();
     void* ptr2a04 = GetPtrField0x2a04_02010828(bs);
 
     if (!IsField0Null_02046b08((void**)list)) return;
-    if (!IsAxisIntZero((AxisFloats0203b5f8*)ov, 0)) return;
-    if (!IsAxisIntZero((AxisFloats0203b5f8*)ov, 1)) return;
+    if (!IsBrightnessZero((GameResources*)ov, false)) return;
+    if (!IsBrightnessZero((GameResources*)ov, true)) return;
 
     unsigned char flags = *(src + 0x2000 + kOffset744);
     if (flags & 1) {

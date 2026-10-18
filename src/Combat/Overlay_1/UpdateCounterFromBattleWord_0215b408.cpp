@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021d60f4(void*);
 void* GetWord0x0_0200fb8c(int*);
@@ -16,7 +17,7 @@ ARM int UpdateCounterFromBattleWord_0215b408(void* self, int mode) {
     void* obj = GetWord0x0_0200fb8c((int*)battle);
     if (obj != NULL) {
         SetSubBrightness((GameResources*)obj, 0, frames);
-        func_ov017_0218b5b0();
+        GetGameResources();
     }
     return 1;
 }

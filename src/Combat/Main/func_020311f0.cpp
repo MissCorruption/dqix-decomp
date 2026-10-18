@@ -1,14 +1,18 @@
 #include <globaldefs.h>
 #include "System/Matrix.h"
 
+#if defined(jpn)
+#define func_020c51a4 func_020c6c70
+#endif
+
 Matrix4x3 RotationMatrixX(int angle);
-void IssueCommand0x19_020c51a4(int cmd);
+extern "C" void func_020c51a4(int cmd);
 
 // USA: func_020311f0
 extern "C" ARM void func_020311f0(int angle) {
     if (angle) {
         Matrix4x3 rot;
         rot = RotationMatrixX(angle);
-        IssueCommand0x19_020c51a4((int)&rot);
+        func_020c51a4((int)&rot);
     }
 }

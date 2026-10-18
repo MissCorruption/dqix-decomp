@@ -10,6 +10,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct MonsterListEntry {
     MonsterListEntry* next_;
@@ -103,7 +104,6 @@ short FindMappedMemberId02080468(void* obj, int id);
 void ResetWithSub0208203c(Obj0208203c*);
 void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081*, int);
 int CheckFlagAndPointInElement_02186ff0(char*);
-bool TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 MonsterRecord* GetArrayEntryByField1a_02187450(ObjStruct_02187450*, KeyStruct_02187450*);
 void UpdateSoundStateA_02184f10(SoundState02184f10*, int, int);
 void ProcessEntry02184e3c(unsigned char*);
@@ -121,8 +121,6 @@ bool func_ov014_02186f10(MonsterListScreen* self);
 void func_ov014_02184dcc(MonsterListScreen* self);
 void func_ov014_02184d08(MonsterListScreen* self);
 }
-
-extern unsigned short data_02114e30[];
 
 static inline MonsterRecord* GetRecord(MonsterListScreen* self, MonsterListEntry* entry)
 {
@@ -191,7 +189,7 @@ extern "C" ARM void func_ov014_02188010(MonsterListScreen* self)
             else
                 ProcessEntry02184e3c((unsigned char*)self);
         }
-        else if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800))
+        else if (g_keyManager.TestKeysPressed(0x800))
             func_ov014_02184dcc(self);
         else if (CheckFlagAndPointInElement_02186ff0((char*)self))
         {

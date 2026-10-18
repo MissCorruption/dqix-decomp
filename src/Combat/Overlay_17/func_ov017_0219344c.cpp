@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
 
 struct HeadNode02046b24;
 struct ByteFlags02033f2c;
@@ -52,11 +54,7 @@ struct Link0219344c {
     unsigned short index;
 };
 
-extern unsigned short data_02114e30;
-
 extern "C" void* func_02012fe4(void);
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
-int TestFlagMask_02012430(unsigned short* pad, int buttons);
 int GetHeadNodeIdOrMinusOne(HeadNode02046b24** head);
 void ClearFlags0x40And0x80At0xe0(ByteFlags02033f2c* p);
 int NotifyEntriesFlag256_0218df50(void* a, void* b);
@@ -110,7 +108,7 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
     int oldAC;
 
     gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     zone = (Zone0219344c*)func_02012fe4();
     total = 0;
     HeadNode02046b24** head = (HeadNode02046b24**)res->unknown_ptr_array_36fc[0];
@@ -120,7 +118,7 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
     hidden = self->GetFlags() & 0x4000000;
     self->DisableFlag(0x4000000);
     enable = 1;
-    if (GetBitsInField0_0203b4c4(&res->brightnessFlags_0, 0x400) != 0 && TestFlagMask_02012430(&data_02114e30, 1) != 0) {
+    if (TestFlags00(res, 0x400) != 0 && g_keyManager.TestKeysHeld(1) != 0) {
         enable = 0;
     }
     if ((self->unknown_0_ & 0x100) && (self->field18c & 1)) {
@@ -267,7 +265,7 @@ extern "C" ARM int func_ov017_0219344c(Actor0219344c* self, int arg, Vector3i* t
         }
     }
 
-    GameResources* res2 = func_ov017_0218b5b0();
+    GameResources* res2 = GetGameResources();
     unsigned char* zone2 = (unsigned char*)func_02012fe4();
     Vector3i endPos = self->position_;
     Link0219344c* link = (Link0219344c*)res2->interactionSelection;

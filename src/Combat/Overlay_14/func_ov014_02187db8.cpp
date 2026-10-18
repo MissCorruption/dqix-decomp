@@ -10,6 +10,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct MonsterListEntry {
     MonsterListEntry* next_;
@@ -79,7 +80,6 @@ short FindMappedMemberId02080468(void* obj, int id);
 void ResetWithSub0208203c(Obj0208203c*);
 void CallFunc0204c804OnMatchingKey_0207fdcc(Obj2081*, int);
 int CheckFlagAndPointInElement_02186ff0(char*);
-bool TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 short CountLinkedListNodes_021874f8(ListHeadStruct021874f8*);
 
@@ -90,7 +90,6 @@ void func_020813ec(Menu* menu, short group);
 bool func_ov014_02186f10(MonsterListScreen* self);
 }
 
-extern unsigned short data_02114e30[];
 extern char data_02108760[];
 
 // USA: func_ov014_02187db8
@@ -144,7 +143,7 @@ extern "C" ARM void func_ov014_02187db8(MonsterListScreen* self)
             self->listState_ = 2;
             self->listStep_ = 0;
         }
-        else if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800))
+        else if (g_keyManager.TestKeysPressed(0x800))
         {
             CallFunc0204c804OnMatchingKey_0207fdcc((Obj2081*)self->menu_, self->group_);
             self->familyCursor_ = -1;

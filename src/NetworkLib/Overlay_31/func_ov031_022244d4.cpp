@@ -39,13 +39,10 @@ extern Point16_022244d4 data_ov031_022489f8;
 extern "C" ARM void func_ov031_022244d4(void) {
     data_ov031_02250bfc->field11c = 0;
     if (!func_ov031_0223d5ac(&data_ov031_022493b8)) return;
-    Point16_022244d4* b;
-    Point16_022244d4* t;
     PointPair16_022244d4 buf;
     int i;
-    i = 0; t = data_ov031_02248a0c; b = &data_ov031_022489c8;
-    do {
-        func_ov031_0223cb34(t, b, &buf);
+    for (i = 0; i < 47; i++) {
+        func_ov031_0223cb34(&data_ov031_02248a0c[i], &data_ov031_022489c8, &buf);
         if (func_ov031_0223d5ac(&buf)) {
             EntityStruct022244d4* p = data_ov031_02250bfc;
             if (p->field11e != i) return;
@@ -57,10 +54,10 @@ extern "C" ARM void func_ov031_022244d4(void) {
             func_ov031_0222506c();
             return;
         }
-        i++; t++;
-    } while (i < 47);
-    i = 2; b = data_ov031_022489fc; t = data_ov031_022489ec;
-    do {
+    }
+    Point16_022244d4* b = data_ov031_022489fc;
+    Point16_022244d4* t = data_ov031_022489ec;
+    for (i = 2; i < 4; i++, b++, t++) {
         func_ov031_0223cb34(t, b, &buf);
         if (func_ov031_0223d5ac(&buf)) {
             EntityStruct022244d4* p = data_ov031_02250bfc;
@@ -73,11 +70,9 @@ extern "C" ARM void func_ov031_022244d4(void) {
             func_ov031_0222506c();
             return;
         }
-        i++; b++; t++;
-    } while (i < 4);
-    i = 0; t = data_ov031_022489dc; b = &data_ov031_022489c4;
-    do {
-        func_ov031_0223cb34(t, b, &buf);
+    }
+    for (i = 0; i < 2; i++) {
+        func_ov031_0223cb34(&data_ov031_022489dc[i], &data_ov031_022489c4, &buf);
         if (func_ov031_0223d5ac(&buf)) {
             EntityStruct022244d4* p = data_ov031_02250bfc;
             if (p->field11e != i + 51) return;
@@ -86,8 +81,7 @@ extern "C" ARM void func_ov031_022244d4(void) {
             func_ov031_0222506c();
             return;
         }
-        i++; t++;
-    } while (i < 2);
+    }
     func_ov031_0223cb34(&data_ov031_022489e4, &data_ov031_022489f4, &buf);
     if (func_ov031_0223d5ac(&buf)) {
         if (data_ov031_02250bfc->field11e != 47) return;

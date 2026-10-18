@@ -8,6 +8,7 @@ enum { kRegion1414 = 0x1414 };
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 struct Obj020397cc;
 
@@ -31,8 +32,6 @@ struct Obj0217ef58 {
 };
 
 extern "C" void func_02074af4(void* obj);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 extern "C" void func_020a0cc4(unsigned int size);
 extern "C" void func_020a0c0c(void);
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
@@ -59,7 +58,7 @@ extern "C" ARM void func_ov003_0217ef58(Obj0217ef58* self) {
 
     if (self->state == 0) {
         func_02074af4(self->controlBackup);
-        SetBitsInField4_0203b4d8((unsigned int*)func_ov017_0218b5b0(), 0xc0);
+        SetFlags04(GetGameResources(), 0xc0);
         func_020a0cc4(0x1e800);
         void* buffer = AllocateAligned4_02012d88(&data_02114e20, 0xb000);
         if (buffer == 0) {
@@ -98,7 +97,7 @@ extern "C" ARM void func_ov003_0217ef58(Obj0217ef58* self) {
         int flags = GetFieldIfFlag4_020100f8((char*)gs);
         SetField0x23cTrue_020a27ac((void*)flags);
         ClearFlagBits_020a28b0((unsigned char*)flags, 2);
-        ClearBitsInField4_0203b4e8((unsigned int*)func_ov017_0218b5b0(), 0xc0);
+        ClearFlags04(GetGameResources(), 0xc0);
         self->state = -1;
     } else if (self->state == 3) {
         if (func_ov003_0216af14(self->scene) == 0) {

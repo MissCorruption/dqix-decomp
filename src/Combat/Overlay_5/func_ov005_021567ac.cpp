@@ -9,6 +9,7 @@ enum { kScreenFlags = 0x634, kCursor = 0x19f4 };
 #endif
 
 #include <GameState/GameState.h>
+#include "Resource/GameResources.h"
 
 struct Obj0205eaa0;
 
@@ -66,7 +67,7 @@ extern "C" int func_ov005_02155670(EquipmentMenu* self, int x, int y);
 // USA: func_ov005_021567ac
 extern "C" ARM void func_ov005_021567ac(EquipmentMenu* self, int x, int y) {
     GameState::GetInstance();
-    MemberScreen* screen = GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]);
+    MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     if (!func_ov005_02157ae8(self, screen->member_))
         return;
     self->dragged_ = func_ov005_02155670(self, x, y);

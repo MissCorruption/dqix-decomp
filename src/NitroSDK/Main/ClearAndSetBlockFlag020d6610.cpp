@@ -1,5 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 int ComputeMaskedIndexOffset_020d6884(void*, int, int, int);
 extern "C" int func_020ca3b8(int, int, int);
 extern "C" void func_020ca390(int, void*, unsigned int);

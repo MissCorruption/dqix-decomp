@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 extern "C" void func_020ca3ec(int value, void* dst, int size);
 int SetFlagAndInvoke_02213230(int mask, void* arg);
 int Check_0221add4_0221add4(int v);

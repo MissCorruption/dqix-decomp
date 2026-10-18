@@ -9,14 +9,8 @@ extern "C" ARM void func_ov031_0223fae8(void* destination) {
     unsigned char bytes[6];
     char encoded[12];
     CopyFrom027ffcf4_020c99ac(bytes);
-    int index = 0;
-    unsigned char* cursor = bytes;
-    int offset = 0;
-    do {
-        func_ov031_0223fc7c(encoded + offset, *cursor, 2);
-        ++cursor;
-        ++index;
-        offset += 2;
-    } while (index < 6);
+    for (int i = 0; i < 6; i++) {
+        func_ov031_0223fc7c(encoded + i * 2, bytes[i], 2);
+    }
     func_ov031_0223e454(destination, encoded, 12);
 }

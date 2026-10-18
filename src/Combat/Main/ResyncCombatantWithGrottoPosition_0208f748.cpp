@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_02012fe4(void* unused);
 struct Vector3i;
@@ -17,7 +18,7 @@ extern "C" ARM int func_0208f748(unsigned char* obj) {
     if (q->flag != 0) return 0;
     GameState* battle = GameState::GetInstance();
     battle->GetProtagonist();
-    ((int)func_ov017_0218b5b0());
+    ((int)GetGameResources());
     func_0202ae18();
     GrottoStruct* grotto = battle->GetGrottoStruct();
     Vec3Local_0208f748 tmp1;

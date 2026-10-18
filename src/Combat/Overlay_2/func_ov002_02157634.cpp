@@ -1,6 +1,15 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct Container020dedd0;
 struct Struct020a8170 {
@@ -94,7 +103,7 @@ struct Element02157634* FindElementByKey020dedd0(struct Container020dedd0* c, in
 void* SearchBothTables02079e2c(char* p, int key);
 int IsIdInSpecialSet0201b868(void* p, int id);
 void Something_021a6b9c(void* a, int b);
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 unsigned char GetField0x397cValue_020100b0(GameState* gs);
 void* GetPtrField0x2a04_02010828(GameState* gs);
 unsigned char CopyOutRegion0x571d_020114ec(char* obj, void* dst);
@@ -149,7 +158,7 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
         case 0x56f0:
             if (func_0202c508(check) != 0) {
                 if (IsIdInSpecialSet0201b868(obj, id) != 0) {
-                    Something_021a6b9c(func_ov017_0218b5b0(), 1);
+                    Something_021a6b9c(GetGameResources(), 1);
                     p->msgId = 0x7530;
                     p->msgId2 = -1;
                     p->nextState = 0x2b;
@@ -171,7 +180,7 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
             p->state = next;
             {
                 unsigned char* bits = func_0205ec34();
-                SetOrClearBitInArray_0206df6c(bits, bits + 0x8c, 0x1141, 1);
+                func_0206df6c(bits, bits + 0x8c, 0x1141, 1);
             }
             return;
         case 0x5603:

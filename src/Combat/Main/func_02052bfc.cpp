@@ -14,6 +14,7 @@ enum { kObjectPointer = 0x150, kResourceWord = 0x6fc };
 #include "GameState/GameState.h"
 #include "System/Timing.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct ArrayContainsByteStruct;
 
@@ -62,7 +63,7 @@ extern "C" ARM void func_02052bfc(struct Obj02052bfc* obj) {
     if (obj->field150 == NULL) return;
 
     GameState* gs = GameState::GetInstance();
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     void* list = *(void**)((char*)ov + 0x3000 + kResourceWord);
     ArrayContainsByteStruct* arr = (ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(gs);
     Struct0201bc94* entry = (Struct0201bc94*)func_02012fe4();

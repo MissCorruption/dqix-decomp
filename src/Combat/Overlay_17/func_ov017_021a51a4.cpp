@@ -2,6 +2,11 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 #include "System/OverlayId.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_020c39c8 func_020c5494
+#endif
 
 #if defined(jpn)
 enum { Field36d0 = 0x34c0, Field36d4 = 0x34c4, Field36fc = 0x34ec, Field3700 = 0x34f0, Field371c = 0x350c, Field3720 = 0x3510, Field3b4c = 0x392c, Field3b50 = 0x3930, Field3b70 = 0x3950, Field3b74 = 0x3954, Field41c0 = 0x3fa0, Field41c4 = 0x3fa4, Field42e4 = 0x40c4, CombatantFlagOffset = 0x180 };
@@ -32,9 +37,8 @@ int IsField0Null_02046b08(void** list);
 int GetByteField0x252_02039820(void* obj);
 int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
 int TestFlags02046708(FlagWord02046708* flags, unsigned int mask);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* flags, int mask);
 int CheckField0xc4Low15BitsNonZero(BitField0203402c* obj);
-int GetSignedField020c39c8(volatile unsigned short* reg);
+extern "C" int func_020c39c8(volatile unsigned short* reg);
 int NormalizeField5_0200fb08(Struct0200fb08* obj);
 extern "C" int func_0202c508(SearchStruct* search);
 extern "C" int func_0202c540(SearchStruct* search);
@@ -51,7 +55,6 @@ void SetCombatModeFromCase020dc2d0(int mode);
 void SetFlag0x9c6_020213fc(SetFlagStruct* obj, int value);
 void SetFlagsAt0xa97(FlagBlob02027bac* obj, unsigned char value);
 void AllocateAndCopyBuf28_0216ae2c(SafeAllocator* allocator, void* arg);
-extern unsigned short data_02114e30;
 extern char data_02108760;
 extern char data_ov017_021d76dc;
 
@@ -153,7 +156,7 @@ extern "C" ARM void func_ov017_021a51a4(Res021a51a4* res) {
     }
     start = 0;
     if (!TestFlags02046708(flagWord, 0x800)) {
-        if ((TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x400) || res->pending == 1) && unknown->fac == 0) {
+        if ((g_keyManager.TestKeysPressed(0x400) || res->pending == 1) && unknown->fac == 0) {
             if (!CheckField0xc4Low15BitsNonZero((BitField0203402c*)unknown)) {
                 start = 1;
             }
@@ -163,7 +166,7 @@ extern "C" ARM void func_ov017_021a51a4(Res021a51a4* res) {
     }
     x = data_02114e54.x;
     y = data_02114e54.y;
-    if (GetSignedField020c39c8((volatile unsigned short*)0x400006c) != 0) {
+    if (func_020c39c8((volatile unsigned short*)0x400006c) != 0) {
         return;
     }
     grotto = (unsigned char*)gs->GetGrottoStruct();
@@ -184,7 +187,7 @@ extern "C" ARM void func_ov017_021a51a4(Res021a51a4* res) {
         touched = 0;
     }
     if (func_0202c508(search) && grotto[0] != 0 && grottoInfo->kind == 0
-        && (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x800) || touched)) {
+        && (g_keyManager.TestKeysPressed(0x800) || touched)) {
         InitState53_021befe4(res->state53);
         AppendNodeToTail(res->list, (TailNode020469b4*)res->state53);
         return;
@@ -208,7 +211,7 @@ extern "C" ARM void func_ov017_021a51a4(Res021a51a4* res) {
     if (res->f41c0 != 0) {
         return;
     }
-    if (!TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x800)) {
+    if (!g_keyManager.TestKeysPressed(0x800)) {
         return;
     }
     if (res->pending != 0 || unknown->fac != 0) {

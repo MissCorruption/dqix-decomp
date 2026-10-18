@@ -63,7 +63,7 @@ extern "C" ARM int func_ov004_0216a464(void* a) {
     func_ov023_021f9bc8((char*)node);
     func_ov004_0216950c(a);
 
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     node = resources->unknown_ptr_array_3afc[34];
     SavedEntryTable* table = *(SavedEntryTable**)((char*)data_ov004_02171030 + regionTable);
 

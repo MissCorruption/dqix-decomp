@@ -14,14 +14,12 @@ extern "C" void func_02023218(MapDisplay* self, void* buffer, int offset, unsign
 extern char data_020ef4b1[], data_020ef4c9[], data_020ef4d0[];
 #endif
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0203bd08(void);
 void* GetData02105254_0203b628(void);
 extern "C" void func_02021428(void* obj, int amount);
-
-struct AxisFloats0203b5a0;
-int IsAxisIntWithin16(struct AxisFloats0203b5a0* s, int axis);
 
 void InitSubScreenDisplay_020209d0(void* context);
 void TailForward0203b66c(char* obj);
@@ -87,7 +85,7 @@ extern "C" ARM void func_02021b84(MapDisplay* self) {
     game = GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
     func_02012fe4();
-    axis = func_ov017_0218b5b0();
+    axis = GetGameResources();
     battleCtx = (char*)func_0203bd08();
     table = (char*)GetData02105254_0203b628();
     alloc = GetAlloc02021b84(axis, 12);
@@ -131,7 +129,7 @@ extern "C" ARM void func_02021b84(MapDisplay* self) {
         self->loadStage = self->loadStage + 1;
     } else if (state == 1) {
         func_02021428(self, 0x19);
-        if (IsAxisIntWithin16((struct AxisFloats0203b5a0*)axis, 1) != 0) return;
+        if (IsBrightnessWithinValidRange((GameResources*)axis, true) != 0) return;
         if (loader->GetTaskStatus(self->task9fc) == 0) return;
         if (loader->GetTaskStatus(self->taska00) == 0) return;
         func_02020720(self);

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct FlaggedEntryContainer02086e9c;
 struct FindEntryContainer02086e50;
@@ -33,7 +34,7 @@ void RemoveOrShiftMarkedEntry02086a04(FindEntryContainer02086a04* p, int idx);
 // USA: func_020dcd40
 extern "C" ARM int func_020dcd40() {
     int count = 0;
-    GameResources* v14 = func_ov017_0218b5b0();
+    GameResources* v14 = GetGameResources();
     GameState* battle = GameState::GetInstance();
     void* p10 = GetPtrField0x2a04_02010828(battle);
     unsigned short* v0c = func_02012fe4(p10);

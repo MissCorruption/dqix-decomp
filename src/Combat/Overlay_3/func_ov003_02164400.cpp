@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct Obj2081 { char pad[0x36]; unsigned short field36; };
 
@@ -33,7 +34,6 @@ extern "C" void func_ov003_021666c4(void* self);
 void UpdateSignedField4a0_0216664c(void* self);
 extern "C" void func_ov003_02160344(void* self);
 extern "C" void func_ov017_021c36a0(void);
-extern "C" void* func_ov017_0218b5b0(void);
 void InitState37_021aeedc(struct Struct021aeedc* p);
 void PrependNodeToHead(struct HeadList020469f8* list, struct HeadNode020469f8* node);
 
@@ -449,7 +449,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* self) {
         *(int*)(self + 0x4b0) = 0;
         OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0x80000);
         {
-            char* ov = (char*)func_ov017_0218b5b0() + 0x3000;
+            char* ov = (char*)GetGameResources() + 0x3000;
             struct Struct021aeedc* p4 = *(struct Struct021aeedc**)(ov + 0xb2c);
             struct HeadList020469f8* p5 = *(struct HeadList020469f8**)(ov + 0x6fc);
             InitState37_021aeedc(p4);
@@ -466,7 +466,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* self) {
         }
     }
     if (state == 0xf) {
-        char* ov = (char*)func_ov017_0218b5b0() + 0x3000;
+        char* ov = (char*)GetGameResources() + 0x3000;
         void* p = *(void**)(ov + 0xb2c);
         signed char v = *((signed char*)p + 0xf);
         if (v == 1) {

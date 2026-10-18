@@ -5,6 +5,7 @@ enum { RegionOffset36 = 0x36 };
 #endif
 
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Ctx021ab0c0 {
     char pad0[0x18];
@@ -17,10 +18,8 @@ struct Ctx021ab0c0 {
     short s4e;
 };
 
-extern unsigned short data_02114e30;
 extern unsigned char data_02114e54;
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 int RunAndCheckFlagBit02080dd4(void* obj, int p1, int unused2, int unused3, unsigned char* outFlag, unsigned char extra);
 extern "C" void func_020813ec(void* obj, int key);
@@ -28,7 +27,7 @@ extern "C" void func_020813ec(void* obj, int key);
 // USA: func_ov017_021ab0c0
 ARM int UpdateElementCoordFlag_021ab0c0(struct Ctx021ab0c0* ctx) {
     unsigned char flag = 0;
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401)) {
+    if (g_keyManager.TestKeysPressed(0x401)) {
         flag = 1;
     }
     if (*(unsigned char*)(&data_02114e54 + 0x55) != 0 && ctx->p44 != NULL) {

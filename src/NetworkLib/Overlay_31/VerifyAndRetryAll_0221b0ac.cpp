@@ -11,22 +11,31 @@ struct Data0224e6a0 {
 };
 extern Data0224e6a0 data_ov031_0224e6a0;
 
+struct Block0221b0ac {
+	unsigned char data[0xfe];
+	unsigned short crc;
+};
+
+struct Store0221b0ac {
+	Block0221b0ac blocks[4];
+	unsigned char work[0x100];
+	unsigned short crcTable[0x100];
+};
+
 // USA: func_ov031_0221b0ac  (semantic: VerifyAndRetryAll_0221b0ac)
 extern "C" ARM int func_ov031_0221b0ac(int obj) {
-	int i = 0;
-	int base5 = data_ov031_0224e6a0.field8;
-	int base8 = obj;
+	Store0221b0ac* store = (Store0221b0ac*)obj;
+	int i;
+	int srcBase = data_ov031_0224e6a0.field8;
 
-	do {
-		unsigned short crc = Crc16Compute_020d1cc8((const unsigned short*)(obj + 0x500), (const unsigned char*)base8, 0xfe);
-		*(unsigned short*)(obj + (i << 8) + 0xfe) = crc;
+	for (i = 0; i < 4; i++) {
+		Block0221b0ac* block = &store->blocks[i];
+		int src = srcBase + i * 0x100;
+		store->blocks[i].crc = Crc16Compute_020d1cc8(store->crcTable, block->data, 0xfe);
 		do {
-			func_ov031_0221b780(base5, 0x100, base8);
-		} while (CheckAndCompare_0221b7fc(base8, base5, 0x100, obj + 0x400) == 0);
-		i++;
-		base8 += 0x100;
-		base5 += 0x100;
-	} while (i < 4);
+			func_ov031_0221b780(src, 0x100, (int)block);
+		} while (CheckAndCompare_0221b7fc((int)block, src, 0x100, (int)store->work) == 0);
+	}
 
 	return func_ov031_0221b848() != 0;
 }

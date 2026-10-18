@@ -8,6 +8,10 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 enum { countOffset = 0x9f4, flagOffset = 0x9fb, valueOffset = 0xa10, nameOffset = 0x19ff, recordStride = 0x1e4, stateFlag = 0x29e, resetOffset = 0x790 };
 #else
 enum { countOffset = 0x8f4, flagOffset = 0x8fb, valueOffset = 0x910, nameOffset = 0x18ff, recordStride = 0x1c4, stateFlag = 0x4de, resetOffset = 0x962 };
@@ -55,7 +59,7 @@ extern "C" ARM int func_ov004_02164738(void* a) {
 
     GameState* state = GameState::GetInstance();
     char* zone = (char*)func_02012fe4();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     unsigned char* buf = (unsigned char*)res->unknown_ptr_36d0;
     res->unknown_41c8[0x42e0 - 0x41c8] = *(unsigned char*)(data_ov004_02171010 + 0x1000 + flagOffset);
     FreeBuffer020263e4((Struct020263e4*)buf);

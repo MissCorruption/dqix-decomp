@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -10,13 +11,11 @@ void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char 
 int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *flags, int mask);
 int GetField110ArrayValue021574d4(void *self, int idx);
 int CheckFlagOrThreshold_02161b48(char *self, int flag);
 extern "C" void func_ov002_02161cf0(void *self);
 extern "C" void func_ov002_02160274(void *self);
 extern "C" void func_ov002_02156e90(void *self);
-extern unsigned short data_02114e30;
 extern char data_02108760[];
 
 // USA: func_ov002_02169520
@@ -36,7 +35,7 @@ extern "C" ARM void func_ov002_02169520(char *base) {
     *(short *) (base + 0x1c08) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (base + 0xec8));
     if (old != *(short *) (base + 0x1c08)) *(int *) (base + 0x1bcc) = 1;
     *(signed char *) (base + 0x1c20) = GetField110ArrayValue021574d4(base, *(short *) (base + 0x1c08));
-    int pressed                      = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int pressed                      = g_keyManager.TestKeysPressed(0x601);
     int cancel = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(base + 0xec8), 0x14)) ? 1 : 0;
     if (cancel) {
         *(unsigned char *) (base + 0xf80) = *(int *) (base + 0x1bb8);

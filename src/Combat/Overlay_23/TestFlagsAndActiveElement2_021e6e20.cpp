@@ -1,7 +1,5 @@
 #include <globaldefs.h>
-
-extern unsigned short data_02114e30;
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* input, int mask);
+#include "Input/Input.h"
 
 struct Struct_0205d81c {
     char unknown_000[0xb0];
@@ -20,7 +18,7 @@ struct Obj021e6e20 {
 };
 
 ARM int TestFlagsAndActiveElement2_021e6e20(Obj021e6e20* selection) {
-    int inputTriggered = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2);
+    int inputTriggered = g_keyManager.TestKeysPressed(2);
     int touchOutsideSelection = func_0205d97c(&selection->elements) == 2;
     return (inputTriggered | touchOutsideSelection) != 0;
 }

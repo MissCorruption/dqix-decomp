@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
 
 struct SearchStruct {
     char pad0[0xfc0];
@@ -22,15 +24,10 @@ void ResetAndSetFlag0x3c9Bit0_020939dc(void* obj);
 extern "C" void func_02094030(int*, short, short, signed char);
 signed char GetSearchStructCurrentArrEntry(SearchStruct0202c1a4* obj);
 int TestMaskBitBySignedByteIndex_0202bd34(SearchStruct* obj, int value);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* flags, int mask);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
 extern "C" void func_0202b0f4(void* obj);
 void ClearTwoBytesAtField_02195748(unsigned char* base);
 void SetFlag1ForFlagombatants_02192594_02192594(unsigned char* base);
 void* FillBitArray0x1524WithFF(BitArrayObj0205e854* obj);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
-
-extern unsigned short data_02114e30;
 
 struct Obj021af2f8 {
     unsigned char pad0;
@@ -45,7 +42,7 @@ struct Obj021af2f8 {
 // USA: func_ov017_021af2f8
 extern "C" ARM unsigned char func_ov017_021af2f8(Obj021af2f8* obj) {
     GameState::GetInstance();
-    unsigned int* flags = (unsigned int*)func_ov017_0218b5b0();
+    unsigned int* flags = (unsigned int*)GetGameResources();
     SearchStruct* search = func_0202ae18();
     GetEntryBySignedByteIndex_0202c178(search, 0);
     BitArrayObj0205e854* bits = (BitArrayObj0205e854*)GetData02100044_0202ae24();
@@ -84,14 +81,14 @@ extern "C" ARM unsigned char func_ov017_021af2f8(Obj021af2f8* obj) {
     }
 
     if (obj->fieldF == -1 || done) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) {
+        if (g_keyManager.TestKeysPressed(2)) {
             obj->fieldF = -1;
-            SetBitsInWord_0203b4a0(flags, 2);
+            SetFlags00((GameResources*)flags, 2);
             func_0202b0f4(search);
             ClearTwoBytesAtField_02195748((unsigned char*)flags);
             SetFlag1ForFlagombatants_02192594_02192594((unsigned char*)flags);
             FillBitArray0x1524WithFF(bits);
-            ClearBitsInWord_0203b4b0(flags, 0x40);
+            ClearFlags00((GameResources*)flags, 0x40);
             obj->field1 = 1;
         }
     } else if (obj->fieldF == 1) {
@@ -99,12 +96,12 @@ extern "C" ARM unsigned char func_ov017_021af2f8(Obj021af2f8* obj) {
             obj->field1 = 1;
         }
     } else {
-        SetBitsInWord_0203b4a0(flags, 2);
+        SetFlags00((GameResources*)flags, 2);
         func_0202b0f4(search);
         ClearTwoBytesAtField_02195748((unsigned char*)flags);
         SetFlag1ForFlagombatants_02192594_02192594((unsigned char*)flags);
         FillBitArray0x1524WithFF(bits);
-        ClearBitsInWord_0203b4b0(flags, 0x40);
+        ClearFlags00((GameResources*)flags, 0x40);
         obj->field1 = 1;
     }
     return obj->field8;

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 struct GBACartridgeHeader020d16b0 {
     unsigned long startAddress;
     unsigned char nintendoLogo[0x9c];

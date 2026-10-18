@@ -40,7 +40,7 @@ void DetailedTreasureMapData::LoadTreasures()
     if (GameState::GetInstance()->GetTreasureMapLanguageData() == NULL)
         return;
 
-    TreasureMapLanguageDataOffsets* offsets = func_ov017_0218b5b0()->pTMapLanguageOffsets;
+    TreasureMapLanguageDataOffsets* offsets = GetGameResources()->pTMapLanguageOffsets;
     unsigned int offset;
     bool foundBoss = false;
 

@@ -6,7 +6,6 @@
 
 struct SearchStruct;
 struct SearchStruct0202c1a4;
-struct AxisFloats0203b57c;
 struct S_e830;
 struct AllocatorUnion;
 
@@ -72,13 +71,8 @@ extern "C" void func_ov017_021d0b30(int a, int b, int c);
 
 int TestBitBySignedByteIndex_0202c1c0(SearchStruct* obj, int index);
 signed char GetSearchStructCurrentArrEntry(SearchStruct0202c1a4* obj);
-int GetAxisIntValue(AxisFloats0203b57c* obj, int index);
-int IsChannelValueZero0203b5e0(void* obj, int index);
 unsigned short GetFieldAt0x7e_0201e830(S_e830* obj);
 void Set3DClearColor_020c5588(int a, int b, int c, int d, int e);
-unsigned int GetField4_0203b4d0(unsigned int* obj);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
 int GetField1c_021a193c(int* obj);
 int GetField0x3acValue_020100a8(GameState* gs);
@@ -113,12 +107,12 @@ extern "C" ARM int func_ov017_021afe00(Step021afe00* self) {
     char* g = (char*)func_02012fe4();
     Sub021afe00* sub = (Sub021afe00*)(g + 0x840);
     if (self->state != 2) {
-        GameResources* res = func_ov017_0218b5b0();
+        GameResources* res = GetGameResources();
         if (IsBrightnessTransitionActive(res) != 0) {
             return 1;
         }
-        self->axis = GetAxisIntValue((AxisFloats0203b57c*)res, 0);
-        if (IsChannelValueZero0203b5e0(res, 0) != 0) {
+        self->axis = GetBrightness((GameResources*)res, false);
+        if (IsBrightnessOutsideValidRange((GameResources*)res, false) != 0) {
             self->restoreDisplay = 1;
             DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
             char* info = (char*)func_02012fe4();
@@ -133,9 +127,9 @@ extern "C" ARM int func_ov017_021afe00(Step021afe00* self) {
                 clear = 0x7fff;
             }
             Set3DClearColor_020c5588(clear, 0x1f, 0x7fff, 0, 0);
-            self->field4Bits = GetField4_0203b4d0(&res->brightnessFlags_0);
-            ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0xffffffff);
-            SetBitsInField4_0203b4d8(&res->brightnessFlags_0, 0x8de);
+            self->field4Bits = GetFlags04(res);
+            ClearFlags04(res, 0xffffffff);
+            SetFlags04(res, 0x8de);
             SetMainBrightness(res, 0, 2);
         }
         for (int i = 0; i < 4; i++) {
@@ -148,7 +142,7 @@ extern "C" ARM int func_ov017_021afe00(Step021afe00* self) {
         }
         if (self->ptr4 != 0) {
             if (*self->ptr4 == 2) {
-                if (GetField1c_021a193c(*(int**)((char*)func_ov017_0218b5b0() + 0x3708)) != 0) {
+                if (GetField1c_021a193c(*(int**)((char*)GetGameResources() + 0x3708)) != 0) {
                     DISPCNT = (DISPCNT & ~0x1f00) | 0x700;
                 }
             } else {

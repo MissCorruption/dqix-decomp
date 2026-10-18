@@ -36,11 +36,11 @@ extern "C" ARM Entry0220ece8* func_ov031_0220ece8(void) {
 	if (capacity == 0) return e;
 	if (capacity <= (unsigned int)h->count) return e;
 
-	unsigned int i = 0;
+	int i = 0;
 	if (i < capacity) {
 		Entry0220ece8* arr = (Entry0220ece8*)((char*)h + 0xc);
 		do {
-			e = (Entry0220ece8*)((char*)arr + i * 0xd0);
+			e = (Entry0220ece8*)((char*)arr + i * sizeof(Entry0220ece8));
 			if (e->used == 0) break;
 			i++;
 		} while (i < capacity);

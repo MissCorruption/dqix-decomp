@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
 extern "C" void func_020ca390(int, void*, unsigned int);
 
 struct Slot_0221be38 { unsigned char data[0x100]; };

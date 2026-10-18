@@ -7,6 +7,7 @@ enum { RegionOffset718 = 0x718 };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_ov017_021b8478(void* obj);
 void* GetData02100044_0202ae24(void);
@@ -56,7 +57,7 @@ struct Whole021ca81c {
 // USA: func_ov017_021ca81c
 extern "C" ARM void func_ov017_021ca81c(struct Container021ca81c* sl) {
     GameState::GetInstance();
-    unsigned char* table = *(unsigned char**)((char*)func_ov017_0218b5b0() + 0x3000 + RegionOffset718);
+    unsigned char* table = *(unsigned char**)((char*)GetGameResources() + 0x3000 + RegionOffset718);
     unsigned char* fp = (unsigned char*)func_ov017_021b8478(table);
     void* data = GetData02100044_0202ae24();
 

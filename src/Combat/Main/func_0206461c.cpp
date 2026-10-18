@@ -7,6 +7,7 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <Filesystem/FileIO.h>
 #include <std_library_functions.h>
+#include "Resource/GameResources.h"
 
 struct LoaderOwner0206461c {
     unsigned char padding[0x47c];
@@ -38,7 +39,7 @@ extern "C" ARM int func_0206461c(LoaderOwner0206461c* owner, Request0206461c* re
     GameState* state = GameState::GetInstance();
     BackgroundLoader::GetInstance();
     Obj02064574* object = &data_02108844;
-    SafeAllocator* allocator = GetAllocator0206461c(func_ov017_0218b5b0(), 15);
+    SafeAllocator* allocator = GetAllocator0206461c(GetGameResources(), 15);
     unsigned int size = 0;
     char name[4];
     char path[64];

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 extern "C" int func_ov023_021e29d0(char* obj);
 extern "C" void func_ov023_021e2ce8(int combatantId, void* p1);
 struct EntryList0204af14;
@@ -15,7 +15,6 @@ void DispatchByIdxAndCond021551fc(char* base, int byteVal, int cond);
 typedef void (*DispatchFn021551fc)(char*, int, int);
 
 extern unsigned char data_02114e54;
-extern unsigned short data_02114e30;
 
 struct Obj021e4c18 {
     void* f0;
@@ -72,7 +71,7 @@ extern "C" ARM void func_ov023_021e4c18(struct Obj021e4c18* obj) {
         if (func_ov023_021e29d0((char*)obj + 0xd4) == 0x21) five = 1;
     }
     if (!five) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x800) != 0) five = 1;
+        if (g_keyManager.TestKeysPressed(0x800) != 0) five = 1;
     }
     if (!five) return;
 

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { kRegionValue6FC_4EC = 0x4ec };
@@ -46,7 +47,7 @@ extern "C" ARM void func_ov003_02163d7c(char* self) {
     func_ov003_02161480();
     GameState* state = GameState::GetInstance();
     char* info = func_02012fe4();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     char* list = *(char**)((char*)res + 0x3000 + kRegionValue6FC_4EC);
     char* node = *(char**)((char*)res + 0x3000 + kRegionValue734_524);
     Field150* field = GetField150Ptr0x488_02052e2c((Field150Holder02052e2c*)(state->GetGameObjectByIndex(*(signed char*)(self + kRegionValue400_200 + kRegionValueA2_CA))));

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
 class PMFObj0215fce8 {
 public:
@@ -23,17 +24,14 @@ extern "C" int func_ov017_021959b4();
 void *GetDataPtr02114e04_020d6c00(void);
 int *GetGlobal02109030_020936f8(void);
 void OrBitsIntoField0_020466e4(unsigned int *word, unsigned int bits);
-extern "C" unsigned char *func_ov017_0218b5b0();
 extern "C" void *func_0202ae18();
 void *GetData02100044_0202ae24(void);
-void SetBitsInWord_0203b4a0(unsigned int *word, unsigned int bits);
 extern "C" void func_0202b0f4(void *obj);
 void ClearTwoBytesAtField_02195748(unsigned char *base);
 void SetFlag1ForFlagombatants_02192594_02192594(unsigned char* base);
 void ClearFlag0x3c9Bit0AndCleanup_020939fc(unsigned char *obj);
 struct BitArrayObj0205e854;
 void *FillBitArray0x1524WithFF(BitArrayObj0205e854 *obj);
-void ClearBitsInWord_0203b4b0(unsigned int *obj, unsigned int mask);
 struct Controller020421a0;
 Controller020421a0 *GetGlobalField0x1c020421a0(void);
 void ReinitController02043204(char *obj);
@@ -67,16 +65,16 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *self, int arg) {
             void *p = GetDataPtr02114e04_020d6c00();
             int *g  = GetGlobal02109030_020936f8();
             OrBitsIntoField0_020466e4((unsigned int *) p, 0x20);
-            unsigned char *r8 = func_ov017_0218b5b0();
+            unsigned char *r8 = (unsigned char*)GetGameResources();
             void *r7          = func_0202ae18();
             void *d           = GetData02100044_0202ae24();
-            SetBitsInWord_0203b4a0((unsigned int *) r8, 2);
+            SetFlags00((GameResources*)r8, 2);
             func_0202b0f4(r7);
             ClearTwoBytesAtField_02195748(r8);
             SetFlag1ForFlagombatants_02192594_02192594(r8);
             ClearFlag0x3c9Bit0AndCleanup_020939fc((unsigned char *) g);
             FillBitArray0x1524WithFF((BitArrayObj0205e854 *) d);
-            ClearBitsInWord_0203b4b0((unsigned int *) r8, 0x40);
+            ClearFlags00((GameResources*)r8, 0x40);
             r8[0x4000 + 0x2e3]               = 0;
             r8[0x4000 + 0x2e2]               = 0;
             *(short *) (self + 0x400 + 0x84) = 0x37;

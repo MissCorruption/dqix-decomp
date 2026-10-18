@@ -4,6 +4,7 @@
 #include <Graphics/Vector.h>
 #include <Resource/GameResources.h>
 #include "World/Zone3D.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define func_ov017_021a72f4 func_ov017_021a7c9c
@@ -62,11 +63,9 @@ void SetByteField0x253_020397c0(void*);
 int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
 extern "C" int func_02018fbc(Zone3D*, Vec3copy0202ec84*);
 int IsField0Null_02046b08(void**);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 extern "C" void func_ov017_021a72f4(GameResources*, int);
 extern short data_020e9450[];
 extern Touch020ad61c data_02114e54;
-extern unsigned short data_02114e30;
 extern Flag020ad61c data_ov017_021d82fc;
 
 // USA: func_020ad61c
@@ -125,7 +124,7 @@ extern "C" ARM void func_020ad61c(Trajectory020ad61c* object) {
         object->secondPosition.z += 0xe0000;
     }
     object->object.position_ = position;
-    GameResources* scene = func_ov017_0218b5b0();
+    GameResources* scene = GetGameResources();
     void* camera;
     int groundedHit;
     HeadNode02046b24** head = (HeadNode02046b24**)scene->unknown_ptr_array_36fc[0];
@@ -167,11 +166,11 @@ extern "C" ARM void func_020ad61c(Trajectory020ad61c* object) {
         }
     }
     if (IsField0Null_02046b08((void**)head) && object->state == 0) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1) || groundedHit) {
+        if (g_keyManager.TestKeysPressed(1) || groundedHit) {
             func_ov017_021a72f4(scene, 1);
-        } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) || directHit) {
+        } else if (g_keyManager.TestKeysPressed(2) || directHit) {
             func_ov017_021a72f4(scene, 0);
-        } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 256)) {
+        } else if (g_keyManager.TestKeysPressed(256)) {
             if (!(data_ov017_021d82fc.flags & 16)) data_ov017_021d82fc.flags |= 16;
         }
     }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
 extern "C" void* func_0202ae18(void);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
 struct SearchStruct;
 void ClearSearchFlagBit0202c600(struct SearchStruct* obj, int value);
 void* GetData02100044_0202ae24(void);
@@ -18,7 +18,7 @@ struct S02195618 { unsigned char pad[
 // USA: func_ov017_02195618
 ARM void SetFlagAndCleanup_02195618(unsigned char* obj) {
 	void* p = func_0202ae18();
-	SetBitsInWord_0203b4a0((unsigned int*)obj, 2);
+	SetFlags00((GameResources*)obj, 2);
 	((S02195618*)obj)->flag = 1;
 	ClearSearchFlagBit0202c600((struct SearchStruct*)p, 0);
 	GetData02100044_0202ae24();

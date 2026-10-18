@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct Actor0209c73c;
 struct Struct0205d888;
@@ -48,10 +50,8 @@ struct PartyState {
     unsigned char count;
 };
 extern Actor0209c73c data_02109bf4;
-extern unsigned short data_02114e30;
 int IsAnimationActive0209ca2c(void*);
 void DispatchActorState0209c73c(Actor0209c73c*);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 extern "C" int func_0205d97c(void*);
 int GetAdjustedByteField0x1d6b_ov000_021815c8(void*);
 extern "C" int* func_0202ae18();
@@ -72,8 +72,8 @@ extern "C" ARM void func_ov000_0217eb28(BattleMenuState* state, int first, int s
         if (IsAnimationActive0209ca2c(&data_02109bf4)) return;
         DispatchActorState0209c73c(&data_02109bf4);
     }
-    int triggered = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
-    triggered |= TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x802);
+    int triggered = g_keyManager.TestKeysPressed(0x601);
+    triggered |= g_keyManager.TestKeysPressed(0x802);
     triggered |= func_0205d97c(state->entries) == 2;
     if (!triggered) return;
     if (state->commands[state->selected] == 0x20) {
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov000_0217eb28(BattleMenuState* state, int first, int s
         int character = GetAdjustedByteField0x1d6b_ov000_021815c8(state);
         if (CheckField0NonZero_0202b7d8(func_0202ae18()))
             func_ov017_021c3fb4(character, 1);
-        GameResources* resources = func_ov017_0218b5b0();
+        GameResources* resources = GetGameResources();
         BackgroundLoader::GetInstance();
         func_ov017_0218f5a4(resources, character, 1, 0, 0);
         BattleCommand* command = func_ov000_02161318(state, character);

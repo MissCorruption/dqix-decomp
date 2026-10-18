@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { listOffset = 0x4ec, fiveOffset = 0x928, readyOffset = 0x1e4, serialBase = 0x120, serialPage = 0x6000 };
@@ -95,7 +96,7 @@ static inline char* GetFive(char* actor) {
 extern "C" ARM int func_ov004_0216ed9c(void* self) {
     Node0216ed9c* node;
     GameState* gs = GameState::GetInstance();
-    char* actor = (char*)func_ov017_0218b5b0();
+    char* actor = (char*)GetGameResources();
     void* list = *(void**)(actor + 0x3000 + listOffset);
     char* five = GetFive(actor);
     TableA68* table = (TableA68*)func_ov004_0216ea38(self, 4);

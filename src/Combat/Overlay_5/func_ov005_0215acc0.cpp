@@ -40,7 +40,7 @@ extern "C" ARM void func_ov005_0215acc0(CombatDisplay* display) {
             int color = 0x7fff;
             if (current->key > 0) {
                 void* entry = FindElementByKey020dedd0(display->container, (short)key);
-                if (entry && func_020dd4c4((signed char)GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3])->index, entry)) color = 0x1ce7;
+                if (entry && func_020dd4c4((signed char)GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->index, entry)) color = 0x1ce7;
             }
             REG_GEOMETRY[0] = 0;
             REG_GEOMETRY[0x2f] = 1;

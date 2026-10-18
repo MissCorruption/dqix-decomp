@@ -1,6 +1,7 @@
 #include "Resource/ActionDataTables.h"
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { CombatantSubobject = 0x144, Field6efc = 0x70ec, Field6efe = 0x70ee, Field6f78 = 0x7168, Field6ff9 = 0x71e9, Field6ffc = 0x71ec };
@@ -178,7 +179,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
 
     GameState* battle = GameState::GetInstance();
     unsigned char* cw = (unsigned char*)GetActiveCombatWork_ov000_02160130();
-    void* p54 = func_ov017_0218b5b0();
+    GameResources* p54 = GetGameResources();
 
     if (GetByte_021dcc64_021dcc64(cw) != 0 && GetByte_021dcc64_021dcc64(cw) < 3) return;
     if (GetByte_021dcc64_021dcc64(cw) > 5 && GetByte_021dcc64_021dcc64(cw) < 7) return;
@@ -469,7 +470,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                     FindNodeAndProcess02057fb4(spawnObj, obj->entries[i].k, &params);
                 }
 
-                if (obj->entries[i].d & 0x20) SetMainBrightness((GameResources*)p54, 0x10, 0xf);
+                if (obj->entries[i].d & 0x20) SetMainBrightness(p54, 0x10, 0xf);
                 obj->entries[i].d |= 2;
             }
         }
@@ -523,7 +524,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Container021ebb90* obj) {
                                                     slots[cur].cat, obj->entries[i].idx, slots[cur].idx, 0);
                     obj->entries[i].w++;
                     if (obj->entries[i].d & 0x20) {
-                        SetMainBrightness((GameResources*)p54, 0, 0xf);
+                        SetMainBrightness(p54, 0, 0xf);
                         obj->entries[i].d &= ~0x20;
                     }
                     if (IsIdUnique021ee438(obj->f30c, obj->f308) == 0 && waitUnique != 0) {

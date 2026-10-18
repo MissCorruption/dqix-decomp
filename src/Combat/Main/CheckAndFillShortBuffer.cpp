@@ -8,6 +8,7 @@ enum { expectedFieldOffset = 0xcda };
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
+#include "Resource/GameResources.h"
 
 struct Variant02030b0c;
 
@@ -24,7 +25,7 @@ ARM int CheckAndFillShortBuffer_0208e444(char* v) {
     unsigned char got = (unsigned char)((Script::Parameter*)((Variant02030b0c*)v))->ToInt();
     v += 8;
     if (expected == got) {
-        SafeAllocator* alloc = (SafeAllocator*)(((int)func_ov017_0218b5b0()) + 0x1a0);
+        SafeAllocator* alloc = (SafeAllocator*)(((int)GetGameResources()) + 0x1a0);
         int buf = (int)alloc->Allocate(0x20);
         data_02108fe4.buf = (unsigned short*)buf;
         for (int i = 0; i < 0x10; i++) {

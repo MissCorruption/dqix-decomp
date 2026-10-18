@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 void Init021a6be4(unsigned char* self);
 struct TailList020469b4;
 struct TailNode020469b4;
@@ -14,7 +14,7 @@ static const int kList=0x6fc, kNode=0xb90, kFirst=0x44ae, kSecond=0x44b0;
 
 // USA: func_ov017_021a6b9c
 ARM void Something_021a6b9c(void* unused0, int byteVal) {
-    unsigned char* base = (unsigned char*)func_ov017_0218b5b0();
+    unsigned char* base = (unsigned char*)GetGameResources();
     unsigned char* p2 = *(unsigned char**)(base + 0x3000 + kList);
     unsigned char* p1 = *(unsigned char**)(base + 0x3000 + kNode);
     Init021a6be4(p1);

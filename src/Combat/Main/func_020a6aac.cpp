@@ -2,6 +2,11 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "World/Zone3D.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 #if defined(jpn)
 #define data_020e909c data_020e91a8
@@ -24,9 +29,6 @@ void* GetField0x3f8Address_0200fd0c(GameState*);
 extern "C" void func_020da77c(void* target, int type, void* msg);
 
 void SetField0x21c_020a2770(void* obj, short value);
-
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 
 void StoreVec3AtField0x50_0203db34(unsigned char* obj, int a, int b, int c);
 
@@ -153,7 +155,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
         actor->object.MakeVisible();
         actor->scripted = 1;
         actor->object.SetScale(0xa0, 0xa0, 0xa0);
-        SetBitsInField4_0203b4d8(obj, 0x10004);
+        SetFlags04((GameResources*)obj, 0x10004);
         ZoneSavedActorState* saved = savedEvent->GetSavedActorState();
         actor->object.position_ = saved->position;
         saved = savedEvent->GetSavedActorState();
@@ -195,7 +197,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
                     savedEvent->savedActor_.zoneId = (unsigned short)eventCode;
                 }
                 SetField0x21c_020a2770(controller, unknown->obj3D_.unknown_4_);
-                ClearBitsInField4_0203b4e8(obj, 0x10004);
+                ClearFlags04((GameResources*)obj, 0x10004);
                 savedEvent->savedActor_.active = 0;
                 short savedEventId = (short)savedEvent->savedActor_.zoneId;
                 short savedNodeId = savedEvent->savedActor_.nodeId;
@@ -212,7 +214,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
                     }
                 }
                 SetField0x21c_020a2770(controller, unknown->obj3D_.unknown_4_);
-                ClearBitsInField4_0203b4e8(obj, 0x10004);
+                ClearFlags04((GameResources*)obj, 0x10004);
             }
             unsigned short savedEventId = savedEvent->savedActor_.zoneId;
             if (eventCode == savedEventId) {
@@ -235,7 +237,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
         if (previousCode == 0x2710) {
             GameObject* currentObject = state->GetUnknownGameObject();
             SetField0x21c_020a2770(controller, currentObject->obj3D_.unknown_4_);
-            ClearBitsInField4_0203b4e8(obj, 0x10004);
+            ClearFlags04((GameResources*)obj, 0x10004);
             ClearCombatantSlot_0200fd48(state, 0xc9);
             if (func_0202c540(events) != 0) {
                 if (savedEvent->savedActor_.active == 0) {
@@ -274,7 +276,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
             savedState->savedActor_.zoneId = (unsigned short)eventCode;
             short objectId = state->GetUnknownGameObject()->obj3D_.unknown_4_;
             SetField0x21c_020a2770(controller, objectId);
-            ClearBitsInField4_0203b4e8(obj, 0x10004);
+            ClearFlags04((GameResources*)obj, 0x10004);
             struct Elem0201b600* firstSlot = FindElemByKeys((struct Obj0201b600*)savedState, 0, 4);
             if (firstSlot != 0)
             {
@@ -314,7 +316,7 @@ extern "C" ARM void func_020a6aac(unsigned int* obj, int eventCode, int previous
         ClearCombatantSlot_0200fd48(state, 0xc9);
     } else {
         if (previousCode == 0x2710) {
-            ClearBitsInField4_0203b4e8(obj, 0x10004);
+            ClearFlags04((GameResources*)obj, 0x10004);
             ClearCombatantSlot_0200fd48(state, 0xc9);
             short actorId = state->GetUnknownGameObject()->obj3D_.unknown_4_;
             SetField0x21c_020a2770(controller, actorId);

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 void* GetData02100044_0202ae24(void);
 ARM void* GetField6b0_021b8470(void* obj);
@@ -32,7 +33,7 @@ extern "C" ARM void func_ov017_021c812c(unsigned char mode, int flag) {
  enum { regionalOffset=0x718 };
 #endif
     GameState* bs = GameState::GetInstance();
-    char* base = (char*)func_ov017_0218b5b0();
+    char* base = (char*)GetGameResources();
     void* data = GetData02100044_0202ae24();
 
     Whole021c812c msg;

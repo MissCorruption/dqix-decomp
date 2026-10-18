@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kRegionValue324_20C = 0x20c };
@@ -16,7 +17,6 @@ enum { kRegionValue394_27C = 0x394 };
 #endif
 
 int GetWord0x0_0200fb8c(int* obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 int IsFieldNotPositive_021a4e70(unsigned char* base);
 
 struct Outer020e28dc;
@@ -27,7 +27,6 @@ void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 struct Obj2081;
 int IsPointInsideElement02080d54(struct Obj2081* obj, int key, int px, int py);
 
-extern unsigned short data_02114e30;
 extern unsigned char data_02114e54;
 
 struct Ctx02160a68 {
@@ -43,7 +42,7 @@ struct Ctx02160a68 {
 extern "C" ARM int func_ov003_02160a68(struct Ctx02160a68* self) {
     int flag = 0;
     unsigned char* battleWord = (unsigned char*)GetWord0x0_0200fb8c((int*)GameState::GetInstance());
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) {
+    if (g_keyManager.TestKeysPressed(2)) {
         if (IsFieldNotPositive_021a4e70(battleWord)) {
             flag = 1;
         }

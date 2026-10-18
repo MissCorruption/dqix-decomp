@@ -6,13 +6,17 @@
 #include "Resource/GameResources.h"
 #include "World/Zone3D.h"
 
+#if defined(jpn)
+#define func_020daf90 func_020dc998
+#endif
+
 extern "C" void* func_0202ae18(void);
 extern "C" Zone3D* func_02012fe4(void);
 extern "C" int func_0202c540(void* p);
 
 int GetIntField0x260_02039750(void* obj);
 int GetGlobalField0x1c020421a0();
-void* GetGlobalContext020daf90(void);
+extern "C" void* func_020daf90(void);
 int IsField0Null_02046b08(void** obj);
 
 struct Something02015a2c;
@@ -60,7 +64,7 @@ extern "C" ARM void func_ov017_021a624c(GameResources* self) {
     Zone3D* zone = func_02012fe4();
     info = zone->pUnknownStruct_8_;
     grotto = gs->GetGrottoStruct();
-    void* ctx = GetGlobalContext020daf90();
+    void* ctx = func_020daf90();
 
     if (gs->GetGrottoStruct()->unknown_0[0] == 0 ||
         self->unknown_4080 != 0 || f260 != -1 ||

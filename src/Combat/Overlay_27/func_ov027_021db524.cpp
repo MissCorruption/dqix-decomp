@@ -11,6 +11,10 @@
 #endif
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct Holder021db524 {
     unsigned char pad0[8];
     unsigned char* ptr;

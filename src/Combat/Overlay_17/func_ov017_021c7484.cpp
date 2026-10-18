@@ -41,7 +41,7 @@ extern "C" void func_0205e330(void*, void*, int);
 // USA: func_ov017_021c7484
 extern "C" ARM void func_ov017_021c7484() {
     GameState* game = GameState::GetInstance();
-    LevelSelection_021c7484* selection = (LevelSelection_021c7484*)func_ov017_021b8478(func_ov017_0218b5b0()->unknown_ptr_3718);
+    LevelSelection_021c7484* selection = (LevelSelection_021c7484*)func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
     void* context = GetData02100044_0202ae24();
     LevelMessage_021c7484 message;
     message.type = 0x72;

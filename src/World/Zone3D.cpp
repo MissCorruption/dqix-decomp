@@ -10,6 +10,10 @@
 #include "Graphics/NSBXX/NSBXX.h"
 
 #if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
+#if defined(jpn)
 
 #define data_020ef0f0 data_020ef02c
 #endif
@@ -79,7 +83,7 @@ void Zone3D::SwitchZone_0201383c(unsigned short newID, int)
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     void* uVar3 = _Z25GetPtrField0x468_02011584Pv(gameState);
-    (void)func_ov017_0218b5b0();
+    (void)GetGameResources();
     GameObject* iVar4 = gameState->GetUnknownGameObject();
 
     pAllocator_68_ = pAllocator_4c_;

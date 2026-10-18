@@ -1,20 +1,26 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 char *GetGlobalField0x1c020421a0(void);
 extern "C" char *func_02012fe4(void);
 extern "C" void *func_0205ec34(void);
 extern "C" void func_ov003_02170960(void *self, int a, int b);
-extern "C" int func_0201248c(void *obj, int mask);
 
 struct Obj_0216f414;
 struct Entry0216efdc;
 Entry0216efdc *FindEntryByShortId_0216f414(Obj_0216f414 *list, int id);
 int TestBitInByteArray_0206dfb0(int a, unsigned char *bits, int index);
-void SetOrClearBitInArray_0206df6c(void *a, unsigned char *bits, int index, int set);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *obj, int mask);
+extern "C" void func_0206df6c(void *a, unsigned char *bits, int index, int set);
 int CheckByteSetAndByteClear_02012aac(unsigned char *p);
 
-extern unsigned short data_02114e30;
 extern char data_02114e54;
 
 struct Entry0216efdc {
@@ -86,7 +92,7 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
             self->state_ = 1;
             return;
         }
-        SetOrClearBitInArray_0206df6c(save, (unsigned char *) save + 0x8c, 0x783, 1);
+        func_0206df6c(save, (unsigned char *) save + 0x8c, 0x783, 1);
         func_ov003_02170960(self, 0x1f, 0);
         global->unk_998 = 1;
         self->unk_20 |= 1;
@@ -96,7 +102,7 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
             self->state_ = 1;
         }
     } else if (state == 1) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) != 0 || self->unk_e == 5) {
+        if (g_keyManager.TestKeysPressed(2) != 0 || self->unk_e == 5) {
             self->unk_1  = 6;
             self->state_ = 0;
             return;
@@ -104,7 +110,7 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
         if (chapter == 0) {
             return;
         }
-        if (func_0201248c(&data_02114e30, 0x10) != 0 || self->unk_e == 0x11) {
+        if (g_keyManager.TestKeyRepeat(0x10) != 0 || self->unk_e == 0x11) {
             self->unk_0++;
             if (self->unk_0 > self->unk_4) {
                 self->unk_0 = 1;
@@ -121,7 +127,7 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
             self->unk_7  = -1;
             self->unk_1  = 2;
             self->state_ = 0;
-        } else if (func_0201248c(&data_02114e30, 0x20) != 0 || self->unk_e == 0x10) {
+        } else if (g_keyManager.TestKeyRepeat(0x20) != 0 || self->unk_e == 0x10) {
             self->unk_0--;
             if (self->unk_0 < 1) {
                 self->unk_0 = self->unk_4;
@@ -138,7 +144,7 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
             self->unk_7  = -1;
             self->unk_1  = 2;
             self->state_ = 0;
-        } else if (func_0201248c(&data_02114e30, 0x80) != 0) {
+        } else if (g_keyManager.TestKeyRepeat(0x80) != 0) {
             self->unk_6 = self->unk_6 + 1;
             if (self->unk_6 > self->unk_5 - 1) {
                 self->unk_6 = 0;
@@ -146,7 +152,7 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
             self->unk_7  = -1;
             self->unk_1  = 2;
             self->state_ = 0;
-        } else if (func_0201248c(&data_02114e30, 0x40) != 0) {
+        } else if (g_keyManager.TestKeyRepeat(0x40) != 0) {
             self->unk_6 = self->unk_6 - 1;
             if (self->unk_6 < 0) {
                 self->unk_6 = self->unk_5 - 1;
@@ -164,7 +170,7 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
                     sel = self->unk_e - 6;
                 }
             }
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401) != 0 || sel == self->unk_7) {
+            if (g_keyManager.TestKeysPressed(0x401) != 0 || sel == self->unk_7) {
                 self->unk_8  = 0;
                 self->unk_9  = -1;
                 self->unk_1  = 5;

@@ -2,6 +2,10 @@
 #include <std_library_functions.h>
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct NatEntry {
     unsigned short key_;
     unsigned short groupIndex_ : 12;

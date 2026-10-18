@@ -15,6 +15,15 @@
 #include "std_library_functions.h"
 #include "System/Memory.h"
 #include "System/OverlayId.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct Name10_02189c70 { char c[10]; };
 
@@ -249,7 +258,6 @@ extern "C" void func_020728ac(void* table, SafeAllocator* alloc, void* data, uns
 void* GetDataPtr02114e04_020d6c00();
 struct FlagWord020466f4;
 void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
 extern "C" void __clear(void* p, unsigned int size);
 extern "C" void func_ov008_0218b240(Self02189c70* self);
 Ent02189c70* GetFieldAt0x150_02053c6c(unsigned char*);
@@ -262,7 +270,7 @@ extern "C" void func_02099304(void* name, void* a1, void* a2, unsigned int a3, c
 extern "C" void func_02046380(void* w);
 extern "C" void* func_0205ec34();
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void InitObjFromCombatantId020e4bf4(void* obj, int id);
 extern "C" void func_02046608(Window02189c70* w, int a, char* str, char* buf, int b, int c, int d);
 #if !defined(jpn)
@@ -315,7 +323,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
     GameState* gs = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     Window02189c70* win = (Window02189c70*)GetGlobalField0x1c020421a0();
-    Res02189c70* res = (Res02189c70*)func_ov017_0218b5b0();
+    Res02189c70* res = (Res02189c70*)GetGameResources();
     Sub3b84* sub = res->f3b84;
     int token = func_0202ae18();
 
@@ -348,7 +356,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
             self->ec4 = data;
             self->ec8 = size;
             ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x2f);
-            ClearBitsInWord_0203b4b0((unsigned int*)func_ov017_0218b5b0(), 0x10);
+            ClearFlags00(GetGameResources(), 0x10);
             self->state = self->state + 1;
         }
 #else
@@ -364,7 +372,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
             self->ec4 = data;
             self->ec8 = size;
             ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x2f);
-            ClearBitsInWord_0203b4b0((unsigned int*)func_ov017_0218b5b0(), 0x10);
+            ClearFlags00(GetGameResources(), 0x10);
             self->state = self->state + 1;
         }
 #endif
@@ -442,7 +450,7 @@ extern "C" ARM void func_ov008_02189c70(Self02189c70* self) {
                 int len = strlen(str);
                 memcpy(p, str, len);
                 p += len;
-                SetOrClearBitInArray_0206df6c(flags, (unsigned char*)((char*)flags + 0x8c), 0x119b, 1);
+                func_0206df6c(flags, (unsigned char*)((char*)flags + 0x8c), 0x119b, 1);
             }
 #if defined(jpn)
             unsigned char* countp;

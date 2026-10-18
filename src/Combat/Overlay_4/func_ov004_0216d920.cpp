@@ -1,15 +1,13 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 unsigned char GetByte0x4_0200fb9c(char* obj);
 void SetByte0x4_0200fb94(char* obj, unsigned char value);
 void SetWord0x7f6c_02012010(void* obj, int value);
 unsigned char GetByte0x7f70_02012034(void* obj);
 void SetByte0x7f70_02012028(void* obj, unsigned char value);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField8_0203b520(unsigned int* obj, unsigned int mask);
 void SetFieldFlag17188_0218d258(void* obj);
 void SetModeClamped0209ca70(void* obj, int val);
 
@@ -37,7 +35,7 @@ enum { kStateIndex = 1, kVariantIndex = 2, kModeIndex = 3, kContextIndex = 4, kF
 // USA: func_ov004_0216d920
 extern "C" ARM int func_ov004_0216d920() {
     GameState* bs = GameState::GetInstance();
-    GameResources* obj = func_ov017_0218b5b0();
+    GameResources* obj = GetGameResources();
     if (GetByte0x4_0200fb9c((char*)bs) != 2) {
         DispatchContextByState0209c678((struct Actor0209c678*)&data_02109bf4, 0);
         InitActorContext0209c20c((struct Actor0209c20c*)&data_02109bf4);
@@ -45,9 +43,9 @@ extern "C" ARM int func_ov004_0216d920() {
     }
     SetModeClamped0209ca70((void*)&data_02109bf4, data_ov004_02171034[kContextIndex]);
     SetStateAndDispatch0205e9f4((struct Obj0205e9f4*)&data_02108760, data_ov004_02171034[kStateIndex]);
-    ClearBitsInWord_0203b4b0(&obj->brightnessFlags_0, -1);
-    ClearBitsInField4_0203b4e8(&obj->brightnessFlags_0, -1);
-    ClearBitsInField8_0203b520(&obj->brightnessFlags_0, -1);
+    ClearFlags00(obj, -1);
+    ClearFlags04(obj, -1);
+    ClearFlags08(obj, -1);
     SetFieldFlag17188_0218d258(obj);
     SetWord0x7f6c_02012010(bs, 5);
     if (data_ov004_02171034[kVariantIndex] == 1 && data_ov004_02171034[kModeIndex] != 4) {

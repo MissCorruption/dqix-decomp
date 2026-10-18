@@ -14,7 +14,7 @@ extern "C" void func_02046a8c(struct ListHead02046b60* list, int val);
 
 // USA: func_ov017_02197528
 ARM void CallListIfFlagsSet_02197528(void) {
-    char *base = (char*)func_ov017_0218b5b0() + 0x3000;
+    char *base = (char*)GetGameResources() + 0x3000;
     struct ListHead02046b60* list = *(struct ListHead02046b60**)(base + REGION_FIELD_0);
     unsigned char* flags = *(unsigned char**)(base + REGION_FIELD_1);
     if (flags[2] == 0) return;

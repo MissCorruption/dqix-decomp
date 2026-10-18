@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Container020e0310;
 int GetFieldByKey020e0434(struct Container020e0310 *c, int key);
 int AppendFrameTag02041c08(char *dst, int a1, int a2, int a3, int a4, int a5);

@@ -1,6 +1,7 @@
 #include "Resource/ActionDataTables.h"
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Val0c { char pad[0xc]; short v; };
 struct Bits64_02159f7c;
@@ -277,7 +278,7 @@ extern "C" ARM void func_ov025_021ed634(Self021ed634* self) {
                     int v = n->v;
                     if (v >= 0) { if (v > 0) fp += v; }
                     else { sum38 -= v; cnt3c++; }
-                    void* obj = GetField6b0_021b8470(func_ov017_0218b5b0()->unknown_ptr_3718);
+                    void* obj = GetField6b0_021b8470(GetGameResources()->unknown_ptr_3718);
                     if (n->v > 0) {
                         int found = 0;
                         for (int m = 0; m < cnt[0]; m++) {
@@ -405,7 +406,7 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
             if (t >= 0) v20 = t;
         }
         COPY_FIELD(g, name);
-        if (_Z22CheckKeyMatch_0215fb9cis((int)GetField6b0_021b8470(func_ov017_0218b5b0()->unknown_ptr_3718), self->list->id) != 0) {
+        if (_Z22CheckKeyMatch_0215fb9cis((int)GetField6b0_021b8470(GetGameResources()->unknown_ptr_3718), self->list->id) != 0) {
             Comb* c = (Comb*)GetCombatantWithFlag0x400_0200fea4(gs, v20);
             if (c != 0) {
                 c->p138[0x25] = c->b18d;
@@ -539,7 +540,7 @@ found_entry:
         int n5 = CopyOutRegion0x571d_020114ec((char*)gs, out);
         unsigned char positiveFlaggedEntries = 0;
         unsigned char flaggedEntries = 0;
-        unsigned char* tb = (unsigned char*)func_ov017_021b8478(func_ov017_0218b5b0()->unknown_ptr_3718);
+        unsigned char* tb = (unsigned char*)func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
         char* ew = GetOffsetPtr02160f08(GetActiveCombatWork_ov000_02160130());
         for (int q = 0; q < n5; q++) {
             Entry021dafd0* e = (Entry021dafd0*)FindEntryById_021dafd0(ew, (unsigned char)out[q]);
@@ -561,7 +562,7 @@ found_entry:
         if (id == 0x205 || id == 0x1be || id == 0x1bf || id == 0x224 || id == 0x1c0 || id == 0x225 || id == 0x263
             || (unsigned int)(id - 0x266) <= 3) {
             __clear(buf, 0x100);
-            void* obj = GetField6b0_021b8470(func_ov017_0218b5b0()->unknown_ptr_3718);
+            void* obj = GetField6b0_021b8470(GetGameResources()->unknown_ptr_3718);
             if (id == 0x205) {
                 sprintf(buf, fmt, (double)node->f18);
             } else if (obj != 0) {

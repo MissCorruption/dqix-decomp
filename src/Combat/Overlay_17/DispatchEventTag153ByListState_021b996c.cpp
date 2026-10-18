@@ -6,6 +6,7 @@ enum { RegionOffset5724 = 0x5724, RegionOffset6fc = 0x6fc, RegionOffset998 = 0x9
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void* ctx);
 struct SearchStruct0202c1a4;
@@ -36,7 +37,7 @@ extern "C" ARM void func_ov017_021b996c(struct Obj021b996c* self, int combatantI
 
     int field5724;
     if (self->field12c != arg5 && (field5724 = *(int*)((char*)battle + RegionOffset5724)) != arg5) {
-        void* p = func_ov017_0218b5b0();
+        void* p = GetGameResources();
         struct ListHead02046b60* list = *(struct ListHead02046b60**)((char*)p + 0x3000 + RegionOffset6fc);
         if (ListContainsId(list, 4)) {
             EnqueueEventTag153_021d079c(tag, 1, 0);

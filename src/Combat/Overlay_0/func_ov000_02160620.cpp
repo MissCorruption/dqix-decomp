@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
+#include "Resource/GameResources.h"
 
 struct SearchStruct;
 struct Obj02039fec;
@@ -82,7 +83,7 @@ extern unsigned char data_02108760[0xd0];
 extern "C" ARM void func_ov000_02160620(BattleFrame* frame) {
     GameState* game = GameState::GetInstance();
     SearchStruct* search = func_0202ae18();
-    unsigned char* context = (unsigned char*)func_ov017_0218b5b0();
+    unsigned char* context = (unsigned char*)GetGameResources();
     if (frame->flags & 0x200) {
         func_02015438(frame->elements);
         if (frame->optional)

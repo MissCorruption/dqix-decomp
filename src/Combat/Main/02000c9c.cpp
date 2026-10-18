@@ -6,6 +6,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 
+#if defined(jpn)
+#define func_020daf90 func_020dc998
+#endif
+
 struct Struct0200fb08;
 struct StateBits5ccc_11570;
 struct StateBits5ccc_1155c;
@@ -29,7 +33,7 @@ extern "C" unsigned int func_ov029_021d8f0c(void* start, void* end, int seed);
 extern "C" unsigned int func_ov029_021d8ffc(void* start, void* end, int seed);
 void PopulateOv33BackgroundLoader(void* buffer, unsigned int size, int count);
 void InitStreamAndRegisterHandler0xC0_020dc034();
-Manager020db0f0* GetGlobalContext020daf90();
+extern "C" Manager020db0f0* func_020daf90();
 extern "C" void func_020dafd4();
 void LoadObjLoadingGraphicsResources(Manager020db0f0* mgr);
 void InitSubstructAndRegisterHandler0x14_020db228(void* mgr);
@@ -240,7 +244,7 @@ extern "C" ARM void main() {
     func_020a1bb4(&OVERLAY_29_ID);
     func_020a1940(&OVERLAY_32_ID);
     InitStreamAndRegisterHandler0xC0_020dc034();
-    Manager020db0f0* ctx = GetGlobalContext020daf90();
+    Manager020db0f0* ctx = func_020daf90();
     func_020dafd4();
     LoadObjLoadingGraphicsResources(ctx);
     InitSubstructAndRegisterHandler0x14_020db228(ctx);

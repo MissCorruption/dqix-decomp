@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" int func_ov017_021bbc04(int val);
 extern "C" void func_ov017_021d6134(void* param, int val);
 
@@ -11,7 +11,7 @@ ARM int NotifyFieldCheck734_02163164(void* param) {
 #else
     enum { queueOffset = 0x734 };
 #endif
-    void* base = func_ov017_0218b5b0();
+    void* base = GetGameResources();
     int field = *(int*)((char*)base + 0x3000 + queueOffset);
     int cond = func_ov017_021bbc04(field);
     if (cond != 0) {

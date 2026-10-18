@@ -2,6 +2,7 @@
 #include "Resource/FontBankLoader.h"
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct FontBankLoader;
 void* GetGlobalField0x1c020421a0();
@@ -71,7 +72,7 @@ extern "C" ARM void func_020d7b04(TextMessageQueue* queue) {
     MessageWindowState* window = static_cast<MessageWindowState*>(GetGlobalField0x1c020421a0());
     if (queue->fontRequested && !AlwaysTrue02094b4c(fonts)) return;
 
-    void* requests = func_ov017_0218b5b0()->unknown_ptr_array_36fc[0];
+    void* requests = GetGameResources()->unknown_ptr_array_36fc[0];
     if (ListContainsId((ListHead02046b60*)requests, 0x25)) return;
     if (ListContainsId((ListHead02046b60*)requests, 0x26)) return;
 

@@ -2,6 +2,10 @@
 #include "System/Memory.h"
 #include "System/Interrupts.h"
 
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 struct Transfer0221f854 {
     char pad[0x28];
     void* auxiliary;

@@ -7,6 +7,10 @@ enum { RegionOffset6c = 0x6c };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct AreaNode_0219814c {
     char pad00[0x2c];
     unsigned char areaId;

@@ -17,8 +17,8 @@ struct MenuState02232678 {
 };
 extern MenuState02232678 data_ov031_02290cc0;
 extern const unsigned char data_ov031_02249060[4];
-extern unsigned short data_ov031_02249082[12];
 struct MenuCoordinate02232678 { unsigned short x, y; };
+extern MenuCoordinate02232678 data_ov031_02249082[6];
 
 // USA: func_ov031_02232678
 extern "C" ARM void func_ov031_02232678(void) {
@@ -29,16 +29,15 @@ extern "C" ARM void func_ov031_02232678(void) {
         if (key == 255) {
             key = 3;
         } else {
+            int slot = index + 3;
             data_ov031_02290cc0.items->secondary[index] = func_ov031_0223be70(0, 17, 1);
             func_ov031_0223bbd8(data_ov031_02290cc0.items->secondary[index], -1,
-                ((MenuCoordinate02232678*)data_ov031_02249082)[index + 3].x,
-                ((MenuCoordinate02232678*)data_ov031_02249082)[index + 3].y);
+                data_ov031_02249082[slot].x, data_ov031_02249082[slot].y);
             SetEntryHalfword4Bits_0223bcc8((Obj0223bcc8*)data_ov031_02290cc0.items->secondary[index], -1, 3);
         }
         data_ov031_02290cc0.items->primary[index] = func_ov031_0223be70(0, data_ov031_02249060[key], 1);
         func_ov031_0223bbd8(data_ov031_02290cc0.items->primary[index], -1,
-            ((MenuCoordinate02232678*)data_ov031_02249082)[index].x,
-            ((MenuCoordinate02232678*)data_ov031_02249082)[index].y);
+            data_ov031_02249082[index].x, data_ov031_02249082[index].y);
         SetEntryHalfword4Bits_0223bcc8((Obj0223bcc8*)data_ov031_02290cc0.items->primary[index], -1, 3);
         ++index;
     } while (index < 3);

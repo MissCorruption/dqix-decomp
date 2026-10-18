@@ -41,9 +41,9 @@ extern "C" void func_0205e330(void*, void*, int);
 extern "C" ARM void func_ov017_021c71a4() {
     GameState* game = GameState::GetInstance();
 #if defined(jpn)
-    StatusSelection* selection = func_ov017_021b8478(*(void**)((char*)func_ov017_0218b5b0() + 0x3508));
+    StatusSelection* selection = func_ov017_021b8478(*(void**)((char*)GetGameResources() + 0x3508));
 #else
-    StatusSelection* selection = func_ov017_021b8478(func_ov017_0218b5b0()->unknown_ptr_3718);
+    StatusSelection* selection = func_ov017_021b8478(GetGameResources()->unknown_ptr_3718);
 #endif
     void* context = GetData02100044_0202ae24();
     StatusMessage message;

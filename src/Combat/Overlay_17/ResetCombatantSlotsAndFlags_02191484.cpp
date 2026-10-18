@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Obj02061bd8;
 int CheckField0x56bLowNibble(struct Obj02061bd8* obj);
@@ -15,7 +16,7 @@ extern "C" ARM void func_ov017_02191484(unsigned char* obj) {
  enum {regionalOffset0=0xba0};
 #endif
     GameState* bs = GameState::GetInstance();
-    int h = ((int)func_ov017_0218b5b0());
+    int h = ((int)GetGameResources());
     for (int i = 0; i < 4; i++) {
         GameObject* c = GetCombatantWithFlag0x100_0200ff1c(bs, i);
         if (c) {

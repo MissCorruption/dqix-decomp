@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 #if defined(jpn)
 enum { kRegioned = 0xe9 };
 enum { kRegionef = 0xeb };
@@ -15,7 +16,6 @@ enum { kRegion10d = 0x10d };
 enum { kRegion124 = 0x124 };
 #endif
 
-extern "C" int func_ov017_0218b5b0(void);
 void OrGlobalFlag0x40_020dc2bc(void);
 struct SubBgControlBackup02074b64;
 void BackupSubBgControlRegisters(struct SubBgControlBackup02074b64* obj);
@@ -33,7 +33,7 @@ struct S02173508 {
 
 // USA: func_ov003_02173508  (semantic: SetupSubBgAndFlags_02173508)
 extern "C" ARM void func_ov003_02173508(S02173508* obj) {
-    func_ov017_0218b5b0();
+    (int)GetGameResources();
     if (obj->field_ef != 0) return;
 
     OrGlobalFlag0x40_020dc2bc();

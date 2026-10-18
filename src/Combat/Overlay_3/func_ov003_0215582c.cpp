@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Container020dedd0;
 struct KeyedList0207c484;
@@ -285,7 +286,7 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
     }
 
     if (unchanged == 0) {
-        GameResources* ui = func_ov017_0218b5b0();
+        GameResources* ui = GetGameResources();
         func_0202ae18();
         func_ov017_0218f5a4(ui, self->combatantId, 1, 0, 0);
     }

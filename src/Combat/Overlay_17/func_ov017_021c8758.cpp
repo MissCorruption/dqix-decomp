@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 void* GetData02100044_0202ae24(void);
 void* GetField6b0_021b8470(void* obj);
@@ -29,7 +30,7 @@ extern "C" ARM void func_ov017_021c8758(unsigned short id) {
  enum { regionalOffset=0x718 };
 #endif
     GameState* bs = GameState::GetInstance();
-    unsigned char* base = (unsigned char*)func_ov017_0218b5b0();
+    unsigned char* base = (unsigned char*)GetGameResources();
     void* data = GetData02100044_0202ae24();
     void* field = GetField6b0_021b8470(*(void**)(base + 0x3000 + regionalOffset));
     if (field == NULL) {

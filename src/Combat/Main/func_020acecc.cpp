@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
+#include "Resource/Brightness.h"
 
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
@@ -17,8 +18,6 @@ struct Vec3Target020ad1f0;
 void SetVec3At0x0020ad1f0(struct Vec3Target020ad1f0* obj, int x, int y, int z);
 struct Obj02033874;
 void SetVecYFromValue02033874(struct Obj02033874* obj, int value);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 extern "C" void func_020da244(void* sb);
 void ForwardField0xc0_0205ebec(void* obj);
 unsigned char GetField0x3acValue_020100a8(GameState*);
@@ -139,14 +138,14 @@ extern "C" ARM void func_020acecc(unsigned int* obj, int eventCode, int previous
             SetVecYFromValue02033874((struct Obj02033874*)prop, zone->saved.rotationY);
             func_020adfa8(prop);
         }
-        SetBitsInField4_0203b4d8(obj, 0x10044);
-        ClearBitsInField4_0203b4e8(obj, 0x40000);
+        SetFlags04((GameResources*)obj, 0x10044);
+        ClearFlags04((GameResources*)obj, 0x40000);
     } else if (eventCode >= 0x4e20 && eventCode <= 0x752f && previousCode == 0x2774) {
         SetHalfFieldsAndEnqueueIfActive_021d1c2c(zone->saved.state, (unsigned char)zone->saved.sub);
         short actorId = state->GetUnknownGameObject()->obj3D_.unknown_4_;
         SetField0x21c_020a2770(controller, actorId);
-        ClearBitsInField4_0203b4e8(obj, 0x10044);
-        SetBitsInField4_0203b4d8(obj, 0x40000);
+        ClearFlags04((GameResources*)obj, 0x10044);
+        SetFlags04((GameResources*)obj, 0x40000);
     } else if (eventCode != 0x2774 && previousCode == 0x2774) {
         if (data_ov017_021d82fc.status == 3) {
             func_020da244(&data_ov017_021d82fc);
@@ -154,7 +153,7 @@ extern "C" ARM void func_020acecc(unsigned int* obj, int eventCode, int previous
         ForwardField0xc0_0205ebec(&data_02108760);
         SetHalfFieldsAndEnqueueIfActive_021d1c2c(zone->saved.state, (unsigned char)zone->saved.sub);
         SetField0x21c_020a2770(controller, GetField0x3acValue_020100a8(state));
-        ClearBitsInField4_0203b4e8(obj, 0x10044);
-        SetBitsInField4_0203b4d8(obj, 0x40000);
+        ClearFlags04((GameResources*)obj, 0x10044);
+        SetFlags04((GameResources*)obj, 0x40000);
     }
 }

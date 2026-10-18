@@ -3,15 +3,12 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 
-struct AxisFloats0203b57c;
-
 struct CharacterModel {
     char unk_0[0xc12];
     unsigned char loading_;
 };
 
 int GetWord0x0_0200fb8c(int* gameState);
-int GetAxisIntValue(AxisFloats0203b57c* resources, int screen);
 extern "C" void func_ov009_02188c2c(CharacterCreationUI* self);
 extern "C" void func_ov009_02188d9c(CharacterCreationUI* self);
 extern "C" void func_ov009_02188e70(CharacterCreationUI* self, int choice);
@@ -32,8 +29,8 @@ extern "C" ARM void func_ov009_021863d0(CharacterCreationUI* self)
     GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)gameState);
     if (self->step == 0)
     {
-        if (GetAxisIntValue((AxisFloats0203b57c*)resources, 0) == -16 &&
-            GetAxisIntValue((AxisFloats0203b57c*)resources, 1) == -16)
+        if (GetBrightness((GameResources*)resources, false) == -16 &&
+            GetBrightness((GameResources*)resources, true) == -16)
         {
             if (self->flags & 0x80)
                 return;

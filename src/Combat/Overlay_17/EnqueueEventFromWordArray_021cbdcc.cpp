@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 void* GetField6b0_021b8470(void* obj);
 void* GetData02100044_0202ae24(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov017_021cbdcc(void) {
  enum {regionalOffset0=0x718};
 #endif
 	void* evtBuf = GetData02100044_0202ae24();
-	unsigned char* base = (unsigned char*)func_ov017_0218b5b0() + 0x3000;
+	unsigned char* base = (unsigned char*)GetGameResources() + 0x3000;
 	void* h = *(void**)(base + regionalOffset0);
 	void* r = GetField6b0_021b8470(h);
 	if (!r) return;

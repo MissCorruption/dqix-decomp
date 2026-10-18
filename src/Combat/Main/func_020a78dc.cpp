@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct Vec3 { int x; int y; int z; };
 struct Bytes02033b88;
@@ -51,10 +53,6 @@ struct AngleTable { int v[8]; };
 
 extern "C" char* func_02012fe4();
 struct Field4328* GetField4328_0218d268(void*);
-int IsFlag0x40Set_020123b8(unsigned short*);
-int IsFlag0x20Set_02012390(unsigned short*);
-int IsFlag0x10Set_020123a4(unsigned short*);
-int IsFlag0x80Set_020123cc(unsigned short*);
 int IsField0Null_02046b08(void** p);
 void SetByte0xbeShiftPrev(struct Bytes02033b88*, int);
 void SetByteIfChanged02033b68(struct Obj02033b68*, int);
@@ -68,7 +66,6 @@ void SetVecYByMode02033834(struct Obj02033834*, int);
 short GetShortAt0x22e(struct ShortField0x22e_020968c4*);
 
 extern struct AngleTable data_020e90a8;
-extern unsigned short data_02114e30;
 extern struct Input02114e54 data_02114e54;
 
 // USA: func_020a78dc
@@ -80,35 +77,35 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
     void** list;
 
     camera = GetField0x3b0Value_020100bc(GameState::GetInstance());
-    ov = (char*)func_ov017_0218b5b0();
+    ov = (char*)GetGameResources();
     list = *(void***)(ov + 0x36fc);
     world = func_02012fe4();
     f = GetField4328_0218d268(ov);
     struct AngleTable table = data_020e90a8;
 
     self->mode = 0;
-    if (IsFlag0x40Set_020123b8(&data_02114e30) && IsFlag0x20Set_02012390(&data_02114e30)) {
+    if (g_keyManager.IsUpHeld() && g_keyManager.IsLeftHeld()) {
         self->mode = 1;
         self->dir = 0xc;
-    } else if (IsFlag0x40Set_020123b8(&data_02114e30) && IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsUpHeld() && g_keyManager.IsRightHeld()) {
         self->mode = 1;
         self->dir = 0xd;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30) && IsFlag0x20Set_02012390(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld() && g_keyManager.IsLeftHeld()) {
         self->mode = 1;
         self->dir = 0xe;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30) && IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld() && g_keyManager.IsRightHeld()) {
         self->mode = 1;
         self->dir = 0xf;
-    } else if (IsFlag0x40Set_020123b8(&data_02114e30)) {
+    } else if (g_keyManager.IsUpHeld()) {
         self->mode = 1;
         self->dir = 8;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld()) {
         self->mode = 1;
         self->dir = 9;
-    } else if (IsFlag0x20Set_02012390(&data_02114e30)) {
+    } else if (g_keyManager.IsLeftHeld()) {
         self->mode = 1;
         self->dir = 0xa;
-    } else if (IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsRightHeld()) {
         self->mode = 1;
         self->dir = 0xb;
     }

@@ -43,7 +43,7 @@ extern "C" ARM int func_ov004_02163c40(void* self) {
     int last;
     int first;
     unsigned short selected;
-    int brightness = IsBrightnessTransitionActive(func_ov017_0218b5b0());
+    int brightness = IsBrightnessTransitionActive(GetGameResources());
     if (brightness && !data_ov004_02171010->field_18fe) return 0;
     if (!data_ov004_02171010->count) return 0;
     if (GetGlobalField0x1c020421a0()->active) return 0;

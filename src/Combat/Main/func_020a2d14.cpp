@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 
 #include "Graphics/Vector.h"
+#include "Input/Input.h"
 
 struct GlobalObj0202e6a8;
 struct Obj0202ea4c;
@@ -18,7 +19,6 @@ struct CamState0202e6c0 {
     int mode;
 };
 
-int TestFlagMask_02012430(unsigned short* obj, int mask);
 void AddWrappedField0x70_0202e784(struct GlobalObj0202e6a8* obj, int val);
 int GetField0x78_0202e800(void* obj);
 int GetField0x74_0202e7f8(void* obj);
@@ -27,8 +27,6 @@ void SubtractVec3Fields0202e9f4(void* obj, struct Vec3* v);
 void ComputeAngleHeightDistance0202ea4c(struct Obj0202ea4c* obj);
 int AddAndClampMin0202e858(void* obj, int n);
 void CopyVec3ToField0x10AndCall0202e5d8_0202ec5c(char* obj, int* src);
-
-extern unsigned short data_02114e30;
 
 static inline fix32_t FxMul(fix32_t a, fix32_t b) {
     return (fix32_t)(((int64_t)a * b + 0x800) >> 12);
@@ -63,17 +61,17 @@ extern "C" ARM void func_020a2d14(struct CamState0202e6c0* cam) {
     }
 
     Vector3fix pos = cam->position;
-    pressA = TestFlagMask_02012430(&data_02114e30, 1);
-    pressB = TestFlagMask_02012430(&data_02114e30, 2);
-    pressX = TestFlagMask_02012430(&data_02114e30, 0x400);
-    pressY = TestFlagMask_02012430(&data_02114e30, 0x800);
-    pressL = TestFlagMask_02012430(&data_02114e30, 0x200);
-    pressR = TestFlagMask_02012430(&data_02114e30, 0x100);
-    pressUp = TestFlagMask_02012430(&data_02114e30, 0x40);
-    pressDown = TestFlagMask_02012430(&data_02114e30, 0x80);
-    pressLeft = TestFlagMask_02012430(&data_02114e30, 0x20);
-    pressRight = TestFlagMask_02012430(&data_02114e30, 0x10);
-    slow = TestFlagMask_02012430(&data_02114e30, 8);
+    pressA = g_keyManager.TestKeysHeld(1);
+    pressB = g_keyManager.TestKeysHeld(2);
+    pressX = g_keyManager.TestKeysHeld(0x400);
+    pressY = g_keyManager.TestKeysHeld(0x800);
+    pressL = g_keyManager.TestKeysHeld(0x200);
+    pressR = g_keyManager.TestKeysHeld(0x100);
+    pressUp = g_keyManager.TestKeysHeld(0x40);
+    pressDown = g_keyManager.TestKeysHeld(0x80);
+    pressLeft = g_keyManager.TestKeysHeld(0x20);
+    pressRight = g_keyManager.TestKeysHeld(0x10);
+    slow = g_keyManager.TestKeysHeld(8);
     speed = 1.0f;
     if (slow) {
         speed = 0.1f;

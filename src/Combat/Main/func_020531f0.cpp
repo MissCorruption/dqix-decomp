@@ -2,13 +2,13 @@
 #include <std_library_functions.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 int GetIndexedEntryField0x178_02053604(signed char* obj);
 void ForwardToTargetOrDefault0205eabc(void* target, void* param, int arg);
 int GetByte0x26c_02039d7c(char* obj);
 int GetField0x397cValue_020100b0(GameState* battleStruct);
 int GetFieldIfFlag4_020100f8(char* obj);
-int TestFlagMask_02012430(unsigned short* word, int mask);
 void SetByte0x2c4To2IfByte0x2c5Set_020a2c8c(unsigned char* p);
 void* GetGlobalField0x1c020421a0(void);
 
@@ -18,7 +18,6 @@ void SetByte0xbeShiftPrev(struct Bytes02033b88* obj, int value);
 extern "C" void func_ov017_021cc1f8(int id, const char* src, int len, int extra);
 
 extern char data_02108760;
-extern unsigned short data_02114e30;
 
 struct EntryFlags020531f0 {
     unsigned char mode : 2;
@@ -108,7 +107,7 @@ extern "C" ARM void func_020531f0(struct Obj020531f0* obj) {
     if (activeId == cid) {
         target = GetFieldIfFlag4_020100f8((char*)battleStruct);
         if (target != 0) {
-            if (TestFlagMask_02012430(&data_02114e30, 2) == 0
+            if (g_keyManager.TestKeysHeld(2) == 0
                 || ((unsigned char*)GetGlobalField0x1c020421a0())[globalByteOffset] != 0) {
                 SetByte0x2c4To2IfByte0x2c5Set_020a2c8c((unsigned char*)target);
             }

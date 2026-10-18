@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
+#include "Resource/GameResources.h"
 
 struct TaggedNumber02184c30 {
     int type;
@@ -12,7 +13,6 @@ struct TaggedInput02184de4 {
 };
 
 int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);
-extern "C" ARM void* func_ov017_0218b5b0(void* self);
 extern "C" ARM void* func_ov017_021b2164(void);
 ARM void* NoOp_021845f4(void);
 extern "C" ARM void* func_ov011_021842c8(unsigned char* node, unsigned int id);
@@ -21,7 +21,7 @@ extern "C" ARM void* func_ov011_02184324(void* a, void* b);
 
 // USA: func_ov011_02184de4
 extern "C" ARM int func_ov011_02184de4(struct TaggedInput02184de4* obj) {
-    void* areaBase = func_ov017_0218b5b0(obj);
+    void* areaBase = GetGameResources();
     void* ctx = func_ov017_021b2164();
     ctx = NoOp_021845f4();
 

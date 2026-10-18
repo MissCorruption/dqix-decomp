@@ -3,6 +3,15 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <Memory/SafeAllocator.h>
 #include <GameState/GameState.h>
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct GameResources;
 struct ArrayContainsByteStruct;
@@ -129,7 +138,7 @@ int ArrayContainsByte_02086ef0(ArrayContainsByteStruct* array, int id);
 void InitCombatEntry_021d8b6c(void* window);
 void ResetEntryList0205d6a0(Entry_0205d6a0* window, int value);
 int TestBitInByteArray_0206dfb0(int a, unsigned char* b, int flag);
-void SetOrClearBitInArray_0206df6c(void* a, unsigned char* b, int flag, int value);
+extern "C" void func_0206df6c(void* a, unsigned char* b, int flag, int value);
 const char* FindEntryByKey_02072a68(TableA68* texts, int id);
 void ReinitController02043204(char* messages);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
@@ -141,7 +150,6 @@ unsigned char* GetFieldAt0x150_02053c6c(unsigned char* member);
 void ResetFields_021eefac(Reset_021eefac* end);
 
 extern "C" {
-GameResources* func_ov017_0218b5b0();
 void* func_0205ec34();
 void func_ov023_021f1818(void* menu, int hidden);
 void func_ov023_021d8af8(void* window);
@@ -174,7 +182,7 @@ extern "C" ARM int func_ov023_021f1234(BattleScene_021f1234* self)
 {
     GameState* gameState = GameState::GetInstance();
     BattleEnd_021f1234* end = _ZZ17GetGlobal021ffefcvE1s;
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     void* unk = func_0205ec34();
     MessageSystem_021f1234* messages = GetGlobalField0x1c020421a0();
@@ -209,7 +217,7 @@ extern "C" ARM int func_ov023_021f1234(BattleScene_021f1234* self)
         {
             if (!TestBitInByteArray_0206dfb0((int)unk, (unsigned char*)unk + 0x8c, 0x119c))
             {
-                SetOrClearBitInArray_0206df6c(unk, (unsigned char*)unk + 0x8c, 0x119c, 1);
+                func_0206df6c(unk, (unsigned char*)unk + 0x8c, 0x119c, 1);
                 if (inParty)
                 {
 #if defined(jpn)

@@ -2,13 +2,13 @@
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 void ResetFieldWithLog_0218d5c8(unsigned char* obj);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 void SetByteField0x253_020397c0(void* obj);
 int GetFieldIfFlag4_020100f8(char* obj);
 void SetField0x238True_020a2794(void* obj);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 
 extern int data_02114e20;
 
@@ -22,7 +22,7 @@ struct Obj021b5a30 {
 
 // USA: func_ov017_021b5a30
 extern "C" ARM void func_ov017_021b5a30(struct Obj021b5a30* self) {
-	int base = ((int)func_ov017_0218b5b0());
+	int base = ((int)GetGameResources());
 	if (self->field0x54 != 0 && base != 0) {
 		ResetFieldWithLog_0218d5c8((unsigned char*)base);
 		self->field0x54 = 0;
@@ -52,6 +52,6 @@ extern "C" ARM void func_ov017_021b5a30(struct Obj021b5a30* self) {
 	}
 
 	if (base != 0) {
-		ClearBitsInField4_0203b4e8((unsigned int*)base, 0x80);
+		ClearFlags04((GameResources*)base, 0x80);
 	}
 }

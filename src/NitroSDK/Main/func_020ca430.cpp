@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca430 func_020cbefc
+#endif
+
 // USA: func_020ca430
 // PROVENANCE: pokeheartgold/lib/NitroSDK/asm/mi_memory.s — MIi_CpuSend32. Word-granularity copy
 // into a fixed FIFO-style destination register (raw NitroSDK .s routine, ported as mwcc inline asm).

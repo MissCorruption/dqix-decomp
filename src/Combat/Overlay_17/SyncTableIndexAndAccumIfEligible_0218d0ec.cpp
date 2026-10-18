@@ -8,11 +8,19 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset718 = 0x718 };
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0202ae18(void);
 extern "C" int func_0202c508(void* obj);
 extern "C" void* func_0205ec34(void);
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 
 struct HeadNode02046b24;
 int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
@@ -65,7 +73,7 @@ extern "C" ARM void func_ov017_0218d0ec(unsigned char* ov) {
     if (prevIdx != bs->GetTimeOfDay()) {
         if (bs->GetTimeOfDay() == 1 || bs->GetTimeOfDay() == 0) {
             void* base = func_0205ec34();
-            SetOrClearBitInArray_0206df6c(base, (unsigned char*)base + 0x8c, 0x1140, 1);
+            func_0206df6c(base, (unsigned char*)base + 0x8c, 0x1140, 1);
         }
     }
 

@@ -3,6 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/GPC.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/GameResources.h"
 
 struct Table021e771c {
     unsigned char data[0xc];
@@ -49,7 +50,7 @@ extern char data_ov025_021ef86d[];
 
 // USA: func_ov025_021e771c
 extern "C" ARM int func_ov025_021e771c(short* ids, int count, int a, int b) {
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     GameState::GetInstance();
     Resources021e771c* res = func_ov017_021b8478(resources->unknown_ptr_3718);
     CombatWork021e771c* work = GetActiveCombatWork_ov000_02160130();

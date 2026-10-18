@@ -5,6 +5,10 @@
 #include "Memory/AllocatorUnion.h"
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
 char* FindEntryAndGetNext_020467c0(void* a, char* b, unsigned int* outSize);
 int GetCharBlock_020b01a4(void* file, void** out);

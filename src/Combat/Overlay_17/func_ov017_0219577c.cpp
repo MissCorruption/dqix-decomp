@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_02012fe4(void);
 extern "C" void func_ov017_021acd7c(void* obj);
@@ -65,7 +66,7 @@ extern "C" ARM void func_ov017_0219577c(unsigned char mode, int resetField, int 
  enum {regionalList=0x6fc,regionalNode=0xb20,regionalPending=0xca4,regionalAlternate=0x70c,regionalExtra=0xb98};
 #endif
     GameState* gs = GameState::GetInstance();
-    char* ctx = (char*)func_ov017_0218b5b0();
+    char* ctx = (char*)GetGameResources();
     void* list = *(void**)(ctx + 0x3000 + regionalList);
     func_02012fe4();
     Node0219577c* node = *(Node0219577c**)(ctx + 0x3000 + regionalNode);

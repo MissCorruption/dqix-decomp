@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9bf0 func_020cb6bc
+#endif
+
 // USA: func_020c9bf0  (semantic: WaitForInterrupt020c9bf0)
 extern "C" ARM void func_020c9bf0(void) {
     asm {

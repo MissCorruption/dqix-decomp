@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 #include "Combat/EntryGetterTypes.h"
+#include "Resource/GameResources.h"
 
 struct Scene {
     char pad0[0x64];
@@ -134,7 +135,7 @@ extern "C" ARM void func_ov003_0215d4fc(Scene *self) {
         }
         func_ov003_0215cab0(self, GetFieldByKey020e0434((Container020e0310*)self->cont64, key));
         self->b3bb = 2;
-        void *e = FindEntryPointerByKey0203df78(b, (*(Ent **) ((char *) func_ov017_0218b5b0() + 0x3000 + 0x710))->key);
+        void *e = FindEntryPointerByKey0203df78(b, (*(Ent **) ((char *) GetGameResources() + 0x3000 + 0x710))->key);
         if (e != 0) {
             self->w3f8 = GetOffset0x54FromFallbackChain_02040a20((Entry_203dce4*)e);
         }
@@ -192,7 +193,7 @@ extern "C" ARM void func_ov003_0215d4fc(Scene *self) {
     }
     if (state == 5) {
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() <= 0) {
-            func_ov017_021a2fa0((void *) func_ov017_0218b5b0());
+            func_ov017_021a2fa0((void *) GetGameResources());
             func_02012fe4();
             func_ov017_0219bd1c(1, 0, 0, 0);
             func_ov017_021921fc((char *) c + 0x44, *(short *) ((char *) c + 0xae), 1);
@@ -208,7 +209,7 @@ extern "C" ARM void func_ov003_0215d4fc(Scene *self) {
         func_0205e944(&data_02108760, 0x7f);
         self->b3ec = 1;
         self->b3ed = 0;
-        void *e = FindEntryPointerByKey0203df78(b, (*(Ent **) ((char *) func_ov017_0218b5b0() + 0x3000 + 0x710))->key);
+        void *e = FindEntryPointerByKey0203df78(b, (*(Ent **) ((char *) GetGameResources() + 0x3000 + 0x710))->key);
         if (e != 0) {
             PropagateValueToActiveSlot02040b2c((Obj02040b2c*)e, self->w3f8);
         }

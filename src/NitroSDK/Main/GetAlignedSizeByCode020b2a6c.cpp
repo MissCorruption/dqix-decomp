@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020b2a6c func_020b4538
+#endif
+
 struct FormatInfo020b2a6c {
     unsigned char pad[0x17];
     unsigned char field17;
@@ -7,7 +11,7 @@ struct FormatInfo020b2a6c {
 };
 
 // USA: func_020b2a6c
-ARM int GetAlignedSizeByCode020b2a6c(unsigned char* code, struct FormatInfo020b2a6c* info) {
+extern "C" ARM unsigned int func_020b2a6c(unsigned char* code, struct FormatInfo020b2a6c* info) {
     unsigned char c;
     if (code == NULL || info == NULL) {
         return 0;

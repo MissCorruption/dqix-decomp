@@ -3,6 +3,11 @@
 #include "Resource/GameResources.h"
 #include "Graphics/LightingManager.h"
 #include "Util/Random.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 extern "C" void* func_0202ae18(void);
 extern "C" unsigned char* func_02012fe4(void);
@@ -13,7 +18,6 @@ int IsField0Null_02046b08(void** obj);
 struct HeadNode02046b24;
 int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
 int IsField0x1b4Or0x1b8Positive_02053cdc(int* obj);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 int GetIntField0x264_02039760(void* obj);
 int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
 int NextRandomBetween(struct Random* rng, int lo, int hi);
@@ -79,7 +83,7 @@ extern "C" ARM int func_ov017_02196c4c(Ctx02196c4c* self) {
     GameObject* combatant = battle->GetUnknownGameObject();
     void* field32c = GetPointerAt0x32c_0200ffc0((struct PointerField32c_ffc0*)battle);
     LightingManager* lighting;
-    Actor02196c4c* actor = (Actor02196c4c*)func_ov017_0218b5b0()->unknown_ptr_array_371c[6];
+    Actor02196c4c* actor = (Actor02196c4c*)GetGameResources()->unknown_ptr_array_371c[6];
     unsigned char* flags = func_0205ec34();
     lighting = LightingManager::GetInstance();
 
@@ -95,7 +99,7 @@ extern "C" ARM int func_ov017_02196c4c(Ctx02196c4c* self) {
     if (*(unsigned int*)((unsigned char*)combatant + regionalFlags) & 1) {
         return 2;
     }
-    if (GetBitsInField4_0203b4fc((unsigned int*)self, 0x10)) {
+    if (TestFlags04((GameResources*)self, 0x10)) {
         return 2;
     }
     if (actor->active != 0) {

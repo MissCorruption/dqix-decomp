@@ -6,6 +6,10 @@
 #include "Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Struct020a99d0 {
     unsigned short header[70];
     unsigned char flagBits[0x15f];
@@ -438,7 +442,7 @@ extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int fl
         BattleData* battle2 = static_cast<BattleData*>(GetPtrField0x2a04_02010828(gs2));
         session2 = func_0202ae18();
         field2 = func_02012fe4();
-        func_ov017_0218b5b0();
+        GetGameResources();
         global2 = GetGlobal02109418_02094d6c();
         func_020a0cc4(sizeof(BattleSave));
         save = (BattleSave*)AllocateAligned4_02012d88(&data_02114e20, sizeof(BattleSave));
@@ -680,7 +684,7 @@ extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int fl
         if (mode) {
             GameState* gs7 = GameState::GetInstance();
             GameStateSaveView* view7 = reinterpret_cast<GameStateSaveView*>(gs7);
-            func_ov017_0218b5b0();
+            GetGameResources();
             GrottoSave grotto;
             VectorizedInvertedMemcpy(view7->grottoLarge, grotto.largeBuffer, sizeof(grotto.largeBuffer));
             VectorizedInvertedMemcpy(view7->grottoBits, grotto.bits, sizeof(grotto.bits));

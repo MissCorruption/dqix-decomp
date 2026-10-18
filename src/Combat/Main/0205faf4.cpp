@@ -3,6 +3,7 @@
 #include "Combat/Main/BattleList.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 #if defined(jpn)
 #define REGION_VALUE(jpnValue, usaValue) jpnValue
 extern "C" int func_020e0484(void* list, void* alloc, const char* path, void* entries, unsigned short count, bool lock);
@@ -693,7 +694,7 @@ extern "C" ARM int func_0205faf4(struct BattleStruct* obj, void* cmd, struct Ext
         return 0;
     }
     case 79: {
-        char* p = *(char**)((char*)func_ov017_0218b5b0() + REGION_VALUE(0x3500, 0x3710));
+        char* p = *(char**)((char*)GetGameResources() + REGION_VALUE(0x3500, 0x3710));
         return *((unsigned char*)cmd + 4) == *(unsigned char*)(p + 0x133) && CU16(2) == *(unsigned short*)(p + 0x134);
     }
     case 80: {
@@ -761,7 +762,7 @@ extern "C" ARM int func_0205faf4(struct BattleStruct* obj, void* cmd, struct Ext
         return found;
     }
     case 84: {
-        func_ov017_0218b5b0();
+        GetGameResources();
         unsigned char v = *((unsigned char*)(void*)GameState::GetInstance() + REGION_VALUE(0x629e, 0x64de));
         return v == CU16(2);
     }
@@ -800,7 +801,7 @@ extern "C" ARM int func_0205faf4(struct BattleStruct* obj, void* cmd, struct Ext
         return s.f4 == CU16(2) && s.f8 == CU16(4);
     }
     case 91: {
-        char* p = (char*)func_ov017_0218b5b0();
+        char* p = (char*)GetGameResources();
         return *((unsigned char*)cmd + 4) == *(unsigned char*)(p + REGION_VALUE(0x4199, 0x4449)) && CU16(2) == *(signed char*)(p + REGION_VALUE(0x4196, 0x4446));
     }
     case 92: {

@@ -15,12 +15,12 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 unsigned char* GetField1c_021a193c(int*);
 struct Entry_0205d6a0;
 void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
 extern "C" void func_ov005_0215792c(unsigned char*, int);
-extern "C" unsigned char* func_ov017_0218b5b0(void);
 
 // USA: func_ov005_02159208  (semantic: Trans_02159208)
 extern "C" ARM void func_ov005_02159208(unsigned char* self) {
@@ -32,5 +32,5 @@ extern "C" ARM void func_ov005_02159208(unsigned char* self) {
     self[R(0x3d54, 0x3ddc)] = 0;
     self[R(0x3d56, 0x3dde)] = 0;
     self[R(0x3d57, 0x3ddf)] = 0;
-    *(unsigned short*)(GetField1c_021a193c((int*)(*(int*)(func_ov017_0218b5b0() + R(0x34f8, 0x3708)))) + R(0x56c, 0x634)) |= 0x81;
+    *(unsigned short*)(GetField1c_021a193c((int*)(*(int*)((unsigned char*)GetGameResources() + R(0x34f8, 0x3708)))) + R(0x56c, 0x634)) |= 0x81;
 }

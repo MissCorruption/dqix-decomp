@@ -9,6 +9,7 @@ enum { kCombatantHalfOffset = 0x1b2 };
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/FileIO.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Struct02012dd0;
 struct State0207dfc8;
@@ -62,7 +63,7 @@ struct Obj021c2b6c {
 // USA: func_ov017_021c2b6c
 extern "C" ARM void func_ov017_021c2b6c(Obj021c2b6c* self) {
     GameState* game = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     void* list = func_02057924();
     PartyEntry021c2b6c entries[4];
     unsigned int len;

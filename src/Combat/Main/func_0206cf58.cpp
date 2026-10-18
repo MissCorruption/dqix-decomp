@@ -5,6 +5,10 @@
 #include "Combat/NodeLookup.h"
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct PackedNibbleArray0206e120;
 struct PackedNibbleArray0206e260;
 struct PackedNibbleArray0206e2dc;

@@ -2,9 +2,9 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 #include "Resource/TextQueue.h"
+#include "Resource/Brightness.h"
 
 struct EffectParam020708c8;
-struct AxisFloats0203b57c;
 struct FlagWord02046708;
 
 struct BattleScene021b86f8 {
@@ -34,7 +34,6 @@ void* GetOffsetPtr02160f08(void* obj);
 extern "C" void func_ov000_02172850(void* obj);
 float GetIntAt0xc_020709ac(unsigned char* obj);
 void SetScaledEffectParam020708c8(EffectParam020708c8* obj, unsigned int value);
-int GetAxisIntValue(AxisFloats0203b57c* s, int axis);
 extern "C" int abs(int x);
 void SetMainBrightness(GameResources* res, int level, int b);
 int TestFlags02046708(FlagWord02046708* word, unsigned int mask);
@@ -43,8 +42,6 @@ void ClearFlags020466f4(FlagWord020466f4* word, unsigned int bits);
 void SetCombatModeFromCase020dc2d0(int mode);
 int GetState0209ca68(char* p);
 extern "C" void func_0209c530(void* p);
-void ClearBitsInField4_0203b4e8(unsigned int* word, unsigned int bits);
-void ClearBitsInWord_0203b4b0(unsigned int* word, unsigned int bits);
 extern "C" void func_ov017_021c9c64(unsigned short a, int b);
 void SetFieldForMatchingCombatant_021c98f4(int target, int flag);
 
@@ -55,7 +52,7 @@ extern "C" ARM void func_ov017_021b86f8(BattleScene021b86f8* self, int combatant
     GameState* gs = GameState::GetInstance();
     GetGlobalField0x1c020421a0();
     GameObject* combatant = GetCombatantChecked_0200ff94(gs, GetField0x3acValue_020100a8(gs));
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     EffectParam020708c8* effect = func_020704fc();
     FlagWord02046708* flagWord = GetDataPtr02114e04_020d6c00();
     func_02012fe4();
@@ -77,7 +74,7 @@ extern "C" ARM void func_ov017_021b86f8(BattleScene021b86f8* self, int combatant
     if ((int)GetIntAt0xc_020709ac((unsigned char*)effect) > 0x1e) {
         SetScaledEffectParam020708c8(effect, 0x1e);
     }
-    if (abs(GetAxisIntValue((AxisFloats0203b57c*)res, 0)) == 0x10) {
+    if (abs(GetBrightness((GameResources*)res, false)) == 0x10) {
         SetMainBrightness(res, 0, 0x1e);
     }
     if (TestFlags02046708(flagWord, 1)) {
@@ -88,11 +85,11 @@ extern "C" ARM void func_ov017_021b86f8(BattleScene021b86f8* self, int combatant
         func_0209c530(data_02109bf4);
     }
     ClearFlags020466f4((FlagWord020466f4*)flagWord, 0x200);
-    ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x40);
-    ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 4);
-    ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 0x10);
-    ClearBitsInField4_0203b4e8(&res->brightnessFlags_0, 2);
-    ClearBitsInWord_0203b4b0(&res->brightnessFlags_0, 4);
+    ClearFlags04(res, 0x40);
+    ClearFlags04(res, 4);
+    ClearFlags04(res, 0x10);
+    ClearFlags04(res, 2);
+    ClearFlags00(res, 4);
     self->flags |= 0x2000;
     self->state = 3;
     func_ov017_021c9c64(combatantId, arg3);

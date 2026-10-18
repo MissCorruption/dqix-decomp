@@ -3,6 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { extensionOffset = 0x144, slotsOffset = 0x7280, contextBytes = 0x24, tableOffset = 0x6fbc, fieldOffset = 0x543c, entryOffset = 0x8c, pointerOffset = 0x3964, flagOffset = 0x1790, firstOffset = 0x1794, secondOffset = 0x17b8 };
@@ -20,11 +21,6 @@ int GetFieldAt0x0_0202ba00(int* obj);
 int UpdatePlayClocks020ac4f8(int commit);
 int LoadBattleBlock020ac4c0(void* dst);
 int CopyOutBattleField0x7ac0_020ac0b4(void* dst);
-unsigned int GetWord_0203b498(unsigned int* obj);
-unsigned int GetField4_0203b4d0(unsigned int* obj);
-unsigned int GetField8_0203b508(unsigned int* obj);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 void Set3DClearColor_020c5588(int color, int alpha, int depth, int polygonId, int fogEnable);
 int GetGlobalField0x1c020421a0(void);
 void ReinitController02043204(char* obj);
@@ -191,12 +187,12 @@ extern "C" ARM int func_ov004_02168b44(void* a) {
     if (!rec) return 0;
     data_ov004_02171030->f18c = GetFieldAt0x7e_0201e830(rec);
 
-    unsigned int* w = (unsigned int*)func_ov017_0218b5b0();
-    data_ov004_02171030->f180 = GetWord_0203b498(w);
-    data_ov004_02171030->f184 = GetField4_0203b4d0(w);
-    data_ov004_02171030->f188 = GetField8_0203b508(w);
-    SetBitsInWord_0203b4a0(w, 4);
-    SetBitsInField4_0203b4d8(w, 0x8de);
+    unsigned int* w = (unsigned int*)GetGameResources();
+    data_ov004_02171030->f180 = GetFlags00((GameResources*)w);
+    data_ov004_02171030->f184 = GetFlags04((GameResources*)w);
+    data_ov004_02171030->f188 = GetFlags08((GameResources*)w);
+    SetFlags00((GameResources*)w, 4);
+    SetFlags04((GameResources*)w, 0x8de);
     Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
 
     struct Node02168b44* node = (struct Node02168b44*)NODE_LOOKUP_CALL(a, 0x64);

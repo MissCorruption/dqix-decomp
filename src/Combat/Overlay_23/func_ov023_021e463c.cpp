@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 extern "C" void func_ov023_021e6194(void* p);
 struct Words021e60c4 { unsigned int v[3]; };
@@ -7,10 +8,8 @@ int fix32ReduceAngle0To2Pi(int angle);
 void InitWordsQuad_021e60e0(void* obj, unsigned int val);
 void SetFourWordBlocks_021e6088(void* obj, Words021e60c4* src);
 extern "C" int func_ov023_021e29d0(char* obj);
-int TestFlagMask_02012430(unsigned short* obj, int mask);
 
 extern unsigned char data_02114e54;
-extern unsigned short data_02114e30;
 
 // USA: func_ov023_021e463c  (semantic: UpdateOrientationOrCombatFlags_021e463c)
 extern "C" ARM void func_ov023_021e463c(void* objRaw, unsigned int count) {
@@ -82,8 +81,8 @@ extern "C" ARM void func_ov023_021e463c(void* objRaw, unsigned int count) {
             got = 1;
         }
         if (!got) {
-            if (TestFlagMask_02012430(&data_02114e30, 0x200)) flag5 = 1;
-            if (TestFlagMask_02012430(&data_02114e30, 0x100)) flag6 = 1;
+            if (g_keyManager.TestKeysHeld(0x200)) flag5 = 1;
+            if (g_keyManager.TestKeysHeld(0x100)) flag6 = 1;
         }
         if (flag5 && flag6) {
             *(unsigned short*)(obj + regionalOffset1) |= 2;

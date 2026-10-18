@@ -2,6 +2,10 @@
 #include "Combat/LootPointEvent.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Obj374b0;
 
 struct List_020347b4;

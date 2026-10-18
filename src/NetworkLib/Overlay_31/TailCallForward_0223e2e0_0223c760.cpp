@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
 extern "C" void func_020ca390(int, void*, unsigned int);
 ARM int TailCallForward_0223e2e0(int arg0, void* arg1);
 extern "C" ARM unsigned int GetMainBG0CharacterBase(void);

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Input/Input.h"
 
 struct DebugMenuItem {
     int type;
@@ -77,9 +78,6 @@ void SetState0x6cAndInvoke(Callback_0202a91c*);
 void Deactivate0202a8cc(char*, int);
 void FormatAndDispatch0202ad98(int a, int b, int c, const char* fmt, ...);
 void FormatAndDispatch020290e8(int a, int b, const char* fmt, ...);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
-int TestFlagMask_02012430(unsigned short*, int);
-extern "C" int func_0201248c(unsigned short*, unsigned int);
 void AdjustValueWrapOrClamp(WrapField_0202a678*, int);
 extern "C" void func_0202a6c4(DebugMenu* menu);
 extern "C" void* __clear(void*, int);
@@ -90,7 +88,6 @@ extern "C" void func_020292ec(int a0, int a1, int a2, int a3, int a4);
 extern TouchInput data_02114e54;
 extern Metrics020ef74c data_020ef74c;
 extern TextColor020fe9a4 data_020fe9a4;
-extern unsigned short data_02114e30;
 extern const char data_020ef75c[];
 extern const char data_020ef75f[];
 extern const char data_020ef763[];
@@ -276,7 +273,7 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                     int suffix;
                     if (item->type == 2) {
                         if (menu->selected == row && item->disabled == 0 &&
-                            TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x30)) {
+                            g_keyManager.TestKeysPressed(0x30)) {
                             item->value = item->value == 0;
                         }
                         if (item->value) {
@@ -297,20 +294,20 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                             int savedLast;
                             int old = item->value;
                             int step = 1;
-                            if (TestFlagMask_02012430(&data_02114e30, 8)) step = 100;
-                            if (func_0201248c(&data_02114e30, 0x10)) {
+                            if (g_keyManager.TestKeysHeld(8)) step = 100;
+                            if (g_keyManager.TestKeyRepeat(0x10)) {
                                 AdjustValueWrapOrClamp((WrapField_0202a678*)item, step);
                                 adjusted = 1;
                             }
-                            if (func_0201248c(&data_02114e30, 0x20)) {
+                            if (g_keyManager.TestKeyRepeat(0x20)) {
                                 AdjustValueWrapOrClamp((WrapField_0202a678*)item, -step);
                                 adjusted = 1;
                             }
-                            if (func_0201248c(&data_02114e30, 0x100)) {
+                            if (g_keyManager.TestKeyRepeat(0x100)) {
                                 AdjustValueWrapOrClamp((WrapField_0202a678*)item, step * 10);
                                 adjusted = 1;
                             }
-                            if (func_0201248c(&data_02114e30, 0x200)) {
+                            if (g_keyManager.TestKeyRepeat(0x200)) {
                                 AdjustValueWrapOrClamp((WrapField_0202a678*)item, step * -10);
                                 adjusted = 1;
                             }

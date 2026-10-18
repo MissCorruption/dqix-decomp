@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 #if defined(jpn)
 enum { kManagerPrefix = 0x34fc };
 #else
@@ -12,7 +13,6 @@ struct Manager020a88e8 { char pad[kManagerPrefix]; Trigger020a88e8* trigger; };
 extern "C" Base02019508* func_02012fe4();
 Entry02019508* FindEntryByKeys02019508(Base02019508*, int, int);
 void SetFlag0x80_020133b4(void*, int);
-extern "C" Manager020a88e8* func_ov017_0218b5b0();
 // USA: func_020a88e8
 extern "C" ARM void func_020a88e8(Obj020a88e8* self) {
     Base02019508* base = func_02012fe4();
@@ -20,7 +20,7 @@ extern "C" ARM void func_020a88e8(Obj020a88e8* self) {
     Entry02019508* second = FindEntryByKeys02019508(base, self->key3, self->key4);
     if (!first || !second) return;
     SetFlag0x80_020133b4(first, 1);
-    Trigger020a88e8* trigger = func_ov017_0218b5b0()->trigger;
+    Trigger020a88e8* trigger = ((Manager020a88e8*)GetGameResources())->trigger;
     if (self->increase) {
         unsigned char value = first->level;
         if (self->instant || trigger->instant) { self->instant = 0; value = 31; }

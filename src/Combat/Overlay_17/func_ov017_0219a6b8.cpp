@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "Input/Input.h"
 
 struct FlagWord02046708;
 struct HeadNode02046b24;
@@ -15,7 +16,6 @@ int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
 int TestFlags02046708(FlagWord02046708*, unsigned int);
 unsigned char* GetPointerAt0x32c_0200ffc0(PointerField32c_ffc0*);
 int CheckSubstructByte0x7cPositive_020535c8(signed char*);
-int TestFlagMask_02012430(unsigned short*, int);
 int CheckField0xc4Low15BitsNonZero(BitField0203402c*);
 unsigned char GetByte0x26c_02039d7c(char*);
 extern "C" void __clear(void*, int);
@@ -24,7 +24,6 @@ void CancelPendingAction020397cc(Obj020397cc*, int);
 void ClearByteFlagAt0x154_020a7f40(unsigned char*);
 void SetByteFlagAt0x154_020a7f34(unsigned char*);
 void SetByteField0x253_020397c0(void*);
-extern unsigned short data_02114e30[];
 extern unsigned char data_02114e54[];
 
 // USA: func_ov017_0219a6b8
@@ -41,7 +40,7 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* self) {
     if (!actor) return;
     other = GetPointerAt0x32c_0200ffc0((PointerField32c_ffc0*)game);
     if (CheckSubstructByte0x7cPositive_020535c8((signed char*)actor)) return;
-    if (TestFlagMask_02012430(data_02114e30, 2) && !self->fieldButtonState[0]) return;
+    if (g_keyManager.TestKeysHeld(2) && !self->fieldButtonState[0]) return;
     if (CheckField0xc4Low15BitsNonZero((BitField0203402c*)actor)) return;
     if (GetByte0x26c_02039d7c((char*)actor)) return;
     if (zone == 0x2774) return;

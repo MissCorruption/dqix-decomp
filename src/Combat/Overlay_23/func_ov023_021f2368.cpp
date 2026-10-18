@@ -4,6 +4,10 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 int GetGlobalField0x1c020421a0(void);
 struct ArrayContainsByteStruct;
 int ArrayContainsByte_02086ef0(struct ArrayContainsByteStruct* s, int val);

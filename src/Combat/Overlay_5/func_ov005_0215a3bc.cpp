@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 #if defined(jpn)
 #define R(j,u) (j)
 #else
@@ -19,7 +20,6 @@ struct MenuContext {
     int* unknown_ptr_3708;
 };
 
-extern "C" MenuContext* func_ov017_0218b5b0();
 void* GetField1c_021a193c(int* p);
 void SetShiftedFieldsAndCall_021e32cc(void* self, int x, int y);
 
@@ -32,5 +32,5 @@ extern "C" ARM void func_ov005_0215a3bc(EquipmentMenu* self) {
         y++;
         self->flags_ &= ~0x80000;
     }
-    SetShiftedFieldsAndCall_021e32cc(GetField1c_021a193c(func_ov017_0218b5b0()->unknown_ptr_3708), x, y);
+    SetShiftedFieldsAndCall_021e32cc(GetField1c_021a193c(((MenuContext*)GetGameResources())->unknown_ptr_3708), x, y);
 }

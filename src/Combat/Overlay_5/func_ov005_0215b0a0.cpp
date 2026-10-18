@@ -10,6 +10,7 @@
 #define func_ov005_0215b0a0 func_ov005_0215c4b4
 #endif
 #include <GameState/GameState.h>
+#include "Resource/GameResources.h"
 
 struct Container020dedd0;
 struct Field150Holder02052e14;
@@ -39,7 +40,7 @@ extern unsigned char data_ov005_0215cbfc[];
 extern "C" ARM void func_ov005_0215b0a0(CombatDisplay* display) {
     void* renderer = GetGlobalField0x1c020421a0();
     GameState* game = GameState::GetInstance();
-    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(game, GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3])->index);
+    GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(game, GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->index);
     if (!combatant) return;
     short* effects = GetField150Ptr0x488((Field150Holder02052e14*)combatant);
     int y = LOW_REGION(29, 28);

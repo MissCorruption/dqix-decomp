@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Graphics/VRAMStaging.h"
+#include "Resource/GameResources.h"
 
 struct Block0207df50 {
     unsigned int v[10];
@@ -44,7 +45,6 @@ struct BattleScreen {
     char workBuf[0x800];
 };
 
-extern "C" BattleResources* func_ov017_0218b5b0(void);
 extern "C" char* func_0203bd08(void);
 int* GetGlobalPtr02105244_0203bd14();
 extern "C" void MapVRAMBanksToTextureImage(int handle);
@@ -61,7 +61,7 @@ void BackupPairTables0207dfac(char* obj);
 
 // USA: func_ov000_02164280
 extern "C" ARM void func_ov000_02164280(BattleScreen* screen) {
-    BattleResources* res = func_ov017_0218b5b0();
+    BattleResources* res = (BattleResources*)GetGameResources();
     char* context = func_0203bd08();
     int* global = GetGlobalPtr02105244_0203bd14();
     LockStagedTextureVRAMCopying();

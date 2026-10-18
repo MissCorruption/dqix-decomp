@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 extern "C" void* func_0202ae18(void);
 void* GetData02100044_0202ae24(void);
@@ -19,7 +20,6 @@ int GetFieldAt0x150_02053c6c(unsigned char* obj);
 extern "C" void func_0202c360(void* obj, int val);
 extern "C" void func_0202b2f0(void* obj);
 void SetField0To5AndField0x1008To1_0202b828(unsigned char* obj);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 void BlankFunction020d84dc(void);
 extern "C" void func_ov017_02191108(int, int, int, int, int);
 extern "C" void func_ov017_02191234(int a);
@@ -30,7 +30,7 @@ void ClearByteField17182_02195520(void* obj);
 // USA: func_ov017_021c35ac  (semantic: ResetBattleStateAndQueues_021c35ac)
 extern "C" ARM void func_ov017_021c35ac(void) {
     GameState* battle = GameState::GetInstance();
-    int g = ((int)func_ov017_0218b5b0());
+    int g = ((int)GetGameResources());
     void* search = func_0202ae18();
     void* d100044 = GetData02100044_0202ae24();
     void* d153637 = GetData02153637_020e2ff8();
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov017_021c35ac(void) {
     func_0202c360(search, field134);
     func_0202b2f0(search);
     SetField0To5AndField0x1008To1_0202b828((unsigned char*)search);
-    ClearBitsInWord_0203b4b0((unsigned int*)g, 2);
+    ClearFlags00((GameResources*)g, 2);
     BlankFunction020d84dc();
     func_ov017_02191108(g, 1, 1, 1, 1);
     func_ov017_02191234(g);

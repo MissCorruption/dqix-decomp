@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 void PushInterruptDisableState_020d8654(void);
 void BlankFunction020d84e4(void);
 void BlankFunction020d84e8(void);

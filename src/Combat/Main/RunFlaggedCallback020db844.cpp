@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 struct GameResources;
 void SetMainBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
@@ -12,7 +12,7 @@ struct Actor020db844 {
 
 // USA: func_020db844
 ARM void RunFlaggedCallback020db844(struct Actor020db844* a, int b, int c, int d) {
-    int base = func_ov017_0218b5b0();
+    int base = (int)GetGameResources();
     if (base == 0) return;
     a->f6c = 0;
     if (b == 0) SetMainBrightness((GameResources*)base, c, d);

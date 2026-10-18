@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 unsigned char GetByte0x26c_02039d7c(char* obj);
 
 // USA: func_0208ae00
 ARM int CanCombatantDodgeCounter0208ae00(char* obj, int combatantId) {
-    unsigned int* v5 = ((unsigned int*)func_ov017_0218b5b0());
+    unsigned int* v5 = ((unsigned int*)GetGameResources());
     GameState* battle = GameState::GetInstance();
     GameObject* c1 = GetCombatantWithFlag0x100_0200ff1c(battle, combatantId);
     GameObject* c2 = GetCombatantWithFlag0x100_0200ff1c(battle, combatantId);
@@ -17,7 +17,7 @@ ARM int CanCombatantDodgeCounter0208ae00(char* obj, int combatantId) {
     if (!(*p2 & 2)) {
         return 0;
     }
-    if (GetBitsInField4_0203b4fc(v5, 0x10) != 0) {
+    if (TestFlags04((GameResources*)v5, 0x10) != 0) {
         return 0;
     }
     if (*(int*)(obj + 0x1c) != 0) {

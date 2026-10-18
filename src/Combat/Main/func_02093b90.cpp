@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 
 struct FlagWord02046708;
 struct AllocatorUnion;
@@ -34,8 +35,6 @@ void SetByteAt0xc0203be58(char*, int, int);
 FlagWord02046708* GetDataPtr02114e04_020d6c00();
 int TestFlags02046708(FlagWord02046708*, unsigned int);
 void ReleaseHandleAndClearFlags(Obj020941b0*);
-extern "C" void* func_ov017_0218b5b0();
-int IsChannelValueZero0203b5e0(void*, int);
 extern "C" int func_020941f8(Obj020941b0*);
 extern "C" int func_020943dc(Obj020941b0*);
 void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
@@ -70,7 +69,7 @@ extern "C" ARM void func_02093b90(Obj020941b0* self, int ticks) {
         self->display = currentDisplay;
         return;
     }
-    if (IsChannelValueZero0203b5e0(func_ov017_0218b5b0(), 1)) {
+    if (IsBrightnessOutsideValidRange(GetGameResources(), true)) {
         ReleaseHandleAndClearFlags(self);
         return;
     }

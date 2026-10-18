@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/Interrupts.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" int FastIntModulus(int, int);
 extern "C" void func_020c9be0(void);
 

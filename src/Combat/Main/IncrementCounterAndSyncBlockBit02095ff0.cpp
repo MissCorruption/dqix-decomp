@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void);
 int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
 struct S_a0364;

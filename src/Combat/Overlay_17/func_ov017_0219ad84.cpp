@@ -4,6 +4,7 @@
 #include "Resource/GameResources.h"
 #include "System/Graphics.h"
 #include "World/ZoneLootableRecord.h"
+#include "Resource/Brightness.h"
 
 struct HeadNode02046b24;
 struct Obj0204724C;
@@ -21,7 +22,6 @@ struct Combatant0219ad84 {
     Object3D obj3D; char padac[0x1b2 - 0xac]; unsigned short field1b2;
 };
 
-int GetBitsInField4_0203b4fc(unsigned int*, unsigned int);
 extern "C" Zone0219ad84* func_02012fe4();
 Controller0219ad84* GetGlobalField0x1c020421a0();
 int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
@@ -50,7 +50,7 @@ static inline unsigned char WindowOpen(void* window) {
 
 // USA: func_ov017_0219ad84
 extern "C" ARM void func_ov017_0219ad84(GameResources* self) {
-    if (GetBitsInField4_0203b4fc(&self->brightnessFlags_0, 0x40)) return;
+    if (TestFlags04(self, 0x40)) return;
     GameState* game = GameState::GetInstance();
     Zone0219ad84* zone = func_02012fe4();
     void* camera = GetField0x3b0Value_020100bc(game);
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov017_0219ad84(GameResources* self) {
     if (self->interactionSelection[1] != 0x12 && !CheckSubstructByte0x7cPositive_020535c8((signed char*)actor) &&
         IsField0Null_02046b08((void**)self->unknown_ptr_array_36fc[0])) {
         int show = 1;
-        if (GetBitsInField4_0203b4fc(&self->brightnessFlags_0, 8) && self->interactionSelection[0] == 0) show = 0;
+        if (TestFlags04(self, 8) && self->interactionSelection[0] == 0) show = 0;
         if (self->interactionSelection[1] == 0x11) show = 0;
         if (show) {
             int selection = self->interactionSelection[1];

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Pair020deb08;
 short GetMaxOfHalfwords0And4(struct Pair020deb08* obj);
 

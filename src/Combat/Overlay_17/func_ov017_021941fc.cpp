@@ -79,6 +79,12 @@ enum {
 #include "Combat/NameEntryQueue.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct SearchStruct;
 struct SearchStruct0202c1a4;
@@ -95,8 +101,6 @@ struct HeadList020469f8;
 struct HeadNode020469f8;
 struct HeadNode02046b24;
 struct ListHead02046b60;
-struct AxisFloats0203b5f8;
-struct AxisFloats0203b57c;
 struct BitField0203402c;
 struct U16Field0x6_020375f8;
 struct Obj_021bd3a4;
@@ -150,7 +154,6 @@ int* GetGlobal02109030_020936f8(void);
 void* GetData02153634_020e3580(void);
 int IsField0Null_02046b08(void** obj);
 void EnqueueEventTag142_021cd6d8(struct Src021cd6d8* src);
-int IsAxisIntZero(struct AxisFloats0203b5f8* s, int axis);
 extern "C" void func_ov017_0219577c(int a, int b, int c);
 void RegisterNodeAndNotify_0219593c(void);
 void ResetAndSetFlag0x3c9Bit0_020939dc(void* obj);
@@ -162,7 +165,6 @@ int CheckFlag0x3c9Bit0OrByteNonPositive_0209494c(struct StateFlags3c9* obj);
 int CheckField0NonZero_0202b7d8(int* obj);
 unsigned int TestFlags02046708(struct FlagWord02046708* obj, unsigned int mask);
 void ClearFlag0x3c9Bit0AndCleanup_020939fc(unsigned char* obj);
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
 extern "C" void func_ov017_021c37a4(void);
 extern "C" int func_0202c508(struct SearchStruct* obj);
 int TestFlagBitAt0xe_0202c578(struct SearchStruct* obj, int value);
@@ -191,7 +193,6 @@ GameObject* GetCombatantWithFlag0x200_0200fee0(GameState* battleStruct, int comb
 void CallIndexedHandler_02195494(void* obj, int index, int val);
 extern "C" int func_0202bd68(struct SearchStruct* self, int bitIndex);
 void SetField4b0_02167240(void* obj);
-int GetAxisIntValue(struct AxisFloats0203b57c* s, int axis);
 extern "C" int abs(int x);
 extern "C" void func_ov017_021af59c(void* obj);
 void PrependNodeToHead(struct HeadList020469f8* list, struct HeadNode020469f8* node);
@@ -223,7 +224,6 @@ extern int data_ov017_021d63f0;
 extern int data_ov017_021d63d8;
 extern int data_ov017_021d63e4;
 extern int data_ov017_021d63fc;
-extern unsigned short data_02114e30;
 // USA: func_ov017_021941fc
 extern "C" ARM void func_ov017_021941fc(unsigned char* ov, unsigned char* mode, void** list) {
     struct Src021cd6d8 params;
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* ov, unsigned char* mode, 
     int* g;
     unsigned char* status;
     battle = GameState::GetInstance();
-    ctx = ((int)func_ov017_0218b5b0());
+    ctx = ((int)GetGameResources());
     search = func_0202ae18();
     actor = battle->GetUnknownGameObject();
     loader = (void*)(int)BackgroundLoader::GetInstance();
@@ -266,7 +266,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* ov, unsigned char* mode, 
         EnqueueEventTag142_021cd6d8(&params);
         *(unsigned short*)(ov + kRegionOffset4400 + kRegionOffsetac) = 0;
     }
-    if (IsAxisIntZero((struct AxisFloats0203b5f8*)ov, 0) != 0) {
+    if (IsBrightnessZero((GameResources*)ov, false) != 0) {
         int restart = 0;
         if (*(unsigned char*)(ov + 0x4000 + kRegionOffset2e3) != 0) {
             unsigned char* m = *(unsigned char**)((unsigned char*)ctx + 0x3000 + kRegionOffset734);
@@ -297,7 +297,7 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* ov, unsigned char* mode, 
         TestFlags02046708((struct FlagWord02046708*)flags, 0x1000) == 0) {
         ClearFlag0x3c9Bit0AndCleanup_020939fc((unsigned char*)g);
     }
-    if (GetBitsInField0_0203b4c4((unsigned int*)ov, 2) != 0) return;
+    if (TestFlags00((GameResources*)ov, 2) != 0) return;
     if (CheckField0NonZero_0202b7d8((int*)search) == 0) return;
     if (*(unsigned char*)(ov + 0x4000 + kRegionOffset2e1) != 0 &&
         ((BackgroundLoader*)loader)->GetNumQueuedTasks() == 0) {
@@ -406,8 +406,8 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* ov, unsigned char* mode, 
                 int ok = 1;
                 if (IsField0Null_02046b08(list) == 0) ok = 0;
                 if (mode[3] != 0 && mode[kRegionOffsetcf] == 2) ok = 1;
-                int dx = abs(GetAxisIntValue((struct AxisFloats0203b57c*)ov, 0));
-                if (dx + abs(GetAxisIntValue((struct AxisFloats0203b57c*)ov, 1)) > 0) ok = 0;
+                int dx = abs(GetBrightness((GameResources*)ov, false));
+                if (dx + abs(GetBrightness((GameResources*)ov, true)) > 0) ok = 0;
                 if (*(short*)((char*)actor + 0xac) != 0) ok = 0;
                 if (TestFlags02046708((struct FlagWord02046708*)flags, 0x200) != 0) ok = 1;
                 if (TestFlags02046708((struct FlagWord02046708*)flags, 0x400) != 0) ok = 0;
@@ -443,10 +443,10 @@ extern "C" ARM void func_ov017_021941fc(unsigned char* ov, unsigned char* mode, 
         (*(unsigned char**)(ov + 0x4000 + kRegionOffset41c))[0] = 0;
     }
 dispatched:
-    if (GetBitsInField0_0203b4c4((unsigned int*)ov, 2) != 0) return;
+    if (TestFlags00((GameResources*)ov, 2) != 0) return;
     if (CheckField0NonZero_0202b7d8((int*)search) == 0) return;
     struct Slot021941fc* slot = (struct Slot021941fc*)GetSubstructAt0x7c0_0202c19c(search);
-    if (GetBitsInField0_0203b4c4((unsigned int*)ov, 0x40) == 0) {
+    if (TestFlags00((GameResources*)ov, 0x40) == 0) {
         int kind = 0;
         unsigned char placed = 0;
         if (((Object3D*)((struct U16Field0x6_020375f8*)actor))->GetField06() == 10000 ||
@@ -483,7 +483,7 @@ dispatched:
         slot->angle = (short)posB[1];
         slot->kind = (unsigned short)kind;
         slot->f4 = GetEntryField0x4OrFieldA0202bc8c(search);
-        slot->f6 = data_02114e30;
+        slot->f6 = g_keyManager.currentKeys_;
         slot->bit12 = 1;
         slot->bit15 = placed;
         slot->members = 0;
@@ -526,10 +526,10 @@ dispatched:
     if (mode[kRegionOffsetcf] == 2) {
         slot->active |= mode[3];
     }
-    if (GetBitsInField0_0203b4c4((unsigned int*)ov, 0x40) == 0) {
+    if (TestFlags00((GameResources*)ov, 0x40) == 0) {
     unsigned char* pending = ov + kRegionOffset4300 + kRegionOffset55;
     for (int i = 0; i < 4; i++) {
-        if (i == 0 && GetBitsInField0_0203b4c4((unsigned int*)ov, 0x200) != 0) continue;
+        if (i == 0 && TestFlags00((GameResources*)ov, 0x200) != 0) continue;
         if (TestBitBySignedByteIndex_0202c1c0(search, i) == 0) continue;
         if (i == GetSearchStructCurrentArrEntry((struct SearchStruct0202c1a4*)search)) continue;
         SearchEntry0202c178* other = GetEntryBySignedByteIndex_0202c178(search, i);

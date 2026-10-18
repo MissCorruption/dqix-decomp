@@ -2,6 +2,10 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct TableA68;
 struct StoreStruct;
 struct Obj9b6c;

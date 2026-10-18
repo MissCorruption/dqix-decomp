@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3ec func_020cbeb8
+#endif
+
 extern "C" void func_020ca3ec(int value, void* dst, int size);
 void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 int EnqueueEvent0x0C_020d1ee4(int a, int b, int c, int d);

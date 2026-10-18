@@ -6,6 +6,7 @@ enum { RegionOffset70c = 0x70c, RegionOffset6fc = 0x6fc };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct Field3f8Struct;
 Field3f8Struct* GetField0x3f8Address_0200fd0c(GameState* bs);
@@ -21,7 +22,6 @@ void InsertNodeAfterHead(struct List02046a3c* list, struct Node02046a3c* node);
 struct TailList020469b4;
 struct TailNode020469b4;
 void AppendNodeToTail(struct TailList020469b4* list, struct TailNode020469b4* node);
-void ClearBitsInWord_0203b4b0(unsigned int* p, unsigned int mask);
 
 struct NodeHdr0219bd1c {
     char pad[2];
@@ -39,7 +39,7 @@ struct Field3f8Struct0219bd1c {
 // USA: func_ov017_0219bd1c  (semantic: Enqueue0219bd1c)
 extern "C" ARM void func_ov017_0219bd1c(int prepend, unsigned char sb, int insertAfterHead, unsigned char combatantFlag) {
     GameState* bs = GameState::GetInstance();
-    void* ctxRaw = func_ov017_0218b5b0();
+    void* ctxRaw = GetGameResources();
     char* ctx = (char*)ctxRaw + 0x3000;
     struct Field3f8Struct0219bd1c* field;
     void* list = *(void**)(ctx + RegionOffset6fc);
@@ -60,5 +60,5 @@ extern "C" ARM void func_ov017_0219bd1c(int prepend, unsigned char sb, int inser
     } else {
         AppendNodeToTail((struct TailList020469b4*)list, (struct TailNode020469b4*)node);
     }
-    ClearBitsInWord_0203b4b0((unsigned int*)ctxRaw, 4);
+    ClearFlags00((GameResources*)ctxRaw, 4);
 }

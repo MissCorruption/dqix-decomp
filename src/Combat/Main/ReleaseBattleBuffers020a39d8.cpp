@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 
 #if defined(jpn)
@@ -12,7 +13,7 @@
 // USA: func_020a39d8
 ARM void ReleaseBattleBuffers020a39d8(SafeAllocator* alloc) {
     GameState* battleStruct = GameState::GetInstance();
-    int base = ((int)func_ov017_0218b5b0());
+    int base = ((int)GetGameResources());
     int word = (int)battleStruct->GetTreasureMapLanguageData();
     alloc->Free(*(void**)(base + 0x4000 + BATTLE_BUFFER_FIELD));
     alloc->Free((void*)word);

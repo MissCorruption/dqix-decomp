@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define func_ov012_02185cf8 func_ov012_0218634c
@@ -111,7 +112,6 @@ extern "C" void func_ov023_021e7404(void* card, int input);
 extern "C" int func_0205d0e0(void* window, int input);
 extern "C" void func_ov012_02185cf8(ProfileEditor02184acc* self);
 Messages02184acc* GetGlobalField0x1c020421a0();
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 extern "C" void func_ov012_0218adac(ProfileEditor02184acc* self, int animate, int design, int keepPage);
 extern "C" int func_ov017_021959b4();
 extern "C" void func_ov012_021845f8(void* checker);
@@ -127,7 +127,6 @@ void ReinitController02043204(char* messages);
 
 extern "C" const StateTable02184acc data_ov012_0218b188;
 extern "C" StateFn02184acc data_020e6d5c;
-extern "C" unsigned short data_02114e30[];
 
 static inline Profile02184acc* GetProfile02184acc(GameState* gameState)
 {
@@ -153,7 +152,7 @@ extern "C" ARM int func_ov012_02184acc(ProfileEditor02184acc* self, int input)
     if ((self->state_ != 0 && self->state_ < 15) || (self->state_ == 0 && messages->busy_ != 0))
     {
 #if !defined(jpn)
-        if (messages->busy_ == 0 && TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800))
+        if (messages->busy_ == 0 && g_keyManager.TestKeysPressed(0x800))
         {
             self->unk_14bd = ++self->unk_14bd & 1;
             self->cardUnk_60c = self->unk_14bd;
@@ -165,7 +164,7 @@ extern "C" ARM int func_ov012_02184acc(ProfileEditor02184acc* self, int input)
 
 #endif
 #if defined(jpn)
-        if ((messages->busy_ == 0 && TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x800)) ||
+        if ((messages->busy_ == 0 && g_keyManager.TestKeysPressed(0x800)) ||
             TestFlagBitAt0xe_0202c578(func_0202ae18(), 0))
 #else
         if (func_ov017_021959b4())

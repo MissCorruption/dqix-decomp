@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_021aa41c(Obj021aa41c* p) {
     if (v0 * 10000 + v4 * 100 + v8 != p->f8 * 10000 + p->fa * 100 + p->fc) {
         InitFieldsFromCombatant_0219bcac(0);
     } else {
-        GameResources* ov = func_ov017_0218b5b0();
+        GameResources* ov = GetGameResources();
         SetBrightness(ov, 0, 30);
     }
     SetField5cb0AndRecordByte0_02010774(obj, p->f8);

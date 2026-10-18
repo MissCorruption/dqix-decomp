@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct BattleState;
 struct Combatant020A36A8;
@@ -73,7 +74,7 @@ extern "C" ARM void func_ov026_021dbd1c(BattleWork* self, int member, int notify
     BattleState* battle = self->battle;
     void* entries = GetData02108ea8_0207d78c();
     int* link = func_0202ae18();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     int wasMember = 0;
 
     if (_Z22TestBitAt0x34_020a35e0Phh(party, member)) {

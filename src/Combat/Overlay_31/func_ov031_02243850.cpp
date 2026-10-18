@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "System/Interrupts.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define data_ov031_0224c90c data_ov031_0224d50c
@@ -63,9 +64,9 @@ extern "C" ARM int func_ov031_02243850(void* state) {
         OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 0x80);
     }
 #if defined(jpn)
-    *(int*)((char*)func_ov017_0218b5b0() + 0x41e4) = 1;
+    *(int*)((char*)GetGameResources() + 0x41e4) = 1;
 #else
-    *(int*)((char*)func_ov017_0218b5b0() + 0x4494) = 1;
+    *(int*)((char*)GetGameResources() + 0x4494) = 1;
 #endif
     MarkContextStackTopUnknownSubspace(data_02111304.activeContext, 0x100);
     EnableSpecificInterrupts(0xc78);

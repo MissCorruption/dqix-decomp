@@ -21,7 +21,7 @@ struct Obj021b2968 {
 
 // USA: func_ov017_021b2968  (semantic: SetupStreamFieldsAndCounters_021b2968)
 extern "C" ARM int func_ov017_021b2968(struct Obj021b2968* self) {
-    GameResources* oddStruct = func_ov017_0218b5b0();
+    GameResources* oddStruct = GetGameResources();
 
     unsigned int bit3 = (self->flags0x38 << 28) >> 31;
     if (bit3) {

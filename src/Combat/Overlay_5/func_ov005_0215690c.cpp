@@ -2,6 +2,7 @@
 #include "GameState/Field3b0.h"
 #include <GameState/GameState.h>
 #include <Graphics/Vector.h>
+#include "Resource/GameResources.h"
 
 struct Obj0205eaa0;
 struct Vec3copy0202ec84;
@@ -107,7 +108,7 @@ extern "C" ARM void func_ov005_0215690c(EquipmentMenu* self, int x, int y) {
     Body* body;
     gameState = GameState::GetInstance();
     unsigned char page;
-    MemberScreen* screen = GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]);
+    MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     unsigned int member = screen->member_;
     if (!func_ov005_02157ae8(self, member))
         return;

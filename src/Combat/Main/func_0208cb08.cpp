@@ -3,6 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
+#include "Resource/Brightness.h"
 
 #define REG_SUB_BG_0208cb08 (*(volatile SubRegisters_0208cb08*)0x04001000)
 struct SubRegisters_0208cb08 {
@@ -50,7 +51,6 @@ struct Object_0208cb08 {
     unsigned short flags;
 };
 int GetWord0x0_0200fb8c(int*);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
 unsigned int* GetDataPtr02114e04_020d6c00();
 void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
 int GetHeadNodeIdOrMinusOne(HeadNode02046b24**);
@@ -82,7 +82,7 @@ extern "C" ARM void func_0208cb08(Object_0208cb08* object) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     GameResources* resources = (GameResources*)GetWord0x0_0200fb8c((int*)GameState::GetInstance());
     if (object->state == 0) {
-        SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 0x6000);
+        SetFlags00(resources, 0x6000);
         OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 1);
         FontBankLoader* global = GetGlobal02109400_02094a00();
         int notification = 0x67;

@@ -8,6 +8,24 @@
 #include "Resource/ActionDataTables.h"
 #include "World/LootableContainer.h"
 #include "Graphics/LightingManager.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
+#if defined(jpn)
+#define func_020c51dc func_020c6ca8
+#endif
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct GameResources;
 struct AllocatorUnion;
@@ -41,7 +59,6 @@ struct Struct_0203cf58;
 void InitWithExtendedRegion0203cf58(Struct_0203cf58*);
 extern "C" void* func_0202ae18();
 extern "C" void func_0202aec0(void* p);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
 void* GetData02100044_0202ae24();
 extern "C" void func_0205e22c(void* p);
 void* GetPtrField0x468_02011584(void* gs);
@@ -151,14 +168,12 @@ extern "C" int func_020dcd40();
 extern "C" void func_ov017_02191108(void* self, int a, int b, int c, int d);
 extern "C" void func_020897b4(int a, int b, int c, int d, int e, int f, int g, int h, int i);
 extern "C" void func_0201099c(void* gs);
-extern "C" void func_0201229c(void* p);
 void InitStruct02070378(char*);
 void SetField5cb0AndRecordByte0_02010774(char*, int);
 void SetField5cb4AndRecordByte1_020107a8(char*, int);
 void SetSlotByte020107dc(char*, int);
-void SetOrClearBitInArray_0206df6c(void* p, unsigned char* arr, int bit, int set);
+extern "C" void func_0206df6c(void* p, unsigned char* arr, int bit, int set);
 extern "C" void func_020120f0(void* gs);
-int TestFlagMask_02012430(unsigned short*, int);
 extern "C" int func_02032370(int n);
 void CopyToBattleField02039768(GameObject* obj, void* dst);
 short GetField0x397cValue_020100b0(GameState* gs);
@@ -226,8 +241,6 @@ extern "C" void func_0206e424(void* p, int a);
 void InitObj021bdbf0(unsigned char*);
 void ClearBuffer0202ad30();
 void FlushAndClearBuffer0202adf0();
-int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
-int GetBitsInField4_0203b4fc(unsigned int*, unsigned int);
 void InitCombatSubsystems02012efc();
 int IsBrightnessTransitionActive(GameResources*);
 int IsField0Null_02046b08(void**);
@@ -319,7 +332,6 @@ extern Flags02109bf4 data_02109bf4;
 extern char data_02108760;
 extern char data_ov017_021d615c;
 extern char data_02114e20;
-extern unsigned short data_02114e30;
 extern char data_ov017_021d736c;
 extern char data_ov017_021d7378;
 extern Pause021d82e0 data_ov017_021d82e0;
@@ -458,7 +470,7 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
     InitWithExtendedRegion0203cf58((Struct_0203cf58*)extRegion);
     void* search = func_0202ae18();
     func_0202aec0(search);
-    SetBitsInWord_0203b4a0((unsigned int*)self, 2);
+    SetFlags00((GameResources*)self, 2);
     func_0205e22c(GetData02100044_0202ae24());
     void* buffered = GetPtrField0x468_02011584(gs);
     ClearFirstThreeWords_02099898((unsigned int*)buffered);
@@ -663,22 +675,22 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
             if (fresh == 0) {
                 func_020897b4(0, 1, 6, 1, 1, 0, 0, 0, 0);
                 func_0201099c(gs);
-                func_0201229c(&data_02114e30);
+                g_keyManager.RefreshKeys();
                 if (GetByte0x4_0200fb9c((char*)gs) == 0) {
                     InitStruct02070378((char*)request);
                     request->id = 100;
                     SetField5cb0AndRecordByte0_02010774((char*)gs, 3);
                     SetField5cb4AndRecordByte1_020107a8((char*)gs, 1);
                     SetSlotByte020107dc((char*)gs, 1);
-                    SetOrClearBitInArray_0206df6c(bits, (unsigned char*)(bits + 0x8c), 0xaed, 1);
+                    func_0206df6c(bits, (unsigned char*)(bits + 0x8c), 0xaed, 1);
                     func_020120f0(gs);
                     GameObject* hero = gs->GetProtagonist();
                     if (hero != 0) {
                         Party150* party = (Party150*)GetFieldAt0x150_02053c6c((unsigned char*)hero);
                         if (party != 0) {
-                            if (TestFlagMask_02012430((unsigned short*)&data_02114e30, 0x100)) {
+                            if (g_keyManager.TestKeysHeld(0x100)) {
                                 party->active = 0;
-                            } else if (TestFlagMask_02012430((unsigned short*)&data_02114e30, 0x200)) {
+                            } else if (g_keyManager.TestKeysHeld(0x200)) {
                                 party->active = 1;
                             } else {
                                 party->active = (unsigned char)func_02032370(2);
@@ -828,7 +840,7 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
 
     for (;;) {
         int flag4000 = 0;
-        if (GetBitsInField0_0203b4c4((unsigned int*)self, 0x4000) != 0) {
+        if (TestFlags00((GameResources*)self, 0x4000) != 0) {
             flag4000 = 1;
         }
         InitCombatSubsystems02012efc();
@@ -885,7 +897,7 @@ extern "C" ARM void func_ov017_0218b688(Battle0218b688* self) {
         func_02043368(controller);
         func_ov017_0218cbd4(self);
         func_ov017_02191cc0(self);
-        if (data_ov017_021d82e0.paused == 0 && GetBitsInField4_0203b4fc((unsigned int*)self, 1) == 0) {
+        if (data_ov017_021d82e0.paused == 0 && TestFlags04((GameResources*)self, 1) == 0) {
             func_ov017_02195a20(self);
         }
         if (flag4000 != 0) {

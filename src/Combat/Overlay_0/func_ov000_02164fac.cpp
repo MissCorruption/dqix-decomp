@@ -6,6 +6,7 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "Filesystem/GPC.h"
 #include "GameState/GameState.h"
 #include "Resource/ActionDataTables.h"
+#include "Resource/GameResources.h"
 
 struct StreamHeader;
 struct Foo0207df50;
@@ -13,7 +14,6 @@ struct Obj02061bd8;
 struct Struct_203dafc;
 struct State0207dfc8;
 
-extern "C" GameResources* func_ov017_0218b5b0();
 extern "C" void* func_0202ae18(void);
 extern "C" void func_02012de8(void);
 
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
     Slot70* blocks;
 
     GameState* game = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     int* search = (int*)func_0202ae18();
     SafeAllocator* allocator = GetAllocator38(res, 7);
     blocks = (Slot70*)res->unknown_2cc;

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 
 extern "C" int func_ov017_021959b4(void);
 void DestroyTreeNode_02184604(void* self, unsigned char* node);
@@ -14,8 +15,6 @@ void CleanInvalidateCacheRange(const void* addr, unsigned int size);
 extern "C" int LoadToMainBG1CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" void LoadToMainBG1ScreenData(void* p, int a, int b);
 extern "C" int func_ov023_021f6bb8(void* obj);
-extern "C" int func_ov017_0218b5b0(void);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 
 extern char data_0211e33c[];
 
@@ -59,5 +58,5 @@ extern "C" ARM void func_ov011_02184770(char* self) {
     ((BackgroundLoader*)(listPtr))->RemoveTask((int)(key));
 
     BackgroundLoader::RemoveLockGlobal();
-    ClearBitsInField4_0203b4e8((unsigned int*)func_ov017_0218b5b0(), 0xc0);
+    ClearFlags04(GetGameResources(), 0xc0);
 }

@@ -1,9 +1,8 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-extern unsigned short data_02114e30;
 extern int data_ov000_02184294;
 
 #if defined(jpn)
@@ -22,7 +21,7 @@ extern "C" ARM int func_ov000_0217c594(void* objRaw, int limit) {
         return 0;
     }
     *(void**)((char*)&data_ov000_02184294 + activeObjectOffset) = objRaw;
-    int a = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int a = g_keyManager.TestKeysPressed(0x601);
     int b = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(obj + 0x188), 0x14);
     return (a | b) != 0;
 }

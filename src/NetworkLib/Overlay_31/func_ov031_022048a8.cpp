@@ -80,11 +80,10 @@ extern "C" ARM int func_ov031_022048a8(const unsigned char* name, unsigned int t
                 else if (status == 0) {
                     unsigned char* end = (unsigned char*)response + length;
                     char* position = (char*)(response + 1);
-                    unsigned short questions = CPS_GETUSHORT1(response->questionCount);
-                    int remaining = questions;
-                    if (remaining--) do {
+                    int remaining = (unsigned short)(response->questionCount[1] | (response->questionCount[0] << 8));
+                    while (remaining--) {
                         position = SkipControlSeq_02204878(position) + 4;
-                    } while (remaining--);
+                    }
                     if ((unsigned char*)position < end) do {
                         DnsRecordHeader022048a8* record = (DnsRecordHeader022048a8*)SkipControlSeq_02204878(position);
                         unsigned short dataLength = CPS_GETUSHORT1(record->length);

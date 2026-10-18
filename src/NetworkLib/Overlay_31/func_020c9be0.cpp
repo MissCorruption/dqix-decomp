@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" ARM void func_020c9be0(void);
 extern "C" ARM void func_ov031_02239368(int val);
 int IssueBattleCommandSlot2_020d503c(int arg);

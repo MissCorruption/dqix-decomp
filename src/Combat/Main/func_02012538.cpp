@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c39c8 func_020c5494
+#endif
+
 extern "C" int abs(int x);
-int GetSignedField020c39c8(volatile unsigned short* p);
+extern "C" int func_020c39c8(volatile unsigned short* p);
 void ResetBattlerState0201289c(unsigned char* obj);
 struct Obj020128d8;
 void SaveAndDisableBattlerState020128d8(struct Obj020128d8* obj);
@@ -19,8 +23,8 @@ extern "C" ARM int func_02012538(unsigned char* obj) {
         return 0;
     }
 
-    int dFar = GetSignedField020c39c8((volatile unsigned short*)0x0400106c);
-    int sum = abs(GetSignedField020c39c8((volatile unsigned short*)0x0400006c)) + abs(dFar);
+    int dFar = func_020c39c8((volatile unsigned short*)0x0400106c);
+    int sum = abs(func_020c39c8((volatile unsigned short*)0x0400006c)) + abs(dFar);
 
     if (sum >= 0x20) {
         SaveAndDisableBattlerState020128d8((struct Obj020128d8*)obj);

@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Entry_02028bd0;
 struct BinarySearchByComparatorStruct;
 struct Entry0209bd94;

@@ -2,11 +2,9 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
+#include "Input/Input.h"
 
-int TestFlagMask_02012430(unsigned short* obj, int mask);
 void GetVec3FromShorts_020968a4(unsigned char* src, int* out);
-
-extern unsigned short data_02114e30;
 
 struct Camera0218d8cc {
     int field_0x0;
@@ -66,15 +64,15 @@ extern "C" ARM void func_ov017_0218d8cc(Battle0218d8cc* self) {
     self->moveDir.y = 0;
     self->moveDir.z = 0;
 
-    if (TestFlagMask_02012430(&data_02114e30, 0x40)) {
+    if (g_keyManager.TestKeysHeld(0x40)) {
         Vector3fix_Add(&self->moveDir, &forward, &self->moveDir);
-    } else if (TestFlagMask_02012430(&data_02114e30, 0x80)) {
+    } else if (g_keyManager.TestKeysHeld(0x80)) {
         Vector3fix_Add(&self->moveDir, &back, &self->moveDir);
     }
 
-    if (TestFlagMask_02012430(&data_02114e30, 0x20)) {
+    if (g_keyManager.TestKeysHeld(0x20)) {
         Vector3fix_Add(&self->moveDir, &left, &self->moveDir);
-    } else if (TestFlagMask_02012430(&data_02114e30, 0x10)) {
+    } else if (g_keyManager.TestKeysHeld(0x10)) {
         Vector3fix_Add(&self->moveDir, &right, &self->moveDir);
     }
 

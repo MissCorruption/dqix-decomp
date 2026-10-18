@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/Brightness.h"
 
 struct Obj020397cc;
 struct List0206f7f4;
@@ -13,8 +14,6 @@ struct DialogTask {
 };
 unsigned int* GetWord0x0_0200fb8c(int*);
 unsigned char* GetFieldIfFlag4_020100f8(char*);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
 void CancelPendingAction020397cc(Obj020397cc*, int);
 void SetFlagsAt0x244_020a28a0(unsigned char*, unsigned char);
 void ClearFlagBits_020a28b0(unsigned char*, int);
@@ -44,7 +43,7 @@ extern "C" ARM void func_ov017_021ba998(DialogTask* self) {
     unsigned int* flags = GetWord0x0_0200fb8c((int*)state);
     GameObject* actor = state->GetUnknownGameObject();
     unsigned char* field = GetFieldIfFlag4_020100f8((char*)state);
-    SetBitsInField4_0203b4d8(flags, 0xc0);
+    SetFlags04((GameResources*)flags, 0xc0);
     CancelPendingAction020397cc((Obj020397cc*)actor, 1);
     SetFlagsAt0x244_020a28a0(field, 3);
     int ticks = state->GetTickCount();
@@ -78,13 +77,13 @@ extern "C" ARM void func_ov017_021ba998(DialogTask* self) {
         if (func_ov017_021959b4()) SetFlag8At_02159240(self->dialog_);
         if (func_ov003_02158e94(self->dialog_, ticks)) ++self->phase_;
     } else if (self->phase_ == 2) {
-        func_ov017_02191108(func_ov017_0218b5b0(), 1, 1, 1, 1);
+        func_ov017_02191108(GetGameResources(), 1, 1, 1, 1);
         func_ov003_02158d4c(self->dialog_);
         ++self->phase_;
     } else if (self->phase_ == 3) {
         int displayMode = GetField94_0215916c(self->dialog_);
         REG_DISPCNT = (REG_DISPCNT & ~0x1f00) | displayMode << 8;
-        ClearBitsInField4_0203b4e8(flags, 0xc0);
+        ClearFlags04((GameResources*)flags, 0xc0);
         SetByteField0x253_020397c0(actor);
         ClearFlagBits_020a28b0(field, 3);
         func_ov017_021ba94c(self);

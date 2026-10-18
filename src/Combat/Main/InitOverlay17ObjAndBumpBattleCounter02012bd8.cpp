@@ -11,9 +11,9 @@ extern char data_027e0000;
 // USA: func_02012bd8
 ARM void InitOverlay17ObjAndBumpBattleCounter02012bd8() {
     if (IsIndexMappedToSelf020a18f4(OVERLAY_ID(17))) {
-        func_ov017_0218b5b0();
-        if (func_ov017_0218b5b0() != NULL) {
-            ApplyBrightness(func_ov017_0218b5b0());
+        GetGameResources();
+        if (GetGameResources() != NULL) {
+            ApplyBrightness(GetGameResources());
         }
     }
     (*(int*)((char*)GameState::GetInstance() + 0x3c8))++;

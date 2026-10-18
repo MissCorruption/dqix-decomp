@@ -1,3 +1,11 @@
+#if defined(jpn)
+#define func_020d8524 func_020d9e88
+#endif
+
+#if defined(jpn)
+#define func_020d84f8 func_020d9e5c
+#endif
+
 #pragma once
 
 // All the functions here are vectorized versions of the libc memory write
@@ -29,5 +37,5 @@ void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int length);
 
 }
 
-unsigned int CopyRegionAndFlushCache_020d8524(void* dst, const void* src, unsigned int length);
-unsigned int ClearAndInit020d84f8(void* dst, unsigned int length);
+extern "C" unsigned int func_020d8524(void* dst, const void* src, unsigned int length);
+extern "C" unsigned int func_020d84f8(void* dst, unsigned int length);

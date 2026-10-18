@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 struct NetworkRecord {
     unsigned int field_0;
     unsigned char address_[6];

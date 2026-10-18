@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void);
 extern "C" void func_0206e748(void* a, unsigned char b, unsigned char c, unsigned short d, unsigned short e);
 void SetByteIfDataAndCheckClear_021a01bc(unsigned char* self);

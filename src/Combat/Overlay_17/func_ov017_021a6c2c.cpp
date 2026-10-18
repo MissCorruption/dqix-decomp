@@ -5,6 +5,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
+#include "Resource/GameResources.h"
 
 struct Obj020397cc;
 struct Base02010834;
@@ -80,7 +81,7 @@ static inline ResourceState021a6c2c* ResourceStateBuffer021a6c2c(GameResources* 
 extern "C" ARM void func_ov017_021a6c2c(Event021a6c2c* self) {
     GameState* game = GameState::GetInstance();
     GameObject* leader = game->GetUnknownGameObject();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     void* manager = func_02057924();
     func_0202ae18();

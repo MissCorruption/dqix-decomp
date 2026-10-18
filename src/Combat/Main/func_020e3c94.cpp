@@ -94,7 +94,7 @@ extern "C" ARM void func_020e3c94(CombatState020e3c34* obj) {
             *(int*)((base + obj->word_c * 4) + 0x138) = obj->word_10;
         }
         if (obj->word_20 & 4) {
-            func_ov017_0218f5a4((char*)func_ov017_0218b5b0(), obj->byte9, 0, 0, 1);
+            func_ov017_0218f5a4((char*)GetGameResources(), obj->byte9, 0, 0, 1);
         }
     }
 

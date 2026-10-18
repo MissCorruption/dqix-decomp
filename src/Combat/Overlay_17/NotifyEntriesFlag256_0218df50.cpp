@@ -1,8 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/EntryGetterTypes.h"
+#include "Resource/Brightness.h"
 
-extern "C" int func_ov017_0218b5b0(void);
-unsigned int GetBitsInField0_0203b4c4(unsigned int* obj, unsigned int mask);
 void* GetGlobalPtr021075f4_0203cf4c(void);
 
 struct Entry_203dce4;
@@ -16,8 +15,8 @@ extern "C" int func_ov017_0218dd18(void* a, struct Entry_203dce4* entry, void* b
 // USA: func_ov017_0218df50
 ARM int NotifyEntriesFlag256_0218df50(void* a, void* b) {
 	int result = 0;
-	int ctx = func_ov017_0218b5b0();
-	if (GetBitsInField0_0203b4c4((unsigned int*)ctx, 0x100) == 0) {
+	GameResources* ctx = GetGameResources();
+	if (TestFlags00(ctx, 0x100) == 0) {
 		void* list = GetGlobalPtr021075f4_0203cf4c();
 		for (int i = 0; i < 0x20; i++) {
 			struct Entry_203dce4* entry = GetEntryUnlessFlag0x8000_0203dce4((struct EntryList_203dce4*)list, i);

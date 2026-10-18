@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 void* GetData02100044_0202ae24(void);
 extern "C" void func_0205e330(void* a, void* b, int c);
 
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov017_021ce29c(void) {
  enum {regionalOffset0=0xb30};
 #endif
 	void* p = GetData02100044_0202ae24();
-	int raw = func_ov017_0218b5b0();
+	int raw = (int)GetGameResources();
 	unsigned char* src = *(unsigned char**)((char*)raw + 0x3000 + regionalOffset0);
 
 	struct LocalEvt021ce29c buf;

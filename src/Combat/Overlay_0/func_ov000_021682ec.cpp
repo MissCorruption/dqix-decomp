@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
+#include "Resource/GameResources.h"
 struct ActorData {char p[0x49c];unsigned char special:1,rest:7;};
 struct Allocators {char p[0x52c];SafeAllocator first,second;};
 struct Extension {char p[0x13c];int* scriptState;
@@ -22,10 +23,10 @@ char p[0x77d6];
 Item items[4];unsigned char count;inline int GetCount(){return count;}};
 GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*,int);int IsField0Null_02046b08(void**);void FormatEffectStats02072c9c(int,char*);
 struct Struct_203dafc;void ClearEightWords_0203dafc(Struct_203dafc*);struct StreamHeader;void RunOverlayScript0216d1c4(int,StreamHeader*,int,int*);struct Bytes02033b88;void SetByte0xbeShiftPrev(Bytes02033b88*,int);
-extern "C" {int sprintf(char*,const char*,...);GameResources* func_ov017_0218b5b0();void func_ov000_0216867c(Root*,int);extern const char data_ov000_02183ad8[],data_ov000_02183ae0[],data_ov000_02183afb[],data_ov000_02183b03[];}
+extern "C" {int sprintf(char*,const char*,...);void func_ov000_0216867c(Root*,int);extern const char data_ov000_02183ad8[],data_ov000_02183ae0[],data_ov000_02183afb[],data_ov000_02183b03[];}
 // USA: func_ov000_021682ec
 extern "C" ARM void func_ov000_021682ec(Root* self){
- int count=self->count;BackgroundLoader* loader;GameState* gs;SafeAllocator* allocator;int i;Item* item;GameObject* unit; if(count==0)return;gs=GameState::GetInstance();loader=BackgroundLoader::GetInstance();void** resource=(void**)func_ov017_0218b5b0()->unknown_ptr_array_36fc[1];
+ int count=self->count;BackgroundLoader* loader;GameState* gs;SafeAllocator* allocator;int i;Item* item;GameObject* unit; if(count==0)return;gs=GameState::GetInstance();loader=BackgroundLoader::GetInstance();void** resource=(void**)GetGameResources()->unknown_ptr_array_36fc[1];
  char filename[64];ObjectArchiveLoadInfo firstInfo,secondInfo;char code[8];void* file;unsigned int size;const void* script;unsigned int scriptSize;int scriptState;
  for(i=0;i<self->GetCount();i++){
   item=&self->items[i];

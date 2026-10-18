@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "World/ZoneChest.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34();
 
 // USA: func_02018c74

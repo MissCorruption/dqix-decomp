@@ -1,7 +1,7 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 extern "C" void func_ov002_0215a920(void*);
-extern "C" int func_ov017_0218b5b0(void);
 
 // USA: func_ov002_0215a8cc
 ARM int ClearPendingFlag0215a8cc(char* p) {
@@ -12,7 +12,7 @@ ARM int ClearPendingFlag0215a8cc(char* p) {
     unsigned int val2 = *(unsigned int*)(p + 0x2000 + 0x544);
     *(short*)(p + 0x1b00 + 0xfe) = (short)val2;
     func_ov002_0215a920(blk);
-    char* other = (char*)func_ov017_0218b5b0();
+    char* other = (char*)GetGameResources();
     void* obj2 = *(void**)(other + 0x3000 + 0x71c);
     func_ov002_0215a920((char*)obj2 + 0x24);
     return 1;

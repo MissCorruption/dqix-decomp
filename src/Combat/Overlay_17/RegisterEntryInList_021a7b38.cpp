@@ -6,6 +6,7 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset718 = 0x718 };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" unsigned short* func_02012fe4(void* p);
 struct ListHead02046b60;
@@ -34,7 +35,7 @@ struct Ctx021a7b38 {
 // USA: func_ov017_021a7b38
 ARM void RegisterEntryInList_021a7b38(struct Ctx021a7b38* self, void* context) {
     GameState::GetInstance();
-    char* base = (char*)(long)((int)func_ov017_0218b5b0()) + 0x3000;
+    char* base = (char*)(long)((int)GetGameResources()) + 0x3000;
     struct ListHead02046b60* list = *(struct ListHead02046b60**)(base + RegionOffset6fc);
     struct ListNode02046b38* node = *(struct ListNode02046b38**)(base + RegionOffset718);
     unsigned short id = *func_02012fe4(base);

@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 int LookupAndForEachNode020649b0(void* a, int mode, void* c);

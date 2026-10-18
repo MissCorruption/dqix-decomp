@@ -6,6 +6,7 @@ enum { RegionOffset7f60 = 0x7f60 };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Vec3_021c3f68 {
     int x;
@@ -37,7 +38,7 @@ extern "C" int func_0202c508(void* p);
 extern "C" ARM void func_ov017_021c3e18(unsigned char arg) {
     unsigned short* mapId = func_02012fe4();
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     Party021c3e18* party = (Party021c3e18*)GetPtrField0x2a04_02010828(gs);
     Battle021c3e18* battle = (Battle021c3e18*)res->unknown_ptr_3718;
     void* search = func_0202ae18();

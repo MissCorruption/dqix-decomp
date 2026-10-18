@@ -4,6 +4,7 @@
 #include <Memory/SafeAllocator.h>
 #include <Grotto/Main/ActiveGrottoClass.h>
 #include <GameState/GameState.h>
+#include "Resource/GameResources.h"
 
 struct BinarySearchByComparatorStruct;
 struct TableA68;
@@ -227,7 +228,7 @@ extern "C" ARM int func_ov023_021eefd0(BattleScene_021eefd0* self)
                 return self->endState_;
             }
         }
-        GameResources* resources = func_ov017_0218b5b0();
+        GameResources* resources = GetGameResources();
         void* unk = NULL;
         Unknown_021b8478_021eefd0* unk2 = NULL;
         int kind = -1;

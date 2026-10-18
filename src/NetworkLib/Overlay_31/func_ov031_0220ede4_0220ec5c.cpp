@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca4b4 func_020cbf80
+#endif
+
 int GetData0224e53c_0220d60c(void);
 struct Node0220ede4;
 extern "C" ARM Node0220ede4* func_ov031_0220ede4(unsigned char* key);

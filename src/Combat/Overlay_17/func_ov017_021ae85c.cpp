@@ -6,6 +6,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/AllocatorUnion.h"
 #include "World/ZoneLootableRecord.h"
+#include "Resource/GameResources.h"
 
 struct Bytes02033b88;
 struct Obj020397cc;
@@ -94,7 +95,7 @@ extern "C" ARM void func_ov017_021ae85c(Event021ae85c* self) {
     func_02012fe4();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     void* search = func_0202ae18();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     if (func_0202c540(search)) {
         if (resources->unknown_flag_42e2) {
             func_ov017_021aeea8(self); self->done = 1; return;

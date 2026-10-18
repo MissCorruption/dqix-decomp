@@ -1,8 +1,7 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
 struct AxisFloats0203b5f8;
-int IsAxisIntZero(struct AxisFloats0203b5f8* s, int axis);
-extern "C" struct AxisFloats0203b5f8* func_ov017_0218b5b0(void);
 int GetGlobalField0x1c020421a0(void);
 extern char* data_ov004_02171010;
 struct SelectionState {
@@ -33,8 +32,8 @@ enum { StatusOffset021652e8 = 0x998, ObjectOffset021652e8 = 0x6d0 };
 // USA: func_ov004_021652e8
 ARM int UpdateAxisFlagAndDispatch_021652e8(void* a1) {
 #endif
-    struct AxisFloats0203b5f8* axis = func_ov017_0218b5b0();
-    if (!IsAxisIntZero(axis, 0) || !IsAxisIntZero(axis, 1)) return 0;
+    struct AxisFloats0203b5f8* axis = (struct AxisFloats0203b5f8*)GetGameResources();
+    if (!IsBrightnessZero((GameResources*)axis, false) || !IsBrightnessZero((GameResources*)axis, true)) return 0;
     if (*(void**)((char*)GetGlobalField0x1c020421a0() + StatusOffset021652e8) != NULL) return 0;
 
     {
@@ -50,7 +49,7 @@ ARM int UpdateAxisFlagAndDispatch_021652e8(void* a1) {
             *mode = 0;
         }
 
-        unsigned char* fieldObj = *(unsigned char**)((char*)func_ov017_0218b5b0() + 0x3000 + ObjectOffset021652e8);
+        unsigned char* fieldObj = *(unsigned char**)((char*)GetGameResources() + 0x3000 + ObjectOffset021652e8);
         unsigned char v2 = ((SelectionState*)data_ov004_02171010)->mode;
         if (v2 == 1) {
             SetByteFieldAt0x765_02026420(fieldObj, 0);

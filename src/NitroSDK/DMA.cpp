@@ -2,7 +2,9 @@
 #include "System/Interrupts.h"
 #include <globaldefs.h>
 
-
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 
 extern "C"
 {

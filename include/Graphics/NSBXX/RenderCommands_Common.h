@@ -5,7 +5,6 @@
 // this in instead
 
 #include "NSBXX.h"
-#include "PivotMatrixLookup.h"
 #include "../../System/Graphics.h"
 #include "GeometryFifo.h"
 #include "RenderCommands.h"
@@ -13,10 +12,10 @@
 #include "Animation.h"
 #include <asmhacks.h>
 
-#pragma optimize_for_size off
-
 #if defined(jpn)
 #define data_020e9240 data_020e934c
+#define data_020e9260 data_020e936c
+#define data_020e9284 data_020e9390
 #define data_020f1ce0 data_020f1e4c
 #define data_020f1cec data_020f1e58
 #define data_020f1cf8 data_020f1e64
@@ -24,9 +23,26 @@
 #define data_020f1d78 data_020f1ee4
 #define data_020f1dc0 data_020f1f2c
 #define data_020f1e08 data_020f1f74
+#define data_0210a274 data_02109f2c
 #define data_0210a278 data_02109f30
 #define data_0210b078 data_0210ad30
+#define data_0210b678 data_0210b330
 
+#define func_020c1868 func_020c3334
+#define func_020c223c func_020c3d08
+#define func_020c2c5c func_020c4728
+#define func_020c2cf0 func_020c47bc
+#define func_020c2eb8 func_020c4984
+#define func_020c2f18 func_020c49e4
+#define func_020c5188 func_020c6c54
+#define func_020c51a4 func_020c6c70
+#define func_020c51c0 func_020c6c8c
+#define func_020c54fc func_020c6fc8
+#define func_020c552c func_020c6ff8
+#define func_020ca3ec func_020cbeb8
+#define func_020ca408 func_020cbed4
+#define func_020ca430 func_020cbefc
+#define func_020ca458 func_020cbf24
 #define func_020ca7d0 func_020cc29c
 #endif
 
@@ -43,13 +59,19 @@
 // emission color and (enable specular reflection shininess table yes/no)
 extern unsigned int const data_020e9240[];
 
-// Holds { _Z36BoneMatrixScaleCalculationProc_Type0P20BoneMatrixRenderDataPN15NSBXXBoneMatrix7ScalingEPhi, _Z36BoneMatrixScaleCalculationProc_Type1P20BoneMatrixRenderDataPN15NSBXXBoneMatrix7ScalingEPhi, _Z36BoneMatrixScaleCalculationProc_Type2P20BoneMatrixRenderDataPN15NSBXXBoneMatrix7ScalingEPhi }.
+// pivot matrix a/b/c/d position lookup
+// both arrays are identical
+extern struct {
+    uint8_t a, b, c, d;
+} const data_020e9260[], data_020e9284[];
+
+// Holds { func_020b9a2c, func_020b9b30, func_020ba390 }.
 // Called by command 6 to populate scaling data for the bone matrix
 extern void (*data_020f1cec[])(BoneMatrixRenderData*, NSBXXBoneMatrix::Scaling* boneMatrixScaleData, uint8_t* ip, int boneMatrixFlags);
-// Holds { _Z34BoneMatrixDataSubmissionProc_Type0P20BoneMatrixRenderData, _Z34BoneMatrixDataSubmissionProc_Type1P20BoneMatrixRenderData, _Z34BoneMatrixDataSubmissionProc_Type2P20BoneMatrixRenderData }
+// Holds { func_020b99b0, func_020b9a6c, func_020ba264 }
 // Called by command 6 to apply bone matrix transformations via the GXFifo
 extern void (*data_020f1ce0[])(BoneMatrixRenderData*);
-// Holds { _Z35MaterialTextureMatrixLoadProc_Type0P18MaterialRenderData _Z35MaterialTextureMatrixLoadProc_Type1P18MaterialRenderData, _Z35MaterialTextureMatrixLoadProc_Type2P18MaterialRenderData, _Z35MaterialTextureMatrixLoadProc_Type3P18MaterialRenderData }
+// Holds { func_020ba11c func_020ba5ac, func_020bac74, func_020bb29c }
 extern void (*data_020f1cf8[])(MaterialRenderData*);
 
 extern struct Struct_020f1d08
@@ -102,29 +124,53 @@ struct Struct_0210b078
 {
     Vector3fix vec0_;
     BoneMatrixRenderData::Scale vec1_;
-} extern data_0210b078[64];
+};
 
 struct Struct_0210b678
 {
     Matrix4x4 mat4x4;
     Matrix3x3 mat3x3;
-} extern data_0210b678[];
+};
+
+extern struct
+{
+    Struct_0210b078 vectorData[64];
+    Struct_0210b678 matrixData[64];
+} data_0210b078;
 
 extern "C"
 {  
+#if true
+    // expand a 3x4 matrix (param 1) into a 4x4 matrix (param 2)
+    void func_020c1868(const void*, void*);
+    // multiply 4x4 matrices, store in param 3.
+    // set up so that you can safely have param_3 = param_1 or param_2
+    // The arrangement is such that param_3 represents the transformation
+    // (do param_1) then (do param_2). In row major representation this is
+    // param_1 * param_2, in col major it's param_2 * param_1.
+    void func_020c223c(const void*, const void*, void*);
+    // get length of vector3
+    fix32_t func_020c2eb8(const void*);
+    // fix32_t division: retrieve result from hardware divider
+    fix32_t func_020c2c5c();
+    // fix32_t division: set up hardware divider
+    void func_020c2cf0(fix32_t a, fix32_t b);
+    // normalize vector3 (param 1) into vector3 (param 2)
+    void func_020c2f18(const void*, void*);
+#endif
     // load the specified matrix into the current matrix (3x4).
-    void _Z25IssueCommand0x17_020c5188i(const fix32_t*);
+    void func_020c5188(const fix32_t*);
     // multiply the current matrix by the specified one (3x4), i.e carry
     // out GXFIFO operation 0x19
-    void _Z25IssueCommand0x19_020c51a4i(const fix32_t*);
+    void func_020c51a4(const fix32_t*);
     // multiply by the specified 3x3 matrix (instruction 0x1a)
-    void _Z25IssueCommand0x1A_020c51c0i(const fix32_t*);
+    void func_020c51c0(const fix32_t*);
     // try to get the clip matrix into the pointer specified (4x4 fix32_t matrix)
     // returns -1 if still waiting, 0 if done
-    int _Z33SubmitBlock0x40IfNotBusy_020c54fci(void*);
+    int func_020c54fc(void*);
     // try to get the result matrix (current directional vector matrix)
     // returns -1 if still waiting, 0 if done
-    int _Z33SubmitBlock0x80IfNotBusy_020c552ci(void*);
+    int func_020c552c(void*);
     // memset via u32 values
     void func_020ca3ec(int value, void* dst, unsigned int len);
     // memcpy via u32 values

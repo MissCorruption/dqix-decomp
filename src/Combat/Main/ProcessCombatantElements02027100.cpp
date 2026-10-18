@@ -6,6 +6,7 @@ enum { kIdsOffset = 0x6ac, kCountOffset = 0x6b0, kMaskOffset = 0x6b1 };
 enum { kIdsOffset = 0x758, kCountOffset = 0x75c, kMaskOffset = 0x75d };
 #endif
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_0203bd08(void);
 int GetFieldAt0x150_02053c6c(unsigned char* obj);
@@ -18,7 +19,7 @@ extern int data_020fdcb0;
 ARM void ProcessCombatantElements02027100(unsigned char* obj) {
     GameState* battle = GameState::GetInstance();
     func_0203bd08();
-    ((int)func_ov017_0218b5b0());
+    ((int)GetGameResources());
     for (int i = 0; i < obj[kCountOffset]; i++) {
         unsigned char* p = obj + i;
         int id = p[kIdsOffset];

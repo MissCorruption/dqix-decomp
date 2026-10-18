@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { kRegionValue318_200 = 0x200 };
@@ -15,7 +16,6 @@ enum { kRegionValue468_290 = 0x468 };
 #endif
 
 void* GetDataPtr02114e04_020d6c00(void);
-extern "C" int func_ov017_0218b5b0(void);
 struct GameResources;
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
@@ -37,18 +37,18 @@ struct Self02160e34 {
 extern "C" ARM int func_ov003_02160e34(struct Self02160e34* self) {
 	int result = 0;
 	void* dataPtr = GetDataPtr02114e04_020d6c00();
-	int w = func_ov017_0218b5b0();
+	GameResources* w = GetGameResources();
 	unsigned char state = self->field4a8;
 
 	if (state == 0) {
-		SetSubBrightness((GameResources*)w, -16, 8);
+		SetSubBrightness(w, -16, 8);
 		self->field4a8 = self->field4a8 + 1;
 		goto end;
 	}
 	if (state != 1) {
 		goto end;
 	}
-	if (IsSubBrightnessTransitionActive((GameResources*)w) != 0) {
+	if (IsSubBrightnessTransitionActive(w) != 0) {
 		goto end;
 	}
 

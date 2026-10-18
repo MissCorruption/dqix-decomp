@@ -8,6 +8,7 @@ enum { kMetadataOffset = 0x6c };
 
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
+#include "Resource/GameResources.h"
 
 struct HeadNode02046b24;
 int GetHeadNodeIdOrMinusOne(struct HeadNode02046b24** obj);
@@ -20,7 +21,7 @@ ARM void ProcessGrottoTurnEvent0208f4e4(unsigned char* obj) {
     GameState* battle = GameState::GetInstance();
     void* miscPtr;
     void* headList;
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     headList = res->unknown_ptr_array_36fc[0];
     miscPtr = func_02012fe4();
     if (obj[0xb5]) {

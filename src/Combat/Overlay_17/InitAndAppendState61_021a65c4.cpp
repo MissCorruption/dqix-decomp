@@ -16,7 +16,7 @@ static const int kList=0x6fc, kNode=0xb8c;
 
 // USA: func_ov017_021a65c4
 ARM void InitAndAppendState61_021a65c4(void* unused, unsigned char b, int flag) {
-	GameResources* ov = func_ov017_0218b5b0();
+	GameResources* ov = GetGameResources();
 	char* base = (char*)ov + 0x3000;
 	TailList020469b4* list = *(TailList020469b4**)(base + kList);
 	Obj021a6608* node = *(Obj021a6608**)(base + kNode);

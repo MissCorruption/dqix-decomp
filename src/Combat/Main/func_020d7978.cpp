@@ -20,7 +20,7 @@ extern char data_020f2334;
 // USA: func_020d7978
 extern "C" ARM void func_020d7978() {
     DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 1, 0);
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     TailList020469b4* list;
     unsigned char* obj = static_cast<unsigned char*>(res->unknown_ptr_array_3afc[20]);
     list = static_cast<TailList020469b4*>(res->unknown_ptr_array_36fc[0]);

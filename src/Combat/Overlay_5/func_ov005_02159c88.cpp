@@ -162,7 +162,7 @@ extern "C" ARM void func_ov005_02159c88(Menu02159c88* self) {
                 void* elem = FindElementByKey020dedd0((Container020dedd0*)self->container, (short)id);
                 if (elem != 0) {
                     Obj02159c88* o = s->obj;
-                    GameResources* res = func_ov017_0218b5b0();
+                    GameResources* res = GetGameResources();
                     MemberScreen* holder = GetField1c_021a193c((int*)res->unknown_ptr_array_36fc[3]);
                     if (func_020dd4c4(holder->member, elem) != 0) {
                         int px = s->x;

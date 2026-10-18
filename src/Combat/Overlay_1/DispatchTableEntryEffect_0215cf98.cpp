@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 extern "C" int func_ov017_021d60f4(void*);
 int CallHelperIfCheckPasses_0218fcf8(int a, int b, int c);
 int CallHelperIfCheckPasses_0218f92c(int a, int b, int c);
@@ -13,7 +13,7 @@ struct TableEntry_0215cf98 { int type; char pad4[8]; void* field0xc; };
 
 // USA: func_ov001_0215cf98  (semantic: DispatchTableEntryEffect_0215cf98)
 extern "C" ARM int func_ov001_0215cf98(void* self, int mode) {
-    int ctx = func_ov017_0218b5b0();
+    int ctx = (int)GetGameResources();
     int id = func_ov017_021d60f4(self);
     struct TableEntry_0215cf98* e = (struct TableEntry_0215cf98*)(data_ov001_02165880.elems + id * 0x10);
 

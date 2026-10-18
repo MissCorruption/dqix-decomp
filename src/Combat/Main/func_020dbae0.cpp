@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "System/OverlayId.h"
+#include "Resource/GameResources.h"
 
 struct Obj020db964;
 struct Struct020db9a8;
@@ -9,7 +10,6 @@ struct Obj020db3f4;
 
 void RefreshSlots0x5cFromCallbacks(Obj020db964* obj);
 int IsIndexMappedToSelf020a18f4(unsigned int idx);
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void func_020db894(void* obj);
 int GetSwapBitIfFlag54Clear(Struct020db9a8* obj);
 extern "C" void func_020db3f4(Obj020db3f4* obj);
@@ -27,7 +27,7 @@ extern "C" ARM void func_020dbae0(void* obj) {
     if (!IsIndexMappedToSelf020a18f4(OVERLAY_ID(17))) {
         return;
     }
-    void* resources = func_ov017_0218b5b0();
+    void* resources = GetGameResources();
     if (*(unsigned char*)(p + 0x50) == 0 || resources == NULL) {
         func_020db894(obj);
         return;

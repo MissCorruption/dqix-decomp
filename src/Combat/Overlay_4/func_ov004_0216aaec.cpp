@@ -12,6 +12,10 @@ enum { kTextBytes = 0x960, kPanelOffset = 4 };
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct IdList0216aaec {
     int ids[7];
 };
@@ -118,7 +122,7 @@ extern "C" ARM int func_ov004_0216aaec(void* a) {
         SetOffset100Fields_021f8960((char*)panel, 0, kPanelOffset);
     }
 
-    struct ToggleState* toggle = (struct ToggleState*)func_ov017_0218b5b0()->unknown_ptr_36d0;
+    struct ToggleState* toggle = (struct ToggleState*)GetGameResources()->unknown_ptr_36d0;
     SetToggleState_02021410(toggle, 1, 0);
     SetFlag0x9c6_020213fc((struct SetFlagStruct*)toggle, 0);
     return 0;

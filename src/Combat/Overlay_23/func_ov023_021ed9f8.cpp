@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_ov017_02195658(void);
 void* GetData02108ea8_0207d78c(void);
@@ -49,7 +50,7 @@ extern "C" ARM void func_ov023_021ed9f8(char* obj) {
 #endif
     GameState::GetInstance();
     int dataX = (int)BackgroundLoader::GetInstance();
-    ((int)func_ov017_0218b5b0());
+    ((int)GetGameResources());
     unsigned char* p = *(unsigned char**)(obj + regionalOffset0);
     int n = func_ov017_02195658();
     if (n > 0) {

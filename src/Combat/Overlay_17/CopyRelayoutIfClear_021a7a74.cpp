@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" int func_ov017_0218b5b0(void);
 struct HeadNode02046b24;
 int GetHeadNodeIdOrMinusOne(HeadNode02046b24** obj);
 struct TailList020469b4;
@@ -16,7 +16,7 @@ extern "C" ARM void func_ov017_021a7a74(void* unused0, unsigned char* src) {
 #else
  enum {regionalOffset0=0x6fc, regionalOffset1=0xb0c, regionalOffset2=0xb98};
 #endif
-    int base0 = func_ov017_0218b5b0();
+    int base0 = (int)GetGameResources();
     HeadNode02046b24** list = *(HeadNode02046b24***)(base0 + 0x3000 + regionalOffset0);
     int id = GetHeadNodeIdOrMinusOne(list);
     if (id == 0x1a) {

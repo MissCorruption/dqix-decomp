@@ -1,12 +1,13 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct Struct_0205c570;
 struct Obj0205eaa0;
 
 int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 int CheckFlagOrThreshold_02161b48(char *self, int flag);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *obj, int mask);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void *GetFieldAt0x150_02053c6c(unsigned char *p);
@@ -25,7 +26,6 @@ extern "C" void func_ov002_02156e90(char *self);
 struct Struct_0205d81c;
 void SetElementFieldC2_0205deb4(Struct_0205d81c*, int, int);
 
-extern unsigned short data_02114e30;
 extern Obj0205eaa0 data_02108760;
 
 // USA: func_ov002_0216806c
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov002_0216806c(char *self) {
             CopyPaletteEntry0215af64(self);
             func_ov002_0215b9a4(self, 0x1d, 0);
         }
-        int a  = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+        int a  = g_keyManager.TestKeysPressed(0x601);
         int b  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0xec8), 0x14);
         int ok = (a | b) ? 1 : 0;
         if (ok) {
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov002_0216806c(char *self) {
             unsigned char *f = (unsigned char *) GetFieldAt0x150_02053c6c((unsigned char *) member);
             if (f[0x56a] != *(short *) (self + 0x1c06) && *(short *) (f + 0x488) < 0) {
                 member->obj3D_.unknown_2_ = -1;
-                func_ov017_0218f5a4(func_ov017_0218b5b0(), id, 0, 0, 0);
+                func_ov017_0218f5a4(GetGameResources(), id, 0, 0, 0);
             }
             f[0x56a] = *(short *) (self + 0x1c06);
             func_ov002_02161a8c();

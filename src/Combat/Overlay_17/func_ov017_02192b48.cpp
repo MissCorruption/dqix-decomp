@@ -120,7 +120,7 @@ extern "C" ARM int func_ov017_02192b48(TerrainGrid* grid, Probe02192b48* probe, 
     int i;
 
     gs = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     zone = (Zone02192b48*)func_02012fe4();
     total = 0;
     for (i = 0; i < count; i++) {

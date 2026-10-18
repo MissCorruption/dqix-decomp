@@ -4,6 +4,7 @@
 #include "Resource/Brightness.h"
 #include "std_library_functions.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct EntryA68;
 struct TableA68 {
@@ -143,7 +144,6 @@ int CheckField0NonZero_0202b7d8(int *obj);
 extern "C" void func_0202b0f4(void *obj);
 void SelectCoordsByFlag0x24_02012a84(unsigned char *obj, int *out1, int *out2);
 int IsInRangePair_021734dc(int unused, int a, int b);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *obj, int mask);
 void IterateEntries0205a330(Container0205a330 *c, int arg);
 extern "C" int func_020457e0(Messages02172e84 *window);
 extern "C" int func_ov003_02172570(unsigned char *obj, void *extra);
@@ -152,11 +152,10 @@ extern char data_ov003_02180a49[];
 extern char data_ov003_02180a4c[];
 extern char data_ov003_02180a63[];
 extern Touch02172e84 data_02114e54;
-extern unsigned short data_02114e30;
 
 // USA: func_ov003_02172e84
 extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
-    GameResources *res = func_ov017_0218b5b0();
+    GameResources *res = GetGameResources();
     Messages02172e84 *msg = GetGlobalField0x1c020421a0();
     Battle02172e84 *battle = (Battle02172e84 *) res->unknown_ptr_array_3afc[19];
     if (self->step_ == 0) {
@@ -241,7 +240,7 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
                 if (data_02114e54.released_ != 0) {
                     self->step_ = 2;
                 }
-            } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2)) {
+            } else if (g_keyManager.TestKeysPressed(2)) {
                 self->active_ = 1;
                 self->step_ = 2;
             } else {

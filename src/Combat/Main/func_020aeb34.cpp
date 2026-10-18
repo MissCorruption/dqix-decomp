@@ -18,7 +18,6 @@ struct EntryPositionState { char unknown0[0x10]; int x; int y; int z; short valu
 struct Vec3 { int x; int y; int z; };
 
 extern "C" void* func_02012fe4(void);
-extern "C" GameResources* func_ov017_0218b5b0(void);
 extern "C" int rand(void);
 extern "C" long long func_020c3260(int phase);
 extern "C" long long func_020c32f8(int phase);
@@ -50,7 +49,7 @@ extern "C" ARM void func_020aeb34(void) {
 
     elem = (struct Obj0201b600*)func_02012fe4();
     list = GetGlobalPtr021075f4_0203cf4c();
-    base = func_ov017_0218b5b0();
+    base = GetGameResources();
     head = (HeadNode02046b24**)base->unknown_ptr_array_36fc[0];
     GetHeadNodeIdOrMinusOne(head);
     elem = FindElemByKeys(elem, 0, 0x2a);

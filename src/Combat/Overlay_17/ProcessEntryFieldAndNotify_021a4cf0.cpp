@@ -8,6 +8,10 @@ enum { RegionOffset710 = 0x710, RegionOffset724 = 0x724, RegionOffset6fc = 0x6fc
 #include "GameState/GameState.h"
 #include "Combat/EntryGetterTypes.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 void* GetGlobalPtr021075f4_0203cf4c(void);
 struct EntryList_203dce4;
 struct Entry_203dce4* GetEntryUnlessFlag0x8000_0203dce4(struct EntryList_203dce4* list, int id);

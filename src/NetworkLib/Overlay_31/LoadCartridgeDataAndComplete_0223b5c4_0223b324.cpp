@@ -4,6 +4,10 @@
 #include "Filesystem/FileAccessor.h"
 #include "System/GamecardBusOwnership.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct FileBlock_0223b324 {
 	void* tableBuffer;
 	unsigned char pad0[0x84 - 4];

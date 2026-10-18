@@ -6,6 +6,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Outer020e28dc;
 struct Obj2081;
@@ -21,11 +22,9 @@ struct Unknown_02075cdc {
 struct AlchemyPot;
 
 extern "C" {
-extern unsigned short data_02114e30[];
 extern unsigned char data_02114e54[];
 }
 
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 int GetInnerFlagBit0020e28dc(Outer020e28dc*);
 int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
 void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
@@ -130,7 +129,7 @@ struct AlchemyMenu {
 extern "C" ARM unsigned char func_ov006_02158b78(AlchemyMenu* self)
 {
     unsigned char cancelled = 0;
-    if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 2))
+    if (g_keyManager.TestKeysPressed(2))
         cancelled = 1;
     if (self->choice_ != 0 && GetInnerFlagBit0020e28dc((Outer020e28dc*)self->choice_))
     {

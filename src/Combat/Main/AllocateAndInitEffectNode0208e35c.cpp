@@ -1,10 +1,9 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Resource/Script.h"
+#include "Resource/GameResources.h"
 
 struct Variant02030b0c;
-
-extern "C" int func_ov017_0218b5b0(void);
 
 struct TaggedValue02030b44;
 struct Vector3i;
@@ -37,7 +36,7 @@ struct EffectNode0208e35c {
 
 // USA: func_0208e35c
 ARM int AllocateAndInitEffectNode0208e35c(char* v) {
-    SafeAllocator* alloc = (SafeAllocator*)(func_ov017_0218b5b0() + 0x1a0);
+    SafeAllocator* alloc = (SafeAllocator*)((int)GetGameResources() + 0x1a0);
     struct EffectNode0208e35c* node = (struct EffectNode0208e35c*)alloc->Allocate(0x70);
     node->next = NULL;
     int tag = ((Script::Parameter*)((struct Variant02030b0c*)v))->ToInt();

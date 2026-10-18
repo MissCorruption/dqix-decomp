@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 // USA: func_0206df6c
-ARM void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value) {
+extern "C" ARM void func_0206df6c(void* unused, unsigned char* array, int bit, int value) {
     int i = bit / 8;
     unsigned char mask = 1 << (bit % 8);
     unsigned int v = array[i];

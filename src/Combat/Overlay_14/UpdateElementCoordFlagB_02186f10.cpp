@@ -18,9 +18,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
-
-extern unsigned short data_02114e30;
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
+#include "Input/Input.h"
 
 extern unsigned char data_02114e54;
 void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
@@ -32,7 +30,7 @@ extern "C" void func_020813ec(void* obj, int key);
 extern "C" ARM int func_ov014_02186f10(char* self) {
     unsigned char flag = 0;
 
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401)) {
+    if (g_keyManager.TestKeysPressed(0x401)) {
         flag = 1;
     }
 

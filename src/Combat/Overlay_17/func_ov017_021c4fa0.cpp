@@ -95,7 +95,7 @@ extern "C" ARM void func_ov017_021c4fa0(int unitIdx, int id) {
     gs = GameState::GetInstance();
     search = func_0202ae18();
     cur = func_02012fe4();
-    res = func_ov017_0218b5b0();
+    res = GetGameResources();
     unit = (Unit_021c4fa0*)res->unknown_ptr_array_371c[6];
     GetEntryTableBase_02027ca4();
     data = GetData02100044_0202ae24();

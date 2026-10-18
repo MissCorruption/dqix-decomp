@@ -1,6 +1,14 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 struct Entries {
     char pad0[0x36];
     short sel;
@@ -47,7 +55,7 @@ void SetEntryLowNibbleAndElement02080c68(void *, int, int);
 extern "C" void *func_0205ec34();
 unsigned char *GetFieldAt0x150_02053c6c(unsigned char *);
 int CopyOutRegion0x5718_02011494(char*, void*);
-void SetOrClearBitInArray_0206df6c(void *, unsigned char *, int, int);
+extern "C" void func_0206df6c(void *, unsigned char *, int, int);
 int TestBitInByteArray_0206dfb0(int, unsigned char *, int);
 int TestBitInArray0x8ec_02083b00(unsigned char *, int);
 void SetBitInArray0x8ec_02083acc(unsigned char *, int);
@@ -158,7 +166,7 @@ extern "C" ARM void func_ov003_0216201c(Scene *self) {
                         CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
                         self->c4a3 = 5;
                         self->c49f = 0;
-                        SetOrClearBitInArray_0206df6c(bits, bits + 0x8c, 0x785, 1);
+                        func_0206df6c(bits, bits + 0x8c, 0x785, 1);
                         self->h484  = 0x1d;
                         self->state = 0x64;
                     } else {

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct CopyPayload {
 #if defined(jpn)
@@ -43,7 +44,7 @@ extern "C" int func_0202c540(void* obj);
 extern "C" ARM int func_02094030(struct Ctx02094030* queue, int requestId, int unused2, int slot) {
     GameObject* combatant = GameState::GetInstance()->GetPartyMemberByIndex(slot);
     void* ctx = func_0202ae18();
-    GameResources* cachedNames = func_ov017_0218b5b0();
+    GameResources* cachedNames = GetGameResources();
 
     if (func_0202c540(ctx) != 0) {
         if (requestId == 10000) return 1;

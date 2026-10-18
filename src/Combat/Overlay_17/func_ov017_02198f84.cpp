@@ -3,6 +3,10 @@
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Pending02198f84 {
     unsigned short id;
     unsigned char pending;

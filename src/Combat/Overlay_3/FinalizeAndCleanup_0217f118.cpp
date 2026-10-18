@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
 extern "C" void func_ov003_0216d77c(void* arg);
 void PopStack0AndTrigger_020a1e54(int flag);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
+#include "Input/Input.h"
 
 struct CharacterModel_021fc7c8
 {
@@ -39,7 +40,6 @@ struct Words021e60c4;
 void SetFogState_020c54a4(int, unsigned int, unsigned int, unsigned short);
 extern "C" void func_ov023_021e5020(CharacterModel_021fc7c8* model);
 extern "C" Vector3i func_ov023_021e613c(CharacterModel_021fc7c8* model);
-bool TestFlagMask_02012430(unsigned short* pad, int buttons);
 char* GetFieldIfFlag4_020100f8(char* gameState);
 void SetFlagsAt0x244_020a28a0(unsigned char* camera, unsigned char flags);
 void ClearFlagBits_020a28b0(unsigned char* camera, int flags);
@@ -47,7 +47,6 @@ void CallFunc020a0db8AtField0x16c_0202ee38(char*, int, int);
 void CallFunc020a0db8AtField0x194AndClearFlag2_0202ee58(char*, int, int);
 void SetFourWordBlocks_021e6088(void* model, Words021e60c4* rotation);
 
-extern unsigned short data_02114e30[];
 extern const Vector3i data_ov023_021fda08;
 extern const Vector3i data_ov023_021fd9fc;
 extern const Vector3i data_ov023_021fd9f0;
@@ -76,12 +75,12 @@ extern "C" ARM void func_ov023_021fc7c8(MenuCharacter_021fc7c8* self, void* scri
     Vector3i rotation = func_ov023_021e613c(model);
     int difference = fix32ReduceAngle0To2Pi(0x1eb - rotation.y);
     int angle = 0;
-    if (TestFlagMask_02012430(data_02114e30, 0x200) && TestFlagMask_02012430(data_02114e30, 0x100))
+    if (g_keyManager.TestKeysHeld(0x200) && g_keyManager.TestKeysHeld(0x100))
     {
         if (!self->turnBack_)
             self->turnBack_ = 1;
     }
-    if (TestFlagMask_02012430(data_02114e30, 0x40))
+    if (g_keyManager.TestKeysHeld(0x40))
     {
         const Vector3i position = data_ov023_021fda08;
         const Vector3i target = data_ov023_021fd9fc;
@@ -90,7 +89,7 @@ extern "C" ARM void func_ov023_021fc7c8(MenuCharacter_021fc7c8* self, void* scri
         CallFunc020a0db8AtField0x16c_0202ee38(camera, (int)&position, 0xa000);
         CallFunc020a0db8AtField0x194AndClearFlag2_0202ee58(camera, (int)&target, 0xa000);
     }
-    else if (TestFlagMask_02012430(data_02114e30, 0x80))
+    else if (g_keyManager.TestKeysHeld(0x80))
     {
         const Vector3i position = data_ov023_021fd9f0;
         const Vector3i target = data_ov023_021fd9e4;
@@ -131,7 +130,7 @@ extern "C" ARM void func_ov023_021fc7c8(MenuCharacter_021fc7c8* self, void* scri
         if (!self->turnBack_)
             rotation.y = 0x1eb;
     }
-    else if (TestFlagMask_02012430(data_02114e30, 0x200))
+    else if (g_keyManager.TestKeysHeld(0x200))
     {
         if (self->leftCallback_ != NULL)
         {
@@ -144,7 +143,7 @@ extern "C" ARM void func_ov023_021fc7c8(MenuCharacter_021fc7c8* self, void* scri
             rotation.y = fix32ReduceAngle0To2Pi(rotation.y);
         }
     }
-    else if (TestFlagMask_02012430(data_02114e30, 0x100))
+    else if (g_keyManager.TestKeysHeld(0x100))
     {
         if (self->rightCallback_ != NULL)
         {

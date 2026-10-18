@@ -7,6 +7,7 @@ enum { kOffset6d0 = 0x6d0 };
 #endif
 
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Sub130_020482e0 {
     unsigned int flags;
@@ -28,7 +29,7 @@ extern "C" void func_ov017_021c9e00(int id, int a, int b, int c);
 // USA: func_0208ad68
 extern "C" ARM void func_0208ad68(void* obj, int id) {
     GameState* bs = GameState::GetInstance();
-    char* base = (char*)func_ov017_0218b5b0() + 0x3000;
+    char* base = (char*)GetGameResources() + 0x3000;
     int* target = *(int**)(base + kOffset6d0);
     struct Combatant020482e0* c = (struct Combatant020482e0*)bs->GetPartyMemberByIndex(id);
     unsigned char amount = ((unsigned char*)obj)[5];

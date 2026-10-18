@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
 void* GetData02100044_0202ae24(void);
@@ -26,7 +27,7 @@ void ClearByteField17182_02195520(void* obj);
 // USA: func_ov017_021c36a0  (semantic: ProcessTurnStartOrRestart_021c36a0)
 extern "C" ARM void func_ov017_021c36a0(void) {
 	GameState* bs = GameState::GetInstance();
-	void* objA = (void*)(int)((int)func_ov017_0218b5b0());
+	void* objA = (void*)(int)((int)GetGameResources());
 	void* objB = func_0202ae18();
 	GameObject* combatant = bs->GetProtagonist();
 	void* d100044 = GetData02100044_0202ae24();

@@ -1,16 +1,24 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+struct NamedEntry_02218e2c {
+	const char* name;
+	void* value;
+};
+
+struct Owner_02218e2c {
+	unsigned char pad[0x1a38];
+	NamedEntry_02218e2c entries[0x20];
+};
+
 // USA: func_ov031_02218e2c  (semantic: FindNamedEntryValue_02218e2c)
 extern "C" ARM void* func_ov031_02218e2c(void* self, const char* key) {
-	int i = 0;
-	do {
-		const char* name = *(const char**)((char*)self + i * 8 + 0x1000 + 0xa38);
-		if (name == NULL) break;
-		if (strcmp(key, name) == 0) {
-			return *(void**)((char*)self + 0x1000 + i * 8 + 0xa3c);
+	Owner_02218e2c* owner = (Owner_02218e2c*)self;
+	for (int i = 0; i < 0x20; i++) {
+		if (owner->entries[i].name == NULL) break;
+		if (strcmp(key, owner->entries[i].name) == 0) {
+			return owner->entries[i].value;
 		}
-		i++;
-	} while (i < 0x20);
+	}
 	return NULL;
 }

@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 void* GetData02100044_0202ae24(void);
 extern "C" void* func_0205ec34(void* obj);
 extern "C" void func_0205e330(void* a, void* b, int c);

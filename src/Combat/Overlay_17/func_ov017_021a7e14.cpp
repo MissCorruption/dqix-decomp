@@ -3,6 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
+#include "Resource/GameResources.h"
 
 struct Obj020397cc {
     char pad0[0xb2];
@@ -131,7 +132,7 @@ extern "C" ARM void func_ov017_021a7e14(Obj021a7e14* self) {
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     StoreStruct* g = GetGlobalField0x1c020421a0();
     GetGlobal02109400_02094a00();
-    func_ov017_0218b5b0();
+    GetGameResources();
     SearchStruct* search = func_0202ae18();
     Obj020397cc* obj = (Obj020397cc*)gs->GetUnknownGameObject();
     int val = GetField0x3acValue_020100a8(gs);

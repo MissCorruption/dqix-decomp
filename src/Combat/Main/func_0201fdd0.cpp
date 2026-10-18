@@ -2,6 +2,7 @@
 #include <GameState/GameState.h>
 #include "Combat/CombatantDisplay.h"
 #include "System/Matrix.h"
+#include "Resource/GameResources.h"
 
 int ClassifyFlag0x800RatioTier02027bd0(int);
 void SetElementFields0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
@@ -21,7 +22,7 @@ extern "C" ARM void func_0201fdd0(Display0201fdd0* self, int row, int combatant,
     int startY;
     unsigned short color;
     GameState* game = GameState::GetInstance();
-    elements = func_ov017_0218b5b0()->unknown_ptr_36d0;
+    elements = GetGameResources()->unknown_ptr_36d0;
     if (!game->GetPartyMemberByIndex(combatant)) return;
     startX = digitX;
     startY = digitY;

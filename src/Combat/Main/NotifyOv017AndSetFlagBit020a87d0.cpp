@@ -1,8 +1,7 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 struct AxisFloats0203b5a0;
-int IsAxisIntWithin16(struct AxisFloats0203b5a0* s, int axis);
 extern char data_02108760;
 void ForwardField0xc0_0205eb80(void* obj);
 void SetForwardAndStore0205eb54(void* obj, int arg1, int arg2);
@@ -26,8 +25,8 @@ extern "C" ARM void func_020a87d0(struct Obj020a87d0* obj) {
     if (obj->field4 == 1) return;
     obj->field4 = 1;
 
-    struct AxisFloats0203b5a0* s = (struct AxisFloats0203b5a0*)func_ov017_0218b5b0();
-    if (IsAxisIntWithin16(s, 0) != 0) {
+    struct AxisFloats0203b5a0* s = (struct AxisFloats0203b5a0*)GetGameResources();
+    if (IsBrightnessWithinValidRange((GameResources*)s, false) != 0) {
         ForwardField0xc0_0205eb80(&data_02108760);
         SetForwardAndStore0205eb54(&data_02108760, 0x72, 0x72);
         DispatchIfField0xc4NonNeg_0205eb90(&data_02108760, 0, 0);

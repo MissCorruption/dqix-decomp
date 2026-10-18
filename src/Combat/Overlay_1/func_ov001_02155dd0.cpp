@@ -7,6 +7,10 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Struct02033b88;
 struct EntryList_203dce4;
 struct Container0204039c;
@@ -17,7 +21,6 @@ struct Scene02155dd0 {
     unsigned short fieldA;
 };
 
-extern "C" GameResources* func_ov017_0218b5b0();
 char* GetFieldIfFlag4_020100f8(char* obj);
 void* GetFieldPtrAt0x5ca4_02010768(void* obj);
 extern "C" void* func_02012fe4();
@@ -33,7 +36,6 @@ void Reset02040504(int* p);
 void SetSlotIfIndexBelow32(SlotArray0203dd10*, unsigned int, int);
 void ReinitController02043204(char* obj);
 extern "C" void func_02043124(char* obj);
-void ClearBitsInField4_0203b4e8(unsigned int* p, unsigned int bits);
 int IsScaledFieldPositive0203adfc(void* a, void* b);
 void ScaleAndNotify0203ad88(void* a, void* b, int c);
 void SetField0x7cClearFields0x1ec0x1ee_0202e874(unsigned char*, unsigned short);
@@ -41,11 +43,9 @@ void SetFields0x1f0And0x1f4_0202f0c4(void* obj, int a, int b);
 extern "C" void* func_020704fc();
 struct EffectParam020708c8;
 void SetScaledEffectParam020708c8(EffectParam020708c8*, unsigned int);
-int GetBitsInField0_0203b4c4(unsigned int* p, unsigned int bits);
 void ResetAndReinit0209c278(void* obj);
 void Dispatch0203a974With0x57000_0209c290(void* obj);
 void SetupContextForMode0205ea20(void* obj, int mode);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
 extern "C" void func_ov028_021d9714();
 void PopStack1AndTrigger_020a1f4c(int v);
 extern "C" void* func_0205ec34();
@@ -63,7 +63,7 @@ extern char data_02109bf4[];
 
 // USA: func_ov001_02155dd0
 extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     if (IsBrightnessTransitionActive(res)) {
         return self->fieldA;
     }
@@ -82,7 +82,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
 
     gs = GameState::GetInstance();
     hud = GetFieldIfFlag4_020100f8((char*)gs);
-    res2 = func_ov017_0218b5b0();
+    res2 = GetGameResources();
     area = (Zone3D*)func_02012fe4();
     globalA = GetGlobalField0x1c020421a0();
     loader = BackgroundLoader::GetInstance();
@@ -140,22 +140,22 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
 
     ReinitController02043204(globalA);
     func_02043124(globalA);
-    ClearBitsInField4_0203b4e8(&res2->brightnessFlags_0, 8);
+    ClearFlags04(res2, 8);
     if (IsScaledFieldPositive0203adfc(data_02108760, 0) != 0) {
         ScaleAndNotify0203ad88(data_02109bf4, 0, 0);
     }
-    ClearBitsInField4_0203b4e8(&res2->brightnessFlags_0, 0x2000);
+    ClearFlags04(res2, 0x2000);
     SetField0x7cClearFields0x1ec0x1ee_0202e874((unsigned char*)hud, 0);
     SetFields0x1f0And0x1f4_0202f0c4(hud, 0xf000, 0);
     SetScaledEffectParam020708c8((EffectParam020708c8*)func_020704fc(), 0);
     loader->MaybeReset();
 
     REG_DISPSTAT_304 &= ~0x8000;
-    if (GetBitsInField0_0203b4c4(&res2->brightnessFlags_0, 0x1000) != 0) {
+    if (TestFlags00(res2, 0x1000) != 0) {
         ResetAndReinit0209c278(data_02109bf4);
         Dispatch0203a974With0x57000_0209c290(data_02109bf4);
         SetupContextForMode0205ea20(data_02108760, 0x64);
-        ClearBitsInWord_0203b4b0((unsigned int*)((int)res2), 0x1000);
+        ClearFlags00((GameResources*)res2, 0x1000);
         func_ov028_021d9714();
         PopStack1AndTrigger_020a1f4c(1);
     }

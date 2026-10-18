@@ -10,15 +10,18 @@ enum { RegionOffset3700 = 0x3700 };
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 
 int GetFieldIfFlag4_020100f8(char* obj);
-unsigned int GetField4_0203b4d0(unsigned int* obj);
 struct Obj020397cc;
 void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
 void SetFlagsAt0x244_020a28a0(unsigned char* obj, unsigned char mask);
 void ClearIntAt0x23c_020a27b8(unsigned char* obj);
 int IsField0Null_02046b08(void** obj);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
 extern "C" void func_020a0cc4(unsigned int);
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
 extern "C" void func_020c9be0(void);
@@ -54,13 +57,13 @@ struct Obj021b2388 {
 // USA: func_ov017_021b2388  (semantic: InitMenuAllocatorAndLoadData_021b2388)
 extern "C" ARM int func_ov017_021b2388(struct Obj021b2388* ctx) {
     GameState* battle = (GameState*)GameState::GetInstance();
-    int base = ((int)func_ov017_0218b5b0());
+    int base = ((int)GetGameResources());
     unsigned char* fieldPtr;
     GameObject* combatant = battle->GetUnknownGameObject();
     fieldPtr = (unsigned char*)GetFieldIfFlag4_020100f8((char*)battle);
     int loadedList = (int)BackgroundLoader::GetInstance();
     void** entry = *(void***)((char*)base + RegionOffset3700);
-    unsigned int val40 = GetField4_0203b4d0((unsigned int*)base);
+    unsigned int val40 = GetFlags04((GameResources*)base);
     ctx->field40 = val40;
 
     if (combatant) {
@@ -78,7 +81,7 @@ extern "C" ARM int func_ov017_021b2388(struct Obj021b2388* ctx) {
         return ctx->field8;
     }
 
-    SetBitsInWord_0203b4a0((unsigned int*)base, 0x10);
+    SetFlags00((GameResources*)base, 0x10);
     func_020a0cc4(0x2f800);
     void* buf = AllocateAligned4_02012d88((AllocatorUnion*)&data_02114e20, 0x2f800);
     if (!buf) {

@@ -4,6 +4,7 @@
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
 #include "World/Zone3D.h"
+#include "Resource/GameResources.h"
 
 extern "C" void *func_02012fe4(void);
 struct S02053f4c;
@@ -48,7 +49,7 @@ extern "C" ARM void func_02026bdc(void *object, int flag) {
         if ((state->activeCombatants & (1 << i)) == 0) {
             continue;
         }
-        func_ov017_0218b5b0();
+        GetGameResources();
         CombatantRecovery *combatant = static_cast<CombatantRecovery *>(GetCombatantWithFlag0x100_0200ff1c(gameState, i));
         if (combatant == 0) {
             continue;

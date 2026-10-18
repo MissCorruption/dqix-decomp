@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" int func_ov017_021d612c(void* obj);
 extern "C" int func_ov017_021d60f4(void* a);
 extern SafeAllocator* data_ov001_021658b8[8];
@@ -32,7 +32,7 @@ extern "C" ARM int func_ov001_021612c8(void* self) {
 #endif
 	struct ListNode_021612c8* newObj;
 	struct Container_021612c8* c;
-	char* base = func_ov017_0218b5b0();
+	char* base = (char*)GetGameResources();
 	c = *(struct Container_021612c8**)(base + 0x3000 + queueOffset);
 	SafeAllocator* allocator = data_ov001_021658b8[0];
 	newObj = (struct ListNode_021612c8*)allocator->Allocate(0x30);

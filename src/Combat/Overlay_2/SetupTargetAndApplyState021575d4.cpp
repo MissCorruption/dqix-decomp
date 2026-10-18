@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void*);
 int SetTargetFieldAndForEach02064a40(void* param0, void* param1);
 extern "C" void func_0206f81c(void* p);

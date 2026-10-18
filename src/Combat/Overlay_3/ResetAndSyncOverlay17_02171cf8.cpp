@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { kRegionValue730_62C = 0x62c };
@@ -13,7 +14,6 @@ enum { kRegionValue4494_41E4 = 0x4494 };
 #endif
 
 
-extern "C" char* func_ov017_0218b5b0();
 extern "C" void func_ov017_021b1e24(void* a, void* b);
 
 struct S02171cf8 {
@@ -27,7 +27,7 @@ struct S02171cf8 {
 
 // USA: func_ov003_02171cf8
 ARM void ResetAndSyncOverlay17_02171cf8(struct S02171cf8* obj) {
-	char* base = func_ov017_0218b5b0();
+	char* base = (char*)GetGameResources();
 	char* p = *(char**)(base + kRegionValue3B48_3928);
 	char* q = *(char**)(base + kRegionValue36FC_34EC);
 	func_ov017_021b1e24(p, q);
@@ -36,7 +36,7 @@ ARM void ResetAndSyncOverlay17_02171cf8(struct S02171cf8* obj) {
 		obj->flag730 &= ~0x2;
 		obj->flag733 = 1;
 	}
-	base = func_ov017_0218b5b0();
+	base = (char*)GetGameResources();
 	*(int*)(base + kRegionValue4494_41E4) = 1;
 	obj->flag0 = 0;
 	obj->flag731 = 2;

@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/ProcessorContext.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void* func_ov031_0223cf4c(unsigned int len, int align);
 extern "C" void func_020c9be0(void);
 extern "C" int func_ov031_02222928(int, int, void*, void*, void*, int);

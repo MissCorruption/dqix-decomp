@@ -5,6 +5,10 @@
 #include "System/Interrupts.h"
 #include "System/ProcessorContext.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void func_02000b9c(unsigned int);
 extern "C" void func_020c9be0(void);
 extern "C" void func_020d0fc4(CardReadManager* manager, int command, int arg);

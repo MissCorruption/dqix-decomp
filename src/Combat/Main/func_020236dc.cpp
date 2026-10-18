@@ -4,6 +4,11 @@
 #include "Combat/MapDisplay.h"
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct Member020236dc : CombatantRecovery {
     unsigned char padding190[0x1b2 - 0x190];
@@ -26,7 +31,6 @@ struct SaveFlags020236dc {
 };
 struct FlagWord02046708;
 struct S3f58;
-extern "C" GameResources* func_ov017_0218b5b0();
 extern "C" void* func_02012fe4();
 extern "C" void* func_0202ae18();
 extern "C" void* func_0205ec34();
@@ -52,7 +56,7 @@ struct ActionOutputState020236dc {
 // USA: func_020236dc
 extern "C" ARM int func_020236dc(CombatActionPosition* entries, unsigned char* groups, Vector3i* position) {
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     GameObject* protagonist = game->GetProtagonist();
     Zone3D* zone = (Zone3D*)func_02012fe4();
     func_0202ae18();
@@ -111,7 +115,7 @@ extern "C" ARM int func_020236dc(CombatActionPosition* entries, unsigned char* g
         }
     }
     int found = 0;
-    MapDisplay* owner = func_ov017_0218b5b0()->unknown_ptr_36d0;
+    MapDisplay* owner = GetGameResources()->unknown_ptr_36d0;
     if (owner) {
         for (Node02021f88* node = owner->field754; node; node = node->next) {
             for (int i = 0; i < node->count; ++i) {

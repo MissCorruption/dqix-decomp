@@ -2,6 +2,8 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "Graphics/Vector.h"
+#include "Input/Input.h"
+#include "Resource/Brightness.h"
 
 struct Vec3;
 struct HeadNode02046b24;
@@ -107,7 +109,6 @@ int IsField0Null_02046b08(void** obj);
 int GetHeadNodeIdOrMinusOne(HeadNode02046b24** obj);
 int IsField0x1b4Or0x1b8Positive_02053cdc(int* obj);
 int GetByte0x26c_02039d7c(char* obj);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 int GetIntField0x264_02039760(void* obj);
 int GetField0x8OrDefault02077a20(Outer02077a20* p);
 void InitObj0219a674(unsigned char* self);
@@ -117,7 +118,6 @@ int HasMatchingHalfword_0219735c(unsigned char* obj, unsigned short key);
 int GetField0x17dBits4To5IfFlag8_020795cc(unsigned char* obj);
 int ArrayContainsByte_02086ef0(ArrayContainsByteStruct* arr, int value);
 int CheckProximity_02196fc8(GameObject* self, GameObject* other, int extra);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* flags, int mode);
 int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
 int GetField0x3acValue_020100a8(GameState* state);
 void TrySetMode02076ccc(void* obj, int mode);
@@ -134,7 +134,6 @@ extern "C" int func_ov017_021970a0(int mode);
 extern "C" void func_ov017_021b7104(void* node, Event02196430* evt);
 void AppendNodeToTail(TailList020469b4* list, TailNode020469b4* node);
 
-extern unsigned short data_02114e30;
 extern Kinds02196430 data_ov017_021d6438;
 
 // USA: func_ov017_02196430
@@ -143,7 +142,7 @@ extern "C" ARM int func_ov017_02196430(Ctx02196430* self) {
     void* session = func_0202ae18();
     Entry02196430* entry = self->entry;
     Actor02196430* player = (Actor02196430*)game->GetUnknownGameObject();
-    Ctx02196430* res = (Ctx02196430*)func_ov017_0218b5b0();
+    Ctx02196430* res = (Ctx02196430*)GetGameResources();
     Work02196430* work = func_02012fe4();
     LightingManager* lighting = LightingManager::GetInstance();
     ArrayContainsByteStruct* party = (ArrayContainsByteStruct*)GetPtrField0x2a04_02010828(game);
@@ -180,7 +179,7 @@ extern "C" ARM int func_ov017_02196430(Ctx02196430* self) {
     if (GetByte0x26c_02039d7c((char*)player) != 0) {
         return 2;
     }
-    if (GetBitsInField4_0203b4fc((unsigned int*)self, 0x10)) {
+    if (TestFlags04((GameResources*)self, 0x10)) {
         return 2;
     }
     if (res->locked != 0) {
@@ -270,7 +269,7 @@ extern "C" ARM int func_ov017_02196430(Ctx02196430* self) {
                 InitObj0219a674((unsigned char*)&contactMsg);
                 contactMsg.kind = 0xe;
                 func_ov017_0219b33c(self, &contactMsg);
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1) == 0 && self->forceEvent == 0) {
+                if (g_keyManager.TestKeysPressed(1) == 0 && self->forceEvent == 0) {
                     continue;
                 }
                 if (CheckSubstructByte0x7cPositive_020535c8((signed char*)player)) {
@@ -322,7 +321,7 @@ extern "C" ARM int func_ov017_02196430(Ctx02196430* self) {
         func_ov017_0219b33c(self, &nearbyMsg);
     }
     if (!CheckSubstructByte0x7cPositive_020535c8((signed char*)player) &&
-        (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 1) != 0 || self->forceEvent != 0) && nearbyId != 0) {
+        (g_keyManager.TestKeysPressed(1) != 0 || self->forceEvent != 0) && nearbyId != 0) {
         doEvent = 1;
         direct = 1;
         id = nearbyId;

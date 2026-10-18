@@ -3,6 +3,7 @@
 #include <System/LoadToVRAM.h>
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Obj0216fe74 {
     char pad0[0x40];
@@ -108,7 +109,7 @@ checkvalid:
           if (info != NULL) {
             int idx950 = *(int*)(*(char**)((char*)c + 0x150) + 0x950);
             unsigned char sel = (unsigned char)(idx950 * 4 + 0x28);
-            func_ov017_0218b5b0();
+            GetGameResources();
             if (func_ov017_021bdbcc() != 0) {
                 sel = 0x28;
             }

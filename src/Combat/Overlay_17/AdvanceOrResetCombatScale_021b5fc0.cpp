@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_ov017_021b5a30(unsigned char* obj);
 extern "C" void func_ov017_021b6090(unsigned char* obj);
@@ -18,10 +19,10 @@ extern "C" ARM int func_ov017_021b5fc0(unsigned char* obj) {
 #endif
     GameState* battleStruct = GameState::GetInstance();
     int scale = battleStruct->GetTickCount();
-    func_ov017_0218b5b0();
+    GetGameResources();
 
     if (obj[0x54] != 0) {
-        void* p = func_ov017_0218b5b0();
+        void* p = GetGameResources();
         if (HasNonZeroByteAtOfField498_0218d75c_0218d75c(p) != 0) {
             return 5;
         }

@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Input/Input.h"
 
 struct TableA68;
 struct Entry_0205d6a0;
@@ -94,7 +95,6 @@ extern "C" void func_ov023_021e6e60(ProfileEditor02188cd0* self);
 void SetupBattleTag0218aabc(char* self);
 extern "C" void func_ov003_0215f41c(void* keyboard, const char* text);
 extern "C" void func_ov012_0218ab34(ProfileEditor02188cd0* self, char* text, int hidden);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 extern "C" int func_0205d97c(void* window);
 extern "C" int func_ov003_0215f000(void* keyboard, int input);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int a);
@@ -110,7 +110,6 @@ extern "C" void func_0204500c(Messages02188cd0* messages, const char* text, int 
 
 extern "C" const char data_ov012_0218b2ea[];
 extern "C" const char data_ov012_0218b303[];
-extern "C" unsigned short data_02114e30[];
 extern "C" char data_02108760[];
 
 static inline Profile02188cd0* GetProfile02188cd0(GameState* gameState)
@@ -190,7 +189,7 @@ extern "C" ARM void func_ov012_02188cd0(ProfileEditor02188cd0* self)
     }
     else if (self->step_ == 4)
     {
-        if ((TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 2) || func_0205d97c(self->window_) == 2) && *self->message_ == 0)
+        if ((g_keyManager.TestKeysPressed(2) || func_0205d97c(self->window_) == 2) && *self->message_ == 0)
         {
             ResetEntryList0205d6a0((Entry_0205d6a0*)self->window_, 1);
             self->step_++;

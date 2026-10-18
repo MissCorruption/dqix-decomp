@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct SourceTraits {
     unsigned short field_00 : 15;
@@ -96,7 +97,7 @@ extern "C" void func_ov017_02191aac(void*, int, int, int);
 extern "C" ARM void func_ov000_02166540(Struct5e00* state, int slot, int id, unsigned char mode) {
     if (slot < 0xc0 || slot > 0xc7) return;
     GameState* game = GameState::GetInstance();
-    void* effects = func_ov017_0218b5b0();
+    void* effects = GetGameResources();
     CombatantLookup* roster = &state->roster->lookup;
     int index = slot - 0xc0;
     CombatantSource* source = 0;

@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <Resource/Brightness.h>
+#include "Resource/GameResources.h"
 
 extern unsigned char data_02114e54;
 
@@ -82,7 +83,7 @@ struct Menu {
 // USA: func_ov005_0215b2bc
 extern "C" ARM void func_ov005_0215b2bc(Menu* self) {
     if (self->f3dba_ == 0) {
-        if (!IsBrightnessTransitionActive(func_ov017_0218b5b0())) {
+        if (!IsBrightnessTransitionActive(GetGameResources())) {
             self->f3dba_++;
         }
     } else if (self->f3dba_ == 1) {
@@ -127,7 +128,7 @@ extern "C" ARM void func_ov005_0215b2bc(Menu* self) {
             self->page_ = self->pages_[sel & 0xff];
         }
         self->f3dbb_ = self->kind_;
-        MenuTail* hold = (MenuTail*)GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]);
+        MenuTail* hold = (MenuTail*)GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
         DispatchByIdxAndCond021551fc((char*)self, hold->index, 0);
         if (flag2 == 0) return;
         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);

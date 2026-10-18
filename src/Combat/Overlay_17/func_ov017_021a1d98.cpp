@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
+#include "Resource/Brightness.h"
 
 struct Entry_02028bd0 {
     unsigned short id;
@@ -36,7 +37,6 @@ struct DistanceSlot {
 Entry_02028bd0* GetEntryTableBase_02027ca4();
 Entry_02028bd0* FindInlineEntryById(Entry_02028bd0*, int);
 extern "C" SpawnParams* func_02012fe4();
-unsigned int GetBitsInField4_0203b4fc(unsigned int*, unsigned int);
 int TickActorFlagStateAndDispatch02076bec(GameObject*, void*);
 struct BitField0203402c;
 int CheckField0xc4Low15BitsNonZero(BitField0203402c*);
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov017_021a1d98(unsigned int* flags, int id) {
     unsigned short field38 = params->field_38;
     unsigned int field3c = params->field_3c;
     int arg = 1;
-    if (GetBitsInField4_0203b4fc(flags, 0x1000)) arg = 0;
+    if (TestFlags04((GameResources*)flags, 0x1000)) arg = 0;
     int partyCount = 0;
     for (int i = 0; i < 4; i++) {
         GameObject* member = state->GetPartyMemberByIndex(i);

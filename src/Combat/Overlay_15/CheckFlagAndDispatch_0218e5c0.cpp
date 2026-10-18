@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
-
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
-
-extern unsigned short data_02114e30;
+#include "Input/Input.h"
 
 struct S0218e5c0 {
     char pad0x24[0x24];
@@ -16,7 +13,7 @@ struct S0218e5c0 {
 extern "C" ARM void func_ov015_0218e5c0(struct S0218e5c0* obj) {
     int ok = 0;
     if (obj->field0x3a != 0) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x100) != 0) {
+        if (g_keyManager.TestKeysPressed(0x100) != 0) {
             ok = 1;
         }
     } else {

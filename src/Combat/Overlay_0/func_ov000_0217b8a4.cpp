@@ -1,5 +1,6 @@
 // USA: func_ov000_0217b8a4
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct_0205c570;
 struct Struct_0205bcdc;
@@ -11,7 +12,6 @@ extern "C" int abs(int);
 void SetIndexIfValid0205bcdc(Struct_0205bcdc*, int);
 extern "C" void func_0205bb04(void*, int);
 void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 #if defined(jpn)
@@ -71,7 +71,6 @@ struct Menu0217b8a4 {
     unsigned char field_444;
 };
 extern MenuGlobals0217b8a4 data_ov000_02184294;
-extern unsigned short data_02114e30;
 extern Obj0205eaa0 data_02108760;
 
 // USA: func_ov000_0217b8a4
@@ -102,7 +101,7 @@ extern "C" ARM int func_ov000_0217b8a4(Menu0217b8a4* obj, int arg1, int arg2) {
     MenuContext0217b8a4* context = data_ov000_02184294.context;
     SetElementFlag0x20ByKey0205def8((Struct_0205def8*)context->list, 1, 0x24);
     if (previous != cursor) return -1;
-    int flag = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int flag = g_keyManager.TestKeysPressed(0x601);
     int active = (flag | IsActiveElementFlag2Set0205da38((Obj_0205da38*)obj->window, 0x14)) != 0;
     if (active || obj->field_444) {
         MenuItem0217b8a4* item = obj->items[cursor];

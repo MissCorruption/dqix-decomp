@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct Container020dedd0;
 struct Field150Holder02052e2c;
@@ -79,7 +80,6 @@ static inline int IsType0217599c(unsigned int type) {
 }
 extern "C" void func_ov017_021c3fb4(int, int);
 extern "C" void func_ov017_021c4418(int, int);
-extern "C" GameResources *func_ov017_0218b5b0();
 extern "C" void func_ov017_0218f5a4(GameResources *, int, int, int, int);
 
 extern int data_ov003_0217faf4[9];
@@ -142,7 +142,7 @@ extern "C" ARM int func_ov003_0217599c(MenuB *menu) {
         func_ov017_021c3fb4(menu->character, 1);
         func_ov017_021c4418(menu->character, -1);
     }
-    GameResources *resources = func_ov017_0218b5b0();
+    GameResources *resources = GetGameResources();
     BackgroundLoader::GetInstance();
     func_ov017_0218f5a4(resources, menu->character, 1, 0, 0);
     return 1;

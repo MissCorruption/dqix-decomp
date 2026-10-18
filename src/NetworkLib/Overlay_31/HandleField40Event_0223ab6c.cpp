@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern int GetField40_02239be8(void);
 extern "C" int func_ov031_02239bfc(void);
 extern "C" int func_ov031_02239e68(void);

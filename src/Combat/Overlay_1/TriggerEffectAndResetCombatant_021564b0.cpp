@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { flagOffset = 0x40c2, listOffset = 0x4ec, contextOffset = 0x508, resetOffset = 0x7ee };
@@ -6,7 +7,6 @@ enum { flagOffset = 0x40c2, listOffset = 0x4ec, contextOffset = 0x508, resetOffs
 enum { flagOffset = 0x42e2, listOffset = 0x6fc, contextOffset = 0x718, resetOffset = 0x9be };
 #endif
 
-extern "C" void* func_ov017_0218b5b0(void);
 extern "C" void func_02046a8c(int a, int b);
 extern "C" void* func_020704fc(void);
 struct EffectParam020708c8;
@@ -22,7 +22,7 @@ struct S021564b0 { char pad0; char flag1; char pad[8]; unsigned short fieldA; };
 
 // USA: func_ov001_021564b0  (semantic: TriggerEffectAndResetCombatant_021564b0)
 extern "C" ARM unsigned short func_ov001_021564b0(struct S021564b0* obj) {
-    void* ov17 = func_ov017_0218b5b0();
+    void* ov17 = GetGameResources();
     if (*(unsigned char*)((char*)ov17 + flagOffset) != 0) {
         char* p3000 = (char*)ov17 + 0x3000;
         func_02046a8c(*(int*)(p3000 + listOffset), *(int*)(p3000 + contextOffset));

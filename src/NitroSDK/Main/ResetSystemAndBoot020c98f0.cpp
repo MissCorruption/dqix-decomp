@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void func_020c9be0();
 extern "C" void func_01ff81e4();
 unsigned int GenerateLockOwnerID();

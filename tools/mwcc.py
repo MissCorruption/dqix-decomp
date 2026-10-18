@@ -1,4 +1,5 @@
-"""Run mwccarm, then empty the inline functions nothing references, as the original -dead link did.
+"""Run mwccarm, then empty the inline functions and [base] ctor/dtor copies nothing references, as the
+original -dead link did.
 
 Usage: mwcc.py <object> <compiler> [flags...]
 """
@@ -16,6 +17,22 @@ SYM_SIZE = 16
 STT_FUNC = 2
 STB_MULTIDEF = 13
 SHN_LORESERVE = 0xFF00
+STB_GLOBAL = 1
+
+
+def complete_variant(name):
+    if not name.startswith(b"_ZN"):
+        return None
+    i = 3
+    while i < len(name) and name[i:i + 1].isdigit():
+        j = i
+        while j < len(name) and name[j:j + 1].isdigit():
+            j += 1
+        i = j + int(name[i:j])
+    marker = name[i:i + 3]
+    if marker in (b"C2E", b"D2E"):
+        return name[:i] + marker[:1] + b"1" + name[i + 2:]
+    return None
 
 
 def strip(path):
@@ -48,9 +65,13 @@ def strip(path):
             r_info, = struct.unpack_from("<I", data, off + 4)
             used.add(symbols[r_info >> 8][5])
 
+    defined = {cstr(str_offset, s[0]) for s in symbols if 0 < s[5] < SHN_LORESERVE}
     stripped = []
     for k, (st_name, _, st_size, st_info, _, st_shndx) in enumerate(symbols):
-        if st_info & 0xF != STT_FUNC or st_info >> 4 != STB_MULTIDEF:
+        if st_info & 0xF != STT_FUNC:
+            continue
+        if st_info >> 4 != STB_MULTIDEF and not (
+                st_info >> 4 == STB_GLOBAL and complete_variant(cstr(str_offset, st_name)) in defined):
             continue
         if not 0 < st_shndx < SHN_LORESERVE or st_shndx in used:
             continue

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9bf0 func_020cb6bc
+#endif
+
 unsigned int DisableIRQInterrupts(void);
 void ResetAllDMAChannels(void);
 

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct OwnerInfo_022386d4 {
 	unsigned char language;
 	unsigned char favoriteColor;

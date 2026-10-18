@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void func_020c9be0(void);
 extern "C" void func_ov017_021d4c04(void*, int, void*, int, void*, int);
 void BuildIndexArrayAndRegister0209dc4c(void* obj);

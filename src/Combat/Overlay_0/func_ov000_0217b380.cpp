@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Util/Random.h"
+#include "Input/Input.h"
 
 struct BattleMenu0217b380 {
 #if defined(jpn)
@@ -25,7 +26,6 @@ extern struct Data0217b380 data_ov000_02184294;
 
 struct Struct_0205c570;
 int GetActiveScaledSum0205d794(struct Struct_0205c570* s);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 int GetClampedArrayField0xd1c_ov000_021761c8(char* base, int index);
@@ -38,7 +38,6 @@ extern "C" void func_ov000_0217629c(void* obj);
 extern "C" void func_ov000_0217ab8c(void* obj, int a, int b);
 extern "C" void func_ov000_02176e3c(void* menu, void* obj, int state, int arg1, int arg2, int flag);
 
-extern unsigned short data_02114e30;
 extern struct Obj0205eaa0 data_02108760;
 
 struct MenuState0217b380 {
@@ -56,7 +55,7 @@ extern "C" ARM int func_ov000_0217b380(struct MenuState0217b380* self, int arg1,
     data_ov000_02184294.menu->flags |= 0x100;
     int base = GetActiveScaledSum0205d794(self->window);
     self->selection = base;
-    int pressed = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int pressed = g_keyManager.TestKeysPressed(0x601);
     int confirm = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->window, 0x14)) != 0;
     if (confirm) {
         if (IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->window, 0x14)) {

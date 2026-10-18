@@ -9,6 +9,7 @@
 #include <Resource/Brightness.h>
 #include <Resource/CharacterCreationUI.h>
 #include <Combat/MapDisplay.h>
+#include "Resource/GameResources.h"
 
 struct Entry_0205d6a0;
 struct Obj0204b5e8;
@@ -50,7 +51,6 @@ struct BattleRecords {
     int task;
 };
 
-extern "C" GameResources* func_ov017_0218b5b0();
 const char* GetFieldByKey020e0434(Container020e0310*, int);
 void ResetEntryList0205d6a0(Entry_0205d6a0*, int);
 void ResetList0204af64(List0204af64*);
@@ -70,7 +70,7 @@ void LinkArrayPrevPointers0205cf78(Struct_0205cf78*, Elem_0205cf78*, unsigned ch
 
 // USA: func_ov008_02188a54
 extern "C" ARM int func_ov008_02188a54(BattleRecords* self, int lastClear) {
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     int step = self->loadStep;
     if (step == 0) {

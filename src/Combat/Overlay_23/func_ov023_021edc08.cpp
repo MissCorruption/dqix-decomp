@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "Resource/MonsterDefinition.h"
+#include "Resource/GameResources.h"
 
 struct Words021edf38 { unsigned int a_, b_, c_; };
 struct Pair0209a338 { int first_, second_; };
@@ -116,7 +117,7 @@ extern "C" ARM int func_ov023_021edc08(CombatScreen* self) {
     GameState::GetInstance();
 #endif
 
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     void* mode = func_0202ae18();
     TextRenderer* renderer = GetGlobalField0x1c020421a0();
     OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 0x20000);

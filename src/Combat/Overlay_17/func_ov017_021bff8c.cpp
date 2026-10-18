@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct ArrayContainsByteStruct;
 int ArrayContainsByte_02086ef0(ArrayContainsByteStruct* s, int val);
@@ -52,7 +53,7 @@ extern "C" ARM void func_ov017_021bff8c(Ctx021bff8c* ctx, unsigned char flag) {
         GameObject* leader = gs->GetPartyMemberByIndex(0);
         GameObject* hero = gs->GetProtagonist();
         char* g = (char*)GetGlobalField0x1c020421a0();
-        Ctx021bff8c* base = (Ctx021bff8c*)func_ov017_0218b5b0();
+        Ctx021bff8c* base = (Ctx021bff8c*)GetGameResources();
         void* table = NULL;
         if (base != NULL) {
             table = base->table;

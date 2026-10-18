@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Graphics/NSBXX/RenderConfig.h"
 
+#if defined(jpn)
+#define func_020c51c0 func_020c6c8c
+#endif
+
 #define REG_BOX_0203f53c (*(volatile unsigned int*)0x040005c0)
 #define REG_MATRIX_MODE_0203f53c (*(volatile int*)0x04000444)
 #define REG_TRANSLATE_0203f53c (*(volatile int*)0x04000470)
@@ -53,7 +57,7 @@ Entry_0203f53c* GetListElementByIndex(List_0203f354*, unsigned int);
 void* GetPtrField0x144_0202ed74(void*);
 int GetBoxTestResult_020c56b0(int*);
 int GetField0x70_0202e7f0(void*);
-void IssueCommand0x1A_020c51c0(int);
+extern "C" void func_020c51c0(int);
 extern "C" void func_020ca528(const void*, void*);
 extern "C" void func_02031278(void*);
 extern "C" void func_02031234(int);
@@ -122,7 +126,7 @@ extern "C" ARM int func_0203f53c(Object_0203f53c* object, void* camera, int scal
         REG_TRANSLATE_0203f53c = 0;
         REG_TRANSLATE_0203f53c = -translation;
         REG_TRANSLATE_0203f53c = 0;
-        IssueCommand0x1A_020c51c0((int)&transformed);
+        func_020c51c0((int)&transformed);
         func_02031278((void*)angle);
         REG_TRANSLATE_0203f53c = 0;
         REG_TRANSLATE_0203f53c = translation;
@@ -132,7 +136,7 @@ extern "C" ARM int func_0203f53c(Object_0203f53c* object, void* camera, int scal
         REG_TRANSLATE_0203f53c = 0;
         REG_TRANSLATE_0203f53c = -translation;
         REG_TRANSLATE_0203f53c = 0;
-        if (!(object->flags & 0x10)) IssueCommand0x1A_020c51c0((int)view);
+        if (!(object->flags & 0x10)) func_020c51c0((int)view);
         else func_02031234(GetField0x70_0202e7f0(camera));
         REG_TRANSLATE_0203f53c = 0;
         REG_TRANSLATE_0203f53c = translation;

@@ -3,16 +3,16 @@
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
 #include "World/Zone3D.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 typedef ZoneFeatures::Opcode6aEntry PathNode_021975e4;
 
 struct BitField0203402c;
 struct ListHead02046b60;
 
-extern unsigned short data_02114e30;
 extern "C" void* func_02012fe4(void);
 unsigned int* GetDataPtr02114e04_020d6c00();
-int TestFlagMask_02012430(unsigned short* flags, int mask);
 int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
 int CheckField0xc4Low15BitsNonZero(BitField0203402c* obj);
 int ListContainsId(ListHead02046b60* list, int id);
@@ -28,10 +28,10 @@ extern "C" ARM void func_ov017_021975e4(GameResources* state) {
     GameObject* player = game->GetUnknownGameObject();
     Vector3i anchor = player->obj3D_.position_;
     SubBlock02038508* current = GetFieldPtrAt0x26c_020399a8(player);
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     ListHead02046b60* list = (ListHead02046b60*)res->unknown_ptr_array_36fc[0];
 
-    if (TestFlagMask_02012430(&data_02114e30, 0x402)) return;
+    if (g_keyManager.TestKeysHeld(0x402)) return;
     if (CheckSubstructByte0x7cPositive_020535c8((signed char*)player) || current->active) return;
     if (CheckField0xc4Low15BitsNonZero((BitField0203402c*)player)) return;
     if (ListContainsId(list, 0xc)) return;

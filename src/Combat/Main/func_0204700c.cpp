@@ -3,6 +3,7 @@
 #include "GameState/Field3b0.h"
 #include "Graphics/Vector.h"
 #include "Resource/Brightness.h"
+#include "Resource/GameResources.h"
 
 extern "C" float _fsub(float a, float b);
 extern "C" int _fleq(float a, float b);
@@ -48,7 +49,7 @@ extern "C" ARM int func_0204700c(char* self) {
 
     *(unsigned int*)self = *(unsigned int*)self + tick;
     if (*(unsigned int*)self > 0xf && *(unsigned char*)(self + 0x1c) != 0) {
-        GameResources* res = func_ov017_0218b5b0();
+        GameResources* res = GetGameResources();
         SetMainBrightness(res, -16, 20);
         SetSubBrightness(res, -16, 20);
         *(unsigned char*)(self + 0x1c) = 0;

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Vec3_021675a0 {
     int x;
@@ -49,7 +50,7 @@ extern "C" ARM void func_ov000_021675a0(struct Owner021675a0* owner) {
     int i;
     int width;
     GameState* gs = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     short ids[4];
 #if defined(jpn)
     world = owner->world;

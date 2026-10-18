@@ -18,7 +18,7 @@ struct FlagsByte0xc1_02034104 {
 extern "C" ARM Vector3fix func_02034104(void* obj) {
     Object3D* object = (Object3D*)obj;
     void* thing = func_0202ae18();
-    func_ov017_0218b5b0();
+    GetGameResources();
     if (CheckField0NonZero_0202b7d8((int*)thing)) {
         if (func_0202c508(thing)) {
             short field4 = object->unknown_4_;

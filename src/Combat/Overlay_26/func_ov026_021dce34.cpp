@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct BattleWork;
 struct Combatant020A36A8;
@@ -142,7 +143,7 @@ extern "C" ARM void func_ov026_021dce34(int mode, BattleWork* self, BattleState*
     short ids[4];
     short members[4];
     GameState* gs = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     int* link = func_0202ae18();
     if (!MatchesActiveIndex020a36a8((Combatant020A36A8*)party) && !GetCombatWorkFlags0x55f4_ov000_02160fd4(self, 0x80000000)) {
         return;

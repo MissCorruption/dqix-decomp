@@ -1,4 +1,6 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct GameState;
 struct Obj0205eaa0;
@@ -60,7 +62,6 @@ struct Menu0215c058
     short held;
 };
 
-extern "C" GameResources0215c058* func_ov017_0218b5b0();
 Member0215c058* GetField1c_021a193c(int*);
 void DispatchByIdxAndCond021551fc(char*, int, int);
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
@@ -71,7 +72,6 @@ extern "C" void func_0205bb04(void* obj, int v);
 extern "C" void func_ov005_021579ec(Menu0215c058* self, unsigned int state, unsigned char slot);
 extern "C" unsigned int _ZNK9GameState12GetTickCountEv(GameState* gs);
 extern "C" int func_0205bf58(void* obj, int v);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 extern "C" int func_ov005_021585fc(Menu0215c058* self, int direction);
 extern "C" void func_ov005_021555c0(Menu0215c058* self);
 extern "C" void func_ov005_021536e0(CursorFrame0215c058* frame);
@@ -91,7 +91,6 @@ signed char* GetPointerAt0xbf0_0207c60c(void*, unsigned int);
 extern "C" void func_ov005_0215792c(Menu0215c058* self, int mode);
 
 extern "C" TouchState data_02114e54;
-extern unsigned short data_02114e30;
 extern char data_02108760[];
 extern unsigned char data_ov005_0215cd10[];
 
@@ -106,7 +105,7 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
     }
     else if (self->state == 1)
     {
-        Member0215c058* screen = GetField1c_021a193c(func_ov017_0218b5b0()->ptr);
+        Member0215c058* screen = GetField1c_021a193c(((GameResources0215c058*)GetGameResources())->ptr);
         DispatchByIdxAndCond021551fc((char*)self, screen->member, 0);
         GameState* gs = _ZN9GameState11GetInstanceEv();
         int touched = 0;
@@ -148,12 +147,12 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
             int col = (self->selected - 8) % 4;
             if (col == 0)
             {
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x20))
+                if (g_keyManager.TestKeysPressed(0x20))
                     changed = func_ov005_021585fc(self, -1);
             }
             else if (col == 3)
             {
-                if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x10))
+                if (g_keyManager.TestKeysPressed(0x10))
                     changed = func_ov005_021585fc(self, 1);
             }
             if (changed)
@@ -217,7 +216,7 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
             self->dirty.f2 = 1;
             self->dirty.f3 = 1;
         }
-        else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2))
+        else if (g_keyManager.TestKeysPressed(2))
         {
             self->held = -1;
             func_ov005_0215792c(self, 4);

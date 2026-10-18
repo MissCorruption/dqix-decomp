@@ -2,7 +2,11 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 
-void EncodeSignFlaggedHalfword_020c39a0(short* out, int value);
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
+extern "C" void func_020c39a0(short* out, int value);
 
 extern "C" void MapVRAMBanksToMainBG(int);
 extern "C" void func_ov020_0218c7bc(int, int, int, int, int);
@@ -134,6 +138,6 @@ extern "C" ARM void func_ov020_0218cf8c(struct SetupContext0218cf8c* self) {
     volatile unsigned int* reg1000 = (volatile unsigned int*)0x4001000;
     *reg1000 = (*reg1000 & ~0x1f00) | 0x100;
 
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, -16);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, -16);
+    func_020c39a0((short*)0x400006c, -16);
+    func_020c39a0((short*)0x400106c, -16);
 }

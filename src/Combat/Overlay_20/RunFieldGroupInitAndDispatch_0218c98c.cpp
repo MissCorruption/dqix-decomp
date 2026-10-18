@@ -10,6 +10,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 
+#if defined(jpn)
+#define func_020c39a0 func_020c546c
+#endif
+
 extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void MapVRAMBanksToSubBG(int v);
 extern "C" void func_ov020_0218c7bc(int a, int b, int c, int d, int e);
@@ -46,7 +50,7 @@ void FlushAndDispatchList0204b0e8(struct List0204b0e8* obj, void* buf);
 
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, unsigned char c, int d);
 
-void EncodeSignFlaggedHalfword_020c39a0(short* out, int value);
+extern "C" void func_020c39a0(short* out, int value);
 
 extern int data_ov020_0218d95c;
 extern int data_ov020_0218d968;
@@ -144,6 +148,6 @@ extern "C" ARM void func_ov020_0218c98c(void* self) {
 
     *(unsigned int*)0x4000000 = (*(unsigned int*)0x4000000 & ~0x1f00) | 0x300;
     *(unsigned int*)0x4001000 = (*(unsigned int*)0x4001000 & ~0x1f00) | 0x100;
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400006c, 0);
-    EncodeSignFlaggedHalfword_020c39a0((short*)0x400106c, 0);
+    func_020c39a0((short*)0x400006c, 0);
+    func_020c39a0((short*)0x400106c, 0);
 }

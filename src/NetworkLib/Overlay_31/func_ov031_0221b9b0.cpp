@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
 struct Slot_0221be38 {
     unsigned char payload[0xef];
     unsigned char validMask;

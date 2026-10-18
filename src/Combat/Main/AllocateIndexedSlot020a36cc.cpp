@@ -11,7 +11,7 @@ extern AllocatorUnion data_02114e20;
 
 // USA: func_020a36cc
 ARM int AllocateIndexedSlot020a36cc(void** allocation, unsigned int requestedBytes) {
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     unsigned int availableBytes = GetMaxAlloc02012dd0((Struct02012dd0*)&data_02114e20);
     if (availableBytes < requestedBytes) {
         func_020a0cc4(requestedBytes);

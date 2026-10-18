@@ -22,7 +22,6 @@ extern "C" void* func_0202ae18();
 extern "C" void func_0201bd3c(ZoneState*, int, int);
 extern "C" void func_02082828(ZoneWork*);
 extern "C" void func_020542b4(T02054280*, SafeAllocator*, char*);
-GameResources* func_ov017_0218b5b0();
 int IsIdInRange020981e4(int, int);
 int IsIdInRange02098240(int, int);
 int IsIdInSet02098210(int, int);
@@ -56,8 +55,8 @@ extern "C" ARM void func_02097ec8(ZoneResourceState* state) {
     if (IsIdInRange020981e4((int)state, zoneId) &&
         !IsIdInRange02098240((int)state, zoneId) &&
         !IsIdInSet02098210((int)state, zoneId) && zoneId != 0xc3bb) {
-        GameResources* resources = func_ov017_0218b5b0();
-        SafeAllocator* allocator = &GetResourceAllocator(func_ov017_0218b5b0(), 2);
+        GameResources* resources = GetGameResources();
+        SafeAllocator* allocator = &GetResourceAllocator(GetGameResources(), 2);
         allocator->Reset();
         state->slots = (T02054280*)allocator->Allocate(0x5ec);
         state->work = (ZoneWork*)allocator->Allocate(kWorkBytes);

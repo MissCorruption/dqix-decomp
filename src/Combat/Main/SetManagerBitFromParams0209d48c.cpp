@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void*);
 extern "C" int func_ov017_021d60f4(void*);
 void SetBitWithOffset0206eb64(unsigned char*, int, int);

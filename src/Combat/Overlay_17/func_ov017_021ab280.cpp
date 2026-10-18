@@ -8,6 +8,7 @@ enum { kGlobalByteOffset = 0x830, kResourceHeaderOffset = 0x70c, kResourceTailOf
 
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* func_02012fe4(void);
@@ -70,7 +71,7 @@ struct Obj_021ab280 {
 extern "C" ARM int func_ov017_021ab280(struct Obj_021ab280* obj) {
     GameState* battle = GameState::GetInstance();
     func_0202ae18();
-    unsigned char* mgr = (unsigned char*)func_ov017_0218b5b0();
+    unsigned char* mgr = (unsigned char*)GetGameResources();
     GameObject* combatant = battle->GetUnknownGameObject();
     void* g = func_02012fe4();
 

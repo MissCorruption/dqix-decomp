@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct SearchStruct0202c1a4;
 struct TailList020469b4;
 struct TailNode020469b4;

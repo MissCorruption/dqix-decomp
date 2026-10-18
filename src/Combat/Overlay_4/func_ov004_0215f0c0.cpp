@@ -4,6 +4,7 @@
 #include "System/Cache.h"
 #include "System/LoadToVRAM.h"
 #include "System/Matrix.h"
+#include "Resource/GameResources.h"
 
 class HudNode {
 public:
@@ -145,7 +146,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* self) {
                     struct PortraitInfo* info;
                     if (entry != 0 && (info = entry->info) != 0) {
                         bank = member->sub150->portraitBank;
-                        int alt = func_ov017_021bdbcc(func_ov017_0218b5b0());
+                        int alt = func_ov017_021bdbcc(GetGameResources());
                         if (alt != 0) {
                             bank = 0;
                         }

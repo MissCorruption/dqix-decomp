@@ -2,6 +2,11 @@
 #include "Graphics/Vector.h"
 #include "Graphics/NSBXX/RenderCommandCallbacks.h"
 #include "Graphics/NSBXX/GeometryFifo.h"
+#include "Graphics/NSBXX/RenderCommands_Common.h"
+
+#if defined(jpn)
+#define func_020ca430 func_020cbefc
+#endif
 
 #define REG_GXFIFO (*(volatile unsigned int*)0x04000400)
 struct Bone020e2d54 { unsigned short flags; char pad_2[0xa]; int scaleZ; };
@@ -15,10 +20,8 @@ struct Output020e2d54 {
 };
 extern char data_020ee9b8[];
 extern int data_020ef0e8;
-int SubmitBlock0x40IfNotBusy_020c54fc(int);
 void SetFields0x0_0x4_0x8_020e2fa8(int*, int, int, int);
 void* GetSubstructAt0x40OrNull020e2fb0(void*);
-extern "C" void func_020ca430(const void*, void*, int);
 static inline int GetBoneScale020e2d54(Bone020e2d54* bone) { SDK_NULL_ASSERT(bone); return bone->scaleZ; }
 static inline int GetVectorZ020e2d54(Vector3fix* vector) { SDK_NULL_ASSERT(vector); return vector->z; }
 static inline int Divide020e2d54(int a, int b) { int value = fix32_Divide(a, b); return value; }
@@ -32,7 +35,7 @@ extern "C" ARM void func_020e2d54(int mode, RenderCommandHandler* entry, Output0
         SendQueuedDataToGeometryFifo();
         REG_GXFIFO = 0x151110;
         REG_GXFIFO = 0;
-        while (SubmitBlock0x40IfNotBusy_020c54fc((int)&matrix)) {}
+        while (func_020c54fc(&matrix)) {}
         SetFields0x0_0x4_0x8_020e2fa8(&scale.x, 0x1000, 0x1000, 0x1000);
         int correction = 0;
         if (mode == 1) {

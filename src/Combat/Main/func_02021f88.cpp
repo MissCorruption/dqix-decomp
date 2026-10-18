@@ -6,14 +6,12 @@
 #include "Combat/MapDisplay.h"
 #include "Resource/GameResources.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
+#include "Resource/Brightness.h"
 
 extern "C" unsigned short* func_02012fe4(void);
 extern "C" void* func_0203bd08(void);
 void* GetData02105254_0203b628(void);
 extern "C" void func_02021428(void* obj, int amount);
-
-struct AxisFloats0203b5a0;
-int IsAxisIntWithin16(struct AxisFloats0203b5a0* s, int axis);
 
 void TailForward0203b66c(char* obj);
 void InitSubObject0203bd78(char* obj);
@@ -134,7 +132,7 @@ extern "C" ARM void func_02021f88(MapDisplay* self) {
     GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
     p6 = func_02012fe4();
-    axis = func_ov017_0218b5b0();
+    axis = GetGameResources();
     battleCtx = (char*)func_0203bd08();
     table = (char*)GetData02105254_0203b628();
     state = self->loadStage;
@@ -172,7 +170,7 @@ extern "C" ARM void func_02021f88(MapDisplay* self) {
         if (loader->GetTaskStatus(self->taska10) == 0) return;
         if (loader->GetTaskStatus(self->taska14) == 0) return;
         func_02021428(self, 0x19);
-        if (IsAxisIntWithin16((struct AxisFloats0203b5a0*)axis, 1) != 0) return;
+        if (IsBrightnessWithinValidRange((GameResources*)axis, true) != 0) return;
         func_02020720(self);
         self->displayMode = 0;
         func_02020838(self);

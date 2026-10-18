@@ -3,6 +3,10 @@
 #include <Graphics/Vector.h>
 #include <System/Graphics.h>
 
+#if defined(jpn)
+#define func_020c51a4 func_020c6c70
+#endif
+
 struct StructAt020473c8 { char data[0x88]; };
 struct StructAt020472e4 { char data[0x88]; };
 union TouchRenderEntry02096c38 {
@@ -17,7 +21,7 @@ struct Facing02096c38 { char pad_0[0xae]; short angle; };
 int CheckAndComputeDistance020968d0(Obj020968d0*, int*);
 void RenderFlaggedIndexedEntry(StructAt020473c8*, int);
 void RenderTransformedFlaggedIndexedEntry(StructAt020472e4*, int);
-void IssueCommand0x19_020c51a4(int);
+extern "C" void func_020c51a4(int);
 extern "C" void __clear(void*, int);
 
 // USA: func_02096c38
@@ -86,7 +90,7 @@ extern "C" ARM void func_02096c38(Obj020968d0* object, int startX, int startY, i
     GXFIFO_MATRIX_PUSH = 0;
     short angle = fix32ReduceAngle0To2Pi(-fix32_Atan2(direction.x, direction.y));
     rotation = RotationMatrixZ(angle);
-    IssueCommand0x19_020c51a4((int)&rotation);
+    func_020c51a4((int)&rotation);
     GXFIFO_MATRIX_PUSH = 0;
     GXFIFO_MATRIX_TRANSLATE = 0;
     GXFIFO_MATRIX_TRANSLATE = 0;

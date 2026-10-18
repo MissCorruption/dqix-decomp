@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
+#include "Input/Input.h"
 
 struct Struct0218e498 {
     unsigned char pad0[0x24];
@@ -11,9 +12,6 @@ struct Struct0218e498 {
 };
 
 extern "C" void func_ov015_0218cc24(struct Struct0218e498* obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
-
-extern unsigned short data_02114e30;
 
 // USA: func_ov015_0218e498  (semantic: MaybeUpdateSelfFieldsOnFlag_0218e498)
 extern "C" ARM void func_ov015_0218e498(struct Struct0218e498* obj) {
@@ -25,7 +23,7 @@ extern "C" ARM void func_ov015_0218e498(struct Struct0218e498* obj) {
     unsigned char* p = obj->field24;
     int flag = 0;
     if (cond != 0) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x100) != 0) {
+        if (g_keyManager.TestKeysPressed(0x100) != 0) {
             flag = 1;
         }
     } else {

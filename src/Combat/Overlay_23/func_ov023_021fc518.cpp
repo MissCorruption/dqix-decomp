@@ -146,9 +146,9 @@ extern "C" ARM int func_ov023_021fc518(MenuCharacter_021fc518* self, void* ctx, 
     int perspective = parent->GetPerspective();
 
 #if defined(jpn)
-    char* pairTables = (char*)func_ov017_0218b5b0() + 0x27c;
+    char* pairTables = (char*)GetGameResources() + 0x27c;
 #else
-    char* pairTables = func_ov017_0218b5b0()->unknown_2cc;
+    char* pairTables = GetGameResources()->unknown_2cc;
 #endif
     CopyInternalFields0207df50((Foo0207df50*)pairTables);
     RestorePairTables0207df90(pairTables);

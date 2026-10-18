@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 struct Entries {
     char pad0[0x36];
@@ -157,7 +158,7 @@ extern "C" ARM void func_ov003_0216253c(Scene *self) {
             CallFunc0204c804OverAllElems((Cont0207fe44*)entries);
             self->flags |= 0x80000;
             self->flags |= 8;
-            unsigned char *g = (unsigned char *) func_ov017_0218b5b0();
+            unsigned char *g = (unsigned char *) GetGameResources();
             int *p           = func_0202ae18();
             if (CheckField0NonZero_0202b7d8(p) != 0 && func_0202c508(p) != 0) {
                 ClearFlag320_02195540(g);

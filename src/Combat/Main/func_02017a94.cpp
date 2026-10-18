@@ -3,6 +3,10 @@
 #include <World/Zone3D.h>
 #include <GameState/GameState.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void);
 void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
 int GetBitmapPixel_0206eaec(unsigned char* base, int row, int col);

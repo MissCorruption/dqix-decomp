@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/Interrupts.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct AllocationNode0223b8c4 {
     AllocationNode0223b8c4* prev;
     AllocationNode0223b8c4* next;

@@ -14,9 +14,9 @@ struct MapDisplay;
 // most of the type information comes from atm
 struct GameResources
 {
-    unsigned int brightnessFlags_0;
-    unsigned int brightnessFlags_4;
-    unsigned int brightnessFlags_8;
+    unsigned int flags_00;
+    unsigned int flags_04;
+    unsigned int flags_08;
 
     float mainBrightness;
     int mainBrightnessTarget;
@@ -171,8 +171,11 @@ struct TreasureMapLanguageDataOffsets
     unsigned int legacyBossData;
 };
 
-// Will rename this after getting a better idea of what the struct is
+// GameResources global-instance accessors (Overlay 17)
 
-// This is the second function in overlay 17 (the first one stores this pointer).
-// So it's possible the struct is some sort of overall struct for the overlay.
-extern "C" GameResources* func_ov017_0218b5b0();
+
+// USA: 0x0218b5a0
+void SetGameResources(GameResources* gameResources);
+
+// USA: 0x0218b5b0
+GameResources* GetGameResources();

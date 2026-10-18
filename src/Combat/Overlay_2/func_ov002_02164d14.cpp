@@ -2,6 +2,7 @@
 #include "System/Cache.h"
 #include "System/LoadToVRAM.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -16,7 +17,6 @@ void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8 *s, int a, int b);
 void FilterSlotsWithFlag0x800020dc4d0(signed char *out, signed char *outCount);
 GameObject *GetCombatantWithFlag0x100_0200ff1c(GameState *gameState, int combatantId);
 int CheckField0x56bLowNibble(struct Obj02061bd8 *obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *p, int n);
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
 int GetDataPtr02114e04_020d6c00(void);
@@ -29,7 +29,6 @@ extern "C" void func_ov002_02156e90(char *base);
 extern "C" void func_020d79e0(char *base, int id);
 extern "C" void func_02012fe4(void);
 extern "C" void func_02017c58(void);
-extern "C" unsigned short data_02114e30[];
 extern "C" char data_02108760[];
 extern "C" unsigned short data_ov002_0216cca4[];
 extern "C" unsigned short data_ov002_0216cc86[];
@@ -81,7 +80,7 @@ extern "C" ARM void func_ov002_02164d14(char *base) {
             return;
         }
         if (old != *(short *) (base + 0x1b00 + 0xf6)) return;
-        int a = TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x601);
+        int a = g_keyManager.TestKeysPressed(0x601);
         int b = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(base + 0x2c8 + 0xc00), 0x14);
         if ((a | b) ? 1 : 0) {
             if (*(unsigned int *) (base + 0x2000 + 0x47c) & 2) return;

@@ -2,6 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0203bd08(void);
 extern "C" unsigned short GetSubBGVRAMBanks(void);
@@ -276,9 +277,9 @@ extern "C" ARM int func_ov000_021729ac(Menu021729ac* self) {
                 unsigned short n = 0;
 
 #if defined(jpn)
-                Source021729ac* src = (Source021729ac*)func_ov017_021b8478(*(void**)((char*)func_ov017_0218b5b0() + 0x3000 + 0x508));
+                Source021729ac* src = (Source021729ac*)func_ov017_021b8478(*(void**)((char*)GetGameResources() + 0x3000 + 0x508));
 #else
-                Source021729ac* src = (Source021729ac*)func_ov017_021b8478(*(void**)((char*)func_ov017_0218b5b0() + 0x3000 + 0x718));
+                Source021729ac* src = (Source021729ac*)func_ov017_021b8478(*(void**)((char*)GetGameResources() + 0x3000 + 0x718));
 #endif
 
                 if (src != 0) {

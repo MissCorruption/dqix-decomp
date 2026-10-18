@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c51dc func_020c6ca8
+#endif
+
 void FlushGXFifoAndWaitGeometryIdle_020c5354(void);
 void ResetMatrixStacks020c537c(void);
 void ClearTwoRegionsAndFifo020c55b0(void);

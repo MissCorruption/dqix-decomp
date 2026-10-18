@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca4b4 func_020cbf80
+#endif
+
 extern "C" ARM void* func_ov031_0223cf4c(unsigned int len, int align);
 extern "C" int func_020ca4b4(void*, void*, int);
 ARM void* CallWithZeroExtra_0223e218(void *a, void *b, void *c, int d);

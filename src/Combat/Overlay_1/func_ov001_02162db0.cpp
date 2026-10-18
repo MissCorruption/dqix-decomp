@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/Brightness.h"
 
 struct EquipSlot02162db0 {
     char unk_0[0x20];
@@ -49,7 +50,6 @@ struct Field150Holder02052df8;
 int GetHalfwordEntryFromField150(Field150Holder02052df8*, int);
 extern "C" void func_02052d7c(Combatant02162db0* combatant, int index, short value);
 void* GetPtrField0x2a04_02010828(GameState* gameState);
-void ClearBitsInWord_0203b4b0(unsigned int* word, unsigned int mask);
 extern "C" void func_ov017_0218f5a4(GameResources* resources, int combatantId, int a, int b, int c);
 
 extern SlotFlags02162db0 data_ov001_02165880;
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov001_02162db0(void* args, int argc) {
         return 0;
     }
 
-    resources = func_ov017_0218b5b0();
+    resources = GetGameResources();
     saved = (SavedSlot02162db0*)resources->unknown_ptr_array_371c[6];
     GetPtrField0x2a04_02010828(gameState);
     gameState->GetGameObjectByIndex(data_ov001_02164d44[slot]);
@@ -122,7 +122,7 @@ extern "C" ARM int func_ov001_02162db0(void* args, int argc) {
         }
     }
 
-    ClearBitsInWord_0203b4b0(&resources->brightnessFlags_0, 0x10);
+    ClearFlags00(resources, 0x10);
     BackgroundLoader::GetInstance();
     func_ov017_0218f5a4(resources, combatantId, 1, 0, 0);
     return 1;

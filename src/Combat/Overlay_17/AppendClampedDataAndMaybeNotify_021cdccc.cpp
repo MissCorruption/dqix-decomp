@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void* func_0205ec34(void* obj);
 void ClassifyPriceCategoryAndNotifyBattle_02064b98(unsigned char* table, int price);
 

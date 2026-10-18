@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define func_ov005_02157b74 func_ov005_0215916c
@@ -84,7 +85,6 @@ struct Menu02157b74 {
 };
 
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
-extern "C" char* func_ov017_0218b5b0();
 Context02157b74* GetField1c_021a193c(int*);
 Combatant02157b74* GetCombatantWithFlag0x100_0200ff1c(GameState* gs, int idx);
 char* GetPtrField0x2a04_02010828(GameState* gs);
@@ -131,7 +131,7 @@ extern unsigned char data_ov005_0215cd30[];
 extern "C" ARM void func_ov005_02157b74(Menu02157b74* self, int key, int keepStock) {
     char* bag;
     GameState* gs = _ZN9GameState11GetInstanceEv();
-    Context02157b74* ctx = GetField1c_021a193c((int*)(*(int*)(func_ov017_0218b5b0() + LOW_REGION(0x34f8, 0x3708))));
+    Context02157b74* ctx = GetField1c_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))));
     int bareArg;
     int actor = ctx->actor;
     Combatant02157b74* who = GetCombatantWithFlag0x100_0200ff1c(gs, actor);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov005_02157b74(Menu02157b74* self, int key, int keepSto
             func_0207c378(bag + 0x1d4, cur, 1, data_ov005_0215cd38[self->tab]);
         }
         self->entries[self->selected].id = -1;
-        DispatchByIdxAndCond021551fc((char*)self, GetField1c_021a193c((int*)(*(int*)(func_ov017_0218b5b0() + LOW_REGION(0x34f8, 0x3708))))->actor, 1);
+        DispatchByIdxAndCond021551fc((char*)self, GetField1c_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->actor, 1);
         func_ov005_02155544(self);
         self->dirty |= 0x10;
         self->f3da8 = 0;
@@ -280,7 +280,7 @@ extern "C" ARM void func_ov005_02157b74(Menu02157b74* self, int key, int keepSto
         if (item->equipType == 7) {
             SetPtrFieldByte021583fc((Holder021583fc*)who, 1);
         }
-        DispatchByIdxAndCond021551fc((char*)self, GetField1c_021a193c((int*)(*(int*)(func_ov017_0218b5b0() + LOW_REGION(0x34f8, 0x3708))))->actor, 1);
+        DispatchByIdxAndCond021551fc((char*)self, GetField1c_021a193c((int*)(*(int*)((char*)GetGameResources() + LOW_REGION(0x34f8, 0x3708))))->actor, 1);
     }
 
     if (kind == 0x62) {

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct ResetStruct0218eef0 {};
 struct Self0218f02c : ResetStruct0218eef0 {};
@@ -29,9 +30,7 @@ struct CommandInfo {
 };
 struct AllocatorUnion;
 extern AllocatorUnion data_02114e20;
-extern unsigned short data_02114e30;
 Entry8_0218bb14* GetEntry8_0218bb14(List8_0218bb14*, int);
-int TestFlagMask_02012430(unsigned short*, int);
 void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
 void TailForward02012da4(AllocatorUnion*, void*);
 void InitCombatFieldStruct0218eef0(ResetStruct0218eef0*);
@@ -44,7 +43,7 @@ extern "C" int func_ov015_0218f27c(Self0218f02c*, CommandInfo*);
 extern "C" ARM void func_ov015_02191c70(CombatMenu* self, int index) {
     Entry8_0218bb14* entry = GetEntry8_0218bb14(&self->list, index);
     if (!entry) return;
-    if (TestFlagMask_02012430(&data_02114e30, 0x100)) {
+    if (g_keyManager.TestKeysHeld(0x100)) {
         CombatNode* node = self->head;
         while (node) {
             func_ov015_0218f0c4(node->object);

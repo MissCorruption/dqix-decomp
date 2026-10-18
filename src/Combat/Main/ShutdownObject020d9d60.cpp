@@ -7,9 +7,9 @@ enum { kAllocatorOffset = 0x58 };
 
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/Brightness.h"
 
 void SetByteField0x253_020397c0(void* obj);
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
 void* GetDataPtr02114e04_020d6c00(void);
 struct FlagWord020466f4;
 void ClearFlags020466f4(struct FlagWord020466f4* word, unsigned int mask);
@@ -24,7 +24,7 @@ struct Obj020d9d60 {
 // USA: func_020d9d60
 ARM void ShutdownObject020d9d60(struct Obj020d9d60* self) {
     SetByteField0x253_020397c0((void*)GameState::GetInstance()->GetUnknownGameObject());
-    ClearBitsInWord_0203b4b0((unsigned int*)((int)func_ov017_0218b5b0()), 0x10);
+    ClearFlags00(GetGameResources(), 0x10);
     ClearFlags020466f4((struct FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0xe);
     void* p = self->allocator.GetSignedAllocator();
     if (p == NULL) return;

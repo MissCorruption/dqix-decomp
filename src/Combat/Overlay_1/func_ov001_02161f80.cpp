@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 void* GetField0x3f8Address_0200fd0c(GameState*);
 extern "C" void func_02012fe4(void);
@@ -48,7 +49,7 @@ extern "C" ARM int func_ov001_02161f80(void* target, int count) {
     *(Vector3i*)obj->vec10 = *(Vector3i const*)tmpArr;
     obj->field1c = (short)fixedD;
     obj->field20 = flag2;
-    void* p = ((char*)func_ov017_0218b5b0()) + 0x3000;
+    void* p = ((char*)GetGameResources()) + 0x3000;
 #if defined(jpn)
     void* q = *(void**)((char*)p + 0x524);
 #else

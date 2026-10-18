@@ -2,6 +2,10 @@
 #include "System/DMA.h"
 #include "System/Interrupts.h"
 
+#if defined(jpn)
+#define func_020ca2ac func_020cbd78
+#endif
+
 void RunAndClearCallback_020ca364(void);
 
 struct DmaAsyncState020ca2ac {

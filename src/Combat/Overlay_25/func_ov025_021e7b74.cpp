@@ -34,7 +34,7 @@ void ResetCombatantSlot020d7334(unsigned char*, int);
 extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* battle) {
     int retainedCount;
     DefinitionTable* definitions;
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     GameState* game = GameState::GetInstance();
     BattleSelection* selection = func_ov017_021b8478(resources->unknown_ptr_3718);
     void* work = GetActiveCombatWork_ov000_02160130();

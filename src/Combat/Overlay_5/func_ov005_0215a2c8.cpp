@@ -3,6 +3,7 @@
 #endif
 
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define LOW_REGION(j, u) (j)
@@ -24,7 +25,6 @@ struct MenuContext {
     int* unknown_ptr_3708;
 };
 
-extern "C" MenuContext* func_ov017_0218b5b0();
 void* GetField1c_021a193c(int* p);
 void SetShiftedFieldsAndCallTwice_021e31e4(void* self, int leftX, int leftY, int rightX, short rightY);
 
@@ -46,5 +46,5 @@ extern "C" ARM void func_ov005_0215a2c8(EquipmentMenu* self) {
         rightY++;
         self->flags_ &= ~0x40000;
     }
-    SetShiftedFieldsAndCallTwice_021e31e4(GetField1c_021a193c(func_ov017_0218b5b0()->unknown_ptr_3708), leftX, leftY, rightX, rightY);
+    SetShiftedFieldsAndCallTwice_021e31e4(GetField1c_021a193c(((MenuContext*)GetGameResources())->unknown_ptr_3708), leftX, leftY, rightX, rightY);
 }

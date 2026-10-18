@@ -7,8 +7,8 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 #include "System/OverlayId.h"
+#include "Resource/GameResources.h"
 
-extern "C" GameResources* func_ov017_0218b5b0();
 extern "C" void func_020a1940(unsigned int id);
 extern "C" void func_ov008_021843f8(void* obj);
 extern "C" void func_ov008_021842a0(void* obj, void* arg);
@@ -41,7 +41,7 @@ struct Manager0218af80 {
 
 // USA: func_ov008_0218af80
 extern "C" ARM void func_ov008_0218af80(Manager0218af80* self) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     if (self->e9c == 0 && self->bit1 && !IsBrightnessTransitionActive(res)) {
         func_020a1940(OVERLAY_ID(8));
         func_ov008_021843f8(self->f2a8);

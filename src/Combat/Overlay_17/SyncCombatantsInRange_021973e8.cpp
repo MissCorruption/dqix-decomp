@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 extern "C" void* func_02012fe4(void);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 struct ListNode0x2037a50;
 extern "C" int _ZN8Object3D4DrawEb(void* obj, int flag);
 struct Bits40_37464;
@@ -25,10 +25,10 @@ extern "C" ARM void func_ov017_021973e8(unsigned int* flagsObj) {
     unsigned short field38 = *(unsigned short*)((char*)ctx + RegionOffset38);
     unsigned int field3c = *(unsigned int*)((char*)ctx + RegionOffset3c);
 
-    if (GetBitsInField4_0203b4fc(flagsObj, 0x100) != 0) return;
+    if (TestFlags04((GameResources*)flagsObj, 0x100) != 0) return;
 
     int flag9 = 1;
-    if (GetBitsInField4_0203b4fc(flagsObj, 0x1000) != 0) {
+    if (TestFlags04((GameResources*)flagsObj, 0x1000) != 0) {
         flag9 = 0;
     }
 

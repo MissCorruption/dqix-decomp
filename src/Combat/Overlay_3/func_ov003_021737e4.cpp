@@ -4,6 +4,7 @@
 #include "System/LoadToVRAM.h"
 #include "System/BGBases.h"
 #include "System/Memory.h"
+#include "Resource/GameResources.h"
 
 struct TableA68 {
     struct EntryA68* entries;
@@ -47,7 +48,6 @@ struct Obj021737e4 {
     TableA68 text_;
 };
 
-extern "C" void* func_ov017_0218b5b0();
 extern "C" void func_020a620c(void* obj);
 int CountActiveEntries(ActiveEntry02046900* pac);
 void* FindRecordByIndex(Rec020467f0* pac, int index, void** outName, int* outSize);
@@ -60,7 +60,7 @@ extern char data_ov003_02180a76[];
 
 // USA: func_ov003_021737e4
 extern "C" ARM void func_ov003_021737e4(Obj021737e4* self) {
-    func_ov017_0218b5b0();
+    GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     func_020a620c(self->unk_d8);
     if (self->fef == 0) {

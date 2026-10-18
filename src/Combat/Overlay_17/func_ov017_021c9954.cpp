@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 
 struct Combatant021c9954 {
     Object3D obj3D;
@@ -71,7 +72,7 @@ void SetByteAtOffset1_021a7c1c(unsigned char* obj);
 // USA: func_ov017_021c9954
 extern "C" ARM void func_ov017_021c9954(int id, int checkLeader, int keep, int group) {
     GameState::GetInstance();
-    Battle021c9954* battle = (Battle021c9954*)func_ov017_0218b5b0();
+    Battle021c9954* battle = (Battle021c9954*)GetGameResources();
     Combatant021c9954* combatant;
     Party021c9954* party = battle->party;
     func_ov017_021b86f8(party, id, 1, keep);

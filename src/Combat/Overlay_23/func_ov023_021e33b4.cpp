@@ -4,6 +4,7 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <Memory/SafeAllocator.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct GameResources;
 struct Pair020deb08;
@@ -99,7 +100,6 @@ extern "C" void* memset(void* dst, int value, unsigned int length);
 extern "C" void* memcpy(void* dst, const void* src, unsigned int length);
 
 int IsMainBrightnessTransitionActive(GameResources* resources);
-void SetBitsInField4_0203b4d8(unsigned int* field, unsigned int bits);
 void RestorePairTables0207df90(char* tables);
 void BackupPairTables0207dfac(char* tables);
 void CopyInternalFields0207df50(Foo0207df50* tables);
@@ -136,7 +136,6 @@ void CopyByteFieldToNextAndSet_021e33a0_021e33a0(char* self, signed char mode);
 void InitEntryManagerAndAllocator02159c24(Obj02159c24*, void*, void*);
 
 extern "C" {
-GameResources* func_ov017_0218b5b0();
 void func_ov017_0219ba0c(GameResources* resources, int value);
 void func_ov005_02153ba4(void* battle);
 void func_ov005_02153954(void* battle, SafeAllocator* allocator, void* unk);
@@ -162,7 +161,7 @@ void func_ov023_021e2ce8(int combatant, void* sprites);
 extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
 {
     GameState* gameState = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
 
     if (self->step_4e4 == 0)
@@ -194,7 +193,7 @@ extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
             void* data;
             unsigned int size;
             loader->GetLoadedFileByID(self->task_630, &data, &size);
-            SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x601fe);
+            SetFlags04(resources, 0x601fe);
             RestorePairTables0207df90(self->pairTables_8);
             self->allocator_14->Reset();
             ZeroInit020de848(self->descriptor_a4);

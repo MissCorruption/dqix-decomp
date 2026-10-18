@@ -2,6 +2,10 @@
 #include "System/Interrupts.h"
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct MBUserInfo02238de4 {
 	unsigned char b0;
 	unsigned char nameLength;

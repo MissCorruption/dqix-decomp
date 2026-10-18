@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct AllocationNode021557ac { unsigned int field_0; SafeAllocator allocator; };
 struct Entry021557ac { short category; short index; unsigned char total; unsigned char matched; };
 struct Table021557ac { Entry021557ac entries[2]; unsigned short total; unsigned short matched; unsigned char side; };

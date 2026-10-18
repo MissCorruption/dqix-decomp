@@ -11,6 +11,7 @@ enum { kFinalSubflag = 0x3bc };
 #include "Graphics/LightingManager.h"
 #include "Resource/GameResources.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 extern "C" {
     int _Z33ApplyAndClearPendingEntry02013fb4P6Zone3D(void*);
@@ -21,8 +22,6 @@ extern "C" {
     int _Z17IsInRange0201b5b0i(int);
     int _Z22IsValueInRange0201b5d8i(int);
     void _Z24Set3DClearColor_020c5588iiiii(int, int, int, int, int);
-    void _Z24SetBitsInField4_0203b4d8Pjj(unsigned int*, unsigned int);
-    void _Z26ClearBitsInField4_0203b4e8Pjj(unsigned int*, unsigned int);
     void _Z25NotifyActiveSlots02018f30Ph(unsigned char*);
     void _Z28CollectMatchingElems020181fcPv(void*);
     int _Z24GetFieldIfFlag4_020100f8Pc(char const*);
@@ -77,12 +76,12 @@ extern "C" ARM int func_02013e18(Zone3D* zone)
 
     _Z24Set3DClearColor_020c5588iiiii(color, 0x10, 0x7fff, 0, 0);
 
-    unsigned int* res = (unsigned int*)func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     int t = (unsigned int)((unsigned char*)zone->pUnknownStruct_8_)[0xe] << 24 >> 31;
     if (!t)
-        _Z24SetBitsInField4_0203b4d8Pjj(res, 0x800);
+        SetFlags04(res, 0x800);
     else
-        _Z26ClearBitsInField4_0203b4e8Pjj(res, 0x800);
+        ClearFlags04(res, 0x800);
 
     _Z25NotifyActiveSlots02018f30Ph((unsigned char*)zone);
     _Z28CollectMatchingElems020181fcPv(zone);

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void __clear(void* buf, int size);
 int CollectCombatantsWithFlag0x1000_02010038(GameState* battleStruct, unsigned char* out);
@@ -228,7 +229,7 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
             if (leader == NULL) {
                 state = 0;
             } else {
-                ctx1 = (Ctx021c530c*)func_ov017_0218b5b0();
+                ctx1 = (Ctx021c530c*)GetGameResources();
                 node1 = ctx1->node718;
                 list1 = ctx1->list6fc;
                 evt = NULL;
@@ -266,7 +267,7 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                 fielda = cmd->fielda;
                 cid = cmd->id;
                 field8 = cmd->field8;
-                ctx2 = (Ctx021c530c*)func_ov017_0218b5b0();
+                ctx2 = (Ctx021c530c*)GetGameResources();
                 list2 = ctx2->list6fc;
                 node2 = ctx2->node718;
                 if (!ListContainsNode((ListHead02046b38*)list2, (ListNode02046b38*)node2)) {
@@ -348,7 +349,7 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
         return;
     }
 
-    ctx3 = (Ctx021c530c*)func_ov017_0218b5b0();
+    ctx3 = (Ctx021c530c*)GetGameResources();
     list3 = ctx3->list6fc;
     fieldObj = ctx3->obj734;
     found = 0;

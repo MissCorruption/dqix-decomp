@@ -5,6 +5,7 @@
 #include "Graphics/NSBXX/GeometryFifo.h"
 #include "Graphics/NSBXX/RenderConfig.h"
 #include "System/Graphics.h"
+#include "Resource/Brightness.h"
 
 struct Obj02061bd8;
 
@@ -21,7 +22,6 @@ extern "C" void* func_02057924(void);
 extern "C" void func_02057ab8(void* list, int id);
 int CheckByteFlagsAt4488_021922ac(void* self, unsigned int idx);
 int CheckFlag0x1ceBit2Set_02039d68(unsigned char* obj);
-unsigned int GetBitsInField4_0203b4fc(unsigned int* obj, unsigned int mask);
 int IsField0x1b4Or0x1b8Positive_02053cdc(int* obj);
 int GetFieldAt0x1b8_02053cd4(unsigned char* obj);
 extern "C" int func_02032fdc(void* obj, int clip, Vector3i* out);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_0218eafc(Battle0218eafc* battle, int idx) {
     if (context == NULL) return;
 
     bool clip = true;
-    if (GetBitsInField4_0203b4fc((unsigned int*)battle, 0x1000)) clip = false;
+    if (TestFlags04((GameResources*)battle, 0x1000)) clip = false;
     int alpha = member->obj3D_.GetCombinedAlpha();
     fix32_t alphaScale = member->obj3D_.GetAlphaScaleFactor();
 

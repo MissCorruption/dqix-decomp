@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/ProcessorContext.h"
 
+#if defined(jpn)
+#define func_020ca458 func_020cbf24
+#endif
+
 struct InitData020c7de4;
 void InitStruct020c7de4(InitData020c7de4* s, int e, int f);
 bool IsContextInactive(ProcessorContext* context);

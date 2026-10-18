@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 struct Profile02187608
 {
@@ -57,9 +58,7 @@ struct Obj0205eaa0;
 struct Obj021e6e20;
 
 extern "C" int func_ov023_021e63bc(ProfileEditor02187608* self);
-extern "C" int func_0201248c(unsigned short* pad, int buttons);
 extern "C" void func_ov023_021e61f4(ProfileEditor02187608* self);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* pad, int buttons);
 extern "C" void func_ov012_02185bf0(ProfileEditor02187608* self, unsigned char item, int selected);
 extern "C" int func_0205df38(void* window, int item);
 void SetThreeElementFields_021e6378(void* self, int state, int year, int month, unsigned char day);
@@ -72,7 +71,6 @@ void ResetEntryList0205d6a0(Entry_0205d6a0* window, int a);
 extern "C" void func_ov023_021e6e60(ProfileEditor02187608* self);
 extern "C" void func_ov012_0218943c(ProfileEditor02187608* self);
 
-extern "C" unsigned short data_02114e30[];
 extern "C" char data_02108760[];
 
 static inline Profile02187608* GetProfile02187608(GameState* gameState)
@@ -88,14 +86,14 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
         int changed = 0;
         int canCancel = 1;
         int scroll = func_ov023_021e63bc(self);
-        if (func_0201248c(data_02114e30, 0x80) || scroll < 0)
+        if (g_keyManager.TestKeyRepeat(0x80) || scroll < 0)
         {
             if (self->unk_13aa != 0)
                 self->unk_13a8 = 1;
             if (self->unk_13a9 > -3)
                 self->unk_13a9--;
         }
-        else if (func_0201248c(data_02114e30, 0x40) || scroll > 0)
+        else if (g_keyManager.TestKeyRepeat(0x40) || scroll > 0)
         {
             if (self->unk_13aa != 0)
                 self->unk_13a8 = 0;
@@ -107,7 +105,7 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
             self->unk_13a9 = 0;
         }
         func_ov023_021e61f4(self);
-        if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x80) || self->unk_13a9 <= -3)
+        if (g_keyManager.TestKeysPressed(0x80) || self->unk_13a9 <= -3)
         {
             if (self->unk_13ab & 2)
             {
@@ -127,7 +125,7 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
             }
             self->unk_13a9 = 0;
         }
-        else if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x40) || self->unk_13a9 >= 3)
+        else if (g_keyManager.TestKeysPressed(0x40) || self->unk_13a9 >= 3)
         {
             if (self->unk_13ab & 1)
             {
@@ -147,7 +145,7 @@ extern "C" ARM void func_ov012_02187608(ProfileEditor02187608* self)
             }
             self->unk_13a9 = 0;
         }
-        else if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 0x20) || func_0205df38(self->window_, 8))
+        else if (g_keyManager.TestKeysPressed(0x20) || func_0205df38(self->window_, 8))
         {
             SetThreeElementFields_021e6378(self, 8, 1, 0, 1);
             changed = 1;

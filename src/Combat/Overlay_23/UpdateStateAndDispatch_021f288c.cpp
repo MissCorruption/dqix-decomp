@@ -2,6 +2,10 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" void func_02046380(void);
 int GetGlobalField0x1c020421a0(void);
 extern "C" void* func_0205ec34(void);

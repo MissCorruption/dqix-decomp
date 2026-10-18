@@ -6,10 +6,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
+#include "Input/Input.h"
 
 void AdvanceActor020a20d8(void* actor);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
-extern unsigned short data_02114e30;
 
 struct Struct021931b4;
 void PushArrayValue021931b4(struct Struct021931b4* s, int v);
@@ -53,7 +52,7 @@ extern "C" ARM void func_ov015_02190d7c(struct S02190d7c* obj) {
         node = node->next;
     }
 
-    if (!TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 4)) {
+    if (!g_keyManager.TestKeysPressed(4)) {
         return;
     }
 

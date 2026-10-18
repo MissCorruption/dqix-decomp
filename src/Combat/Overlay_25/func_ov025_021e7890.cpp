@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct Sub3718_021e7890 {
     char pad[0x718];
@@ -90,7 +91,7 @@ extern "C" ARM int func_ov025_021e7890(int self, Action021e7890* action) {
     Node02160094* node;
     unsigned char mode;
     unsigned char n;
-    res = (GameRes021e7890*)func_ov017_0218b5b0();
+    res = (GameRes021e7890*)GetGameResources();
     state = GameState::GetInstance();
     r = func_ov017_021b8478(res->sub.ptr);
     work = GetActiveCombatWork_ov000_02160130();

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { fieldPadding = 0x13e };
@@ -24,7 +25,7 @@ ARM void NotifySub020541a4(struct Obj020541a4* p, unsigned char b) {
     unsigned char* q = p->field150;
     if (q == 0) return;
     GameState::GetInstance();
-    void* base = func_ov017_0218b5b0();
+    void* base = GetGameResources();
     q = p->field150;
     q[0x56c] = 1;
     q = p->field150;

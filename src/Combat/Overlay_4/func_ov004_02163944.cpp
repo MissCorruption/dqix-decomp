@@ -5,6 +5,7 @@
 #include "Grotto/Main/TreasureMapDataStructs.h"
 #include "Resource/GameResources.h"
 #include "std_library_functions.h"
+#include "Resource/Brightness.h"
 
 struct MapDisplayBuffer { TreasureMapMetadata maps[99]; DetailedTreasureMapData details[8]; unsigned char count; char pad18f5[9]; unsigned char busy; char name[17]; int state; };
 struct MapDisplayPointers { MapDisplayBuffer* buffer; void* scratch; void* file; };
@@ -12,7 +13,6 @@ struct SavedMapList { unsigned char count; unsigned char padding; TreasureMapMet
 struct ResourcePanel { char pad[0x14]; int state; };
 struct MapZone { char pad[0x26]; char name[17]; };
 struct MapController { char pad[0x1962]; unsigned char active; char pad1963; int first[9]; int second[3]; };
-struct AxisFloats0203b5a0;
 struct MapAllocatorNode { int field0; SafeAllocator allocator; };
 extern MapDisplayPointers data_ov004_02171010;
 extern char data_ov004_0217055c[];
@@ -31,7 +31,6 @@ extern "C" MapZone* func_02012fe4();
 void SetByteFieldAt0x765_02026420(unsigned char*, unsigned char);
 void SetFieldAt0x76c_020263dc(unsigned char*, void*);
 void Notify02022d78WithCode2_020dc3b8();
-bool IsAxisIntWithin16(AxisFloats0203b5a0*, int);
 void SetSubBrightness(GameResources*, int, int);
 extern "C" void func_ov004_021636b0(void*, const char*);
 char* GetGlobalField0x1c020421a0();
@@ -74,14 +73,14 @@ extern "C" ARM int func_ov004_02163944(void* obj) {
     func_020e5604(data_ov004_02171010.file, &fileHeap->allocator, file, length);
     BackgroundLoader::RemoveLockGlobal();
     MapZone* zone = func_02012fe4();
-    ResourcePanel* panel = (ResourcePanel*)func_ov017_0218b5b0()->unknown_ptr_36d0;
+    ResourcePanel* panel = (ResourcePanel*)GetGameResources()->unknown_ptr_36d0;
     data_ov004_02171010.buffer->state = panel->state;
     strcpy(data_ov004_02171010.buffer->name, zone->name);
     SetByteFieldAt0x765_02026420((unsigned char*)panel, 1);
     SetFieldAt0x76c_020263dc((unsigned char*)panel, allocator);
     Notify02022d78WithCode2_020dc3b8();
-    GameResources* resources = func_ov017_0218b5b0();
-    if (IsAxisIntWithin16((AxisFloats0203b5a0*)resources, 1)) SetSubBrightness(resources, -16, 0);
+    GameResources* resources = GetGameResources();
+    if (IsBrightnessWithinValidRange((GameResources*)resources, true)) SetSubBrightness(resources, -16, 0);
     func_ov004_021636b0(obj, data_ov004_02171010.buffer->details[selection].mapImageName_);
     MapController* controller = (MapController*)GetGlobalField0x1c020421a0();
     ReinitController02043204((char*)controller);

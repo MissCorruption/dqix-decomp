@@ -7,6 +7,10 @@
 #include "World/ZoneLootableRecord.h"
 
 #if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
 enum { kSceneHeapCount = 4 };
 #else
 enum { kSceneHeapCount = 5 };

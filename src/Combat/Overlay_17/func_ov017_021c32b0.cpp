@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct Mapping021c32b0 { unsigned char source, destination; };
 struct PartyPolygonIds { signed char ids[11]; };
@@ -34,7 +35,7 @@ extern "C" ARM void func_ov017_021c32b0(Mapping021c32b0* mapping, int count) {
     PartyPolygonResources* resources;
     GameState* game;
     game = GameState::GetInstance();
-    resources = (PartyPolygonResources*)func_ov017_0218b5b0();
+    resources = (PartyPolygonResources*)GetGameResources();
     int i = 0;
     while (i < count) {
         unsigned char id = mapping[i].source;

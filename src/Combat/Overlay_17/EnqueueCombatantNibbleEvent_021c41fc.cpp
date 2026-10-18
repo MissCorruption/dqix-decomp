@@ -6,6 +6,7 @@ enum { kRegionalFieldOffset = 0x150 };
 enum { kRegionalFieldOffset = 0x15c };
 #endif
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 void* GetData02100044_0202ae24(void);
 struct U16Field0x6_020375f8;
@@ -29,7 +30,7 @@ struct Evt021c41fc {
 // USA: func_ov017_021c41fc  (semantic: EnqueueCombatantNibbleEvent_021c41fc)
 extern "C" ARM void func_ov017_021c41fc(int combatantId, int mode) {
     GameState* battleStruct = GameState::GetInstance();
-    ((int)func_ov017_0218b5b0());
+    ((int)GetGameResources());
     GameObject* combatant = battleStruct->GetPartyMemberByIndex(combatantId);
     if (combatant == NULL) return;
 

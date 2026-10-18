@@ -13,6 +13,7 @@ enum { kRegion3734 = 0x3734 };
 enum { kRegion370c = 0x370c };
 #endif
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 char* GetGlobalField0x1c020421a0(void);
 extern "C" char* func_02012fe4(void);
@@ -68,7 +69,7 @@ struct State_0217d53c {
 extern "C" ARM void func_ov003_0217d53c(State_0217d53c* self) {
     GameState* gs = GameState::GetInstance();
     char* global = GetGlobalField0x1c020421a0();
-    char* res = (char*)func_ov017_0218b5b0();
+    char* res = (char*)GetGameResources();
     struct TailList020469b4* list = *(struct TailList020469b4**)(res + kRegion36fc);
 #if defined(jpn)
     Progress02012fe4* current = (Progress02012fe4*)(func_02012fe4() + 0x860);

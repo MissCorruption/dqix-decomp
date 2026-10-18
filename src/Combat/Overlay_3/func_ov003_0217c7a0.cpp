@@ -5,6 +5,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
 #include "System/Matrix.h"
+#include "Resource/GameResources.h"
 
 struct Obj0204b010;
 struct List0204afb4;
@@ -40,7 +41,6 @@ struct Scene0217c7a0
     int cameraTail[3];
 };
 
-extern "C" GameResources* func_ov017_0218b5b0(void);
 void ClearBuffer0204b010(Obj0204b010* obj, void* buf);
 extern "C" void func_0204b04c(void* obj, int flag);
 extern "C" void func_0204b088(void* obj, int flag);
@@ -55,7 +55,7 @@ void ClearCombatantSlot_0200fd48(GameState* gs, int id);
 // USA: func_ov003_0217c7a0
 extern "C" ARM void func_ov003_0217c7a0(Scene0217c7a0* self)
 {
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     if (self->state == 0)
     {
         SetBrightness(resources, -16, 0x3c);

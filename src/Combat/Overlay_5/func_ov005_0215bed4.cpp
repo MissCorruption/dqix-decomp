@@ -28,7 +28,6 @@ struct EquipmentMenu;
 
 extern "C" void func_ov005_021562b8(EquipmentMenu* self);
 extern "C" void func_ov005_0215730c(EquipmentMenu* self);
-extern "C" GameResources* func_ov017_0218b5b0(void);
 MemberScreen* GetField1c_021a193c(int* obj);
 void DispatchByIdxAndCond021551fc(char*, int, int);
 
@@ -46,5 +45,5 @@ extern "C" ARM void func_ov005_0215bed4(EquipmentMenu* self)
     }
     if (!touchHandled)
         func_ov005_0215730c(self);
-    DispatchByIdxAndCond021551fc((char*)self, GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3])->member_, 0);
+    DispatchByIdxAndCond021551fc((char*)self, GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->member_, 0);
 }

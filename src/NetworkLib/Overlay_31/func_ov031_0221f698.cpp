@@ -2,6 +2,10 @@
 #include <Graphics/NSBXX/RenderCommands_Common.h>
 #include "System/WirelessScanDescriptor.h"
 
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 extern "C" int func_ov031_0220eb88(int);
 extern "C" int func_ov031_0220eb30(void);
 

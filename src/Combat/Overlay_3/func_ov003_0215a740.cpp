@@ -12,6 +12,7 @@ enum { kRegion960 = 0x960 };
 
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Resource/GameResources.h"
 
 void* GetGlobalField0x1c020421a0(void);
 struct Struct_0205d81c;
@@ -248,7 +249,7 @@ extern "C" ARM void func_ov003_0215a740(void* self, int p1, int p2) {
                     func_ov017_021c3fb4(cid, 1);
                     func_ov017_021c4418(cid, -1);
                 }
-                void* bg = (void*)func_ov017_0218b5b0();
+                void* bg = (void*)GetGameResources();
                 void* ctxA = *(void**)((char*)bg + 0x3700);
                 void* ctxB = *(void**)((char*)bg + 0x3704);
                 void* loader = BackgroundLoader::GetInstance();

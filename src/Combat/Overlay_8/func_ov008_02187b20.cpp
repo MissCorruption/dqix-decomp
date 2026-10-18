@@ -13,6 +13,10 @@
 #include <World/Object3D.h>
 #include <GameState/GameState.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct PlayTime {
     unsigned short hours_;
     unsigned char minutes_;

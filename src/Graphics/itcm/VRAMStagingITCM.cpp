@@ -9,6 +9,10 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
+#define func_020d84f8 func_020d9e5c
+#endif
+
+#if defined(jpn)
 #define data_020ee694 data_020ee7a0
 #define data_020ee6b0 data_020ee7bc
 #define data_020ee6ba data_020ee7c6
@@ -85,7 +89,7 @@ void VRAMStagingManager::ZeroInitialize()
     maybeMaxHistorialNumSize6_ = 0;
     maybeMaxHistoricalSize6MemoryUse_ = 0;
     stagedTaskCounter_ = 0;
-    ClearAndInit020d84f8(banksInUse_, 0x30);
+    func_020d84f8(banksInUse_, 0x30);
     textureLockMask_ = 0;
     frameBufferIndex_ = 0;
 }

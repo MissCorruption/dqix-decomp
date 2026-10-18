@@ -1,11 +1,9 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 int GetGlobalField0x1c020421a0(void);
 
-extern unsigned short data_02114e30;
 extern char data_02114e54;
-
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
@@ -22,15 +20,15 @@ extern "C" ARM int func_ov023_021f4fc8(void) {
     int state = *(int*)((char*)obj + regionalOffset0);
     int flag = 0;
     if (state == 3 || state == 0) {
-        if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x1)
-            || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x2)
-            || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x200)
-            || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x100)
-            || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x400)
-            || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x40)
-            || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x80)
-            || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x20)
-            || TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x10)) {
+        if (g_keyManager.TestKeysPressed(0x1)
+            || g_keyManager.TestKeysPressed(0x2)
+            || g_keyManager.TestKeysPressed(0x200)
+            || g_keyManager.TestKeysPressed(0x100)
+            || g_keyManager.TestKeysPressed(0x400)
+            || g_keyManager.TestKeysPressed(0x40)
+            || g_keyManager.TestKeysPressed(0x80)
+            || g_keyManager.TestKeysPressed(0x20)
+            || g_keyManager.TestKeysPressed(0x10)) {
             flag = 1;
         }
         if (*((unsigned char*)&data_02114e54 + 0x54)) flag = 1;

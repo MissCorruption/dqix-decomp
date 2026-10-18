@@ -8,6 +8,7 @@ enum { RegionalSize = 0xe4 };
 #include "GameState/GameState.h"
 #include "Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
+#include "Resource/Brightness.h"
 
 extern "C" void func_020a0cc4(unsigned int);
 extern "C" void func_020a0c0c(void);
@@ -22,8 +23,6 @@ unsigned int GetMaxAlloc02012dd0(struct Struct02012dd0* self);
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
 extern AllocatorUnion data_02114e20;
 
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void ClearFlagBits_020a28b0(unsigned char* obj, int mask);
 int GetFieldIfFlag4_020100f8(char* obj);
 void ClearIntAt0x23c_020a27b8(unsigned char* obj);
@@ -50,7 +49,7 @@ ARM void UpdateEncounterState020dac94(void* objIn, void*) {
     GameState* battle = GameState::GetInstance();
     int state = obj->state;
     if (state == 0) {
-        SetBitsInField4_0203b4d8((unsigned int*)func_ov017_0218b5b0(), 0xc0);
+        SetFlags04(GetGameResources(), 0xc0);
         unsigned int max = GetMaxAlloc02012dd0((struct Struct02012dd0*)&data_02114e20);
         if (max < 0x6000) {
             func_020a0cc4(0x6000);
@@ -100,6 +99,6 @@ ARM void UpdateEncounterState020dac94(void* objIn, void*) {
     int flagResult = GetFieldIfFlag4_020100f8((char*)battle);
     SetField0x23cTrue_020a27ac((void*)flagResult);
     ClearFlagBits_020a28b0((unsigned char*)flagResult, 2);
-    ClearBitsInField4_0203b4e8((unsigned int*)func_ov017_0218b5b0(), 0xc0);
+    ClearFlags04(GetGameResources(), 0xc0);
     obj->state = -1;
 }

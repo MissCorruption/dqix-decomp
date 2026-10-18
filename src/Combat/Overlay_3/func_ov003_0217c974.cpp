@@ -3,6 +3,7 @@
 #include "Filesystem/FileIO.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { kRegionValue2CC_27C = 0x27c };
@@ -11,8 +12,6 @@ enum { kRegionValue2CC_27C = 0x2cc };
 #endif
 
 struct List0202fec8;
-
-extern "C" void* func_ov017_0218b5b0(void);
 
 struct Foo0207df50;
 void CopyInternalFields0207df50(struct Foo0207df50* p);
@@ -32,7 +31,7 @@ extern "C" ARM void func_ov003_0217c974(char* self) {
     int out1, out2;
     ((BackgroundLoader*)((struct List0202fec8*)list))->GetLoadedFileByID((int)(*(int*)(self + 0x130)), (void**)(&out1), (unsigned int*)(&out2));
 
-    void* mgr = func_ov017_0218b5b0();
+    void* mgr = GetGameResources();
     CopyInternalFields0207df50((struct Foo0207df50*)((char*)mgr + kRegionValue2CC_27C));
     RestorePairTables0207df90((char*)mgr + kRegionValue2CC_27C);
 

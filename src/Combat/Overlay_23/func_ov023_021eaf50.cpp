@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Grotto/Main/ActiveGrottoClass.h"
+#include "Resource/GameResources.h"
 
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" void* func_ov017_021b8478(void* table);
 extern "C" void* func_02012fe4(void);
 extern "C" void func_ov017_021d6134(void* obj, int flag);
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov023_021eaf50(void* obj) {
 #endif
     int result = 0;
 
-    char* base = func_ov017_0218b5b0() + 0x3000;
+    char* base = (char*)GetGameResources() + 0x3000;
     struct ListHead02046b38* list = *(struct ListHead02046b38**)(base + regionalOffset0);
     struct ListNode02046b38* node = *(struct ListNode02046b38**)(base + regionalOffset1);
     void* headerObj = func_ov017_021b8478(node);

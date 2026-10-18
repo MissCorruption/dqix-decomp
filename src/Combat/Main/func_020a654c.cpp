@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct Res020a654c {
 #if defined(jpn)
@@ -31,7 +32,6 @@ void* GetField0x0List02046b1c(S02046b1c*);
 struct GameResources;
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" void func_020a75ec(void* p);
-int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
 void DispatchWithZeroExtras_02193428(void*, void*);
 extern "C" void func_020a7ce0(void* p);
 extern "C" int func_020a7d74(void* p, int* out1, int* out2);
@@ -61,13 +61,13 @@ extern "C" ARM void func_020a654c(struct Res020a654c* self) {
         }
     }
     func_020a75ec(obj);
-    if (GetBitsInField0_0203b4c4((unsigned int*)self, 0x2020) == 0) {
+    if (TestFlags00((GameResources*)self, 0x2020) == 0) {
         DispatchWithZeroExtras_02193428(obj, (void*)1);
     }
     if (*p == 0x2710) {
         func_020a7ce0(obj);
     }
-    if (GetBitsInField0_0203b4c4((unsigned int*)self, 0x2020) != 0) {
+    if (TestFlags00((GameResources*)self, 0x2020) != 0) {
         return;
     }
     struct Out020a654c out;

@@ -5,6 +5,10 @@
 #include "Resource/Script.h"
 #include "Combat/WorkRecord.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Variant02030b0c;
 struct TaggedValue02030b44;
 struct Vector3i;

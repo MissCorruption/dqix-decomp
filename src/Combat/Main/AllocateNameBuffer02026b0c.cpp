@@ -20,7 +20,7 @@ struct Obj02026b0c {
 
 // USA: func_02026b0c
 ARM void AllocateNameBuffer02026b0c(struct Obj02026b0c* p, int n) {
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     SafeAllocator* alloc = &resources->allocator_array_38[12];
     p->count = n;
     p->entries = static_cast<NameEntry02026b0c*>(alloc->Allocate((n & 0xff) * sizeof(NameEntry02026b0c)));

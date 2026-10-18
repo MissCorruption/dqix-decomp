@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 struct Struct_0205c570;
 struct Struct_0205def8;
@@ -7,7 +8,6 @@ struct Obj0205eaa0;
 
 int GetActiveScaledSum0205d794(struct Struct_0205c570* s);
 void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8* s, int clear, int key);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 int IsBitFlagSet0217c4e8(void* obj, int bit);
@@ -85,7 +85,6 @@ struct MenuObj_0217b6d0 {
 };
 
 extern MenuGlobals_0217b6d0 data_ov000_02184294;
-extern unsigned short data_02114e30;
 extern char data_02108760;
 
 #if defined(jpn)
@@ -104,7 +103,7 @@ extern "C" ARM int func_ov000_0217b6d0(MenuObj_0217b6d0* obj, int arg1, int arg2
     if (prev != cur) {
         return -1;
     }
-    int t = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int t = g_keyManager.TestKeysPressed(0x601);
     bool active = (t | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)obj->window, 0x14)) != 0;
     if (active || obj->field444 != 0) {
         if (!IsBitFlagSet0217c4e8(obj, cur)) {
@@ -151,7 +150,7 @@ extern "C" ARM int func_ov000_0217b6d0(MenuObj_0217b6d0* obj, int arg1, int arg2
     if (prev != cur) {
         return -1;
     }
-    int t = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int t = g_keyManager.TestKeysPressed(0x601);
     int active = (t | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)obj->window, 0x14)) != 0;
     if (active || obj->field444 != 0) {
         if (!IsBitFlagSet0217c4e8(obj, cur)) {

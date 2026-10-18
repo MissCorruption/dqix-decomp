@@ -1,14 +1,10 @@
 #include <globaldefs.h>
+#include "Resource/Brightness.h"
 
 void* GetDataPtr02114e04_020d6c00(void);
 
 struct FlagWord02046708;
 int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
-
-extern "C" int func_ov017_0218b5b0(void);
-
-struct AxisFloats0203b57c;
-int GetAxisIntValue(struct AxisFloats0203b57c* s, int axis);
 
 int InitAndCopyBuffer02023330(void* arg0, int flag1);
 int InitAndCopyBuffer020233b8(void* arg0, int flag1);
@@ -41,7 +37,7 @@ ARM void UpdateTimedBufferState020275e4(struct Obj020275e4* obj) {
     if (len >= obj->limit) {
         return;
     }
-    if (GetAxisIntValue((struct AxisFloats0203b57c*)func_ov017_0218b5b0(), 1)) {
+    if (GetBrightness(GetGameResources(), true)) {
         return;
     }
 

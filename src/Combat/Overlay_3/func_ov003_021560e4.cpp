@@ -4,6 +4,11 @@
 #include "Resource/FontBankLoader.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 #if defined(jpn)
 enum { kTaskOffset = 0x1cc, kPartyResourceOffset = 0x50c, kGlobalFieldOffset = 0x868, kManagerListOffset = 0x20, kManagerStateOffset = 0x2c, kManagerFlagOffset = 0x2e };
@@ -169,7 +174,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             int key = -1;
             if (self->flags & 1) {
                 key = 0x1a;
-                char* x = (char*)func_ov017_0218b5b0();
+                char* x = (char*)GetGameResources();
                 int id = *(short*)(*(char**)(x + 0x3000 + kPartyResourceOffset) + 0x22);
                 GameState* gs = GameState::GetInstance();
                 GameObject* pm = gs->GetPartyMemberByIndex(id);

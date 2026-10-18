@@ -3,6 +3,10 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct GameState {
     static GameState* GetInstance();
 };

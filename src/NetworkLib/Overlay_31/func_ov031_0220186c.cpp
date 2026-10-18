@@ -40,8 +40,9 @@ extern "C" ARM void func_ov031_0220186c(Struct0220186c* a, unsigned int b) {
 
     unsigned int combined = ((unsigned int)SwapBytes16_0220186c(a->fe) << 16) | SwapBytes16_0220186c(a->f10);
     unsigned int combined2 = ((unsigned int)SwapBytes16_0220186c(a->f18) << 16) | SwapBytes16_0220186c(a->f1a);
-    int match1 = combined == data_ov031_0224c980.field50;
-    int match2 = data_ov031_0224c980.field50 == combined2;
+    const unsigned int* myIp = &data_ov031_0224c980.field50;
+    int match1 = combined == *myIp;
+    int match2 = *myIp == combined2;
 
     if (!match1) func_ov031_02200e38(a->pad8, combined, match2);
 

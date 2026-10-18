@@ -3,6 +3,10 @@
 #include "Filesystem/FileAccessor.h"
 #include "Filesystem/LowNitroHandle.h"
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 struct FileBlock_0223b61c { unsigned char pad[0x84]; void* slotArray; };
 struct Outer_0223b61c { FileBlock_0223b61c* p; };
 extern struct Outer_0223b61c data_ov031_02290d24;

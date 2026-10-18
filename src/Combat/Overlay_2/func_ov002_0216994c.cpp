@@ -1,4 +1,9 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -16,7 +21,6 @@ void InitBattleTag021609d4(char *self);
 extern "C" void func_ov002_02161b98(char *self);
 int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 extern "C" void func_ov002_0215bba8(char *self);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *pad, int buttons);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 int NextIndexOrZero_0215a9b4(void *self, short idx);
@@ -31,7 +35,6 @@ int TryApplyElemFields0205d5d0(struct StructA0205d5d0 *, int, int, int, unsigned
 extern "C" void func_ov002_02156e90(void *obj);
 int CheckFlagOrThreshold_02161b48(char *self, int v);
 
-extern "C" unsigned short data_02114e30;
 extern "C" char data_02108760;
 
 struct Fld0216994c {
@@ -68,7 +71,7 @@ extern "C" ARM void func_ov002_0216994c(char *self) {
     if (*(unsigned char *) (self + 0x2484) != f) {
         func_ov002_0215bba8(self);
     }
-    int a  = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int a  = g_keyManager.TestKeysPressed(0x601);
     int b  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0x2c8 + 0xc00), 0x14);
     int ok = (a | b) ? 1 : 0;
     if (ok) {

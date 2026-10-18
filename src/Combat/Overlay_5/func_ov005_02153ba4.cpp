@@ -2,6 +2,7 @@
 #include <GameState/GameState.h>
 #include <Memory/SafeAllocator.h>
 #include <std_library_functions.h>
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 #define REGION(j,u) (j)
@@ -288,7 +289,7 @@ extern "C" ARM void func_ov005_02153ba4(EquipmentMenu* self) {
     self->blinkTimer_ = 30;
     self->blinkTimer2_ = 30;
     self->fadeStep_ = 0;
-    MemberScreen* screen = GetField1c_021a193c((int*)func_ov017_0218b5b0()->unknown_ptr_array_36fc[3]);
+    MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
     int* members = screen->members_;
     int memberCount = screen->memberCount_;
     for (int kind = 0; kind < 8; kind++) {

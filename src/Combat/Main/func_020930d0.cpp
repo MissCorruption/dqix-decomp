@@ -71,7 +71,7 @@ extern "C" ARM void func_020930d0(struct BattlePhaseState020930d0* s) {
 
     gs = GameState::GetInstance();
     gf = (GlobalBlock020930d0*)GetGlobalField0x1c020421a0();
-    res = func_ov017_0218b5b0();
+    res = GetGameResources();
     list = (struct ListHead02046b60*)res->unknown_ptr_array_36fc[0];
     party = (struct CombatantIndexList020930d0*)GetPtrField0x2a04_02010828(gs);
     g = GetGlobal02109030_020936f8();

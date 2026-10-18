@@ -1,5 +1,6 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct0205de24;
 struct Struct_0205c570;
@@ -18,8 +19,6 @@ int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 extern "C" void func_ov002_0215b9a4(void *self, int mode, int flag);
 void SetElementFlag0x20ByKey0205def8(struct Struct_0205def8 *s, int clear, int key);
 void SetElementFieldC2_0205deb4(struct Struct_0205d81c *s, int key, int value);
-int TestFlagMask_02012430(unsigned short *pad, int mask);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *pad, int buttons);
 extern "C" int func_0205df38(void *obj, int key);
 extern "C" void func_ov002_0215b458(char *self, int v);
 struct Obj_0205da38;
@@ -37,7 +36,6 @@ int CheckFlagOrThreshold_02161b48(char *self, int v);
 void ResetAllocatorsAndClearFields0215b428(unsigned char *obj);
 extern "C" void func_ov002_02156e90(void *obj);
 
-extern "C" unsigned short data_02114e30;
 extern "C" char data_02108760;
 
 #define OBJ (self + 0x2c8 + 0xc00)
@@ -83,13 +81,13 @@ extern "C" ARM void func_ov002_02162964(char *self) {
             SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) OBJ, SEL >= 0 ? 1 : 0, 5);
         }
         SetElementFieldC2_0205deb4((struct Struct_0205d81c *) OBJ, 5, 1);
-        if (TestFlagMask_02012430(&data_02114e30, 0x40)) {
+        if (g_keyManager.TestKeysHeld(0x40)) {
             return;
         }
-        if (TestFlagMask_02012430(&data_02114e30, 0x80)) {
+        if (g_keyManager.TestKeysHeld(0x80)) {
             return;
         }
-        if ((TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 4) || func_0205df38(OBJ, 0x28)) && CUR == LAST) {
+        if ((g_keyManager.TestKeysPressed(4) || func_0205df38(OBJ, 0x28)) && CUR == LAST) {
             func_ov002_0215b458(self, 0);
             return;
         }
@@ -100,7 +98,7 @@ extern "C" ARM void func_ov002_02162964(char *self) {
         if (old != CUR) {
             return;
         }
-        int t  = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+        int t  = g_keyManager.TestKeysPressed(0x601);
         int u  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)OBJ, 0x14);
         int ok = (t | u) ? 1 : 0;
         if (ok || pick) {

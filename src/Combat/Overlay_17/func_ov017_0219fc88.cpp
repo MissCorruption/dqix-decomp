@@ -6,6 +6,11 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset734 = 0x734, RegionOffset6d0 = 0x6d0
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 extern "C" void* func_02012fe4(void);
 void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
@@ -56,7 +61,7 @@ extern "C" ARM int func_ov017_0219fc88(void* unusedSelf, int scriptId) {
     unsigned short* g = (unsigned short*)func_02012fe4();
     void* ctx;
     int success;
-    void* self = func_ov017_0218b5b0();
+    void* self = GetGameResources();
     struct TailList020469b4* list = *(struct TailList020469b4**)((char*)self + 0x3000 + RegionOffset6fc);
     ctx = GetField0x3f8Address_0200fd0c(battle);
 

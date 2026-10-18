@@ -2,6 +2,10 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 extern "C" {
 }
 extern "C" void* func_02012fe4(void);

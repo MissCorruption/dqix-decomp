@@ -2,6 +2,11 @@
 #include "GameState/GameState.h"
 
 #include "World/Zone3D.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct FlagWord02046708 { unsigned int flags; };
 
@@ -33,7 +38,7 @@ int TestBitInByteArray_0206dfb0(int unused, unsigned char* arr, int index);
 // USA: func_020a84e0
 extern "C" ARM void func_020a84e0() {
     GameState* gs = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     struct FlagWord02046708* fw = (struct FlagWord02046708*)GetDataPtr02114e04_020d6c00();
     Zone3D* zone = (Zone3D*)func_02012fe4();
     int ctx = (int)func_0205ec34();

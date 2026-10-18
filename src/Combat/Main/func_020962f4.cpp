@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct PackedNibbleArray0206e120;
 struct SearchRecord {
     unsigned int index : 9;

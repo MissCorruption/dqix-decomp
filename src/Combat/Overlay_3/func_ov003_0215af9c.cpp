@@ -5,6 +5,7 @@ enum { kRegion998 = 0x868 };
 enum { kRegion998 = 0x998 };
 #endif
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct BattleMessageScene {
     char unk_0[0x64];
@@ -22,11 +23,8 @@ struct BattleGlobals {
     int messageActive;
 };
 
-extern "C" GameResources* func_ov017_0218b5b0(void);
 BattleGlobals* GetGlobalField0x1c020421a0(void);
 int IsBrightnessTransitionActive(GameResources*);
-struct AxisFloats0203b57c;
-int GetAxisIntValue(AxisFloats0203b57c*, int);
 void SetMainBrightness(GameResources*, int, int);
 int GetField0x397cValue_020100b0(GameState*);
 GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*, int);
@@ -39,14 +37,14 @@ extern "C" void func_ov003_02159250(BattleMessageScene*, void*);
 
 // USA: func_ov003_0215af9c
 extern "C" ARM void func_ov003_0215af9c(BattleMessageScene* self) {
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     BattleGlobals* g = GetGlobalField0x1c020421a0();
     unsigned char step = self->step;
 
     if (step == 0) {
         if (!IsBrightnessTransitionActive(res) &&
-            GetAxisIntValue((AxisFloats0203b57c*)res, 0) &&
-            GetAxisIntValue((AxisFloats0203b57c*)res, 1)) {
+            GetBrightness((GameResources*)res, false) &&
+            GetBrightness((GameResources*)res, true)) {
             SetMainBrightness(res, 0, 0xf);
         }
         self->step++;
@@ -55,7 +53,7 @@ extern "C" ARM void func_ov003_0215af9c(BattleMessageScene* self) {
     if (step == 1) {
         if (self->busy != 0) return;
         if (IsBrightnessTransitionActive(res)) return;
-        if (GetAxisIntValue((AxisFloats0203b57c*)res, 0)) return;
+        if (GetBrightness((GameResources*)res, false)) return;
 
         if (self->actorSlot == 1) {
             GameState* gs = GameState::GetInstance();

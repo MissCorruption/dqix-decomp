@@ -8,6 +8,14 @@
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
+
 struct Struct0205a198;
 struct ClearTarget0205a234;
 struct Obj0208b8c4;
@@ -95,7 +103,7 @@ void CopyInternalFields0207df50(Foo0207df50* p);
 int StoreArgIfMatched_02153948(unsigned short arg);
 extern "C" Events021552a8* func_0205ec34(void);
 extern "C" void* func_02012fe4(void);
-void SetOrClearBitInArray_0206df6c(void* unused, unsigned char* array, int bit, int value);
+extern "C" void func_0206df6c(void* unused, unsigned char* array, int bit, int value);
 extern "C" void* func_0202ae18(void);
 void* GetPtrField0x2a04_02010828(GameState* gs);
 void* GetDataPtr02114e04_020d6c00(void);
@@ -117,7 +125,7 @@ static inline void SetListEntries(List021552a8* list, Struct0205a198* entries, u
 extern "C" ARM int func_ov001_021552a8(Self021552a8* self) {
     char* sub;
     GameState* gs = GameState::GetInstance();
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     char* hud = GetFieldIfFlag4_020100f8((char*)gs);
     GameObject* leader = gs->GetUnknownGameObject();
@@ -235,7 +243,7 @@ extern "C" ARM int func_ov001_021552a8(Self021552a8* self) {
         for (i = 0; i < total; i++) {
             BmdjSceneElement* e = &node->elements[i];
             if (e != NULL && !(e->flags & 4)) {
-                SetOrClearBitInArray_0206df6c(events, events->bits, (unsigned char)i, 1);
+                func_0206df6c(events, events->bits, (unsigned char)i, 1);
             }
         }
     }
@@ -243,7 +251,7 @@ extern "C" ARM int func_ov001_021552a8(Self021552a8* self) {
     unsigned char arg = self->field9c;
     Params021552a8 params = self->params;
     GameState* state = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     void* area = (Zone3D*)func_02012fe4();
     func_0202ae18();
     GetPtrField0x2a04_02010828(state);

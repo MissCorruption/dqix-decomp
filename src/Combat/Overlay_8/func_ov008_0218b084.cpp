@@ -7,13 +7,13 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "System/OverlayId.h"
+#include "Resource/GameResources.h"
 
 struct S021b2ba0;
 struct TailList020469b4;
 struct TailNode020469b4;
 struct SafeAllocator;
 
-extern "C" void* func_ov017_0218b5b0();
 void SetByteB10AndClearB11_02184a3c(char* obj, unsigned char value);
 extern "C" void func_ov008_02184754(void* obj);
 extern "C" void func_ov008_021845ac(void* obj);
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov008_0218b084(Manager0218b084* self) {
     if (self->e9c != 2) {
         return;
     }
-    void* res = func_ov017_0218b5b0();
+    void* res = GetGameResources();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
     loader->RemoveTask(self->eac);
 #if !defined(jpn)

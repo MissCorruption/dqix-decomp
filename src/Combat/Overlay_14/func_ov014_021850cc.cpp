@@ -300,7 +300,7 @@ extern "C" ARM void func_ov014_021850cc(MonsterInfoScreen* self) {
             unsigned int size;
             loader->GetLoadedFileByID(self->taskIDs_[4], &file, &size);
             if (file != NULL) {
-                GameResources* resources = func_ov017_0218b5b0();
+                GameResources* resources = GetGameResources();
                 const void* found;
                 unsigned int foundSize;
                 if (FindFilesInNarcBySubstring(file, data_ov014_02189680, &found, &foundSize, 1)) {

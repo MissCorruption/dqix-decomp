@@ -3,6 +3,7 @@
 #include "std_library_functions.h"
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
+#include "Resource/GameResources.h"
 
 struct GameResources;
 struct ActiveEntry02046900;
@@ -12,7 +13,6 @@ struct Obj0204b5e8;
 struct SelfTag0204b3a0;
 struct Zone02172a14;
 
-extern "C" void *func_ov017_0218b5b0(void);
 int CountActiveEntries(ActiveEntry02046900 *archive);
 void *FindRecordByIndex(Rec020467f0 *archive, int index, void **name, int *size);
 extern "C" void func_0205a528(void *renderer, void *file, unsigned int size, void *allocator);
@@ -94,7 +94,7 @@ struct Self02172a14 {
 
 // USA: func_ov003_02172a14
 extern "C" ARM void func_ov003_02172a14(Self02172a14 *self) {
-    GameResources *res       = (GameResources *) func_ov017_0218b5b0();
+    GameResources *res       = GetGameResources();
     BackgroundLoader *loader = BackgroundLoader::GetInstance();
     FontBankLoader* global = GetGlobal02109400_02094a00();
     if (self->step_ == 0) {

@@ -3,6 +3,7 @@
 #include "Resource/GameResources.h"
 #include "Memory/SafeAllocator.h"
 #include <std_library_functions.h>
+#include "Resource/Brightness.h"
 
 struct BattleState { char pad0[0x8e14]; signed char outcome; char pad8e15[0xb]; int mode; int count; };
 struct ListEntryTask {
@@ -116,7 +117,6 @@ extern "C" void func_ov025_021dc880(Work*);
 extern "C" void func_ov025_021db458(Work*);
 extern "C" void func_ov025_021db7f8(Work*);
 void SetFieldsAndSignalData02184220_ov000_02160d80(void*, int);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
 inline unsigned int AlignedSize(unsigned int length) { return (length + 3) & ~3; }
 
 #if defined(jpn)
@@ -128,7 +128,7 @@ extern "C" ARM void func_ov025_021db038(Work* work) {
     BattleState* battle = work->battle;
     void* list = GetSlotPtr02160f20(work);
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     func_02057924();
     GetField02163524(work);
     _ZZ16GetTimer021ef974vE1s = 0;
@@ -222,7 +222,7 @@ extern "C" ARM void func_ov025_021db038(Work* work) {
     else if (work->battle->outcome == 1) SetFieldsAndSignalData02184220_ov000_02160d80(work, 9);
     else {
         SetFieldsAndSignalData02184220_ov000_02160d80(work, 7);
-        SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 0x800);
+        SetFlags00(resources, 0x800);
     }
     game->SetGameSpeed(0x1000);
 }

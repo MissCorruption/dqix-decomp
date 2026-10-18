@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
 extern "C" void func_020ca390(int value, void* dst, int count);
 
 // USA: func_ov031_0221e774  (semantic: SetupAndVectorCopy_0221e774)

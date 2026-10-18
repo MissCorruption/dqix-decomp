@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 #include <System/ColorEffects.h>
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 #define GUIDE_WINDOW_MAIN_SCREEN 8
 #define GUIDE_WINDOW_NO_DIMMING 0x20
@@ -103,7 +108,6 @@ void AppendString02042058(char* text, const char* append);
 void ReinitController02043204(char* messages);
 
 extern "C" {
-GameResources* func_ov017_0218b5b0();
 int func_ov023_021ed064(GuideWindow_021ec480* self);
 void func_ov023_021ecbbc(GuideWindow_021ec480* self);
 void func_ov023_021ed194(GuideWindow_021ec480* self);
@@ -131,7 +135,7 @@ extern "C" ARM void func_ov023_021ec480(GuideWindow_021ec480* self)
 #else
  enum {regionalOffset0=0x960};
 #endif
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     MessageSystem_021ec480* messages = GetGlobalField0x1c020421a0();
     if (self->step_ >= 1 && self->step_ <= 3 && func_ov023_021ed064(self))
     {

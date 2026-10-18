@@ -12,6 +12,10 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #include "std_library_functions.h"
 #include "World/Object3D.h"
 #include "GameState/GameState.h"
+
+#if defined(jpn)
+#define func_020daf90 func_020dc998
+#endif
 struct BattleSub7e78 {
     char pad0[6];
     unsigned char field6;
@@ -116,7 +120,7 @@ void BackupPairTables0207dfac(char* obj);
 struct Entry0209854c;
 struct Entry0209854c* FindEntryByFieldC0209854c(struct Entry0209854c* list, int target);
 
-void* GetGlobalContext020daf90(void);
+extern "C" void* func_020daf90(void);
 int GetField0x50_020db2d4(void* obj);
 void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
 
@@ -311,7 +315,7 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
     }
 
     struct BattleStruct* battleStruct = (BattleStruct*)GameState::GetInstance();
-    GameResources* mgr = func_ov017_0218b5b0();
+    GameResources* mgr = GetGameResources();
     struct RegNode0203d028* entry = (struct RegNode0203d028*)GetFieldAt0x0020652c8(&self->listHead);
     struct Global02012fe4* globalStruct = func_02012fe4();
     unsigned int* dataFlags = GetDataPtr02114e04_020d6c00();
@@ -379,7 +383,7 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
             struct Entry0209854c* found = FindEntryByFieldC0209854c((struct Entry0209854c*)((char*)globalStruct + 0x840), entry->id);
             if (found != 0) {
                 {
-                    if (GetField0x50_020db2d4(GetGlobalContext020daf90()) == 0) {
+                    if (GetField0x50_020db2d4(func_020daf90()) == 0) {
                         DispatchWithGlobalContext020daf9c(1, 0, 1, 0);
                         SetMainBrightness(mgr, ~0xf, 0);
                     }

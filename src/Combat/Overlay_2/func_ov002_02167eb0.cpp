@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 class GameState;
 struct Struct0205de24;
@@ -13,7 +14,6 @@ int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *flags, int mask);
 int CheckFlagOrThreshold_02161b48(char *self, int flag);
 void SetElementFieldC2_0205deb4(struct Struct_0205d81c *s, int key, int value);
 void *GetPtrField0x2a04_02010828(GameState *gs);
@@ -22,7 +22,6 @@ extern "C" void func_ov002_02161cf0(void *self);
 extern "C" void func_ov002_0215fb54(void *self);
 extern "C" void func_ov002_0215b9a4(void *self, int mode, int flag);
 extern "C" void func_ov002_02156e90(void *self);
-extern unsigned short data_02114e30;
 extern char data_02108760[];
 
 // USA: func_ov002_02167eb0
@@ -40,7 +39,7 @@ extern "C" ARM void func_ov002_02167eb0(char *base) {
     short old                  = *(short *) (base + 0x1c04);
     *(short *) (base + 0x1c04) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (base + 0xec8));
     if (old != *(short *) (base + 0x1c04)) return;
-    int pressed = TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601);
+    int pressed = g_keyManager.TestKeysPressed(0x601);
     int confirm = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(base + 0xec8), 0x14)) ? 1 : 0;
     if (confirm) {
         func_ov002_0215b9a4(base, *(int *) (base + 0x1bb8) & 0xff, 1);

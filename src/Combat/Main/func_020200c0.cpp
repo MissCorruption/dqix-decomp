@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include "Combat/CombatantRecovery.h"
+#include "Resource/GameResources.h"
 
 struct Struct02020520 {
     int pointer;
@@ -49,7 +50,6 @@ struct PartyMember020200c0 : GameObject {
 
 struct Obj0205b674;
 
-extern "C" GameResources* func_ov017_0218b5b0(void);
 MessageStore020200c0* GetGlobalField0x1c020421a0(void);
 extern "C" void* memcpy(void* dst, const void* src, unsigned int n);
 void ClearStruct02020520(struct Struct02020520* s);
@@ -84,7 +84,7 @@ extern "C" ARM void func_020200c0(int combatantId, int value) {
     if (combatantId >= 0 && combatantId <= 3) isPartySlot = 1;
     else isPartySlot = 0;
     if (!isPartySlot || value == 0) return;
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     if (res == NULL || res->unknown_ptr_36d0 == NULL) return;
     unsigned int offset = (combatantId + 1) << 11;
     MessageStore020200c0* store = GetGlobalField0x1c020421a0();

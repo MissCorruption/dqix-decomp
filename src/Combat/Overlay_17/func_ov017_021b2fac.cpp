@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "World/Object3D.h"
+#include "Resource/GameResources.h"
 
 struct Task021b2fac {
     char pad0[1];
@@ -92,7 +93,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Task021b2fac* task) {
     ObjectArchiveLoadInfo info;
     gs = GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
-    mgr = func_ov017_0218b5b0();
+    mgr = GetGameResources();
     c = (Combatant021b2fac*)GetCombatantWithFlag0x100_0200ff1c(gs, task->combatantId);
     if (c == 0) {
         ResetEntriesAndNotify_021b33d8(task);
@@ -143,7 +144,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Task021b2fac* task) {
         if (func_ov017_021b3e14(task) != 0) {
             c2 = (Combatant021b2fac*)GetCombatantWithFlag0x100_0200ff1c(gs, task->combatantId);
             if (c2->field9c != 0) {
-                m = func_ov017_0218b5b0();
+                m = GetGameResources();
                 CallHelperIfCheckPasses_0218fcf8((int)m, task->combatantId, c2->field9c);
             }
             ((Object3D*)c2)->DisableFlag(0x200);

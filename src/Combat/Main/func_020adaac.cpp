@@ -1,6 +1,8 @@
 #include <globaldefs.h>
 #include "System/Matrix.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct Fields020407b4;
 struct Obj02033874;
@@ -39,10 +41,6 @@ struct SteeringControl {
 void* GetField0x3b0Value_020100bc(GameState*);
 extern "C" void func_02012fe4();
 void SetFields0x44(Fields020407b4*, int, int, int);
-int IsFlag0x40Set_020123b8(unsigned short*);
-int IsFlag0x20Set_02012390(unsigned short*);
-int IsFlag0x10Set_020123a4(unsigned short*);
-int IsFlag0x80Set_020123cc(unsigned short*);
 void* GetField4328_0218d268(void*);
 int GetField0x70_0202e7f0(void*);
 int GetShortAt0x22e(ShortField0x22e_020968c4*);
@@ -50,14 +48,13 @@ int fix32ReduceAngle0To2Pi(int);
 int fix32SignedAngleDistance(int, int);
 int CheckAndComputeDistance020968d0(Obj020968d0*, int*);
 void SetVecYFromValue02033874(Obj02033874*, int);
-extern unsigned short data_02114e30;
 extern SteeringControl data_02114e54;
 extern const int data_020e9118[8];
 
 // USA: func_020adaac
 extern "C" ARM void func_020adaac(SteeringObject* self) {
     void* camera = GetField0x3b0Value_020100bc(GameState::GetInstance());
-    void* manager = func_ov017_0218b5b0();
+    void* manager = GetGameResources();
     int targetHeading;
     func_02012fe4();
     SetFields0x44((Fields020407b4*)self, self->position.x, 0xa000, self->position.z);
@@ -68,28 +65,28 @@ extern "C" ARM void func_020adaac(SteeringObject* self) {
     second.y = 0xa000;
     self->vector174 = second;
     self->mode = 0;
-    if (IsFlag0x40Set_020123b8(&data_02114e30) && IsFlag0x20Set_02012390(&data_02114e30)) {
+    if (g_keyManager.IsUpHeld() && g_keyManager.IsLeftHeld()) {
         self->mode = 1;
         self->direction = 12;
-    } else if (IsFlag0x40Set_020123b8(&data_02114e30) && IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsUpHeld() && g_keyManager.IsRightHeld()) {
         self->mode = 1;
         self->direction = 13;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30) && IsFlag0x20Set_02012390(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld() && g_keyManager.IsLeftHeld()) {
         self->mode = 1;
         self->direction = 14;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30) && IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld() && g_keyManager.IsRightHeld()) {
         self->mode = 1;
         self->direction = 15;
-    } else if (IsFlag0x40Set_020123b8(&data_02114e30)) {
+    } else if (g_keyManager.IsUpHeld()) {
         self->mode = 1;
         self->direction = 8;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld()) {
         self->mode = 1;
         self->direction = 9;
-    } else if (IsFlag0x20Set_02012390(&data_02114e30)) {
+    } else if (g_keyManager.IsLeftHeld()) {
         self->mode = 1;
         self->direction = 10;
-    } else if (IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsRightHeld()) {
         self->mode = 1;
         self->direction = 11;
     }

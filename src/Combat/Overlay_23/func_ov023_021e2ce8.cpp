@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "System/Cache.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021bdbcc(void* obj);
 ARM void* GetTableEntry020421b0(int idx);
@@ -26,7 +27,7 @@ extern "C" ARM void func_ov023_021e2ce8(int combatantId, void* p1) {
                 void* p150 = *(void**)((char*)combatant + 0x150);
                 int val950 = *(int*)((char*)p150 + 0x950);
 
-                int flagB = ((int)func_ov017_0218b5b0());
+                int flagB = ((int)GetGameResources());
                 int chk = func_ov017_021bdbcc((void*)flagB);
                 if (chk != 0) val950 = 0;
 

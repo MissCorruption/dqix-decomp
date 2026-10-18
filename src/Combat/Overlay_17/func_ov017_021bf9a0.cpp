@@ -5,6 +5,15 @@
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "World/LootableContainer.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct State0207dfc8 { unsigned int words[28]; };
 struct StoreStruct;
@@ -38,7 +47,7 @@ void RestorePairTables0207df90(char*);
 void BackupPairTables0207dfac(char*);
 void Forward02047b30(void*, int, int, int);
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void func_ov017_021cdb00(int, int, int, int);
 extern "C" void __clear(void*, int);
 void* ZeroInitReturn020de824(void*);
@@ -67,7 +76,7 @@ extern "C" ARM int func_ov017_021bf9a0(LootEvent* self) {
     unsigned char* flags = func_0205ec34();
     if (!manager || !flags) return 3;
     if (self->special) {
-        if (!IsField10Eq2_0218d618((Struct0218d618*)func_ov017_0218b5b0())) return 5;
+        if (!IsField10Eq2_0218d618((Struct0218d618*)GetGameResources())) return 5;
     } else if (self->taskId >= 0) {
         if (loader->GetTaskStatus(self->taskId)) {
             void* file = 0;
@@ -79,7 +88,7 @@ extern "C" ARM int func_ov017_021bf9a0(LootEvent* self) {
                 MaybeInvoke0204719c_02047230(self->display);
                 func_0204719c(self->display);
                 State0207dfc8 saved;
-                CopyState0207dfc8((State0207dfc8*)&GetResourceStateBuffer(func_ov017_0218b5b0(), 0x230), &saved);
+                CopyState0207dfc8((State0207dfc8*)&GetResourceStateBuffer(GetGameResources(), 0x230), &saved);
                 RestorePairTables0207df90((char*)&saved);
                 Forward02047b30(self->display, (int)file, length, (int)&self->allocator);
                 BackupPairTables0207dfac((char*)&saved);
@@ -95,7 +104,7 @@ extern "C" ARM int func_ov017_021bf9a0(LootEvent* self) {
         int id = container->uniqueID;
         int flagIndex = id + 0x79e;
         if (!TestBitInByteArray_0206dfb0((int)flags, flags + 0x8c, flagIndex)) {
-            SetOrClearBitInArray_0206df6c(flags, flags + 0x8c, flagIndex, 1);
+            func_0206df6c(flags, flags + 0x8c, flagIndex, 1);
             func_ov017_021cdb00(8, id, 1, -1);
             char text[128] = {};
             PersistentLootState* state = func_02012fe4();
@@ -111,7 +120,7 @@ extern "C" ARM int func_ov017_021bf9a0(LootEvent* self) {
 #else
                 func_020d7e10(GetGlobalResetObj020d7a50(), text, 0, 0, 1, 0);
 #endif
-                GameResources* resources = func_ov017_0218b5b0();
+                GameResources* resources = GetGameResources();
                 if (self->special) func_ov017_0218d644(resources, &self->position, 0);
                 else DispatchWithShortB4_0205eaa0(&data_02108760, 14, 0);
                 return 4;

@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" GameResources* func_ov017_0218b5b0(void);
 extern "C" void* func_ov017_021b8478(void* obj);
 void* GetField6b0_021b8470(void* obj);
 void* GetData02100044_0202ae24(void);
@@ -35,7 +34,7 @@ extern "C" ARM void func_ov017_021c83a0(void) {
 #else
  enum {regionalOffset0=0x718};
 #endif
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     void* h = *(void**)((char*)ov + 0x3000 + regionalOffset0);
     Ret021c83a0* r = (Ret021c83a0*)func_ov017_021b8478(h);
     void* work = GetField6b0_021b8470(h);

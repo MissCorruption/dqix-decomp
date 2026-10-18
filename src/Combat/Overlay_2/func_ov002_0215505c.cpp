@@ -2,6 +2,10 @@
 #include "Memory/SafeAllocator.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
 struct Struct020dfc40;
 struct InitTarget0205cfd4;
 struct List0204af64;

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { stateOffset = 0x964, bits0 = 0, bits4 = 4, bits8 = 8, fieldOffset = 0x8c, flagOffset = 0x790, fieldBase = 0 };
@@ -7,12 +8,6 @@ enum { stateOffset = 0x964, bits0 = 0, bits4 = 4, bits8 = 8, fieldOffset = 0x8c,
 enum { stateOffset = 0xb84, bits0 = 0x180, bits4 = 0x184, bits8 = 0x188, fieldOffset = 0x6c, flagOffset = 0x962, fieldBase = 0x100 };
 #endif
 
-void ClearBitsInWord_0203b4b0(unsigned int* obj, unsigned int mask);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
-void ClearBitsInField8_0203b520(unsigned int* obj, unsigned int mask);
-void SetBitsInWord_0203b4a0(unsigned int* obj, unsigned int mask);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
-void SetBitsInField8_0203b510(unsigned int* obj, unsigned int mask);
 extern "C" void* func_02012fe4(void);
 struct S_e828;
 void SetFieldAt0x7e_0201e828(S_e828*, unsigned short);
@@ -30,14 +25,14 @@ struct FieldGroup02171030At100 {
 // USA: func_ov004_02169144  (semantic: ResetOv017FieldsAndClearFlag_02169144)
 extern "C" ARM int func_ov004_02169144(void) {
     GameState::GetInstance();
-    void* obj = func_ov017_0218b5b0();
+    void* obj = GetGameResources();
     unsigned char* self = *(unsigned char**)((char*)obj + 0x3000 + stateOffset);
-    ClearBitsInWord_0203b4b0((unsigned int*)obj, -1);
-    ClearBitsInField4_0203b4e8((unsigned int*)obj, -1);
-    ClearBitsInField8_0203b520((unsigned int*)obj, -1);
-    SetBitsInWord_0203b4a0((unsigned int*)obj, *(unsigned int*)((char*)data_ov004_02171030 + bits0));
-    SetBitsInField4_0203b4d8((unsigned int*)obj, *(unsigned int*)((char*)data_ov004_02171030 + bits4));
-    SetBitsInField8_0203b510((unsigned int*)obj, *(unsigned int*)((char*)data_ov004_02171030 + bits8));
+    ClearFlags00((GameResources*)obj, -1);
+    ClearFlags04((GameResources*)obj, -1);
+    ClearFlags08((GameResources*)obj, -1);
+    SetFlags00((GameResources*)obj, *(unsigned int*)((char*)data_ov004_02171030 + bits0));
+    SetFlags04((GameResources*)obj, *(unsigned int*)((char*)data_ov004_02171030 + bits4));
+    SetFlags08((GameResources*)obj, *(unsigned int*)((char*)data_ov004_02171030 + bits8));
     void* v = func_02012fe4();
     if (!v) return 0;
     struct S_e828* p = (struct S_e828*)((char*)v + fieldOffset);

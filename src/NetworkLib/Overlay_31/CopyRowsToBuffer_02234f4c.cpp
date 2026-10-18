@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
 extern "C" int func_020ca3b8(int, int, int);
 extern unsigned char* data_ov031_02290ce8;
 

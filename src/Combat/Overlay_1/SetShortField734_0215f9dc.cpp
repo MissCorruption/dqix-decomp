@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" char* func_ov017_0218b5b0(void);
 extern "C" int func_ov017_021d60f4(int a);
 extern "C" void func_ov017_021bbbec(void* p, unsigned short v);
 
@@ -11,7 +11,7 @@ ARM int SetShortField734_0215f9dc(int id) {
 #else
     enum { fieldOffset = 0x734 };
 #endif
-	void* p = *(void**)(func_ov017_0218b5b0() + 0x3000 + fieldOffset);
+	void* p = *(void**)((char*)GetGameResources() + 0x3000 + fieldOffset);
 	func_ov017_021bbbec(p, (unsigned short)func_ov017_021d60f4(id));
 	return 1;
 }

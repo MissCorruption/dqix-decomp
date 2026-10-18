@@ -8,6 +8,7 @@ enum { kInitialPad = 0x998, kIndexGap = 0x120, kEnabledGap = 0x5a };
 
 #include <GameState/GameState.h>
 #include <Combat/EntryGetterTypes.h>
+#include "Resource/GameResources.h"
 
 struct EntryList_203dce4;
 struct Node020406f8;
@@ -41,7 +42,7 @@ extern "C" ARM void func_020675fc(Owner020675fc* owner) {
     if (!owner->active) return;
     Entry_203dce4* entry = GetEntryUnlessFlag0x8000_0203dce4(GetGlobalPtr021075f4_0203cf4c(), owner->entryId);
     if (entry && owner->enabled) {
-        GameResources* resources = func_ov017_0218b5b0();
+        GameResources* resources = GetGameResources();
         void* view = GetField0x3b0Value_020100bc(GameState::GetInstance());
         int x;
         int y;

@@ -1,5 +1,5 @@
-_Z21SetFlagPairB_0218b5a0i kind:function(arm,size=0x10) addr:0x0218c1c0
-func_ov017_0218b5b0 kind:function(arm,size=0x10) addr:0x0218c1d0
+_Z16SetGameResourcesP13GameResources kind:function(arm,size=0x10) addr:0x0218c1c0
+_Z16GetGameResourcesv kind:function(arm,size=0x10) addr:0x0218c1d0
 func_ov017_0218b5c0 kind:function(arm,size=0x38) addr:0x0218c1e0
 func_ov017_0218b5f8 kind:function(arm,size=0x30) addr:0x0218c218
 _Z31TestFlagBit55dIfActive_0218b628a kind:function(arm,size=0x3c) addr:0x0218c248
@@ -1539,6 +1539,7 @@ data_ov017_021d82bb kind:data(any) addr:0x021d8b6f
 data_ov017_021d82c6 kind:data(any) addr:0x021d8b7a
 data_ov017_021d82d4 kind:data(any) addr:0x021d8b88
 data_ov017_021d82e0 kind:bss addr:0x021d8ba0
+data_ov017_021d8ba0 kind:bss addr:0x021d8ba0
 data_ov017_021d82fc kind:bss addr:0x021d8bbc
 data_ov017_021d8340 kind:bss addr:0x021d8c00
 data_ov017_021d8344 kind:bss addr:0x021d8c04

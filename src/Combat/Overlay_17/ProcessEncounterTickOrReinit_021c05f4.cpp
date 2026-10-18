@@ -6,6 +6,15 @@ enum { RegionOffset6fc = 0x6fc, RegionOffset18c = 0x18c, RegionOffset998 = 0x998
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_020c39c8 func_020c5494
+#endif
 
 void* GetGlobalField0x1c020421a0(void);
 void* GetDataPtr02114e04_020d6c00(void);
@@ -19,8 +28,7 @@ int CheckField0xc4Low15BitsNonZero(BitField0203402c* p);
 struct FlagWord02046708;
 int TestFlags02046708(FlagWord02046708* w, unsigned int mask);
 int GetByte0x26c_02039d7c(char* p);
-int GetSignedField020c39c8(volatile unsigned short* p);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
+extern "C" int func_020c39c8(volatile unsigned short* p);
 struct Obj0205eaa0;
 int DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
 void ReinitController02043204(char* p);
@@ -34,7 +42,6 @@ struct List02046a3c;
 struct Node02046a3c;
 void InsertNodeAfterHead(List02046a3c*, Node02046a3c*);
 
-extern int data_02114e30;
 extern Obj0205eaa0 data_02108760;
 
 // USA: func_ov017_021c05f4  (semantic: ProcessEncounterTickOrReinit_021c05f4)
@@ -54,8 +61,8 @@ extern "C" ARM void func_ov017_021c05f4(void* p9, unsigned char p8, unsigned cha
             *(int*)((char*)g + RegionOffset998) != 0) return;
         if (TestFlags02046708((FlagWord02046708*)d, 0x800) != 0) return;
         if (GetByte0x26c_02039d7c((char*)combatant) != 0) return;
-        if (GetSignedField020c39c8((volatile unsigned short*)0x400006c) != 0) return;
-        if (TestFlag0SetAndFlag1Clear_02012444((unsigned short*)&data_02114e30, 4) == 0) return;
+        if (func_020c39c8((volatile unsigned short*)0x400006c) != 0) return;
+        if (g_keyManager.TestKeysPressed(4) == 0) return;
         *(unsigned short*)((char*)combatant + 0xb2) = 0;
         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
     } else {

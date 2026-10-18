@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct ListHead02046b60;
 int ListContainsId(struct ListHead02046b60* list, int id);
@@ -26,7 +27,7 @@ extern "C" ARM void func_ov017_021d24f0(void* unused0, Node021d24f0* node, GameS
 #else
  enum {regionalOffset0=0x6fc, regionalOffset1=0xbb0};
 #endif
-    int base = ((int)func_ov017_0218b5b0());
+    int base = ((int)GetGameResources());
     struct TailList020469b4* list = *(struct TailList020469b4**)((char*)base + 0x3000 + regionalOffset0);
     if (ListContainsId((struct ListHead02046b60*)list, 0xa)) return;
     GameObject* c = battleStruct->GetUnknownGameObject();

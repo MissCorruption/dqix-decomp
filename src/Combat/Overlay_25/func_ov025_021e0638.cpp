@@ -3,6 +3,10 @@
 #include "Memory/SafeAllocator.h"
 #include "Combat/Main/BattleList.h"
 #include "std_library_functions.h"
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 #if defined(jpn)
 enum { Field29c = 0x218, Field55d8 = 0x57c8, Field18c = 0x180, Fielde78 = 0xdf4 };
 #else

@@ -1,13 +1,14 @@
 #include <globaldefs.h>
+#include "Graphics/NSBXX/RenderCommands_Common.h"
 
-extern "C" void func_020ca568(void* block, int arg);
+extern "C" void func_020ca568(void* block, void* dst);
 
 // USA: func_020c54fc
-ARM int SubmitBlock0x40IfNotBusy_020c54fc(int arg) {
+ARM int func_020c54fc(void* dst) {
     unsigned int* base = (unsigned int*)0x4000600;
     if (*base & 0x8000000) {
         return -1;
     }
-    func_020ca568((unsigned char*)base + 0x40, arg);
+    func_020ca568((unsigned char*)base + 0x40, dst);
     return 0;
 }

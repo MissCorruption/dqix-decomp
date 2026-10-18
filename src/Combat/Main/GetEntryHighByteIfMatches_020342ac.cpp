@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Combat/SearchEntry.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_0202ae18(void* obj);
-extern "C" void* func_ov017_0218b5b0(void);
 int CheckField0NonZero_0202b7d8(int* obj);
 extern "C" int func_0202c508(void* obj);
 struct SearchStruct;
@@ -16,7 +16,7 @@ struct FlagsByte0xc1_020342ac {
 // USA: func_020342ac  (semantic: GetEntryHighByteIfMatches_020342ac)
 extern "C" ARM int func_020342ac(void* obj) {
     void* thing = func_0202ae18(obj);
-    func_ov017_0218b5b0();
+    GetGameResources();
     if (!CheckField0NonZero_0202b7d8((int*)thing)) {
         goto fallback;
     }

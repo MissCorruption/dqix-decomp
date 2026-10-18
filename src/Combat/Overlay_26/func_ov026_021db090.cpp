@@ -8,6 +8,7 @@ enum { kBattleOffset = 0x29c, kStateToListPadding = 0x28b0, kListToModePadding =
 
 #include "GameState/GameState.h"
 #include "Combat/Main/BattleList.h"
+#include "Resource/GameResources.h"
 
 struct BattleState;
 struct GameResources;
@@ -107,7 +108,6 @@ extern "C" {
 int func_ov000_0215e9fc(BattleState*, short*, int, int);
 void func_ov000_02162c14(BattleWork*, int, TargetInfo*);
 void func_020dd0b0(int, char*);
-GameResources* func_ov017_0218b5b0();
 void func_02012fe4();
 void func_ov017_021a23b0(GameResources*, unsigned short);
 #if defined(jpn)
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov026_021db090(BattleWork* self) {
                     SetField0x158_02053ec8(member, 2);
                 }
             }
-            GameResources* res = func_ov017_0218b5b0();
+            GameResources* res = GetGameResources();
             func_02012fe4();
             unsigned short netId = self->party->netId;
             EnqueueEventTag86_021c9ad4(netId);

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern int* data_ov031_02290c48;
 
 extern "C" int func_ov031_02222adc(void* buf);

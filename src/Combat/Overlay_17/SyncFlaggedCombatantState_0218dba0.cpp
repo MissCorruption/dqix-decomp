@@ -8,6 +8,7 @@ enum { RegionOffset36fc = 0x36fc, RegionOffset38 = 0x38, RegionOffset3c = 0x3c }
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
 #include "Graphics/NSBXX/RenderConfig.h"
+#include "Resource/GameResources.h"
 
 extern "C" void* func_02012fe4(void);
 
@@ -38,7 +39,7 @@ extern "C" ARM void func_ov017_0218dba0(int combatantId) {
     int f8c;
     void* headArr;
 
-    void* ovBase = func_ov017_0218b5b0();
+    void* ovBase = GetGameResources();
     headArr = *(void**)((char*)ovBase + RegionOffset36fc);
     void* misc = func_02012fe4();
     tag = *(unsigned short*)((char*)misc + RegionOffset38);

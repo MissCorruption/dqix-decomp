@@ -73,7 +73,7 @@ extern "C" ARM void func_ov004_021636b0(void* a0, const char* a1) {
     char* slot;
     struct TableA68* table;
     unsigned char* buf;
-    GameResources* res = func_ov017_0218b5b0();
+    GameResources* res = GetGameResources();
     buf = (unsigned char*)res->unknown_ptr_36d0;
     strcpy(zone + 0x26, a1);
     RestartTaskWithDebugLog020dc3d4();

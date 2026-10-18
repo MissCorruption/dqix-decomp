@@ -2,10 +2,10 @@
 #include "std_library_functions.h"
 #include "Graphics/VRAMStaging.h"
 #include "Combat/MapDisplay.h"
+#include "Resource/GameResources.h"
 
 extern char data_02107800;
 
-extern "C" void* func_ov017_0218b5b0(void*);
 void ResetList0204af64(struct List0204af64*);
 extern "C" void func_0204b174(void* list, void* rec, void* alloc, int size);
 extern "C" unsigned int GetMainBG1ScreenBase(void);
@@ -36,7 +36,7 @@ extern "C" ARM void func_02044d0c(void) {
 #else
     char* base = *(char**)&data_02107800;
 #endif
-    char* rec = *(char**)((char*)func_ov017_0218b5b0(&data_02107800) + 0x2c);
+    char* rec = *(char**)((char*)GetGameResources() + 0x2c);
 
     struct List0204af64 local;
     ResetList0204af64(&local);

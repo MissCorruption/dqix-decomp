@@ -1,5 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct Base02010834;
 struct Container020e34bc;
@@ -12,7 +17,6 @@ extern "C" void* func_02012fe4();
 extern "C" void* __clear(void*, int);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
-unsigned int GetBitsInField4_0203b4fc(unsigned int*, unsigned int);
 void CopyCountedBytesToIntArray02010834(Base02010834*, int, int*, int*);
 int IsField0Null_02046b08(void**);
 int LookupAndForEachNode020649b0(void*, int, void*);
@@ -79,7 +83,7 @@ extern "C" ARM void func_0208b0f8(void* receiver) {
     int hp;
     int mp;
     game = GameState::GetInstance();
-    resources = func_ov017_0218b5b0();
+    resources = GetGameResources();
     leader = (Actor0208b0f8*)game->GetUnknownGameObject();
     data = func_0205ec34();
     GetPtrField0x2a04_02010828(game);
@@ -87,7 +91,7 @@ extern "C" ARM void func_0208b0f8(void* receiver) {
     flags = (unsigned char*)resources->unknown_ptr_36d0;
     list = (void**)resources->unknown_ptr_array_36fc[0];
     if (leader == NULL) return;
-    blocked = GetBitsInField4_0203b4fc(&resources->brightnessFlags_0, 0x10);
+    blocked = TestFlags04(resources, 0x10);
     int ids[4];
     int count;
     __clear(ids, sizeof(ids));

@@ -3,6 +3,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct State021be0c4 { unsigned char pad0, done; char pad2[6]; int step, elapsed; };
 struct Obj02046574 {
@@ -49,7 +50,7 @@ void SetByteField0x253_020397c0(void*);
 extern "C" ARM void func_ov017_021be0c4(State021be0c4* state) {
     GameState* game = GameState::GetInstance();
     func_0202ae18();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     Obj02046574* controller = GetGlobalField0x1c020421a0();
     func_02012fe4();
     GrottoStruct* grotto = game->GetGrottoStruct();

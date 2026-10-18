@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021d60f4(void* arg);
 GameResources* GetWord0x0_0200fb8c(int* obj);
@@ -58,7 +59,7 @@ extern "C" ARM int func_ov001_0215b074(int mode, char* args, int count) {
     if (mode % 6 < 4 && isOdd) {
         setFlag = 1;
     }
-    char* work = (char*)func_ov017_0218b5b0()->unknown_ptr_array_371c[6];
+    char* work = (char*)GetGameResources()->unknown_ptr_array_371c[6];
     if (setFlag) {
         if (*(unsigned short*)(work + 0xa) <= 3) {
             #if defined(jpn)

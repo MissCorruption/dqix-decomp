@@ -3,6 +3,8 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #include "System/Matrix.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct Vec3 { int x; int y; int z; };
 struct Bytes02033b88;
@@ -50,10 +52,6 @@ struct Actor02038138 {
 
 extern "C" char* func_02012fe4();
 struct Field4328* GetField4328_0218d268(void*);
-int IsFlag0x40Set_020123b8(unsigned short*);
-int IsFlag0x20Set_02012390(unsigned short*);
-int IsFlag0x10Set_020123a4(unsigned short*);
-int IsFlag0x80Set_020123cc(unsigned short*);
 void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 void SetByte0xbeShiftPrev(struct Bytes02033b88*, int);
 void SetByteIfChanged02033b68(struct Obj02033b68*, int);
@@ -66,7 +64,6 @@ int fix32abs(int);
 void SetVecYByMode02033834(struct Obj02033834*, int);
 short GetShortAt0x22e(struct ShortField0x22e_020968c4*);
 
-extern unsigned short data_02114e30;
 extern struct Input02114e54 data_02114e54;
 extern int data_020e780c[8];
 
@@ -77,32 +74,32 @@ extern "C" ARM void func_02038138(struct Actor02038138* self) {
     GameResources* ov;
     int mode;
     camera = GetField0x3b0Value_020100bc(GameState::GetInstance());
-    ov = func_ov017_0218b5b0();
+    ov = GetGameResources();
     world = func_02012fe4();
     mode = 0;
 
-    if (IsFlag0x40Set_020123b8(&data_02114e30) && IsFlag0x20Set_02012390(&data_02114e30)) {
+    if (g_keyManager.IsUpHeld() && g_keyManager.IsLeftHeld()) {
         self->dir = 0xc;
         mode = 1;
-    } else if (IsFlag0x40Set_020123b8(&data_02114e30) && IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsUpHeld() && g_keyManager.IsRightHeld()) {
         self->dir = 0xd;
         mode = 1;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30) && IsFlag0x20Set_02012390(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld() && g_keyManager.IsLeftHeld()) {
         self->dir = 0xe;
         mode = 1;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30) && IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld() && g_keyManager.IsRightHeld()) {
         self->dir = 0xf;
         mode = 1;
-    } else if (IsFlag0x40Set_020123b8(&data_02114e30)) {
+    } else if (g_keyManager.IsUpHeld()) {
         self->dir = 8;
         mode = 1;
-    } else if (IsFlag0x80Set_020123cc(&data_02114e30)) {
+    } else if (g_keyManager.IsDownHeld()) {
         self->dir = 9;
         mode = 1;
-    } else if (IsFlag0x20Set_02012390(&data_02114e30)) {
+    } else if (g_keyManager.IsLeftHeld()) {
         self->dir = 0xa;
         mode = 1;
-    } else if (IsFlag0x10Set_020123a4(&data_02114e30)) {
+    } else if (g_keyManager.IsRightHeld()) {
         self->dir = 0xb;
         mode = 1;
     }

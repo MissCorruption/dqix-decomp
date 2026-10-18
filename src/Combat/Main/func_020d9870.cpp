@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 extern "C" void func_0204500c(void*, const char*, int);
@@ -49,7 +50,7 @@ extern "C" ARM void func_020d9870(struct Obj020d9870* self) {
     enum { choiceOffset = 0x19b2, pendingOffset = 0x998 };
 #endif
     GameState* gs = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     void* unkObj = gs->GetUnknownGameObject();
     void* g1c = GetGlobalField0x1c020421a0();
     FontBankLoader* g = GetGlobal02109400_02094a00();

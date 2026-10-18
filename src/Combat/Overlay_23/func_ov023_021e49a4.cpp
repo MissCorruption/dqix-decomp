@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/CharacterCreationUI.h"
+#include "Resource/GameResources.h"
 
 struct CombatSlots02045cac;
 struct BattleTexts021e49a4 {
@@ -50,7 +51,6 @@ extern const char data_ov023_021fdcd8[];
 extern "C" {
 void func_02045d14(CombatSlots02045cac*, const char*, unsigned short*, int);
 int func_020420e8(const char*, int);
-GameResources* func_ov017_0218b5b0();
 int func_ov017_021bdbcc(GameResources*);
 void __clear(void*, unsigned int);
 int sprintf(char*, const char*, ...);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov023_021e49a4(BattleSetup021e49a4* self) {
             func_02045d14(messages, name, names[i], 0);
             self->positions[i] = 35 - func_020420e8(name, 0) / 2;
             short label = combatant->data->label_id + 500;
-            if (func_ov017_021bdbcc(func_ov017_0218b5b0())) label = 500;
+            if (func_ov017_021bdbcc(GetGameResources())) label = 500;
             if (ConditionValue021e49a4(combatant->condition) <= 0) {
                 func_02045d14(messages, self->buffers[combatant->data->selector], labels[i], 0);
             } else {

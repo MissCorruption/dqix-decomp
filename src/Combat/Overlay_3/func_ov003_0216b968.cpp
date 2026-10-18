@@ -8,6 +8,7 @@
 
 #include "GameState/GameState.h"
 #include "System/ColorEffects.h"
+#include "Input/Input.h"
 
 struct Container0205a330;
 struct Struct_0205c570;
@@ -47,12 +48,10 @@ void IterateEntries0205a330(struct Container0205a330* c, int arg);
 int GetActiveScaledSum0205d794(struct Struct_0205c570* list);
 extern "C" void func_ov003_0216dc58(Self0216b968* self);
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 extern "C" int func_0205d97c(void* list);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 void ResetEntryList0205d6a0(struct Entry_0205d6a0* list, int value);
 
-extern unsigned short data_02114e30;
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov003_0216b968
@@ -86,9 +85,9 @@ extern "C" ARM void func_ov003_0216b968(Self0216b968* self) {
         int selection = -1;
         if (IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->list_, 0x14) != 0) {
             selection = GetActiveScaledSum0205d794((struct Struct_0205c570*)self->list_);
-        } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x401) != 0) {
+        } else if (g_keyManager.TestKeysPressed(0x401) != 0) {
             selection = GetActiveScaledSum0205d794((struct Struct_0205c570*)self->list_);
-        } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) != 0 || func_0205d97c(self->list_) == 2) {
+        } else if (g_keyManager.TestKeysPressed(2) != 0 || func_0205d97c(self->list_) == 2) {
             selection = -2;
         }
 

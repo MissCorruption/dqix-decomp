@@ -11,8 +11,10 @@ extern "C" int func_ov031_02223478(const char*);
 extern "C" Palette02229124* func_ov031_0223b61c(int, int, int);
 extern "C" void func_ov031_0221ae00(unsigned int*);
 extern "C" void func_ov031_0223b710(void*);
-extern unsigned char data_ov031_02248dcc[22];
-extern unsigned char data_ov031_02248de2[23];
+struct MainPath02229124 { char name[22]; };
+struct SecondaryPath02229124 { char name[23]; };
+extern MainPath02229124 data_ov031_02248dcc;
+extern SecondaryPath02229124 data_ov031_02248de2;
 extern char data_ov031_0224b8f4[];
 extern char data_ov031_0224b90c[];
 extern State02229124 data_ov031_02290c5c;
@@ -22,40 +24,13 @@ extern "C" ARM void func_ov031_02229124() {
     unsigned char* paletteDestination;
     int index;
     Palette02229124* palette;
-    char mainPath[22];
-    char secondaryPath[23];
+    MainPath02229124 mainPath = data_ov031_02248dcc;
+    SecondaryPath02229124 secondaryPath = data_ov031_02248de2;
     unsigned int settings[5];
-    {
-        int pairs = 11;
-        char* destination = mainPath;
-        const unsigned char* source = data_ov031_02248dcc;
-        do {
-            unsigned char first = source[0];
-            unsigned char second = source[1];
-            source += 2;
-            destination[0] = first;
-            destination[1] = second;
-            destination += 2;
-        } while (--pairs);
-    }
-    {
-        char* destination = secondaryPath;
-        int pairs = 11;
-        const unsigned char* source = data_ov031_02248de2;
-        do {
-            unsigned char first = source[0];
-            unsigned char second = source[1];
-            source += 2;
-            destination[0] = first;
-            destination[1] = second;
-            destination += 2;
-        } while (--pairs);
-        destination[0] = source[0];
-    }
     func_ov031_022234d8(data_ov031_0224b8f4, LoadToMainBG2CharacterData);
     func_ov031_022234d8(data_ov031_0224b90c, LoadToMainBG2ScreenData);
-    data_ov031_02290c5c.palette = func_ov031_0223b61c(func_ov031_02223478(secondaryPath), 0, 4);
-    palette = func_ov031_0223b61c(func_ov031_02223478(mainPath), 0, 4);
+    data_ov031_02290c5c.palette = func_ov031_0223b61c(func_ov031_02223478(secondaryPath.name), 0, 4);
+    palette = func_ov031_0223b61c(func_ov031_02223478(mainPath.name), 0, 4);
     func_ov031_0221ae00(settings);
     unsigned int high = settings[1];
     unsigned int low = settings[0];

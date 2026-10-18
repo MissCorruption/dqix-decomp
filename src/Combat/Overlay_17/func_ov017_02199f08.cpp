@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 int IsField0Null_02046b08(void** obj);
 void CancelActionIfHeadIdMatches_02199e98(void* obj);
 void* GetPtrField0x2a04_02010828(GameState* gs);
 int GetIntField0x260_02039750(void* obj);
 int CheckField0xc4Low15BitsNonZero(struct BitField0203402c* p);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 unsigned char GetByteField0x252_02039820(void* obj);
 int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
 void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);
@@ -15,10 +15,8 @@ void* GetDataPtr02114e04_020d6c00(void);
 void OrBitsIntoField0_020466e4(unsigned int* p, unsigned int mask);
 extern "C" void func_ov017_021a5bac(unsigned char* base);
 void InitFieldArenaListsAndCounters_021996fc(unsigned char* base);
-int TestFlagInSecondWord_02012468(unsigned short* obj, unsigned int mask);
 int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
 extern "C" void func_ov017_021999fc(unsigned char* self);
-int TestFlagMask_02012430(unsigned short* obj, int mask);
 
 struct Entry_02199684 { unsigned char pad[0x14]; int val; unsigned char pad2[0x20 - 0x18]; };
 void FillEntriesEncoded_02199684(Entry_02199684* arr, int count, int value);
@@ -38,8 +36,6 @@ struct BackgroundControlFields {
     unsigned short wrap : 1;
     unsigned short size : 2;
 };
-
-extern unsigned short data_02114e30;
 
 // USA: func_ov017_02199f08
 extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
@@ -64,7 +60,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
     if (mode == -1) {
         if (CheckField0xc4Low15BitsNonZero((BitField0203402c*)actor) == 0 &&
             *(int*)(self + regionalOffset0) == 0) {
-            if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) &&
+            if (g_keyManager.TestKeysPressed(2) &&
                 GetByteField0x252_02039820(actor) &&
                 (*(int*)((char*)actor + 0x18c) & 1) == 0 &&
                 CheckSubstructByte0x7cPositive_020535c8((signed char*)actor) == 0 &&
@@ -96,7 +92,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
         }
     }
 
-    if (TestFlagInSecondWord_02012468(&data_02114e30, 2) != 0 ||
+    if (g_keyManager.TestKeysReleased(2) != 0 ||
         *(short*)((char*)actor + 0xac) != 0 ||
         CheckField0xc4Low15BitsNonZero((BitField0203402c*)actor) != 0) {
         CancelActionIfHeadIdMatches_02199e98(self);
@@ -122,7 +118,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
 
     Entry_02199684* e;
     int i;
-    if (TestFlagMask_02012430(&data_02114e30, 2) != 0 && mode != -1) {
+    if (g_keyManager.TestKeysHeld(2) != 0 && mode != -1) {
         FillEntriesEncoded_02199684((Entry_02199684*)(self + regionalOffset3 + regionalOffset4), 2, 0x800);
         for (i = 0; i < 2; i++) {
             e = (Entry_02199684*)(self + regionalOffset3 + regionalOffset4) + i;

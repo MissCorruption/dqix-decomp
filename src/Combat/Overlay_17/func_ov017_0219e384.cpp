@@ -6,6 +6,19 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "World/LootableContainer.h"
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_020daf90 func_020dc998
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 #if defined(jpn)
 enum { Field23ec = 0x240c, Field840 = 0x860, Field44ae = 0x41fe, Field44ac = 0x41fc, Field42e9 = 0x40c9, Field3700 = 0x34f0, Field3704 = 0x34f4, Field36f8 = 0x34e8, Field3a9c = 0x388c, Field281f = 0x285f, Field3734 = 0x3524, Field23b8 = 0x23d8, Field1840 = 0x1860, Field36fc = 0x34ec, Field5cac = 0x5a4c, Field3718 = 0x3508, Field36d0 = 0x34c0, Field7f60 = 0x7c8c, Field2786 = 0x27c6, Field2784 = 0x27c4, Field2788 = 0x27c8, Field2774 = 0x27b4, Field2780 = 0x27c0, Field44b2 = 0x4202, WarpLow = 0xfe, WarpHigh = 0x4100 };
@@ -256,14 +269,6 @@ struct Actor0209c678;
 void DispatchContextByState0209c678(Actor0209c678*, int);
 int IsScaledFieldPositive0203adfc(void* a, void* b);
 void ScaleAndNotify0203ad88(void* a, void* b, int c);
-struct AxisFloats0203b5f8;
-int IsAxisIntZero(AxisFloats0203b5f8*, int);
-struct GameResources;
-int GetBrightnessTransitionStates(GameResources*);
-struct AxisFloats0203b57c;
-int GetAxisIntValue(AxisFloats0203b57c*, int);
-void SetMainBrightness(GameResources*, int, int);
-void SetBrightness(GameResources*, int, int);
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 struct Obj020397cc;
@@ -279,7 +284,7 @@ int IsBrightnessTransitionActive(GameResources*);
 int CheckSubstructByte0x7cPositive_020535c8(signed char* obj);
 extern "C" void func_020531f0(void* obj);
 int IsField0Null_02046b08(void** obj);
-void* GetGlobalContext020daf90(void);
+extern "C" void* func_020daf90(void);
 struct ListHead02046b60;
 int ListContainsId(ListHead02046b60*, int);
 int GetField0x50_020db2d4(void* obj);
@@ -287,11 +292,8 @@ void DispatchWithGlobalContext020daf9c(int a, int b, int c, int d);
 int CheckField0NonZero_0202b7d8(int* obj);
 struct SearchStruct0202c1a4;
 void* GetSearchStructCurrentArrEntry(SearchStruct0202c1a4*);
-int GetBitsInField0_0203b4c4(unsigned int*, unsigned int);
 void SetFlagBitAt0xe_0202c5bc(struct SearchStruct* search, int v);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
 void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
 extern "C" void func_ov017_0219d250(void* obj, unsigned char v);
 int CountEntriesType2WithIds_020bc0f8(int a, int b);
 extern "C" void func_ov017_0219c598(int a, int b, int c);
@@ -341,8 +343,6 @@ extern "C" void func_0208fc30(void* obj);
 struct Obj020733c8;
 void ClearField0x8020733c8(Obj020733c8*);
 extern "C" int func_02028460(int* vec, int* other);
-void ClearBitsInField4_0203b4e8(unsigned int*, unsigned int);
-void ClearBitsInWord_0203b4b0(unsigned int*, unsigned int);
 extern "C" void _Z34SetupCombatantAllocations_021901acv(void* ov);
 extern "C" void func_020a6aac(void* ov, int a, int b);
 extern "C" void func_020acecc(void* ov, int a, int b);
@@ -359,7 +359,7 @@ struct StreamHeader;
 int InitStreamAndRun0208dc00(StreamHeader*, int, int);
 int TestBitInByteArray_0206dfb0(int a, unsigned char* arr, int bit);
 extern "C" void func_ov017_021bba08(struct ListNode021bba08* node, void* header);
-void SetOrClearBitInArray_0206df6c(void* a, unsigned char* arr, int bit, int set);
+extern "C" void func_0206df6c(void* a, unsigned char* arr, int bit, int set);
 void EnqueueEventTag158_021d23bc(unsigned short v);
 void SetField0x246_020a2788(void* obj, short v);
 struct Struct020a27cc;
@@ -402,7 +402,7 @@ extern char data_0211e33c[];
 // USA: func_ov017_0219e384
 extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 	GameState* battle = GameState::GetInstance();
-	char* ov = (char*)func_ov017_0218b5b0();
+	char* ov = (char*)GetGameResources();
 	void* c3ac = battle->GetProtagonist();
 	struct Combatant0219e384* actor = (struct Combatant0219e384*)battle->GetUnknownGameObject();
 	struct Field3f8* fld = GetField0x3f8Address_0200fd0c(battle);
@@ -469,11 +469,11 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 			}
 			delta = -16;
 			axis = 1;
-			if (IsAxisIntZero((AxisFloats0203b5f8*)ov, 0) == 0 &&
-			    IsAxisIntZero((AxisFloats0203b5f8*)ov, 1) == 0 &&
+			if (IsBrightnessZero((GameResources*)ov, false) == 0 &&
+			    IsBrightnessZero((GameResources*)ov, true) == 0 &&
 			    GetBrightnessTransitionStates((GameResources*)ov) != 0x101) {
 				axis = 0;
-				if (GetAxisIntValue((AxisFloats0203b57c*)ov, axis) > 0) {
+				if (GetBrightness((GameResources*)ov, axis) > 0) {
 					delta = 16;
 				}
 				limit = 0;
@@ -543,7 +543,7 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 		if (IsField0Null_02046b08(*(void***)(ov + Field3700)) == 0) {
 			return;
 		}
-		context = GetGlobalContext020daf90();
+		context = func_020daf90();
 		tail = *(void***)(ov + Field3704);
 		if (IsField0Null_02046b08(tail) == 0) {
 			if (ListContainsId((ListHead02046b60*)tail, 0x4c) == 0) {
@@ -558,7 +558,7 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 		}
 		if (CheckField0NonZero_0202b7d8((int*)search) != 0 &&
 		    GetSearchStructCurrentArrEntry((SearchStruct0202c1a4*)search) != 0 &&
-		    GetBitsInField0_0203b4c4((unsigned int*)ov, 2) == 0) {
+		    TestFlags00((GameResources*)ov, 2) == 0) {
 #if !defined(jpn)
 			self->accum = self->accum + battle->GetEffectiveDeltaTime();
 			if (self->accum > 15000) {
@@ -574,10 +574,10 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 #endif
 		}
 		if (fld->flags6e != 1) {
-			SetBitsInField4_0203b4d8((unsigned int*)ov, 1);
+			SetFlags04((GameResources*)ov, 1);
 			OrBitsIntoField0_020466e4((unsigned int*)flags14e04, 1);
 		}
-		SetBitsInWord_0203b4a0((unsigned int*)ov, 0x10);
+		SetFlags00((GameResources*)ov, 0x10);
 		func_ov017_0219d250(ov, self->pending);
 		self->pending = 0;
 		self->state = 3;
@@ -843,8 +843,8 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 				actor->c2 |= 0x40;
 			}
 		}
-		ClearBitsInField4_0203b4e8((unsigned int*)ov, 1);
-		ClearBitsInWord_0203b4b0((unsigned int*)ov, 0x10);
+		ClearFlags04((GameResources*)ov, 1);
+		ClearFlags00((GameResources*)ov, 0x10);
 		_Z34SetupCombatantAllocations_021901acv(ov);
 		func_020a6aac(ov, mapId, subId);
 		func_020acecc(ov, mapId, subId);
@@ -871,7 +871,7 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 			AppendNodeToTail((TailList020469b4*)tailList, (TailNode020469b4*)n);
 			fld->f28 = -1;
 			fld->flags6e |= 1;
-			ClearBitsInWord_0203b4b0((unsigned int*)ov, 0x800);
+			ClearFlags00((GameResources*)ov, 0x800);
 			}
 		} else if (fld->f24 >= 0) {
 			func_ov017_0219fc88(self, fld->f24);
@@ -895,7 +895,7 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 						AppendNodeToTail((TailList020469b4*)tailList, (TailNode020469b4*)n2);
 						fld->f20 = -1;
 					} else {
-						SetOrClearBitInArray_0206df6c(obj2, (unsigned char*)obj2 + 0x8c, workHi.slot + 0xea + 0xb00, 1);
+						func_0206df6c(obj2, (unsigned char*)obj2 + 0x8c, workHi.slot + 0xea + 0xb00, 1);
 					}
 				}
 				BackgroundLoader::RemoveLockGlobal();
@@ -1043,7 +1043,7 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 		if (fld->f64 != 0) {
 			GameState* battle2 = GameState::GetInstance();
 			int* data2 = (int*)LightingManager::GetInstance();
-			char* ov2 = (char*)func_ov017_0218b5b0();
+			char* ov2 = (char*)GetGameResources();
 			struct Combatant0219e384* c;
 			func_ov017_021b6f18(*(void**)(ov2 + Field3718));
 			c = (struct Combatant0219e384*)battle2->GetPartyMemberByIndex(0);
@@ -1070,7 +1070,7 @@ extern "C" ARM void func_ov017_0219e384(struct Seq0219e384* self, void* list) {
 			struct Combatant0219e384* lead;
 			battle2 = GameState::GetInstance();
 			data2 = (int*)LightingManager::GetInstance();
-			ov2 = (char*)func_ov017_0218b5b0();
+			ov2 = (char*)GetGameResources();
 			lead = (struct Combatant0219e384*)GetCombatantWithFlag0x100_0200ff1c(battle2, 0);
 			if (lead != 0 && lead->be == 2) {
 				want = lead->f1b2;

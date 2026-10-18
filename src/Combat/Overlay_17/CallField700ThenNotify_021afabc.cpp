@@ -10,7 +10,7 @@ struct ObjWithField4_021afabc { char unknown0[4]; EventHeader021a4368* event; };
 
 // USA: func_ov017_021afabc
 ARM void CallField700ThenNotify_021afabc(ObjWithField4_021afabc *obj) {
-	GameResources *ov = func_ov017_0218b5b0();
+	GameResources *ov = GetGameResources();
 	void *p = ov->unknown_ptr_array_36fc[1];
 	func_ov017_021a4368(p, obj->event);
 	func_020439b0(GetGlobalField0x1c020421a0(), 0);

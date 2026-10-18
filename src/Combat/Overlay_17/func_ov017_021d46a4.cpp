@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct ListHead02046b38;
 struct ListNode02046b38;
@@ -74,7 +75,7 @@ extern "C" ARM void func_ov017_021d46a4(void*, MonsterUpdate* update) {
     update->flags_ = 0;
     update->id_ = 0;
     GameState* state = GameState::GetInstance();
-    WorldState* world = (WorldState*)func_ov017_0218b5b0();
+    WorldState* world = (WorldState*)GetGameResources();
     ZoneState* zone = func_02012fe4();
     GetEntryTableBase_02027ca4();
     ListHead02046b38* list = world->list_;

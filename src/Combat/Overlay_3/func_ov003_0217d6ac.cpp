@@ -1,5 +1,7 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct Run02012fe4;
 extern "C" struct Run02012fe4 *func_02012fe4(void);
@@ -12,8 +14,6 @@ struct Struct_0205c570;
 int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 struct Obj_0205da38;
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
-extern unsigned short data_02114e30;
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short *obj, int mask);
 extern "C" int func_0205d97c(void *p);
 struct Entry_0205d6a0;
 void ResetEntryList0205d6a0(struct Entry_0205d6a0 *a, int flag);
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
     int sel;
     struct TailList020469b4 *list;
     struct Run02012fe4 *current;
-    res     = (char *) func_ov017_0218b5b0();
+    res     = (char *) GetGameResources();
     list    = *(struct TailList020469b4 **) (res + 0x36fc);
     current = func_02012fe4();
     if (self->busy == 0) {
@@ -111,9 +111,9 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
     sel = -1;
     if (IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)self->list, 0x14) == 1) {
         sel = GetActiveScaledSum0205d794((struct Struct_0205c570 *) self->list);
-    } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601) != 0) {
+    } else if (g_keyManager.TestKeysPressed(0x601) != 0) {
         sel = GetActiveScaledSum0205d794((struct Struct_0205c570 *) self->list);
-    } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) != 0) {
+    } else if (g_keyManager.TestKeysPressed(2) != 0) {
         sel = -2;
     } else if (func_0205d97c(self->list) == 2) {
         sel = -2;

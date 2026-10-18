@@ -2,6 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct HandlerSlotArray020d3c84 { char storage[0xb8]; };
 struct StreamHeader;
@@ -62,7 +63,7 @@ extern char data_ov017_021d7f2c[], data_ov017_021d7f40[], data_ov017_021d7f50[];
 extern "C" ARM void func_ov017_021c1e6c(Summon021c1e6c* self) {
     GameState* game = GameState::GetInstance();
     BackgroundLoader* loader = BackgroundLoader::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     unsigned short* data = func_02012fe4();
     if (self->state == 0) {
         self->task = loader->QueueLoadFileInGP2(data_ov017_021d7f2c, data_ov017_021d7f40, 0);

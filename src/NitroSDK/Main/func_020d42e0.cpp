@@ -2,6 +2,18 @@
 #include "System/Cache.h"
 #include "System/Memory.h"
 
+#if defined(jpn)
+#define func_020ca390 func_020cbe5c
+#endif
+
+#if defined(jpn)
+#define func_020ca3b8 func_020cbe84
+#endif
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
+
 extern "C" void func_020c9be0();
 extern "C" void func_020ca390(unsigned short value, void* dst, unsigned long size);
 extern "C" void func_020ca3b8(const void* src, void* dst, unsigned long size);

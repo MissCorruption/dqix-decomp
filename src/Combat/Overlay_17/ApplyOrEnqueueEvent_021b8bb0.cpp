@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 extern "C" void func_ov017_021b6f18(void* node);
 int GetField0x3acValue_020100a8(GameState* battleStruct);
@@ -34,7 +35,7 @@ extern "C" ARM void func_ov017_021b8bb0(int id) {
  enum {regionalOffset0=0x6fc, regionalOffset1=0x718};
 #endif
     GameState* bs = GameState::GetInstance();
-    char* base = (char*)(long)((int)func_ov017_0218b5b0()) + 0x3000;
+    char* base = (char*)(long)((int)GetGameResources()) + 0x3000;
     struct TailList020469b4* list = *(struct TailList020469b4**)(base + regionalOffset0);
     struct TailNode020469b4* node = *(struct TailNode020469b4**)(base + regionalOffset1);
     func_ov017_021b6f18(node);

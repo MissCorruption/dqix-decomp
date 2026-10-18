@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { kTextBufferOffset = 0x28, kMessageFlagOffset = 0x17e2, kStatusOffset = 0x868 };
@@ -47,7 +48,7 @@ struct CombatantMessageRequest {
 // USA: func_ov017_021c3194  (semantic: ProcessCombatantMessageState_021c3194)
 extern "C" ARM void func_ov017_021c3194(CombatantMessageRequest* request) {
     GameState* battleStruct = GameState::GetInstance();
-    func_ov017_0218b5b0();
+    GetGameResources();
     GameObject* unknownActor = battleStruct->GetUnknownGameObject();
     GameObject* partyMember = battleStruct->GetPartyMemberByIndex(request->partyMemberId);
     CombatantMessageController* controller = GetGlobalField0x1c020421a0();

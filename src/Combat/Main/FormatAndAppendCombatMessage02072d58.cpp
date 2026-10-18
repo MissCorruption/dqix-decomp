@@ -6,6 +6,7 @@ enum { kHeadTableOffset = 0x36fc, kIntrinsicOffset = 0x150 };
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 void FormatEffectStats02072c9c(int combatantId, char* buf);
 
@@ -18,7 +19,7 @@ extern char data_020f0cff[];
 ARM void FormatAndAppendCombatMessage02072d58(int combatantId, char* statsBuf, char* outBuf) {
     FormatEffectStats02072c9c(combatantId, statsBuf);
 
-    int base = ((int)func_ov017_0218b5b0());
+    int base = ((int)GetGameResources());
     struct HeadNode02046b24** headTable = *(struct HeadNode02046b24***)((char*)base + kHeadTableOffset);
     int flag = 0;
 

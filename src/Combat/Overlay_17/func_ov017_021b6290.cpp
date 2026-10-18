@@ -21,7 +21,6 @@ struct BattleLoad021b6290 {
 struct Actor0209c678;
 struct RootEntries;
 struct ListHead02046b60;
-struct AxisFloats0203b57c;
 extern "C" void* func_02012fe4();
 extern "C" unsigned char* func_020704fc();
 extern "C" void func_02017c58(void*);
@@ -36,13 +35,10 @@ extern "C" int abs(int);
 void CancelPendingAction020397cc(Obj020397cc*, int);
 void DispatchContextByState0209c678(Actor0209c678*, int);
 int ListContainsId(ListHead02046b60*, int);
-void SetBitsInField4_0203b4d8(unsigned int*, unsigned int);
-void SetBitsInWord_0203b4a0(unsigned int*, unsigned int);
 void* GetGlobalField0x1c020421a0();
 RootEntries* GetGlobalPtr021075f4_0203cf4c();
 void SetOrClearBit0x10OnEntries_0203e5d8(RootEntries*, int);
 float GetIntAt0xc_020709ac(unsigned char*);
-int GetAxisIntValue(AxisFloats0203b57c*, int);
 unsigned int* GetDataPtr02114e04_020d6c00();
 void OrBitsIntoField0_020466e4(unsigned int*, unsigned int);
 void EmptyStub02047198(Struct02046f84*);
@@ -56,7 +52,7 @@ extern char data_02108760[];
 // USA: func_ov017_021b6290
 extern "C" ARM void func_ov017_021b6290(BattleLoad021b6290* self) {
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     func_02012fe4();
     Obj020397cc* actor = (Obj020397cc*)game->GetUnknownGameObject();
     unsigned char* timing = func_020704fc();
@@ -97,12 +93,12 @@ extern "C" ARM void func_ov017_021b6290(BattleLoad021b6290* self) {
             func_0209c480(&data_02109bf4, id);
             func_0209c2e0(&data_02109bf4, 127, 0);
             func_0205e944(data_02108760, 127);
-            SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 0x40);
+            SetFlags04(resources, 0x40);
             func_02043124(GetGlobalField0x1c020421a0());
             SetOrClearBit0x10OnEntries_0203e5d8(GetGlobalPtr021075f4_0203cf4c(), 0);
-            if ((int)GetIntAt0xc_020709ac(timing) > 30 || abs(GetAxisIntValue((AxisFloats0203b57c*)resources, 0)) == 16) {
+            if ((int)GetIntAt0xc_020709ac(timing) > 30 || abs(GetBrightness((GameResources*)resources, false)) == 16) {
                 SetMainBrightness(resources, -16, 0);
-                if (GetAxisIntValue((AxisFloats0203b57c*)resources, 1) == 0) {
+                if (GetBrightness((GameResources*)resources, true) == 0) {
                     SetSubBrightness(resources, -16, 15);
                 }
                 self->state = 4;
@@ -112,10 +108,10 @@ extern "C" ARM void func_ov017_021b6290(BattleLoad021b6290* self) {
         if (func_0204700c(&self->action)) self->state = 4;
     } else if (self->state == 4) {
         if (!IsBrightnessTransitionActive(resources)) {
-            SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 4);
-            SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 16);
-            SetBitsInField4_0203b4d8(&resources->brightnessFlags_0, 2);
-            SetBitsInWord_0203b4a0(&resources->brightnessFlags_0, 4);
+            SetFlags04(resources, 4);
+            SetFlags04(resources, 16);
+            SetFlags04(resources, 2);
+            SetFlags00(resources, 4);
             OrBitsIntoField0_020466e4(GetDataPtr02114e04_020d6c00(), 1);
             EmptyStub02047198(&self->action);
             ResetObjectAndAllocator02046f84(&self->action);

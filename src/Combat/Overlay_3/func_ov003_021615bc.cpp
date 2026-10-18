@@ -5,6 +5,15 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "System/Graphics.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 #if defined(jpn)
 enum { kEntryManagerMode = 3, kResourceByte = 0xc9 };
@@ -71,7 +80,7 @@ struct Node0207f7f0;
 void InitNodeChain0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
 unsigned char CheckField0AndBattleState_02160b50(void* a);
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 extern "C" void ColorEffect_ConfigureAlphaBlend(unsigned int* out, unsigned char a, unsigned char b, unsigned char c, int d);
 
 extern char data_ov003_0217fff0[];
@@ -400,7 +409,7 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
             self->b4a5 = 0;
             self->b4a3 = 1;
             self->flags464 |= 0x10;
-            char* g = (char*)func_ov017_0218b5b0();
+            char* g = (char*)GetGameResources();
             self->h482 = *(unsigned char*)(*(char**)(g + 0x3000 + kResourceSlot) + kResourceByte);
         } else if (self->b4a1 == 4) {
             self->h484 = 0xd;
@@ -431,7 +440,7 @@ extern "C" ARM void func_ov003_021615bc(Scene021615bc* self) {
             }
             if (flag != 0 && self->b49e != 2) {
                 if (TestBitInByteArray_0206dfb0((int)save, (unsigned char*)(save + 0x8c), 0x77e) == 0) {
-                    SetOrClearBitInArray_0206df6c(save, (unsigned char*)(save + 0x8c), 0x77e, 1);
+                    func_0206df6c(save, (unsigned char*)(save + 0x8c), 0x77e, 1);
                     self->h484 = 0x4b;
                     self->h486 = x;
                 }

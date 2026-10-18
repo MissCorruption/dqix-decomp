@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 struct PtrBlock02164d74 {
     char pad0[0xf78];
@@ -73,7 +74,6 @@ extern "C" void func_ov017_021917f0(int id, int flag);
 extern "C" void func_ov000_021675a0(struct Battle02164d74* battle);
 extern "C" void func_ov000_021676a8(struct Battle02164d74* battle);
 extern "C" void _Z34SetupCombatantAllocations_021901acv(void* ov);
-void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
 void ClearSubstructByte0x56_02049f3c(unsigned char* obj);
 extern "C" void func_ov000_021677fc(struct Battle02164d74* battle);
 extern "C" void func_ov000_02167cd4(struct Battle02164d74* battle);
@@ -85,7 +85,7 @@ void SetCombatWorkFlags0x55f4_ov000_02160fa8(void* work, int mask);
 // USA: func_ov000_02164d74
 extern "C" ARM void func_ov000_02164d74(struct Battle02164d74* battle) {
     GameState* gs = GameState::GetInstance();
-    GameResources* ov = func_ov017_0218b5b0();
+    GameResources* ov = GetGameResources();
     GetField02163524(battle);
     struct PtrBlock02164d74* pb = (PtrBlock02164d74*)GetPtrField0x2a04_02010828(gs);
     int i;
@@ -124,7 +124,7 @@ extern "C" ARM void func_ov000_02164d74(struct Battle02164d74* battle) {
     func_ov000_021675a0(battle);
     func_ov000_021676a8(battle);
     _Z34SetupCombatantAllocations_021901acv(ov);
-    ClearBitsInField4_0203b4e8(&ov->brightnessFlags_0, 4);
+    ClearFlags04(ov, 4);
     if (battle->info->field2c != 0) {
         unsigned char mask = battle->field77d4;
         for (i = 0; i < 8; i++) {

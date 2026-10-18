@@ -2,6 +2,14 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 #if defined(jpn)
 #include "std_library_functions.h"
 extern const char data_020f1438[];
@@ -23,7 +31,7 @@ struct FindEntryById02096134Table* GetGlobal02109418_02094d6c();
 struct FindEntryById02096134Elem* FindEntryById02096134(struct FindEntryById02096134Table*, int);
 void AppendNodeToTail(struct TailList020469b4*, struct TailNode020469b4*);
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void InitObj021beba4(char*);
 int IsInRange0201b588(int);
 void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
@@ -57,7 +65,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* obj) {
     state = func_0205ec34();
     GameState* game = GameState::GetInstance();
     GetField0x3f8Address_0200fd0c(game);
-    resources = func_ov017_0218b5b0();
+    resources = GetGameResources();
     list = (struct TailList020469b4*)resources->unknown_ptr_array_36fc[0];
 #if !defined(jpn)
     grotto = game->GetGrottoStruct();
@@ -88,7 +96,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* obj) {
                 ((struct GrottoListNode*)node)->h8 = 0x5105;
                 AppendNodeToTail(list, (struct TailNode020469b4*)node);
                 changed = true;
-                SetOrClearBitInArray_0206df6c(state, state + 0x8c, 0x2d, 1);
+                func_0206df6c(state, state + 0x8c, 0x2d, 1);
             } else if (obj->GetActiveGrottoEnviron() == 2 &&
                        TestBitInByteArray_0206dfb0((int)state, state + 0x8c, 0x13) &&
                        !TestBitInByteArray_0206dfb0((int)state, state + 0x8c, 0x2e) &&
@@ -96,7 +104,7 @@ extern "C" ARM void func_0208fc30(ActiveGrottoClass* obj) {
                 ((struct GrottoListNode*)node)->h8 = 0x51c3;
                 AppendNodeToTail(list, (struct TailNode020469b4*)node);
                 changed = true;
-                SetOrClearBitInArray_0206df6c(state, state + 0x8c, 0x2e, 1);
+                func_0206df6c(state, state + 0x8c, 0x2e, 1);
             }
         }
         if (!changed && (unsigned char)obj->unknown_260_[0] == 0) {

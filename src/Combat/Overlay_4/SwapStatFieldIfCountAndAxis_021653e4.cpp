@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
 
 #if defined(jpn)
 enum { countOffset=0x9f4,pageBase=0x1900 };
@@ -17,7 +18,6 @@ int ScaleStatsIfType12_021f6f10(void* self);
 #define NODE_KIND_CALL ScaleStatsIfType12_021f6f10
 #endif
 struct AxisFloats0203b5f8;
-int IsAxisIntZero(struct AxisFloats0203b5f8* s, int axis);
 extern char* data_ov004_02171010;
 struct ShortPairSrc0216351c;
 void CopyShortPair0216351c(struct ShortPairSrc0216351c* src, short* out1, short* out2);
@@ -26,14 +26,14 @@ extern "C" void func_ov004_02164084(void* a1);
 // USA: func_ov004_021653e4
 ARM int SwapStatFieldIfCountAndAxis_021653e4(void* a1) {
     GameState::GetInstance();
-    struct AxisFloats0203b5f8* axis = ((struct AxisFloats0203b5f8*)func_ov017_0218b5b0());
+    struct AxisFloats0203b5f8* axis = ((struct AxisFloats0203b5f8*)GetGameResources());
     void* obj = func_ov023_021f6880(func_ov011_021849c8(a1), 0xa);
     if (obj == NULL) return 0;
     if (NODE_KIND_CALL(obj) != 7) return 0;
 
     unsigned char count = *(unsigned char*)(data_ov004_02171010 + 0x1000 + countOffset);
     if (count <= 8) goto fastpath;
-    if (IsAxisIntZero(axis, 0) != 0) goto swappath;
+    if (IsBrightnessZero((GameResources*)axis, false) != 0) goto swappath;
 
 fastpath: {
     char* base = data_ov004_02171010 + pageBase;

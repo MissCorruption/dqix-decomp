@@ -4,6 +4,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
+#include "Resource/GameResources.h"
 
 struct EntryA68 { short key; void* value; };
 struct TableA68 { EntryA68* entries; short count; };
@@ -52,7 +53,7 @@ void ClearFieldsAndResetAllocator_021bf398(char*);
 extern "C" ARM void func_ov017_021bf014(GrottoDialogState* self) {
     GameState* game = GameState::GetInstance();
     func_0202ae18();
-    func_ov017_0218b5b0();
+    GetGameResources();
     Obj02046574* controller = GetGlobalField0x1c020421a0();
     func_02012fe4();
     GrottoStruct* grotto = game->GetGrottoStruct();

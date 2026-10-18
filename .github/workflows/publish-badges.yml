@@ -19,14 +19,14 @@ jobs:
           name: badges-${{ inputs.version }}
           path: badges
 
-      - name: Publish to badges branch
+      - name: Publish to badges-matching branch
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          git init -q -b badges publish
+          git init -q -b badges-matching publish
           cd publish
           git remote add origin "https://x-access-token:$GITHUB_TOKEN@github.com/${{ github.repository }}.git"
-          if git fetch -q --depth=1 origin badges 2>/dev/null; then
+          if git fetch -q --depth=1 origin badges-matching 2>/dev/null; then
             git reset -q --hard FETCH_HEAD
           fi
           cp -r ../badges/. .
@@ -38,4 +38,4 @@ jobs:
           git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               commit -q -m "Update ${{ inputs.version }} progress badges for ${{ github.sha }}"
-          git push -q origin badges
+          git push -q origin badges-matching

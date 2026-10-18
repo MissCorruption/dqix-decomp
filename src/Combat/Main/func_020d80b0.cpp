@@ -5,6 +5,15 @@
 #include "Memory/SafeAllocator.h"
 #include "World/Zone3D.h"
 #include "Resource/Brightness.h"
+#include "Resource/GameResources.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
+
+#if defined(jpn)
+#define func_0206df6c func_0206f0c0
+#endif
 
 struct EntryA68;
 struct TableA68 { EntryA68* entries; short count; short field6; };
@@ -34,7 +43,7 @@ void* AllocateAligned4_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_020728ac(TableA68*, SafeAllocator*, void*, unsigned int, int, int, int);
 extern "C" void func_02046380(void*);
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
-void SetOrClearBitInArray_0206df6c(void*, unsigned char*, int, int);
+extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void* FindEntryByKey_02072a68(TableA68*, int);
 extern "C" void func_0204500c(void*, char*, int, int);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
@@ -54,7 +63,7 @@ struct Bits020d80b0 { unsigned char field0[0x8c]; unsigned char flags[1]; };
 extern "C" ARM void func_020d80b0(Obj020d8484* self) {
     GameState* state = GameState::GetInstance();
     func_0202ae18(state);
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     Dialog020d80b0* dialog = (Dialog020d80b0*)GetGlobalField0x1c020421a0();
     GameObject* object;
     Bits020d80b0* bits;
@@ -91,7 +100,7 @@ extern "C" ARM void func_020d80b0(Obj020d8484* self) {
             if (TestBitInByteArray_0206dfb0((int)bits, bits->flags, 0x119e)) self->state = 5;
             else {
                 self->state = 3;
-                SetOrClearBitInArray_0206df6c(bits, bits->flags, 0x119e, 1);
+                func_0206df6c(bits, bits->flags, 0x119e, 1);
             }
         }
     } else if (self->state == 3) {

@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_020ca408 func_020cbed4
+#endif
+
 extern "C" void func_020ca408(void* dst, void* src, int size);
 extern void* data_02110370;
 

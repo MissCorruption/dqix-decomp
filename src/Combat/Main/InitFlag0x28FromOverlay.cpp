@@ -1,6 +1,6 @@
 #include <globaldefs.h>
+#include "Resource/GameResources.h"
 
-extern "C" void* func_ov017_0218b5b0(void);
 struct GameResources;
 void Stub(GameResources*);
 void UpdateBrightnessTransitions(GameResources*);
@@ -13,7 +13,7 @@ struct Struct020db814 {
 
 // USA: func_020db814
 ARM void InitFlag0x28FromOverlay_020db814(void*) {
-    struct Struct020db814* obj = (struct Struct020db814*)func_ov017_0218b5b0();
+    struct Struct020db814* obj = (struct Struct020db814*)GetGameResources();
     if (obj == NULL) {
         return;
     }

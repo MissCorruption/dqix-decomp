@@ -1,5 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Resource/Brightness.h"
+#include "Filesystem/FSInnerDefs.h"
 
 struct FlagWord02046708 { unsigned int flags; };
 
@@ -9,13 +11,10 @@ int CheckField0NonZero_0202b7d8(int* obj);
 int TestFlags02046708(struct FlagWord02046708* word, unsigned int mask);
 int Forward020bbdcc(int a);
 extern "C" int func_020ce89c(int a, int b, int c);
-int GetGlobalWord02112140_020d1198();
 int DispatchIfEquals1_020cedc0(int a);
 int GetWord0x0_0200fb8c(int* obj);
 void CancelActionIfHeadIdMatches_02199e98(void* obj);
 int IsPowcntBit0Set_020cede0(void);
-struct Brightness0203b540;
-void SetBrightnessRegisters0203b540(struct Brightness0203b540* obj);
 
 // USA: func_02012de8  (semantic: HandleBrightnessOrDispatchState02012de8)
 extern "C" ARM void func_02012de8(void) {
@@ -30,7 +29,7 @@ extern "C" ARM void func_02012de8(void) {
         if (!TestFlags02046708(p1, 0x80)) {
             Forward020bbdcc(0);
             func_020ce89c(0xc, 0, 0);
-            if (GetGlobalWord02112140_020d1198() == 0) {
+            if (func_020d1198() == 0) {
                 Forward020bbdcc(0x7f);
             }
             return;
@@ -54,6 +53,6 @@ extern "C" ARM void func_02012de8(void) {
     {
         int word = GetWord0x0_0200fb8c((int*)GameState::GetInstance());
         if (word == 0) return;
-        SetBrightnessRegisters0203b540((struct Brightness0203b540*)word);
+        WriteBrightnessToHardware((GameResources*)word);
     }
 }

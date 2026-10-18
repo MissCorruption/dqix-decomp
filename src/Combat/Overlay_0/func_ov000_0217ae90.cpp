@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum {selectionOffset=0xc2,savedOffset=0x47d,globalFlagsOffset=0x1faa};
@@ -30,12 +31,10 @@ struct GlobalData {void* work;int other;GlobalRoot* root;};
 struct Ability {char p[0x3b];unsigned char low:3,flag:1,high:4;};
 struct Unit {char p[0x138];Ability* ability;};
 extern GlobalData data_ov000_02184294;
-extern unsigned short data_02114e30[];
 extern Obj0205eaa0 data_02108760;
 GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*,int);
 int GetFieldAt0x150_02053c6c(unsigned char*);
 int GetActiveScaledSum0205d794(Struct_0205c570*);
-bool TestFlag0SetAndFlag1Clear_02012444(unsigned short*,int);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*,int,int);
 int GetFieldByKey020e0434(Container020e0310*,int);
 void SwapGlobalEntry0203c108(Obj0203c108*,char*);
@@ -60,7 +59,7 @@ extern "C" ARM int func_ov000_0217ae90(Root* self)
     command->mode=GetActiveScaledSum0205d794(self->active);
     command->kind=0;
     data_ov000_02184294.root->flags|=0x100;
-    bool flag=TestFlag0SetAndFlag1Clear_02012444(data_02114e30,0x601);
+    bool flag=g_keyManager.TestKeysPressed(0x601);
     bool active=flag | IsActiveElementFlag2Set0205da38((Obj_0205da38*)self->active,20);
     if(active){
         self->flag=0;

@@ -4,6 +4,8 @@
 #include "Resource/Brightness.h"
 #include "Resource/MessageSystem.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
+#include "Input/Input.h"
+#include "Resource/GameResources.h"
 
 struct BitField0203402c;
 struct Vec3copy0202ec84;
@@ -24,14 +26,12 @@ int CheckField0NonZero_0202b7d8(int*);
 extern "C" int func_0202c540(void*);
 void InitObj0219a674(unsigned char*);
 extern "C" void func_ov017_0219b33c(void*, Event02198aa0*);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short*, int);
 int ComputeTwoFromVec3_0202ec84(void*, Vec3copy0202ec84*, int*, int*);
 void* GetField0x3f8Address_0200fd0c(GameState*);
 void InitStruct02070378(char*);
 void InitAndResetHeader_0219e310(unsigned char*, int);
 void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
 void InitByteHeader_021be0a0(unsigned char*);
-extern unsigned short data_02114e30[];
 extern Cursor02198aa0 data_02114e54;
 
 // USA: func_ov017_02198aa0
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* self) {
     GameState* game = GameState::GetInstance();
     GameObject* actor = game->GetUnknownGameObject();
     void* camera = GetField0x3b0Value_020100bc(game);
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     MessageSystem* controller = (MessageSystem*)GetGlobalField0x1c020421a0();
     void* search = func_0202ae18();
     void* zone = func_02012fe4();
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* self) {
     event.kind = 4;
     func_ov017_0219b33c(self, &event);
     int proceed = 0;
-    if (TestFlag0SetAndFlag1Clear_02012444(data_02114e30, 1)) proceed = 1;
+    if (g_keyManager.TestKeysPressed(1)) proceed = 1;
     int cursorX = -1;
     int cursorY = -1;
     if (data_02114e54.active && data_02114e54.mode < 10) { cursorX = data_02114e54.x; cursorY = data_02114e54.y; }

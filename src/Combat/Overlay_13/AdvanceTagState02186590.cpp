@@ -6,6 +6,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct_0205bcdc;
 void SetIndexIfValid0205bcdc(struct Struct_0205bcdc* s, int index);
@@ -14,10 +15,8 @@ extern "C" void func_0205bb04(void* s, int n);
 int GetGlobalField0x1c020421a0();
 int GetScaledSumIfActive0205cecc(void* s);
 int CallFunc0205c570AtField0x1c_0205cb64(void* obj);
-int TestFlag0SetAndFlag1Clear_02012444(unsigned short* obj, int mask);
 void ReinitController02043204(char* obj);
 void ResetGlobalObjAndInitSelfPointer0205ce94(unsigned char* p);
-void InvalidateBattlerField0x18_0201250c(unsigned char* obj);
 
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
@@ -29,7 +28,6 @@ extern "C" void func_ov013_02185990(void* obj);
 extern "C" void func_ov013_02186c64(void* obj, int a, int b);
 extern "C" void func_ov013_02185cc0(void* obj);
 
-extern unsigned short data_02114e30;
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov013_02186590  (semantic: AdvanceTagState02186590)
@@ -62,9 +60,9 @@ extern "C" ARM void func_ov013_02186590(void* obj) {
     if (o[R(0x5ca,0x63e)] != 1) return;
 
     int scaled = GetScaledSumIfActive0205cecc(o + R(0x3d0,0x3d4));
-    if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 0x601) != 0) {
+    if (g_keyManager.TestKeysPressed(0x601) != 0) {
         scaled = CallFunc0205c570AtField0x1c_0205cb64(o + R(0x3d0,0x3d4));
-    } else if (TestFlag0SetAndFlag1Clear_02012444(&data_02114e30, 2) != 0) {
+    } else if (g_keyManager.TestKeysPressed(2) != 0) {
         scaled = -2;
         oneFlag = 0;
     }
@@ -98,7 +96,7 @@ caseReset:
 caseInvalidate:
     o[R(0x5c8,0x63c)] = 1;
     o[R(0x5ca,0x63e)] = 0;
-    InvalidateBattlerField0x18_0201250c((unsigned char*)&data_02114e30);
+    g_keyManager.CancelCurrentKeyRepeat();
     if (oneFlag != 0) {
         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
     }

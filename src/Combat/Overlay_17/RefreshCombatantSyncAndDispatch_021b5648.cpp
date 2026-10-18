@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
+#include "Resource/GameResources.h"
 
 #if defined(jpn)
 enum { Field18 = 0x14, Field23ec = 0x240c };
@@ -38,7 +39,7 @@ extern "C" ARM void func_ov017_021b5648(char* self) {
 
     if (func_0202c508(ctx) != 0 && *(unsigned short*)(self + 0x12) != 0) {
         GameState* bs2 = GameState::GetInstance();
-        void* obj5 = func_ov017_0218b5b0();
+        void* obj5 = GetGameResources();
         bs2->GetGrottoStruct();
         ActiveGrottoClass* grotto = (ActiveGrottoClass*)((char*)func_02012fe4() + Field23ec);
         unsigned char env = grotto->GetActiveGrottoEnviron() & 0xff;

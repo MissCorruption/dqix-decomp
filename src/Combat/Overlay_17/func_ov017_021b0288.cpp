@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
+#include "Resource/GameResources.h"
 
 struct SearchStruct0202c1a4;
 struct BitArrayObj0205e854;
@@ -50,7 +51,7 @@ extern "C" ARM int func_ov017_021b0288(SlotState_021b0288* obj) {
             SlotPair_021b0288 pairs[4];
             battle = GameState::GetInstance();
             search = func_0202ae18();
-            resources = func_ov017_0218b5b0();
+            resources = GetGameResources();
             count = 0;
             pairs[count].combatant = 0;
             pairs[count].slot = GetSearchStructCurrentArrEntry(search);

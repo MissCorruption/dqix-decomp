@@ -1,6 +1,11 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "World/LootableContainer.h"
+#include "Resource/Brightness.h"
+
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 
 struct ActorEntry {
     unsigned short id;
@@ -47,8 +52,6 @@ void InitStruct0207cbe8(char* obj);
 extern "C" void func_0207d538(LootBag_021b5aec* bag, int lootType, int itemID, int arg, int flag);
 extern "C" void func_ov017_021b6174(int id, int index, int bit);
 void EnqueueEventTag165_021cfde0(unsigned short a, unsigned short b, unsigned short c);
-extern "C" unsigned int* func_ov017_0218b5b0(void);
-void SetBitsInField4_0203b4d8(unsigned int* obj, unsigned int mask);
 
 // USA: func_ov017_021b5aec
 extern "C" ARM int func_ov017_021b5aec(ContainerEvent_021b5aec* obj) {
@@ -97,7 +100,7 @@ extern "C" ARM int func_ov017_021b5aec(ContainerEvent_021b5aec* obj) {
     func_ov017_021b6174(actors->id, obj->actorIndex, containerID);
     EnqueueEventTag165_021cfde0(actors->id, obj->actorIndex, containerID);
     if (!alreadyOpened && hasLoot) {
-        SetBitsInField4_0203b4d8(func_ov017_0218b5b0(), 0x40);
+        SetFlags04(GetGameResources(), 0x40);
         return 1;
     }
     SetByteField0x253_020397c0(obj->leader);

@@ -2,6 +2,7 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <GameState/GameState.h>
 #include <Resource/IndexedResourceEntry.h>
+#include "Resource/GameResources.h"
 
 extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
@@ -72,7 +73,6 @@ struct PartyLog02166e5c {
 };
 struct RegionCode02166e5c { unsigned char bytes[4]; };
 
-extern "C" GameResources* func_ov017_0218b5b0();
 void DestroyAllocators020545b8(T020545b8*);
 struct Foo0207df50;
 void CopyInternalFields0207df50(Foo0207df50*);
@@ -115,7 +115,7 @@ extern const RegionCode02166e5c data_ov000_02183014;
 extern "C" ARM void func_ov000_02166e5c(BattleWork02166e5c* self) {
     InternalBlock02166e5c* blocks;
     GameState* game = GameState::GetInstance();
-    GameResources* resources = func_ov017_0218b5b0();
+    GameResources* resources = GetGameResources();
     SafeAllocator* allocator = &resources->allocator_array_38[3];
     blocks = (InternalBlock02166e5c*)resources->unknown_2cc;
     DestroyAllocators020545b8((T020545b8*)GetIndexedEntry_021a11f4(resources, 2));
