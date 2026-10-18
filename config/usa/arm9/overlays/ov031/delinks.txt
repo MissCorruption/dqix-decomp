@@ -7623,3 +7623,11 @@ src/NetworkLib/Overlay_31/func_ov031_02208c14.cpp:
 src/NetworkLib/Overlay_31/func_ov031_02208400.cpp:
     complete
     .text start:0x02208400 end:0x022085a8
+
+src/NetworkLibO4/Overlay_31/func_ov031_0221f02c.cpp:
+    complete
+    .text start:0x0221f02c end:0x0221f11c
+
+src/NetworkLibO4/Overlay_31/func_ov031_0222d524.cpp:
+    complete
+    .text start:0x0222d524 end:0x0222d6b0
