@@ -20810,3 +20810,35 @@ src/NitroSDK/Main/NSBXX_LinkTEX0ToMDL0.cpp:
 src/NitroSDK/Main/NSBXX_UnlinkTEX0FromMDL0.cpp:
     complete
     .text start:0x020b362c end:0x020b36c0
+
+src/NitroSDK/Main/ChangeContextPriority.cpp:
+    complete
+    .text start:0x020c7a90 end:0x020c7b38
+
+src/NitroSDK/Main/LoadOverlayMetadataFromNitro.cpp:
+    complete
+    .text start:0x020ccffc end:0x020cd0f4
+
+src/NitroSDK/Main/SleepCurrentContext.cpp:
+    complete
+    .text start:0x020c7b40 end:0x020c7be8
+
+src/NitroSDK/Main/func_020b1300.cpp:
+    complete
+    .text start:0x020b1300 end:0x020b1540
+
+src/NitroSDK/Main/CycleCurrentPriorityContexts.cpp:
+    complete
+    .text start:0x020c79bc end:0x020c7a74
+
+src/NitroSDK/Main/func_020b27c8.cpp:
+    complete
+    .text start:0x020b27c8 end:0x020b291c
+
+src/NitroSDK/Main/LoadOverlayMetadata.cpp:
+    complete
+    .text start:0x020cd0f4 end:0x020cd1f0
+
+src/Combat/Main/func_0204e3e0.cpp:
+    complete
+    .text start:0x0204e3e0 end:0x0204e998
