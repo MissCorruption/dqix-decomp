@@ -18922,3 +18922,7 @@ src/Combat/Main/func_020e0b4c.cpp:
 src/Combat/Main/SetupWeightedEntriesAndSubmitPair020e0cfc.cpp:
     complete
     .text start:0x020e292c end:0x020e29f0
+
+src/Combat/Main/SetupWeightedEntriesAndSubmit.cpp:
+    complete
+    .text start:0x020e29f0 end:0x020e2ad4
