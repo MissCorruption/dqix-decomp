@@ -2672,6 +2672,10 @@ data_ov031_0224c93d kind:data(any) addr:0x0224c93d
 data_ov031_0224c94e kind:data(any) addr:0x0224c94e
 data_ov031_0224c954 kind:data(any) addr:0x0224c954
 data_ov031_0224c980 kind:bss addr:0x0224c980
+ip_conflict kind:bss addr:0x0224c981 local
+mymss kind:bss addr:0x0224c982 local
+pingseq$96 kind:bss(size=0x2) addr:0x0224c984 local
+ipid kind:bss(size=0x2) addr:0x0224c986 local
 data_ov031_0224c994 kind:bss addr:0x0224c994
 data_ov031_0224c99c kind:bss addr:0x0224c99c
 data_ov031_0224c9ac kind:bss addr:0x0224c9ac
