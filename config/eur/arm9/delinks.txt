@@ -20972,3 +20972,11 @@ src/Combat/Main/FindEntryByKind.cpp:
 src/Combat/Main/func_020d39dc.cpp:
     complete
     .text start:0x020d39ec end:0x020d3c18
+
+src/Combat/Main/func_0200f3a4.cpp:
+    complete
+    .text start:0x0200f3a4 end:0x0200fadc
+
+src/Combat/Main/NormalizeField5_0200fb08.cpp:
+    complete
+    .text start:0x0200fb10 end:0x0200fb50
