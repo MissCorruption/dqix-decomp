@@ -20980,3 +20980,11 @@ src/Combat/Main/func_0200f3a4.cpp:
 src/Combat/Main/NormalizeField5_0200fb08.cpp:
     complete
     .text start:0x0200fb10 end:0x0200fb50
+
+src/Runtime/Main/func_0200df80.cpp:
+    complete
+    .text start:0x0200df80 end:0x0200e830
+
+src/Runtime/Main/func_0200ea08.cpp:
+    complete
+    .text start:0x0200ea08 end:0x0200ea68
