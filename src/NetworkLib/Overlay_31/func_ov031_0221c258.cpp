@@ -16,7 +16,7 @@ int RegisterSlotB020cf1a8(int a);
 long long ComputeEntryByteOffset_020cf990(int arg0, unsigned char* arg1);
 int Is64BitTimerInitialized();
 unsigned long long GetCurrentTimestamp(void);
-void CopyFrom027ffcf4_020c99ac(void* dst);
+extern "C" void CopyFrom027ffcf4_020c99ac(void* dst);
 extern "C" unsigned long long func_ov031_0221be64(unsigned int rand, unsigned int mac, unsigned int flag, unsigned int kind);
 
 struct MATHRandContext16 { unsigned int x; unsigned int mul; unsigned int add; };

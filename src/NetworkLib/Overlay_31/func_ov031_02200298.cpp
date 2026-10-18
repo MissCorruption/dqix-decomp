@@ -70,7 +70,7 @@ extern "C" void func_ov031_0220028c(void);
 extern "C" int func_ov031_02200290(void);
 extern "C" void func_ov031_02203008(void);
 extern "C" void func_ov031_02203c6c(void);
-void CopyFrom027ffcf4_020c99ac(void*);
+extern "C" void CopyFrom027ffcf4_020c99ac(void*);
 
 static inline void MATH_InitRand32(MATHRandContext32* context, u64 seed) {
     context->x = seed;

@@ -258,7 +258,6 @@ def reproducible(usa: Module, jpn: Module, usa_start, usa_end, jpn_start, jpn_en
 
 
 def text_sources(usa: Module):
-    """(start, end) of every live delink block's single .text range -> its source file"""
     _, blocks = delink_blocks(read_raw(usa.dir / "delinks.txt"))
     sources = {}
     for block in blocks:
@@ -272,8 +271,6 @@ def text_sources(usa: Module):
 
 
 def object_reproduces(jpn: Module, code: AnchorMap, sources, usa_start, usa_end, jpn_start, jpn_end):
-    """The ROMs differ (an `#if defined(jpn)` branch): accept the range when the fixed points on both sides
-    place it, JPN has a function of its size there, and the source's JPN object rebuilds those bytes."""
     source = sources.get((usa_start, usa_end))
     if source is None or jpn_end - jpn_start != usa_end - usa_start:
         return False
@@ -455,9 +452,6 @@ def lands(module: Module, kind, source, target, thumb):
 
 def accept_for(plan: Plan, usa_modules, jpn_modules, usa: Module, jpn: Module, mapper: AnchorMap):
     def group_lands(group, target, jpn_target):
-        # An overlay-group call lands in whichever overlay is loaded. Accept it when some overlay of the
-        # group has the same symbol at the same offset in both regions; the object check below still
-        # requires the name the source calls to land where the JPN word points.
         for overlay in group:
             usa_module, jpn_module = usa_modules.get(overlay), jpn_modules.get(overlay)
             if not usa_module or not jpn_module:
