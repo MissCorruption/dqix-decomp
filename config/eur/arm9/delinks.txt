@@ -20423,3 +20423,68 @@ src/Runtime/Main/func_0200df80.cpp:
 src/Runtime/Main/func_0200ea08.cpp:
     complete
     .text start:0x0200ea08 end:0x0200ea68
+
+src/Input/Input.cpp:
+    complete
+    .text start:0x02012254 end:0x02012540
+
+src/Resource/Brightness.cpp:
+    complete
+    .text start:0x0203aef0 end:0x0203b638
+
+src/NitroSDK/NSBXX/TEX.cpp:
+    complete
+    .text start:0x020b2e4c end:0x020b36d0
+
+src/NitroSDK/NSBXX/RenderCommands.cpp:
+    complete
+    .text start:0x020b4030 end:0x020b69a8
+
+src/NitroSDK/NSBXX/NSBXX.cpp:
+    complete
+    .text start:0x020b6ea8 end:0x020b737c
+
+src/NitroSDK/NSBXX/NameList.cpp:
+    complete
+    .text start:0x020b737c end:0x020b76a4
+
+src/NitroSDK/NSBXX/JAC.cpp:
+    complete
+    .text start:0x020b7850 end:0x020b8e70
+
+src/NitroSDK/NSBXX/MAM.cpp:
+    complete
+    .text start:0x020b8e70 end:0x020b9288
+
+src/NitroSDK/NSBXX/MAT.cpp:
+    complete
+    .text start:0x020b9288 end:0x020b96ac
+
+src/NitroSDK/NSBXX/MPT.cpp:
+    complete
+    .text start:0x020b96ac end:0x020b993c
+
+src/NitroSDK/ColorEffects.cpp:
+    complete
+    .text start:0x020c50f4 end:0x020c517c
+
+src/NitroSDK/ProcessorContext.cpp:
+    complete
+    .text start:0x020c75c4 end:0x020c7d44
+
+src/NitroSDK/Filesystem/NitroVM.cpp:
+    complete
+    .rodata start:0x020ed6d8 end:0x020ed6fc
+    .text start:0x020cb044 end:0x020cc10c
+
+src/NitroSDK/Filesystem/OverlayFSManagement.cpp:
+    complete
+    .text start:0x020ccf8c end:0x020cd4a4
+
+src/NitroSDK/Filesystem/CardReadManagerInit.cpp:
+    complete
+    .text start:0x020cfccc end:0x020cffdc
+
+src/NitroSDK/Filesystem/CardReadManager.cpp:
+    complete
+    .text start:0x020d085c end:0x020d0fd4
