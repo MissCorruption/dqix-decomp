@@ -18966,3 +18966,7 @@ src/Combat/Main/DispatchIfCountPositive020dcf7c.cpp:
 src/Combat/Main/InitCombatPairState020652d0.cpp:
     complete
     .text start:0x020665bc end:0x020666c0
+
+src/Combat/Main/DispatchStateChange_020678bc.cpp:
+    complete
+    .text start:0x0206917c end:0x02069294
