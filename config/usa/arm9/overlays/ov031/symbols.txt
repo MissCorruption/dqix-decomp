@@ -2902,7 +2902,6 @@ data_ov031_02290df4 kind:bss addr:0x02290df4
 data_ov031_02290e0c kind:bss addr:0x02290e0c
 data_ov031_02290e28 kind:bss addr:0x02290e28
 data_ov031_02290e4c kind:bss addr:0x02290e4c
-data_ov031_02290e54 kind:bss addr:0x02290e54
 data_ov031_02290e88 kind:bss addr:0x02290e88
 data_ov031_02290e94 kind:bss addr:0x02290e94
 data_ov031_02290eac kind:bss addr:0x02290eac
