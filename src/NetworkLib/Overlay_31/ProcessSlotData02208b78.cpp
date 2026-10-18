@@ -1,14 +1,13 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
+#include "System/NetworkProtocolVersion.h"
 
-int IsValueEqual3_02208aa0(int v);
 extern "C" void func_ov031_02207a10(void* obj);
 extern "C" int func_ov031_02208a40(void* addr, int v1, int v2);
 
 // USA: func_ov031_02208b78  (semantic: ProcessSlotData02208b78)
 extern "C" ARM int func_ov031_02208b78(void* obj, unsigned char* data) {
-    (void)*(volatile unsigned char*)(data + 1);
-    int eq = IsValueEqual3_02208aa0(data[0]);
+    int eq = IsValueEqual3_02208aa0(data[0], data[1]);
     if (!eq) return eq;
 
     VectorizedInvertedMemcpy(data + 2, (char*)obj + 0x34, 0x20);

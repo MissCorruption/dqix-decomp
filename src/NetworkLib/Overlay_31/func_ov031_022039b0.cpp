@@ -7,7 +7,7 @@ extern Global02111304 data_02111304;
 extern unsigned char data_ov031_0224c980;
 
 extern "C" int func_ov031_02201414(void* obj, int id, Node022039b0* node);
-extern "C" int func_ov031_02201364(void* obj, int id, Node022039b0* node);
+extern "C" void func_ov031_02201364(void* obj, unsigned int length, Node022039b0* node);
 extern "C" int func_ov031_0220a87c(void* a0, int a1, void* a2, int a3, Node022039b0* n);
 extern "C" int func_ov031_022037a8(void* a0, int a1, void* a2, int a3, Node022039b0* n);
 
