@@ -12,8 +12,6 @@ struct HostEnt02207440 {
 extern "C" int func_ov031_02206e0c(const char* name);
 int CopyStringBounded020d2f28(char* dst, const char* src, int n);
 
-// This file's .bss, 0x0224e234-0x0224e274. mwcc lays it out by size, so the definition order below
-// is what puts each object at its address.
 unsigned int data_ov031_0224e234;
 void* data_ov031_0224e238;
 void* data_ov031_0224e248;
