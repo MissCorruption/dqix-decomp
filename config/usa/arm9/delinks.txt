@@ -20670,3 +20670,15 @@ src/NitroSDK/Main/func_020cf9f4.cpp:
 src/NitroSDK/Main/Vector3fix_CrossProduct.cpp:
     complete
     .text start:0x020c2e34 end:0x020c2eb8
+
+src/NitroSDK/Main/ColorEffect_ConfigureBrightnessAdjust.cpp:
+    complete
+    .text start:0x020c5100 end:0x020c5128
+
+src/MSL/Main/func_02008dcc.cpp:
+    complete
+    .text start:0x02008dcc end:0x02008f3c
+
+src/MSL/Main/func_02009424.cpp:
+    complete
+    .text start:0x02009424 end:0x02009598
