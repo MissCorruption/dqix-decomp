@@ -3,7 +3,7 @@
 // KEEP-NAME
 // USA: func_0200afe8
 extern "C" ARM
-asm unsigned long long func_0200afe8(double x)
+asm unsigned long long _ll_ufrom_d(double x)
 {
     tst r1, #0x80000000
     bne _L64

@@ -1,0 +1,76 @@
+#include <globaldefs.h>
+
+// fdlibm s_atan.c: atan(x). This unit owns atanlo/atanhi (.rodata 0x020e6cc4-0x020e6d04): the ROM
+// keeps separate pool words for the section base and atanlo, which extern ROM symbols would merge.
+// aT stays the ROM symbol data_020e6d04.
+
+extern "C" double func_02008f3c(double x); /* fabs */
+
+static const double atanlo[] = {
+    2.26987774529616870924e-17,
+    3.06161699786838301793e-17,
+    1.39033110312309984516e-17,
+    6.12323399573676603587e-17,
+};
+
+static const double atanhi[] = {
+    4.63647609000806093515e-01,
+    7.85398163397448278999e-01,
+    9.82793723247329054082e-01,
+    1.57079632679489655800e+00,
+};
+
+extern const double data_020e6d04[]; /* aT */
+
+// USA: func_02008848
+extern "C" ARM double func_02008848(double x) {
+    double w, s1, s2, z;
+    int ix, hx, id;
+
+    hx = ((int*)&x)[1];
+    ix = hx & 0x7fffffff;
+    if (ix >= 0x44100000) {
+        if (ix > 0x7ff00000 || (ix == 0x7ff00000 && (((int*)&x)[0] != 0)))
+            return x + x;
+        if (hx > 0)
+            return atanhi[3] + atanlo[3];
+        else
+            return -atanhi[3] - atanlo[3];
+    }
+    if (ix < 0x3fdc0000) {
+        if (ix < 0x3e200000) {
+            if (1.0e300 + x > 1.0)
+                return x;
+        }
+        id = -1;
+    } else {
+        x = func_02008f3c(x);
+        if (ix < 0x3ff30000) {
+            if (ix < 0x3fe60000) {
+                id = 0;
+                x = (2.0 * x - 1.0) / (2.0 + x);
+            } else {
+                id = 1;
+                x = (x - 1.0) / (x + 1.0);
+            }
+        } else {
+            if (ix < 0x40038000) {
+                id = 2;
+                x = (x - 1.5) / (1.0 + 1.5 * x);
+            } else {
+                id = 3;
+                x = -1.0 / x;
+            }
+        }
+    }
+    z = x * x;
+    w = z * z;
+    s1 = z * (data_020e6d04[0] + w * (data_020e6d04[2] + w * (data_020e6d04[4] + w * (data_020e6d04[6] + w * (data_020e6d04[8] + w * data_020e6d04[10])))));
+    s2 = w * (data_020e6d04[1] + w * (data_020e6d04[3] + w * (data_020e6d04[5] + w * (data_020e6d04[7] + w * data_020e6d04[9]))));
+    if (id < 0)
+        return x - x * (s1 + s2);
+    else {
+        z = atanhi[id] - ((x * (s1 + s2) - atanlo[id]) - x);
+        return (hx < 0) ? -z : z;
+    }
+}
