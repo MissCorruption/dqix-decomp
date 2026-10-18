@@ -18974,3 +18974,7 @@ src/Combat/Main/DispatchStateChange_020678bc.cpp:
 src/Combat/Main/HandleActorStateTransition_020679d4.cpp:
     complete
     .text start:0x02069294 end:0x0206935c
+
+src/Combat/Main/StoreClampedDeltas.cpp:
+    complete
+    .text start:0x0206cfd4 end:0x0206d028
