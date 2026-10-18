@@ -33,7 +33,7 @@ SDK_OPT_LEVEL = "-O4,p"
 LIBRARY_BUILDS = {
     "sdk": ("NitroSDK", SDK_MWCC_VERSION, [SDK_OPT_LEVEL]),
     "msl": ("MSL", MWCC_VERSION, ["-O4,p", "-ipa", "file", "-str", "nopool"]),
-    "runtime": ("Runtime", MWCC_VERSION, ["-O4,p", "-char", "unsigned"]),
+    "runtime": ("Runtime", MWCC_VERSION, ["-O4,p", "-char", "unsigned", "-Cpp_exceptions", "on"]),
 }
 DECOMP_ME_COMPILER = "mwcc_30_137"
 CC_FLAGS = " ".join([
