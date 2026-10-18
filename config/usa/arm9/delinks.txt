@@ -20682,3 +20682,23 @@ src/MSL/Main/func_02008dcc.cpp:
 src/MSL/Main/func_02009424.cpp:
     complete
     .text start:0x02009424 end:0x02009598
+
+src/MSL/Main/func_020076f0.cpp:
+    complete
+    .text start:0x020076f0 end:0x02007a10
+
+src/MSL/Main/func_020085cc.cpp:
+    complete
+    .text start:0x020085cc end:0x02008848
+
+src/NitroSDK/Main/InitializeModelAnimationFromMAM.cpp:
+    complete
+    .text start:0x020b90b4 end:0x020b9188
+
+src/NitroSDK/Main/InitializeModelAnimationFromMAT.cpp:
+    complete
+    .text start:0x020b9584 end:0x020b9658
+
+src/NitroSDK/Main/InitializeModelAnimationFromMPT.cpp:
+    complete
+    .text start:0x020b969c end:0x020b9778
