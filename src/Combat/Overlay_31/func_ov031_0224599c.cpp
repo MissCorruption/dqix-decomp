@@ -49,9 +49,7 @@ static inline void CpuCopy8(const void* src, void* dest, int count) {
 	func_020ca4b4(src, dest, count);
 }
 
-static inline int StateOffset(int n) {
-	return &data_ov031_02291f24.b0 + n - &data_ov031_02291f24.b0;
-}
+enum WcmcMsg { WCMC_MSG_FOUND = 1, WCMC_MSG_LOST = 4, WCMC_MSG_DONE = 5 };
 
 // USA: func_ov031_0224599c
 extern "C" ARM void func_ov031_0224599c(void) {
@@ -96,23 +94,30 @@ extern "C" ARM void func_ov031_0224599c(void) {
 			break;
 		case 6:
 			func_020c7ea0(&data_ov031_02291f60, &msg, 1);
-			if (msg == StateOffset(1)) {
-				if (data_ov031_02291f24.fieldC == 0) {
-					func_ov031_0220eb88(1);
-					if (func_ov031_0220eb30() >= 1) {
-						CpuCopy8(GetOffset10FromResult_0220ec04(0), &data_ov031_02292040, 0xc0);
+			{
+				WcmcMsg found = WCMC_MSG_FOUND;
+				WcmcMsg lost = WCMC_MSG_LOST;
+				if (msg == found) {
+					if (data_ov031_02291f24.fieldC == 0) {
+						func_ov031_0220eb88(1);
+						if (func_ov031_0220eb30() >= 1) {
+							CpuCopy8(GetOffset10FromResult_0220ec04(0), &data_ov031_02292040, 0xc0);
+						}
+						func_ov031_0220eb88(0);
+						func_ov031_02245c68(4);
 					}
-					func_ov031_0220eb88(0);
+				} else if (msg == lost) {
 					func_ov031_02245c68(4);
 				}
-			} else if (msg == StateOffset(4)) {
-				func_ov031_02245c68(4);
 			}
 			break;
 		case 9:
 			func_020c7ea0(&data_ov031_02291f60, &msg, 1);
-			if (msg == StateOffset(5)) {
-				func_ov031_02245c68(6);
+			{
+				WcmcMsg done = WCMC_MSG_DONE;
+				if (msg == done) {
+					func_ov031_02245c68(6);
+				}
 			}
 			break;
 		case 12:
