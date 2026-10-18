@@ -10,6 +10,7 @@ from get_platform import get_platform
 
 
 DEFAULT_WIBO_PATH = "./wibo"
+DEFAULT_LINK_WIBO_PATH = "./wibo-link"
 
 
 parser = argparse.ArgumentParser(description="Generates build.ninja")
@@ -25,6 +26,7 @@ args = parser.parse_args()
 GAME = "dqix"
 DSD_VERSION = 'v0.10.2'
 WIBO_VERSION = 'sha256:bab06c516326680535fe1d35594a1b4640ea9da4663affd874d5cbe76463d42f' # wibo master 355e082: 53-bit x87 (#137) is in no release yet
+LINK_WIBO_VERSION = '0.6.16' # mwldarm runs ~15x slower under wibo master; linking needs no x87 fix
 OBJDIFF_VERSION = 'v3.8.1'
 CC_OVERRIDES_PATH = "tools/cc_overrides.txt"
 MWCC_VERSION = os.environ.get("DQIX_MWCC", "2.0/sp2p2") # minimum version required to match fixed point s64 arithmetic around 0x02030f30 (not sdk code). might need p3 or p4?
@@ -143,6 +145,8 @@ if platform is None:
 EXE = platform.exe
 WINE = args.wine if platform.system != "windows" else ""
 WINE_DEP = [WINE] if platform.system != "windows" and WINE == DEFAULT_WIBO_PATH else []
+LINK_WINE = DEFAULT_LINK_WIBO_PATH if WINE_DEP else WINE
+LINK_WINE_DEP = [LINK_WINE] if WINE_DEP else []
 DSD = str(args.dsd or os.path.join('.', str(root_path / f"dsd{EXE}")))
 OBJDIFF = os.path.join('.', str(root_path / f"objdiff-cli{EXE}"))
 CC = os.path.join('.', str(mwcc_path / "mwccarm.exe"))
@@ -276,7 +280,7 @@ def main():
 
         n.rule(
             name="mwasm",
-            command=f'$python tools/mwasm.py {WINE} "{AS}" {AS_FLAGS} -o $out $in',
+            command=f'$python tools/mwasm.py {LINK_WINE} "{AS}" {AS_FLAGS} -o $out $in',
         )
         n.newline()
 
@@ -289,7 +293,7 @@ def main():
 
         n.rule(
             name="mwld",
-            command=f'{WINE} "{LD}" {LD_FLAGS} @$objects_file $lcf_file -o $out'
+            command=f'{LINK_WINE} "{LD}" {LD_FLAGS} @$objects_file $lcf_file -o $out'
         )
         n.newline()
 
@@ -409,6 +413,16 @@ def add_download_tool_builds(n: ninja_syntax.Writer):
             },
         )
         n.newline()
+        n.build(
+            rule="download_tool",
+            outputs=LINK_WINE,
+            variables={
+                "tool": "wibo",
+                "tag": LINK_WIBO_VERSION,
+                "path": LINK_WINE,
+            },
+        )
+        n.newline()
 
 
 def add_extract_build(n: ninja_syntax.Writer, project: Project):
@@ -439,7 +453,7 @@ def add_mwld_and_rom_builds(n: ninja_syntax.Writer, project: Project):
     elf_file = str(project.arm9_o())
     n.build(
         inputs=project.source_object_files() + [lcf_file, objects_file, delink_file],
-        implicit=[LD] + WINE_DEP,
+        implicit=[LD] + LINK_WINE_DEP,
         rule="mwld",
         outputs=elf_file,
         variables={
@@ -500,7 +514,7 @@ def add_mwcc_builds(n: ninja_syntax.Writer, project: Project, mwcc_implicit: lis
     for source_file in get_asm_files([src_path, libs_path]):
         n.build(
             inputs=str(source_file),
-            implicit=[AS] + WINE_DEP,
+            implicit=[AS] + LINK_WINE_DEP,
             rule="mwasm",
             outputs=str((project.game_build / source_file).with_suffix(".o")),
         )
