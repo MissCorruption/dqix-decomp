@@ -18882,3 +18882,7 @@ src/Combat/Main/InitState0204166c020416e0.cpp:
 src/Combat/Main/func_02043600.cpp:
     complete
     .text start:0x02043de0 end:0x02043f88
+
+src/Combat/Main/PositionAndFormatValueLabel0205b674.cpp:
+    complete
+    .text start:0x0205c9ac end:0x0205ca98
