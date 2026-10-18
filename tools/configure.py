@@ -24,7 +24,7 @@ args = parser.parse_args()
 # Config
 GAME = "dqix"
 DSD_VERSION = 'v0.10.2'
-WIBO_VERSION = '0.6.16'
+WIBO_VERSION = 'sha256:bab06c516326680535fe1d35594a1b4640ea9da4663affd874d5cbe76463d42f' # wibo master 355e082: 53-bit x87 (#137) is in no release yet
 OBJDIFF_VERSION = 'v3.8.1'
 CC_OVERRIDES_PATH = "tools/cc_overrides.txt"
 MWCC_VERSION = os.environ.get("DQIX_MWCC", "2.0/sp2p2") # minimum version required to match fixed point s64 arithmetic around 0x02030f30 (not sdk code). might need p3 or p4?
