@@ -18898,3 +18898,7 @@ src/Combat/Main/InitContextString0206a974.cpp:
 src/Combat/Main/func_0206ac94.cpp:
     complete
     .text start:0x0206c730 end:0x0206c794
+
+src/Combat/Main/DecrementSlotRef0206b198.cpp:
+    complete
+    .text start:0x0206cb14 end:0x0206cba0
