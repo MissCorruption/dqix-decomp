@@ -16,7 +16,11 @@ BattleNode0215f1ac* GetNodeAtIndex02160094(List02160094*, int);
 extern "C" void func_ov000_0215f500(BattleRecord0215f1ac*, BattleRecord0215f1ac*);
 extern const int data_ov000_02182aac[3];
 extern int data_ov000_02182a58[2];
+#if defined(jpn)
+struct CombatantView0215f1ac { char pad_0[0x144]; unsigned char* status; };
+#else
 struct CombatantView0215f1ac { char pad_0[0x150]; unsigned char* status; };
+#endif
 
 // USA: func_ov000_0215f1ac
 extern "C" ARM void func_ov000_0215f1ac(BattleEvents0215f1ac* events) {
