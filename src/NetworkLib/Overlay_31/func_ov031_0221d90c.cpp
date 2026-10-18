@@ -64,4 +64,3 @@ extern "C" THUMB int func_ov031_0221d90c(SettingsPacket0221d90c* packet, Setting
     } while (1);
     return 0;
 }
-

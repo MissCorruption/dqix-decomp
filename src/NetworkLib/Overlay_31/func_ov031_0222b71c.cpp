@@ -47,4 +47,3 @@ extern "C" ARM void func_ov031_0222b71c() {
     MAIN_BG_0222b71c.controls[2].priority = 3;
     MAIN_BG_0222b71c.controls[3].priority = 2;
 }
-

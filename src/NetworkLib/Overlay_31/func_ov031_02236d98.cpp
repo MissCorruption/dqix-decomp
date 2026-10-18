@@ -7,7 +7,6 @@ extern "C" void func_ov031_0223e2b8(void*, int);
 extern "C" void func_ov031_02236e38(void*);
 
 struct Mid_02236d98 { void* items[5]; int f14; };
-// The pointer block at 0x02290d04..0x02290d13 (data_ov031_02290d04/d08/d0c/d10).
 struct Base_02236d98 { void* field0; Mid_02236d98* p; void* field8; void* fieldC; };
 extern Base_02236d98 data_ov031_02290d04;
 

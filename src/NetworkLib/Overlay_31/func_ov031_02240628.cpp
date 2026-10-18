@@ -28,4 +28,3 @@ compare:
     }
     return -1;
 }
-

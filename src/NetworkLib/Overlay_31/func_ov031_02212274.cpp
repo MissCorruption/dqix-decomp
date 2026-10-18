@@ -3,7 +3,6 @@
 #include "System/Memory.h"
 #include "System/Cache.h"
 
-// DWC_GetApInfo
 struct ApInfo02212274
 {
     int aptype;

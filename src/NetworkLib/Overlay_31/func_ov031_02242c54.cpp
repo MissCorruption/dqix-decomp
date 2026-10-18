@@ -26,4 +26,3 @@ extern "C" ARM int func_ov031_02242c54(const signed char* text, int length) {
     } while (index < length);
     return value;
 }
-

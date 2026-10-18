@@ -94,4 +94,3 @@ extern "C" ARM void func_ov031_02230120() {
     }
     data_ov031_02290ca0.manager->field_0x44 = 1;
 }
-
