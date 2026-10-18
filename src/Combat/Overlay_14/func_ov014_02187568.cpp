@@ -1,3 +1,4 @@
+#include "Combat/MenuNodeChain.h"
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 #include <std_library_functions.h>
@@ -21,25 +22,9 @@ struct MonsterListEntry {
     char unk_1c[4];
 };
 
-struct BackgroundGraphics;
-struct Canvas;
+struct List0204af64;
+struct Node0207f7f0;
 
-struct Menu {
-    char unk_0[0x2c];
-    BackgroundGraphics* backgrounds_;
-    char unk_30[6];
-    short cursor_;
-    unsigned char unk_38;
-    char unk_39;
-    unsigned char unk_3a;
-    char unk_3b[5];
-
-    void SetBackgrounds(BackgroundGraphics* backgrounds)
-    {
-        backgrounds_ = backgrounds;
-        unk_38 = 2;
-    }
-};
 
 struct MonsterList {
     char unk_0[0x10];
@@ -73,9 +58,9 @@ struct MonsterListScreen {
     SafeAllocator* listAllocators_;
     MonsterListEntry* entries_;
     MonsterListEntry* pageEntry_;
-    Menu* menu_;
-    BackgroundGraphics* backgrounds_;
-    Canvas* canvases_;
+    Manager0207f7f0* menu_;
+    List0204af64* backgrounds_;
+    Node0207f7f0* canvases_;
     void* canvasBuffer_;
     short* cursor_;
     void* listSprites_;
@@ -133,7 +118,7 @@ void InitNodeChain0207f7f0(Manager0207f7f0*, Node0207f7f0*, int);
 
 extern "C" {
 void func_020972e0(MonsterList* list, SafeAllocator* allocator, void* file, unsigned int size);
-int func_0207f9f4(Menu* menu);
+int func_0207f9f4(Manager0207f7f0* menu);
 void func_0205a528(SpriteRenderer* renderer, void* file, unsigned int size, SafeAllocator* allocator);
 void func_020dfec0(TextTable* texts, SafeAllocator* allocator, void* file, unsigned int size);
 void func_020abf60(MonsterList* list);
@@ -299,9 +284,11 @@ extern "C" ARM void func_ov014_02187568(MonsterListScreen* self)
         BG3CNTSUB = (BG3CNTSUB & ~3) | 3;
         DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | (0x17 << 8);
         ColorEffect_ConfigureAlphaBlend(0x04001050, BLEND_TARGET_BG1, 4, 10, 6);
-        self->menu_->SetBackgrounds(self->backgrounds_);
-        InitNodeChain0207f7f0((Manager0207f7f0*)self->menu_, (Node0207f7f0*)self->canvases_, 4);
-        self->menu_->unk_3a = 0;
+        Manager0207f7f0* menu = self->menu_;
+        menu->lists = self->backgrounds_;
+        menu->mode = 2;
+        InitNodeChain0207f7f0(self->menu_, self->canvases_, 4);
+        self->menu_->active = 0;
         func_020974b0(&self->list_, -1, -1, false, 0, &self->numMonsters_);
         short count = 0;
         self->entries_ = func_020974b0(&self->list_, self->family_, -1, (self->listFlags_ & 8) != 0, 0x10, &count);

@@ -1,7 +1,6 @@
 #include <globaldefs.h>
+#include "Combat/BattleHeapOwner.h"
 
-struct Screen_021b2ce8;
-extern Screen_021b2ce8* data_ov017_021d840c;
 extern "C" void func_ov003_02174890(char* obj);
 
 // USA: func_ov017_021b2f2c

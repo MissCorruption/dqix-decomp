@@ -1,11 +1,10 @@
 #include <globaldefs.h>
+#include "Combat/MenuNodeChain.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 
-struct NotifyEntriesStruct0207f8bc;
-void FlushNotifyEntries(struct NotifyEntriesStruct0207f8bc* p);
 extern "C" int func_ov017_0218b5b0(void);
 void* GetDataPtr02114e04_020d6c00(void);
 void ClearBitsInField4_0203b4e8(unsigned int* obj, unsigned int mask);
@@ -28,7 +27,7 @@ extern "C" ARM void func_ov017_021aaf08(char* self) {
     }
 
     if (*(void**)(self + 0x18) != 0) {
-        FlushNotifyEntries(*(struct NotifyEntriesStruct0207f8bc**)(self + 0x18));
+        FlushNotifyEntries_0207f8bc(*(Manager0207f7f0**)(self + 0x18));
         *(void**)(self + 0x18) = 0;
     }
 

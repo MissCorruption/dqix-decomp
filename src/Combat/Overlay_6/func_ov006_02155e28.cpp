@@ -1,3 +1,4 @@
+#include "Combat/MenuNodeChain.h"
 #if defined(jpn)
 #define R(j,u) (j)
 #define _Z35SetFieldsFromFormattedValue0207f914P11Obj0207f914iii func_02080654
@@ -61,16 +62,7 @@ struct Obj0204c7a8 {
 extern "C" void func_0204c684(void* node);
 void AllocateBuffer0204c7a8(struct Obj0204c7a8* node, SafeAllocator* alloc, int a, unsigned int size);
 
-struct Manager0207f7f0 {
-    unsigned char pad0[R(0x20,0x2c)];
-    struct List0204af64* lists;
-    unsigned char pad30[8];
-    unsigned char mode;
-    unsigned char pad39;
-    unsigned char active;
-};
 struct Node0207f7f0;
-extern "C" void func_0207f84c(void* mgr);
 struct Obj0207f914;
 #if defined(jpn)
 extern "C" void _Z35SetFieldsFromFormattedValue0207f914P11Obj0207f914iii(struct Obj0207f914* mgr, int alloc, int nameA);

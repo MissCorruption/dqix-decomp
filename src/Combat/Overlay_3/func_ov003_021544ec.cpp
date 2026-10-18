@@ -1,3 +1,4 @@
+#include "Combat/MenuNodeChain.h"
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
@@ -7,7 +8,6 @@ void InitEntryManager020e2490(struct EntryManager020e2490* obj, int arg1, int ar
 struct List0204af64;
 void ResetList0204af64(struct List0204af64* obj);
 extern "C" void func_0204c684(void*);
-extern "C" void func_0207f84c(void*);
 struct Struct0205a198;
 void Init0205a198(struct Struct0205a198*);
 
@@ -34,7 +34,7 @@ struct Obj021544ec {
     void* bufC;
     struct List0204af64* lists;
     char* buf14;
-    void* buf18;
+    Manager0207f7f0* buf18;
     struct EntryManager020e2490* entryManager;
     int* words;
     struct Struct0205a198* buf24;
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov003_021544ec(struct Obj021544ec* obj, SafeAllocator* 
         obj->bufC = alloc->Allocate(0x4c00);
         obj->lists = (struct List0204af64*)alloc->Allocate(0x40);
         obj->buf14 = (char*)alloc->Allocate(0x2a0);
-        obj->buf18 = alloc->Allocate(kNotificationBufferSize);
+        obj->buf18 = static_cast<Manager0207f7f0*>(alloc->Allocate(kNotificationBufferSize));
         obj->words = (int*)alloc->Allocate(0x30);
         obj->buf24 = (struct Struct0205a198*)alloc->Allocate(0x190);
         obj->buf28 = alloc->Allocate(8);

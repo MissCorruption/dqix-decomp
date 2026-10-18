@@ -1,3 +1,4 @@
+#include "Combat/MenuNodeChain.h"
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 #include "GameState/GameState.h"
@@ -60,7 +61,6 @@ extern "C" void func_0205a528(void*, void*, void*, void*);
 void InitStruct0205a444(char*);
 void Zero4Bytes_020e526c(void*);
 extern "C" void func_020e5604(void*, void*, void*, unsigned int);
-extern "C" void func_0207f84c(void*);
 struct Obj0207f914;
 void SetFieldsFromFormattedValue0207f914(Obj0207f914*, int, int, int);
 extern "C" int func_0207f9f4(void*);
@@ -90,14 +90,6 @@ extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
 struct Container02080f8c;
 void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
 
-struct Node14 {
-    unsigned char pad[0x2c];
-    void* f2c;
-    unsigned char pad2[0x38 - 0x30];
-    unsigned char f38;
-    unsigned char pad3;
-    unsigned char f3a;
-};
 
 struct Canvas {
     unsigned char pad[0xb8];
@@ -115,10 +107,10 @@ struct Scene {
     void* f08;
     void* alloc;
     unsigned char pad10[0x04];
-    void* f14;
+    Manager0207f7f0* f14;
     void* f18;
-    void* f1c;
-    void* f20;
+    List0204af64* f1c;
+    Node0207f7f0* f20;
     void* f24;
     unsigned char pad28[0x04];
     int f2c;
@@ -402,12 +394,12 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
     else if (st == 0x10) {
         DispatchEntryOp0x10_020810a0(obj->f14, 1);
         {
-            Node14* n2 = (Node14*)obj->f14;
-            n2->f2c = obj->f1c;
-            n2->f38 = 2;
+            Manager0207f7f0* n2 = obj->f14;
+            n2->lists = obj->f1c;
+            n2->mode = 2;
         }
-        InitNodeChain0207f7f0((Manager0207f7f0*)obj->f14, (Node0207f7f0*)obj->f20, 7);
-        ((Node14*)obj->f14)->f3a = 1;
+        InitNodeChain0207f7f0(obj->f14, obj->f20, 7);
+        obj->f14->active = 1;
         DispatchEntryOp0x8_0208108c(obj->f14, 0x20);
         DispatchEntryOp0x8_0208108c(obj->f14, 0x3e);
         volatile unsigned short* bg = (volatile unsigned short*)0x04001008;

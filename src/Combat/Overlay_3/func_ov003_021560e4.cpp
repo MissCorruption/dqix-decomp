@@ -1,3 +1,5 @@
+#include "Combat/MenuNodeChain.h"
+#include "Combat/MapDisplay.h"
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
 #include "Filesystem/BackgroundLoader.h"
@@ -27,7 +29,6 @@ int _Z27TestBitInByteArray_0206dfb0iPhi(void*, void*, int);
 void _Z19ResetStruct020dfc40P14Struct020dfc40(void*);
 void _Z20ClearFields_021e20c0Pv(void*);
 void* _Z21GetFieldByKey020e0434P17Container020e0310i(void*, int);
-void _Z21InitNodeChain0207f7f0P15Manager0207f7f0P12Node0207f7f0i(void*, void*, int);
 void _Z22AllocateBuffer0204c7a8P11Obj0204c7a8P13SafeAllocatorij(void*, void*, int, int);
 void _Z23ClearAllBuffers0207fcb8P11Obj0207fcb8(void*);
 void _Z24DispatchViaTable0204b5e8P11Obj0204b5e8ii(void*, int, int);
@@ -89,20 +90,14 @@ struct Prio {
     unsigned char hi : 4;
 };
 
-struct Ent20 {
-    char pad0[4];
-    void* p4;
-    char pad8[0x1c - 8];
-    Prio b1c;
-};
 
 struct Ctrl {
     void* alloc;
     char pad04[0xc - 4];
     int f0c;
-    Ent20* f10;
-    char* f14;
-    char* f18;
+    List0204af64* f10;
+    Node0207f7f0* f14;
+    Manager0207f7f0* f18;
     void* f1c;
     char pad20[4];
     int f24;
@@ -246,10 +241,10 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             BytePair A = data_ov003_0217f29c[0];
             BytePair B = data_ov003_0217f29c[1];
             for (unsigned char i = 0; i < 2; i++) {
-                Ent20* e = self->f10 + i;
+                List0204af64* e = self->f10 + i;
                 _Z33SetWord0x18ClearByte0x1f_0204b11cPhi(e, 0);
-                e->b1c.lo = 0;
-                e->b1c.hi = A.v[i];
+                e->b1c_lo = 0;
+                e->b1c_hi = A.v[i];
                 func_0204b5b4(e, B.v[i]);
                 _Z30AllocateAndClearBuffer0204b12cP19AllocTarget0204b12cP13SafeAllocator(e, a + 0x14);
                 _Z24DispatchViaTable0204b5e8P11Obj0204b5e8ii(e, 0, 0);
@@ -268,7 +263,7 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             int len;
             loader->GetLoadedFileByID(self->task, &file, &size);
             int n = _Z18CountActiveEntriesP19ActiveEntry02046900(file);
-            Ent20* e = self->f10;
+            List0204af64* e = self->f10;
             for (int i = 0; i < n; i++) {
                 void* rec = (void*)_Z17FindRecordByIndexP11Rec020467f0iPPvPi(file, i, &p, &len);
                 func_0204b174(e, rec, 0, len);
@@ -277,9 +272,9 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
             self->task = -1;
             char* a = (char*)self->alloc;
             for (unsigned char j = 0; j < 3; j++) {
-                Ent20* ent = (Ent20*)(self->f14 + j * 0xe0);
+                Node0207f7f0* ent = self->f14 + j;
                 _Z22AllocateBuffer0204c7a8P11Obj0204c7a8P13SafeAllocatorij(ent, a + 0x14, self->f0c, 0x4cc);
-                ent->p4 = self->f10;
+                ent->lists = self->f10;
             }
             a = (char*)self->alloc;
             _ZN13SafeAllocator5ResetEv(a + 0x28);
@@ -370,11 +365,11 @@ extern "C" ARM void func_ov003_021560e4(Ctrl* self) {
     } else if (state == 9) {
         char* g = (char*)_Z26GetGlobalField0x1c020421a0v();
         if (*(int*)(g + kGlobalFieldOffset + 8) == 3) {
-            char* p = self->f18;
-            *(void**)(p + kManagerListOffset) = self->f10;
-            *(char*)(p + kManagerStateOffset) = 2;
-            _Z21InitNodeChain0207f7f0P15Manager0207f7f0P12Node0207f7f0i(p, self->f14, 3);
-            *(char*)(p + kManagerFlagOffset) = 1;
+            Manager0207f7f0* p = self->f18;
+            p->lists = self->f10;
+            p->mode = 2;
+            InitNodeChain0207f7f0(p, self->f14, 3);
+            p->active = 1;
             _Z23ClearAllBuffers0207fcb8P11Obj0207fcb8(p);
             _Z28CallFunc0204b04cOverList0x2cP12Cont0207fd44(p);
             _Z28CallFunc0204b088OverList0x2cP12Cont0207fd88(p);

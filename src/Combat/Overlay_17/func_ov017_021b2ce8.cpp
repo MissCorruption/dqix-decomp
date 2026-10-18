@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Combat/BattleHeapOwner.h"
 #include "Resource/FontBankLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
@@ -24,15 +25,9 @@ void SetByteField0x253_020397c0(void* obj);
 extern "C" void func_020a0cc4(unsigned int size, int ticks);
 extern "C" void func_020a0c0c(void);
 extern "C" void func_ov003_02174114(void* obj);
-extern "C" void func_ov003_02173f70(void* obj, SafeAllocator* alloc);
 extern "C" int func_ov003_021745fc(void* obj);
 extern "C" void func_ov003_02174454(void* obj);
 extern "C" void func_ov017_021b2c88(Obj021b2c88* self);
-
-struct Screen_021b2ce8 {
-    char pad0[0x38];
-    int bgMode;
-};
 
 struct Task_021b2ce8 {
     unsigned char byte0;
@@ -43,7 +38,6 @@ struct Task_021b2ce8 {
 };
 
 extern AllocatorUnion data_02114e20;
-extern Screen_021b2ce8* data_ov017_021d840c;
 
 // USA: func_ov017_021b2ce8
 extern "C" ARM void func_ov017_021b2ce8(Task_021b2ce8* self) {
@@ -74,7 +68,7 @@ extern "C" ARM void func_ov017_021b2ce8(Task_021b2ce8* self) {
         }
         self->allocator.CreateTypeA(buffer, 0x32000);
         self->allocator.Reset();
-        data_ov017_021d840c = (Screen_021b2ce8*)self->allocator.Allocate(regionalSize);
+        data_ov017_021d840c = static_cast<BattleHeapOwner*>(self->allocator.Allocate(regionalSize));
         if (data_ov017_021d840c == NULL) {
             func_020a0c0c();
             self->done = 1;

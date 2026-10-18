@@ -1,3 +1,5 @@
+#include "Combat/MenuNodeChain.h"
+#include "Combat/MapDisplay.h"
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
@@ -61,7 +63,6 @@ void AllocateBuffer0204c7a8(struct Obj0204c7a8* obj, SafeAllocator* alloc, int b
 int CountActiveEntries(struct ActiveEntry02046900* entry);
 void* FindRecordByIndex(struct Rec020467f0* rec, int index, void** out, int* outSize);
 extern "C" void func_0204b174(void* graphics, void* file, SafeAllocator* allocator, unsigned int size);
-extern "C" void func_0207f84c(void* obj);
 #if defined(jpn)
 extern "C" void func_02080654(struct Obj0207f914* obj, int alloc, int filename);
 #else
@@ -118,32 +119,8 @@ struct Settings02114e54 {
 };
 extern Settings02114e54 data_02114e54;
 
-struct Layer021aa59c {
-    char unknown_0[0x1c];
-    unsigned char priority : 4;
-    unsigned char index : 4;
-    char unknown_1d[3];
-};
 
-struct Panel021aa59c {
-    char unknown_0[4];
-    Layer021aa59c* layers;
-    char unknown_8[0xd8];
-};
 
-struct Menu021aa59c {
-#if defined(jpn)
-    char unknown_0[0x20];
-#else
-    char unknown_0[0x2c];
-#endif
-    Layer021aa59c* layers;
-    char unknown_30[6];
-    short cursor;
-    unsigned char panelCount;
-    char unknown_39;
-    unsigned char active;
-};
 
 struct Input021aa59c {
     unsigned short buttons;
@@ -170,9 +147,9 @@ struct Self021aa59c {
     int savedBgMode;
     char unknown_10[4];
     int state;
-    Menu021aa59c* menu;
-    Layer021aa59c* layers;
-    Panel021aa59c* panels;
+    Manager0207f7f0* menu;
+    List0204af64* layers;
+    Node0207f7f0* panels;
     SafeAllocator alloc;
     int result;
     void* repeat;
@@ -229,34 +206,34 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
         self->alloc.CreateTypeA(buffer, 0x7800);
         self->alloc.Reset();
         self->tileBuffer = self->alloc.Allocate(0x1400);
-        self->panels = (Panel021aa59c*)self->alloc.Allocate(0x1c0);
-        self->layers = (Layer021aa59c*)self->alloc.Allocate(0x40);
+        self->panels = (Node0207f7f0*)self->alloc.Allocate(0x1c0);
+        self->layers = (List0204af64*)self->alloc.Allocate(0x40);
 #if defined(jpn)
-        self->menu = (Menu021aa59c*)self->alloc.Allocate(0x34);
+        self->menu = (Manager0207f7f0*)self->alloc.Allocate(0x34);
 #else
-        self->menu = (Menu021aa59c*)self->alloc.Allocate(0x40);
+        self->menu = (Manager0207f7f0*)self->alloc.Allocate(0x40);
 #endif
         self->repeat = self->alloc.Allocate(0xc);
         self->input = (Input021aa59c*)self->alloc.Allocate(4);
         InitWithSub02081ee4((Obj02081ee4*)self->repeat, (Sub02081ee4*)self->input);
 
-        Layer021aa59c* layer = self->layers;
+        List0204af64* layer = self->layers;
         for (int i = 0; i < 2; i++) {
             ResetList0204af64((List0204af64*)layer);
             SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)layer, 0);
-            layer->priority = 0;
-            layer->index = i + 1;
+            layer->b1c_lo = 0;
+            layer->b1c_hi = i + 1;
             func_0204b5b4(layer, i);
             AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)layer, &self->alloc);
             DispatchViaTable0204b5e8((Obj0204b5e8*)layer, 0, 0);
             layer++;
         }
 
-        Panel021aa59c* panel = self->panels;
+        Node0207f7f0* panel = self->panels;
         for (unsigned char j = 0; j < 2; j++) {
             func_0204c684(panel);
             AllocateBuffer0204c7a8((Obj0204c7a8*)panel, &self->alloc, (int)self->tileBuffer, 0x800);
-            panel->layers = self->layers;
+            panel->lists = self->layers;
             panel++;
         }
 
@@ -276,7 +253,7 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
             unsigned int fileSize;
             loader->GetLoadedFileByID(self->loadTask, &file, &fileSize);
             int count = CountActiveEntries((ActiveEntry02046900*)file);
-            Layer021aa59c* layers = self->layers;
+            List0204af64* layers = self->layers;
             for (int i = 0; i < count; i++) {
                 int recordSize;
                 void* data = FindRecordByIndex((Rec020467f0*)file, i, &record, &recordSize);
@@ -301,10 +278,10 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
             self->state = 8;
         }
     } else if (state == 3) {
-        Menu021aa59c* menu = self->menu;
-        menu->layers = self->layers;
-        menu->panelCount = 2;
-        InitNodeChain0207f7f0((Manager0207f7f0*)menu, (Node0207f7f0*)self->panels, 2);
+        Manager0207f7f0* menu = self->menu;
+        menu->lists = self->layers;
+        menu->mode = 2;
+        InitNodeChain0207f7f0(menu, self->panels, 2);
         menu->active = 1;
         ClearAllBuffers0207fcb8((Obj0207fcb8*)menu);
         CallFunc0204b04cOverList0x2c((Cont0207fd44*)menu);
@@ -328,7 +305,7 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
         bool cancelled = false;
         bool redraw = false;
         void* element;
-        Menu021aa59c* menu = self->menu;
+        Manager0207f7f0* menu = self->menu;
         element = FindElementByByte0xc4_02081da8((Obj2081*)menu, self->key);
         if (menu != NULL) {
             if (element != NULL) {
@@ -339,7 +316,7 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
                     func_02081f20(self->repeat, ticks);
                     self->prevCursor = *self->cursorPtr;
                     self->result = func_020800fc(menu, self->cursorPtr, self->prevCursor, self->input->buttons, self->input->columns, false);
-                    menu->cursor = *self->cursorPtr;
+                    menu->field36 = *self->cursorPtr;
                     if (self->result != 0) {
                         ClearSublistEntriesFlag4_020804fc(menu, self->key);
                     }
