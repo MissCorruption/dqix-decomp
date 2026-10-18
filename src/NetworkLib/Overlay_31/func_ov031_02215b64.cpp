@@ -42,4 +42,3 @@ extern "C" ARM int func_ov031_02215b64(const unsigned char* input, unsigned char
     }
     return size;
 }
-
