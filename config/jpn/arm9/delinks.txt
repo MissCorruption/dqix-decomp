@@ -18938,3 +18938,7 @@ src/Combat/Main/LoadTreasureMapLanguageBuffers_020a3844.cpp:
 src/Combat/Main/FindEntryByKind.cpp:
     complete
     .text start:0x020d57ec end:0x020d5828
+
+src/Combat/Main/func_020e0a78.cpp:
+    complete
+    .text start:0x020e26ac end:0x020e2788
