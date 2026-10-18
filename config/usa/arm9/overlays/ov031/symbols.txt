@@ -2929,7 +2929,7 @@ data_ov031_022919c8 kind:bss addr:0x022919c8
 data_ov031_02291a04 kind:bss addr:0x02291a04
 data_ov031_02291a0d kind:bss addr:0x02291a0d
 data_ov031_02291e04 kind:bss(size=0x1) addr:0x02291e04
-initialized$841 kind:bss(size=0x1) addr:0x02291e05
+initialized$841 kind:bss(size=0x1) addr:0x02291e05 local
 data_ov031_02291e3c kind:bss addr:0x02291e3c
 data_ov031_02291e50 kind:bss addr:0x02291e50
 data_ov031_02291e68 kind:bss addr:0x02291e68
