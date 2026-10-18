@@ -5,7 +5,7 @@
 int GetStateAndMaybeNotify_02212598();
 int GetGlobal0224e5a4Field0AndOutField4_022119b0(int*);
 void SetGlobal0224e5a4IfNotNine_ov031_02211b08(int, int);
-int VariadicForward020c7170(int, int, int, ...);
+int VariadicForward020c7170(char*, unsigned long, const char*, ...);
 void* CallWithTag6_02212790(void*, int);
 void* CallWithTag6Zero_022127a8(void*);
 extern "C" void func_ov031_022127c0(int, int, int);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov031_022128fc() {
                 func_ov031_022127c0(0, 8, -1);
                 return;
             }
-            VariadicForward020c7170((int)identity, 256, (int)data_ov031_02249aa0, context->identity);
+            VariadicForward020c7170(identity, 256, data_ov031_02249aa0, context->identity);
             context = data_ov031_0224e5c0;
             int secretLength = strlen(context->secret);
             if (func_ov031_0221aae4((int)context->secret, secretLength, secret, 400) < 0) {

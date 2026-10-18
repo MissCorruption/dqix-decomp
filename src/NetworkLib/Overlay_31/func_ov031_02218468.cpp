@@ -2,13 +2,13 @@
 #include "std_library_functions.h"
 
 int Setup_022187a4(char* obj, void* out, int len);
-int VariadicForward020c7170(int a, int b, int c, ...);
+int VariadicForward020c7170(char* destination, unsigned long capacity, const char* format, ...);
 
 struct Ctx02218468 {
-    int field0;
-    int field4;
-    int field8;
-    int fieldc;
+    char* begin;
+    char* current;
+    char* end;
+    int capacity;
 };
 
 extern char data_ov031_02249e5c[];
@@ -30,8 +30,8 @@ extern "C" ARM int func_ov031_02218468(char* obj) {
         return 1;
     }
 
-    int written = VariadicForward020c7170(ctx->field4, ctx->fieldc, (int)fmt,
+    int written = VariadicForward020c7170(ctx->current, ctx->capacity, fmt,
         *(char**)(obj + 0x1128), *(char**)(obj + 0x1124));
-    ctx->field4 = ctx->field4 + written;
+    ctx->current = ctx->current + written;
     return 0;
 }

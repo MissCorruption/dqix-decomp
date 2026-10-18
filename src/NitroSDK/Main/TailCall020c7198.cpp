@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d3160(int, int, int, int);
+extern "C" int func_020d3160(char* dst, unsigned long len, const char* fmt, char* ap);
 
-// USA: func_020c7198  (semantic: TailCall020c7198)
-extern "C" ARM int func_020c7198(int a, int b, int c, int d) {
-    return func_020d3160(a, b, c, d);
+// USA: func_020c7198
+extern "C" ARM int func_020c7198(char* dst, unsigned long len, const char* fmt, char* ap) {
+    return func_020d3160(dst, len, fmt, ap);
 }

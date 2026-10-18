@@ -21,7 +21,7 @@ ARM int LoadCartridgeDataAndComplete_0223b5c4(NitroHandle* a, void* b, unsigned 
 extern "C" ARM void* func_ov031_0223cf4c(unsigned int len, int align);
 extern "C" void func_020c9be0(void);
 ARM void* FillSlotArrayField4_0223beec(int n, int base, int stride);
-int VariadicForward020c7130(int a, int b, ...);
+int VariadicForward020c7130(char*, const char*, ...);
 
 extern const char data_ov031_0224c544[];
 extern const char data_ov031_0224939c[];
@@ -64,6 +64,6 @@ extern "C" ARM void func_ov031_0223b324(void) {
 	data_ov031_02290d24.p->slotArray = FillSlotArrayField4_0223beec(0x20, (int)data_ov031_02290d24.p + 4, 4);
 
 	char buf[0x80];
-	VariadicForward020c7130((int)buf, (int)data_ov031_0224c55c, (int)data_ov031_0224939c);
+	VariadicForward020c7130(buf, data_ov031_0224c55c, data_ov031_0224939c);
 	SetROMFilesystemRoot(buf);
 }

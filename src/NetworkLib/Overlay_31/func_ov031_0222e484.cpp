@@ -4,7 +4,7 @@
 void GetFields181c_02227520(int*, int*);
 unsigned char GetField0_02227548(void);
 extern "C" void* func_ov031_0223c560(int, int);
-int VariadicForward020c7170(int, int, int, ...);
+int VariadicForward020c7170(char*, unsigned long, const char*, ...);
 extern "C" void func_ov031_0223dd60(void*, const void*, int);
 extern "C" void func_ov031_0223c8d4(void*, int, int, int, int, void*, int);
 int GetTableEntryByField0_022236d0(void);
@@ -13,7 +13,7 @@ void SetFlagIfMatchesElem0_0223caec(void*);
 extern int data_ov031_02290c9c;
 extern unsigned char data_ov031_02248f2c[];
 extern ArrBasePair022276b4* data_ov031_02290c4c;
-extern unsigned char data_ov031_0224bb08[];
+extern const char data_ov031_0224bb08[];
 extern unsigned short data_ov031_02248f3e[];
 extern const unsigned short data_ov031_02248f3c[];
 
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov031_0222e484(void) {
     else category = 0;
     void* object = func_ov031_0223c560(0, data_ov031_02248f2c[GetField0_02227548()]);
     int lookup = LookupArrayPlusBase_022276b4(data_ov031_02290c4c, category);
-    VariadicForward020c7170((int)decimal, 8, (int)data_ov031_0224bb08, -data_ov031_02290c9c);
+    VariadicForward020c7170(decimal, 8, data_ov031_0224bb08, -data_ov031_02290c9c);
     func_ov031_0223dd60(text, decimal, 8);
     unsigned short y = data_ov031_02248f3e[GetField0_02227548() * 2];
     unsigned short x = data_ov031_02248f3c[GetField0_02227548() * 2];
