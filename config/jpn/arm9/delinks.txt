@@ -19286,3 +19286,7 @@ src/Combat/Main/CaptureTransformState02053ed8.cpp:
 src/Combat/Main/StoreToFirstNonNull02040bfc.cpp:
     complete
     .text start:0x020410f8 end:0x02041128
+
+src/Combat/Main/Notify02022d78WithCode2.cpp:
+    complete
+    .text start:0x020dddc0 end:0x020ddddc
