@@ -18958,3 +18958,7 @@ src/Combat/Main/NotifyLocalizedResourceLoad020dcfc8.cpp:
 src/Combat/Main/NotifyLocalizedResourceLoad020dd040.cpp:
     complete
     .text start:0x020dea34 end:0x020dea98
+
+src/Combat/Main/DispatchIfCountPositive020dcf7c.cpp:
+    complete
+    .text start:0x020de968 end:0x020de9cc
