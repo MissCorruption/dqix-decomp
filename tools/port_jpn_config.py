@@ -27,6 +27,7 @@ AUTO_NAME = re.compile(r"^(?:(?:func|data|bss)_(?:ov\d+_)?[0-9a-f]{8}|\.L_[0-9a-
 SOURCE_NAME = re.compile(r"\b(?:func|data|bss)_\w+|\b_Z\w+")
 JPN_BRANCH = re.compile(r"#\s*(?:el)?if\s+defined\s*\(\s*jpn\s*\)(.*?)#\s*(?:endif|else|elif)", re.S)
 DEFINE = re.compile(r"^\s*#\s*define\s+(\S+)\s+(\S+)\s*$", re.M)
+TEXT_RANGE = re.compile(r"^\s*\.text\s+start:(0x[0-9a-f]+)\s+end:(0x[0-9a-f]+)")
 POINTER_LOW, POINTER_HIGH = 0x01ff8000, 0x02800000
 
 
@@ -124,6 +125,11 @@ def module_paths(root: Path):
     paths += [Path("overlays") / d.name for d in sorted((arm9 / "overlays").iterdir()) if (d / "delinks.txt").is_file()]
     paths += [Path(t) for t in ("itcm", "dtcm") if (arm9 / t / "delinks.txt").is_file()]
     return paths
+
+
+def overlay_group(name):
+    match = re.fullmatch(r"overlays\(([\d,]+)\)", name)
+    return tuple(f"ov{int(n):03d}" for n in match[1].split(",")) if match else None
 
 
 def reloc_module(name):
@@ -249,6 +255,37 @@ def reproducible(usa: Module, jpn: Module, usa_start, usa_end, jpn_start, jpn_en
     thumb = usa.has_thumb(usa_start, usa_end)
     offsets = usa.masked_offsets(usa_start, size, thumb) | jpn.masked_offsets(jpn_start, size, thumb)
     return usa.masked(usa_start, size, offsets) == jpn.masked(jpn_start, size, offsets)
+
+
+def text_sources(usa: Module):
+    """(start, end) of every live delink block's single .text range -> its source file"""
+    _, blocks = delink_blocks(read_raw(usa.dir / "delinks.txt"))
+    sources = {}
+    for block in blocks:
+        if not is_live(block):
+            continue
+        texts = [(int(m[1], 16), int(m[2], 16)) for line in block[1:] if not line.lstrip().startswith("//")
+                 for m in [TEXT_RANGE.search(line)] if m]
+        if len(texts) == 1:
+            sources[texts[0]] = block[0].strip().rstrip(":")
+    return sources
+
+
+def object_reproduces(jpn: Module, code: AnchorMap, sources, usa_start, usa_end, jpn_start, jpn_end):
+    """The ROMs differ (an `#if defined(jpn)` branch): accept the range when the fixed points on both sides
+    place it, JPN has a function of its size there, and the source's JPN object rebuilds those bytes."""
+    source = sources.get((usa_start, usa_end))
+    if source is None or jpn_end - jpn_start != usa_end - usa_start:
+        return False
+    try:
+        if code.map(usa_start) != jpn_start or code.map_end(usa_end) != jpn_end:
+            return False
+    except ValueError:
+        return False
+    if not any(s.kind == "function" and s.size == jpn_end - jpn_start for s in jpn.at.get(jpn_start, [])):
+        return False
+    built = jpn_object(source)
+    return built is not None and built.reproduces(jpn, jpn_start, jpn_end)
 
 
 def source_names(root: Path):
@@ -417,6 +454,21 @@ def lands(module: Module, kind, source, target, thumb):
 
 
 def accept_for(plan: Plan, usa_modules, jpn_modules, usa: Module, jpn: Module, mapper: AnchorMap):
+    def group_lands(group, target, jpn_target):
+        # An overlay-group call lands in whichever overlay is loaded. Accept it when some overlay of the
+        # group has the same symbol at the same offset in both regions; the object check below still
+        # requires the name the source calls to land where the JPN word points.
+        for overlay in group:
+            usa_module, jpn_module = usa_modules.get(overlay), jpn_modules.get(overlay)
+            if not usa_module or not jpn_module:
+                continue
+            usa_symbol = usa_module.symbol_containing(target)
+            jpn_symbol = jpn_module.symbol_containing(jpn_target)
+            if usa_symbol and jpn_symbol and usa_symbol.name == jpn_symbol.name \
+                    and target - usa_symbol.address == jpn_target - jpn_symbol.address < max(usa_symbol.size, 1):
+                return True
+        return False
+
     def bind(usa_module, usa_address, jpn_module, jpn_address, changes, additions, may_add):
         for label in (False, True):
             refused = bind_kind(usa_module, usa_address, jpn_module, jpn_address, changes, additions, may_add, label)
@@ -497,6 +549,13 @@ def accept_for(plan: Plan, usa_modules, jpn_modules, usa: Module, jpn: Module, m
                 if module == "none" or jpn_module == "none":
                     if module != jpn_module or jpn.word(jpn_source) != usa.word(source):
                         return f"absolute word at {hex_address(source)} differs"
+                    continue
+                group = overlay_group(module)
+                if group is not None or overlay_group(jpn_module) is not None:
+                    if group != overlay_group(jpn_module):
+                        return f"relocation at {hex_address(source)} targets {module} and {jpn_module}"
+                    if not group_lands(group, target, jpn_target):
+                        return f"relocation at {hex_address(source)} lands differently"
                     continue
                 usa_target_module = usa_modules.get(reloc_module(module))
                 jpn_target_module = jpn_modules.get(reloc_module(jpn_module))
@@ -613,9 +672,11 @@ def sync():
         jpn = jpn_modules[name]
         mapper = mappers[name]
         relabel(plan, usa, jpn, mapper)
+        sources = text_sources(usa)
         added, notes = sync_delinks(
             usa.dir / "delinks.txt", jpn.dir / "delinks.txt", mapper,
-            lambda us, ue, js, je: reproducible(usa, jpn, us, ue, js, je), "JPN", args.dry_run, accepts[name])
+            lambda us, ue, js, je: reproducible(usa, jpn, us, ue, js, je)
+            or object_reproduces(jpn, mapper.code, sources, us, ue, js, je), "JPN", args.dry_run, accepts[name])
         total += added
         for note in notes:
             reasons[re.sub(r"0x[0-9a-f]+|\b\w*_?[0-9a-f]{8}\w*|\S+\.(?:cpp|c|s)\b", "#", note.split(" ", 1)[1])] += 1
