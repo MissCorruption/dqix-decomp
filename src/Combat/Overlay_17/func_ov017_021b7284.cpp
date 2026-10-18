@@ -69,7 +69,11 @@ struct Params021605d0 {
 };
 
 struct Holder021b7284 {
+#if defined(jpn)
+    unsigned char pad0[0x125];
+#else
     unsigned char pad0[0x105];
+#endif
     unsigned char flags;
 };
 
@@ -84,8 +88,13 @@ struct ActiveEntry021b7284 {
 };
 
 struct BattleTable021b7284 {
+#if defined(jpn)
+    unsigned char pad0[0x5c];
+    unsigned char active[0x120 - 0x5c];
+#else
     unsigned char pad0[0x60];
     unsigned char active[0x124 - 0x60];
+#endif
     unsigned char rows[4];
 };
 
@@ -95,6 +104,21 @@ struct Combatant021b7284 {
     unsigned char pad4[0x168 - 0x4];
     unsigned short group;
 };
+
+typedef char BattleSceneAllocatorCheck[offsetof(BattleScene021b7284, allocator) == 8 ? 1 : -1];
+typedef char BattleSceneDecodedCheck[offsetof(BattleScene021b7284, decoded) == 0x2c ? 1 : -1];
+typedef char BattleSceneContextCheck[offsetof(BattleScene021b7284, context) == 0x6b0 ? 1 : -1];
+typedef char BattleSceneFlagsCheck[offsetof(BattleScene021b7284, flags) == 0x6b6 ? 1 : -1];
+typedef char BattleCombatantGroupCheck[offsetof(Combatant021b7284, group) == 0x168 ? 1 : -1];
+#if defined(jpn)
+typedef char BattleHolderFlagsCheck[offsetof(Holder021b7284, flags) == 0x125 ? 1 : -1];
+typedef char BattleTableActiveCheck[offsetof(BattleTable021b7284, active) == 0x5c ? 1 : -1];
+typedef char BattleTableRowsCheck[offsetof(BattleTable021b7284, rows) == 0x120 ? 1 : -1];
+#else
+typedef char BattleHolderFlagsCheck[offsetof(Holder021b7284, flags) == 0x105 ? 1 : -1];
+typedef char BattleTableActiveCheck[offsetof(BattleTable021b7284, active) == 0x60 ? 1 : -1];
+typedef char BattleTableRowsCheck[offsetof(BattleTable021b7284, rows) == 0x124 ? 1 : -1];
+#endif
 
 struct Obj020397cc {
     unsigned char pad0[0xb2];
@@ -176,6 +200,7 @@ void EnqueueEventTag61_021c5284(Src021c5284* src);
 extern "C" void func_ov017_021cff8c(int id, int a);
 
 // USA: func_ov017_021b7284
+// JPN: func_ov017_021b7834
 extern "C" ARM void func_ov017_021b7284(BattleScene021b7284* self) {
     int i;
     int sub;
@@ -270,7 +295,11 @@ done:
     req.bytes[1] = result.bytes[1];
     req.bytes[2] = result.bytes[2];
     func_ov000_0215d414(self->context, &req);
+#if defined(jpn)
+    self->field_6ac = self->allocator.Allocate(0x79fc);
+#else
     self->field_6ac = self->allocator.Allocate(0x780c);
+#endif
     func_ov000_02160140(self->field_6ac);
     ClearFlag320_02195540((unsigned char*)func_ov017_0218b5b0());
     params.context = self->context;
