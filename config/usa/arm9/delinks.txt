@@ -20918,3 +20918,19 @@ src/NitroSDK/Main/func_020cb764.cpp:
 src/NitroSDK/Main/func_020cf294.cpp:
     complete
     .text start:0x020cf294 end:0x020cf7e4
+
+src/MSL/Main/func_0200a3a8.cpp:
+    complete
+    .text start:0x0200a3a8 end:0x0200a9cc
+
+src/NitroSDK/Main/func_020b5758.cpp:
+    complete
+    .text start:0x020b5758 end:0x020b5eb4
+
+src/NitroSDK/Main/func_020c197c.cpp:
+    complete
+    .text start:0x020c197c end:0x020c199c
+
+src/Combat/Main/func_020e1780.cpp:
+    complete
+    .text start:0x020e1780 end:0x020e197c
