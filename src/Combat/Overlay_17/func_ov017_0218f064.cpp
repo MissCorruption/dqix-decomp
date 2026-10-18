@@ -22,7 +22,6 @@ struct InternalBlock0218f064 { char bytes[0x70]; };
 #if defined(jpn)
 struct InternalOwner0218f064 { char pad_0[0x27c]; InternalBlock0218f064 blocks[22]; };
 struct DisposableOwner0218f064 { char pad_0[0x4114]; Object3D* first; Object3D* second; Object3D* third; Object3D* fourth; };
-// The real zone entry context also owns the special actor pair.
 struct ZoneEntryContext0218f064 { char pad_0[0x1b58]; T020545b8* special; char* companion; };
 struct ZoneOwner0218f064 {
     char pad_0[0x860];
