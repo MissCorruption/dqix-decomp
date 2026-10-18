@@ -11,7 +11,11 @@ struct TargetB02040bfc {
 };
 
 struct TargetC02040bfc {
+#if defined(jpn)
+    char unk[0x2e0];
+#else
     char unk[0x2ec];
+#endif
     int value;
 };
 
