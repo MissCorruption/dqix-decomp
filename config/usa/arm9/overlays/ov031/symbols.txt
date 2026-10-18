@@ -1949,7 +1949,7 @@ _Z34SetField35IfField34Is6Or7_022456f0P12Obj_022456f0 kind:function(arm,size=0x2
 func_ov031_02245710 kind:function(arm,size=0x40) addr:0x02245710
 func_ov031_02245750 kind:function(arm,size=0x90) addr:0x02245750
 func_ov031_022457e0 kind:function(arm,size=0x78) addr:0x022457e0
-_Z18SetFields_02245858ic kind:function(arm,size=0x14) addr:0x02245858
+_Z18SetFields_02245858ih kind:function(arm,size=0x14) addr:0x02245858
 _Z19SetField12_0224586ci kind:function(arm,size=0x10) addr:0x0224586c
 func_ov031_0224587c kind:function(arm,size=0xbc) addr:0x0224587c
 func_ov031_02245938 kind:function(arm,size=0x54) addr:0x02245938
@@ -2928,7 +2928,8 @@ data_ov031_022919c4 kind:bss addr:0x022919c4
 data_ov031_022919c8 kind:bss addr:0x022919c8
 data_ov031_02291a04 kind:bss addr:0x02291a04
 data_ov031_02291a0d kind:bss addr:0x02291a0d
-data_ov031_02291e04 kind:bss addr:0x02291e04
+data_ov031_02291e04 kind:bss(size=0x1) addr:0x02291e04
+initialized$841 kind:bss(size=0x1) addr:0x02291e05
 data_ov031_02291e3c kind:bss addr:0x02291e3c
 data_ov031_02291e50 kind:bss addr:0x02291e50
 data_ov031_02291e68 kind:bss addr:0x02291e68
