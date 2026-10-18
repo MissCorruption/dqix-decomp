@@ -3,7 +3,7 @@
 GameObject* GetCombatantWithFlag0x400ByID_ov000_021536f8(int,int);
 void* GetActiveCombatWork_ov000_02160130();
 struct Out0215fb54;
-int FindRecordByKey0215fb54(int, short, Out0215fb54*);
+int FindRecordByKey0215fb54(int, int, Out0215fb54*);
 extern "C" void* _Z26FindNodeByShortKey02162d88Pvs(void*,int);
 extern "C" int func_ov000_02161380(void*,int,int,int);
 struct Entry021dc2a0 {char pad[0xe];short fieldE;short field10;short field12;short field14;char pad16;unsigned char field17;char pad18[8];int field20;};

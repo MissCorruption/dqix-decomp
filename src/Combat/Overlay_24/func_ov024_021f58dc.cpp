@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Out0215fb54 { int keys[2]; };
-int FindRecordByKey0215fb54(int unused, short key, Out0215fb54* out);
+int FindRecordByKey0215fb54(int unused, int key, Out0215fb54* out);
 void* GetActiveCombatWork_ov000_02160130();
 extern "C" void* _Z26FindNodeByShortKey02162d88Pvs(void* obj, int key);
 
