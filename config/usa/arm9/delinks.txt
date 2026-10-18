@@ -20537,3 +20537,53 @@ src/Runtime/Main/func_0200c9b4.cpp:
 src/NitroSDK/Main/func_020c0e9c.cpp:
     complete
     .text start:0x020c0e9c end:0x020c111c
+
+
+src/NitroSDK/Main/DecompressB.cpp:
+    complete
+    .text start:0x020cab94 end:0x020cad00
+
+
+src/NitroSDK/Main/Mat3x3_WriteRotationZ.cpp:
+    complete
+    .text start:0x020c129c end:0x020c12b4
+
+
+src/NitroSDK/Main/Mat4x3_WriteRotationY.cpp:
+    complete
+    .text start:0x020c199c end:0x020c19b8
+
+
+src/NitroSDK/Main/func_020c8aac.cpp:
+    complete
+    .text start:0x020c8aac end:0x020c8b30
+
+
+src/NitroSDK/Main/func_020ca3ec.cpp:
+    complete
+    .text start:0x020ca3ec end:0x020ca408
+
+
+src/NitroSDK/Main/func_020ca458.cpp:
+    complete
+    .text start:0x020ca458 end:0x020ca4b4
+
+
+src/NitroSDK/Main/func_020ca4b4.cpp:
+    complete
+    .text start:0x020ca4b4 end:0x020ca50c
+
+
+src/NitroSDK/Main/func_020ca650.cpp:
+    complete
+    .text start:0x020ca650 end:0x020ca7d0
+
+
+src/NitroSDK/Main/func_020ca7d0.cpp:
+    complete
+    .text start:0x020ca7d0 end:0x020ca7e0
+
+
+src/NitroSDK/Main/func_020cf864.cpp:
+    complete
+    .text start:0x020cf864 end:0x020cf87c
