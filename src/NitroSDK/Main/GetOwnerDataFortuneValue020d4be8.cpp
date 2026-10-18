@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-ARM void CopyFrom027ffcf4_020c99ac(void* dst);
+extern "C" ARM void CopyFrom027ffcf4_020c99ac(void* dst);
 
 // USA: func_020d4be8
 ARM unsigned short GetOwnerDataFortuneValue020d4be8() {

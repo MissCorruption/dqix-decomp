@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-void CopyFrom027ffcf4_020c99ac(void*);
+extern "C" void CopyFrom027ffcf4_020c99ac(void*);
 void SetField0x48UnlessState9Or10_0202c848(int);
 extern "C" int func_0202d788(unsigned short);
 extern char data_021015a0[];

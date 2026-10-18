@@ -43,7 +43,7 @@ struct WMPortRecvCallback
     unsigned short maxRecvDataSize;
 };
 
-void CopyFrom027ffcf4_020c99ac(void* mac);
+extern "C" void CopyFrom027ffcf4_020c99ac(void* mac);
 int GetBattleStateCode_020d41e8();
 WMArm9Buf* GetBattleContext_020d41d8();
 unsigned short GetBattleContextField0x14cLow16_020d46fc();

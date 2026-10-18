@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void CopyFrom027ffcf4_020c99ac(void*);
+extern "C" void CopyFrom027ffcf4_020c99ac(void*);
 extern "C" int func_ov031_0223fc7c(char*, unsigned int, int);
 extern "C" int func_ov031_0223e454(void*, const void*, int);
 

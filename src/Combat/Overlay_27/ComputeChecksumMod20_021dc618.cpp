@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-ARM void CopyFrom027ffcf4_020c99ac(void* dst);
+extern "C" ARM void CopyFrom027ffcf4_020c99ac(void* dst);
 
 // USA: func_ov027_021dc618  (semantic: ComputeChecksumMod20_021dc618)
 #pragma optimize_for_size off
