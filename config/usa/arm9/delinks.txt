@@ -20778,3 +20778,35 @@ src/NitroSDK/Main/func_020b23a8.cpp:
 src/NitroSDK/Main/func_020b245c.cpp:
     complete
     .text start:0x020b245c end:0x020b25c4
+
+src/NitroSDK/Main/AttachTextureImageToModelMaterials.cpp:
+    complete
+    .text start:0x020b2f9c end:0x020b30cc
+
+src/NitroSDK/Main/DetachTextureImageFromModelMaterials.cpp:
+    complete
+    .text start:0x020b30cc end:0x020b3184
+
+src/NitroSDK/Main/NSBXX_AttachTextureImageToModel.cpp:
+    complete
+    .text start:0x020b3184 end:0x020b3284
+
+src/NitroSDK/Main/NSBXX_DetachTextureImageFromModel.cpp:
+    complete
+    .text start:0x020b3284 end:0x020b3310
+
+src/NitroSDK/Main/NSBXX_DetachTexturePaletteFromModel.cpp:
+    complete
+    .text start:0x020b34f8 end:0x020b357c
+
+src/NitroSDK/Main/AttachTexturePaletteToModelMaterials.cpp:
+    complete
+    .text start:0x020b3310 end:0x020b33f0
+
+src/NitroSDK/Main/NSBXX_LinkTEX0ToMDL0.cpp:
+    complete
+    .text start:0x020b357c end:0x020b362c
+
+src/NitroSDK/Main/NSBXX_UnlinkTEX0FromMDL0.cpp:
+    complete
+    .text start:0x020b362c end:0x020b36c0
