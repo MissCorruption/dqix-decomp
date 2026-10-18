@@ -5,6 +5,11 @@
 #include "System/Memory.h"
 #include "std_library_functions.h"
 
+#ifdef jpn
+#define data_020f1ae4 data_020f1c5c
+#define data_020f1af8 data_020f1c70
+#endif
+
 extern const char data_020f1ae4[];
 extern const char data_020f1af8[];
 

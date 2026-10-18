@@ -13,7 +13,11 @@ struct Counter {
 struct IncObj {
     char unk[0x138];
     struct FlagObj* flagObj;
+#if defined(jpn)
+    char unk2[0x54];
+#else
     char unk2[0x60];
+#endif
     struct Counter* counter;
 };
 

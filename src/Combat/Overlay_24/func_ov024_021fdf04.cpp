@@ -28,10 +28,18 @@ struct Unit_021fdf04 {
     unsigned char padding_0x6[0x138 - 6];
     Stats_021fdf04* stats;
     unsigned char padding_0x13c[0x144 - 0x13c];
+#if defined(jpn)
+    union {
+        Info_021fdf04* info;
+        unsigned char* field150;
+    };
+    unsigned char padding_0x148[0x17c - 0x148];
+#else
     Info_021fdf04* info;
     unsigned char padding_0x148[0x150 - 0x148];
     unsigned char* field150;
     unsigned char padding_0x154[0x17c - 0x154];
+#endif
     unsigned char group;
     unsigned char GetGroup() const { return group; }
 };

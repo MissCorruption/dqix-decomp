@@ -25,7 +25,11 @@ struct Field_0215a23c {
 struct Unit_0215a23c {
     char pad[0x138];
     Stats_0215a23c* stats;
+#if defined(jpn)
+    char pad2[0x144 - 0x13c];
+#else
     char pad2[0x150 - 0x13c];
+#endif
     unsigned char* f150;
 };
 

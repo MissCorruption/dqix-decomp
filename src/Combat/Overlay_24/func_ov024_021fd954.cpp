@@ -37,7 +37,11 @@ struct Combatant_021fd954 {
     short id;
     char pad6[0x138 - 0x6];
     struct ModifiableCombatStats* stats;
+#if defined(jpn)
+    char pad13c[0x144 - 0x13c];
+#else
     char pad13c[0x150 - 0x13c];
+#endif
     unsigned char* field150;
 };
 

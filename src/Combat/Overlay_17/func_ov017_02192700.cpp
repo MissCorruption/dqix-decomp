@@ -23,9 +23,15 @@ struct Entry02192700 {
 
 struct Ctx02192700 {
     unsigned int flags;
+#if defined(jpn)
+    char pad4[0x34e8 - 0x4];
+    Entry02192700* entry;
+    char pad36fc[0x3994 - 0x34ec];
+#else
     char pad4[0x36f8 - 0x4];
     Entry02192700* entry;
     char pad36fc[0x3bb4 - 0x36fc];
+#endif
     Struct021c316c* state;
 };
 
@@ -36,7 +42,11 @@ struct Actor02192700 {
     unsigned short fieldb2;
     char padb4[0xc2 - 0xb4];
     unsigned char nearMask : 4;
+#if defined(jpn)
+    char padc3[0x180 - 0xc3];
+#else
     char padc3[0x18c - 0xc3];
+#endif
     unsigned int flags18c;
 };
 

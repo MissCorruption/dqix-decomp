@@ -209,8 +209,7 @@ _Z21SyncNameFlag_02161274P10GameObject kind:function(arm,size=0x8c) addr:0x02162
 func_ov000_02161300 kind:function(arm,size=0x18) addr:0x02162a6c
 func_ov000_02161318 kind:function(arm,size=0x68) addr:0x02162a84
 func_ov000_02161380 kind:function(arm,size=0x838) addr:0x02162aec
-func_ov000_02161bb8 kind:function(arm,size=0x30) addr:0x02163324
-func_ov000_02163354 kind:function(arm,size=0x4) addr:0x02163354
+func_ov000_02161bb8 kind:function(arm,size=0x34) addr:0x02163324
 _Z45IncrementByteCounterWrapAt0x12_ov000_02161becPh kind:function(arm,size=0x20) addr:0x02163358
 func_ov000_02161c0c kind:function(arm,size=0x1f0) addr:0x02163378
 _Z17CopyBlob_02161dfcPhS_ kind:function(arm,size=0x34) addr:0x02163568
@@ -828,7 +827,7 @@ _Z23SetOrInitField_02182498Pvi kind:function(arm,size=0x40) addr:0x021835c4
 _Z36DecrementFieldsAndMaybeReset021824d8Pv kind:function(arm,size=0x44) addr:0x02183604
 func_ov000_0218251c kind:function(arm,size=0x4b4) addr:0x02183648
 _Z32ZeroFieldsAt0x6e8_ov000_02182a44Pv kind:function(arm,size=0x14) addr:0x02183afc
-data_ov000_02183b10 kind:data(any) addr:0x02183b10
+data_ov000_02182a58 kind:data(any) addr:0x02183b10
 data_ov000_02182a60 kind:data(any) addr:0x02183b18
 data_ov000_02182a64 kind:data(any) addr:0x02183b1c
 data_ov000_02182a6c kind:data(any) addr:0x02183b24
@@ -837,7 +836,7 @@ data_ov000_02182a7c kind:data(any) addr:0x02183b34
 data_ov000_02182a85 kind:data(any) addr:0x02183b3d
 data_ov000_02182a94 kind:data(any) addr:0x02183b4c
 data_ov000_02182aa0 kind:data(any) addr:0x02183b58
-data_ov000_02183b64 kind:data(any) addr:0x02183b64
+data_ov000_02182aac kind:data(any) addr:0x02183b64
 data_ov000_02182ab8 kind:data(any) addr:0x02183b70
 data_ov000_02182ac5 kind:data(any) addr:0x02183b7d
 data_ov000_02182ad4 kind:data(any) addr:0x02183b8c
@@ -847,8 +846,8 @@ data_ov000_02182b04 kind:data(any) addr:0x02183bbc
 data_ov000_02182b14 kind:data(any) addr:0x02183bcc
 data_ov000_02182b24 kind:data(any) addr:0x02183bdc
 data_ov000_02182b34 kind:data(any) addr:0x02183bec
-data_ov000_02183bfc kind:data(any) addr:0x02183bfc
-data_ov000_02183c0c kind:data(any) addr:0x02183c0c
+data_ov000_02182b44 kind:data(any) addr:0x02183bfc
+data_ov000_02182b54 kind:data(any) addr:0x02183c0c
 data_ov000_02182b64 kind:data(any) addr:0x02183c1c
 data_ov000_02182b74 kind:data(any) addr:0x02183c2c
 data_ov000_02182b84 kind:data(any) addr:0x02183c3c
