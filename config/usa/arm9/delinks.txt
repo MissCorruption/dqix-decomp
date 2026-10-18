@@ -21007,3 +21007,7 @@ src/NitroSDK/Main/ScaleFieldy1000_020bec98_020bec98.cpp:
 src/NitroSDK/Main/ScaleFieldy1000_020becd4_020becd4.cpp:
     complete
     .text start:0x020becd4 end:0x020bed10
+
+src/MSL/Main/func_02005ea0.cpp:
+    complete
+    .text start:0x02005ea0 end:0x02007028
