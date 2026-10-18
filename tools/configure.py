@@ -37,7 +37,6 @@ LIBRARY_BUILDS = {
     "msl": ("MSL", MWCC_VERSION, ["-O4,p", "-ipa", "file", "-str", "nopool"]),
     "runtime": ("Runtime", MWCC_VERSION, ["-O4,p", "-char", "unsigned", "-Cpp_exceptions", "on"]),
     "network": ("NetworkLib", "2.0/sp2", ["-O2,p"]),
-    "network_o4": ("NetworkLibO4", "2.0/sp2", ["-O4,p"]),
 }
 DECOMP_ME_COMPILER = "mwcc_30_137"
 CC_FLAGS = " ".join([
