@@ -87,4 +87,3 @@ extern "C" ARM void func_ov031_02216ca0() {
         UnlockMutex(&data_ov031_0224e5e8.state->mutex);
     }
 }
-

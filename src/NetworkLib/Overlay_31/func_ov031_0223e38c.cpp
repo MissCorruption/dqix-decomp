@@ -18,4 +18,3 @@ extern "C" ARM int func_ov031_0223e38c(char* destination, const char* source, in
     } while (index < length);
     return copied;
 }
-

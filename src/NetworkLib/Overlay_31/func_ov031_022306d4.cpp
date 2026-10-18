@@ -32,4 +32,3 @@ extern "C" ARM void func_ov031_022306d4(void* argument) {
     data_ov031_02290ca0.work->field38 = 0;
     func_ov031_0223e2c0(0, argument);
 }
-

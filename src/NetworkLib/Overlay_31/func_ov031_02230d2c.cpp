@@ -27,4 +27,3 @@ extern "C" ARM void func_ov031_02230d2c() {
         entry++;
     } while (index < 4);
 }
-

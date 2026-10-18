@@ -12,11 +12,11 @@ void SetField11dThenAdvanceAlt_022247ec(void);
 
 struct EntityStruct022244d4 {
     unsigned char pad[0x11c];
-    unsigned char field11c;   // 0x11c
-    unsigned char field11d;   // 0x11d
-    signed char field11e;     // 0x11e
+    unsigned char field11c;
+    unsigned char field11d;
+    signed char field11e;
     unsigned char pad2[0x121 - 0x11f];
-    signed char field121;     // 0x121
+    signed char field121;
 };
 extern EntityStruct022244d4* data_ov031_02250bfc;
 

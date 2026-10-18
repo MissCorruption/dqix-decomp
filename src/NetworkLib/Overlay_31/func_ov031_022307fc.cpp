@@ -36,4 +36,3 @@ extern "C" ARM void func_ov031_022307fc(void) {
     position.second += data_ov031_02290ca0.row * 29;
     func_ov031_02223720(1, position.first, position.third, position.second);
 }
-
