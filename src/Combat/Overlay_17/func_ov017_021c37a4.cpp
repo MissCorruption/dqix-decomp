@@ -23,7 +23,11 @@ struct Member021c37a4 {
     char unk0[0x130];
     MemberStatus021c37a4* status;
     char* name;
+#if defined(jpn)
+    char unk138[0x180 - 0x138];
+#else
     char unk138[0x18c - 0x138];
+#endif
     unsigned int flags;
 };
 
@@ -36,9 +40,17 @@ struct Slot021c37a4 {
 };
 
 struct Battle021c37a4 {
+#if defined(jpn)
+    char unk0[0x5a6c];
+#else
     char unk0[0x5ccc];
+#endif
     unsigned int flags;
+#if defined(jpn)
+    char unk5a70[0x7280 - 0x5a70];
+#else
     char unk5cd0[0x74c0 - 0x5cd0];
+#endif
     Slot021c37a4 slots[3];
     char unk74de[0x7e74 - 0x74de];
     int value;
@@ -58,14 +70,26 @@ struct Swap021c37a4 {
 };
 
 struct FieldTimer021c37a4 {
+#if defined(jpn)
+    char unk0[0x1b64];
+#else
     char unk0[0x64];
+#endif
     unsigned short value;
 };
 
 struct Field021c37a4 {
+#if defined(jpn)
+    char unk0[0x860];
+#else
     char unk0[0x2340];
+#endif
     FieldTimer021c37a4 timer;
+#if defined(jpn)
+    char unk23c6[0x2860 - 0x23c6];
+#else
     char unk23a6[0x2820 - 0x23a6];
+#endif
     unsigned char flag;
     FieldTimer021c37a4* GetTimer() { return &timer; }};
 
@@ -75,7 +99,11 @@ struct Actor021c37a4 {
 };
 
 struct Global021c37a4 {
+#if defined(jpn)
+    char unk0[0x1790];
+#else
     char unk0[0x1962];
+#endif
     unsigned char flag;
 };
 
@@ -172,7 +200,11 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     int active = func_0202c540(search);
     int state = GetFieldAt0x0_0202ba00((int*)search);
     int mode = search->mode;
+#if defined(jpn)
+    char name[0xb];
+#else
     char name[0x30];
+#endif
     unsigned char bits[0x1a];
     Swap021c37a4 leader;
     Swap021c37a4 swap;
@@ -181,9 +213,17 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         UpdatePlayClocks020ac4f8(1);
     }
 
+#if !defined(jpn)
     __clear(name, 0x30);
+#endif
     if (active) {
+#if defined(jpn)
+        Member021c37a4* first = (Member021c37a4*)gs->GetPartyMemberByIndex(0);
+        memset(name, 0, sizeof(name));
+        char* src = first->name;
+#else
         char* src = ((Member021c37a4*)gs->GetPartyMemberByIndex(0))->name;
+#endif
         memcpy(name, src, strlen(src));
         Clear0x20BytesAt0x74de_02012084((unsigned char*)gs);
         ClearFieldKeepBit0x10_02011af0(gs);
@@ -194,7 +234,9 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     BlankFunction020d84e0();
     func_0202b0f4(search);
     func_0205e22c(d100044);
+#if !defined(jpn)
     search->flags &= ~0x10;
+#endif
 
     for (int i = 0; i < 4; i++) {
         if (i == GetField0x3acValue_020100a8(gs)) {

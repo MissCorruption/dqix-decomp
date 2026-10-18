@@ -3878,6 +3878,86 @@ src/Combat/Overlay_17/func_ov017_021ce524.cpp:
     complete
     .text start:0x021ce9cc end:0x021cea5c
 
+src/Combat/Overlay_17/ComparePackedField_021b2090.cpp:
+    complete
+    .text start:0x021b27b0 end:0x021b2854
+
+src/Combat/Overlay_17/CreateAndAppendNode_021a72f4.cpp:
+    complete
+    .text start:0x021a7c9c end:0x021a7cd0
+
+src/Combat/Overlay_17/InitObj_021a7328.cpp:
+    complete
+    .text start:0x021a7cd0 end:0x021a7d20
+
+src/Combat/Overlay_17/func_ov017_0218f064.cpp:
+    complete
+    .text start:0x0218fc44 end:0x02190158
+
+src/Combat/Overlay_17/func_ov017_02196430.cpp:
+    complete
+    .text start:0x02196ff8 end:0x021977b8
+
+src/Combat/Overlay_17/func_ov017_021999fc.cpp:
+    complete
+    .text start:0x0219a5ac end:0x0219aa40
+
+src/Combat/Overlay_17/func_ov017_0219ad84.cpp:
+    complete
+    .text start:0x0219b924 end:0x0219bed0
+
+src/Combat/Overlay_17/func_ov017_021a1284.cpp:
+    complete
+    .text start:0x021a1d1c end:0x021a22ec
+
+src/Combat/Overlay_17/func_ov017_021a28a8.cpp:
+    complete
+    .text start:0x021a3338 end:0x021a3598
+
+src/Combat/Overlay_17/func_ov017_021a7378.cpp:
+    complete
+    .text start:0x021a7d20 end:0x021a8328
+
+src/Combat/Overlay_17/func_ov017_021a7e14.cpp:
+    complete
+    .text start:0x021a8790 end:0x021a8db8
+
+src/Combat/Overlay_17/func_ov017_021adcb0.cpp:
+    complete
+    .text start:0x021ae4b8 end:0x021aee74
+
+src/Combat/Overlay_17/func_ov017_021b0bc0.cpp:
+    complete
+    .text start:0x021b1258 end:0x021b166c
+
+src/Combat/Overlay_17/func_ov017_021b2fac.cpp:
+    complete
+    .text start:0x021b36bc end:0x021b3ae0
+
+src/Combat/Overlay_17/func_ov017_021b7284.cpp:
+    complete
+    .text start:0x021b7834 end:0x021b7ebc
+
+src/Combat/Overlay_17/func_ov017_021bdc34.cpp:
+    complete
+    .text start:0x021be22c end:0x021be694
+
+src/Combat/Overlay_17/func_ov017_021be0c4.cpp:
+    complete
+    .text start:0x021be6bc end:0x021be974
+
+src/Combat/Overlay_17/func_ov017_021bec00.cpp:
+    complete
+    .text start:0x021bf1c0 end:0x021bf504
+
+src/Combat/Overlay_17/func_ov017_021c1e6c.cpp:
+    complete
+    .text start:0x021c23e0 end:0x021c28c8
+
+src/Combat/Overlay_17/func_ov017_021c37a4.cpp:
+    complete
+    .text start:0x021c3c70 end:0x021c42e0
+
 src/Combat/Overlay_17/InitNodeAndInsertAt_021c1798_021c1798.cpp:
     complete
     .text start:0x021c1d40 end:0x021c1d74
