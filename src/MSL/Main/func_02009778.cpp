@@ -1,6 +1,5 @@
 #include <globaldefs.h>
 
-// MSL_C ansi_fp.c __timesdec.
 struct decimal {
     unsigned char sgn;
     char unused;

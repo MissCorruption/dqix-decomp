@@ -12,7 +12,6 @@ struct Obj021b2c4c {
     SafeAllocator alloc;
 };
 
-
 // USA: func_ov017_021b2c4c  (semantic: ResetObj_021b2c4c)
 extern "C" ARM void func_ov017_021b2c4c(Obj021b2c4c* p) {
     ResetByteHeader((ByteHeader0204693c*)p);

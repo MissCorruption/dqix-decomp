@@ -8,11 +8,9 @@
 
 extern "C"
 {
-    // memset
     void func_020ca390(int, void*, unsigned);
 }
 
-// processing callback for M.AT animations
 extern void (*data_020f1c78)(void* data, AnimationData* anim, int arg);
 
 struct DictEntryHeader

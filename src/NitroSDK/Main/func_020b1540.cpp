@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSystem g2d_CharCanvas.c: DrawGlyphLine
-
 struct NNSG2dCharWidths {
     signed char left;
     unsigned char glyphWidth;

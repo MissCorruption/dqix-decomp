@@ -1,6 +1,5 @@
 #include <globaldefs.h>
 
-// sin(x * pi/4) for 0 <= x <= 1.0 in Q32 (NitroSDK FX_SinFx64c helper)
 // USA: func_020c30ac
 extern "C" ARM unsigned long long func_020c30ac(unsigned long long x) {
     if (x == 0x100000000ULL) {

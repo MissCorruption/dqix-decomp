@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "System/ColorEffects.h"
 
-// NitroSDK G2x_SetBlendBrightness_
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020c5100
 ARM void ColorEffect_ConfigureBrightnessAdjust(intptr_t control,

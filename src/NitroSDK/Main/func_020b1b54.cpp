@@ -1,14 +1,12 @@
 #include <globaldefs.h>
 
-// NitroSystem g2d_CharCanvas.c: ClearArea1D (the OBJ 1D-mapping pClearArea of NNSG2dCharCanvas).
-
 struct CharCanvas020b1b54 {
-    unsigned char* charBase;  // 0x0
-    int areaWidth;            // 0x4
-    int areaHeight;           // 0x8
-    unsigned char dstBpp;     // 0xc
-    unsigned char padD[3];    // 0xd..0xf
-    unsigned int param;       // 0x10
+    unsigned char* charBase;
+    int areaWidth;
+    int areaHeight;
+    unsigned char dstBpp;
+    unsigned char padD[3];
+    unsigned int param;
 };
 
 union OBJ1DParam020b1b54 {
@@ -19,7 +17,6 @@ union OBJ1DParam020b1b54 {
     } s;
 };
 
-// GetCharIndex1D / ClearChar
 extern "C" unsigned int func_020b10b4(unsigned int cx, unsigned int cy, unsigned int areaWidth, unsigned int areaHeight, unsigned int objWidth, unsigned int objHeight);
 extern "C" void func_020b11c8(void* pChar, int x, int y, int w, int h, unsigned int cl8, int bpp);
 

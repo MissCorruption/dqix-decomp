@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSDK rtc external.c: RtcCommonCallback, the PXI (tag 5) completion handler.
-
 typedef void (*RTCCallback)(int result, void* arg);
 typedef void (*RTCInterrupt)(void);
 
@@ -99,7 +97,6 @@ struct RTCWork {
     int commonResult;
 };
 
-// external.c statics: tick base and init flags, then rtcWork at +0xc
 struct RtcStatics_02111818 {
     unsigned char pad0[0xc];
     RTCWork work;

@@ -90,7 +90,6 @@ struct Prio {
     unsigned char hi : 4;
 };
 
-
 struct Ctrl {
     void* alloc;
     char pad04[0xc - 4];

@@ -25,7 +25,6 @@ struct MonsterListEntry {
 struct List0204af64;
 struct Node0207f7f0;
 
-
 struct MonsterList {
     char unk_0[0x10];
 };

@@ -1,48 +1,46 @@
 #include <globaldefs.h>
 
-// NitroSystem g2d_CharCanvas.c: DrawGlyph1D (the OBJ 1D-mapping pDrawGlyph of NNSG2dCharCanvas).
-
 struct CharCanvas020b16d8 {
-    unsigned char* charBase;  // 0x0
-    int areaWidth;            // 0x4
-    int areaHeight;           // 0x8
-    unsigned char dstBpp;     // 0xc
-    unsigned char padD[3];    // 0xd..0xf
-    unsigned int param;       // 0x10
+    unsigned char* charBase;
+    int areaWidth;
+    int areaHeight;
+    unsigned char dstBpp;
+    unsigned char padD[3];
+    unsigned int param;
 };
 
 struct FontGlyph020b16d8 {
-    unsigned char cellWidth;     // 0x0
-    unsigned char cellHeight;    // 0x1
-    unsigned short cellSize;     // 0x2
-    signed char baselinePos;     // 0x4
-    unsigned char maxCharWidth;  // 0x5
-    unsigned char bpp;           // 0x6
-    unsigned char flags;         // 0x7
+    unsigned char cellWidth;
+    unsigned char cellHeight;
+    unsigned short cellSize;
+    signed char baselinePos;
+    unsigned char maxCharWidth;
+    unsigned char bpp;
+    unsigned char flags;
 };
 
 struct FontInformation020b16d8 {
-    unsigned char fontType;           // 0x0
-    signed char linefeed;             // 0x1
-    unsigned short alterCharIndex;    // 0x2
-    unsigned char defaultWidth[3];    // 0x4
-    unsigned char encoding;           // 0x7
-    struct FontGlyph020b16d8* pGlyph; // 0x8
+    unsigned char fontType;
+    signed char linefeed;
+    unsigned short alterCharIndex;
+    unsigned char defaultWidth[3];
+    unsigned char encoding;
+    struct FontGlyph020b16d8* pGlyph;
 };
 
 struct Font020b16d8 {
-    struct FontInformation020b16d8* pRes;  // 0x0
+    struct FontInformation020b16d8* pRes;
 };
 
 struct CharWidths020b16d8 {
-    signed char left;          // 0x0
-    unsigned char glyphWidth;  // 0x1
-    signed char charWidth;     // 0x2
+    signed char left;
+    unsigned char glyphWidth;
+    signed char charWidth;
 };
 
 struct Glyph020b16d8 {
-    const struct CharWidths020b16d8* pWidths;  // 0x0
-    const unsigned char* image;                // 0x4
+    const struct CharWidths020b16d8* pWidths;
+    const unsigned char* image;
 };
 
 struct LCInfo020b16d8 {
@@ -66,7 +64,6 @@ union OBJ1DParam020b16d8 {
     } s;
 };
 
-// GetCharIndex1D / LetterChar
 extern "C" unsigned int func_020b10b4(unsigned int cx, unsigned int cy, unsigned int areaWidth, unsigned int areaHeight, unsigned int objWidth, unsigned int objHeight);
 extern "C" void func_020b1300(struct LCInfo020b16d8* i);
 

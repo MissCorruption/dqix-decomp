@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSystem g2d_CharCanvas.c: LetterChar
-
 typedef unsigned char u8;
 typedef signed char s8;
 typedef unsigned int u32;
@@ -23,7 +21,6 @@ struct LC_INFO {
     u32 cl;
 };
 
-// NNSiG2dBitReader
 struct BitReader020b29f8 {
     const u8* src;
     s8 availableBits;
@@ -31,7 +28,6 @@ struct BitReader020b29f8 {
     u8 padding_[2];
 };
 
-// NNSi_G2dBitReaderRead
 u32 ReadBits020b29f8(BitReader020b29f8* reader, int nBits);
 
 static inline void NNSi_G2dBitReaderInit(BitReader020b29f8* reader, const void* src) {

@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSystem g2d_TextCanvas.c: NNSi_G2dTextCanvasDrawTextAlign (DQIX variant with a text direction)
-
 struct NNSG2dCharWidths {
     signed char left;
     unsigned char glyphWidth;

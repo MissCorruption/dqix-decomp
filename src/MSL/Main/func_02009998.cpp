@@ -1,6 +1,5 @@
 #include <globaldefs.h>
 
-// MSL_C ansi_fp.c __two_exp.
 union decimal {
     struct {
         unsigned char sgn;
@@ -15,27 +14,27 @@ union decimal {
 extern "C" void func_020098fc(decimal* d, const char* str, short exp);
 extern "C" void func_02009778(decimal* result, const decimal* x, const decimal* y);
 
-extern const char data_020eef74[]; // "542101086242752217003726400434970855712890625"
-extern const char data_020eefa4[]; // "11102230246251565404236316680908203125"
-extern const char data_020eefcc[]; // "23283064365386962890625"
-extern const char data_020eefe4[]; // "152587890625"
-extern const char data_020eeff4[]; // "390625"
-extern const char data_020eeffc[]; // "78125"
-extern const char data_020ef004[]; // "15625"
-extern const char data_020ef00c[]; // "3125"
-extern const char data_020ef014[]; // "625"
-extern const char data_020ef018[]; // "125"
-extern const char data_020ef01c[]; // "25"
-extern const char data_020ef020[]; // "5"
-extern const char data_020ef024[]; // "1"
-extern const char data_020ef028[]; // "2"
-extern const char data_020ef02c[]; // "4"
-extern const char data_020ef030[]; // "8"
-extern const char data_020ef034[]; // "16"
-extern const char data_020ef038[]; // "32"
-extern const char data_020ef03c[]; // "64"
-extern const char data_020ef040[]; // "128"
-extern const char data_020ef044[]; // "256"
+extern const char data_020eef74[];
+extern const char data_020eefa4[];
+extern const char data_020eefcc[];
+extern const char data_020eefe4[];
+extern const char data_020eeff4[];
+extern const char data_020eeffc[];
+extern const char data_020ef004[];
+extern const char data_020ef00c[];
+extern const char data_020ef014[];
+extern const char data_020ef018[];
+extern const char data_020ef01c[];
+extern const char data_020ef020[];
+extern const char data_020ef024[];
+extern const char data_020ef028[];
+extern const char data_020ef02c[];
+extern const char data_020ef030[];
+extern const char data_020ef034[];
+extern const char data_020ef038[];
+extern const char data_020ef03c[];
+extern const char data_020ef040[];
+extern const char data_020ef044[];
 
 // USA: func_02009998
 extern "C" ARM void func_02009998(decimal* result, long exp) {

@@ -45,7 +45,6 @@ extern "C" ARM void DetachTextureImageFromModelMaterials(NSBXXModelMaterialData*
     for (i = 0; i < pairing->arraySize_; ++i)
     {
         NSBXXMaterial* material = GetMatDataByIdx(materialData, *(indexArray + i));
-        // keep only bits 30-31 and 16-19
         material->paramTEXIMAGE_PARAMS_ &= 0xc00f0000;
         material->yScale_ = material->xScale_ = 1 << 12;
     }

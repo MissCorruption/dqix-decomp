@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSystem g2d_NFT_load.c: NNSi_G2dGetUnpackedFont
-
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;

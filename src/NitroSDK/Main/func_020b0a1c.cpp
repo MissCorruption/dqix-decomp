@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSystem g2d_Cell.c: NNS_G2dMakeCellToOams
-
 typedef unsigned short u16;
 typedef unsigned long u32;
 typedef short s16;

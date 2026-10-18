@@ -33,7 +33,6 @@ static inline u32 SpreadColor32(const NNSG2dCharCanvas *pCC, int cl) {
     return val;
 }
 
-// NitroSystem g2d_CharCanvas.c: ClearAreaLine
 // USA: func_020b19b8
 extern "C" ARM void func_020b19b8(const NNSG2dCharCanvas *pCC, int cl, int x, int y, int w, int h) {
     int ix, iy;

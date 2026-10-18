@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-/* NitroSystem gfd: NNS_GfdAllocFrmPlttVram, the frame palette VRAM manager's allocator. */
-
 struct NNSGfdFrmPlttVramManager {
     unsigned int loAddr;
     unsigned int hiAddr;

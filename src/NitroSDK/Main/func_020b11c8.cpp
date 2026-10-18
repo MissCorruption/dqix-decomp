@@ -5,7 +5,6 @@ typedef unsigned long long u64;
 
 extern "C" void func_020ca458(u32 value, void *dest, u32 size);
 
-// NitroSystem g2d_CharCanvas.c: ClearChar
 // USA: func_020b11c8
 extern "C" ARM void func_020b11c8(void *pChar, int x, int y, int w, int h, u32 cl8, int bpp) {
     if ((w == 8) && (h == 8)) {

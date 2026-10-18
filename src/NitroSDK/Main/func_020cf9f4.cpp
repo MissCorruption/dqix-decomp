@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSDK RTC_ConvertDayToDate (rtc/common/convert.c).
-
 struct RTCDate_020cf9f4 {
     unsigned int year;
     unsigned int month;
@@ -9,7 +7,7 @@ struct RTCDate_020cf9f4 {
     int week;
 };
 
-extern int data_020f229c[12];   // days before each month in a common year
+extern int data_020f229c[12];
 
 // USA: func_020cf9f4
 extern "C" ARM void func_020cf9f4(RTCDate_020cf9f4* date, int day) {

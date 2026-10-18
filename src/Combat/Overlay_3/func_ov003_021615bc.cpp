@@ -87,9 +87,6 @@ extern char data_ov003_02180083[];
 extern short data_ov003_0217f46c[];
 extern char data_ov003_0218008a[];
 
-
-
-
 struct Entry28 {
     char pad[0x28];
 };

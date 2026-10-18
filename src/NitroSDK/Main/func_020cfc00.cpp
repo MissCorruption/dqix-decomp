@@ -1,6 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSDK RTCDate
 struct RTCDate_020cfc00 {
     unsigned int year;
     unsigned int month;

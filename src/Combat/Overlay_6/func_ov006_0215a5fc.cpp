@@ -90,7 +90,6 @@ extern "C" void func_02046608(void*, int, void*, void*, int, int, int);
 struct Container02080f8c;
 void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
 
-
 struct Canvas {
     unsigned char pad[0xb8];
     unsigned short fb8;

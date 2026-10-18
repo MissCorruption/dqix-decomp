@@ -8,14 +8,12 @@
 #define data_02111f20 data_02111bc0
 #endif
 
-// NitroSDK card_rom.c: static CARDRomStat rom_stat ATTRIBUTE_ALIGN(32);
 extern Struct_02111f20 data_02111f20 __attribute__((aligned(32)));
 
 extern "C" bool TryReadViaDMA(Struct_02111f20* rawHandler);
 extern "C" void SafeReadBlocksFromCartridge(CardReadManager* readManager);
 void WaitForReadManagerIdle_Internal();
 
-// NitroSDK card_common.h: CARDi_WaitTask
 static inline void WaitAndBeginCardReadTask(CardReadManager* manager,
     CardReadManager::CompletionCallback onComplete, NitroHandle* handle)
 {

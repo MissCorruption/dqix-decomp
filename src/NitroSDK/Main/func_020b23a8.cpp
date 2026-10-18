@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSystem g2d_TextCanvas.c: NNSi_G2dTextCanvasDrawString (direction-vector variant)
-
 typedef unsigned short u16;
 typedef signed char s8;
 

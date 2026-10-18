@@ -1,6 +1,5 @@
 #include <globaldefs.h>
 
-// MSL_C ansi_fp.c __dec2num.
 union decimal {
     struct {
         char sgn;
@@ -12,19 +11,19 @@ union decimal {
     unsigned short halfwords[19];
 };
 
-extern "C" double func_02008da4(double x, double y);                           /* copysign */
-extern "C" double func_020091d8(double x, int n);                              /* ldexp */
-extern "C" double func_020095a4(double x, double y);                           /* pow */
-extern "C" void func_020098fc(decimal* d, const char* str, short exp);         /* __str2dec */
-extern "C" int func_02009d1c(const decimal* x, const decimal* y);              /* __equals_dec */
-extern "C" int func_02009dfc(const decimal* x, const decimal* y);              /* __less_dec */
-extern "C" void func_02009edc(decimal* z, const decimal* x, const decimal* y); /* __minus_dec */
-extern "C" void func_0200a180(decimal* d, double x);                           /* __num2dec_internal */
-extern "C" int func_0200aa74(double x);                                        /* __fpclassifyd */
+extern "C" double func_02008da4(double x, double y);
+extern "C" double func_020091d8(double x, int n);
+extern "C" double func_020095a4(double x, double y);
+extern "C" void func_020098fc(decimal* d, const char* str, short exp);
+extern "C" int func_02009d1c(const decimal* x, const decimal* y);
+extern "C" int func_02009dfc(const decimal* x, const decimal* y);
+extern "C" void func_02009edc(decimal* z, const decimal* x, const decimal* y);
+extern "C" void func_0200a180(decimal* d, double x);
+extern "C" int func_0200aa74(double x);
 
-extern float data_020eecc4;        // __float_huge
-extern double data_020eef34[];     // pow_10: 1e1 .. 1e8
-extern const char data_020ef048[]; // "179769313486231580793728714053034151"
+extern float data_020eecc4;
+extern double data_020eef34[];
+extern const char data_020ef048[];
 
 // USA: func_0200a3a8
 extern "C" ARM double func_0200a3a8(const decimal* d) {

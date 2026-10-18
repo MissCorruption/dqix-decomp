@@ -4,11 +4,11 @@ extern "C" ARM double func_0200b454(double x);
 extern "C" ARM double func_02008f3c(double x);
 extern "C" ARM double func_0200aae4(double x, int n);
 
-extern const double data_020e6acc[]; // bp
-extern const double data_020e6abc[]; // dp_h
-extern const double data_020e6adc[]; // dp_l
-extern float data_020eecc8;          // __float_nan
-extern int data_020f3390;            // errno
+extern const double data_020e6acc[];
+extern const double data_020e6abc[];
+extern const double data_020e6adc[];
+extern float data_020eecc8;
+extern int data_020f3390;
 
 static const double zero = 0.0, one = 1.0, two = 2.0, two53 = 9007199254740992.0,
                     big = 1.0e300, tiny = 1.0e-300,

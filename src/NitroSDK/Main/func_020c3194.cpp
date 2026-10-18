@@ -1,10 +1,9 @@
 #include <globaldefs.h>
 
-// cos(rad * pi/4) in Q32 for 0 <= rad <= 1 (Q32), Horner series.
 // USA: func_020c3194
 extern "C" ARM long long func_020c3194(unsigned long long rad) {
     if (rad == 0x100000000ULL) {
-        return 0xb504f334; // sqrt(1/2)
+        return 0xb504f334;
     }
     unsigned long long rad2 = (rad * rad) >> 32;
     unsigned long long tmp;

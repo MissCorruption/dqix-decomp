@@ -1,18 +1,15 @@
 #include <globaldefs.h>
 
-// MSL printf.c: parse_format
 typedef char* va_list;
 #define __va_align(size) ((((unsigned long)(size)) + 3U) & ~3U)
 #define va_arg(ap, type) (*(type*)(((ap) += __va_align(sizeof(type))) - __va_align(sizeof(type))))
 
-extern const unsigned short data_020e69ac[];  // __ctype_mapC
+extern const unsigned short data_020e69ac[];
 
 static inline int isdigit(int c) {
     return ((c < 0) || (c >= 128)) ? 0 : (int)(data_020e69ac[c] & 8);
 }
 
-// A union so `*format = f` is a bitwise block copy (ldm/stm), as the C original's struct
-// assignment was; a C++ struct's implicit operator= copies member by member.
 union PrintFormat02001bdc {
     struct {
         unsigned char justification_options;

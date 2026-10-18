@@ -1,12 +1,10 @@
 #include <globaldefs.h>
 
-// fdlibm k_rem_pio2.c: __kernel_rem_pio2
+extern "C" ARM double func_0200aae4(double x, int n);
+extern "C" ARM double func_02008f5c(double x);
 
-extern "C" ARM double func_0200aae4(double x, int n);   // scalbn
-extern "C" ARM double func_02008f5c(double x);          // floor
-
-extern const int data_020e6c74[];      // init_jk = {2,3,4,6}
-extern const double data_020e6c84[];   // PIo2[8]
+extern const int data_020e6c74[];
+extern const double data_020e6c84[];
 
 static const double
 zero   = 0.0,

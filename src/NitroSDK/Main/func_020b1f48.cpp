@@ -2,10 +2,8 @@
 
 typedef unsigned short u16;
 
-// NNS_G2dMapScrToChar256x16Pltt
 extern "C" void func_020b1ff8(void *areaBase, int areaWidth, int areaHeight, int scnWidth, int charNo, int cplt);
 
-// NitroSystem g2d_CharCanvas.c: NNS_G2dMapScrToCharText
 // USA: func_020b1f48
 extern "C" ARM void func_020b1f48(void *scnBase, int areaWidth, int areaHeight, int areaLeft, int areaTop, int scnWidth, int charNo, int cplt) {
     if (scnWidth <= 32) {

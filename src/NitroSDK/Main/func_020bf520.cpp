@@ -6,24 +6,24 @@ extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 
 struct StrmPlayer020bf520 {
     char pad0[0x11c];
-    int commandCount;   /* 0x11c */
+    int commandCount;
 };
 
 struct LoadCommand020bf520 {
     SignedAllocatorHeader* prev;
     SignedAllocatorHeader* next;
-    StrmPlayer020bf520* player;     /* 0x8 */
-    int status;                     /* 0xc */
-    int numChannels;                /* 0x10 */
-    void* buffer[6];                /* 0x14 */
-    unsigned int bufLen;            /* 0x2c */
+    StrmPlayer020bf520* player;
+    int status;
+    int numChannels;
+    void* buffer[6];
+    unsigned int bufLen;
 };
 
 struct StrmThread020bf520 {
     char pad0[0x4c0];
-    BlockedContextList threadQ;     /* 0x4c0 */
+    BlockedContextList threadQ;
     char pad1[0x4e0 - 0x4c8];
-    SignedAllocatorList commandList; /* 0x4e0 */
+    SignedAllocatorList commandList;
 };
 
 struct Statics020bf520 { int f0; StrmThread020bf520* prepareThread; };

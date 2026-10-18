@@ -4,7 +4,6 @@
 
 struct BackgroundLoader;
 
-
 // KEEP-NAME
 // USA: func_0207f8bc
 ARM void FlushNotifyEntries_0207f8bc(Manager0207f7f0 *self) {

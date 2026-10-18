@@ -1,6 +1,5 @@
 #include <globaldefs.h>
 
-/* MSL_C strtold.c strtold: __strtold over a string ReadProc (__StringRead). */
 #define INT_MAX 0x7fffffff
 #define ERANGE  34
 #define LDBL_MIN 2.2250738585072014e-308
@@ -11,11 +10,11 @@ typedef struct {
     int NullCharDetected;
 } __InStrCtrl;
 
-extern "C" int func_02003d58(void* isc, int c, int action);   /* __StringRead */
+extern "C" int func_02003d58(void* isc, int c, int action);
 extern "C" long double func_020042a8(int max_width, int (*ReadProc)(void*, int, int), void* ReadProcArg,
-                                     int* chars_scanned, int* overflow);   /* __strtold */
-extern "C" double func_02008f3c(double x);   /* fabs */
-extern int data_020f3390;   /* errno */
+                                     int* chars_scanned, int* overflow);
+extern "C" double func_02008f3c(double x);
+extern int data_020f3390;
 
 // USA: func_020054f4
 extern "C" ARM long double func_020054f4(const char* str, char** end) {

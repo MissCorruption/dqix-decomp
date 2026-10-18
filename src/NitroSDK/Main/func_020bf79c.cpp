@@ -3,12 +3,9 @@
 #include <System/Mutex.h>
 #include <System/Cache.h>
 
-/* NitroSystem snd sndarc_stream.c: MakeWaveData */
-
 struct Obj020bf658;
 void UpdateAndDispatch020bf658(struct Obj020bf658* obj);
 
-/* The inner struct makes mwcc C++ copy it as one 4-byte block, as the SDK's C struct copy does. */
 struct AdpcmState020bf79c {
     struct {
         short prevSample;
@@ -24,78 +21,77 @@ typedef void (*StrmCallback020bf79c)(int status, int numChannels, void* buffer[]
                                      StrmFormat020bf79c format, void* arg);
 
 struct StrmPlayer020bf79c {
-    char stream[0xa8];                  /* 0x00 */
-    char fileHeader[0x18];              /* 0xa8 */
-    unsigned char format;               /* 0xc0 */
-    unsigned char loopFlag;             /* 0xc1 */
-    unsigned char numChannelsInfo;      /* 0xc2 */
+    char stream[0xa8];
+    char fileHeader[0x18];
+    unsigned char format;
+    unsigned char loopFlag;
+    unsigned char numChannelsInfo;
     unsigned char pad_;
-    unsigned short sampleRate;          /* 0xc4 */
-    unsigned short timer;               /* 0xc6 */
-    unsigned int loopStart;             /* 0xc8 */
-    unsigned int loopEnd;               /* 0xcc */
-    unsigned int dataOffset;            /* 0xd0 */
-    unsigned int numBlocks;             /* 0xd4 */
-    unsigned int blockSize;             /* 0xd8 */
-    unsigned int blockSamples;          /* 0xdc */
-    unsigned int lastBlockSize;         /* 0xe0 */
-    unsigned int lastBlockSamples;      /* 0xe4 */
-    char fader[0x10];                   /* 0xe8 */
-    AdpcmState020bf79c adpcmState[6];   /* 0xf8 */
-    int activeFlag : 1;                 /* 0x110 */
+    unsigned short sampleRate;
+    unsigned short timer;
+    unsigned int loopStart;
+    unsigned int loopEnd;
+    unsigned int dataOffset;
+    unsigned int numBlocks;
+    unsigned int blockSize;
+    unsigned int blockSamples;
+    unsigned int lastBlockSize;
+    unsigned int lastBlockSamples;
+    char fader[0x10];
+    AdpcmState020bf79c adpcmState[6];
+    int activeFlag : 1;
     int playFlag : 1;
     int startFlag : 1;
     int fadeOutFlag : 1;
     int dirtyFlag : 1;
     int finishFlag : 1;
     int monoFlag : 1;
-    volatile int finishCounter;         /* 0x114 */
-    volatile int prepareFlag;           /* 0x118 */
-    volatile int commandCount;          /* 0x11c */
-    int allocChannelCount;              /* 0x120 */
-    unsigned char numChannels;          /* 0x124 */
+    volatile int finishCounter;
+    volatile int prepareFlag;
+    volatile int commandCount;
+    int allocChannelCount;
+    unsigned char numChannels;
     unsigned char padding;
-    unsigned char chNoList[6];          /* 0x126 */
-    void* buffer;                       /* 0x12c */
-    unsigned int bufSize;               /* 0x130 */
-    StrmCallback020bf79c strmCallback;  /* 0x134 */
-    void* strmCallbackArg;              /* 0x138 */
-    void* sndArcStrmCallback;           /* 0x13c */
+    unsigned char chNoList[6];
+    void* buffer;
+    unsigned int bufSize;
+    StrmCallback020bf79c strmCallback;
+    void* strmCallbackArg;
+    void* sndArcStrmCallback;
     void* sndArcStrmCallbackArg;
-    int strmNo;                         /* 0x144 */
+    int strmNo;
     int playerNo;
-    void* handle;                       /* 0x14c */
+    void* handle;
     int prio;
-    int initVolume;                     /* 0x154 */
-    int extVolume;                      /* 0x158 */
-    int volume;                         /* 0x15c */
-    unsigned int curSample;             /* 0x160 */
-    void* openStreamFunc;               /* 0x164 */
-    void* closeStreamFunc;              /* 0x168 */
-    ReadStreamFunc020bf79c readStreamFunc;   /* 0x16c */
-    void* cancelStreamFunc;             /* 0x170 */
+    int initVolume;
+    int extVolume;
+    int volume;
+    unsigned int curSample;
+    void* openStreamFunc;
+    void* closeStreamFunc;
+    ReadStreamFunc020bf79c readStreamFunc;
+    void* cancelStreamFunc;
 };
 
 struct LoadCommand020bf79c {
-    void* link[2];                      /* 0x00 */
-    StrmPlayer020bf79c* player;         /* 0x08 */
-    int status;                         /* 0x0c */
-    int numChannels;                    /* 0x10 */
-    void* buffer[6];                    /* 0x14 */
-    unsigned int bufLen;                /* 0x2c */
+    void* link[2];
+    StrmPlayer020bf79c* player;
+    int status;
+    int numChannels;
+    void* buffer[6];
+    unsigned int bufLen;
 };
 
-/* sndarc_stream.c statics: { ?, sPrepareThread, sDecodeBuffer } */
 struct StrmStatics020bf79c {
     int f0;
     unsigned char* sPrepareThread;
     unsigned char* sDecodeBuffer;
 };
 
-extern const signed char data_020e9338[16];  /* cAdpcmIndexTable */
-extern const short data_020e9348[89];        /* cAdpcmStepSizeTable */
+extern const signed char data_020e9338[16];
+extern const short data_020e9348[89];
 extern struct StrmStatics020bf79c data_021103b0;
-extern Mutex data_021103c8;                  /* sDecodeBufferMutex */
+extern Mutex data_021103c8;
 
 static inline short DecodeAdpcm(int code, AdpcmState020bf79c* state) {
     int step;

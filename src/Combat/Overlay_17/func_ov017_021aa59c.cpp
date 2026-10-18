@@ -119,9 +119,6 @@ struct Settings02114e54 {
 };
 extern Settings02114e54 data_02114e54;
 
-
-
-
 struct Input021aa59c {
     unsigned short buttons;
     unsigned char columns;

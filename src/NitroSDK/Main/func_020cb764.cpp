@@ -7,9 +7,8 @@
 #endif
 
 #define NITROFS_ID_INVALID 0x10000
-extern unsigned char data_020f2288[]; // ":/"
+extern unsigned char data_020f2288[];
 
-// NitroSDK FSi_GetPathCommand
 // USA: func_020cb764 // KEEP-NAME
 int NitroVM_DefaultCommand_GetPath(NitroVM* vm)
 {

@@ -11,7 +11,6 @@ enum { kRegionValue64_34 = 0x64 };
 enum { kRegionValue60_30 = 0x60 };
 #endif
 
-
 struct Struct02074bf4;
 void ClearFlag0x11IfSet(struct Struct02074bf4* obj);
 extern "C" int DisableSubBGVRAMBanks(void);

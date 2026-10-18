@@ -56,8 +56,6 @@ extern "C" void func_0200f1fc(ThrowContext0200dbf8* context, ExceptionInfo0200db
 extern "C" char* func_0200d958(char* p, long* value);
 extern "C" char* func_0200d9e4(char* p, unsigned long* value);
 
-// Each Skip* decodes one compressed action record and returns the pointer past it;
-// the trailing 4 bytes most records end in are the raw destructor / delete function.
 static inline char* SkipDestroyLocal(char* p) {
     long local;
     p = func_0200d958(p + 1, &local);
@@ -134,7 +132,7 @@ static inline char* SkipDeletePointerCond(char* p) {
 static inline char* SkipCatchBlock(char* p) {
     unsigned long catchPcOffset;
     long cinfoRef;
-    p = func_0200d9e4(p + 5, &catchPcOffset); // action byte, then the raw catch type
+    p = func_0200d9e4(p + 5, &catchPcOffset);
     p = func_0200d958(p, &cinfoRef);
     return p;
 }
@@ -168,7 +166,7 @@ static inline char* SkipAction17(char* p) {
     long objectPtr, vttPtr, objectOffset, vttOffset;
     p = func_0200d958(p + 1, &objectPtr);
     p = func_0200d958(p, &objectOffset);
-    p = func_0200d958(p + 1, &vttPtr); // after the vtt location flags byte
+    p = func_0200d958(p + 1, &vttPtr);
     p = func_0200d958(p, &vttOffset);
     return p + 4;
 }
@@ -177,7 +175,7 @@ static inline char* SkipAction18(char* p) {
     long arrayPtr, arrayEnd;
     unsigned long elementSize;
     p = func_0200d958(p + 1, &arrayPtr);
-    p = func_0200d958(p + 1, &arrayEnd); // after the end location flags byte
+    p = func_0200d958(p + 1, &arrayEnd);
     p = func_0200d9e4(p, &elementSize);
     return p + 4;
 }

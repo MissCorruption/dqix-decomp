@@ -19,47 +19,47 @@ typedef int (*OpenStreamFunc020beed8)(StrmPlayer020beed8* player, unsigned int f
 typedef void (*CloseStreamFunc020beed8)(StrmPlayer020beed8* player);
 
 struct StrmPlayer020beed8 {
-    char stream[0xa8];                  /* 0x00 */
-    char fileHeader[0x18];              /* 0xa8 */
-    unsigned char format;               /* 0xc0 */
+    char stream[0xa8];
+    char fileHeader[0x18];
+    unsigned char format;
     unsigned char loopFlag;
-    unsigned char numChannelsInfo;      /* 0xc2 */
+    unsigned char numChannelsInfo;
     unsigned char pad_;
-    unsigned short sampleRate;          /* 0xc4 */
-    unsigned short timer;               /* 0xc6 */
+    unsigned short sampleRate;
+    unsigned short timer;
     char infoRest[0xe8 - 0xc8];
-    char fader[0x10];                   /* 0xe8 */
-    char adpcmState[0x18];              /* 0xf8 */
-    int activeFlag : 1;                 /* 0x110 */
+    char fader[0x10];
+    char adpcmState[0x18];
+    int activeFlag : 1;
     int playFlag : 1;
     int startFlag : 1;
     int fadeOutFlag : 1;
     int dirtyFlag : 1;
     int finishFlag : 1;
     int monoFlag : 1;
-    int finishCounter;                  /* 0x114 */
-    int prepareFlag;                    /* 0x118 */
-    int commandCount;                   /* 0x11c */
-    int allocChannelCount;              /* 0x120 */
-    unsigned char numChannels;          /* 0x124 */
+    int finishCounter;
+    int prepareFlag;
+    int commandCount;
+    int allocChannelCount;
+    unsigned char numChannels;
     unsigned char padding;
-    unsigned char chNoList[6];          /* 0x126 */
-    void* buffer;                       /* 0x12c */
-    unsigned int bufSize;               /* 0x130 */
-    void* strmCallback;                 /* 0x134 */
+    unsigned char chNoList[6];
+    void* buffer;
+    unsigned int bufSize;
+    void* strmCallback;
     void* strmCallbackArg;
     void* sndArcStrmCallback;
     void* sndArcStrmCallbackArg;
-    int strmNo;                         /* 0x144 */
+    int strmNo;
     int playerNo;
-    void* handle;                       /* 0x14c */
+    void* handle;
     int prio;
-    int initVolume;                     /* 0x154 */
-    int extVolume;                      /* 0x158 */
-    int volume;                         /* 0x15c */
-    unsigned int curSample;             /* 0x160 */
-    OpenStreamFunc020beed8 openStreamFunc;   /* 0x164 */
-    CloseStreamFunc020beed8 closeStreamFunc; /* 0x168 */
+    int initVolume;
+    int extVolume;
+    int volume;
+    unsigned int curSample;
+    OpenStreamFunc020beed8 openStreamFunc;
+    CloseStreamFunc020beed8 closeStreamFunc;
     void* readStreamFunc;
     void* cancelStreamFunc;
 };

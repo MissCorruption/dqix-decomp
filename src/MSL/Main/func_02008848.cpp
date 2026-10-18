@@ -1,10 +1,6 @@
 #include <globaldefs.h>
 
-// fdlibm s_atan.c: atan(x). This unit owns atanlo/atanhi (.rodata 0x020e6cc4-0x020e6d04): the ROM
-// keeps separate pool words for the section base and atanlo, which extern ROM symbols would merge.
-// aT stays the ROM symbol data_020e6d04.
-
-extern "C" double func_02008f3c(double x); /* fabs */
+extern "C" double func_02008f3c(double x);
 
 static const double atanlo[] = {
     2.26987774529616870924e-17,
@@ -20,7 +16,7 @@ static const double atanhi[] = {
     1.57079632679489655800e+00,
 };
 
-extern const double data_020e6d04[]; /* aT */
+extern const double data_020e6d04[];
 
 // USA: func_02008848
 extern "C" ARM double func_02008848(double x) {
