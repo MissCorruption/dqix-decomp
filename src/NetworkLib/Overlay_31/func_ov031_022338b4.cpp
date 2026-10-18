@@ -1,0 +1,36 @@
+#include <globaldefs.h>
+
+struct MenuValue022338b4 { unsigned short value; unsigned short field_0x2[3]; };
+struct MenuValueTable022338b4 { MenuValue022338b4 entries[4]; };
+struct MenuSelection022338b4 { signed char field_0x0; signed char selected; unsigned char field_0x2; unsigned char field_0x3; int field_0x4; };
+extern MenuValueTable022338b4 data_ov031_02249198[];
+extern MenuValueTable022338b4 data_ov031_0224919a[];
+extern MenuValueTable022338b4 data_ov031_0224919c[];
+extern MenuValueTable022338b4 data_ov031_0224919e[];
+extern MenuSelection022338b4 data_ov031_02290cc8;
+extern signed char data_ov031_0224912e[][4][4];
+
+int TestFieldRestBits_02227570(unsigned int);
+extern "C" void func_ov031_02236878(int);
+extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
+
+// USA: func_ov031_022338b4
+extern "C" ARM void func_ov031_022338b4(int dir) {
+    signed char cur = data_ov031_02290cc8.selected;
+    signed char next = data_ov031_0224912e[TestFieldRestBits_02227570(1)][cur][dir];
+    if (next == -1) return;
+    if (next == 0) {
+        data_ov031_02290cc8.field_0x0 = cur;
+    }
+    if (next == -2) {
+        data_ov031_02290cc8.selected = data_ov031_02290cc8.field_0x0;
+    } else {
+        data_ov031_02290cc8.selected = next;
+    }
+    func_ov031_02236878(8);
+    func_ov031_022237dc(
+        data_ov031_02249198[TestFieldRestBits_02227570(1)].entries[data_ov031_02290cc8.selected].value,
+        data_ov031_0224919c[TestFieldRestBits_02227570(1)].entries[data_ov031_02290cc8.selected].value,
+        data_ov031_0224919a[TestFieldRestBits_02227570(1)].entries[data_ov031_02290cc8.selected].value,
+        data_ov031_0224919e[TestFieldRestBits_02227570(1)].entries[data_ov031_02290cc8.selected].value);
+}
