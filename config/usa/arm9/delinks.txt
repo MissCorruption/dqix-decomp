@@ -20508,3 +20508,7 @@ src/Combat/Main/__sinit_020e5c58.cpp:
 src/Combat/Main/func_020e5920.cpp:
     complete
     .init start:0x020e5920 end:0x020e59c8
+
+src/Combat/Main/func_02000954.cpp:
+    complete
+    .text start:0x02000954 end:0x02000970
