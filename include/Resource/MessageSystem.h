@@ -44,7 +44,8 @@ struct MessageSystem {
     char* expandedBuffer;
     unsigned int tokenLength;
     unsigned int tokenCount;
-    unsigned char pad3c[8];
+    unsigned char pad3c[4];
+    int lineStart;
     unsigned int tokenIndex;
     unsigned char pad48[4];
     unsigned char* child;

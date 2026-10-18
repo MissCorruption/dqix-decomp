@@ -18978,3 +18978,7 @@ src/Combat/Main/HandleActorStateTransition_020679d4.cpp:
 src/Combat/Main/StoreClampedDeltas.cpp:
     complete
     .text start:0x0206cfd4 end:0x0206d028
+
+src/Combat/Main/func_0206b528.cpp:
+    complete
+    .text start:0x0206cdcc end:0x0206ce78
