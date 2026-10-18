@@ -7679,3 +7679,38 @@ src/NetworkLib/Overlay_31/func_ov031_0221b284.cpp:
 src/NetworkLib/Overlay_31/func_ov031_02215b64.cpp:
     complete
     .text start:0x02215b64 end:0x02215ccc
+
+src/NetworkLib/Overlay_31/func_ov031_02202b78.cpp:
+    complete
+    .text start:0x02202b78 end:0x02202e44
+
+src/NetworkLib/Overlay_31/func_ov031_02237b2c.cpp:
+    complete
+    .text start:0x02237b2c end:0x02237e58
+
+src/NetworkLib/Overlay_31/func_ov031_02201f10.cpp:
+    complete
+    .text start:0x02201f10 end:0x02201f84
+
+src/Combat/Overlay_31/func_ov031_02244ad0.cpp:
+    complete
+    .text start:0x02244ad0 end:0x02244e44
+    .bss start:0x02291e04 end:0x02291e08
+
+src/NetworkLib/Overlay_31/func_ov031_02227898.cpp:
+    complete
+    .text start:0x02227898 end:0x02227b38
+
+src/NetworkLib/Overlay_31/func_ov031_02230330.cpp:
+    complete
+    .text start:0x02230330 end:0x022305a4
+    .rodata start:0x02248f5c end:0x02248f78
+
+src/NetworkLib/Overlay_31/func_ov031_022266b0.cpp:
+    complete
+    .text start:0x022266b0 end:0x02226910
+    .rodata start:0x02248c88 end:0x02248ca8
+
+src/NetworkLib/Overlay_31/func_ov031_02217604.cpp:
+    complete
+    .text start:0x02217604 end:0x022178b4

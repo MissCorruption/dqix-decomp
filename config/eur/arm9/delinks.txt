@@ -20488,3 +20488,67 @@ src/NitroSDK/Filesystem/CardReadManagerInit.cpp:
 src/NitroSDK/Filesystem/CardReadManager.cpp:
     complete
     .text start:0x020d085c end:0x020d0fd4
+
+src/Combat/Main/func_02000954.cpp:
+    complete
+    .text start:0x02000954 end:0x02000970
+
+src/Combat/Main/func_02000970.cpp:
+    complete
+    .text start:0x02000970 end:0x02000a1c
+
+src/Combat/Main/func_02000a1c.cpp:
+    complete
+    .text start:0x02000a1c end:0x02000aac
+
+src/MSL/Main/func_0200af90.cpp:
+    complete
+    .text start:0x0200af90 end:0x0200afe8
+
+src/Runtime/Main/func_0200c9b4.cpp:
+    complete
+    .text start:0x0200c9b4 end:0x0200ca98
+
+src/NitroSDK/Main/func_020c0e9c.cpp:
+    complete
+    .text start:0x020c0eac end:0x020c112c
+
+src/NitroSDK/Main/DecompressB.cpp:
+    complete
+    .text start:0x020caba4 end:0x020cad10
+
+src/NitroSDK/Main/Mat3x3_WriteRotationZ.cpp:
+    complete
+    .text start:0x020c12ac end:0x020c12c4
+
+src/NitroSDK/Main/Mat4x3_WriteRotationY.cpp:
+    complete
+    .text start:0x020c19ac end:0x020c19c8
+
+src/NitroSDK/Main/func_020c8aac.cpp:
+    complete
+    .text start:0x020c8abc end:0x020c8b40
+
+src/NitroSDK/Main/func_020ca3ec.cpp:
+    complete
+    .text start:0x020ca3fc end:0x020ca418
+
+src/NitroSDK/Main/func_020ca458.cpp:
+    complete
+    .text start:0x020ca468 end:0x020ca4c4
+
+src/NitroSDK/Main/func_020ca4b4.cpp:
+    complete
+    .text start:0x020ca4c4 end:0x020ca51c
+
+src/NitroSDK/Main/func_020ca650.cpp:
+    complete
+    .text start:0x020ca660 end:0x020ca7e0
+
+src/NitroSDK/Main/func_020ca7d0.cpp:
+    complete
+    .text start:0x020ca7e0 end:0x020ca7f0
+
+src/NitroSDK/Main/func_020cf864.cpp:
+    complete
+    .text start:0x020cf874 end:0x020cf88c
