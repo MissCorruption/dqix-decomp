@@ -82,7 +82,11 @@ struct ActorView {
     unsigned char fc2_6 : 2;
     char padc3[0x6d];
     unsigned int* flags;
+#if defined(jpn)
+    char pad134[0x4c];
+#else
     char pad134[0x58];
+#endif
     unsigned int flags18c;
 };
 
