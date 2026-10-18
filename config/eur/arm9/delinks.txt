@@ -20956,3 +20956,7 @@ src/NitroSDK/Main/GetHolderPair020bd88c.cpp:
 src/NitroSDK/Main/func_020beaec.cpp:
     complete
     .text start:0x020beafc end:0x020bebc4
+
+src/NitroSDK/Main/func_020d2220.cpp:
+    complete
+    .text start:0x020d2230 end:0x020d2304
