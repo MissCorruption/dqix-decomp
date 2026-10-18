@@ -1,6 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSystem sndarc_stream.c: NNS_SndArcStrmSetupPlayer.
 struct Obj020bda58;
 struct Ctx020bf484;
 typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);

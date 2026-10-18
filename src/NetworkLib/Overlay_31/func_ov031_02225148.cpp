@@ -5,8 +5,8 @@ extern "C" void func_ov031_02236878(int index);
 
 struct EntityStruct02225148 {
     unsigned char pad[0x120];
-    signed char field120;   // 0x120
-    signed char field121;   // 0x121
+    signed char field120;
+    signed char field121;
 };
 
 extern EntityStruct02225148* data_ov031_02250bfc;

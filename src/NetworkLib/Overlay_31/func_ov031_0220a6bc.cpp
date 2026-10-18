@@ -39,4 +39,3 @@ extern "C" ARM void func_ov031_0220a6bc(ReceiveSession0220a6bc* session) {
     }
     context->consumed += length;
 }
-

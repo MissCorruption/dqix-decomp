@@ -26,5 +26,3 @@ extern "C" THUMB void func_ov031_02221eac(OverlayMD5Context* context, const void
     } else offset = 0;
     func_ov031_02222818(context->buffer + used, input + offset, length - offset);
 }
-
-
