@@ -115,7 +115,7 @@ func_ov024_021df454 kind:function(arm,size=0x298) addr:0x021dfcec
 _Z22IsFlagBit6Set_021df6ecP16FlagObj_021df6ec kind:function(arm,size=0x18) addr:0x021dff84
 _Z29IsFlagBit4Field18Set_021df704P16FlagObj_021df704 kind:function(arm,size=0x18) addr:0x021dff9c
 func_ov024_021df71c kind:function(arm,size=0x208) addr:0x021dffb4
-func_ov024_021e01bc kind:function(arm,size=0x578) addr:0x021e01bc
+func_ov024_021df924 kind:function(arm,size=0x578) addr:0x021e01bc
 func_ov024_021dfe9c kind:function(arm,size=0xa0) addr:0x021e0734
 func_ov024_021dff3c kind:function(arm,size=0x184) addr:0x021e07d4
 _Z28AddBuffEntryToTable_021e00c0P12Obj_021e00c0iiP14Range_021e00c0iih kind:function(arm,size=0xf8) addr:0x021e0958
@@ -596,7 +596,7 @@ data_ov024_021fe820 kind:data(any) addr:0x021fefec
 data_ov024_021fe822 kind:data(any) addr:0x021fefee
 data_ov024_021fe840 kind:data(any) addr:0x021ff00c
 data_ov024_021fe842 kind:data(any) addr:0x021ff00e
-data_ov024_021ff02c kind:data(any) addr:0x021ff02c
+data_ov024_021fe860 kind:data(any) addr:0x021ff02c
 data_ov024_021ff082 kind:data(any) addr:0x021ff082
 data_ov024_021fe8f0 kind:data(any) addr:0x021ff0bc
 data_ov024_021fe930 kind:data(any) addr:0x021ff0fc
