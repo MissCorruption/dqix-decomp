@@ -2027,6 +2027,7 @@ data_ov031_02248c84 kind:data(any) addr:0x02248c84
 data_ov031_02248c88 kind:data(any) addr:0x02248c88
 data_ov031_02248c90 kind:data(any) addr:0x02248c90
 data_ov031_02248c94 kind:data(any) addr:0x02248c94
+data_ov031_02248ca8 kind:data(any) addr:0x02248ca8
 data_ov031_02248cb0 kind:data(any) addr:0x02248cb0
 data_ov031_02248cb8 kind:data(any) addr:0x02248cb8
 data_ov031_02248cc0 kind:data(any) addr:0x02248cc0
