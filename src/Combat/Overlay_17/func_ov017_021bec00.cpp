@@ -7,10 +7,21 @@
 struct Obj020397cc;
 struct TailList020469b4;
 struct TailNode020469b4;
-struct ZoneState021bec00 { char padding[0x23ec]; ActiveGrottoClass grotto; };
+struct ZoneState021bec00 {
+#if defined(jpn)
+    char padding[0x240c];
+#else
+    char padding[0x23ec];
+#endif
+    ActiveGrottoClass grotto;
+};
 union PopupOffset021bec00 { struct { int x, y; }; long long packed; };
 struct PopupController021bec00 {
+#if defined(jpn)
+    char padding0[0x7e8];
+#else
     char padding0[0x918];
+#endif
     short width;
     char padding91a[0x998-0x91a];
     int field998;
@@ -18,7 +29,11 @@ struct PopupController021bec00 {
     int field9a0, field9a4;
     char padding9a8[0x1858-0x9a8];
     PopupOffset021bec00 offset;
+#if defined(jpn)
+    char padding1860[0x17de - 0x1730];
+#else
     char padding1860[0x19ae - 0x1860];
+#endif
     unsigned char flag19ae, flag19af;
     char padding19b0[8];
     unsigned char flag19b8;
@@ -54,8 +69,16 @@ extern "C" ZoneState021bec00* func_02012fe4();
 extern "C" void VectorizedMemset(void*, int, unsigned int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void func_020dfec0(void*, SafeAllocator*, void*, unsigned int);
+#if defined(jpn)
+extern "C" void func_0204500c(PopupController021bec00*, char*, int);
+#else
 extern "C" void func_0204500c(PopupController021bec00*, char*, int, int);
+#endif
+#if defined(jpn)
+extern "C" void func_02043270(PopupController021bec00*, int, int, int, int);
+#else
 extern "C" void func_02042b98(PopupController021bec00*, int, int, int, int);
+#endif
 extern "C" void func_ov017_021bef84(PopupState021bec00*);
 PopupController021bec00* GetGlobalField0x1c020421a0();
 void CancelPendingAction020397cc(Obj020397cc*, int);
@@ -67,7 +90,11 @@ void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
 void ReinitController02043204(char*);
 void SetByteField0x253_020397c0(void*);
 extern AllocatorUnion data_02114e20;
+#if defined(jpn)
+extern char data_ov017_021d86ac[], data_ov017_021d86c6[];
+#else
 extern char data_ov017_021d7e98[], data_ov017_021d7eb2[];
+#endif
 // USA: func_ov017_021bec00
 extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
     GameState* game = GameState::GetInstance();
@@ -87,7 +114,11 @@ extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
         if (AlwaysTrue02094b4c(music)) {
             self->state = 1;
             self->allocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0xc00), 0xc00);
+#if defined(jpn)
+            self->task = loader->QueueLoadFile(data_ov017_021d86ac, 0);
+#else
             self->task = loader->QueueLoadFile(data_ov017_021d7e98, 0);
+#endif
         }
     } else if (self->state == 1) {
         if (loader->GetTaskStatus(self->task)) {
@@ -132,11 +163,20 @@ extern "C" ARM void func_ov017_021bec00(PopupState021bec00* self) {
                 func_ov017_021bef84(self);
                 self->complete = 1;
             } else {
+#if defined(jpn)
+                sprintf(text, data_ov017_021d86c6, grotto->GetPopupName());
+                func_0204500c(controller, text, 0);
+#else
                 sprintf(text, data_ov017_021d7eb2, grotto->GetPopupName());
                 func_0204500c(controller, text, 0, 256);
+#endif
                 controller->flag19b8 = 1;
                 controller->flag19af = 0;
+#if defined(jpn)
+                func_02043270(controller, (256-controller->width)/2, 64, controller->width, 30);
+#else
                 func_02042b98(controller, (256-controller->width)/2, 64, controller->width, 30);
+#endif
                 long long offset = controller->offset.packed;
                 int value = (int)offset;
                 int count = (int)(offset >> 32) + 3;
