@@ -1,0 +1,90 @@
+#include <globaldefs.h>
+#include "System/Matrix.h"
+
+struct Inner_0222f430 {
+    unsigned char field_0[0x38];
+    void* task;
+    unsigned char field_3c[5];
+    unsigned char cooldown;
+    unsigned char field_42[3];
+    unsigned char active;
+    unsigned char latched;
+};
+struct Holder_0222f430 {
+    unsigned char field_0[4];
+    unsigned short position;
+    unsigned short field_6;
+    Inner_0222f430* inner;
+};
+extern Holder_0222f430 data_ov031_02290ca0;
+unsigned char GetField1d_022351e4();
+unsigned char GetField1a_022351d0();
+void SetField18_02222e98();
+void ClearField18_02222e80();
+extern "C" void func_ov031_022238cc();
+extern "C" void func_ov031_0222f9ec();
+extern "C" void func_ov031_022308d4();
+extern "C" int func_ov031_02236878(int);
+extern "C" void func_ov031_0223060c(int);
+extern "C" void func_ov031_022306d4();
+void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
+
+// USA: func_ov031_0222f430
+extern "C" ARM void func_ov031_0222f430() {
+    if (data_ov031_02290ca0.inner->task) return;
+    if (data_ov031_02290ca0.inner->cooldown) data_ov031_02290ca0.inner->cooldown--;
+    switch (GetField1d_022351e4()) {
+    case 1:
+        data_ov031_02290ca0.inner->active = 1;
+        return;
+    case 2:
+        if (data_ov031_02290ca0.inner->cooldown) return;
+        func_ov031_022238cc();
+        data_ov031_02290ca0.position = (GetField1a_022351d0() * 145) / 55;
+        func_ov031_0222f9ec();
+        data_ov031_02290ca0.inner->cooldown = 4;
+        return;
+    case 3: {
+        data_ov031_02290ca0.inner->active = 0;
+        data_ov031_02290ca0.position = (GetField1a_022351d0() * 145) / 55;
+        func_ov031_02236878(0x13);
+        func_ov031_0222f9ec();
+        int remainder = FastIntModulus(data_ov031_02290ca0.position, 0x1d);
+        if (remainder == 0) {
+            func_ov031_022308d4();
+            return;
+        }
+        if (remainder < 0x10) {
+            data_ov031_02290ca0.inner->task = CallWithZeroExtra_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
+            return;
+        } else {
+            data_ov031_02290ca0.inner->task = CallWithZeroExtra_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
+        }
+        return;
+    }
+    case 4:
+        if (data_ov031_02290ca0.position == 0) {
+            if (data_ov031_02290ca0.inner->latched) return;
+            func_ov031_02236878(9);
+            data_ov031_02290ca0.inner->latched = 1;
+        } else {
+            func_ov031_02236878(0x13);
+            data_ov031_02290ca0.inner->task = CallWithZeroExtra_0223e218(0, (void*)func_ov031_0223060c, 0, 0x78);
+        }
+        return;
+    case 6:
+        if (data_ov031_02290ca0.position == 145) {
+            if (data_ov031_02290ca0.inner->latched) return;
+            func_ov031_02236878(9);
+            data_ov031_02290ca0.inner->latched = 1;
+        } else {
+            func_ov031_02236878(0x13);
+            data_ov031_02290ca0.inner->task = CallWithZeroExtra_0223e218(0, (void*)func_ov031_022306d4, 0, 0x78);
+        }
+        return;
+    case 5:
+    case 7:
+        data_ov031_02290ca0.inner->latched = 0;
+        return;
+    }
+}
