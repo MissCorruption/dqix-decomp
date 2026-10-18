@@ -20718,3 +20718,11 @@ src/NitroSDK/Main/DispatchCartridgeReadToArm7_020d06fc.cpp:
 src/NitroSDK/Main/NSBXX_AttachTexturePaletteToModel.cpp:
     complete
     .text start:0x020b33f0 end:0x020b34f8
+
+src/NitroSDK/Main/AwaitCardReadManagerIdle.cpp:
+    complete
+    .text start:0x020cff50 end:0x020cff9c
+
+src/NitroSDK/Main/LockCardReadManager.cpp:
+    complete
+    .text start:0x020cfcf8 end:0x020cfd7c
