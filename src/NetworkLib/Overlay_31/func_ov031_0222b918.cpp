@@ -31,43 +31,24 @@ extern "C" int func_ov031_0223bdb0(int, int, void*);
 extern "C" ARM void func_ov031_0222b918(void) {
 	int n;
 	int i;
-	const unsigned char* p;
-	unsigned int j;
-	int k;
 	n = data_ov031_02290c8c.field4->field51;
 	if (n > 5) {
 		n = 5;
 	}
-	i = 0;
-	if (n > 0) {
-		do {
-			data_ov031_02290c8c.field4->objA[i] = CallTailCallThenBdb0_0223be44(0, 0x2e);
-			data_ov031_02290c8c.field4->objB[i] = CallTailCallThenBdb0_0223be44(0, 0x18);
-			i++;
-		} while (i < n);
+	for (i = 0; i < n; i++) {
+		data_ov031_02290c8c.field4->objA[i] = CallTailCallThenBdb0_0223be44(0, 0x2e);
+		data_ov031_02290c8c.field4->objB[i] = CallTailCallThenBdb0_0223be44(0, 0x18);
 	}
-	j = 0;
-	p = data_ov031_02248eac;
-	do {
-		func_ov031_0223bdb0(0, *p, data_ov031_02290c8c.field4->objA[0]);
-		data_ov031_02290c8c.field4->charA[j] = data_ov031_02290c8c.field4->objA[0]->attr2 & 0x3ff;
-		p++;
-		j++;
-	} while (j < 3);
-	j = 0;
-	p = data_ov031_02248eb0;
-	do {
-		func_ov031_0223bdb0(0, *p, data_ov031_02290c8c.field4->objB[0]);
-		data_ov031_02290c8c.field4->charB[j] = data_ov031_02290c8c.field4->objB[0]->attr2 & 0x3ff;
-		p++;
-		j++;
-	} while (j < 4);
-	k = 0;
-	if (n > 0) {
-		do {
-			data_ov031_02290c8c.field4->objA[k]->attr2 = (data_ov031_02290c8c.field4->objA[k]->attr2 & ~0xc00) | 0xc00;
-			data_ov031_02290c8c.field4->objB[k]->attr2 = (data_ov031_02290c8c.field4->objB[k]->attr2 & ~0xc00) | 0xc00;
-			k++;
-		} while (k < n);
+	for (i = 0; i < sizeof(data_ov031_02248eac); i++) {
+		func_ov031_0223bdb0(0, data_ov031_02248eac[i], data_ov031_02290c8c.field4->objA[0]);
+		data_ov031_02290c8c.field4->charA[i] = data_ov031_02290c8c.field4->objA[0]->attr2 & 0x3ff;
+	}
+	for (i = 0; i < sizeof(data_ov031_02248eb0); i++) {
+		func_ov031_0223bdb0(0, data_ov031_02248eb0[i], data_ov031_02290c8c.field4->objB[0]);
+		data_ov031_02290c8c.field4->charB[i] = data_ov031_02290c8c.field4->objB[0]->attr2 & 0x3ff;
+	}
+	for (i = 0; i < n; i++) {
+		data_ov031_02290c8c.field4->objA[i]->attr2 = (data_ov031_02290c8c.field4->objA[i]->attr2 & ~0xc00) | 0xc00;
+		data_ov031_02290c8c.field4->objB[i]->attr2 = (data_ov031_02290c8c.field4->objB[i]->attr2 & ~0xc00) | 0xc00;
 	}
 }

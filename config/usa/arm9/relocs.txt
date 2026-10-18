@@ -7806,7 +7806,7 @@ from:0x02042498 kind:load to:0x020f000b module:main
 from:0x0204249c kind:load to:0x0211e33c module:main
 from:0x020424a0 kind:load to:0x020f0023 module:main
 from:0x020424a4 kind:load to:0x020f003f module:main
-from:0x020424a8 kind:load to:0x01ff9740 module:itcm
+from:0x020424a8 kind:load to:0x01ff9740 module:none
 from:0x02042520 kind:arm_call to:0x02001aec module:main
 from:0x02042548 kind:load to:0x0210782c module:main
 from:0x02042588 kind:arm_call to:0x02001aec module:main

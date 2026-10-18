@@ -9,13 +9,12 @@ unsigned int SetIRQInterruptState(int mask);
 extern "C" ARM int func_ov031_02239188(int bitIdx) {
     unsigned int state = DisableIRQInterrupts();
     unsigned short mask = 1 << bitIdx;
-    unsigned short* base = data_ov031_02290d14;
-    if (!(base[1] & mask)) {
+    if (!(data_ov031_02290d14[1] & mask)) {
         SetIRQInterruptState(state);
         return 0;
     }
     unsigned short buf[7];
-    VectorizedInvertedMemcpy(base, buf, 0xe);
+    VectorizedInvertedMemcpy(data_ov031_02290d14, buf, 0xe);
     SetIRQInterruptState(state);
     if (buf[2] & mask) return 2;
     if (buf[3] & mask) return 3;

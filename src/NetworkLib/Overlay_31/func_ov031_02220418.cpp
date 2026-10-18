@@ -17,10 +17,10 @@ extern "C" THUMB int func_ov031_02220418(void* packet, int* enabled) {
     fifth = 0;
     if (!body) return first;
     if (type != 1) return first;
-    int remaining = length;
+    unsigned char* end = (unsigned char*)body + length;
     cursor += sizeof(body->header);
-    Record02220418* record = func_ov031_02220248(&cursor, (unsigned char*)body + remaining, &recordType, &recordLength);
-    if (record) do {
+    Record02220418* record;
+    while ((record = func_ov031_02220248(&cursor, end, &recordType, &recordLength)) != 0) {
         switch (recordType) {
         case 1: {
             unsigned short value = record->value;
@@ -38,8 +38,7 @@ extern "C" THUMB int func_ov031_02220418(void* packet, int* enabled) {
             break;
         }
         }
-        record = func_ov031_02220248(&cursor, (unsigned char*)body + remaining, &recordType, &recordLength);
-    } while (record);
+    }
     if (first != 1 || second != 1) return 0;
     if (fifth >= 1) *enabled = 1;
     else *enabled = 0;

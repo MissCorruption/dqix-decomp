@@ -7,43 +7,45 @@ ARM int TailCallForward_0223e2e0(int arg0, void* arg1);
 extern "C" ARM unsigned int func_ov031_0223cf70(void** a);
 extern "C" void func_ov031_022376fc(void);
 
-extern char* data_ov031_02290d0c;
+struct Link02237600 {
+	unsigned char pad0[0x13b8];
+	unsigned short status;
+	unsigned char pad1[0x1b90 - 0x13ba];
+	void* pending;
+	volatile unsigned char state;
+};
+
+extern "C" Link02237600* data_ov031_02290d0c;
+namespace DuplicatePool {
+	extern "C" Link02237600* data_ov031_02290d0c;
+}
 
 // USA: func_ov031_02237600
 extern "C" ARM int func_ov031_02237600(void) {
-	*(unsigned char*)(data_ov031_02290d0c + 0x1b94) = 1;
-	CopyToBattleContextBuffer_020d4848(data_ov031_02290d0c + 0x13b8);
+	data_ov031_02290d0c->state = 1;
+	CopyToBattleContextBuffer_020d4848(&data_ov031_02290d0c->status);
 
-	if (*(unsigned short*)(data_ov031_02290d0c + 0x13b8) != 2) {
-		int r = IssueBattleCommandSlot1_020d5004((int)func_ov031_022376fc);
-		if (r != 2) {
+	if (data_ov031_02290d0c->status != 2) {
+		if (IssueBattleCommandSlot1_020d5004((int)func_ov031_022376fc) != 2) {
 			return 0;
 		}
 		do {
-			CopyToBattleContextBuffer_020d4848(data_ov031_02290d0c + 0x13b8);
-		} while (*(unsigned short*)(data_ov031_02290d0c + 0x13b8) != 2);
+			CopyToBattleContextBuffer_020d4848(&data_ov031_02290d0c->status);
+		} while (data_ov031_02290d0c->status != 2);
 	}
 
-	int r2 = IssueBattleCommandSlot2_020d503c((int)func_ov031_022376fc);
-	if (r2 != 2) {
+	if (IssueBattleCommandSlot2_020d503c((int)func_ov031_022376fc) != 2) {
 		return 0;
 	}
 
-	int field = *(unsigned int*)(data_ov031_02290d0c + 0x1b90);
-	if (field != 0) {
-		TailCallForward_0223e2e0(0, (void*)field);
+	if (data_ov031_02290d0c->pending != 0) {
+		TailCallForward_0223e2e0(0, data_ov031_02290d0c->pending);
 	}
 
-	while (*(volatile unsigned char*)(data_ov031_02290d0c + 0x1b94) != 2) {
+	Link02237600* link = data_ov031_02290d0c;
+	while (link->state != 2) {
 	}
 
-	{
-		extern char* data_ov031_02290d0c;
-#if defined(jpn)
-		func_ov031_0223cf70((void**)0x0229190C);
-#else
-		func_ov031_0223cf70((void**)0x02290D0C);
-#endif
-	}
+	func_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02290d0c);
 	return 1;
 }

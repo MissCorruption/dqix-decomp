@@ -21,13 +21,10 @@ extern "C" ARM int func_ov031_02208b78(void* obj, unsigned char* data) {
     }
 
     unsigned char* addr = p + b;
-    int lo = addr[0];
-    int hi = addr[1];
-    addr += 2;
-    int combined = hi + (lo << 8);
-    int v1 = combined / 2;
+    int len = addr[0];
+    len = (len << 8) + addr[1];
 
-    unsigned short ret = (unsigned short)func_ov031_02208a40(addr, v1, 2);
+    unsigned short ret = (unsigned short)func_ov031_02208a40(addr + 2, len / 2, 2);
     *(unsigned short*)((char*)obj + 0x32) = ret;
     if (ret != 0) {
         ret = 1;

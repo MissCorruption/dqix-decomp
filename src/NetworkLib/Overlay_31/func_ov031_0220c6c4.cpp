@@ -9,7 +9,7 @@ void PropagateBorrowSub_0220bd64(unsigned short*, unsigned short*, int, int);
 extern "C" void func_ov031_0220c450(unsigned short*, unsigned short*, unsigned short*, int, unsigned short*);
 extern "C" void func_ov031_0220be38(unsigned short*, unsigned short*, unsigned short*, int);
 extern "C" void func_ov031_0220c0dc(unsigned short*, unsigned short*, unsigned short*, unsigned short*, int, unsigned short*);
-extern "C" void func_ov031_0220c59c(unsigned short*, unsigned short*, unsigned int, int, int, unsigned short*, unsigned short*, unsigned short*, unsigned short*);
+extern "C" void func_ov031_0220c59c(unsigned short*, unsigned short*, unsigned short*, int, int, unsigned short*, unsigned short*, unsigned short*, unsigned short*);
 
 // USA: func_ov031_0220c6c4
 extern "C" ARM void func_ov031_0220c6c4(unsigned short* output, unsigned short* base,
@@ -24,11 +24,16 @@ extern "C" ARM void func_ov031_0220c6c4(unsigned short* output, unsigned short* 
     int modulusLength;
     int bit;
     unsigned short* scratch;
-    unsigned short* reduced = storage + count;
-    unsigned short* radix = reduced + count;
-    unsigned short* product = radix + count;
-    unsigned short* intermediate = product + count;
-    unsigned short* accumulator = intermediate + count;
+    unsigned short* reduced;
+    unsigned short* radix;
+    unsigned short* product;
+    unsigned short* intermediate;
+    unsigned short* accumulator;
+    reduced = storage + count;
+    radix = reduced + count;
+    product = radix + count;
+    intermediate = product + count;
+    accumulator = intermediate + count;
     scratch = accumulator + count;
     modulusLength = TrimTrailingZeroShorts_0220bb24(modulus, count);
     storage[modulusLength] = 1;
@@ -39,17 +44,13 @@ extern "C" ARM void func_ov031_0220c6c4(unsigned short* output, unsigned short* 
     func_ov031_0220be38(radix, base, storage, count);
     func_ov031_0220c0dc(0, radix, modulus, radix, count, scratch);
     func_ov031_0220c0dc(0, storage, modulus, output, count, scratch);
-    bit = 0;
-    unsigned int bitCount = modulusLength << 4;
-    if (bitCount != 0) {
-        do {
-            func_ov031_0220c59c(output, accumulator, 1,
-                count, modulusLength, modulus, reduced, product, intermediate);
-            if ((exponent + (modulusLength - (bit >> 4)))[-1] & (0x8000u >> (bit & 15))) {
-                func_ov031_0220c59c(output, accumulator, (unsigned int)radix, count,
-                    modulusLength, modulus, reduced, product, intermediate);
-            }
-        } while (++bit < bitCount);
+    for (bit = 0; bit < (unsigned int)modulusLength * 16; bit++) {
+        func_ov031_0220c59c(output, accumulator, (unsigned short*)1,
+            count, modulusLength, modulus, reduced, product, intermediate);
+        if (exponent[modulusLength - (bit >> 4) - 1] & (0x8000u >> (bit & 15))) {
+            func_ov031_0220c59c(output, accumulator, radix, count,
+                modulusLength, modulus, reduced, product, intermediate);
+        }
     }
     func_ov031_0220c59c(output, accumulator, 0, count, modulusLength,
         modulus, reduced, product, intermediate);

@@ -42,7 +42,12 @@ extern SecuritySettings data_ov031_0224f7f0;
 extern char data_ov031_0224fa28[4][0x28];
 extern WepKey data_ov031_0224f804[4];
 extern PairwiseMasterKey data_ov031_0224f884;
-extern PairwiseMasterKey data_ov031_0224fac0;
+struct Passphrase {
+    char text[0x40];
+    int length;
+    int field_0x44;
+};
+extern Passphrase data_ov031_0224fac0;
 extern "C" void func_ov031_022208b4(WepKey* destination, const char* text, int length);
 
 // USA: func_ov031_02220968
@@ -105,18 +110,14 @@ extern "C" THUMB int func_ov031_02220968() {
         } while (i < 4);
         break;
     }
-    case 2: {
+    case 2:
         data_ov031_0224f7f0.mode = 4;
-        PairwiseMasterKey* const passphrase = &data_ov031_0224f884;
-        *passphrase = data_ov031_0224fac0;
+        __memcpy(&data_ov031_0224f884, data_ov031_0224fac0.text, sizeof(data_ov031_0224f884));
         break;
-    }
-    case 3: {
+    case 3:
         data_ov031_0224f7f0.mode = 5;
-        PairwiseMasterKey* const passphrase = &data_ov031_0224f884;
-        *passphrase = data_ov031_0224fac0;
+        __memcpy(&data_ov031_0224f884, data_ov031_0224fac0.text, sizeof(data_ov031_0224f884));
         break;
-    }
     default:
         result = -7;
         break;

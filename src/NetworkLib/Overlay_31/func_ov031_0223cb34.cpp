@@ -33,13 +33,10 @@ extern unsigned char data_ov031_02248c80[2];
 extern "C" ARM void func_ov031_02226108() {
     data_ov031_02250c00->f60 = 0;
     if (!func_ov031_0223d5ac(&data_ov031_022493b8)) return;
-    Point16_02226108* b;
-    Point16_02226108* t;
     PointPair16_02226108 buf;
     int i;
-    i = 0; t = data_ov031_02248cda; b = &data_ov031_02248c88;
-    do {
-        func_ov031_0223cb34(t, b, &buf);
+    for (i = 0; i < 10; i++) {
+        func_ov031_0223cb34(&data_ov031_02248cda[i], &data_ov031_02248c88, &buf);
         if (func_ov031_0223d5ac(&buf)) {
             StatusStruct_02226108* p = data_ov031_02250c00;
             if (p->f61 != i) return;
@@ -48,11 +45,9 @@ extern "C" ARM void func_ov031_02226108() {
             func_ov031_022269d8();
             return;
         }
-        i++; t++;
-    } while (i < 10);
-    i = 0; t = data_ov031_02248cb0; b = &data_ov031_02248c90;
-    do {
-        func_ov031_0223cb34(t, b, &buf);
+    }
+    for (i = 0; i < 2; i++) {
+        func_ov031_0223cb34(&data_ov031_02248cb0[i], &data_ov031_02248c90, &buf);
         if (func_ov031_0223d5ac(&buf)) {
             StatusStruct_02226108* p = data_ov031_02250c00;
             if (p->f61 != i + 10) return;
@@ -61,11 +56,9 @@ extern "C" ARM void func_ov031_02226108() {
             func_ov031_022269d8();
             return;
         }
-        i++; t++;
-    } while (i < 2);
-    i = 0; t = data_ov031_02248cb8; b = &data_ov031_02248c94;
-    do {
-        func_ov031_0223cb34(t, b, &buf);
+    }
+    for (i = 0; i < 2; i++) {
+        func_ov031_0223cb34(&data_ov031_02248cb8[i], &data_ov031_02248c94, &buf);
         if (func_ov031_0223d5ac(&buf)) {
             StatusStruct_02226108* p = data_ov031_02250c00;
             if (p->f61 != i + 12) return;
@@ -74,6 +67,5 @@ extern "C" ARM void func_ov031_02226108() {
             func_ov031_022269d8();
             return;
         }
-        i++; t++;
-    } while (i < 2);
+    }
 }
