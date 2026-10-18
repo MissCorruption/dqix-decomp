@@ -19290,3 +19290,8 @@ src/Combat/Main/StoreToFirstNonNull02040bfc.cpp:
 src/Combat/Main/Notify02022d78WithCode2.cpp:
     complete
     .text start:0x020dddc0 end:0x020ddddc
+
+src/Combat/Main/func_0201c1f8.cpp:
+    complete
+    .text start:0x0201bf70 end:0x0201c11c
+
