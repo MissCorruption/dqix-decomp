@@ -588,14 +588,7 @@ data_ov004_02170360 kind:data(any) addr:0x02170360
 data_ov004_02170398 kind:data(any) addr:0x02170398
 data_ov004_0217039a kind:data(any) addr:0x0217039a
 data_ov004_021703af kind:data(any) addr:0x021703af
-data_ov004_021703c0 kind:data(any) addr:0x021703c0
-data_ov004_021703c7 kind:data(any) addr:0x021703c7
-data_ov004_021703d7 kind:data(any) addr:0x021703d7
-data_ov004_021703ed kind:data(any) addr:0x021703ed
-data_ov004_021703ff kind:data(any) addr:0x021703ff
-data_ov004_02170415 kind:data(any) addr:0x02170415
-data_ov004_0217042c kind:data(any) addr:0x0217042c
-data_ov004_0217043e kind:data(any) addr:0x0217043e
+@stringBase0 kind:data(any) addr:0x021703c0 local
 data_ov004_02170444 kind:data(any) addr:0x02170444
 data_ov004_021704a4 kind:data(any) addr:0x021704a4
 data_ov004_02170524 kind:data(any) addr:0x02170524
@@ -631,7 +624,13 @@ data_ov004_021707b0 kind:data(any) addr:0x021707b0
 data_ov004_021707c0 kind:bss addr:0x021707c0
 data_ov004_021707c4 kind:bss addr:0x021707c4
 data_ov004_021707c8 kind:bss addr:0x021707c8
-data_ov004_021707d8 kind:bss addr:0x021707d8
+sShown0$1602 kind:bss addr:0x021707d8 local
+sShown1$1603 kind:bss addr:0x021707d9 local
+sShown2$1600 kind:bss addr:0x021707da local
+sShown3$1599 kind:bss addr:0x021707db local
+sShown4$1601 kind:bss addr:0x021707dc local
+data_ov004_021707e0 kind:bss addr:0x021707e0
+data_ov004_021707e4 kind:bss addr:0x021707e4
 data_ov004_021707e8 kind:bss addr:0x021707e8
 data_ov004_021707f0 kind:bss addr:0x021707f0
 data_ov004_02170814 kind:bss addr:0x02170814

@@ -36,3 +36,4 @@ void BlankFunction02094b3c(FontBankLoader* loader, int event);
 void BlankFunction02094b40(FontBankLoader* loader);
 void* AlwaysFalse02094b44(FontBankLoader* loader, int event);
 int AlwaysTrue02094b4c(FontBankLoader* loader);
+int AlwaysFalse02094b54(FontBankLoader* loader, int event, char* data, int size);
