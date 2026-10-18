@@ -828,7 +828,7 @@ _Z23SetOrInitField_02182498Pvi kind:function(arm,size=0x40) addr:0x021835c4
 _Z36DecrementFieldsAndMaybeReset021824d8Pv kind:function(arm,size=0x44) addr:0x02183604
 func_ov000_0218251c kind:function(arm,size=0x4b4) addr:0x02183648
 _Z32ZeroFieldsAt0x6e8_ov000_02182a44Pv kind:function(arm,size=0x14) addr:0x02183afc
-data_ov000_02183b10 kind:data(any) addr:0x02183b10
+data_ov000_02182a58 kind:data(any) addr:0x02183b10
 data_ov000_02182a60 kind:data(any) addr:0x02183b18
 data_ov000_02182a64 kind:data(any) addr:0x02183b1c
 data_ov000_02182a6c kind:data(any) addr:0x02183b24
@@ -837,7 +837,7 @@ data_ov000_02182a7c kind:data(any) addr:0x02183b34
 data_ov000_02182a85 kind:data(any) addr:0x02183b3d
 data_ov000_02182a94 kind:data(any) addr:0x02183b4c
 data_ov000_02182aa0 kind:data(any) addr:0x02183b58
-data_ov000_02183b64 kind:data(any) addr:0x02183b64
+data_ov000_02182aac kind:data(any) addr:0x02183b64
 data_ov000_02182ab8 kind:data(any) addr:0x02183b70
 data_ov000_02182ac5 kind:data(any) addr:0x02183b7d
 data_ov000_02182ad4 kind:data(any) addr:0x02183b8c
