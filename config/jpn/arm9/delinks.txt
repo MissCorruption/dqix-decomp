@@ -18906,3 +18906,7 @@ src/Combat/Main/DecrementSlotRef0206b198.cpp:
 src/Combat/Main/InitOrReinitContext0206b2c8.cpp:
     complete
     .text start:0x0206cbe8 end:0x0206cc50
+
+src/Combat/Main/MeasureTextWidth0206b6b8.cpp:
+    complete
+    .text start:0x0206cf44 end:0x0206cfd4
