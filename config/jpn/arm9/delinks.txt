@@ -18950,3 +18950,11 @@ src/Combat/Main/GuardedNotifyOverlay0211e33c020d6c34.cpp:
 src/Combat/Main/GuardedNotifyOverlay0211e33c020d6c68.cpp:
     complete
     .text start:0x020d8670 end:0x020d86a4
+
+src/Combat/Main/NotifyLocalizedResourceLoad020dcfc8.cpp:
+    complete
+    .text start:0x020de9cc end:0x020dea34
+
+src/Combat/Main/NotifyLocalizedResourceLoad020dd040.cpp:
+    complete
+    .text start:0x020dea34 end:0x020dea98
