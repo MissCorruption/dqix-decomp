@@ -20950,3 +20950,6 @@ src/Combat/Main/func_0204483c.cpp:
     complete
     .text start:0x0204483c end:0x02044974
 
+src/MSL/Main/02003418.cpp:
+    complete
+    .text start:0x02003418 end:0x02003c3c
