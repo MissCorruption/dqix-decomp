@@ -20842,3 +20842,31 @@ src/NitroSDK/Main/LoadOverlayMetadata.cpp:
 src/Combat/Main/func_0204e3e0.cpp:
     complete
     .text start:0x0204e3e0 end:0x0204e998
+
+src/NitroSDK/Main/CalculateRotationSmooth.cpp:
+    complete
+    .text start:0x020b89b0 end:0x020b8cf4
+
+src/NitroSDK/Main/CalculateScalingAmountFrameAligned.cpp:
+    complete
+    .text start:0x020b8210 end:0x020b8404
+
+src/NitroSDK/Main/CalculateTranslationAmountFrameAligned.cpp:
+    complete
+    .text start:0x020b7f54 end:0x020b80b4
+
+src/NitroSDK/Main/CalculateTranslationAmountSmooth.cpp:
+    complete
+    .text start:0x020b80b4 end:0x020b8210
+
+src/NitroSDK/Main/ComputeEntryByteOffset_020cf990.cpp:
+    complete
+    .text start:0x020cf990 end:0x020cf9f4
+
+src/NitroSDK/Main/func_020c30ac.cpp:
+    complete
+    .text start:0x020c30ac end:0x020c3194
+
+src/NitroSDK/Main/func_020c3194.cpp:
+    complete
+    .text start:0x020c3194 end:0x020c3260
