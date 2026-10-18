@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/FontGlyphTable.h"
 #if defined(jpn)
-#define func_0204e038 func_0204f2f8
 #define data_020f0303 data_020f0330
 #define data_020f0306 data_020f0333
 #endif
