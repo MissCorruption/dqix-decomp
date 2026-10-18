@@ -6,8 +6,10 @@ struct Obj020bda58 {
     SignedAllocatorList list;
 };
 
+typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+
 // USA: func_020bda58
-ARM void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int size, int a2, int a3, int a4) {
+ARM void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int size, NNSSndHeapDisposeCallback callback, int a3, int a4) {
     unsigned int allocSize = ((size + 0x1f) & ~0x1f) + 0x20;
     unsigned char* entry = (unsigned char*)obj->allocator->Allocate(allocSize, 0x20);
     if (entry == NULL) {
@@ -15,7 +17,7 @@ ARM void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int siz
     }
     SignedAllocatorList* target = (SignedAllocatorList*)obj->list.ElementBefore(NULL);
     *(int*)(entry + 0x8) = size;
-    *(int*)(entry + 0xc) = a2;
+    *(NNSSndHeapDisposeCallback*)(entry + 0xc) = callback;
     *(int*)(entry + 0x10) = a3;
     *(int*)(entry + 0x14) = a4;
     target->InsertAtEnd((SignedAllocatorHeader*)entry);

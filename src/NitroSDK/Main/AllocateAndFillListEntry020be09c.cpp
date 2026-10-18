@@ -3,11 +3,12 @@
 int GetListEntryWord4020bd79c(unsigned int index);
 extern "C" int func_020bd7c4(unsigned int index, void* buf, int size, int flag);
 struct Obj020bda58;
-extern void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int size, int a2, int a3, int a4);
+typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+extern void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int size, NNSSndHeapDisposeCallback callback, int a3, int a4);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 // USA: func_020be09c  (semantic: AllocateAndFillListEntry020be09c)
-extern "C" ARM void* func_020be09c(unsigned int index, int a2, int a3, int a4, struct Obj020bda58* obj) {
+extern "C" ARM void* func_020be09c(unsigned int index, NNSSndHeapDisposeCallback callback, int a3, int a4, struct Obj020bda58* obj) {
     unsigned int listEntry = GetListEntryWord4020bd79c(index);
     if (!listEntry) {
         return 0;
@@ -15,7 +16,7 @@ extern "C" ARM void* func_020be09c(unsigned int index, int a2, int a3, int a4, s
     if (!obj) {
         return 0;
     }
-    void* newEntry = AllocateAndLinkEntry020bda58(obj, listEntry + 0x20, a2, a3, a4);
+    void* newEntry = AllocateAndLinkEntry020bda58(obj, listEntry + 0x20, callback, a3, a4);
     if (!newEntry) {
         return 0;
     }

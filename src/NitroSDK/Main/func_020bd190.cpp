@@ -5,7 +5,8 @@ struct Obj020bda58;
 
 int NitroVM_ReadSync(NitroVM* vm, void* dst, int capacity);
 int NitroVM_Seek(NitroVM* vm, int position, int whence);
-void* AllocateAndLinkEntry020bda58(Obj020bda58* heap, unsigned int size, int callback, int data1, int data2);
+typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+void* AllocateAndLinkEntry020bda58(Obj020bda58* heap, unsigned int size, NNSSndHeapDisposeCallback callback, int data1, int data2);
 void ClearField0x8cCallback_020bd8f0(void*, void*, void*);
 void ClearField0x84Callback_020bd8fc(void*, void*, void*);
 void ClearField0x88Callback_020bd908(void*, void*, void*);
@@ -47,7 +48,7 @@ extern "C" ARM int func_020bd190(SoundArchive020bd190* arc, Obj020bda58* heap, i
         return 0;
 
     if (heap != NULL) {
-        arc->info = AllocateAndLinkEntry020bda58(heap, arc->header.infoSize, (int)ClearField0x8cCallback_020bd8f0, (int)arc, 0);
+        arc->info = AllocateAndLinkEntry020bda58(heap, arc->header.infoSize, (NNSSndHeapDisposeCallback)ClearField0x8cCallback_020bd8f0, (int)arc, 0);
         if (arc->info == NULL)
             return 0;
 
@@ -59,7 +60,7 @@ extern "C" ARM int func_020bd190(SoundArchive020bd190* arc, Obj020bda58* heap, i
         if (readSize != arc->header.infoSize)
             return 0;
 
-        arc->fat = AllocateAndLinkEntry020bda58(heap, arc->header.fatSize, (int)ClearField0x84Callback_020bd8fc, (int)arc, 0);
+        arc->fat = AllocateAndLinkEntry020bda58(heap, arc->header.fatSize, (NNSSndHeapDisposeCallback)ClearField0x84Callback_020bd8fc, (int)arc, 0);
         if (arc->fat == NULL)
             return 0;
 
@@ -72,7 +73,7 @@ extern "C" ARM int func_020bd190(SoundArchive020bd190* arc, Obj020bda58* heap, i
             return 0;
 
         if (symbolLoadFlag && arc->header.symbolDataSize > 0) {
-            arc->symbol = AllocateAndLinkEntry020bda58(heap, arc->header.symbolDataSize, (int)ClearField0x88Callback_020bd908,
+            arc->symbol = AllocateAndLinkEntry020bda58(heap, arc->header.symbolDataSize, (NNSSndHeapDisposeCallback)ClearField0x88Callback_020bd908,
                                                        (int)arc, 0);
             if (arc->symbol == NULL)
                 return 0;
