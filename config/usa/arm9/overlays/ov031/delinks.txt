@@ -7719,3 +7719,13 @@ src/NetworkLib/Overlay_31/func_ov031_022266b0.cpp:
 src/NetworkLib/Overlay_31/func_ov031_02217604.cpp:
     complete
     .text start:0x02217604 end:0x022178b4
+
+
+src/NetworkLib/Overlay_31/func_ov031_0221f6dc.cpp:
+    complete
+    .text start:0x0221f6dc end:0x0221f7c4
+
+
+src/NetworkLib/Overlay_31/func_ov031_02223c08.cpp:
+    complete
+    .text start:0x02223c08 end:0x02223f6c
