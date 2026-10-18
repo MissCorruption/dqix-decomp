@@ -726,8 +726,8 @@ data_ov024_021fefa0 kind:data(any) addr:0x021ff76c
 data_ov024_021fefb0 kind:data(any) addr:0x021ff77c
 data_ov024_021fefc2 kind:data(any) addr:0x021ff78e
 data_ov024_021fefd6 kind:data(any) addr:0x021ff7a2
-data_ov024_021ff7b6 kind:data(any) addr:0x021ff7b6
-data_ov024_021ff7b7 kind:data(any) addr:0x021ff7b7
+data_ov024_021fefea kind:data(any) addr:0x021ff7b6
+data_ov024_021fefeb kind:data(any) addr:0x021ff7b7
 data_ov024_021ff002 kind:data(any) addr:0x021ff7ce
 data_ov024_021ff003 kind:data(any) addr:0x021ff7cf
 data_ov024_021ff004 kind:data(any) addr:0x021ff7d0
