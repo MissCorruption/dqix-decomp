@@ -27,9 +27,6 @@ struct SearchStruct {
     }
 };
 struct FlagWord02046708;
-#if defined(jpn)
-#define func_0202c04c func_0202bbfc
-#endif
 unsigned short GetGlobalHalf0x0_0202df58();
 void* GetDataPtr02114e04_020d6c00();
 int TestFlags02046708(FlagWord02046708*, unsigned int);

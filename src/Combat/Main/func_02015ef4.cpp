@@ -16,7 +16,6 @@ struct State0207dfc8;
 struct Vec3copy0202ec84;
 
 #if defined(jpn)
-#define func_02015cd0 func_02015a9c
 #define data_020e6e88 data_020e772c
 #define data_020ef20b data_020ef147
 #endif

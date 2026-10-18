@@ -2225,7 +2225,7 @@ from:0x021ea394 kind:arm_call to:0x0215e9fc module:overlay(0)
 from:0x021ea3ac kind:arm_call to:0x020742fc module:main
 from:0x021ea3d8 kind:arm_call to:0x0215ff50 module:overlay(0)
 from:0x021ea3e4 kind:arm_call to:0x0215ff50 module:overlay(0)
-from:0x021ea440 kind:arm_call to:0x02156558 module:overlays(0,1)
+from:0x021ea440 kind:arm_call to:0x02156558 module:overlay(0)
 from:0x021ea464 kind:arm_call to:0x0215ff50 module:overlay(0)
 from:0x021ea49c kind:arm_call to:0x0215ff50 module:overlay(0)
 from:0x021ea4c8 kind:load to:0x021fe768 module:overlay(24)
