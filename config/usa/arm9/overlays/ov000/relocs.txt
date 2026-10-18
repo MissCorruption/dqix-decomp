@@ -1387,6 +1387,8 @@ from:0x0215e408 kind:load to:0x02182d34 module:overlay(0)
 from:0x0215e414 kind:load to:0x02182a60 module:overlay(0)
 from:0x0215e418 kind:load to:0x02182ba4 module:overlay(0)
 from:0x0215e424 kind:load to:0x02182b04 module:overlay(0)
+from:0x0215e444 kind:arm_call to:0x0200fe68 module:main
+from:0x0215e450 kind:arm_call to:0x02010088 module:main
 from:0x0215e554 kind:arm_call to:0x021eb510 module:overlay(24)
 from:0x0215e55c kind:arm_call to:0x021eb510 module:overlay(24)
 from:0x0215e578 kind:arm_call to:0x021eb5d0 module:overlay(24)
