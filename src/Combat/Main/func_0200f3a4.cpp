@@ -87,6 +87,7 @@ struct ByteFlags0x7ff0 {
 };
 
 // USA: func_0200f3a4
+// EUR: func_0200f3a4
 extern "C" ARM void func_0200f3a4(void* obj) {
     GameState* gs = (GameState*)obj;
     char* base = (char*)obj;
@@ -96,7 +97,11 @@ extern "C" ARM void func_0200f3a4(void* obj) {
     func_020c99c8(buf);
     v = buf[0];
     *(unsigned char*)(base + 5) = v;
+#if defined(eur)
+    if (v != 2 && v != 3 && v != 4 && v != 5) *(unsigned char*)(base + 5) = 1;
+#else
     if (v != 2 && v != 5) *(unsigned char*)(base + 5) = 1;
+#endif
 
     memset(gs->objects_, 0, sizeof(gs->objects_));
 

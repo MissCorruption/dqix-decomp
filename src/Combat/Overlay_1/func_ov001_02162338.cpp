@@ -21,12 +21,17 @@ static inline int Passes(int result, int expected) {
 }
 
 // USA: func_ov001_02162338
+// EUR: func_ov001_02162338
 extern "C" ARM int func_ov001_02162338(void* obj, int count) {
     func_ov017_021d6134(obj, 1);
     unsigned int id = OVERLAY_ID(29);
     func_020a1940(id);
     *(unsigned int*)(&data_ov001_02165880 + 0x28) = 0;
+#if defined(eur)
+    if (count > 1 && func_ov017_021d60f4((char*)obj + 8) == 2) {
+#else
     if (count > 1 && func_ov017_021d60f4((char*)obj + 8) == 1) {
+#endif
         if (Passes(func_ov029_021d8e94(InvokeCallbackReturn1bf27f_0215a6fc, IncrementCounterBy1_021622f0, 0), 0x1bf27f)
             && Passes(func_ov029_021d8f84(InvokeCallbackReturn1befcb_0215a718, IncrementCounterBy2_02162308, 0), 0x1befcb)
             && Passes(func_ov029_021d9074(InvokeCallbackReturn1beb10_0215a734, IncrementCounterBy3_02162320, 0), 0x1beb10)
