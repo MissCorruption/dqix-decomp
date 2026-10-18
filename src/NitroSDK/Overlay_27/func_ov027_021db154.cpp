@@ -59,13 +59,12 @@ struct DispatchCtx021db154 {
 };
 
 extern DispatchCtx021db154 data_ov027_021dd940;
-extern int data_ov027_021dd980;
+extern int data_ov027_021dd980 __attribute__((aligned(32)));
 extern unsigned short data_ov027_021dd988;
 extern unsigned char data_ov027_021dd990[0x58];
 extern unsigned char data_ov027_021dd9e8[8];
 
 // USA: func_ov027_021db154  (semantic: PublishBattleSnapshot_021db154)
-#pragma optimize_for_size off
 extern "C" ARM void func_ov027_021db154(int a0, unsigned short a1, unsigned char a2) {
     if (data_ov027_021dd940.f26 != data_ov027_021dd940.f1c->f4b4) {
         func_ov027_021db124();
