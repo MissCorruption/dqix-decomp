@@ -142,7 +142,11 @@ struct TitleScene0218b5a8 {
 };
 
 static inline void ShowText(MessageSystem* g, TitleScene0218b5a8* self, int id) {
+#if defined(jpn)
+    func_0204500c(g, GetFieldByKey020e0434((Container020e0310*)self->texts, id), 0);
+#else
     func_0204500c(g, GetFieldByKey020e0434((Container020e0310*)self->texts, id), 0, 0xe3);
+#endif
 }
 
 static inline void GX_SetBGCharOffset(int offset) {
