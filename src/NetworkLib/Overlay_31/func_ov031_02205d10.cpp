@@ -35,7 +35,7 @@ extern "C" void func_ov031_02205ebc(ReceiveObject*);
 extern "C" ARM int func_ov031_02205d10(ReceiveRequest* request) {
     ReceiveObject* object = request->object;
     ReceiveBuffer* buffer = object->buffer;
-    int consumed = buffer->consumed;
+    unsigned int consumed = buffer->consumed;
     unsigned int length = request->length;
     void* output = request->output;
     unsigned short* remotePort = request->remotePort;

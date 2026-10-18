@@ -28,12 +28,8 @@ static inline unsigned short Swap16_02202e44(unsigned short value) { return (val
 
 // USA: func_ov031_02202e44
 extern "C" ARM void func_ov031_02202e44(IPv4Packet02202e44* packet, unsigned int available) {
-    unsigned short sourceLow = packet->sourceLow;
-    unsigned short sourceHigh = packet->sourceHigh;
-    unsigned short destinationLow = packet->destinationLow;
-    unsigned short destinationHigh = packet->destinationHigh;
-    unsigned int destination = ((unsigned short)((destinationHigh >> 8) | (destinationHigh << 8)) << 16) | (unsigned short)((destinationLow >> 8) | (destinationLow << 8));
-    unsigned int source = ((unsigned short)((sourceHigh >> 8) | (sourceHigh << 8)) << 16) | (unsigned short)((sourceLow >> 8) | (sourceLow << 8));
+    unsigned int source = (Swap16_02202e44(packet->sourceHigh) << 16) | Swap16_02202e44(packet->sourceLow);
+    unsigned int destination = (Swap16_02202e44(packet->destinationHigh) << 16) | Swap16_02202e44(packet->destinationLow);
     if (destination != source) {
         if (!func_ov031_022007a4(destination)) return;
         if (available < Swap16_02202e44(packet->length)) return;

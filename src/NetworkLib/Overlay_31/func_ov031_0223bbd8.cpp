@@ -28,16 +28,14 @@ extern "C" ARM void func_ov031_0223bbd8(PositionList* list, int index, int x, in
         return;
     }
     int i;
-    signed long originX, originY;
+    int originX, originY;
     GetObjectPosition0223bbd8(entries, (unsigned long*)&originX, (unsigned long*)&originY);
     SetObjectPosition0223bbd8(entries, x, y);
     int deltaX = x - originX;
     int deltaY = y - originY;
-    i = 1;
-    if (i < list->count) do {
-        signed long positionX, positionY;
+    for (i = 1; i < list->count; i++) {
+        int positionX, positionY;
         GetObjectPosition0223bbd8(&entries[i], (unsigned long*)&positionX, (unsigned long*)&positionY);
         SetObjectPosition0223bbd8(&entries[i], positionX + deltaX, positionY + deltaY);
-        i++;
-    } while (i < list->count);
+    }
 }

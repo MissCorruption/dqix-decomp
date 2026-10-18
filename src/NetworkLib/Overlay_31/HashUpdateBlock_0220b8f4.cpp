@@ -12,7 +12,8 @@ extern "C" void func_ov031_0220b218(HashCtx_0220b8f4*, const void*);
 
 // USA: func_ov031_0220b8f4  (semantic: HashUpdateBlock_0220b8f4)
 extern "C" ARM void func_ov031_0220b8f4(HashCtx_0220b8f4* ctx, const void* input, unsigned int inputLen) {
-    unsigned int i, index, partLen;
+    int i;
+    unsigned int index, partLen;
     index = (ctx->countLo >> 3) & 0x3f;
     if ((ctx->countLo += (inputLen << 3)) < (inputLen << 3)) ctx->countHi++;
     ctx->countHi += (inputLen >> 29);
@@ -21,15 +22,11 @@ extern "C" ARM void func_ov031_0220b8f4(HashCtx_0220b8f4* ctx, const void* input
         VectorizedInvertedMemcpy(input, ctx->buffer + index, partLen);
         index = 0;
         func_ov031_0220b218(ctx, ctx->buffer);
-        i = partLen;
-        if (i + 0x3f < inputLen) {
-            do {
-                func_ov031_0220b218(ctx, (char*)input + i);
-                i += 0x40;
-            } while (i + 0x3f < inputLen);
+        for (i = partLen; i + 63 < inputLen; i += 64) {
+            func_ov031_0220b218(ctx, (const void*)((unsigned int)input + i));
         }
     } else {
         i = 0;
     }
-    VectorizedInvertedMemcpy((char*)input + i, ctx->buffer + index, inputLen - i);
+    VectorizedInvertedMemcpy((const void*)((unsigned int)input + i), ctx->buffer + index, inputLen - i);
 }

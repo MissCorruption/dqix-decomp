@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 
-extern unsigned char data_ov031_02249118[22];
+struct FileName_0223336c { char name[22]; };
+extern FileName_0223336c data_ov031_02249118;
 
 typedef void (*Callback_022234d8)(void*, int, int);
 extern "C" void func_ov031_022234d8(int a0, Callback_022234d8 cb);
@@ -20,25 +21,13 @@ extern DataOv02290cc8_0223336c data_ov031_02290cc8;
 
 // USA: func_ov031_0223336c  (semantic: BuildFilenameAndDispatch_0223336c)
 extern "C" ARM void func_ov031_0223336c(void) {
-    char buf[24];
-    int n = 11;
-    char* dst = buf;
-    unsigned char* src = data_ov031_02249118;
-    do {
-        unsigned char a = src[0];
-        unsigned char b = src[1];
-        src += 2;
-        dst[0] = a;
-        dst[1] = b;
-        dst += 2;
-        n--;
-    } while (n != 0);
+    FileName_0223336c buf = data_ov031_02249118;
 
     func_ov031_022234d8((int)&data_ov031_0224bd04, (Callback_022234d8)LoadToMainBG2CharacterData);
     func_ov031_022234d8((int)&data_ov031_0224bd1c, (Callback_022234d8)LoadToMainBGStandardPalette);
     func_ov031_022234d8((int)&data_ov031_0224bd34, (Callback_022234d8)LoadToMainBG2ScreenData);
 
-    const char* name = func_ov031_02223478(buf);
+    const char* name = func_ov031_02223478(buf.name);
     void* result = func_ov031_0223b61c(name, 0, 4);
     data_ov031_02290cc8.field4 = (int)result;
 

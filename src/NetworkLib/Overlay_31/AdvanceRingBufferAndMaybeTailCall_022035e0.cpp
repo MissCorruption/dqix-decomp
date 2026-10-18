@@ -31,7 +31,8 @@ extern "C" ARM void func_ov031_022035e0(int amount, StructOv31_022035e0* obj) {
 		memmove(base, (char*)base + amount, rem);
 	}
 	SetIRQInterruptState(state);
-	if (obj->field8 == 10 || obj->field8 == 11) return;
+	if (obj->field8 == 10) return;
+	if (obj->field8 == 11) return;
 	if (obj->field44 != 0 && flag == 0) return;
 	TailCallType16_02201f84((int)obj, 0x1b);
 }

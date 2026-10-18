@@ -20,13 +20,11 @@ struct Block8 {
     unsigned char v[8];
 };
 
-static inline void Copy8(unsigned char* dst, const unsigned char* src) {
-    unsigned char* d = dst;
-    const unsigned char* s = src;
-    int k = 8;
-    do {
-        *d++ = *s++;
-    } while (--k != 0);
+static inline void Copy8(const unsigned char* src, unsigned char* dst) {
+    unsigned int k;
+    for (k = 8; k != 0; k--) {
+        *dst++ = *src++;
+    }
 }
 
 // USA: func_ov031_02220f0c  (semantic: AES key wrap, RFC 3394)
@@ -43,6 +41,7 @@ extern "C" THUMB int func_ov031_02220f0c(Block8* cipher, const unsigned char* pl
     int Nr;
     Block8* r;
     long long nn;
+    long long t0;
 
     iv[0] = 0xa6a6a6a6;
     iv[1] = 0xa6a6a6a6;
@@ -55,16 +54,16 @@ extern "C" THUMB int func_ov031_02220f0c(Block8* cipher, const unsigned char* pl
     }
     Nr = func_ov031_022212c4(rk, kek, kekLen * 8);
     memcpy(cipher + 1, plain, len);
-    Copy8(b[0].v, (unsigned char*)iv);
+    Copy8((unsigned char*)iv, b[0].v);
 
     j = 0;
     nn = n;
     do {
         i = 1;
         if (i <= n) {
-            long long t0 = func_0200cf24(nn, j);
+            t0 = func_0200cf24(nn, j);
             do {
-                r = cipher + i;
+                r = (Block8*)((char*)cipher + i * sizeof(Block8));
                 b[1] = *r;
                 func_ov031_0222170c(rk, Nr, b[0].v, b[0].v);
                 t = i + t0;
@@ -74,6 +73,6 @@ extern "C" THUMB int func_ov031_02220f0c(Block8* cipher, const unsigned char* pl
             } while (++i <= n);
         }
     } while (++j < 6);
-    *cipher = b[0];
+    Copy8(b[0].v, cipher->v);
     return 1;
 }

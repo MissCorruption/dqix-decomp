@@ -17,7 +17,7 @@ long long ComputeEntryByteOffset_020cf990(int arg0, unsigned char* arg1);
 int Is64BitTimerInitialized();
 unsigned long long GetCurrentTimestamp(void);
 extern "C" void CopyFrom027ffcf4_020c99ac(void* dst);
-extern "C" unsigned long long func_ov031_0221be64(unsigned int rand, unsigned int mac, unsigned int flag, unsigned int kind);
+extern "C" unsigned long long func_ov031_0221be64(unsigned int rand, unsigned int mac, unsigned char flag, unsigned int kind);
 
 struct MATHRandContext16 { unsigned int x; unsigned int mul; unsigned int add; };
 
@@ -64,13 +64,11 @@ extern "C" ARM int func_ov031_0221c258(DWCAuthWiFiId* id) {
     MATH_InitRand16(&rand, (unsigned int)sec);
     id->pass = MATH_Rand16(&rand, 1000);
     id->notAttestedId = 0;
-    if (id->notAttestedId == 0) {
-        do {
-            MATH_Rand16(&rand, 0);
-            while (rand.x == 0 || id->randomHistory == (unsigned short)rand.x) MATH_Rand16(&rand, 0);
-            id->randomHistory = (unsigned short)rand.x;
-            id->notAttestedId = func_ov031_0221be64(id->randomHistory, macLow, flag, 0);
-        } while (id->notAttestedId == 0);
+    while (id->notAttestedId == 0) {
+        MATH_Rand16(&rand, 0);
+        while (rand.x == 0 || id->randomHistory == (unsigned short)rand.x) MATH_Rand16(&rand, 0);
+        id->randomHistory = (unsigned short)rand.x;
+        id->notAttestedId = func_ov031_0221be64(id->randomHistory, macLow, flag, 0);
     }
     return 1;
 }

@@ -6329,7 +6329,7 @@ src/NetworkLib/Overlay_31/func_ov031_02214ac8.cpp:
     complete
     .text start:0x02214ac8 end:0x02214afc
 
-src/NetworkLib/Overlay_31/func_ov031_0223d69c.cpp:
+src/NetworkLib/Overlay_31/func_ov031_0223d69c.c:
     complete
     .text start:0x0223d69c end:0x0223d704
 
@@ -7612,7 +7612,7 @@ src/NetworkLib/Overlay_31/func_ov031_022210c4.cpp:
     complete
     .text start:0x022210c4 end:0x0222127c
 
-src/NetworkLib/Overlay_31/func_ov031_0223d1b8.cpp:
+src/NetworkLib/Overlay_31/func_ov031_0223d1b8.c:
     complete
     .text start:0x0223d1b8 end:0x0223d354
 

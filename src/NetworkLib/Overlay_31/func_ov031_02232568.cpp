@@ -10,7 +10,11 @@ extern "C" void LoadToMainBG2CharacterData(int, int, unsigned int);
 extern "C" void LoadToMainBGStandardPalette(int, int, unsigned int);
 extern "C" void LoadToMainBG2ScreenData(int, int, unsigned int);
 
-extern unsigned char data_ov031_0224906c[22];
+struct Name02232568 {
+	unsigned char bytes[22];
+};
+
+extern Name02232568 data_ov031_0224906c;
 extern unsigned char data_ov031_0224bc94[1];
 extern unsigned char data_ov031_0224bca8[1];
 extern unsigned char data_ov031_0224bcc0[1];
@@ -21,25 +25,14 @@ extern Ptr02290cc0 data_ov031_02290cc0;
 
 // USA: func_ov031_02232568
 extern "C" ARM void func_ov031_02232568(void) {
-	unsigned char buf[24];
-	int n = 11;
-	unsigned char* d = buf;
-	unsigned char* s = data_ov031_0224906c;
-	do {
-		unsigned char a = s[0];
-		unsigned char b = s[1];
-		s += 2;
-		d[0] = a;
-		d[1] = b;
-		d += 2;
-	} while (--n);
+	Name02232568 name = data_ov031_0224906c;
 
 	func_ov031_022234d8(data_ov031_0224bc94, (void*)LoadToMainObjStandardPalette);
 	func_ov031_022234d8(data_ov031_0224bca8, (void*)LoadToMainBG2CharacterData);
 	func_ov031_022234d8(data_ov031_0224bcc0, (void*)LoadToMainBGStandardPalette);
 	func_ov031_022234d8(data_ov031_0224bcd8, (void*)LoadToMainBG2ScreenData);
 
-	int t = func_ov031_02223478(buf);
+	int t = func_ov031_02223478(name.bytes);
 
 	int r = func_ov031_0223b61c(t, 0, 4);
 	*(int*)data_ov031_02290cc0.field4 = r;

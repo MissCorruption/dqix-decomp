@@ -10,14 +10,10 @@ extern "C" ARM void func_ov031_0221314c(unsigned char* name, void* src, int mode
 	obj[0xd0c] = (obj[0xd0c] & ~0xf) | 1;
 	VectorizedMemset(obj, 0, 0xf0);
 
-	int i = 0;
-	do {
-		unsigned char c = name[i];
-		if (c == 0) break;
-		unsigned char* p = obj + i;
-		i++;
-		p[0x40] = c;
-	} while (i < 0x20);
+	for (int i = 0; i < 0x20; i++) {
+		if (name[i] == 0) break;
+		obj[0x40 + i] = name[i];
+	}
 
 	if (src == 0 || mode == 0) {
 		obj[0xe6] = obj[0xe6] & ~3;
@@ -33,7 +29,5 @@ extern "C" ARM void func_ov031_0221314c(unsigned char* name, void* src, int mode
 		size = 0x10;
 	}
 	VectorizedInvertedMemcpy(src, obj + 0x80, size);
-	unsigned int t = (unsigned char)mode;
-	t = t & 3;
-	obj[0xe6] = (obj[0xe6] & ~3) | t;
+	obj[0xe6] = (obj[0xe6] & ~3) | ((unsigned char)mode & 3);
 }

@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 
+typedef struct TPData_0223d1b8 TPData_0223d1b8;
 struct TPData_0223d1b8 {
     unsigned short x;
     unsigned short y;
@@ -7,11 +8,13 @@ struct TPData_0223d1b8 {
     unsigned short validity;
 };
 
+typedef struct TouchPos_0223d1b8 TouchPos_0223d1b8;
 struct TouchPos_0223d1b8 {
     unsigned short x;
     unsigned short y;
 };
 
+typedef struct InputState_0223d1b8 InputState_0223d1b8;
 struct InputState_0223d1b8 {
     TPData_0223d1b8 samples[5];
     TouchPos_0223d1b8 cur;
@@ -27,6 +30,7 @@ struct InputState_0223d1b8 {
     unsigned char otherFlags : 4;
 };
 
+typedef struct InputGlobal_0223d1b8 InputGlobal_0223d1b8;
 struct InputGlobal_0223d1b8 {
     unsigned char enabled;
     unsigned char tpCounter;
@@ -36,38 +40,30 @@ struct InputGlobal_0223d1b8 {
 
 extern InputGlobal_0223d1b8 data_ov031_02290d40;
 
-unsigned short GetHalfword021117b0At0x10_020cdddc();
-extern "C" void func_020cdfd8(TPData_0223d1b8* dst, const TPData_0223d1b8* src);
-extern "C" void func_ov031_0223cb10(unsigned short a, unsigned short b, TouchPos_0223d1b8* out);
-extern "C" int FastIntModulus(int a, int b);
+unsigned short GetHalfword021117b0At0x10_020cdddc(void);
+void func_020cdfd8(TPData_0223d1b8* dst, const TPData_0223d1b8* src);
+void func_ov031_0223cb10(unsigned short a, unsigned short b, TouchPos_0223d1b8* out);
+int FastIntModulus(int a, int b);
 
 // USA: func_ov031_0223d1b8
-extern "C" ARM void func_ov031_0223d1b8(void) {
+ARM void func_ov031_0223d1b8(void) {
     int i;
     unsigned char found;
     int prev;
     int idx;
     TPData_0223d1b8 tp;
-    InputState_0223d1b8* in;
-    unsigned short x;
-    unsigned short y;
 
     prev = data_ov031_02290d40.inner->touch ? 1 : 0;
     found = 0;
     idx = GetHalfword021117b0At0x10_020cdddc();
-    in = data_ov031_02290d40.inner;
-    x = in->cur.x;
-    y = in->cur.y;
-    in->prev.x = x;
-    in->prev.y = y;
+    data_ov031_02290d40.inner->prev = data_ov031_02290d40.inner->cur;
     i = 0;
     do {
         TPData_0223d1b8* s = &data_ov031_02290d40.inner->samples[idx];
         if (s->touch == 1 && s->validity == 0) {
             found = 1;
             func_020cdfd8(&tp, s);
-            x = tp.x;
-            func_ov031_0223cb10(x, tp.y, &data_ov031_02290d40.inner->cur);
+            func_ov031_0223cb10(tp.x, tp.y, &data_ov031_02290d40.inner->cur);
             break;
         }
         i++;

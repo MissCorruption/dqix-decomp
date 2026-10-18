@@ -21,13 +21,11 @@ struct Block8 {
     unsigned char v[8];
 };
 
-static inline void Copy8(unsigned char* dst, const unsigned char* src) {
-    unsigned char* d = dst;
-    const unsigned char* s = src;
-    int k = 8;
-    do {
-        *d++ = *s++;
-    } while (--k != 0);
+static inline void Copy8(const unsigned char* src, unsigned char* dst) {
+    unsigned int k;
+    for (k = 8; k != 0; k--) {
+        *dst++ = *src++;
+    }
 }
 
 // USA: func_ov031_022210c4  (semantic: AES key unwrap, RFC 3394)
@@ -58,7 +56,7 @@ extern "C" THUMB int func_ov031_022210c4(Block8* plain, const unsigned char* cip
         return 0;
     }
     Nr = func_ov031_0222157c(rk, kek, kekLen * 8);
-    Copy8(b[0].v, cipher);
+    Copy8(cipher, b[0].v);
     memcpy(plain, cipher + 8, len - 1);
 
     j = 5;
