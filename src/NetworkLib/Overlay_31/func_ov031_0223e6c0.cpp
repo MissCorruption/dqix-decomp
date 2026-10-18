@@ -16,9 +16,10 @@ struct NetworkContext {
     int field28, field2c, field30;
 };
 extern NetworkContext data_ov031_02290da0;
-extern unsigned char data_ov031_02290de0[], data_ov031_02290e28[], data_ov031_02290dd4[], data_ov031_02290e0c[], data_ov031_02290df4[];
+extern unsigned char data_ov031_02290de0[], data_ov031_02290dd4[], data_ov031_02290e0c[], data_ov031_02290df4[];
+extern char data_ov031_02290e28[];
 extern "C" void func_ov031_0223fae8(void*);
-void LogEventCategory33_0223ea60(int);
+int LogEventCategory33_0223ea60(char*);
 extern "C" void* func_ov031_0223e674(const char*);
 extern "C" int func_ov031_0223e454(void*, const void*, int);
 int ClearFourWordsAndFlag_0223fa34();
@@ -41,7 +42,7 @@ extern "C" ARM int func_ov031_0223e6c0(AllocateCallback allocate, FreeCallback r
     data_ov031_02290da0.secret = 0;
     data_ov031_02290da0.identity = 0;
     func_ov031_0223fae8(data_ov031_02290de0);
-    LogEventCategory33_0223ea60((int)data_ov031_02290e28);
+    LogEventCategory33_0223ea60(data_ov031_02290e28);
     if ((data_ov031_02290da0.identity = func_ov031_0223e674(identity)) &&
         (data_ov031_02290da0.secret = func_ov031_0223e674(secret))) {
         int length = func_ov031_0223e454(data_ov031_02290dd4, identifier, 4);

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_ov031_0221aae4(int a, int b, char* out, int size);
+extern "C" int func_ov031_0221aae4(unsigned char* source, unsigned int length, char* out, unsigned int capacity);
 extern "C" int func_ov031_0221883c(void* self, void* buf, int extra);
-int VariadicForward020c7170(int a, int b, int c, ...);
+int VariadicForward020c7170(char* destination, unsigned long capacity, const char* format, ...);
 
 extern const char data_ov031_02249edc[];
 extern const char data_ov031_02249ee0[];
@@ -12,6 +12,7 @@ struct TextBuffer_02218604 {
     char* start;
     char* cur;
     char* end;
+    int capacity;
 };
 
 struct Printer_02218604 {
@@ -20,8 +21,8 @@ struct Printer_02218604 {
     TextBuffer_02218604 buf;
 };
 
-// USA: func_ov031_02218604  (semantic: AppendNamedValue_02218604)
-extern "C" ARM int func_ov031_02218604(Printer_02218604* self, const char* name, int a, int b) {
+// USA: func_ov031_02218604
+extern "C" ARM int func_ov031_02218604(Printer_02218604* self, const char* name, void* value, int length) {
     int len;
     TextBuffer_02218604* buf = &self->buf;
     const char* fmt = self->depth == 0 ? data_ov031_02249edc : data_ov031_02249ee0;
@@ -32,7 +33,7 @@ extern "C" ARM int func_ov031_02218604(Printer_02218604* self, const char* name,
     char* cur;
 
     self->depth = self->depth + 1;
-    len = func_ov031_0221aae4(a, b, 0, 0);
+    len = func_ov031_0221aae4(static_cast<unsigned char*>(value), length, 0, 0);
     lenFmt = (int)strlen(fmt);
     need = len + (lenFmt - 2 + (int)strlen(name));
     cur = buf->cur;
@@ -44,9 +45,9 @@ extern "C" ARM int func_ov031_02218604(Printer_02218604* self, const char* name,
         cur = buf->cur;
         avail = buf->end - cur;
     }
-    written = VariadicForward020c7170((int)cur, avail, (int)fmt, name);
+    written = VariadicForward020c7170(cur, avail, fmt, name);
     buf->cur = buf->cur + written;
-    if (func_ov031_0221aae4(a, b, buf->cur, buf->end - buf->cur - 1) >= 0) {
+    if (func_ov031_0221aae4(static_cast<unsigned char*>(value), length, buf->cur, buf->end - buf->cur - 1) >= 0) {
         buf->cur = buf->cur + len;
         *buf->cur = 0;
         return 0;

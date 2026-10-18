@@ -8,10 +8,10 @@ extern "C" void* func_ov011_021849c8(void*);
 extern "C" void* func_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" void func_ov023_021fa598(void*);
-extern "C" void* _Z26GetGlobalField0x1c020421a0v();
-extern "C" void _Z22SetByte0x7f70_02012028Pvh(void*, unsigned char);
+int GetGlobalField0x1c020421a0();
+void SetByte0x7f70_02012028(void*, unsigned char);
 extern "C" void* func_ov011_021845f8(void*, int);
-extern "C" int _Z23VariadicForward020c7170iiiz(char*, int, const char*, ...);
+int VariadicForward020c7170(char* destination, unsigned long capacity, const char* format, ...);
 extern const char data_ov004_02170fac[];
 struct MethodRecord0216dcc8 { char pad[0x20]; char* text; };
 struct SavedNumber0216dcc8 { char pad[0x48]; unsigned long long number; };
@@ -22,9 +22,9 @@ extern "C" ARM int func_ov004_0216d718(void* self)
     void* entry = func_ov023_021f6880(func_ov011_021849c8(self), 0x192);
     if (entry != 0 && func_ov023_021f6f10(entry) == 4)
         func_ov023_021fa598(entry);
-    _Z26GetGlobalField0x1c020421a0v();
+    GetGlobalField0x1c020421a0();
     GameState* state = GameState::GetInstance();
-    _Z22SetByte0x7f70_02012028Pvh(state, 0);
+    SetByte0x7f70_02012028(state, 0);
     SafeAllocator* allocator = (SafeAllocator*)((char*)func_ov011_021845f8(self, 5) + 4);
     char* buffer = (char*)allocator->Allocate(0x400);
     memset(buffer, 0, 0x400);
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov004_0216d718(void* self)
         record = 0;
     if (record != 0) {
         char number[13];
-        _Z23VariadicForward020c7170iiiz(number, 13, data_ov004_02170fac, GetSection6000(GetSection120(state))->number);
+        VariadicForward020c7170(number, 13, data_ov004_02170fac, GetSection6000(GetSection120(state))->number);
         char* in = number;
         char* out = buffer;
         for (int i = 0; i < 3; i++) {
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov004_0216d718(void* self)
 }
 #else
 
-// USA: func_ov004_0216d718  (semantic: ReturnZero_0216d718)
+// USA: func_ov004_0216d718
 extern "C" ARM int func_ov004_0216d718(void) {
     return 0;
 }

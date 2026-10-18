@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
 
-typedef void (*Init_0222d720)(void*);
+typedef void (*Init_0222d720)(char*);
 struct InitTable_0222d720 { Init_0222d720 funcs[5]; };
 struct Consts_0222d720 { unsigned char pad[8]; unsigned char sounds[5]; unsigned char pad2[0x18 - 0xd]; };
 struct OamAttr_0222d720 { unsigned char pad[4]; unsigned short pad2 : 10; unsigned short priority : 2; };
 struct State_0222d720 {
     int field0;
     OamAttr_0222d720* oam;
-    unsigned char digits[12];
+    char digits[12];
     unsigned char cursor;
     unsigned char status;
 };

@@ -5753,7 +5753,7 @@ src/NetworkLib/Overlay_31/func_ov031_0220da1c.cpp:
     complete
     .text start:0x0220da1c end:0x0220dab4
 
-src/Combat/Overlay_31/func_ov031_022178b4.cpp:
+src/NetworkLib/Overlay_31/func_ov031_022178b4.cpp:
     complete
     .text start:0x022178b4 end:0x02217c00
 
@@ -7714,3 +7714,7 @@ src/NetworkLib/Overlay_31/func_ov031_022266b0.cpp:
     complete
     .text start:0x022266b0 end:0x02226910
     .rodata start:0x02248c88 end:0x02248ca8
+
+src/NetworkLib/Overlay_31/func_ov031_02217604.cpp:
+    complete
+    .text start:0x02217604 end:0x022178b4

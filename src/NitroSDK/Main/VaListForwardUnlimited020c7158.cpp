@@ -2,9 +2,9 @@
 
 typedef char* va_list;
 
-extern "C" int func_020c7198(int a, int b, int c, va_list ap);
+extern "C" int func_020c7198(char* dst, unsigned long len, const char* fmt, va_list ap);
 
 // USA: func_020c7158
-ARM int VaListForwardUnlimited020c7158(int a, int b, va_list ap) {
-    return func_020c7198(a, 0x7fffffff, b, ap);
+ARM int VaListForwardUnlimited020c7158(char* dst, const char* fmt, va_list ap) {
+    return func_020c7198(dst, 0x7fffffff, fmt, ap);
 }

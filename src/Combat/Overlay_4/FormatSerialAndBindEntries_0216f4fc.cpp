@@ -14,13 +14,13 @@ extern "C" void* func_ov011_021849c8(void* ctx);
 extern "C" void* func_ov023_021f6880(void* list, int id);
 extern "C" int func_ov023_021f6f10(void* node);
 extern "C" void func_ov023_021f809c(void* node, void* ctx);
-int VariadicForward020c7170(int a, int b, int c, ...);
+int VariadicForward020c7170(char* destination, unsigned long capacity, const char* format, ...);
 
-extern int data_ov004_021707b0;
+extern const char data_ov004_021707b0[];
 struct Struct02171048_0216f4fc { char pad[4]; char* ptr; };
 extern Struct02171048_0216f4fc data_ov004_02171048;
 
-// USA: func_ov004_0216f4fc  (semantic: FormatSerialAndBindEntries_0216f4fc)
+// USA: func_ov004_0216f4fc
 extern "C" ARM int func_ov004_0216f4fc(void* ctx) {
     char buf[0x10];
     GameState* battle = GameState::GetInstance();
@@ -38,9 +38,8 @@ extern "C" ARM int func_ov004_0216f4fc(void* ctx) {
     if (code != NULL) {
         char* p = (char*)battle + serialBase;
         p += serialPage;
-        VariadicForward020c7170((int)buf, 0xd, (int)&data_ov004_021707b0, *(long long*)(p + 0x48));
+        VariadicForward020c7170(buf, 0xd, data_ov004_021707b0, *(long long*)(p + 0x48));
 
-        // Rewrite the formatted digits as three dash-separated groups of four.
         dst = data_ov004_02171048.ptr + 0xe;
         src = buf;
         for (k = 0; k < 3; k++) {
