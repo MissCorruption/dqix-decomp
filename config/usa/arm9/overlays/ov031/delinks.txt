@@ -7723,3 +7723,28 @@ src/NetworkLib/Overlay_31/func_ov031_02217604.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0222ec20.cpp:
     complete
     .text start:0x0222ec20 end:0x0222ee34
+
+
+src/NetworkLib/Overlay_31/func_ov031_02201550.cpp:
+    complete
+    .text start:0x02201550 end:0x022017c4
+
+
+src/NetworkLib/Overlay_31/func_ov031_0220abc4.cpp:
+    complete
+    .text start:0x0220abc4 end:0x0220afe0
+
+
+src/NetworkLib/Overlay_31/func_ov031_0221e1ec.cpp:
+    complete
+    .text start:0x0221e1ec end:0x0221e250
+
+
+src/NetworkLib/Overlay_31/func_ov031_022212c4.cpp:
+    complete
+    .text start:0x022212c4 end:0x0222157c
+
+
+src/NetworkLib/Overlay_31/func_ov031_0223ffb0.cpp:
+    complete
+    .text start:0x0223ffb0 end:0x02240050
