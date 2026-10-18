@@ -8,9 +8,17 @@ union Position48f0 { Vec48f0 plain; Vector3i vector; };
 struct Event48f0 { unsigned char tag,pad[3]; unsigned short zone; unsigned char byte6,byte7; unsigned short field8; short x,y,z,angle; };
 struct Actor48f0 { Object3D object; char padac[2]; short height; char padb0[0xd4-0xb0]; Vector3i previous; unsigned char flags; char pade1[0x130-0xe1]; unsigned int state; char pad134[0x158-0x134]; Vector3i target; unsigned short field164,slot; };
 struct ActorHead48f0 { char pad0[0x130]; unsigned int* stats; };
+#if defined(jpn)
+struct Work48f0 { char pad0[3]; unsigned char active; char pad4[0xfd-4]; unsigned char ready; };
+#else
 struct Work48f0 { char pad0[3]; unsigned char active; char pad4[0x101-4]; unsigned char ready; };
+#endif
 struct Party48f0 { char pad0[0xf7d]; unsigned char flag; };
+#if defined(jpn)
+struct Resource48f0 { char pad0[0x34c0]; unsigned char* bits; char pad36d4[0x3524-0x34c4]; Work48f0* work; };
+#else
 struct Resource48f0 { char pad0[0x36d0]; unsigned char* bits; char pad36d4[0x3734-0x36d4]; Work48f0* work; };
+#endif
 int GetSignedByte0x1ca_02039888(void*); void ClearFlag0x1ceBit0x4_02039d58(unsigned char*);
 GameObject* GetCombatantWithFlag0x1000_0200ff58(GameState*,int); int GetSignedByte0x2d0_020546a8(void*);
 extern "C" unsigned short* func_02012fe4(); void ClearBytesAndZeroBlock02039d24(unsigned char*);
