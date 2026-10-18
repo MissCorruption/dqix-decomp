@@ -18909,3 +18909,335 @@ src/NitroSDK/Main/func_020d0f40.cpp:
 src/NitroSDK/Main/func_020d0f74.cpp:
     complete
     .text start:0x020d2a40 end:0x020d2a90
+
+src/MSL/Main/func_020059cc.cpp:
+    complete
+    .text start:0x020058e8 end:0x020059b0
+
+src/NitroSDK/Main/func_020b1b54.cpp:
+    complete
+    .text start:0x020b3620 end:0x020b3814
+
+src/NitroSDK/Main/func_020cf9f4.cpp:
+    complete
+    .text start:0x020d14c0 end:0x020d15c0
+
+src/NitroSDK/Main/Vector3fix_CrossProduct.cpp:
+    complete
+    .text start:0x020c4900 end:0x020c4984
+
+src/NitroSDK/Main/ColorEffect_ConfigureBrightnessAdjust.cpp:
+    complete
+    .text start:0x020c6bcc end:0x020c6bf4
+
+src/MSL/Main/func_02008dcc.cpp:
+    complete
+    .text start:0x02008ce8 end:0x02008e58
+
+src/MSL/Main/func_02009424.cpp:
+    complete
+    .text start:0x02009340 end:0x020094b4
+
+src/MSL/Main/func_020076f0.cpp:
+    complete
+    .text start:0x0200760c end:0x0200792c
+
+src/MSL/Main/func_020085cc.cpp:
+    complete
+    .text start:0x020084e8 end:0x02008764
+
+src/NitroSDK/Main/InitializeModelAnimationFromMAM.cpp:
+    complete
+    .text start:0x020bab80 end:0x020bac54
+
+src/NitroSDK/Main/InitializeModelAnimationFromMAT.cpp:
+    complete
+    .text start:0x020bb050 end:0x020bb124
+
+src/NitroSDK/Main/InitializeModelAnimationFromMPT.cpp:
+    complete
+    .text start:0x020bb168 end:0x020bb244
+
+src/MSL/Main/func_02009edc.cpp:
+    complete
+    .text start:0x02009df8 end:0x0200a09c
+
+src/NitroSDK/Main/GetAlignedFieldSize020d4900_020d4900.cpp:
+    complete
+    .text start:0x020d635c end:0x020d6420
+
+src/NitroSDK/Main/DispatchCartridgeReadToArm7_020d06fc.cpp:
+    complete
+    .text start:0x020d21c8 end:0x020d2300
+
+src/NitroSDK/Main/NSBXX_AttachTexturePaletteToModel.cpp:
+    complete
+    .text start:0x020b4ebc end:0x020b4fc4
+
+src/NitroSDK/Main/AwaitCardReadManagerIdle.cpp:
+    complete
+    .text start:0x020d1a1c end:0x020d1a68
+
+src/NitroSDK/Main/LockCardReadManager.cpp:
+    complete
+    .text start:0x020d17c4 end:0x020d1848
+
+src/NitroSDK/Main/VerifyDownloadPlayStruct.cpp:
+    complete
+    .text start:0x020cedd8 end:0x020cee6c
+
+src/NitroSDK/Main/func_020ce39c.cpp:
+    complete
+    .text start:0x020cfe68 end:0x020cff28
+
+src/NitroSDK/Main/InitGridRowsAndFlushCache_020d2a48.cpp:
+    complete
+    .text start:0x020d4514 end:0x020d4590
+
+src/NitroSDK/Main/func_020b2054.cpp:
+    complete
+    .text start:0x020b3b20 end:0x020b3b7c
+
+src/MSL/Main/func_020015e8.cpp:
+    complete
+    .text start:0x02001504 end:0x0200162c
+
+src/NitroSDK/Main/func_020b11c8.cpp:
+    complete
+    .text start:0x020b2c94 end:0x020b2dcc
+
+src/NitroSDK/Main/func_020b1540.cpp:
+    complete
+    .text start:0x020b300c end:0x020b31a4
+
+src/NitroSDK/Main/func_020b16d8.cpp:
+    complete
+    .text start:0x020b31a4 end:0x020b33b4
+
+src/NitroSDK/Main/func_020b19b8.cpp:
+    complete
+    .text start:0x020b3484 end:0x020b3620
+
+src/NitroSDK/Main/func_020b1f48.cpp:
+    complete
+    .text start:0x020b3a14 end:0x020b3ac4
+
+src/NitroSDK/Main/func_020b23a8.cpp:
+    complete
+    .text start:0x020b3e74 end:0x020b3f28
+
+src/NitroSDK/Main/func_020b245c.cpp:
+    complete
+    .text start:0x020b3f28 end:0x020b4090
+
+src/NitroSDK/Main/AttachTextureImageToModelMaterials.cpp:
+    complete
+    .text start:0x020b4a68 end:0x020b4b98
+
+src/NitroSDK/Main/DetachTextureImageFromModelMaterials.cpp:
+    complete
+    .text start:0x020b4b98 end:0x020b4c50
+
+src/NitroSDK/Main/NSBXX_AttachTextureImageToModel.cpp:
+    complete
+    .text start:0x020b4c50 end:0x020b4d50
+
+src/NitroSDK/Main/NSBXX_DetachTextureImageFromModel.cpp:
+    complete
+    .text start:0x020b4d50 end:0x020b4ddc
+
+src/NitroSDK/Main/NSBXX_DetachTexturePaletteFromModel.cpp:
+    complete
+    .text start:0x020b4fc4 end:0x020b5048
+
+src/NitroSDK/Main/AttachTexturePaletteToModelMaterials.cpp:
+    complete
+    .text start:0x020b4ddc end:0x020b4ebc
+
+src/NitroSDK/Main/NSBXX_LinkTEX0ToMDL0.cpp:
+    complete
+    .text start:0x020b5048 end:0x020b50f8
+
+src/NitroSDK/Main/NSBXX_UnlinkTEX0FromMDL0.cpp:
+    complete
+    .text start:0x020b50f8 end:0x020b518c
+
+src/NitroSDK/Main/ChangeContextPriority.cpp:
+    complete
+    .text start:0x020c955c end:0x020c9604
+
+src/NitroSDK/Main/LoadOverlayMetadataFromNitro.cpp:
+    complete
+    .text start:0x020ceac8 end:0x020cebc0
+
+src/NitroSDK/Main/SleepCurrentContext.cpp:
+    complete
+    .text start:0x020c960c end:0x020c96b4
+
+src/NitroSDK/Main/func_020b1300.cpp:
+    complete
+    .text start:0x020b2dcc end:0x020b300c
+
+src/NitroSDK/Main/CycleCurrentPriorityContexts.cpp:
+    complete
+    .text start:0x020c9488 end:0x020c9540
+
+src/NitroSDK/Main/func_020b27c8.cpp:
+    complete
+    .text start:0x020b4294 end:0x020b43e8
+
+src/NitroSDK/Main/LoadOverlayMetadata.cpp:
+    complete
+    .text start:0x020cebc0 end:0x020cecbc
+
+src/NitroSDK/Main/CalculateRotationSmooth.cpp:
+    complete
+    .text start:0x020ba47c end:0x020ba7c0
+
+src/NitroSDK/Main/CalculateScalingAmountFrameAligned.cpp:
+    complete
+    .text start:0x020b9cdc end:0x020b9ed0
+
+src/NitroSDK/Main/CalculateTranslationAmountFrameAligned.cpp:
+    complete
+    .text start:0x020b9a20 end:0x020b9b80
+
+src/NitroSDK/Main/CalculateTranslationAmountSmooth.cpp:
+    complete
+    .text start:0x020b9b80 end:0x020b9cdc
+
+src/NitroSDK/Main/ComputeEntryByteOffset_020cf990.cpp:
+    complete
+    .text start:0x020d145c end:0x020d14c0
+
+src/NitroSDK/Main/func_020c30ac.cpp:
+    complete
+    .text start:0x020c4b78 end:0x020c4c60
+
+src/NitroSDK/Main/func_020c3194.cpp:
+    complete
+    .text start:0x020c4c60 end:0x020c4d2c
+
+src/MSL/Main/func_02009778.cpp:
+    complete
+    .text start:0x02009694 end:0x02009818
+
+src/NitroSDK/Main/func_020bb7cc.cpp:
+    complete
+    .text start:0x020bd298 end:0x020bd3d4
+
+src/NitroSDK/Main/func_020bf520.cpp:
+    complete
+    .text start:0x020c0fec end:0x020c1124
+
+src/NitroSDK/Main/func_020b0a1c.cpp:
+    complete
+    .text start:0x020b24e8 end:0x020b284c
+
+src/NitroSDK/Main/func_020beed8.cpp:
+    complete
+    .text start:0x020c09a4 end:0x020c0c14
+
+src/NitroSDK/Main/func_020cfc00.cpp:
+    complete
+    .text start:0x020d16cc end:0x020d1788
+
+src/MSL/Main/func_02001bdc.cpp:
+    complete
+    .text start:0x02001af8 end:0x02002088
+
+src/MSL/Main/func_0200a180.cpp:
+    complete
+    .text start:0x0200a09c end:0x0200a21c
+
+src/NitroSDK/Main/func_020bf79c.cpp:
+    complete
+    .text start:0x020c1268 end:0x020c1a90
+
+src/NitroSDK/Main/func_020cb764.cpp:
+    complete
+    .text start:0x020cd230 end:0x020cd5dc
+
+src/NitroSDK/Main/func_020cf294.cpp:
+    complete
+    .text start:0x020d0d60 end:0x020d12b0
+
+src/MSL/Main/func_0200a3a8.cpp:
+    complete
+    .text start:0x0200a2c4 end:0x0200a8e8
+
+src/NitroSDK/Main/func_020b5758.cpp:
+    complete
+    .text start:0x020b7224 end:0x020b7980
+
+src/Combat/Main/func_020e1780.cpp:
+    complete
+    .text start:0x020e3378 end:0x020e3574
+
+src/MSL/Main/func_020054f4.cpp:
+    complete
+    .text start:0x02005410 end:0x020054f0
+
+src/MSL/Main/func_02007028.cpp:
+    complete
+    .text start:0x02006f44 end:0x0200760c
+
+src/MSL/Main/func_02007a10.cpp:
+    complete
+    .text start:0x0200792c end:0x020084e8
+
+src/MSL/Main/func_02008f5c.cpp:
+    complete
+    .text start:0x02008e78 end:0x02009038
+
+src/MSL/Main/func_020091d8.cpp:
+    complete
+    .text start:0x020090f4 end:0x02009340
+
+src/Combat/Main/func_020def98.cpp:
+    complete
+    .text start:0x020e0b10 end:0x020e0eec
+
+src/Combat/Main/func_020e0028.cpp:
+    complete
+    .text start:0x020e1bfc end:0x020e1e54
+
+src/NitroSDK/Main/SampleSinCosFromMATTrack.cpp:
+    complete
+    .text start:0x020bae44 end:0x020baf50
+
+src/NitroSDK/Main/ScaleFieldy1000_020bec98_020bec98.cpp:
+    complete
+    .text start:0x020c0764 end:0x020c07a0
+
+src/NitroSDK/Main/ScaleFieldy1000_020becd4_020becd4.cpp:
+    complete
+    .text start:0x020c07a0 end:0x020c07dc
+
+src/MSL/Main/func_02005ea0.cpp:
+    complete
+    .text start:0x02005dbc end:0x02006f44
+
+src/NitroSDK/Main/InitAllocatorsAndVmPoolOnce_020be9e8.cpp:
+    complete
+    .text start:0x020c04b4 end:0x020c05b8
+
+src/NitroSDK/Main/NSBXX_Model_AdjustPolygonAttrMask.cpp:
+    complete
+    .text start:0x020b8a30 end:0x020b8ad8
+
+src/NitroSDK/Main/NSBXX_Model_SetAllMaterialFlags.cpp:
+    complete
+    .text start:0x020b8988 end:0x020b8a30
+
+src/NitroSDK/Main/func_020d03fc.cpp:
+    complete
+    .text start:0x020d1ec8 end:0x020d20b8
+
+src/NitroSDK/Main/func_020d3df8.cpp:
+    complete
+    .text start:0x020d5854 end:0x020d5a38
+
+src/Runtime/Main/func_0200dbf8.cpp:
+    complete
+    .text start:0x0200dabc end:0x0200de44

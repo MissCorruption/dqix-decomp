@@ -1613,7 +1613,7 @@ func_ov031_02238c40 kind:function(arm,size=0x68) addr:0x02239420
 func_ov031_02238ca8 kind:function(arm,size=0xf8) addr:0x02239488
 _Z31CallSetGlobalThenOv027_02238da0v kind:function(arm,size=0x14) addr:0x02239580
 _Z31CallOv027IfFieldsMatch_02238db4v kind:function(arm,size=0x30) addr:0x02239594
-func_ov031_022395c4 kind:function(arm,size=0x324) addr:0x022395c4
+func_ov031_02238de4 kind:function(arm,size=0x324) addr:0x022395c4
 _Z26SetGlobal02290d14_02239108t kind:function(arm,size=0x14) addr:0x022398e8
 _Z26GetGlobal02290d14_0223911cv kind:function(arm,size=0x14) addr:0x022398fc
 func_ov031_02239130 kind:function(arm,size=0x58) addr:0x02239910
@@ -2592,8 +2592,8 @@ data_ov031_0224cef4 kind:data(any) addr:0x0224cef4
 data_ov031_0224c318 kind:data(any) addr:0x0224cf18
 data_ov031_0224c340 kind:data(any) addr:0x0224cf40
 data_ov031_0224c348 kind:data(any) addr:0x0224cf48
-data_ov031_0224cf4c kind:data(any) addr:0x0224cf4c
-data_ov031_0224cf78 kind:data(any) addr:0x0224cf78
+data_ov031_0224c34c kind:data(any) addr:0x0224cf4c
+data_ov031_0224c378 kind:data(any) addr:0x0224cf78
 data_ov031_0224c3a4 kind:data(any) addr:0x0224cfa4
 data_ov031_0224c3c4 kind:data(any) addr:0x0224cfc4
 data_ov031_0224c3f4 kind:data(any) addr:0x0224cff4
