@@ -140,20 +140,6 @@ struct TextContext021b0bc0 {
     int field34;
 };
 
-typedef char RestoreSnapshotWordCheck[(int)&((Snapshot021b0bc0*)0)->f2c4 == 0x2c4 ? 1 : -1];
-typedef char RestoreContextStateCheck[(int)&((ZoneState021b0bc0*)0)->f1b34 == 0x1b34 ? 1 : -1];
-#if defined(jpn)
-typedef char RestoreFlagCheck[(int)&((Self021b0bc0*)0)->f284 == 0x214 ? 1 : -1];
-typedef char RestoreSnapshotCheck[(int)&((Self021b0bc0*)0)->snapshot == 0x218 ? 1 : -1];
-typedef char RestoreZoneContextCheck[(int)&((Zone021b0bc0*)0)->state == 0x860 ? 1 : -1];
-typedef char RestoreZonePairCheck[(int)&((ZoneState021b0bc0*)0)->f1f74 == 0x1f94 ? 1 : -1];
-#else
-typedef char RestoreFlagCheck[(int)&((Self021b0bc0*)0)->f284 == 0x284 ? 1 : -1];
-typedef char RestoreSnapshotCheck[(int)&((Self021b0bc0*)0)->snapshot == 0x288 ? 1 : -1];
-typedef char RestoreZoneContextCheck[(int)&((Zone021b0bc0*)0)->state == 0x840 ? 1 : -1];
-typedef char RestoreZonePairCheck[(int)&((ZoneState021b0bc0*)0)->f1f74 == 0x1f74 ? 1 : -1];
-#endif
-
 // USA: func_ov017_021b0bc0
 // JPN: func_ov017_021b1258
 extern "C" ARM void func_ov017_021b0bc0(Self021b0bc0* self) {

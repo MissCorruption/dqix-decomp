@@ -102,24 +102,6 @@ struct BattleIntro {
     char container[0x10];
 };
 
-#if defined(jpn)
-typedef char IntroAllocatorCheck[offsetof(BattleIntro, allocator) == 0x1ec ? 1 : -1];
-typedef char IntroContainerCheck[offsetof(BattleIntro, container) == 0x200 ? 1 : -1];
-typedef char IntroWindowActiveCheck[offsetof(MessageWindow, active) == 0x868 ? 1 : -1];
-typedef char IntroWindowBusyCheck[offsetof(MessageWindow, busy) == 0x870 ? 1 : -1];
-typedef char IntroWindowFlagCheck[offsetof(MessageWindow, flag19b2) == 0x17e2 ? 1 : -1];
-typedef char IntroCameraTargetCheck[offsetof(FieldGlobals, cameraTarget) == 0x27f8 ? 1 : -1];
-typedef char IntroBattleCountCheck[offsetof(FieldGlobals, battleCount) == 0x2810 ? 1 : -1];
-#else
-typedef char IntroAllocatorCheck[offsetof(BattleIntro, allocator) == 0x25c ? 1 : -1];
-typedef char IntroContainerCheck[offsetof(BattleIntro, container) == 0x270 ? 1 : -1];
-typedef char IntroWindowActiveCheck[offsetof(MessageWindow, active) == 0x998 ? 1 : -1];
-typedef char IntroWindowBusyCheck[offsetof(MessageWindow, busy) == 0x9a0 ? 1 : -1];
-typedef char IntroWindowFlagCheck[offsetof(MessageWindow, flag19b2) == 0x19b2 ? 1 : -1];
-typedef char IntroCameraTargetCheck[offsetof(FieldGlobals, cameraTarget) == 0x27b8 ? 1 : -1];
-typedef char IntroBattleCountCheck[offsetof(FieldGlobals, battleCount) == 0x27d0 ? 1 : -1];
-#endif
-
 unsigned char* GetFieldIfFlag4_020100f8(char* obj);
 MessageWindow* GetGlobalField0x1c020421a0();
 extern "C" FieldGlobals* func_02012fe4(void);

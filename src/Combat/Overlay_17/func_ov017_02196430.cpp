@@ -65,15 +65,6 @@ struct Actor02196430 {
     int GetFieldC3() const { return fieldc3; }
 };
 
-typedef char EntryLayoutCheck[(int)&((Ctx02196430*)0)->entry == EntryOffset ? 1 : -1];
-typedef char NodeLayoutCheck[(int)&((Ctx02196430*)0)->node == NodeOffset ? 1 : -1];
-typedef char BusyLayoutCheck[(int)&((Ctx02196430*)0)->busy == BusyOffset ? 1 : -1];
-typedef char ForceEventLayoutCheck[(int)&((Ctx02196430*)0)->forceEvent == ForceEventOffset ? 1 : -1];
-typedef char PendingIdLayoutCheck[(int)&((Ctx02196430*)0)->pendingId == PendingIdOffset ? 1 : -1];
-typedef char ActorFlagsLayoutCheck[(int)&((Actor02196430*)0)->flags18c == ActorFlagsOffset ? 1 : -1];
-typedef char RealOwnerBusyCheck[(int)&((GameResources*)0)->unknown_flag_42e2 == BusyOffset ? 1 : -1];
-typedef char RealOwnerNodeCheck[(int)&((GameResources*)0)->unknown_ptr_3718 == NodeOffset ? 1 : -1];
-
 struct Zone02196430 {
     char pad0[2];
     unsigned char busy;

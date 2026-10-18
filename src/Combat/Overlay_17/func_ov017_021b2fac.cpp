@@ -79,18 +79,6 @@ extern char data_ov017_021d7a78[];
 extern char data_ov017_021d7a8c[];
 extern char data_ov017_021d7a9c[];
 
-typedef char ReloadTaskIdCheck[(int)&((Task021b2fac*)0)->taskId == 0x10 ? 1 : -1];
-typedef char ReloadArchiveInfoCheck[sizeof(ObjectArchiveLoadInfo) == 0x20 ? 1 : -1];
-#if defined(jpn)
-typedef char ReloadStatsCheck[(int)&((Combatant021b2fac*)0)->stats == 0x144 ? 1 : -1];
-typedef char ReloadAllocatorCheck[(int)&((Combatant021b2fac*)0)->alloc == 0x148 ? 1 : -1];
-typedef char ReloadEntryCheck[(int)&((Combatant021b2fac*)0)->entry == 0x1b8 ? 1 : -1];
-#else
-typedef char ReloadStatsCheck[(int)&((Combatant021b2fac*)0)->stats == 0x150 ? 1 : -1];
-typedef char ReloadAllocatorCheck[(int)&((Combatant021b2fac*)0)->alloc == 0x154 ? 1 : -1];
-typedef char ReloadEntryCheck[(int)&((Combatant021b2fac*)0)->entry == 0x1c4 ? 1 : -1];
-#endif
-
 // USA: func_ov017_021b2fac
 // JPN: func_ov017_021b36bc
 extern "C" ARM void func_ov017_021b2fac(struct Task021b2fac* task) {

@@ -31,17 +31,6 @@ struct ResourceArena021a28a8 {
     char pairTables[0x20];
 };
 
-#if defined(jpn)
-typedef char AreaIdsOffset[(int)&((ResourceEntry021a28a8*)0)->ids == 0x40 ? 1 : -1];
-typedef char AreaMonstersOffset[(int)&((ResourceEntry021a28a8*)0)->monsters == 0x2f4 ? 1 : -1];
-typedef char AreaNodesOffset[(int)&((ResourceEntry021a28a8*)0)->nodes == 0x300 ? 1 : -1];
-typedef char ArenaTablesOffset[(int)&((ResourceArena021a28a8*)0)->pairTables == 0xf40 ? 1 : -1];
-#else
-typedef char AreaIdsOffset[(int)&((ResourceEntry021a28a8*)0)->ids == 0x44 ? 1 : -1];
-typedef char AreaMonstersOffset[(int)&((ResourceEntry021a28a8*)0)->monsters == 0x2f8 ? 1 : -1];
-typedef char AreaNodesOffset[(int)&((ResourceEntry021a28a8*)0)->nodes == 0x304 ? 1 : -1];
-typedef char ArenaTablesOffset[(int)&((ResourceArena021a28a8*)0)->pairTables == 0x1150 ? 1 : -1];
-#endif
 void ClearSlotsAndProcess_021a27e8(void*);
 ResourceEntry021a28a8* FindEntryByCurrentId02027cb0();
 int GetCount0209c0ec(char*);

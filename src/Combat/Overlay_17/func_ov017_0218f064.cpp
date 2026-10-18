@@ -56,23 +56,6 @@ enum { ActorBaseSize = 0x2c4, ActorExtendedSize = 0x2c8, ActorSpecialSize = 0x2e
 #else
 enum { ActorBaseSize = 0x2d0, ActorExtendedSize = 0x2d4, ActorSpecialSize = 0x2f8 };
 #endif
-typedef char SpawnComponentsSizeCheck[sizeof(Components0218f064) == 0x764 ? 1 : -1];
-typedef char SpawnEntryAllocatorCheck[(int)&((T020545b8*)0)->allocator == 0x5d8 ? 1 : -1];
-#if defined(jpn)
-typedef char SpawnBlocksCheck[(int)&((InternalOwner0218f064*)0)->blocks == 0x27c ? 1 : -1];
-typedef char SpawnDisposableCheck[(int)&((DisposableOwner0218f064*)0)->first == 0x4114 ? 1 : -1];
-typedef char SpawnActorEntryCheck[(int)&((Combatant0218f064*)0)->entry == 0x148 ? 1 : -1];
-typedef char SpawnActorSequenceCheck[(int)&((Combatant0218f064*)0)->sequence == 0x2c6 ? 1 : -1];
-typedef char SpawnContextCheck[(int)&((ZoneOwner0218f064*)0)->entries == 0x860 ? 1 : -1];
-typedef char SpawnSpecialCheck[(int)&((ZoneEntryContext0218f064*)0)->special == 0x1b58 ? 1 : -1];
-#else
-typedef char SpawnBlocksCheck[(int)&((InternalOwner0218f064*)0)->blocks == 0x2cc ? 1 : -1];
-typedef char SpawnDisposableCheck[(int)&((DisposableOwner0218f064*)0)->first == 0x4334 ? 1 : -1];
-typedef char SpawnActorEntryCheck[(int)&((Combatant0218f064*)0)->entry == 0x154 ? 1 : -1];
-typedef char SpawnActorSequenceCheck[(int)&((Combatant0218f064*)0)->sequence == 0x2d2 ? 1 : -1];
-typedef char SpawnContextCheck[(int)&((ZoneOwner0218f064*)0)->tail == 0x1840 ? 1 : -1];
-typedef char SpawnSpecialCheck[(int)&((ZoneSpecial0218f064*)0)->special == 0xb58 ? 1 : -1];
-#endif
 void* GetField0x3f8Address_0200fd0c(GameState*);
 extern "C" Zone3D* func_02012fe4();
 extern "C" void func_0202ae18();

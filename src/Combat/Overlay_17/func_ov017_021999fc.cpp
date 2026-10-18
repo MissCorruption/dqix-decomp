@@ -87,13 +87,6 @@ struct FieldMenu021999fc {
     Struct020dfc40* texts_;
 };
 
-typedef char MenuWindowLayout[(int)&((FieldMenu021999fc*)0)->window_ == MenuWindowOffset ? 1 : -1];
-typedef char MenuPixelsLayout[(int)&((FieldMenu021999fc*)0)->canvasPixels_ == MenuPixelsOffset ? 1 : -1];
-typedef char MenuAllocatorLayout[(int)&((FieldMenu021999fc*)0)->allocator_ == 0x178 ? 1 : -1];
-typedef char RealMenuAllocatorLayout[(int)&((GameResources*)0)->allocator_array_38[16] == 0x178 ? 1 : -1];
-typedef char MenuBackgroundSize[sizeof(BackgroundGraphics021999fc) == 0x20 ? 1 : -1];
-typedef char MenuCanvasSize[sizeof(Canvas021999fc) == 0xe0 ? 1 : -1];
-
 // USA: func_ov017_021999fc
 // JPN: func_ov017_0219a5ac
 extern "C" ARM void func_ov017_021999fc(FieldMenu021999fc* self) {

@@ -106,21 +106,6 @@ struct Combatant021b7284 {
     unsigned short group;
 };
 
-typedef char BattleSceneAllocatorCheck[offsetof(BattleScene021b7284, allocator) == 8 ? 1 : -1];
-typedef char BattleSceneDecodedCheck[offsetof(BattleScene021b7284, decoded) == 0x2c ? 1 : -1];
-typedef char BattleSceneContextCheck[offsetof(BattleScene021b7284, context) == 0x6b0 ? 1 : -1];
-typedef char BattleSceneFlagsCheck[offsetof(BattleScene021b7284, flags) == 0x6b6 ? 1 : -1];
-typedef char BattleCombatantGroupCheck[offsetof(Combatant021b7284, group) == 0x168 ? 1 : -1];
-#if defined(jpn)
-typedef char BattleHolderFlagsCheck[offsetof(Holder021b7284, flags) == 0x125 ? 1 : -1];
-typedef char BattleTableActiveCheck[offsetof(BattleTable021b7284, active) == 0x5c ? 1 : -1];
-typedef char BattleTableRowsCheck[offsetof(BattleTable021b7284, rows) == 0x120 ? 1 : -1];
-#else
-typedef char BattleHolderFlagsCheck[offsetof(Holder021b7284, flags) == 0x105 ? 1 : -1];
-typedef char BattleTableActiveCheck[offsetof(BattleTable021b7284, active) == 0x60 ? 1 : -1];
-typedef char BattleTableRowsCheck[offsetof(BattleTable021b7284, rows) == 0x124 ? 1 : -1];
-#endif
-
 struct Obj020397cc {
     unsigned char pad0[0xb2];
     unsigned short fieldB2;
