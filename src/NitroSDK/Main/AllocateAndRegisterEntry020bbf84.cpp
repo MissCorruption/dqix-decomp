@@ -2,7 +2,8 @@
 #include "Memory/SignedAllocator.h"
 
 struct Obj020bda58;
-extern void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int size, int a2, int a3, int a4);
+typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+extern void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int size, NNSSndHeapDisposeCallback callback, int a3, int a4);
 
 extern void* CreateAllocatorHolderInRegion_020bd914(void* start, unsigned int size);
 
@@ -26,7 +27,7 @@ extern struct ListEntry020bbf84 data_0210f824[];
 
 // USA: func_020bbf84
 ARM int AllocateAndRegisterEntry020bbf84(int index, struct Obj020bda58* obj, unsigned int size) {
-    Block020bbf84* block = (Block020bbf84*)AllocateAndLinkEntry020bda58(obj, size + 0x14, (int)&ReleaseActorAndUnlink020bc820, 0, 0);
+    Block020bbf84* block = (Block020bbf84*)AllocateAndLinkEntry020bda58(obj, size + 0x14, (NNSSndHeapDisposeCallback)&ReleaseActorAndUnlink020bc820, 0, 0);
     if (block == NULL) {
         return 0;
     }

@@ -12,7 +12,8 @@ void* GetGlobalContext02110370_020bd444(void);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 struct Obj020bda58;
-extern void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int size, int a2, int a3, int a4);
+typedef void (*NNSSndHeapDisposeCallback)(void* mem, unsigned int size, unsigned int data1, unsigned int data2);
+extern void* AllocateAndLinkEntry020bda58(struct Obj020bda58* obj, unsigned int size, NNSSndHeapDisposeCallback callback, int a3, int a4);
 void PrepareAndClearList020be4d4(int a0, int a1, int a2, int a3);
 
 struct ListHeader020be2ec {
@@ -39,7 +40,7 @@ extern "C" ARM void* func_020be2ec(unsigned int index, struct Obj020bda58* obj, 
         return NULL;
     }
     void* ctx = flag ? GetGlobalContext02110370_020bd444() : NULL;
-    entry = AllocateAndLinkEntry020bda58(obj, size2 + 0x5c, (int)&PrepareAndClearList020be4d4, (int)ctx, index);
+    entry = AllocateAndLinkEntry020bda58(obj, size2 + 0x5c, (NNSSndHeapDisposeCallback)&PrepareAndClearList020be4d4, (int)ctx, index);
     if (entry == NULL) {
         return NULL;
     }
