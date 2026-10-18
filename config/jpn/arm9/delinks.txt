@@ -19282,3 +19282,7 @@ src/Combat/Main/IncrementCounterUnlessFlagged.cpp:
 src/Combat/Main/CaptureTransformState02053ed8.cpp:
     complete
     .text start:0x02055250 end:0x0205527c
+
+src/Combat/Main/StoreToFirstNonNull02040bfc.cpp:
+    complete
+    .text start:0x020410f8 end:0x02041128
