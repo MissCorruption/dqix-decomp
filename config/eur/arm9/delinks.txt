@@ -20960,3 +20960,15 @@ src/NitroSDK/Main/func_020beaec.cpp:
 src/NitroSDK/Main/func_020d2220.cpp:
     complete
     .text start:0x020d2230 end:0x020d2304
+
+src/Combat/Main/AppendNamedEntry020d3cf0.cpp:
+    complete
+    .text start:0x020d3d00 end:0x020d3d88
+
+src/Combat/Main/FindEntryByKind.cpp:
+    complete
+    .text start:0x020d3da0 end:0x020d3ddc
+
+src/Combat/Main/func_020d39dc.cpp:
+    complete
+    .text start:0x020d39ec end:0x020d3c18
