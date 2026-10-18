@@ -13596,6 +13596,10 @@ src/NitroSDK/Main/GetListEntryWord4020bd79c.cpp:
     complete
     .text start:0x020bd79c end:0x020bd7c4
 
+src/NitroSDK/Main/GetHolderPair020bd88c.cpp:
+    complete
+    .text start:0x020bd88c end:0x020bd8ac
+
 src/NitroSDK/Main/GetListEntryWord8020bd8ac.cpp:
     complete
     .text start:0x020bd8ac end:0x020bd8d4
