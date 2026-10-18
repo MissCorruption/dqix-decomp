@@ -70,7 +70,7 @@ extern "C" void func_020ca3ec(unsigned long value, void* dst, unsigned long size
 extern "C" void func_020ca408(const void* src, void* dst, unsigned long size);
 extern "C" int func_020d424c(int paramNum, ...);
 WMArm9Buf* GetBattleContext_020d41d8();
-int GetAlignedField0x3eSize020d4900();
+int GetAlignedFieldSize020d4900();
 int GetAlignedField0x3cSize020d4894();
 void SetBattleContextArrayEntry_020d404c(int id, int callback);
 int CommitBattleContextBuffer020d4168(void* data, unsigned int length);
@@ -99,7 +99,7 @@ extern "C" ARM int func_020d5684(WMCallbackFunc callback, unsigned short* recvBu
     InvalidateDataCacheRange(&status->mp_ignoreSizePrecheckMode, 2);
     if (status->mp_ignoreSizePrecheckMode == false)
     {
-        if (recvBufSize < GetAlignedField0x3eSize020d4900())
+        if (recvBufSize < GetAlignedFieldSize020d4900())
             return 6;
         if (sendBufSize < GetAlignedField0x3cSize020d4894())
             return 6;
