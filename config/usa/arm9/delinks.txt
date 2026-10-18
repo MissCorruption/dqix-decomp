@@ -21002,3 +21002,13 @@ src/Combat/Main/FindEntryByKind.cpp:
 src/Combat/Main/func_020d39dc.cpp:
     complete
     .text start:0x020d39dc end:0x020d3c08
+
+
+src/Runtime/Main/func_0200df80.cpp:
+    complete
+    .text start:0x0200df80 end:0x0200e830
+
+
+src/Runtime/Main/func_0200ea08.cpp:
+    complete
+    .text start:0x0200ea08 end:0x0200ea68
