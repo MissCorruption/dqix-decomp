@@ -801,7 +801,7 @@ _Z23CopyNameToSlot_021c4618iPcP9GameStateP13GameResources kind:function(arm,size
 func_ov017_021c4664 kind:function(arm,size=0x88) addr:0x021c4b30
 func_ov017_021c46ec kind:function(arm,size=0x168) addr:0x021c4bb8
 func_ov017_021c4854 kind:function(arm,size=0x9c) addr:0x021c4d20
-func_ov017_021c4dbc kind:function(arm,size=0x6b0) addr:0x021c4dbc
+func_ov017_021c48f0 kind:function(arm,size=0x6b0) addr:0x021c4dbc
 func_ov017_021c4fa0 kind:function(arm,size=0x220) addr:0x021c546c
 func_ov017_021c51c0 kind:function(arm,size=0xc4) addr:0x021c568c
 _Z26EnqueueEventTag61_021c5284P11Src021c5284 kind:function(arm,size=0x88) addr:0x021c5750
