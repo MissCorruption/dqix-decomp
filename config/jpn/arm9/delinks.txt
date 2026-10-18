@@ -18894,3 +18894,7 @@ src/Combat/Main/func_0206a3c0.cpp:
 src/Combat/Main/InitContextString0206a974.cpp:
     complete
     .text start:0x0206c570 end:0x0206c5d8
+
+src/Combat/Main/func_0206ac94.cpp:
+    complete
+    .text start:0x0206c730 end:0x0206c794
