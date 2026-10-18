@@ -19274,3 +19274,7 @@ src/Combat/Main/func_020acecc.cpp:
 src/Combat/Main/func_0209b448.cpp:
     complete
     .text start:0x0209d1c0 end:0x0209d64c
+
+src/Combat/Main/IncrementCounterUnlessFlagged.cpp:
+    complete
+    .text start:0x02055148 end:0x02055174
