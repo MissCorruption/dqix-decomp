@@ -59,17 +59,10 @@ extern "C" ARM void func_ov031_022242ec() {
         do {
             func_ov031_0223cb34(origin, extent, &bounds);
             if (func_ov031_0223d49c(&bounds)) {
-                if (index == 3) {
-                    if (!data_ov031_02250bfc->mode) goto error;
+                if ((index == 3 && !data_ov031_02250bfc->mode) || (index == 2 && !data_ov031_02250bfc->enabled)) {
+                    func_ov031_02236878(9);
+                    return;
                 }
-                if (index == 2) {
-                    if (!data_ov031_02250bfc->enabled) goto error;
-                }
-                goto accepted;
-error:
-                func_ov031_02236878(9);
-                return;
-accepted:
                 func_ov031_02236878(data_ov031_0224b43c[index]);
                 data_ov031_02250bfc->selection = index + 47;
                 return;
