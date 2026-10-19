@@ -19058,3 +19058,7 @@ src/Combat/Main/FindNodeById0208e06c.cpp:
 src/Combat/Main/CopyOutBattleRegion0x75f0.cpp:
     complete
     .text start:0x020ada04 end:0x020ada2c
+
+src/Combat/Main/func_020a78dc.cpp:
+    complete
+    .text start:0x020a9660 end:0x020a9a64

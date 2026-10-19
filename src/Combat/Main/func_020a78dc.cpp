@@ -65,6 +65,9 @@ int fix32abs(int);
 void SetVecYByMode02033834(struct Obj02033834*, int);
 short GetShortAt0x22e(struct ShortField0x22e_020968c4*);
 
+#if defined(jpn)
+#define data_020e90a8 data_020e91b4
+#endif
 extern struct AngleTable data_020e90a8;
 extern struct Input02114e54 data_02114e54;
 
@@ -78,7 +81,12 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
 
     camera = GetField0x3b0Value_020100bc(GameState::GetInstance());
     ov = (char*)GetGameResources();
-    list = *(void***)(ov + 0x36fc);
+#if defined(jpn)
+    enum { regionalOffset0 = 0x34ec, regionalOffset1 = 0x8c };
+#else
+    enum { regionalOffset0 = 0x36fc, regionalOffset1 = 0x6c };
+#endif
+    list = *(void***)(ov + regionalOffset0);
     world = func_02012fe4();
     f = GetField4328_0218d268(ov);
     struct AngleTable table = data_020e90a8;
@@ -155,7 +163,7 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
             angle = self->lockedAngle;
         } else {
             struct Vec3 pos = self->pos;
-            struct Box0201e8fc* box = FindBoxContainingPoint0201e8fc((struct Container0201e8fc*)(world + 0x6c), &pos);
+            struct Box0201e8fc* box = FindBoxContainingPoint0201e8fc((struct Container0201e8fc*)(world + regionalOffset1), &pos);
             if (box) {
                 if (fix32abs(fix32SignedAngleDistance(angle, box->angle)) < 0xc91) {
                     self->lockedDir = self->dir;
