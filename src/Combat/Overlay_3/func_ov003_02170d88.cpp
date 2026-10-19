@@ -149,6 +149,7 @@ extern const char* data_ov003_021805e4[5];
 extern const char* data_ov003_021805d0[5];
 
 // USA: func_ov003_02170d88
+// EUR: func_ov003_02170d88
 extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
     ProfileRecordRegion02170d88* region;
     self->state = 8;
@@ -231,7 +232,11 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
     sprintf(self->sample.settings.fields.message, data_ov003_021805d0[language]);
     ProfileRecord02170d88* sampleRecord = &self->sample.record;
     if (settings->fields.value9 >= 310) {
+#if defined(eur)
+        self->sample.settings.fields.value9 = 201;
+#else
         self->sample.settings.fields.value9 = 203;
+#endif
     }
     short adjustedValue;
     int originalValue = settings->fields.value19;
