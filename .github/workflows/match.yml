@@ -41,36 +41,10 @@ jobs:
       publish-badges: ${{ github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', vars.BADGE_REF || github.event.repository.default_branch) }}
     secrets: inherit
 
-  badges-usa:
-    needs: usa
-    if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', vars.BADGE_REF || github.event.repository.default_branch)
+  badges:
+    needs: [usa, jpn, eur]
+    if: ${{ !cancelled() && github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', vars.BADGE_REF || github.event.repository.default_branch) }}
     uses: ./.github/workflows/publish-badges.yml
-    with:
-      version: usa
-    permissions:
-      contents: write
-    concurrency:
-      group: publish-badges
-      cancel-in-progress: false
-
-  badges-jpn:
-    needs: jpn
-    if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', vars.BADGE_REF || github.event.repository.default_branch)
-    uses: ./.github/workflows/publish-badges.yml
-    with:
-      version: jpn
-    permissions:
-      contents: write
-    concurrency:
-      group: publish-badges
-      cancel-in-progress: false
-
-  badges-eur:
-    needs: eur
-    if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', vars.BADGE_REF || github.event.repository.default_branch)
-    uses: ./.github/workflows/publish-badges.yml
-    with:
-      version: eur
     permissions:
       contents: write
     concurrency:
