@@ -250,3 +250,7 @@ src/Combat/Overlay_2/func_ov002_02157174.cpp:
 src/Combat/Overlay_2/AppendCursorAndFieldNames_021610c4.cpp:
     complete
     .text start:0x02161fa8 end:0x02162058
+
+src/Combat/Overlay_2/func_ov002_02154c30.cpp:
+    complete
+    .text start:0x021563b0 end:0x021564c0

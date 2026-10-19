@@ -12,14 +12,22 @@ struct StatB02154c30 {
     unsigned short v32;
 };
 struct StatC02154c30 {
+#if defined(jpn)
+    unsigned char pad[0x8b8];
+#else
     unsigned char pad[0x950];
+#endif
     int v950;
 };
 struct Member02154c30 {
     unsigned char pad[0x130];
     StatA02154c30 *a;
     StatB02154c30 *b;
+#if defined(jpn)
+    unsigned char pad138[0x144 - 0x138];
+#else
     unsigned char pad138[0x150 - 0x138];
+#endif
     StatC02154c30 *c;
 };
 struct Cache02154c30 {
