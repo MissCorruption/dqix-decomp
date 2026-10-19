@@ -18874,3 +18874,7 @@ src/Combat/Main/_ll_udiv_0200cedc.s:
 src/Combat/Main/_fadd_0200b9bc.s:
     complete
     .text start:0x0200b880 end:0x0200ba9c
+
+src/Combat/Main/GetByte0x63d5.cpp:
+    complete
+    .text start:0x02011ddc end:0x02011de8
