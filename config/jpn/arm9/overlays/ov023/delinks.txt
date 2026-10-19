@@ -3077,3 +3077,7 @@ src/Combat/Overlay_23/func_ov023_021e83c8.cpp:
 src/Combat/Overlay_23/AppendTagAndStoreEntries_021e853c.cpp:
     complete
     .text start:0x021e84c0 end:0x021e8574
+
+src/Combat/Overlay_23/StoreAndDispatchEntry_021e8604.cpp:
+    complete
+    .text start:0x021e8574 end:0x021e85e0
