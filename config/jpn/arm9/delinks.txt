@@ -19112,3 +19112,8 @@ src/Combat/Main/func_0208a03c.cpp:
 src/Combat/Main/func_020956b8.cpp:
     complete
     .text start:0x02097308 end:0x020973bc
+
+src/Combat/Main/RunAlternateQuestScript0209576c.cpp:
+    complete
+    .text start:0x020973bc end:0x02097444
+    .bss start:0x021090bc end:0x021090d0
