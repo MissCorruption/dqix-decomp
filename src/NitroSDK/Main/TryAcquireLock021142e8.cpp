@@ -2,7 +2,7 @@
 
 extern "C" int func_020c7ea0(void*, void*, int);
 extern "C" void func_020c7f44(void*, void*, int);
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 
 extern int data_021142e8;
 

@@ -15,7 +15,7 @@ struct SaveData {
     unsigned short crcTable_[256];
 };
 extern SaveData* data_ov031_02290cfc;
-unsigned short Crc16Compute_020d1cc8(const unsigned short* table, const unsigned char* data, unsigned int length);
+extern "C" unsigned short Crc16Compute_020d1cc8(const unsigned short* table, const unsigned char* data, unsigned int length);
 extern "C" void* func_ov031_0223cf4c(int, int);
 extern "C" int func_ov031_0221b024(SaveData*, int*, void*);
 extern "C" void func_ov031_0223cf70(void**);

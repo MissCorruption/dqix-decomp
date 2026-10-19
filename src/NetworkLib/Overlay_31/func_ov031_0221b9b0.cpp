@@ -21,7 +21,7 @@ struct PersistentSlots {
 int SetupTimingSlot_0221afb4(void*);
 int Check_0221aff8_0221aff8(int);
 void GenCrc16Table_020d1ba0(unsigned short*, unsigned short);
-unsigned short Crc16Compute_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
+extern "C" unsigned short Crc16Compute_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
 extern "C" int func_ov031_0221bcb8(Slot_0221be38*);
 void CopyFrom0224e6ac_0221b140(void*);
 int InitAndScrambleRegions_0221bdb8(char*);

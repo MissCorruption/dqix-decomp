@@ -6,7 +6,7 @@
 
 void* GetBattleContext_020d41d8(void);
 int GetBattleStateCode_020d41e8(void);
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 extern "C" int func_020ca4b4(void*, void*, int);
 
 struct BattleCtx020d4848 {

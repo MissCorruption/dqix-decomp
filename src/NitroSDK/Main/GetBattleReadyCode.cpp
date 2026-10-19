@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 int GetBattleStateCode_020d41e8(void);
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 
 extern char data_021142e0;
 

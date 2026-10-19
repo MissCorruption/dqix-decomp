@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 
-void InvalidateDataCacheRange(const void* addr, unsigned int len);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int len);
 extern "C" int func_02001aec(const void* a, const void* b, unsigned int len);
 
 typedef void (*NotifyCallback_022378e4)(int);

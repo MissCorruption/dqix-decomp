@@ -2,7 +2,7 @@
 
 void* GetBattleContext_020d41d8(void);
 extern "C" int func_020d424c(int, int, int);
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 
 struct BattleCtx020d4894 {
     unsigned char pad0[4];

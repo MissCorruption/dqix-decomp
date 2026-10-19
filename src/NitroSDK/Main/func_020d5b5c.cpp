@@ -4,7 +4,7 @@ extern "C" int func_020d424c(int a, int b);
 extern "C" int func_020d40bc(int a, int b, void* buf, int size);
 void SetBattleContextArrayEntry_020d404c(int index, int value);
 void* GetBattleContext_020d41d8(void);
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 struct Inner020d5b5c {

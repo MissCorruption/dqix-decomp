@@ -5,7 +5,7 @@ extern "C" int func_020d40bc(int a, int b, const void* buf, unsigned int size,
                              unsigned short e0, unsigned short e1, unsigned short e2,
                              int f, int g);
 void* GetBattleContext_020d41d8(void);
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 struct Comm020d59bc {

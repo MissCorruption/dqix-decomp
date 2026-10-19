@@ -2,7 +2,7 @@
 
 unsigned int DisableIRQInterrupts(void);
 void SetIRQInterruptState(int mask);
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 int ClearBattleSaveContext020d3fdc(void);
 int SubmitBattleContextSlot4_020d4ebc(int value);
 int IssueBattleCommandSlot6_020d4f3c(int fn);

@@ -54,7 +54,7 @@ extern unsigned char data_02112184[0x9c];
 unsigned int SetSpecificInterruptsEnabled(unsigned int mask);
 void SaveAndConfigureExmemcnt_020d1468(int* cycle);
 void RestoreExmemcnt_020d14b0(int* cycle);
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void DMAMemcpySynchronous16Bit(int channel, unsigned int src, unsigned int dst, unsigned int size);
 void CleanInvalidateDataCache();
 void WaitWhileChannelBusy_020d1564(int data);

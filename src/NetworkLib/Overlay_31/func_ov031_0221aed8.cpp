@@ -25,7 +25,7 @@ extern "C" int func_ov031_0221b780(int, int, int);
 extern "C" int func_ov031_0221b848();
 extern "C" void func_020c9be0();
 void GenCrc16Table_020d1ba0(unsigned short*, unsigned short);
-unsigned short Crc16Compute_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
+extern "C" unsigned short Crc16Compute_020d1cc8(const unsigned short*, const unsigned char*, unsigned int);
 int CheckAndCompare_0221b7fc(int, int, int, int);
 
 // USA: func_ov031_0221aed8

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 extern int* data_021142c0;
 
 // USA: func_020d29f4
