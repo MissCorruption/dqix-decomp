@@ -2,6 +2,12 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define REGIONAL_OFFSET(jp, us) jp
+#else
+#define REGIONAL_OFFSET(jp, us) us
+#endif
+
 struct Obj2081;
 struct Cont0207fdf0;
 struct Obj0205eaa0;
@@ -58,119 +64,123 @@ static inline int ElemKind(struct Element020de650 *e) {
 extern "C" ARM void func_ov003_0217b430(unsigned char *self) {
     GameState *battle = GameState::GetInstance();
     char *battleSum   = (char *) GetPtrField0x2a04_02010828(battle);
-    void *elemObj     = *(void **) (self + 0x89c);
-    int state         = *(unsigned char *) (self + 0x1000 + 0x3f);
+    void *elemObj     = *(void **) (self + REGIONAL_OFFSET(0x818, 0x89c));
+    int state         = *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f);
 
     if (state == 0) {
         int cnt               = func_ov003_02179f34((char *) self);
-        unsigned short *flags = (unsigned short *) (self + 0x1000 + 0x46);
+        unsigned short *flags = (unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46);
         *flags                = (unsigned short) (*flags & ~0x400);
         if (cnt > 5) {
             *flags = (unsigned short) (*flags | 0x400);
         }
-        *(short *) (self + 0xf00 + 0xfe) = 0x1e;
-        if (*(short *) (self + 0x1000 + 0xe) < 0) {
-            *(short *) (self + 0x1000 + 0xe) = FindMappedMemberId02080468(elemObj, *(short *) (self + 0xf00 + 0xfe));
+        *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)) = 0x1e;
+        if (*(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe) < 0) {
+            *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe) = FindMappedMemberId02080468(elemObj, *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)));
         }
-        *(short *) (self + 0x1000 + 0x3a)         = (short) func_ov003_02175f20(self);
-        *(unsigned char *) (self + 0x1000 + 0x3c) = 1;
+        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a)         = (short) func_ov003_02175f20(self);
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) = 1;
         func_ov003_02177dd4(self);
         func_ov003_021769ec(self);
-        SetElementFlag0x40_02081ea4((struct Obj2081 *) elemObj, *(short *) (self + 0xf00 + 0xfe), 0);
-        SetEntryLowNibbleAndElement02080c68(elemObj, *(short *) (self + 0xf00 + 0xfe), 0);
-        ResetWithSub0208203c((struct Obj0208203c *) (self + 0x88c));
-        *(void **) (self + 0xff8)                 = 0;
-        *(unsigned char *) (self + 0x1000 + 0x3f) = 1;
+        SetElementFlag0x40_02081ea4((struct Obj2081 *) elemObj, *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
+        SetEntryLowNibbleAndElement02080c68(elemObj, *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 0);
+        ResetWithSub0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
+        *(void **) (self + REGIONAL_OFFSET(0xf74, 0xff8))                 = 0;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 1;
         func_ov003_021748c4(self);
         return;
     }
 
     if (state == 1) {
-        short saved               = *(short *) (self + 0x1000 + 0x3a);
-        *(void **) (self + 0xff8) = self + 0x1000 + 0xe;
+        short saved               = *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a);
+        *(void **) (self + REGIONAL_OFFSET(0xf74, 0xff8)) = self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0xe;
         func_ov003_0217a14c(self);
-        func_ov023_021dcae0((struct Obj021dcae0 *) (self + 0x3c), *(short *) (self + 0x1000 + 0x3a));
-        if (func_ov003_021765b4(self) != 0 && saved == *(short *) (self + 0x1000 + 0x3a)) {
+        func_ov023_021dcae0((struct Obj021dcae0 *) (self + 0x3c), *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
+        if (func_ov003_021765b4(self) != 0 && saved == *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a)) {
             DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-            ResetWithSub0208203c((struct Obj0208203c *) (self + 0x88c));
-            *(void **) (self + 0xff8) = 0;
+            ResetWithSub0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
+            *(void **) (self + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
             *(void **) (self + 8) =
-                FindElementByKey020dedd0((struct Container020dedd0 *) (self + 0x874), *(short *) (self + 0x1000 + 0x3a));
+                FindElementByKey020dedd0((struct Container020dedd0 *) (self + REGIONAL_OFFSET(0x7f0, 0x874)), *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a));
             if (*(void **) (self + 8) == 0) return;
-            *(short *) (self + 0xf00 + 0xfc) = *(short *) (self + 0xf00 + 0xfe);
-            SetEntryLowNibbleAndElement02080c68(elemObj, *(short *) (self + 0xf00 + 0xfe), 1);
+            *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x78, 0xfc)) = *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe));
+            SetEntryLowNibbleAndElement02080c68(elemObj, *(short *) (self + 0xf00 + REGIONAL_OFFSET(0x7a, 0xfe)), 1);
             SetEntryLowNibbleAndElement02080c68(elemObj, 4, 1);
             SetEntryLowNibbleAndElement02080c68(elemObj, 5, 1);
             SetEntryLowNibbleAndElement02080c68(elemObj, 6, 1);
             SetEntryLowNibbleAndElement02080c68(elemObj, 7, 1);
-            *(unsigned char *) (self + 0x1000 + 0x3f) = 2;
+            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 2;
             if (ElemKind(*(struct Element020de650 **) (self + 8)) == 0) {
                 CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0 *) elemObj, 0);
-                *(short *) (self + 0x1000 + 0x36)          = 0x12;
-                *(unsigned char *) (self + 0x1000 + 0x3f)  = 0;
-                unsigned short f                           = *(unsigned short *) (self + 0x1000 + 0x46);
+                *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x12;
+                *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
+                unsigned short f                           = *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46);
+#if defined(jpn)
+                f = (unsigned short) (f | 0x20);
+#else
                 f                                          = (unsigned short) ((f | 0x20) & ~0x2000);
-                *(unsigned short *) (self + 0x1000 + 0x46) = f;
+#endif
+                *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = f;
                 return;
             }
             int tier = func_ov003_02179da8(*(void **) (self + 8), 1);
             switch (tier) {
                 case 1:
                     CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0 *) elemObj, 0);
-                    *(short *) (self + 0x1000 + 0x36)         = 0xd;
-                    *(unsigned char *) (self + 0x1000 + 0x3f) = 6;
-                    *(unsigned short *) (self + 0x1000 + 0x46) =
-                        (unsigned short) (*(unsigned short *) (self + 0x1000 + 0x46) | 0x2000);
+                    *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0xd;
+                    *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
+                    *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
+                        (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
                     if (ElemKind(*(struct Element020de650 **) (self + 8)) != 2) return;
-                    *(short *) (self + 0x1000 + 0x36)         = 0x11;
-                    *(unsigned char *) (self + 0x1000 + 0x3f) = 4;
+                    *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
+                    *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
                     return;
                 case 2:
                     CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0 *) elemObj, 0);
-                    *(short *) (self + 0x1000 + 0x36)         = 0x1c;
-                    *(unsigned char *) (self + 0x1000 + 0x3e) = 1;
-                    *(unsigned char *) (self + 0x1000 + 0x3f) = 0;
-                    *(unsigned short *) (self + 0x1000 + 0x46) =
-                        (unsigned short) (*(unsigned short *) (self + 0x1000 + 0x46) | 0x2000);
+                    *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x1c;
+                    *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e) = 1;
+                    *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 0;
+                    *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
+                        (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
                     return;
                 default: return;
             }
         }
         if (func_ov003_021766e8(self) == 0) return;
-        ResetWithSub0208203c((struct Obj0208203c *) (self + 0x88c));
-        *(void **) (self + 0xff8) = 0;
+        ResetWithSub0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
+        *(void **) (self + REGIONAL_OFFSET(0xf74, 0xff8)) = 0;
         CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0 *) elemObj, 0);
-        *(unsigned char *) (self + 0x1000 + 0x3e)  = 7;
-        *(unsigned char *) (self + 0x1000 + 0x3f)  = 1;
-        *(unsigned short *) (self + 0x1000 + 0x46) = (unsigned short) (*(unsigned short *) (self + 0x1000 + 0x46) | 0x2000);
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 7;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 1;
+        *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
         return;
     }
 
     if (state == 2) {
         func_ov003_02177208((char *) self);
         func_ov003_0217726c((char *) self);
-        ResetWithSub0208203c((struct Obj0208203c *) (self + 0x88c));
-        *(unsigned char *) (self + 0x1000 + 0x3f) = 3;
-        *(unsigned char *) (self + 0x1000 + 0x4a) = 0;
+        ResetWithSub0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 3;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = 0;
         return;
     }
 
     if (state == 3) {
         int delta             = 0;
-        unsigned char counter = *(unsigned char *) (self + 0x1000 + 0x4a);
+        unsigned char counter = *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a);
         if (counter < 5) {
-            *(unsigned char *) (self + 0x1000 + 0x4a) = (unsigned char) (counter + 1);
+            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = (unsigned char) (counter + 1);
         } else {
             delta = func_ov003_02178218(self);
             if (delta != 0) {
-                *(unsigned char *) (self + 0x1000 + 0x4a) = 0;
+                *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4a) = 0;
             }
         }
         GameState *b2 = GameState::GetInstance();
         int ticks     = (int) b2->GetTickCount();
-        int ratio     = func_02081f20(self + 0x88c, ticks);
+        int ratio     = func_02081f20(self + REGIONAL_OFFSET(0x808, 0x88c), ticks);
         if ((unsigned short) (ratio + 0xffff) <= 1) {
-            unsigned short v = GetInnerShort_0217b200((void **) (self + 0x88c));
+            unsigned short v = GetInnerShort_0217b200((void **) (self + REGIONAL_OFFSET(0x808, 0x88c)));
             if (v == 0x40)
                 delta = 1;
             else if (v == 0x80)
@@ -181,15 +191,15 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *self) {
                 delta = ~0x62;
         }
         if (delta != 0) {
-            int newCap          = *(unsigned char *) (self + 0x1000 + 0x3c) + delta;
-            int keyed           = func_0207c7a0(battleSum + 0x1d4, *(short *) (self + 0x1000 + 0x3a), 9);
+            int newCap          = *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) + delta;
+            int keyed           = func_0207c7a0(battleSum + 0x1d4, *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3a), 9);
             unsigned int remain = ComputeTimeRemaining_02179e18(*(struct Obj02179e18 **) (self + 8));
             if ((int) remain < keyed) keyed = (int) remain;
             if (keyed < newCap) newCap = keyed;
             if (newCap <= 1) newCap = 1;
-            *(unsigned char *) (self + 0x1000 + 0x4b) = (*(unsigned char *) (self + 0x1000 + 0x3c) < newCap) ? 1 : 0;
-            *(unsigned char *) (self + 0x1000 + 0x4c) = (newCap < *(unsigned char *) (self + 0x1000 + 0x3c)) ? 1 : 0;
-            *(unsigned char *) (self + 0x1000 + 0x3c) = (unsigned char) newCap;
+            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4b) = (*(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) < newCap) ? 1 : 0;
+            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x4c) = (newCap < *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c)) ? 1 : 0;
+            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) = (unsigned char) newCap;
             func_ov003_02177208((char *) self);
             func_ov003_0217726c((char *) self);
         }
@@ -197,31 +207,31 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *self) {
         if (g_keyManager.TestKeysPressed(0x401) != 0 || hit == 1) {
             DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
             CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0 *) elemObj, 0);
-            *(short *) (self + 0x1000 + 0x36) = 0xd;
-            if (*(unsigned char *) (self + 0x1000 + 0x3c) > 1) {
-                *(short *) (self + 0x1000 + 0x36) = 0x20;
+            *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36) = 0xd;
+            if (*(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3c) > 1) {
+                *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36) = 0x20;
             }
-            *(unsigned char *) (self + 0x1000 + 0x3f) = 6;
-            *(unsigned short *) (self + 0x1000 + 0x46) =
-                (unsigned short) (*(unsigned short *) (self + 0x1000 + 0x46) | 0x2000);
-            ResetWithSub0208203c((struct Obj0208203c *) (self + 0x88c));
+            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
+            *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) =
+                (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x2000);
+            ResetWithSub0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
             if (ElemKind(*(struct Element020de650 **) (self + 8)) != 2) return;
-            *(short *) (self + 0x1000 + 0x36)         = 0x11;
-            *(unsigned char *) (self + 0x1000 + 0x3f) = 4;
+            *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x11;
+            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 4;
             return;
         }
         if (g_keyManager.TestKeysPressed(2) != 0 || hit == -1) {
             CallFunc0204c804OnMatchingKey_0207fdcc((struct Obj2081 *) elemObj, 9);
             CallFunc0204c804OnMatchingKey_0207fdcc((struct Obj2081 *) elemObj, 0xa);
-            ResetWithSub0208203c((struct Obj0208203c *) (self + 0x88c));
-            *(unsigned char *) (self + 0x1000 + 0x3f) = 0;
+            ResetWithSub0208203c((struct Obj0208203c *) (self + REGIONAL_OFFSET(0x808, 0x88c)));
+            *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 0;
         }
         return;
     }
 
     if (state == 4) {
         func_ov003_02176468(self);
-        *(unsigned char *) (self + 0x1000 + 0x3f) = 5;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 5;
         return;
     }
 
@@ -229,19 +239,19 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *self) {
         int res = func_ov003_021764f4(self);
         if (res == -1) goto fail5;
         if (res != 1) return;
-        *(short *) (self + 0x1000 + 0x36)         = 0x10;
-        *(unsigned char *) (self + 0x1000 + 0x3f) = 6;
+        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)         = 0x10;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 6;
         return;
     fail5:
-        *(short *) (self + 0x1000 + 0x36)          = 0x30;
-        *(unsigned char *) (self + 0x1000 + 0x3f)  = 0;
-        *(unsigned short *) (self + 0x1000 + 0x46) = (unsigned short) (*(unsigned short *) (self + 0x1000 + 0x46) | 0x20);
+        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x30;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
+        *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
         return;
     }
 
     if (state == 6) {
         func_ov003_02176468(self);
-        *(unsigned char *) (self + 0x1000 + 0x3f) = 7;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f) = 7;
         return;
     }
 
@@ -251,16 +261,16 @@ extern "C" ARM void func_ov003_0217b430(unsigned char *self) {
         if (res != 1) return;
         RefillAndResetEntry_02175d78((char *) self);
         func_ov003_02175df4(self);
-        *(short *) (self + 0x1000 + 0x36)          = 0xe;
-        *(unsigned char *) (self + 0x1000 + 0x3e)  = 7;
-        *(unsigned char *) (self + 0x1000 + 0x3f)  = 1;
-        *(unsigned short *) (self + 0x1000 + 0x46) = (unsigned short) (*(unsigned short *) (self + 0x1000 + 0x46) | 0x20);
+        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0xe;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 7;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 1;
+        *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
         return;
     fail7:
-        *(short *) (self + 0x1000 + 0x36)          = 0x30;
-        *(unsigned char *) (self + 0x1000 + 0x3e)  = 8;
-        *(unsigned char *) (self + 0x1000 + 0x3f)  = 0;
-        *(unsigned short *) (self + 0x1000 + 0x46) = (unsigned short) (*(unsigned short *) (self + 0x1000 + 0x46) | 0x20);
+        *(short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x36)          = 0x30;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3e)  = 8;
+        *(unsigned char *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x3f)  = 0;
+        *(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) = (unsigned short) (*(unsigned short *) (self + REGIONAL_OFFSET(0xf7c, 0x1000) + 0x46) | 0x20);
         return;
     }
 }
