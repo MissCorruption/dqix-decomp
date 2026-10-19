@@ -13,7 +13,6 @@
 #define func_ov002_02168354 func_ov002_02168de4
 #define func_ov002_021685bc func_ov002_02168ff4
 #define _Z31UpdateBattleTagCounter_0216885cPc func_ov002_02169140
-#define func_ov002_0215a938 func_ov002_0215bd28
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_02160274 func_ov002_02161228
 #define data_ov002_0216d350 data_ov002_0216dacf
