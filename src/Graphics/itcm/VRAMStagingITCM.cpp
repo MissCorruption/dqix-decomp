@@ -19,8 +19,6 @@
 #define data_020ee6d0 data_020ee7dc
 #define data_020ee6e8 data_020ee7f4
 
-#define func_0205e57c func_0205f868
-
 #endif
 
 #define DATA_027fffa8 (*(unsigned short*)0x027fffa8)
