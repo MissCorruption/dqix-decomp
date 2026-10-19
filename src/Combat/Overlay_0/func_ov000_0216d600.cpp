@@ -15,7 +15,11 @@ struct AngleTrig0202e9a4 {
     int field258;
 };
 struct CombatWorkD600 {
+#if defined(jpn)
+    unsigned char padding[0x79e0];
+#else
     unsigned char padding[0x77f0];
+#endif
     int overrideIndex;
     Vector3i eye, target;
 };
