@@ -18874,3 +18874,115 @@ src/Combat/Main/_ll_udiv_0200cedc.s:
 src/Combat/Main/_fadd_0200b9bc.s:
     complete
     .text start:0x0200b880 end:0x0200ba9c
+
+src/Combat/Main/InitState0204166c020416e0.cpp:
+    complete
+    .text start:0x02041c10 end:0x02041c7c
+
+src/Combat/Main/func_02043600.cpp:
+    complete
+    .text start:0x02043de0 end:0x02043f88
+
+src/Combat/Main/PositionAndFormatValueLabel0205b674.cpp:
+    complete
+    .text start:0x0205c9ac end:0x0205ca98
+
+src/Combat/Main/func_0206a3c0.cpp:
+    complete
+    .text start:0x0206bed8 end:0x0206c520
+
+src/Combat/Main/InitContextString0206a974.cpp:
+    complete
+    .text start:0x0206c570 end:0x0206c5d8
+
+src/Combat/Main/func_0206ac94.cpp:
+    complete
+    .text start:0x0206c730 end:0x0206c794
+
+src/Combat/Main/DecrementSlotRef0206b198.cpp:
+    complete
+    .text start:0x0206cb14 end:0x0206cba0
+
+src/Combat/Main/InitOrReinitContext0206b2c8.cpp:
+    complete
+    .text start:0x0206cbe8 end:0x0206cc50
+
+src/Combat/Main/MeasureTextWidth0206b6b8.cpp:
+    complete
+    .text start:0x0206cf44 end:0x0206cfd4
+
+src/Combat/Main/func_0205b36c.cpp:
+    complete
+    .text start:0x0205c68c end:0x0205c830
+
+src/Combat/Main/func_020e0b4c.cpp:
+    complete
+    .text start:0x020e2788 end:0x020e292c
+
+src/Combat/Main/SetupWeightedEntriesAndSubmitPair020e0cfc.cpp:
+    complete
+    .text start:0x020e292c end:0x020e29f0
+
+src/Combat/Main/SetupWeightedEntriesAndSubmit.cpp:
+    complete
+    .text start:0x020e29f0 end:0x020e2ad4
+
+src/Combat/Main/func_020e0ec4.cpp:
+    complete
+    .text start:0x020e2ad4 end:0x020e2b6c
+
+src/Combat/Main/LoadTreasureMapLanguageBuffers_020a3844.cpp:
+    complete
+    .text start:0x020a55a0 end:0x020a5698
+
+src/Combat/Main/FindEntryByKind.cpp:
+    complete
+    .text start:0x020d57ec end:0x020d5828
+
+src/Combat/Main/func_020e0a78.cpp:
+    complete
+    .text start:0x020e26ac end:0x020e2788
+
+src/Combat/Main/GuardedNotifyOverlay0211e33c020d6c34.cpp:
+    complete
+    .text start:0x020d863c end:0x020d8670
+
+src/Combat/Main/GuardedNotifyOverlay0211e33c020d6c68.cpp:
+    complete
+    .text start:0x020d8670 end:0x020d86a4
+
+src/Combat/Main/NotifyLocalizedResourceLoad020dcfc8.cpp:
+    complete
+    .text start:0x020de9cc end:0x020dea34
+
+src/Combat/Main/NotifyLocalizedResourceLoad020dd040.cpp:
+    complete
+    .text start:0x020dea34 end:0x020dea98
+
+src/Combat/Main/DispatchIfCountPositive020dcf7c.cpp:
+    complete
+    .text start:0x020de968 end:0x020de9cc
+
+src/Combat/Main/InitCombatPairState020652d0.cpp:
+    complete
+    .text start:0x020665bc end:0x020666c0
+
+src/Combat/Main/DispatchStateChange_020678bc.cpp:
+    complete
+    .text start:0x0206917c end:0x02069294
+
+src/Combat/Main/HandleActorStateTransition_020679d4.cpp:
+    complete
+    .text start:0x02069294 end:0x0206935c
+
+src/Combat/Main/StoreClampedDeltas.cpp:
+    complete
+    .text start:0x0206cfd4 end:0x0206d028
+
+src/Combat/Main/func_0206b528.cpp:
+    complete
+    .text start:0x0206cdcc end:0x0206ce78
+
+src/Combat/Main/func_0206ad74.cpp:
+    complete
+    .text start:0x0206c794 end:0x0206ca50

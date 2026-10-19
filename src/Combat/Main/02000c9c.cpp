@@ -120,8 +120,8 @@ extern "C" int data_ov029_021d9b60_fake(void* callback);
 extern "C" int data_ov029_021d9d20_fake(void* callback);
 extern "C" int data_ov029_021d9ee0_fake(void* callback);
 extern "C" void func_020d8614();
-extern "C" void func_020d863c();
-extern "C" void func_020d8670();
+#define func_020d863c GuardedNotifyOverlay0211e33c020d6c34
+#define func_020d8670 GuardedNotifyOverlay0211e33c020d6c68
 #else
 #define TITLE_SCENE_SIZE 0x2e0
 #define WORLD_SCENE_SIZE 0x504
