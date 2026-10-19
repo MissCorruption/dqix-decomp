@@ -3061,3 +3061,7 @@ src/Combat/Overlay_23/CheckElemNearTouchPoint_021e63bc.cpp:
 src/Combat/Overlay_23/CreateThreeAllocators_021e71b4.cpp:
     complete
     .text start:0x021e7414 end:0x021e747c
+
+src/Combat/Overlay_23/ResetAndApplyLoop_021e7eb0.cpp:
+    complete
+    .text start:0x021e8094 end:0x021e8144
