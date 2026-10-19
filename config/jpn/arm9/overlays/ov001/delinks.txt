@@ -1951,3 +1951,7 @@ src/Combat/Overlay_1/StoreField_0215e938_0215e938.cpp:
 src/Combat/Overlay_1/func_ov001_0215ca4c.cpp:
     complete
     .text start:0x0215e0d0 end:0x0215e360
+
+src/Combat/Overlay_1/func_ov001_02162a90.cpp:
+    complete
+    .text start:0x0216401c end:0x021642c8
