@@ -4776,3 +4776,7 @@ src/Combat/Overlay_17/func_ov017_021b3e14.cpp:
 src/Combat/Overlay_17/func_ov017_02199f08.cpp:
     complete
     .text start:0x0219aab0 end:0x0219ad30
+
+src/Combat/Overlay_17/CallEnqueueEvent94IfFlag_021a5a68.cpp:
+    complete
+    .text start:0x021a64a0 end:0x021a64c0
