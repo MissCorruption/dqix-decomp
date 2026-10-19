@@ -1968,7 +1968,7 @@ data_ov031_02246028 kind:data(any) addr:0x02246028
 data_ov031_02246083 kind:data(any) addr:0x02246083
 data_ov031_0224609c kind:data(any) addr:0x0224609c
 data_ov031_022460ac kind:data(any) addr:0x022460ac
-data_ov031_022460bc kind:data(any) addr:0x022460bc
+magic$8 kind:data(any) addr:0x022460bc local
 data_ov031_022460c0 kind:data(any) addr:0x022460c0
 data_ov031_022460c4 kind:data(any) addr:0x022460c4
 data_ov031_022460cc kind:data(any) addr:0x022460cc
