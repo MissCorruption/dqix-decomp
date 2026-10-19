@@ -1,12 +1,21 @@
 #include <globaldefs.h>
 #include <Memory/SafeAllocator.h>
 #include <World/Object3D.h>
+#if defined(jpn)
+#define NUM_SLOTS_02160140 4
+#else
+#define NUM_SLOTS_02160140 5
+#endif
 struct ShortEntry02160140 { short value; char pad_2[0x1e]; };
 struct CombatWork02160140 {
     int field_0;
     char pad_4[0x4];
     SafeAllocator allocators[5];
+#if defined(jpn)
+    char pad_6c[0x1b0];
+#else
     char pad_6c[0x234];
+#endif
     int field_2a0, field_2a4;
     char pad_2a8[0x970];
     char stateC18[0x28c];
@@ -17,11 +26,19 @@ struct CombatWork02160140 {
     char pad_eb6[0x2];
     int slots[4];
     char stateEc8[0x100];
+#if defined(jpn)
+    char pad_fc8[0x27d8];
+    char partyWork[0x1d84];
+    char pad_54e4[0x248];
+    char state54f4[0x10];
+    char pad_5504[0x6c];
+#else
     char pad_fc8[0x2798];
     char partyWork[0x1d84];
     char pad_54e4[0x10];
     char state54f4[0x10];
     char pad_5504[0x70];
+#endif
     int field_5574;
     int field_5578;
     int field_557c;
@@ -169,7 +186,9 @@ extern "C" ARM void func_ov000_02160140(CombatWork02160140* self) {
     self->field_ea8 = 0;
     self->field_eac = 0;
     data_ov000_02184220.active = 1;
+#if !defined(jpn)
     self->field_5574 = 0;
+#endif
     self->field_5578 = 0;
     self->field_557c = 0;
     self->field_5580 = 0;
@@ -210,8 +229,8 @@ extern "C" ARM void func_ov000_02160140(CombatWork02160140* self) {
     for (int i = 0; i < 2; ++i) func_0204719c(self->effects[i]);
     self->field_5dfc = 0;
     self->field_58ce = 0;
-    for (int i = 0; i < 5; ++i) self->allocators[i].ResetAllocatorPointer();
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < NUM_SLOTS_02160140; ++i) self->allocators[i].ResetAllocatorPointer();
+    for (int i = 0; i < NUM_SLOTS_02160140; ++i) {
         ResetNameState02048614(self->names[i]);
         memset(self->nameBuffers[i], 0, 0x70);
     }
