@@ -1,26 +1,47 @@
 #include <globaldefs.h>
 
-struct Result020b1020 { int a; int b; };
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-extern "C" int func_020b0f00(void* obj, int param2, int count, int* countOut);
+typedef struct NNSG2dFontInformation {
+    unsigned char fontType;
+    signed char linefeed;
+} NNSG2dFontInformation;
 
-// USA: func_020b1020
-ARM Result020b1020 Compute020b1020(void* iface, int param2, int adjustment, int count) {
-    Result020b1020 result;
-    int* zeroPtr = (int*)&result;
-    zeroPtr[0] = 0;
-    zeroPtr[1] = 0;
-    int n = 1;
-    if (count != 0) {
-        do {
-            int r = func_020b0f00(iface, param2, count, &count);
-            if (r > result.a) {
-                result.a = r;
-            }
-            n++;
-        } while (count != 0);
-    }
-    signed char b = ((signed char*)(*(void**)iface))[1];
-    result.b = (n - 1) * (adjustment + b) - adjustment;
-    return result;
+typedef struct NNSG2dFont {
+    NNSG2dFontInformation* pRes;
+} NNSG2dFont;
+
+typedef struct NNSG2dTextRect {
+    int width;
+    int height;
+} NNSG2dTextRect;
+
+int func_020b0f00(const NNSG2dFont* pFont, int hSpace, const void* str, const void** pPos);
+
+static inline int NNS_G2dFontGetLineFeed(const NNSG2dFont* pFont) {
+    return pFont->pRes->linefeed;
 }
+
+// USA: NNSi_G2dFontGetTextRect
+ARM NNSG2dTextRect NNSi_G2dFontGetTextRect(const NNSG2dFont* pFont, int hSpace, int vSpace, const void* txt) {
+    int lines = 1;
+    NNSG2dTextRect rect = {0, 0};
+
+    while (txt != NULL) {
+        const int width = func_020b0f00(pFont, hSpace, txt, &txt);
+        if (width > rect.width) {
+            rect.width = width;
+        }
+        lines++;
+    }
+
+    rect.height = (lines - 1) * (NNS_G2dFontGetLineFeed(pFont) + vSpace) - vSpace;
+
+    return rect;
+}
+
+#ifdef __cplusplus
+}
+#endif
