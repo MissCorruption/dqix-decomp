@@ -7584,3 +7584,15 @@ src/NetworkLib/Overlay_31/func_ov031_022381c8.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0221eadc.cpp:
     complete
     .text start:0x0221eadc end:0x0221ecac
+
+src/NetworkLib/Overlay_31/ReadPacked64Reversed_0220c0c0.cpp:
+    complete
+    .text start:0x0220c0c0 end:0x0220c0dc
+
+src/NetworkLib/Overlay_31/WcmCountBits_0220db38.cpp:
+    complete
+    .text start:0x0220db38 end:0x0220db64
+
+src/NetworkLib/Overlay_31/get48bits_3_0220c0ac.cpp:
+    complete
+    .text start:0x0220c0ac end:0x0220c0c0
