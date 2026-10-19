@@ -1,3 +1,6 @@
+#if defined(jpn)
+#define func_0205ec34 func_0205ff20
+#endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
@@ -14,24 +17,44 @@ struct Vec3 {
     int x, y, z;
 };
 
+#if defined(jpn)
+enum { regionalOffset = 0x54c4 };
+#else
+enum { regionalOffset = 0x5724 };
+#endif
+
 struct Holder021a476c {
     unsigned char busy;
 };
 
 struct Ctx021a476c {
+#if defined(jpn)
+    char pad0[0x34ec];
+    void* list;
+    char pad3700[0x416c - 0x34f0];
+    Holder021a476c* holder;
+    char pad4420[0x41e1 - 0x4170];
+#else
     char pad0[0x36fc];
     void* list;
     char pad3700[0x441c - 0x3700];
     Holder021a476c* holder;
     char pad4420[0x4491 - 0x4420];
+#endif
     unsigned char active;
 };
 
 struct Actor021a476c {
     Object3D obj3D;
+#if defined(jpn)
+    char padac[0x180 - 0xac];
+    unsigned int flags18c;
+    char pad190[0x1a6 - 0x184];
+#else
     char padac[0x18c - 0xac];
     unsigned int flags18c;
     char pad190[0x1b2 - 0x190];
+#endif
     unsigned short field1b2;
 };
 
@@ -127,7 +150,7 @@ extern "C" ARM void func_ov017_021a476c(Ctx021a476c* self) {
     data_ov017_021d76da = -1;
     data_ov017_021d83a8 = 0;
     data_ov017_021d76d8 = -1;
-    *(int*)((char*)game + 0x5724) = -1;
+    *(int*)((char*)game + regionalOffset) = -1;
 
     if (self->active == 0 && !IsField0Null_02046b08((void**)self->list)) {
         func_ov017_021a4e88(0, &data_ov017_021d83a8);
