@@ -8,7 +8,6 @@ extern "C" int func_020e2168(char* destination, const char* tablePath,
     int index, int variant, bool lock);
 extern const char data_020f2b6c[];
 struct LocalBuf020dcf7c { unsigned char pad[0x18]; };
-// JPN keeps the C name func_020de968 (callers use it on JPN).
 #define DispatchIfCountPositive020dcf7c func_020de968
 extern "C" void func_020de968(int count, void* buf);
 #else

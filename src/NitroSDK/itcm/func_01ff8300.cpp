@@ -2,17 +2,14 @@
 #include "System/Cache.h"
 #include "System/Interrupts.h"
 
-// NitroSDK os_reset.c: OSi_ReadCardRom32
 extern "C" void func_01ff83a8(unsigned long src, void* dst, long len);
 
-// NitroSDK os_reset.c: OSi_ReloadRomData. Reloads the ARM9/ARM7 static modules from the card before a soft reset.
 // USA: func_01ff8300
 extern "C" void func_01ff8300(void)
 {
     unsigned long header = 0x027ffe00;
     const unsigned long rom_base = *(unsigned long*)0x027ffc2c;
 
-    // DS download play: reload the header
     if (rom_base >= 0x8000)
     {
         func_01ff83a8(rom_base, (void*)header, 0x160);

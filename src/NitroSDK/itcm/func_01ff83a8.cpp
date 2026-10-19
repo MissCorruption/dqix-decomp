@@ -1,6 +1,3 @@
-// NitroSDK OS_reset.c: OSi_ReadCardRom32, the ITCM-resident CPU card-ROM reader used by
-// OSi_ReloadRomData (func_01ff8300) while resetting the system.
-
 #define reg_CARD_MASTERCNT (*(volatile unsigned char*)0x040001a1)
 #define reg_CARD_CMD (*(volatile unsigned char*)0x040001a8)
 #define reg_CARD_CNT (*(volatile unsigned int*)0x040001a4)

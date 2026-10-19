@@ -2,7 +2,6 @@
 #include "Combat/TryApplyElemFields.h"
 #include "Resource/CharacterCreationUI.h"
 
-
 #if defined(jpn)
 enum { WindowOffset = 0xe20, TextOffset = 0x1a98, DirtyOffset = 0x1a94, ModeOffset = 0x1a80, TextCapacity = 0x800, PageCount = 47 };
 #define data_ov002_0216cfac data_ov002_0216d618

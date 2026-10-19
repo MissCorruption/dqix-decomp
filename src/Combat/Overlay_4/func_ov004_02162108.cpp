@@ -70,7 +70,6 @@ extern "C" Node02162108* func_ov023_021f6880(void* list, int key);
 extern "C" int func_ov023_021f6f10(Node02162108* node);
 extern "C" struct TableA68* func_ov023_021fa598(Node02162108* node);
 #if !defined(jpn)
-// Retained upstream USA/EUR-only declaration; JP has no formatted-text lookup path.
 extern "C" char* _Z23FindEntryByKey_02072a68P8TableA68i(struct TableA68* table, short key);
 #endif
 char* FindSubstring_020d2f88(char* str, char* sub);

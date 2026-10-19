@@ -41,7 +41,6 @@ NNSG2dTextRect NNSi_G2dFontGetTextRect(const NNSG2dFont* pFont, int hSpace, int 
 void func_020b245c(const NNSG2dTextCanvas* pTxn, int x, int y, int areaWidth, int cl, unsigned int flags, const void* txt, NNSiG2dTextDirection d);
 
 static inline NNSG2dTextRect NNS_G2dFontGetTextRect(const NNSG2dFont* pFont, int hSpace, int vSpace, const NNSG2dChar* txt) {
-    // A named copy gives the two stack copies the ROM shows; pokebw2, pokeheartgold and kh-recoded write it the same way
     NNSG2dTextRect rect = NNSi_G2dFontGetTextRect(pFont, hSpace, vSpace, txt);
     return rect;
 }
