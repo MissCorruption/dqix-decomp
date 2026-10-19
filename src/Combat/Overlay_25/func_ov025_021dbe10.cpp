@@ -3,6 +3,12 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Foo0207df50;
 struct List02160094 { unsigned short kind; };
 struct BattleSource { unsigned char padding0[0x20]; unsigned short id; };
@@ -17,13 +23,13 @@ struct ActionMetadata {
 struct ActionState {
     unsigned char padding0[0x30];
     SafeAllocator allocator;
-    unsigned char padding_after_allocator[0x14c - 0x30 - sizeof(SafeAllocator)];
-    unsigned char tables[0x150];
+    unsigned char padding_after_allocator[RG(0x14c, 0x138) - 0x30 - sizeof(SafeAllocator)];
+    unsigned char tables[RG(0x150, 0xe0)];
     char* battle;
     unsigned char padding2a0[8];
     char script[0xc04];
     int phase;
-    unsigned char paddingeb0[0x4874];
+    unsigned char paddingeb0[RG(0x4874, 0x4ae8)];
     void* specialCombatant;
     unsigned char padding5728[0x229];
     unsigned char flags;
