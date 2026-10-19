@@ -1,8 +1,17 @@
 	.section .text
 	.arm
 
+	.global _drdiv
 	.global _ddiv
 	.global .L_0200d484
+
+_drdiv:
+	eor r1, r1, r3
+	eor r3, r1, r3
+	eor r1, r1, r3
+	eor r0, r0, r2
+	eor r2, r0, r2
+	eor r0, r0, r2
 
 // USA: func_0200d34c
 _ddiv:

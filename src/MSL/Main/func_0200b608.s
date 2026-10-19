@@ -1,7 +1,16 @@
 	.section .text
 	.arm
 
+	.global _drsb
 	.global _dsub
+
+_drsb:
+	eor r1, r1, r3
+	eor r3, r1, r3
+	eor r1, r1, r3
+	eor r0, r0, r2
+	eor r2, r0, r2
+	eor r0, r0, r2
 
 // USA: func_0200b608
 _dsub:

@@ -20629,12 +20629,12 @@ src/Combat/Main/func_02000800.s:
 
 src/MSL/Main/func_0200b608.s:
     complete
-    .text start:0x0200b608 end:0x0200b9bc
+    .text start:0x0200b5f0 end:0x0200b9bc
 
 
 src/Runtime/Main/func_0200caa4.s:
     complete
-    .text start:0x0200caa4 end:0x0200cd1c
+    .text start:0x0200ca98 end:0x0200cd1c
 
 
 src/Combat/Main/func_0208a700.cpp:
@@ -20644,9 +20644,9 @@ src/Combat/Main/func_0208a700.cpp:
 
 src/MSL/Main/func_0200c1c0.s:
     complete
-    .text start:0x0200c1c0 end:0x0200c578
+    .text start:0x0200c1b4 end:0x0200c578
 
 
 src/Runtime/Main/func_0200d34c.s:
     complete
-    .text start:0x0200d34c end:0x0200d890
+    .text start:0x0200d334 end:0x0200d890

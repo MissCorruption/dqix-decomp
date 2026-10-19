@@ -1,8 +1,14 @@
 	.section .text
 	.arm
 
+	.global _frdiv
 	.global _fdiv
 	.global .L_0200c274
+
+_frdiv:
+	eor r0, r0, r1
+	eor r1, r0, r1
+	eor r0, r0, r1
 
 // USA: func_0200c1c0
 _fdiv:
