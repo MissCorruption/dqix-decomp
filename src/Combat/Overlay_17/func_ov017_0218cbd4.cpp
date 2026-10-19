@@ -10,7 +10,6 @@
 #define func_ov017_021a624c func_ov017_021a6c40
 #define func_02011b68 func_020118e0
 #define func_ov017_021a476c func_ov017_021a51e0
-#define func_ov017_02199f08 func_ov017_0219aab0
 #define func_02093b90 func_020944b0
 #endif
 

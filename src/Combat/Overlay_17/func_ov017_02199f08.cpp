@@ -40,13 +40,13 @@ struct BackgroundControlFields {
 // USA: func_ov017_02199f08
 extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
 #if defined(jpn)
-    enum {regionalOffset0 = 0x3e60, regionalOffset1 = 0x3e54, regionalOffset2 = 0x3e58, regionalOffset3 = 0x294, regionalOffset4 = 0x3800, regionalOffset5 = 0xa90};
+    enum {regionalOffset0 = 0x3e60, regionalOffset1 = 0x3e54, regionalOffset2 = 0x3e58, regionalOffset3 = 0x294, regionalOffset4 = 0x3800, regionalOffset5 = 0xa90, regionalOffset6 = 0x4ec, regionalOffset7 = 0x180, regionalOffset8 = 0xa88, regionalOffset9 = 0xa8c};
 #else
-    enum {regionalOffset0 = 0x4080, regionalOffset1 = 0x4074, regionalOffset2 = 0x4078, regionalOffset3 = 0xb4, regionalOffset4 = 0x3c00, regionalOffset5 = 0xcb0};
+    enum {regionalOffset0 = 0x4080, regionalOffset1 = 0x4074, regionalOffset2 = 0x4078, regionalOffset3 = 0xb4, regionalOffset4 = 0x3c00, regionalOffset5 = 0xcb0, regionalOffset6 = 0x6fc, regionalOffset7 = 0x18c, regionalOffset8 = 0xca8, regionalOffset9 = 0xcac};
 #endif
 
     struct HeadNode02046b24;
-    if (IsField0Null_02046b08((void**)*(struct HeadNode02046b24***)(self + 0x3000 + 0x6fc)) == 0) {
+    if (IsField0Null_02046b08((void**)*(struct HeadNode02046b24***)(self + 0x3000 + regionalOffset6)) == 0) {
         CancelActionIfHeadIdMatches_02199e98(self);
         return;
     }
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
             *(int*)(self + regionalOffset0) == 0) {
             if (g_keyManager.TestKeysPressed(2) &&
                 GetByteField0x252_02039820(actor) &&
-                (*(int*)((char*)actor + 0x18c) & 1) == 0 &&
+                (*(int*)((char*)actor + regionalOffset7) & 1) == 0 &&
                 CheckSubstructByte0x7cPositive_020535c8((signed char*)actor) == 0 &&
                 *(short*)((char*)actor + 0xac) == 0) {
                 CancelPendingAction020397cc((Obj020397cc*)actor, 1);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
                 volatile short v1, v2;
                 {
                     unsigned short raw = reg[0];
-                    *(volatile unsigned short*)(*(BackgroundControlFields**)(self + 0x3000 + 0xca8)) = raw;
+                    *(volatile unsigned short*)(*(BackgroundControlFields**)(self + 0x3000 + regionalOffset8)) = raw;
                     v1 = raw;
                     v1;
                 }
@@ -82,7 +82,7 @@ extern "C" ARM void func_ov017_02199f08(unsigned char* self) {
                     unsigned short raw = reg[1];
                     v2 = raw;
                     v2;
-                    *(volatile unsigned short*)(*(BackgroundControlFields**)(self + 0x3000 + 0xcac)) = raw;
+                    *(volatile unsigned short*)(*(BackgroundControlFields**)(self + 0x3000 + regionalOffset9)) = raw;
                     v2;
                 }
                 InitFieldArenaListsAndCounters_021996fc(self);
