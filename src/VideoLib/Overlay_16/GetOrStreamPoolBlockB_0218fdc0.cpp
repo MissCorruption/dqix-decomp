@@ -7,10 +7,10 @@
 extern "C" int func_020ca4b4(void*, void*, int);
 
 struct PoolState_0218fdc0 {
-    void* cachedPtr;   // 0x0
+    void* cachedPtr;
     unsigned char pad0[0x8];
-    unsigned int remaining; // 0xc
-    void* cur;         // 0x10
+    unsigned int remaining;
+    void* cur;
 };
 
 extern struct PoolState_0218fdc0 data_ov016_0219d1c0;

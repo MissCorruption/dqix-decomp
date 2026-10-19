@@ -5,11 +5,6 @@
 #define func_020ca458 func_020cbf24
 #endif
 
-// Opens a video stream: reads and validates the stream header, skips tagged header chunks up to
-// the end-of-header chunk, then allocates the decoder state, frame buffers and per-channel audio
-// decoders.
-
-// Vtable at data_ov016_0219d0a0: Seek is SeekIfInactive_0218f540, Read is SeekAndReadSync_0218f58c.
 struct VideoFile {
     virtual void v0();
     virtual void v1();
@@ -21,87 +16,87 @@ struct VideoFile {
     int Tell() { return position; }
 
     int field_04;
-    int position;   // 0x08
+    int position;
 };
 
 struct Stream_0218e800 {
     unsigned char pad_00[4];
-    unsigned int width;     // 0x04
-    unsigned int height;    // 0x08
+    unsigned int width;
+    unsigned int height;
     unsigned char pad_0c[0x30];
-    void* lumaTable;        // 0x3c
-    void* chromaTable;      // 0x40
-    void* rangeTable;       // 0x44
+    void* lumaTable;
+    void* chromaTable;
+    void* rangeTable;
     unsigned char pad_48[0x454 - 0x48];
 };
 
 struct AudioDecoder {
     unsigned char pad_000[0x1cc];
-    int mode;               // 0x1cc
+    int mode;
     unsigned char pad_1d0[0x8c0 - 0x1d0];
-    unsigned char codebook[0xc34];  // 0x8c0
-    int state;              // 0x14f4
+    unsigned char codebook[0xc34];
+    int state;
 };
 
 struct VideoHeader {
-    char magic[4];          // 0x04
-    signed char tag0;       // 0x08
-    signed char tag1;       // 0x09
-    unsigned short tagIdSizeDword; // 0x0a
-    unsigned int frameCount;     // 0x0c
-    unsigned int width;     // 0x10
-    unsigned int height;    // 0x14
-    unsigned int fps;            // 0x18
-    unsigned short audioCodec;   // 0x1c
-    unsigned short channelCount; // 0x1e
-    unsigned int frequency;      // 0x20
-    unsigned int biggestFrame; // 0x24
-    unsigned int audioOffset; // 0x28
-    unsigned int keyframeIndexOffset;  // 0x2c
-    unsigned int keyframeCount;   // 0x30
+    char magic[4];
+    signed char tag0;
+    signed char tag1;
+    unsigned short tagIdSizeDword;
+    unsigned int frameCount;
+    unsigned int width;
+    unsigned int height;
+    unsigned int fps;
+    unsigned short audioCodec;
+    unsigned short channelCount;
+    unsigned int frequency;
+    unsigned int biggestFrame;
+    unsigned int audioOffset;
+    unsigned int keyframeIndexOffset;
+    unsigned int keyframeCount;
 };
 
 struct BlitTarget_0218e800 {
-    const unsigned char* srcY;      // 0x3c
-    const unsigned char* srcC;      // 0x40
-    unsigned short* dst;            // 0x44
-    unsigned int pitch;             // 0x48
-    int width;                      // 0x4c
-    int height;                     // 0x50
-    const unsigned char* field_18;  // 0x54
+    const unsigned char* srcY;
+    const unsigned char* srcC;
+    unsigned short* dst;
+    unsigned int pitch;
+    int width;
+    int height;
+    const unsigned char* field_18;
 };
 
 struct VideoDecoder {
-    VideoFile* file;            // 0x00
-    VideoHeader header;         // 0x04
-    Stream_0218e800* stream;        // 0x34
-    int (*advance)(Stream_0218e800*);  // 0x38
-    BlitTarget_0218e800 target;          // 0x3c
-    AudioDecoder* audio;        // 0x58
-    unsigned char** framesY;    // 0x5c
-    unsigned char** framesC;    // 0x60
-    unsigned int* qpTable;      // 0x64
-    unsigned char* scratchY;    // 0x68
-    unsigned char* scratchC;    // 0x6c
-    unsigned char* buffers[2];  // 0x70
-    unsigned int frameSize[2];  // 0x78
-    int bufferOffset[2];        // 0x80
-    unsigned int frameExtra[2]; // 0x88
-    int bufferIndex;            // 0x90
-    void* keyframes;            // 0x94
-    unsigned int writeIdx;      // 0x98
-    unsigned int consumed;      // 0x9c
-    unsigned int available;     // 0xa0
+    VideoFile* file;
+    VideoHeader header;
+    Stream_0218e800* stream;
+    int (*advance)(Stream_0218e800*);
+    BlitTarget_0218e800 target;
+    AudioDecoder* audio;
+    unsigned char** framesY;
+    unsigned char** framesC;
+    unsigned int* qpTable;
+    unsigned char* scratchY;
+    unsigned char* scratchC;
+    unsigned char* buffers[2];
+    unsigned int frameSize[2];
+    int bufferOffset[2];
+    unsigned int frameExtra[2];
+    int bufferIndex;
+    void* keyframes;
+    unsigned int writeIdx;
+    unsigned int consumed;
+    unsigned int available;
 #if !defined(jpn)
-    int wideFlag;               // 0xa4
+    int wideFlag;
 #endif
-    unsigned int frameCount;    // 0xa8
-    unsigned int idx[6];        // 0xac
-    unsigned int frame;         // 0xc4
+    unsigned int frameCount;
+    unsigned int idx[6];
+    unsigned int frame;
     unsigned char pad_c8[4];
-    int fieldcc;                // 0xcc
-    int fieldd0;                // 0xd0
-    int base;                   // 0xd4
+    int fieldcc;
+    int fieldd0;
+    int base;
 };
 
 void* SafeAllocatorAllocate_0218bc8c(unsigned int);

@@ -3,9 +3,9 @@
 
 struct Obj0218f5fc {
 	char pad[0x8];
-	int position;          // 0x8
-	NitroVM* vm;           // 0xc
-	unsigned char active;  // 0x10
+	int position;
+	NitroVM* vm;
+	unsigned char active;
 };
 
 // USA: func_ov016_0218f5fc

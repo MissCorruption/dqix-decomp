@@ -17,32 +17,32 @@ struct Base0218ef50 {
 };
 
 struct Obj0218ef50 {
-    Base0218ef50* child;          // 0x00
+    Base0218ef50* child;
     char pad_4[8];
-    unsigned int capacity;         // 0x0c
+    unsigned int capacity;
     char pad_10[0xe];
-    unsigned short multiplier;    // 0x1e
+    unsigned short multiplier;
     char pad_20[0x14];
-    OutStruct0218ef50* out;       // 0x34
+    OutStruct0218ef50* out;
     char pad_38[0x24];
-    int* table1;                  // 0x5c
-    int* table2;                  // 0x60
+    int* table1;
+    int* table2;
     char pad_64[0xc];
-    unsigned int arr70[2];        // 0x70
-    unsigned int arr78[2];        // 0x78
-    unsigned int arr80[2];        // 0x80
-    unsigned int arr88[2];        // 0x88
-    int bufIdx;                   // 0x90
+    unsigned int arr70[2];
+    unsigned int arr78[2];
+    unsigned int arr80[2];
+    unsigned int arr88[2];
+    int bufIdx;
     char pad_94[4];
-    unsigned int writeIdx;         // 0x98
+    unsigned int writeIdx;
     #if defined(jpn)
     char pad_9c[0xc];
 #else
     char pad_9c[0x10];
 #endif
-    int idx2tbl[6];               // 0xac
+    int idx2tbl[6];
     char pad_c4[4];
-    int result;                   // 0xc8
+    int result;
 };
 
 // USA: func_ov016_0218ef50

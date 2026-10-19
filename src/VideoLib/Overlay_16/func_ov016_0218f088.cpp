@@ -1,31 +1,31 @@
 #include <globaldefs.h>
 
 struct Stream0218f088 {
-	char* cursor;			// 0x00
+	char* cursor;
 	char pad_4[0x3b0];
-	int value;				// 0x3b4
+	int value;
 };
 
 struct Obj0218f088 {
 	char pad_0[8];
-	signed char tag0;					// 0x08
-	signed char tag1;					// 0x09
+	signed char tag0;
+	signed char tag1;
 	char pad_a[0x2a];
-	Stream0218f088* stream;				// 0x34
-	int (*advance)(Stream0218f088*);	// 0x38
+	Stream0218f088* stream;
+	int (*advance)(Stream0218f088*);
 	char pad_3c[0x28];
-	int* table;							// 0x64
+	int* table;
 	char pad_68[0x34];
-	unsigned int count;					// 0x9c
-	unsigned int limit;					// 0xa0
+	unsigned int count;
+	unsigned int limit;
 	#if !defined(jpn)
 	int wideFlag;
 #endif
-	unsigned int wrap;					// 0xa8
-	int idx[6];							// 0xac
+	unsigned int wrap;
+	int idx[6];
 	char pad_c4[8];
-	int fieldcc;						// 0xcc
-	int fieldd0;						// 0xd0
+	int fieldcc;
+	int fieldd0;
 };
 
 // USA: func_ov016_0218f088

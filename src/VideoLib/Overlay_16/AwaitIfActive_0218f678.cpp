@@ -3,8 +3,8 @@
 
 struct Obj0218f678 {
 	char pad[0xc];
-	NitroVM* vm;         // 0xc
-	unsigned char active; // 0x10
+	NitroVM* vm;
+	unsigned char active;
 };
 
 // USA: func_ov016_0218f678
