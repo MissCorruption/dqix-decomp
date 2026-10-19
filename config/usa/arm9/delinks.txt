@@ -20592,3 +20592,33 @@ src/NitroSDK/Main/func_020cf864.cpp:
 src/NitroSDK/Main/DecompressA.cpp:
     complete
     .text start:0x020caa10 end:0x020cab94
+
+src/Combat/Main/_ull_mod_0200cee8.s:
+    complete
+    .text start:0x0200cee8 end:0x0200cf24
+
+src/Combat/Main/_ll_udiv_0200cedc.s:
+    complete
+    .text start:0x0200cedc end:0x0200cee8
+
+    complete
+    .text start:0x0200caa4 end:0x0200cd1c
+
+    complete
+    .text start:0x0200caa4 end:0x0200cd1c
+
+
+src/Combat/Main/_fadd_0200b9bc.s:
+    complete
+    .text start:0x0200b9bc end:0x0200bbd8
+
+src/Combat/Main/_dadd_0200ab28.s:
+    complete
+    .text start:0x0200ab28 end:0x0200ae40
+
+    complete
+    .text start:0x0200c1b4 end:0x0200c1c0
+
+    complete
+    .text start:0x0200c1c0 end:0x0200c578
+
