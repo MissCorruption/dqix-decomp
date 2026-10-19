@@ -24,3 +24,19 @@ src/System/itcm/CRC32ITCM.cpp:
 src/Graphics/itcm/VRAMStagingITCM.cpp:
     complete
     .text start:0x01ff87a4 end:0x01ff9740
+
+src/NitroSDK/itcm/func_01ff8000.cpp:
+    complete
+    .text start:0x01ff8000 end:0x01ff8068
+
+src/NitroSDK/itcm/func_01ff8068.cpp:
+    complete
+    .text start:0x01ff8068 end:0x01ff81e4
+
+src/NitroSDK/itcm/func_01ff8218.cpp:
+    complete
+    .text start:0x01ff8218 end:0x01ff82e4
+
+src/NitroSDK/itcm/func_01ff82e4.cpp:
+    complete
+    .text start:0x01ff82e4 end:0x01ff8300
