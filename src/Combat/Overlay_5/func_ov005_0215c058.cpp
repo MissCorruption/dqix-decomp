@@ -2,6 +2,10 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define data_ov005_0215cd10 data_ov005_0215e0f0
+#endif
+
 struct GameState;
 struct Obj0205eaa0;
 
@@ -18,15 +22,27 @@ struct TouchState
 
 struct GameResources0215c058
 {
+#if defined(jpn)
+    char pad[0x34f8];
+#else
     char pad[0x3708];
+#endif
     int* ptr;
 };
 
 struct Member0215c058
 {
+#if defined(jpn)
+    char pad0[0x4f8];
+#else
     char pad0[0x4fc];
+#endif
     int member;
+#if defined(jpn)
+    char pad1[0x56c - 0x4fc];
+#else
     char pad1[0x634 - 0x500];
+#endif
     unsigned short flags;
 };
 
@@ -44,7 +60,11 @@ struct CursorFrame0215c058
 
 struct Menu0215c058
 {
+#if defined(jpn)
+    char pad0[0x196c];
+#else
     char pad0[0x19f4];
+#endif
     char scroll[0x1a34 - 0x19f4];
     void* cursorTarget;
     char pad1[0x3daa - 0x1a38];
@@ -100,7 +120,11 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
     if (self->state == 0)
     {
         self->held = self->selected - 8 + self->page * 16;
+#if defined(jpn)
+        self->cursorTarget = (char*)self + 0x29d8;
+#else
         self->cursorTarget = (char*)self + 0x2a60;
+#endif
         self->state++;
     }
     else if (self->state == 1)
@@ -167,7 +191,11 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
             int x;
             int y;
             func_ov005_021536e0(&frame);
+#if defined(jpn)
+            frame.target = (char*)self + 0x27b8;
+#else
             frame.target = (char*)self + 0x2840;
+#endif
             frame.scale = 0x8000;
             frame.minX = -0x3000;
             frame.maxX = 0x3000;
@@ -212,7 +240,11 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
             func_ov005_0215792c(self, 4);
             DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             screen->flags |= 0x81;
+#if defined(jpn)
+            self->cursorTarget = (char*)self + 0x19e8;
+#else
             self->cursorTarget = (char*)self + 0x1a70;
+#endif
             self->dirty.f2 = 1;
             self->dirty.f3 = 1;
         }
@@ -221,10 +253,18 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
             self->held = -1;
             func_ov005_0215792c(self, 4);
             screen->flags |= 0x81;
+#if defined(jpn)
+            self->cursorTarget = (char*)self + 0x19e8;
+#else
             self->cursorTarget = (char*)self + 0x1a70;
+#endif
             self->dirty.f2 = 1;
             self->dirty.f3 = 1;
         }
         }
     }
 }
+
+#if defined(jpn)
+#undef data_ov005_0215cd10
+#endif
