@@ -7,6 +7,9 @@
 #include "Resource/GameResources.h"
 #include "World/Object3D.h"
 #include "std_library_functions.h"
+#if defined(jpn)
+#include "Filesystem/FileIO.h"
+#endif
 
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
@@ -53,7 +56,9 @@ struct Self021552a8 {
     unsigned short state;
     Params021552a8 params;
     int taskA;
+#if !defined(jpn)
     int taskB;
+#endif
     SafeAllocator allocator;
     char pad90[4];
     int field94;
@@ -115,6 +120,10 @@ void SetFlag0x9c6_020213fc(SetFlagStruct* p, int value);
 
 extern AllocatorUnion data_02114e20;
 extern char data_02109bf4;
+#if defined(jpn)
+extern const char data_ov001_021661d7[];
+extern const char data_ov001_021661dc[];
+#endif
 
 static inline void SetListEntries(List021552a8* list, Struct0205a198* entries, unsigned short count) {
     list->entries = entries;
@@ -134,20 +143,28 @@ extern "C" ARM int func_ov001_021552a8(Self021552a8* self) {
     if (loader->GetTaskStatus(self->taskA) == 0) {
         return self->state;
     }
+#if !defined(jpn)
     if (loader->GetTaskStatus(self->taskB) == 0) {
         return self->state;
     }
+#endif
     if (self->params.flags & 0x200) {
         if (loader->GetTaskStatus(self->taskC) == 0) {
             return self->state;
         }
     }
+#if defined(jpn)
+    if (loader->GetDetailedTaskStatus(self->taskA) != 2) {
+#else
     if (loader->GetDetailedTaskStatus(self->taskA) != 2 || loader->GetDetailedTaskStatus(self->taskB) != 2) {
+#endif
         SignedAllocatorHeader* header = self->allocator.GetSignedAllocator();
         self->allocator.Destroy();
         TailForward02012da4(&data_02114e20, header);
         loader->RemoveTask(self->taskA);
+#if !defined(jpn)
         loader->RemoveTask(self->taskB);
+#endif
         loader->RemoveTask(self->taskC);
         func_0209c2e0(&data_02109bf4, self->field94, 0);
         func_ov017_021bb27c(self);
@@ -156,11 +173,17 @@ extern "C" ARM int func_ov001_021552a8(Self021552a8* self) {
     }
 
     void* dataA;
+#if !defined(jpn)
     void* dataB;
+#endif
     unsigned int lengthA;
+#if !defined(jpn)
     unsigned int lengthB;
+#endif
     loader->GetLoadedFileByID(self->taskA, &dataA, &lengthA);
+#if !defined(jpn)
     loader->GetLoadedFileByID(self->taskB, &dataB, &lengthB);
+#endif
 
     if (self->params.flags & 2) {
         self->timer = self->allocator.Allocate(0xe4);
@@ -169,7 +192,11 @@ extern "C" ARM int func_ov001_021552a8(Self021552a8* self) {
         self->childAllocator.CreateTypeA(self->allocator.Allocate(0xa000), 0xa000);
         self->childAllocator.Reset();
         InitAllocatorsAndBuffers0208b8c4((Obj0208b8c4*)self->timer, &self->childAllocator);
+#if defined(jpn)
+        *(void**)(msg + 0x4c) = self->timer;
+#else
         *(void**)(msg + 0x8c) = self->timer;
+#endif
     }
     if ((self->params.flags & 1) || (self->params.flags & 4)) {
         InitPool020401fc((Pool020401fc*)EmptyStub0203d004(GetGlobalPtr021075f4_0203cf4c()), 0xc, &self->allocator);
@@ -202,20 +229,38 @@ extern "C" ARM int func_ov001_021552a8(Self021552a8* self) {
         self->taskC = -1;
     }
 
+#if defined(jpn)
+    const void* dataB;
+    unsigned int lengthB;
+    if (FindFilesInNarcBySubstring(dataA, data_ov001_021661d7, &dataB, &lengthB, 1) == 0) {
+        func_ov017_021bb27c(self);
+        self->done = 1;
+        return self->state;
+    }
+    func_ov001_0215a850(&self->allocator);
+    func_ov001_0215a8dc();
+    InitOrClearAllocState_021538d4((int)dataB, 0, &self->allocator);
+#else
     func_ov001_0215a850(&self->allocator);
     func_ov001_0215a8dc();
     InitOrClearAllocState_021538d4((int)dataA, 0, &self->allocator);
+#endif
     ClearAllocSlotsAndStore_0215aa14(&self->allocator);
     if (self->params.flags & 4) {
         SetArrVal0215aaa8(1, (int)&res->allocator_array_38[7]);
     }
+#if defined(jpn)
+    if (FindFilesInNarcBySubstring(dataA, data_ov001_021661dc, &dataB, &lengthB, 1) != 0)
+#endif
     ForwardArgsAndClearFlag8c_0215acf8((int)dataB, lengthB);
     GameObject* member = gs->GetPartyMemberByIndex(0);
     if (member != NULL && (**(unsigned int**)((char*)member + 0x130) & 1)) {
         self->field107 = 1;
     }
     loader->RemoveTask(self->taskA);
+#if !defined(jpn)
     loader->RemoveTask(self->taskB);
+#endif
     CopyInternalFields0207df50((Foo0207df50*)(sub + 0xbd0));
 
     if (StoreArgIfMatched_02153948(self->params.nextId) == 0) {
