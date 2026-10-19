@@ -45,10 +45,17 @@ struct SessionGlobals02244e44 {
     unsigned char present;
     unsigned char padding_3[5];
     unsigned short packet_length;
+#if defined(jpn)
+    unsigned char padding_a[6];
+    Obj022075a4* receive_handle;
+    unsigned char padding_14[4];
+    PeerInfo02244e44* peer;
+#else
     unsigned char padding_a[0xe];
     PeerInfo02244e44* peer;
     unsigned char padding_1c[0x18];
     Obj022075a4* receive_handle;
+#endif
 };
 struct SavedPeer02244e44 {
     unsigned char address[6];
@@ -56,7 +63,11 @@ struct SavedPeer02244e44 {
     unsigned char field_7;
 };
 struct SessionGame02244e44 {
+#if defined(jpn)
+    unsigned char padding_0[0x7cdc];
+#else
     unsigned char padding_0[0x7fb0];
+#endif
     SavedPeer02244e44 peers[8];
     SavedPeer02244e44* GetPeers() { return peers; }
 };

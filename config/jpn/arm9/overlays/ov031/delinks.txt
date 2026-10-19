@@ -7273,3 +7273,7 @@ src/NetworkLib/Overlay_31/func_ov031_02211938.cpp:
 src/Combat/Overlay_31/func_ov031_02243300.cpp:
     complete
     .text start:0x02243ae0 end:0x02243b28
+
+src/Combat/Overlay_31/func_ov031_02244e44.cpp:
+    complete
+    .text start:0x02245a0c end:0x02246040
