@@ -661,7 +661,7 @@ extern "C" ARM void func_ov031_02200e38(const void* identifier, unsigned int add
             break;
         }
         unsigned int age = timestamp - entry->timestamp;
-        if (oldestAge < static_cast<short>(age)) {
+        if (oldestAge < (short)age) {
             selected = i;
             oldestAge = age;
         }
