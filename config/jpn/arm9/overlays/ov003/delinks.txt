@@ -1568,3 +1568,7 @@ src/Combat/Overlay_3/func_ov003_02175504.cpp:
 src/Combat/Overlay_3/func_ov003_02176f94.cpp:
     complete
     .text start:0x02175f8c end:0x021761f0
+
+src/Combat/Overlay_3/func_ov003_0215b964.cpp:
+    complete
+    .text start:0x0215cd60 end:0x0215d05c
