@@ -19062,3 +19062,7 @@ src/Combat/Main/CopyOutBattleRegion0x75f0.cpp:
 src/Combat/Main/func_020a78dc.cpp:
     complete
     .text start:0x020a9660 end:0x020a9a64
+
+src/Combat/Main/func_020a9c14.cpp:
+    complete
+    .text start:0x020ab864 end:0x020ab9c8
