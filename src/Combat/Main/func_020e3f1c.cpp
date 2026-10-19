@@ -15,7 +15,11 @@ struct Vec3 {
 };
 
 struct Zone02012fe4 {
+#if defined(jpn)
+    char pad[0x240c];
+#else
     char pad[0x23ec];
+#endif
     ActiveGrottoClass activeGrotto;
 };
 
@@ -25,7 +29,12 @@ struct ActorFlags0xc1 {
 };
 
 struct ActorInfo020e3f1c {
+#if defined(jpn)
+    const char* name;
+    char pad4[0x10 - 0x4];
+#else
     char pad[0x10];
+#endif
     unsigned short id;
 };
 
@@ -56,10 +65,17 @@ struct Camera020e3f1c {
 };
 
 struct Display020e3f1c {
+#if defined(jpn)
+    char pad0[0x868];
+    int busy;
+    int active;
+    char pad870[0x17e2 - 0x870];
+#else
     char pad0[0x998];
     int busy;
     int active;
     char pad9a0[0x19b2 - 0x9a0];
+#endif
     unsigned char visible;
 };
 
@@ -122,12 +138,32 @@ extern "C" void func_020dfec0(void* dest, void* allocator, void* fileData, unsig
 int GetFieldByKey020e0434(struct Container020e0310* c, int key);
 void TailForward02012da4(AllocatorUnion* alloc, void* ptr);
 void SetIndexedName02046574(struct Obj02046574* obj, int index, char* name);
+#if defined(jpn)
+extern "C" void func_0204500c(void* global, void* entry, int a);
+#else
 extern "C" void func_0204500c(void* global, void* entry, int a, int b);
+#endif
 extern "C" void func_02043124(void* global);
 
 extern AllocatorUnion data_02114e20;
+#if defined(jpn)
+struct List020727d8 {
+    void* unk_0;
+    void* unk_4;
+};
+struct TableA68;
+#include "Filesystem/FileIO.h"
+int CompareStrings_020d3018(const char* a, const char* b);
+void ResetListHeader020727d8(struct List020727d8* list);
+extern "C" void func_020728ac(void* list, void* alloc, void* buffer, int length, int a4, int a5, int a6);
+void* FindEntryByKey_02072a68(struct TableA68* table, int key);
+extern const char data_020f2e30[];
+extern const char data_020f2e3b[];
+extern const char data_020f2e4d[];
+#else
 extern const char data_020f2cd4[];
 extern const char data_020f2ce4[];
+#endif
 
 static inline int FxMul(int a, int b) {
     return (int)(((long long)a * b + 0x800) >> 12);
@@ -198,7 +234,11 @@ extern "C" ARM void func_020e3f1c(struct BattleIntro020e3f1c* intro) {
         }
         ClearIntAt0x23c_020a27b8((unsigned char*)camera);
         SetMainBrightness(res, -16, 0x1e);
+#if defined(jpn)
+        if (CompareStrings_020d3018(monster->info->name, data_020f2e30) == 0) {
+#else
         if (monster->info->id == 0x133) {
+#endif
             intro->cameraMode = 2;
         } else if (monster->flags17d & 4) {
             intro->cameraMode = 1;
@@ -251,9 +291,13 @@ extern "C" ARM void func_020e3f1c(struct BattleIntro020e3f1c* intro) {
         if (!AlwaysTrue02094b4c(mgr)) {
             return;
         }
+#if defined(jpn)
+        intro->taskId = loader->QueueLoadFile(data_020f2e3b, NULL);
+#else
         char fileName[16];
         sprintf(fileName, data_020f2cd4, bossId);
         intro->taskId = loader->QueueLoadFileInGP2(data_020f2ce4, fileName, NULL);
+#endif
         intro->state = 4;
     } else if (intro->state == 4) {
         if (!loader->GetTaskStatus(intro->taskId)) {
@@ -270,6 +314,29 @@ extern "C" ARM void func_020e3f1c(struct BattleIntro020e3f1c* intro) {
             func_ov004_0216fa48(intro);
             return;
         }
+#if defined(jpn)
+        char name[16];
+        sprintf(name, data_020f2e4d, bossId);
+        const void* ptr = NULL;
+        unsigned int len = 0;
+        if (!GetFileInNarc(fileData, name, &ptr, &len, 0)) {
+            return;
+        }
+        void* buf = AllocateAligned4_02012d88(&data_02114e20, 0x400);
+        if (buf == NULL) {
+            func_ov004_0216fa48(intro);
+            return;
+        }
+        SafeAllocator alloc;
+        alloc.ResetAllocatorPointer();
+        alloc.CreateTypeA(buf, 0x400);
+        struct List020727d8 list;
+        ResetListHeader020727d8(&list);
+        func_020728ac(&list, &alloc, (void*)ptr, len, 0, 0, 0);
+        loader->RemoveTask(intro->taskId);
+        intro->taskId = -1;
+        void* entry = FindEntryByKey_02072a68((struct TableA68*)&list, bossId);
+#else
         void* buf = AllocateAligned4_02012d88(&data_02114e20, 0x500);
         if (buf == NULL) {
             func_ov004_0216fa48(intro);
@@ -285,6 +352,7 @@ extern "C" ARM void func_020e3f1c(struct BattleIntro020e3f1c* intro) {
         loader->RemoveTask(intro->taskId);
         intro->taskId = -1;
         void* entry = (void*)GetFieldByKey020e0434((struct Container020e0310*)&table, bossId);
+#endif
         if (entry == NULL) {
             alloc.Destroy();
             TailForward02012da4(&data_02114e20, buf);
@@ -294,7 +362,11 @@ extern "C" ARM void func_020e3f1c(struct BattleIntro020e3f1c* intro) {
         display->visible = 1;
         display->active = 1;
         SetIndexedName02046574((struct Obj02046574*)display, 0, leader->name);
+#if defined(jpn)
+        func_0204500c(display, entry, 0);
+#else
         func_0204500c(display, entry, 0, 0xe3);
+#endif
         display->busy = 1;
         alloc.Destroy();
         TailForward02012da4(&data_02114e20, buf);
