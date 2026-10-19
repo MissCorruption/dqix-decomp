@@ -4,7 +4,11 @@
 #include "Resource/GameResources.h"
 
 struct Sub3718_021e7890 {
+#if defined(jpn)
+    char pad[0x508];
+#else
     char pad[0x718];
+#endif
     void* ptr;
 };
 struct GameRes021e7890 {
@@ -75,6 +79,10 @@ extern "C" void func_ov000_021677fc(void* work);
 void RunFlaglearAndSetMode02167e6c_02167e6c(unsigned char*);
 struct Vector3i;
 
+#if defined(jpn)
+#define data_ov025_021eef18 data_ov025_021ef200
+#define data_ov025_021eef30 data_ov025_021ef218
+#endif
 extern const unsigned short data_ov025_021eef18[5];
 extern const unsigned short data_ov025_021eef30[7];
 
