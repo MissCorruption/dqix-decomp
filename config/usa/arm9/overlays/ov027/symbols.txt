@@ -91,7 +91,13 @@ data_ov027_021dd8e0 kind:data(any) addr:0x021dd8e0
 data_ov027_021dd8e4 kind:data(any) addr:0x021dd8e4
 data_ov027_021dd8e8 kind:data(any) addr:0x021dd8e8
 data_ov027_021dd8ec kind:data(any) addr:0x021dd8ec
-data_ov027_021dd8fc kind:data(any) addr:0x021dd8fc
+data_ov027_021dd8ee kind:data(any) addr:0x021dd8ee
+data_ov027_021dd8f0 kind:data(any) addr:0x021dd8f0
+data_ov027_021dd8f2 kind:data(any) addr:0x021dd8f2
+gameName$85 kind:data(any) addr:0x021dd8f4 local
+data_ov027_021dd8f8 kind:data(any) addr:0x021dd8f8
+@wstringBase0 kind:data(any) addr:0x021dd8fc local
+data_ov027_021dd910 kind:data(any) addr:0x021dd910
 data_ov027_021dd920 kind:bss addr:0x021dd920
 data_ov027_021dd924 kind:bss addr:0x021dd924
 data_ov027_021dd940 kind:bss addr:0x021dd940
