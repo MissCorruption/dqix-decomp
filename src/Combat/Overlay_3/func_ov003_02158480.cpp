@@ -8,7 +8,11 @@ struct PartyStatusPanel {
     EntryList* entries;
     char unk_1c[0x20 - 0x1c];
     int* slots;
+#if defined(jpn)
+    char unk_24[0x1ee - 0x24];
+#else
     char unk_24[0x1f2 - 0x24];
+#endif
     unsigned char memberIds[4];
     unsigned char memberCount;
     signed char selected;
@@ -48,7 +52,9 @@ extern "C" ARM void func_ov003_02158480(PartyStatusPanel* self) {
     SetSublistEntriesFlag1_02080b54(entries, 6);
     SetSublistEntriesFlag2_02080608(entries, 6);
     SetEntryFlagById02080b40(entries, 0x43);
+#if !defined(jpn)
     DispatchEntryOp0x8_0208108c(entries, 0x43);
+#endif
 
     int count = CountNonZeroEntries_0215570c((Obj0215570c*)self);
     int r8 = -1;
@@ -86,7 +92,11 @@ extern "C" ARM void func_ov003_02158480(PartyStatusPanel* self) {
                     short a, b, c, d;
                     GetEntryFieldsAt0x602080828(entries, row, &a, &b);
                     GetEntryOutputs020808c8(entries, row, &c, &d);
+#if defined(jpn)
+                    SetEntryFieldsAt0x602080854(entries, cell, (short)(a + c + 1), (short)(b + 2));
+#else
                     SetEntryFieldsAt0x602080854(entries, cell, (short)(a + c + 1), b);
+#endif
                     SetEntryFlagById02080b40(entries, cell);
                     ResolveEntryValueByKey02080fe0(entries, cell, hi);
                     SetEntryHighNibble0x13((Container02080cc0*)entries, cell, shade);
