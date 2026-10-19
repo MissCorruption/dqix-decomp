@@ -64,7 +64,11 @@ struct Emitter021539d8 {
 struct Label021539d8 {
     char pad0[2];
     unsigned char kind;
+#if defined(jpn)
+    char pad3[0xd];
+#else
     char pad3;
+#endif
     char text[0x10];
 };
 
@@ -102,7 +106,11 @@ struct Global021539d8 {
 struct Self021539d8 {
     char pad0[0x50];
     unsigned short flags;
+#if defined(jpn)
+    char pad52[0x7a];
+#else
     char pad52[0x7e];
+#endif
     struct LoadNode021539d8* loads;
     struct MotionNode021539d8* motions;
     char padd8[0x1c];
@@ -110,6 +118,17 @@ struct Self021539d8 {
     unsigned int mode : 27;
 };
 
+#if defined(jpn)
+#define data_ov001_02164bb0 data_ov001_02166150
+#define data_ov001_02164bb6 data_ov001_02166156
+#define data_ov001_02164bc0 data_ov001_02166160
+#define data_ov001_02164bc5 data_ov001_02166165
+#define data_ov001_02164bc8 data_ov001_02166168
+#define data_ov001_02164bcb data_ov001_0216616b
+#define PAIR_TABLES_021539d8 0x27c
+#else
+#define PAIR_TABLES_021539d8 0x2cc
+#endif
 extern char data_ov001_02164bb0[];
 extern char data_ov001_02164bb6[];
 extern char data_ov001_02164bc0[];
@@ -229,9 +248,9 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             continue;
         }
 
-        pair = &((struct PairTables021539d8*)(base + 0x2cc))[27];
+        pair = &((struct PairTables021539d8*)(base + PAIR_TABLES_021539d8))[27];
         if (node->kind == 1) {
-            pair = &((struct PairTables021539d8*)(base + 0x2cc))[7];
+            pair = &((struct PairTables021539d8*)(base + PAIR_TABLES_021539d8))[7];
             if (!copied) {
                 if ((self->flags & 4) || (self->flags & 1)) {
                     _Z26CopyInternalFields0207df50P11Foo0207df50(pair);
@@ -413,7 +432,7 @@ extern "C" ARM void func_ov001_021539d8(struct Self021539d8* self) {
             loader->GetLoadedFileByID(node->task, &data, &size);
             emitter = (struct Emitter021539d8*)pool->Allocate(0x20);
             record = pool->Allocate(0x78);
-            label = (struct Label021539d8*)pool->Allocate(0x14);
+            label = (struct Label021539d8*)pool->Allocate(sizeof(struct Label021539d8));
             stream = (struct Stream021539d8*)pool->Allocate(0x9c);
             if (emitter == 0 || label == 0 || record == 0 || stream == 0) {
                 loader->RemoveTask(node->task);
