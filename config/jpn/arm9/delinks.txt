@@ -8497,7 +8497,7 @@ src/Combat/Main/TensionBonusCalculation.cpp:
 src/Combat/Main/CritRateCalculation.cpp:
 	complete
 	.text start:0x02075930 end:0x020759c4
-	
+
 src/Combat/Main/ApplyRandomVariance.cpp:
     complete
     .text start:0x020759c4 end:0x02075a34
@@ -19086,3 +19086,15 @@ src/NitroSDK/Main/func_020ca95c.s:
 src/Runtime/Main/func_0200c700.s:
     complete
     .text start:0x0200c5c4 end:0x0200c630
+
+src/Combat/Main/__sinit_020e66a0.cpp:
+    complete
+    .init start:0x020e6f80 end:0x020e6fdc
+
+src/Combat/Main/__sinit_020e5c58.cpp:
+    complete
+    .init start:0x020e6538 end:0x020e65c8
+
+src/Combat/Main/__sinit_020e6790.cpp:
+    complete
+    .init start:0x020e7070 end:0x020e71d4
