@@ -74,6 +74,12 @@ int GetCombatantField0x148Bits3To4_ov000_02159d94(void* unused, int id);
 void ClearFirstField_021f66c0(int* p);
 extern "C" int func_ov024_021f66cc(int* obj, struct Battle0208a03c* battle, int moveId, int id, int* out, int arg);
 
+#if defined(jpn)
+enum { regionalOffset = 0x240c };
+#else
+enum { regionalOffset = 0x23ec };
+#endif
+
 // USA: func_0208a03c
 extern "C" ARM int func_0208a03c(Context0208a03c* ctx, unsigned char index, unsigned short id, int* out, int arg) {
     GameState* gs = GameState::GetInstance();
@@ -92,7 +98,7 @@ extern "C" ARM int func_0208a03c(Context0208a03c* ctx, unsigned char index, unsi
     }
     char* zone = func_02012fe4();
     if (IsGlobalU16InRange_020117f0(gs) && ctx->battle->party->f25 != 0) {
-        char* detail = (char*)((ActiveGrottoClass*)(zone + 0x23ec))->GetDetailedData();
+        char* detail = (char*)((ActiveGrottoClass*)(zone + regionalOffset))->GetDetailedData();
         short kindId = c->kindId;
         unsigned short alt = ((DetailedTreasureMapData::LegacyBossMapData*)(detail + 0x4c))->MaybeGetCurrentAlternateID();
         if (alt == kindId) {
