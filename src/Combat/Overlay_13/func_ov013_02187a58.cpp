@@ -17,7 +17,8 @@ struct SkillSortEntry02187a58 {
     float points;
 };
 extern "C" SkillEntry02187a58* func_0208e934(void* list, int kind, int index);
-extern "C" SkillEntry02187a58* func_0208e97c(void* list, int id);
+struct List0208e06c;
+SkillEntry02187a58* FindNodeById0208e06c(List0208e06c* list, int id);
 int GetTableByte020dd11c(unsigned int, unsigned int);
 int GetFieldAt0x150_02053c6c(unsigned char*);
 struct TableA68;
@@ -63,7 +64,7 @@ extern "C" ARM void func_ov013_02187a58(void* self, void* canvas) {
     func_020749ac(entries, 0, 9, 0);
     for (unsigned char i = 0; i < 10; i++) {
         palette = 3;
-        SkillEntry02187a58* skill = func_0208e97c(menu + 0xc, (short)entries[i].id);
+        SkillEntry02187a58* skill = FindNodeById0208e06c((List0208e06c*)(menu + 0xc), (short)entries[i].id);
         if (skill) {
             int points = skill->points;
             if (availablePoints >= points) palette = 15;
