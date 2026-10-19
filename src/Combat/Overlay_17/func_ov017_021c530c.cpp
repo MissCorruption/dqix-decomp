@@ -83,17 +83,29 @@ struct Pending021c530c {
 };
 
 struct Ctx021c530c {
+#if defined(jpn)
+    unsigned char pad0[0x34ec];
+#else
     unsigned char pad0[0x36fc];
+#endif
     void* list6fc;
     unsigned char pad3700[0x3718 - 0x3700];
     Node021c530c* node718;
     unsigned char pad371c[0x3734 - 0x371c];
     void* obj734;
+#if defined(jpn)
+    unsigned char pad3738[0x38f4 - 0x3528];
+#else
     unsigned char pad3738[0x3b14 - 0x3738];
+#endif
     void* nodeB14;
     unsigned char pad3b18[0x3b90 - 0x3b18];
     void* nodeB90;
+#if defined(jpn)
+    unsigned char pad3b94[0x41fe - 0x3974];
+#else
     unsigned char pad3b94[0x44ae - 0x3b94];
+#endif
     Pending021c530c pending;
 };
 
@@ -326,9 +338,11 @@ extern "C" ARM void func_ov017_021c530c(int index, Cmd021c530c* cmd, GameState* 
                 }
             }
         } else {
+#if !defined(jpn)
             if (!HasMatchingHalfword_0219735c(work, cmd->id)) {
                 EnqueueHalfword_021972f8(work, cmd->id);
             }
+#endif
             plainId = cmd->id;
             if (plainId < 1) {
                 normal = 0;
