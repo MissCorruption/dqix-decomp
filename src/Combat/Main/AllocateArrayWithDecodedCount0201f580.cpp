@@ -9,10 +9,15 @@ extern int data_020fdc4c;
 
 // USA: func_0201f580
 ARM int AllocateArrayWithDecodedCount0201f580(Variant02030b0c* arg) {
+#if defined(jpn)
+    enum { regionalOffset0 = 0xc, regionalOffset1 = 0x4 };
+#else
+    enum { regionalOffset0 = 0x10, regionalOffset1 = 0x8 };
+#endif
     int capacity = ((Script::Parameter*)arg)->ToInt();
     AllocateArray020278e4(
-        (Array020278e4*)*(char**)((char*)&data_020fdc4c + 0x10),
+        (Array020278e4*)*(char**)((char*)&data_020fdc4c + regionalOffset0),
         capacity,
-        (SafeAllocator*)*(char**)((char*)&data_020fdc4c + 0x8));
+        (SafeAllocator*)*(char**)((char*)&data_020fdc4c + regionalOffset1));
     return 1;
 }
