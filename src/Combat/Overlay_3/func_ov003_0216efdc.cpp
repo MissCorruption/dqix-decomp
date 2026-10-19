@@ -13,6 +13,9 @@ char *GetGlobalField0x1c020421a0(void);
 extern "C" char *func_02012fe4(void);
 extern "C" void *func_0205ec34(void);
 extern "C" void func_ov003_02170960(void *self, int a, int b);
+#if defined(jpn)
+extern "C" void func_ov003_021701e4(void *self, int a);
+#endif
 
 struct Obj_0216f414;
 struct Entry0216efdc;
@@ -29,7 +32,11 @@ struct Entry0216efdc {
 };
 
 struct Global0216efdc {
+#if defined(jpn)
+    char unk_0[0x868];
+#else
     char unk_0[0x998];
+#endif
     int unk_998;
     char unk_99c[4];
     int unk_9a0;
@@ -65,10 +72,16 @@ struct Menu0216efdc {
     void *unk_d4;
 };
 
+#if defined(jpn)
+enum { regionalOffset0 = 0x1860 };
+#else
+enum { regionalOffset0 = 0x1840 };
+#endif
+
 // USA: func_ov003_0216efdc
 extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
     Global0216efdc *global     = (Global0216efdc *) GetGlobalField0x1c020421a0();
-    Progress0216efdc *progress = (Progress0216efdc *) (func_02012fe4() + 0x1840);
+    Progress0216efdc *progress = (Progress0216efdc *) (func_02012fe4() + regionalOffset0);
     int chapter                = progress->chapter;
     int state                  = self->state_;
     if (state == 0) {
@@ -93,7 +106,11 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
             return;
         }
         func_0206df6c(save, (unsigned char *) save + 0x8c, 0x783, 1);
+#if defined(jpn)
+        func_ov003_021701e4(self, 0x1f);
+#else
         func_ov003_02170960(self, 0x1f, 0);
+#endif
         global->unk_998 = 1;
         self->unk_20 |= 1;
         self->state_ = 0x65;
