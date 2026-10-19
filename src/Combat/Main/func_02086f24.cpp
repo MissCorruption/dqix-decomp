@@ -106,7 +106,11 @@ struct CharacterRecord02086f24 {
     CharacterProfile02086f24 profile;
     unsigned char pad74[0x120];
     Element020de650 equipment[11];
+#if defined(jpn)
+    unsigned char pad2f4[0x5d8];
+#else
     unsigned char pad2f4[0x670];
+#endif
 };
 
 struct Container020dedd0 {
@@ -151,6 +155,13 @@ extern const char* data_020f2a30;
 extern const signed char data_020e8a94[10];
 extern const char data_020f102e[];
 extern unsigned char data_0211e33c[];
+#if defined(jpn)
+extern "C" void* func_020e0968(const char* filename, unsigned int* outLength);
+extern const char data_020f1150[];
+#define HEAP_SIZE_02086f24 0xc00
+#else
+#define HEAP_SIZE_02086f24 0x800
+#endif
 
 #define FX_F32_TO_FX16(x) ((short)(((x) > 0) ? (short)((x) * 4096.0f + 0.5f) : (short)((x) * 4096.0f - 0.5f)))
 
@@ -180,19 +191,21 @@ extern "C" ARM int func_02086f24(Party02086f24* party, unsigned char id, SafeAll
     CharacterRecord02086f24 record;
     ResetFieldsStruct templates;
     SafeAllocator scriptAlloc;
+#if !defined(jpn)
     unsigned char nameBuf[12];
+#endif
     Container020dedd0 items;
     unsigned char skills[20];
     unsigned int itemSize;
     unsigned int size;
     Ctx0209a8b4 ctx;
 
-    if (heap->GetMaxPossibleAllocation() < 0x800) {
+    if (heap->GetMaxPossibleAllocation() < HEAP_SIZE_02086f24) {
         return 0;
     }
     scriptAlloc.ResetAllocatorPointer();
     scriptAlloc.ResetAllocatorPointer();
-    scriptAlloc.CreateTypeA(heap->Allocate(0x800), 0x800);
+    scriptAlloc.CreateTypeA(heap->Allocate(HEAP_SIZE_02086f24), HEAP_SIZE_02086f24);
     scriptAlloc.Reset();
     ResetStructFields_02089db4(&templates);
     SetupHeaderAndRunBufferedScript02089de8(&templates, &scriptAlloc, NULL);
@@ -205,9 +218,13 @@ extern "C" ARM int func_02086f24(Party02086f24* party, unsigned char id, SafeAll
         sel.count = t->count;
         sel.cursor = t->cursor;
         SetVocation02086f24(&sel, t->vocation);
+#if defined(jpn)
+        sprintf((char*)sel.name, data_020f1150, t->name);
+#else
         __clear(nameBuf, sizeof(nameBuf));
         func_020426bc(t->name, nameBuf, 1);
         memcpy(sel.name, nameBuf, sizeof(nameBuf));
+#endif
         VectorizedInvertedMemcpy(t->levels, sel.levels, sizeof(sel.levels));
         Appearance02086f24* look = &sel.appearance;
         VectorizedInvertedMemcpy(t->equipment, look->equipment, sizeof(look->equipment));
@@ -225,10 +242,18 @@ extern "C" ARM int func_02086f24(Party02086f24* party, unsigned char id, SafeAll
         itemSize = 0;
         ZeroInitReturn020de824(&items);
         ZeroInit020de848(&items);
+#if defined(jpn)
+        func_020e0968(data_020f2a38, &itemSize);
+#else
         void* itemData = ExtractFileFromGP2(data_020f2a38, data_020f2a30, &itemSize);
+#endif
         for (int k = 0; k < 10; k++) {
             short equip = GetEquip02086f24(t, k);
+#if defined(jpn)
+            InitAndDispatch020def44((int)&record.equipment[data_020e8a94[k]], (int)data_0211e33c, itemSize, equip);
+#else
             InitAndDispatch020def44((int)&record.equipment[data_020e8a94[k]], (int)itemData, itemSize, equip);
+#endif
         }
         BackgroundLoader::RemoveLockGlobal();
         func_02083e28(&record, 0);
