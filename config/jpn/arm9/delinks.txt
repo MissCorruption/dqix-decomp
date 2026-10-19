@@ -19098,3 +19098,9 @@ src/Combat/Main/__sinit_020e5c58.cpp:
 src/Combat/Main/__sinit_020e6790.cpp:
     complete
     .init start:0x020e7070 end:0x020e71d4
+
+src/Combat/Main/func_0204c030.cpp:
+    complete
+    .text start:0x0204ce50 end:0x0204d428
+    .rodata start:0x020e85b4 end:0x020e85d0
+    .bss start:0x0210785c end:0x02107860

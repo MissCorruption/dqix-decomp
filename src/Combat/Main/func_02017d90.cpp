@@ -15,9 +15,6 @@ struct TerrainProbe { Vector3i upper; Vector3i lower; };
 extern "C" long long func_020c32f8(int);
 extern "C" long long func_020c3260(int);
 extern "C" float func_0200c700(long long);
-#if defined(jpn)
-#define func_0204c030 func_0204ce50
-#endif
 extern "C" int func_0204c030(void*, TerrainGrid*, TerrainProbe);
 
 // USA: func_02017d90

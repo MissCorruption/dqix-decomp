@@ -1940,7 +1940,7 @@ _Z28CheckBits5To9NonZero0204bedcPt kind:function(arm,size=0x18) addr:0x0204ccfc
 _Z32ConvertColorToDecimalOffset20000P19ColorHolder0204bef4 kind:function(arm,size=0x3c) addr:0x0204cd14
 _Z22Clear0x4cBytes0204bf30Pv kind:function(arm,size=0x14) addr:0x0204cd50
 _Z24InitRenderParams0204bf44P20RenderParams0204bf44PvP20RenderSource0204bf44j kind:function(arm,size=0xec) addr:0x0204cd64
-func_0204ce50 kind:function(arm,size=0x5d8) addr:0x0204ce50
+func_0204c030 kind:function(arm,size=0x5d8) addr:0x0204ce50
 _Z12SetVec3At0x0P18Vec3Target0204c608iii kind:function(arm,size=0x8) addr:0x0204d428
 _Z20GetFourShortsAtIndexP19ShortArrays0204c610iPsS1_S1_S1_ kind:function(arm,size=0x44) addr:0x0204d430
 _Z20SetFourShortsAtIndexP19ShortArrays0204c654issss kind:function(arm,size=0x30) addr:0x0204d474
@@ -6150,7 +6150,7 @@ data_020e7b60 kind:data(any) addr:0x020e855c
 data_020e7b68 kind:data(any) addr:0x020e8564
 data_020e7b70 kind:data(any) addr:0x020e856c
 data_020e7b98 kind:data(any) addr:0x020e8594
-data_020e85b4 kind:data(any) addr:0x020e85b4
+@246 kind:data(any) addr:0x020e85b4 local
 data_020e85d0 kind:data(any) addr:0x020e85d0
 data_020e7bfc kind:data(any) addr:0x020e85d4
 data_020e7c40 kind:data(any) addr:0x020e85f0
@@ -7521,7 +7521,7 @@ data_021078a8 kind:bss addr:0x021077ec
 data_021078ac kind:bss addr:0x021077f0
 data_021078e0 kind:bss addr:0x02107824
 data_021078e4 kind:bss addr:0x02107828
-data_0210785c kind:bss addr:0x0210785c
+sLastTotal$241 kind:bss addr:0x0210785c local
 s_dayThresholds kind:bss addr:0x02107860 local
 s_lightingManager kind:bss addr:0x02107874 local
 data_021079cc kind:bss addr:0x02107910
