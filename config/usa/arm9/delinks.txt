@@ -220,7 +220,6 @@ src/MSL/Main/02003418.cpp:
     complete
     .text start:0x02003418 end:0x02003c3c
 
-
 src/MSL/Main/WriteToRingBuf_02003c3c.cpp:
     complete
     .text start:0x02003c3c end:0x02003c80
@@ -627,7 +626,6 @@ src/Runtime/Main/func_0200df80.cpp:
     complete
     .text start:0x0200df80 end:0x0200e830
 
-
 src/Runtime/Main/func_0200e830.cpp:
     complete
     .text start:0x0200e830 end:0x0200e984
@@ -672,16 +670,13 @@ src/Runtime/Main/func_0200ee38.cpp:
     complete
     .text start:0x0200ee38 end:0x0200ee94
 
-
 src/Runtime/Main/func_0200ee94.cpp:
     complete
     .text start:0x0200ee94 end:0x0200ef44
 
-
 src/Runtime/Main/func_0200ef44.cpp:
     complete
     .text start:0x0200ef44 end:0x0200efa0
-
 
 src/Runtime/Main/TailForward0200efa0.cpp:
     complete
@@ -722,7 +717,6 @@ src/Runtime/Main/DecodeVlqMaybeTwice_0200f2bc.cpp:
 src/Runtime/Main/func_0200f2ec.cpp:
     complete
     .text start:0x0200f2ec end:0x0200f31c
-
 
 src/Combat/Main/func_0200f31c_0200f31c.s:
     complete
@@ -16384,7 +16378,6 @@ src/NitroSDK/Main/func_020beaec.cpp:
     complete
     .text start:0x020beaec end:0x020bebb4
 
-
 src/NitroSDK/Main/LookupRecordAndDispatch020bebb4.cpp:
     complete
     .text start:0x020bebb4 end:0x020bec10
@@ -17997,7 +17990,6 @@ src/NitroSDK/Main/func_020d2220.cpp:
     complete
     .text start:0x020d2220 end:0x020d22f4
 
-
 src/NitroSDK/Main/func_020d22f4.cpp:
     complete
     .text start:0x020d22f4 end:0x020d2404
@@ -18162,7 +18154,6 @@ src/Combat/Main/func_020d39dc.cpp:
     complete
     .text start:0x020d39dc end:0x020d3c08
 
-
 src/Combat/Main/ResetStruct020d3c08.cpp:
     complete
     .text start:0x020d3c08 end:0x020d3c28
@@ -18179,7 +18170,6 @@ src/Combat/Main/AppendNamedEntry020d3cf0.cpp:
     complete
     .text start:0x020d3cf0 end:0x020d3d78
 
-
 src/Combat/Main/GetElementCount0xb4Stride0x24.cpp:
     complete
     .text start:0x020d3d78 end:0x020d3d90
@@ -18187,7 +18177,6 @@ src/Combat/Main/GetElementCount0xb4Stride0x24.cpp:
 src/Combat/Main/FindEntryByKind.cpp:
     complete
     .text start:0x020d3d90 end:0x020d3dcc
-
 
 src/NitroSDK/Main/InitBattleModeF00.cpp:
     complete
@@ -20521,76 +20510,61 @@ src/Combat/Main/func_02000954.cpp:
     complete
     .text start:0x02000954 end:0x02000970
 
-
 src/Combat/Main/func_02000970.cpp:
     complete
     .text start:0x02000970 end:0x02000a1c
-
 
 src/Combat/Main/func_02000a1c.cpp:
     complete
     .text start:0x02000a1c end:0x02000aac
 
-
 src/MSL/Main/func_0200af90.cpp:
     complete
     .text start:0x0200af90 end:0x0200afe8
-
 
 src/Runtime/Main/func_0200c9b4.cpp:
     complete
     .text start:0x0200c9b4 end:0x0200ca98
 
-
 src/NitroSDK/Main/func_020c0e9c.cpp:
     complete
     .text start:0x020c0e9c end:0x020c111c
-
 
 src/NitroSDK/Main/DecompressB.cpp:
     complete
     .text start:0x020cab94 end:0x020cad00
 
-
 src/NitroSDK/Main/Mat3x3_WriteRotationZ.cpp:
     complete
     .text start:0x020c129c end:0x020c12b4
-
 
 src/NitroSDK/Main/Mat4x3_WriteRotationY.cpp:
     complete
     .text start:0x020c199c end:0x020c19b8
 
-
 src/NitroSDK/Main/func_020c8aac.cpp:
     complete
     .text start:0x020c8aac end:0x020c8b30
-
 
 src/NitroSDK/Main/func_020ca3ec.cpp:
     complete
     .text start:0x020ca3ec end:0x020ca408
 
-
 src/NitroSDK/Main/func_020ca458.cpp:
     complete
     .text start:0x020ca458 end:0x020ca4b4
-
 
 src/NitroSDK/Main/func_020ca4b4.cpp:
     complete
     .text start:0x020ca4b4 end:0x020ca50c
 
-
 src/NitroSDK/Main/func_020ca650.cpp:
     complete
     .text start:0x020ca650 end:0x020ca7d0
 
-
 src/NitroSDK/Main/func_020ca7d0.cpp:
     complete
     .text start:0x020ca7d0 end:0x020ca7e0
-
 
 src/NitroSDK/Main/func_020cf864.cpp:
     complete
@@ -20624,36 +20598,25 @@ src/Combat/Main/_dadd_0200ab28.s:
     complete
     .text start:0x0200ab28 end:0x0200ae40
 
-
-src/NitroSDK/Main/func_020b20b0.s:
-    complete
-    .text start:0x020b20b0 end:0x020b23a8
-
-
 src/Combat/Main/func_02000800.s:
     complete
     .text start:0x02000800 end:0x02000954
-
 
 src/MSL/Main/func_0200b608.s:
     complete
     .text start:0x0200b5f0 end:0x0200b9bc
 
-
 src/Runtime/Main/func_0200caa4.s:
     complete
     .text start:0x0200ca98 end:0x0200cd1c
-
 
 src/Combat/Main/func_0208a700.cpp:
     complete
     .text start:0x0208a700 end:0x0208a840
 
-
 src/MSL/Main/func_0200c1c0.s:
     complete
     .text start:0x0200c1b4 end:0x0200c578
-
 
 src/Runtime/Main/func_0200d34c.s:
     complete
