@@ -18894,3 +18894,7 @@ src/Combat/Main/AllocateArrayWithDecodedCount0201f580.cpp:
 src/Combat/Main/func_0202555c.cpp:
     complete
     .text start:0x02024f30 end:0x020254e0
+
+src/Combat/Main/func_02027974.cpp:
+    complete
+    .text start:0x020271e0 end:0x02027344
