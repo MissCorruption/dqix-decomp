@@ -12,6 +12,15 @@ struct BattleEffectResource02166a94 { int state; char pad_4[0x84]; };
 struct BattleWork02166a94 {
     char pad_0[4];
     SafeAllocator* allocator;
+#if defined(jpn)
+    char pad_8[0xe20 - 8];
+    void* entryManager;
+    char pad_e24[0x57f0 - 0xe24];
+    BattleEffectResource02166a94 effects[2];
+    char pad_5900[0x5ca0 - 0x5900];
+    Object3D models[2];
+    char pad_5df8[0x71ec - 0x5df8];
+#else
     char pad_8[0xea4 - 8];
     void* entryManager;
     char pad_ea8[0x5600 - 0xea8];
@@ -19,6 +28,7 @@ struct BattleWork02166a94 {
     char pad_5710[0x5ab0 - 0x5710];
     Object3D models[2];
     char pad_5c08[0x6ffc - 0x5c08];
+#endif
     char battleResources[4];
 };
 struct BattlePairTables02166a94 {

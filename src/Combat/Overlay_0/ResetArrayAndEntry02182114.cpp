@@ -10,11 +10,7 @@ struct BattleResources {
 };
 
 // USA: func_ov000_02182114
-#if defined(jpn)
-extern "C" ARM void func_ov000_02183360(char* storage)
-#else
 ARM void ResetArrayAndEntry02182114(char* storage)
-#endif
 {
     BattleResources* battle = (BattleResources*)storage;
     int i;
