@@ -19,7 +19,6 @@ extern "C" {
 
 void RunBufferedStream0205e104(char*, SafeAllocator*, const void*, unsigned int);
 #if defined(jpn)
-extern "C" void func_020148d0(void*);
 #define data_020ef13e data_020ef07a
 #define data_020ef145 data_020ef081
 #define data_020ef14b data_020ef087
@@ -108,10 +107,6 @@ ARM int Zone3D::UnpackMapAMBL_02014108() {
 
     loader->RemoveTask(mapAMBLLoadHandle_);
     mapAMBLLoadHandle_ = -1;
-#if defined(jpn)
-    func_020148d0(this);
-#else
     _ZN6Zone3D26QueueLoadATS_AMBL_02014b04Ev(this);
-#endif
     return 1;
 }

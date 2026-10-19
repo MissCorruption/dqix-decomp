@@ -19070,3 +19070,7 @@ src/Combat/Main/func_020a9c14.cpp:
 src/Combat/Main/func_0207fe80.cpp:
     complete
     .text start:0x020809bc end:0x02080c38
+
+src/Combat/Main/UpdateGrottoRankLabelAndDispatch02014b04.cpp:
+    complete
+    .text start:0x020148d0 end:0x020149d0
