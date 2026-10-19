@@ -2,15 +2,26 @@
 #include <globaldefs.h>
 
 struct Entries {
+#if defined(jpn)
+    char pad0[0x2a];
+#else
     char pad0[0x36];
+#endif
     short sel;
 };
 
 struct Scene {
+#if defined(jpn)
+    char pad0[0x1f0];
+    char sub308[0x20c - 0x1f0];
+    Entries *entries;
+    char pad328[0x28c - 0x210];
+#else
     char pad0[0x308];
     char sub308[0x324 - 0x308];
     Entries *entries;
     char pad328[0x464 - 0x328];
+#endif
     unsigned int flags;
     char pad468[0x470 - 0x468];
     short *p470;
@@ -35,6 +46,12 @@ struct Elem {
     char pad1[0x13f - 1];
     unsigned char m : 3;
 };
+
+#if defined(jpn)
+#define REGION_OFF_464 0x28c
+#else
+#define REGION_OFF_464 0x64 + 0x400
+#endif
 
 extern int data_02108760;
 struct StatusOwner02081198;
@@ -81,7 +98,7 @@ extern "C" ARM void func_ov003_02163484(Scene *self) {
         self->p470 = 0;
         self->flags |= 0x780000;
         if (self->flags & 1) {
-            *(unsigned int *) ((int) self + 0x64 + 0x400) |= 0x800000;
+            *(unsigned int *) ((int) self + REGION_OFF_464) |= 0x800000;
         }
         self->state = self->state + 1;
     } else if (state == 1) {
@@ -91,7 +108,7 @@ extern "C" ARM void func_ov003_02163484(Scene *self) {
         if (self->flags & 0x1000000) {
             self->flags |= 0x780000;
             if (self->flags & 1) {
-                *(unsigned int *) ((int) self + 0x64 + 0x400) |= 0x800000;
+                *(unsigned int *) ((int) self + REGION_OFF_464) |= 0x800000;
             }
         }
         if (func_ov003_02160854(self) != 0) {
