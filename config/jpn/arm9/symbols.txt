@@ -3944,7 +3944,7 @@ _Z26CheckField0NonZero020a10a8Pi kind:function(arm,size=0x14) addr:0x020a2e20
 _Z18AlwaysTrue020a10bcv kind:function(arm,size=0x8) addr:0x020a2e34
 _Z18AlwaysTrue020a10c4v kind:function(arm,size=0x8) addr:0x020a2e3c
 _Z35InitCappedArrayFromVariants020a10ccP19Vec4Variant020a10cc kind:function(arm,size=0xb4) addr:0x020a2e44
-func_020a2ef8 kind:function(arm,size=0x200) addr:0x020a2ef8
+func_020a1180 kind:function(arm,size=0x200) addr:0x020a2ef8
 _Z19ResetBitfieldRecordP22BitfieldRecord020a1380 kind:function(arm,size=0x44) addr:0x020a30f8
 _Z19ClearStruct020a13c4P9S020a13c4 kind:function(arm,size=0x20) addr:0x020a313c
 _Z31SetupGlobalAndRunScript020a13e4PvS_ith kind:function(arm,size=0x98) addr:0x020a315c
@@ -7198,7 +7198,7 @@ data_020f18ac kind:data(any) addr:0x020f18ac
 data_020f18c0 kind:data(any) addr:0x020f18c0
 data_020f18e8 kind:data(any) addr:0x020f1a50
 data_020f18ec kind:data(any) addr:0x020f1a54
-data_020f1a7c kind:data(any) addr:0x020f1a7c
+data_020f1914 kind:data(any) addr:0x020f1a7c
 data_020f1a7f kind:data(any) addr:0x020f1a7f
 data_020f1940 kind:data(any) addr:0x020f1a98
 data_020f1a9d kind:data(any) addr:0x020f1a9d
@@ -7614,6 +7614,10 @@ data_02109d88 kind:bss addr:0x02109a40
 data_02109d8c kind:bss addr:0x02109a44
 data_02109d90 kind:bss addr:0x02109a48
 data_02109d94 kind:bss addr:0x02109a4c
+data_02109d96 kind:bss addr:0x02109a4e
+data_02109d98 kind:bss addr:0x02109a50
+data_02109d9c kind:bss addr:0x02109a54
+data_02109da0 kind:bss addr:0x02109a58
 data_02109da4 kind:bss addr:0x02109a5c
 data_02109da6 kind:bss addr:0x02109a5e
 data_02109dae kind:bss addr:0x02109a66
