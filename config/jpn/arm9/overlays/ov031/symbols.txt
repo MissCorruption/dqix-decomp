@@ -2687,9 +2687,7 @@ data_ov031_0224c9d0 kind:bss addr:0x0224d5d0
 data_ov031_0224c9e0 kind:bss addr:0x0224d5e0
 data_ov031_0224c9e8 kind:bss addr:0x0224d5e8
 data_ov031_0224ca00 kind:bss addr:0x0224d600
-data_ov031_0224ca0a kind:bss addr:0x0224d60a
-data_ov031_0224d660 kind:bss addr:0x0224d660
-data_ov031_0224ca80 kind:bss addr:0x0224d680
+data_ov031_0224ca60 kind:bss addr:0x0224d660
 data_ov031_0224cac4 kind:bss addr:0x0224d6c4
 data_ov031_0224cb28 kind:bss addr:0x0224d728
 data_ov031_0224cbe8 kind:bss addr:0x0224d7e8
