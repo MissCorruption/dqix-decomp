@@ -62,8 +62,22 @@ struct Metrics020ef74c {
     int font;
 };
 
+#if defined(jpn)
+#define data_020fe9a4 data_020fe6fc
+#define data_020ef75c data_020ef650
+#define data_020ef75f data_020ef653
+#define data_020ef763 data_020ef655
+#define data_020ef767 data_020ef657
+#define data_020ef76b data_020ef65b
+#define data_020ef76f data_020ef65f
+#define data_020ef77d data_020ef66d
+#define data_020ef782 data_020ef672
+#endif
+
 struct TextColor020fe9a4 {
+#if !defined(jpn)
     void* buffer;
+#endif
     int highlight;
 };
 
@@ -267,7 +281,12 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                     } else {
                         sprintf(line, data_020ef763);
                     }
-                    len += 3;
+#if defined(jpn)
+                    enum { regionalMarkLen = 1 };
+#else
+                    enum { regionalMarkLen = 3 };
+#endif
+                    len += regionalMarkLen;
                 }
                 {
                     int suffix;
