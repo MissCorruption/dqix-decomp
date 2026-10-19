@@ -23,7 +23,11 @@ struct Obj0215686c {
     unsigned short f16;
     char pad18[0x50 - 0x18];
     unsigned short f50;
+#if defined(jpn)
+    char pad52[0xcb - 0x52];
+#else
     char pad52[0xcf - 0x52];
+#endif
     unsigned char fcf;
     char padd0[0x104 - 0xd0];
     unsigned char f104;
@@ -34,7 +38,11 @@ struct Obj0215686c {
 };
 
 struct Holder0215686c {
+#if defined(jpn)
+    char pad[0x524];
+#else
     char pad[0x734];
+#endif
     Obj0215686c* o;
 };
 
