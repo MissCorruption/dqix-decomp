@@ -20587,3 +20587,8 @@ src/NitroSDK/Main/func_020ca7d0.cpp:
 src/NitroSDK/Main/func_020cf864.cpp:
     complete
     .text start:0x020cf864 end:0x020cf87c
+
+
+src/NitroSDK/Main/DecompressA.cpp:
+    complete
+    .text start:0x020caa10 end:0x020cab94
