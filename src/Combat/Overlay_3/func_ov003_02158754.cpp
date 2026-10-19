@@ -16,6 +16,9 @@ int _Z17IsIdInSet02098210ii(int, int);
 unsigned short *func_02012fe4(void);
 }
 
+#if defined(jpn)
+#define data_ov003_0217fdfa data_ov003_0217e613
+#endif
 extern const char data_ov003_0217fdfa[];
 extern const char data_ov003_0217fe16[];
 
@@ -32,7 +35,11 @@ struct PM02158754 {
 struct Ctrl02158754 {
     void *alloc;
     char pad4[0x100 - 4];
+#if defined(jpn)
+    char pad100[0xf3];
+#else
     char pad100[0xf7];
+#endif
     signed char f1f7;
     char pad1f8[0x208 - 0x1f8];
     unsigned char state;
@@ -42,6 +49,12 @@ struct Ctrl02158754 {
     char obj280[0x32c - 0x280];
     int f32c;
 };
+
+#if defined(jpn)
+enum { regionalOffset0 = 0x27c, regionalOffset1 = 0x860 };
+#else
+enum { regionalOffset0 = 0x2cc, regionalOffset1 = 0x840 };
+#endif
 
 // USA: func_ov003_02158754
 extern "C" ARM int func_ov003_02158754(struct Ctrl02158754 *self) {
@@ -58,7 +71,7 @@ extern "C" ARM int func_ov003_02158754(struct Ctrl02158754 *self) {
         unsigned int size = 0;
         loader->GetLoadedFileByID(self->task, &file, &size);
         char *res = (char *) GetGameResources();
-        _Z17CopyState0207dfc8P13State0207dfc8S0_(res + 0x2cc, self->st210);
+        _Z17CopyState0207dfc8P13State0207dfc8S0_(res + regionalOffset0, self->st210);
         _ZN13SafeAllocator5ResetEv((char *) self->alloc + 0x8c);
         _Z26CopyInternalFields0207df50P11Foo0207df50(self->st210);
         _Z25RestorePairTables0207df90Pc(self->st210);
@@ -83,7 +96,7 @@ extern "C" ARM int func_ov003_02158754(struct Ctrl02158754 *self) {
                 obj->MaybeSetRegularAnimation(data_ov003_0217fe16, 9);
                 obj->EnableFlag(0x40000);
             } else {
-                if (go != 0 && _Z17IsIdInSet02098210ii((int) ((char *) d + 0x840), id) != 0) {
+                if (go != 0 && _Z17IsIdInSet02098210ii((int) ((char *) d + regionalOffset1), id) != 0) {
                     if (go->f2 == 0x2347 || go->f2 == 0x2348 || go->f2 == 0x2349) {
                         if (go->f2 == 0x2347) {
                             _Z13SetFields0x44P14Fields020407b4iii(obj, 0x2347 - 0x2200, 0x266, -13230);
