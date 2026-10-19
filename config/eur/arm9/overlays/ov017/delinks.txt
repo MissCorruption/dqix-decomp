@@ -4793,3 +4793,9 @@ src/Combat/Overlay_17/func_ov017_021a23e4.cpp:
 src/Resource/GameResources.cpp:
     complete
     .text start:0x0218b5a0 end:0x0218b5c0
+
+src/Combat/Overlay_17/func_ov017_021a476c.cpp:
+    complete
+    .text start:0x021a476c end:0x021a4cf0
+    .data start:0x021d76d8 end:0x021d76dc
+    .bss start:0x021d83a8 end:0x021d83ac
