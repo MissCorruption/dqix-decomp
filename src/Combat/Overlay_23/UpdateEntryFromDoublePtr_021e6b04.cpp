@@ -1,30 +1,92 @@
 #include <globaldefs.h>
+#include "Graphics/SpriteAffineTransform.h"
+#include "Resource/CharacterCreationUI.h"
 
 struct Struct_0205d81c;
-struct Elem_0205d81c;
-extern void* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
-extern "C" int func_0205ac40(void*, void*);
+struct Elem_0205d81c {
+    unsigned char unknown0[0xac];
+    short x, y;
+};
+Elem_0205d81c* FindElementByC40205d81c(Struct_0205d81c* s, int key);
+extern "C" void func_0205ac40(SpriteContext0205ac40*, B174Outer*);
+
+#if defined(jpn)
+enum { SelectionOffset = 0x1340, WindowOffset = 0x90, RendererOffset = 0x1334, SpritesOffset = 0x133c };
+#else
+enum { SelectionOffset = 0x1370, WindowOffset = 0xac, RendererOffset = 0x135c, SpritesOffset = 0x1364 };
+#endif
+
+namespace {
+struct CursorCoordinates {
+    short x, y;
+    unsigned char unknown4[0xe - 4];
+    unsigned char spriteIndex;
+};
+struct CursorSelection {
+    CursorCoordinates* coordinates;
+};
+struct EntryCursorState {
+    CursorSelection* selectedEntry;
+    unsigned char unknown4[WindowOffset - 4];
+    CreationWindow window;
+    unsigned char unknownAfterWindow[RendererOffset - WindowOffset - sizeof(CreationWindow)];
+    SpriteContext0205ac40* renderer;
+    unsigned char unknownAfterRenderer[SpritesOffset - RendererOffset - 4];
+    B174Outer* sprites;
+#if !defined(jpn)
+    unsigned char unknownAfterSprites[SelectionOffset - SpritesOffset - 4];
+#endif
+    unsigned char selection;
+    unsigned char key;
+#if defined(jpn)
+    unsigned char unknownAfterKey[0x13b8 - SelectionOffset - 2];
+    int selected;
+#endif
+};
+}
 
 // USA: func_ov023_021e6b04
+// JPN: func_ov023_021e7074
 ARM void UpdateEntryFromDoublePtr_021e6b04(char* base) {
-	if (*(unsigned char*)(base + 0x1000 + 0x371) != 0xe) return;
-	if (*(unsigned char*)(base + 0x1000 + 0x370) >= 0xa) return;
+    EntryCursorState* state = ((EntryCursorState*)(base));
+    if (state->key != 0xe) return;
+    if (state->selection >= 0xa) return;
 
-	void* elem = FindElementByC40205d81c((struct Struct_0205d81c*)(base + 0xac), 0xe);
-	if (elem == NULL) return;
+    Elem_0205d81c* elem = FindElementByC40205d81c(((Struct_0205d81c*)(&state->window)), 0xe);
+    if (elem == NULL) return;
 
-	void *p1 = *(void**)(base + 0x0);
-	void *p2 = *(void**)((char*)p1 + 0x0);
-	if (p2 == NULL) return;
+#if defined(jpn)
+    short elementX = elem->x;
+    short elementY = elem->y;
+    int selected = state->selected;
+    int column = selected / 7;
+    int x = column * 16 + 14;
+    int y = selected % 7 * 16 + 28;
+    if (column >= 5) x += 8;
+    if (column >= 10) x += 16;
+    B174Outer* entry;
+    if (column >= 10) entry = state->sprites + 16;
+    else entry = state->sprites + 15;
+    short offsetX = elementX << 3;
+    int cursorX = x + offsetX;
+    short offsetY = elementY << 3;
+    int cursorY = y + offsetY;
+    entry->position[0] = cursorX << 12;
+    entry->position[1] = cursorY << 12;
+    entry->priority = 2;
+#else
+    CursorSelection* p1 = state->selectedEntry;
+    CursorCoordinates* p2 = p1->coordinates;
+    if (p2 == NULL) return;
 
-	unsigned char fieldE = *((unsigned char*)p2 + 0xe);
-	char *arrBase = *(char**)(base + 0x1000 + 0x364);
-	char *entry = arrBase + (fieldE + 15) * 0x28;
-	short v0 = *(short*)((char*)p2 + 0x0);
-	short v2 = *(short*)((char*)p2 + 0x2);
-	*(int*)(entry + 0x14) = v0 << 0xc;
-	*(int*)(entry + 0x18) = v2 << 0xc;
-	*(unsigned char*)(entry + 0x26) = 0;
-
-	func_0205ac40(*(void**)(base + 0x1000 + 0x35c), entry);
+    unsigned char fieldE = p2->spriteIndex;
+    B174Outer* sprites = state->sprites;
+    B174Outer* entry = sprites + (fieldE + 15);
+    short v0 = p2->x;
+    short v2 = p2->y;
+    entry->position[0] = v0 << 12;
+    entry->position[1] = v2 << 12;
+    entry->priority = 0;
+#endif
+    func_0205ac40(state->renderer, entry);
 }
