@@ -20552,3 +20552,31 @@ src/NitroSDK/Main/func_020ca7d0.cpp:
 src/NitroSDK/Main/func_020cf864.cpp:
     complete
     .text start:0x020cf874 end:0x020cf88c
+
+src/NitroSDK/Main/GenerateLockOwnerID_020c7080.cpp:
+    complete
+    .text start:0x020c7090 end:0x020c70f8
+
+src/NitroSDK/Main/ReleaseLockOwnerID_020c70e8.cpp:
+    complete
+    .text start:0x020c70f8 end:0x020c7140
+
+src/NitroSDK/Main/DecompressA.cpp:
+    complete
+    .text start:0x020caa20 end:0x020caba4
+
+src/Combat/Main/_ull_mod_0200cee8.s:
+    complete
+    .text start:0x0200cee8 end:0x0200cf24
+
+src/Combat/Main/_ll_udiv_0200cedc.s:
+    complete
+    .text start:0x0200cedc end:0x0200cee8
+
+src/Combat/Main/_fadd_0200b9bc.s:
+    complete
+    .text start:0x0200b9bc end:0x0200bbd8
+
+src/Combat/Main/_dadd_0200ab28.s:
+    complete
+    .text start:0x0200ab28 end:0x0200ae40
