@@ -1967,3 +1967,7 @@ src/Combat/Overlay_1/HandleField160AndUnlockCounters_02155d54.cpp:
 src/Combat/Overlay_1/func_ov001_0215686c.cpp:
     complete
     .text start:0x02157f44 end:0x021581f8
+
+src/Combat/Overlay_1/func_ov001_02154974.cpp:
+    complete
+    .text start:0x021560f4 end:0x021563e4
