@@ -19094,3 +19094,7 @@ src/Combat/Main/func_0205c96c_0205c96c.cpp:
 src/Combat/Main/InitBigStructVariant0205c840.cpp:
     complete
     .text start:0x0205dba0 end:0x0205dc6c
+
+src/Combat/Main/func_020ab314.cpp:
+    complete
+    .text start:0x020ace34 end:0x020ad0ec
