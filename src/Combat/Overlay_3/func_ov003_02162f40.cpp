@@ -12,12 +12,20 @@ struct StatusOwner02081164;
 struct FindEntryContainer02086a04;
 
 struct Entries {
+#if defined(jpn)
+    char pad0[0x2a];
+#else
     char pad0[0x36];
+#endif
     short sel;
 };
 
 struct Flagged {
+#if defined(jpn)
+    char pad0[0x228];
+#else
     char pad0[0x400];
+#endif
     unsigned int flags;
 };
 
@@ -33,10 +41,17 @@ struct Elem {
 };
 
 struct Scene {
+#if defined(jpn)
+    char pad0[0x1f0];
+    char sub308[0x20c - 0x1f0];
+    Entries *entries;
+    char pad328[0x28c - 0x210];
+#else
     char pad0[0x308];
     char sub308[0x324 - 0x308];
     Entries *entries;
     char pad328[0x464 - 0x328];
+#endif
     unsigned int flags;
     char pad468[0x470 - 0x468];
     short *p470;
@@ -50,7 +65,8 @@ struct Scene {
     char pad48a[0x490 - 0x48a];
     short h490;
     short h492;
-    char pad494[0x49f - 0x494];
+    char pad494[0x49e - 0x494];
+    unsigned char c49e;
     signed char c49f;
     char pad4a0[0x4a3 - 0x4a0];
     unsigned char c4a3;
@@ -160,11 +176,19 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
         ResetWithSub0208203c((Obj0208203c *) self->sub308);
         self->p470 = 0;
     } else if (state == 3) {
+#if defined(jpn)
+        int limit = 4;
+        if (self->c49e == 1) {
+            limit = 3;
+        }
+#else
+        int limit = 4;
+#endif
         self->h484  = 0x16;
         self->state = 4;
         int a       = GetBattleInfo()->partyCount;
         int n       = CountValidCombatantsMinusField_02160b84(self);
-        if (a + n >= 4) {
+        if (a + n >= limit) {
             return;
         }
         self->h484  = 0x15;
@@ -184,9 +208,17 @@ extern "C" ARM void func_ov003_02162f40(Scene *self) {
             if (r == 1) {
                 CallFunc0204c804OverAllElems((Cont0207fe44 *) entries);
                 self->flags |= 0x80000;
+#if defined(jpn)
+                int limit = 4;
+                if (self->c49e == 1) {
+                    limit = 3;
+                }
+#else
+                int limit = 4;
+#endif
                 int a = GetBattleInfo()->partyCount;
                 int n = CountValidCombatantsMinusField_02160b84(self);
-                if (a + n < 4) {
+                if (a + n < limit) {
                     self->flags |= 0xa;
                     self->h484  = 8;
                     self->state = 10;
