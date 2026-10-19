@@ -69,7 +69,7 @@ _Z25ReadAlignedAsync_0218f5fcP11Obj0218f5fcPvi kind:function(arm,size=0x7c) addr
 _Z22AwaitIfActive_0218f678P11Obj0218f678 kind:function(arm,size=0x28) addr:0x0218f7e0
 func_ov016_0218f6a0 kind:function(arm,size=0x14) addr:0x0218f808
 _Z22BlankFunction_0218f6b4v kind:function(arm,size=0x4) addr:0x0218f81c
-func_ov016_0218f820 kind:function(arm,size=0x5c0) addr:0x0218f820
+func_ov016_0218f6b8 kind:function(arm,size=0x5c0) addr:0x0218f820
 _Z22GetConst25980_0218fc78v kind:function(arm,size=0xc) addr:0x0218fde0
 _Z21GetConst9600_0218fc84v kind:function(arm,size=0x8) addr:0x0218fdec
 _Z16SetData_0218fc8cPvj kind:function(arm,size=0x20) addr:0x0218fdf4
@@ -83,10 +83,10 @@ func_ov016_0219000c kind:function(arm,size=0x9c0) addr:0x02190008
 .L_02190438 kind:label(arm) addr:0x02190438
 .L_02190708 kind:label(arm) addr:0x02190708
 func_ov016_021909cc_unk kind:function(arm,size=0x0,unknown) addr:0x021909c8
-data_ov016_02191d74 kind:data(any) addr:0x02191d74
+data_ov016_02191d78 kind:data(any) addr:0x02191d74
 data_ov016_02193e78 kind:data(any) addr:0x02193e74
 data_ov016_02195f78 kind:data(any) addr:0x02195f74
-func_ov016_0219c510_unk kind:function(arm,size=0x0,unknown) addr:0x0219c510
+func_ov016_0219c514_unk kind:function(arm,size=0x0,unknown) addr:0x0219c510
 data_ov016_0219ca60 kind:data(any) addr:0x0219ca5c
 data_ov016_0219cbe0 kind:data(any) addr:0x0219cbdc
 data_ov016_0219cee0 kind:data(any) addr:0x0219cee0

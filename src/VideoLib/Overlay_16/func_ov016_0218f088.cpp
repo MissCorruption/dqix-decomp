@@ -1,11 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define IDX_WORD (0xa8 / 4)
-#else
-#define IDX_WORD (0xac / 4)
-#endif
-
 struct Stream0218f088 {
 	char* cursor;			// 0x00
 	char pad_4[0x3b0];
@@ -33,8 +27,6 @@ struct Obj0218f088 {
 	int fieldcc;						// 0xcc
 	int fieldd0;						// 0xd0
 };
-
-#pragma optimize_for_size off
 
 // USA: func_ov016_0218f088
 extern "C" ARM int func_ov016_0218f088(Obj0218f088* o) {
@@ -68,16 +60,12 @@ extern "C" ARM int func_ov016_0218f088(Obj0218f088* o) {
 	o->fieldcc = 0;
 	o->fieldd0 = 0;
 
-	i = 0;
-	do {
-		int* row = (int*)o + i;
-		int next = row[IDX_WORD] + 1;
-		row[IDX_WORD] = next;
-		if (o->wrap == next) {
-			row[IDX_WORD] = 0;
+	for (i = 0; i < 6; i++) {
+		o->idx[i]++;
+		if (o->wrap == o->idx[i]) {
+			o->idx[i] = 0;
 		}
-		i++;
-	} while (i < 6);
+	}
 
 	o->limit = o->limit + 1;
 	return 1;

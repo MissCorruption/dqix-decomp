@@ -9,7 +9,6 @@ struct Obj0218f58c {
 };
 
 // USA: func_ov016_0218f58c
-#pragma optimize_for_size off
 ARM int SeekAndReadSync_0218f58c(Obj0218f58c* o, void* buf, int size) {
 	if (o->active == 1) {
 		NitroVM_AwaitCommandCompletion(o->vm);
