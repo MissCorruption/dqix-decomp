@@ -79,9 +79,9 @@ _Z30GetOrStreamPoolBlockA_0218fd50v kind:function(arm,size=0x70) addr:0x0218feb8
 _Z30GetOrStreamPoolBlockB_0218fdc0v kind:function(arm,size=0x70) addr:0x0218ff28
 _Z30GetOrStreamPoolBlockC_0218fe30v kind:function(arm,size=0x70) addr:0x0218ff98
 func_ov016_0219000c kind:function(arm,size=0x9c0) addr:0x02190008
-.L_021903e8 kind:label(arm) addr:0x021903e8
-.L_02190438 kind:label(arm) addr:0x02190438
-.L_02190708 kind:label(arm) addr:0x02190708
+.L_021903ec kind:label(arm) addr:0x021903e8
+.L_0219043c kind:label(arm) addr:0x02190438
+.L_0219070c kind:label(arm) addr:0x02190708
 func_ov016_021909cc_unk kind:function(arm,size=0x0,unknown) addr:0x021909c8
 data_ov016_02191d74 kind:data(any) addr:0x02191d74
 data_ov016_02193e78 kind:data(any) addr:0x02193e74

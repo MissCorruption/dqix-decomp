@@ -136,7 +136,7 @@ _fls kind:function(arm,size=0x5c) addr:0x0200bf4c
 _feq kind:function(arm,size=0x68) addr:0x0200bfa8
 _fneq kind:function(arm,size=0x68) addr:0x0200c010
 _fdiv kind:function(arm,size=0x3b8) addr:0x0200c084
-.L_0200c138 kind:label(arm) addr:0x0200c138
+.L_0200c274 kind:label(arm) addr:0x0200c138
 _f2d kind:function(arm,size=0x84) addr:0x0200c43c
 _ffix kind:function(arm,size=0x34) addr:0x0200c4c0
 _ffixu kind:function(arm,size=0x40) addr:0x0200c4f4
@@ -156,7 +156,7 @@ _s32_div_f kind:function(arm,size=0x20c) addr:0x0200ce08
 _u32_div_f kind:function(arm,size=0x1e4) addr:0x0200d014
 .L_0200d158 kind:label(arm) addr:0x0200d01c
 _ddiv kind:function(arm,size=0x544) addr:0x0200d210
-.L_0200d348 kind:label(arm) addr:0x0200d348
+.L_0200d484 kind:label(arm) addr:0x0200d348
 func_0200d890 kind:function(arm,size=0x4) addr:0x0200d754
 func_0200d894 kind:function(arm,size=0x14) addr:0x0200d758
 func_0200d8a8 kind:function(arm,size=0x14) addr:0x0200d76c
@@ -3300,7 +3300,7 @@ _Z29SelectTargetVariant2_0208a4ecPviPii kind:function(arm,size=0x20) addr:0x0208
 _Z28Forward0208a370Arg3_0208a50ciiii kind:function(arm,size=0x20) addr:0x0208ae00
 _Z28TryAdvanceChargeSlot0208a52cPiiS_i kind:function(arm,size=0xac) addr:0x0208ae20
 func_0208a5d8 kind:function(arm,size=0x128) addr:0x0208aecc
-func_0208aff4 kind:function(arm,size=0x140) addr:0x0208aff4
+func_0208a700 kind:function(arm,size=0x140) addr:0x0208aff4
 _Z28TryAdvanceChargeSlot0208a840PiiS_i kind:function(arm,size=0xd0) addr:0x0208b134
 _Z16ClearInt0208a910Pi kind:function(arm,size=0xc) addr:0x0208b204
 func_0208a91c kind:function(arm,size=0x98) addr:0x0208b210
@@ -7800,3 +7800,6 @@ data_02153628 kind:bss addr:0x02154df0
 data_02153634 kind:bss addr:0x02154dfc
 data_02153637 kind:bss addr:0x02154dff
 data_02153660 kind:bss addr:0x02154e28
+_frsb kind:function(arm,size=0xc,unknown) addr:0x0200c95c
+_frdiv kind:function(arm,size=0xc,unknown) addr:0x0200c078
+_drdiv kind:function(arm,size=0x18,unknown) addr:0x0200d1f8
