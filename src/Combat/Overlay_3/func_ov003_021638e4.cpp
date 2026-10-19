@@ -5,19 +5,33 @@
 #include "Resource/GameResources.h"
 
 struct Scene {
+#if defined(jpn)
+    char pad0[0x28c];
+    unsigned int flags;
+    char pad468[0x2cb - 0x290];
+#else
     char pad0[0x464];
     unsigned int flags;
     char pad468[0x4a3 - 0x468];
+#endif
     unsigned char c4a3;
     unsigned char state;
+#if defined(jpn)
+    char pad4a5[0x2d8 - 0x2cd];
+#else
     char pad4a5[0x4b0 - 0x4a5];
+#endif
     int p4b0;
 };
 
 struct Node {
     char pad0[9];
     unsigned char b9;
+#if defined(jpn)
+    char pad_a[0xc9 - 0xa];
+#else
     char pad_a[0xcd - 0xa];
+#endif
     unsigned char bcd;
     unsigned char bce;
     unsigned char bcf;
@@ -78,6 +92,20 @@ struct S021b6b8c;
 void CallIfField24ThenSetFlag_021b6b8c(S021b6b8c*);
 extern "C" void __clear(void *, int);
 
+#if defined(jpn)
+#define RES_LIST_021638e4 0x4ec
+#define RES_NODE_A_021638e4 0x910
+#define RES_NODE_B_021638e4 0x914
+#define RES_NODE_C_021638e4 0x524
+#define RES_STATE_021638e4 0x8e0
+#else
+#define RES_LIST_021638e4 0x6fc
+#define RES_NODE_A_021638e4 0xb30
+#define RES_NODE_B_021638e4 0xb34
+#define RES_NODE_C_021638e4 0x734
+#define RES_STATE_021638e4 0xb00
+#endif
+
 // USA: func_ov003_021638e4
 extern "C" ARM void func_ov003_021638e4(Scene *self) {
     char *res;
@@ -86,7 +114,7 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
     void *list;
     BackgroundLoader *loader;
     res    = (char *) GetGameResources();
-    list   = *(void **) (res + 0x3000 + 0x6fc);
+    list   = *(void **) (res + 0x3000 + RES_LIST_021638e4);
     gs     = GameState::GetInstance();
     loader = BackgroundLoader::GetInstance();
     gp     = (unsigned char *)GetPtrField0x2a04_02010828(gs);
@@ -120,12 +148,12 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
                     v->z        = -0x785;
                     SetVecYFromValue02033874((Obj02033874*)c, 0);
                 }
-                Node *n = *(Node **) (res + 0x3000 + 0xb30);
+                Node *n = *(Node **) (res + 0x3000 + RES_NODE_A_021638e4);
                 func_ov017_021af59c(n);
                 n->b9 = 2;
                 PrependNodeToHead((HeadList020469f8*)list, (HeadNode020469f8*)n);
             } else {
-                Node *n = *(Node **) (res + 0x3000 + 0xb34);
+                Node *n = *(Node **) (res + 0x3000 + RES_NODE_B_021638e4);
                 InitState39_021b11b0((Struct021b11b0*)n);
                 PrependNodeToHead((HeadList020469f8*)list, (HeadNode020469f8*)n);
             }
@@ -168,7 +196,7 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
         if (IsBrightnessTransitionActive((GameResources*)res) == 0) {
             ClearFlags020466f4((FlagWord020466f4*)GetDataPtr02114e04_020d6c00(), 0x80000);
             Holder *h   = func_02012fe4();
-            Node *n     = *(Node **) (res + 0x3000 + 0x734);
+            Node *n     = *(Node **) (res + 0x3000 + RES_NODE_C_021638e4);
             Field150 *f = GetField150Ptr0x488_02052e2c((Field150Holder02052e2c*)(gs->GetGameObjectByIndex(GetField0x397cValue_020100b0(gs))));
             func_ov017_021bbae4(n, h->f8, 2);
             n->bcd = GetField0x397cValue_020100b0(gs);
@@ -208,7 +236,7 @@ extern "C" ARM void func_ov003_021638e4(Scene *self) {
                     }
                 }
             }
-            CallIfField24ThenSetFlag_021b6b8c((S021b6b8c*)(*(void **) (res + 0x3000 + 0xb00)));
+            CallIfField24ThenSetFlag_021b6b8c((S021b6b8c*)(*(void **) (res + 0x3000 + RES_STATE_021638e4)));
         }
     }
 }
