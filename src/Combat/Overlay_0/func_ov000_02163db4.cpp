@@ -21,7 +21,6 @@ int GetField0x3acValue_020100a8(GameState*);
 int CheckSubstructByte0x7cPositive_020535c8(signed char*);
 #if defined(jpn)
 #define IsField0x180NonNegative_020535e0 func_02054958
-#define func_ov000_02166e5c func_ov000_0216859c
 #define func_ov000_02164fac func_ov000_02166700
 #define func_ov000_02165490 func_ov000_02166bdc
 extern "C" int func_02054958(int*);
