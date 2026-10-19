@@ -17,7 +17,11 @@ struct AreaEntry021a23e4 {
     short field_4;
     unsigned short instances;
     char field_8[0x10];
+#if defined(jpn)
+    char list[0x44];
+#else
     char list[0x48];
+#endif
     char subentries[0x298];
     char monsters[0xc];
     char nodes[0xc];
