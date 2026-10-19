@@ -54,45 +54,52 @@ extern unsigned char data_ov031_0224968c[8];
 extern unsigned char data_ov031_0224ce68[6];
 extern unsigned char data_ov031_0224ced6[0x12c] __attribute__((aligned(2)));
 
-unsigned char data_ov031_0224c980;
-static unsigned char ip_conflict;
-static unsigned short ipid;
+// This file's .bss (0x0224c980-0x0224ce68). mwcc places these in size order and,
+// within a size, by a fixed permutation of the declaration order, so the order
+// below is the one that reproduces the ROM's addresses, not a logical grouping.
+// Each comment gives the offset from 0x0224c980 and the variable's group:
+//   state    stack state and addressing    dhcp   DHCP client
+//   counter  protocol counters             rxq    receive queue
+//   hook     host callbacks and scheduling table  long-lived tables and objects
+unsigned char data_ov031_0224c980;                    // +0x00 state: header byte read by CopyHeaderAndDispatch
+static unsigned char ip_conflict;                     // +0x01 state: address conflict detected
+static unsigned short ipid;                           // +0x06 counter: IP identification
 static inline unsigned short NextPingSequence(void) {
-    static unsigned short pingseq = 0;
+    static unsigned short pingseq = 0;                // +0x04 counter: ping sequence
     return pingseq++;
 }
-static unsigned short ephemeral_port;
-static unsigned short mymss;
-static unsigned short unk_0a;
-static volatile unsigned int lan_buflen;
-static unsigned int dhcp_server;
-static ProcessorContext* volatile recv_waiter;
-unsigned int data_ov031_0224c9d0;
-static void (*dhcp_callback)(void);
-static unsigned int cps_mode;
-static int calm_down;
-void (*data_ov031_0224c9c0)(void*);
-static void (*scavenger)(void);
-unsigned int data_ov031_0224c9ac;
-static unsigned int requested_ip;
-static unsigned int dhcp_retry;
-static unsigned int lease_time;
-static unsigned char* lan_buf;
-static unsigned int yield_wait;
-static int cps_state;
-unsigned int data_ov031_0224c99c;
-void* (*data_ov031_0224c994)(unsigned long);
-static volatile unsigned int recv_head;
-static volatile unsigned int recv_tail;
-static int (*link_is_on)(void);
-unsigned int data_ov031_0224c9e0[2];
-MATHRandContext32 data_ov031_0224c9e8;
-ArpEntry data_ov031_0224ca00[8];
-CpsSocket data_ov031_0224ca60;
-CpsSocket data_ov031_0224cac4;
-ProcessorContext data_ov031_0224cb28;
-ProcessorContext data_ov031_0224cbe8;
-IpFragment data_ov031_0224cca8[8];
+static unsigned short ephemeral_port;                 // +0x08 counter: next local port
+static unsigned short mymss;                          // +0x02 state: maximum segment size
+static unsigned short unk_0a;                         // +0x0a no use here
+static volatile unsigned int lan_buflen;              // +0x5c rxq: buffer length
+static unsigned int dhcp_server;                      // +0x20 dhcp: server address
+static ProcessorContext* volatile recv_waiter;        // +0x54 rxq: context blocked on an empty queue
+unsigned int data_ov031_0224c9d0;                     // +0x50 state: local IP address (0 = not configured)
+static void (*dhcp_callback)(void);                   // +0x18 dhcp: completion callback
+static unsigned int cps_mode;                         // +0x10 state: mode from the init options
+static int calm_down;                                 // +0x44 hook: scheduling throttle
+void (*data_ov031_0224c9c0)(void*);                   // +0x40 hook: free
+static void (*scavenger)(void);                       // +0x3c hook: scavenger callback
+unsigned int data_ov031_0224c9ac;                     // +0x2c state: probably the gateway
+static unsigned int requested_ip;                     // +0x34 dhcp: requested address
+static unsigned int dhcp_retry;                       // +0x38 dhcp: no use here
+static unsigned int lease_time;                       // +0x4c dhcp: no use here
+static unsigned char* lan_buf;                        // +0x58 rxq: buffer
+static unsigned int yield_wait;                       // +0x24 hook: wait time when yielding
+static int cps_state;                                 // +0x0c state: stack state
+unsigned int data_ov031_0224c99c;                     // +0x1c state: netmask
+void* (*data_ov031_0224c994)(unsigned long);          // +0x14 hook: alloc
+static volatile unsigned int recv_head;               // +0x28 rxq: write index
+static volatile unsigned int recv_tail;               // +0x30 rxq: read index
+static int (*link_is_on)(void);                       // +0x48 hook: link status
+unsigned int data_ov031_0224c9e0[2];                  // +0x60 state: probably the DNS servers
+MATHRandContext32 data_ov031_0224c9e8;                // +0x68 counter: random state, seeded at init
+ArpEntry data_ov031_0224ca00[8];                      // +0x80 table: ARP cache
+CpsSocket data_ov031_0224ca60;                        // +0xe0 table: socket (no use here)
+CpsSocket data_ov031_0224cac4;                        // +0x144 table: socket
+ProcessorContext data_ov031_0224cb28;                 // +0x1a8 table: library thread context
+ProcessorContext data_ov031_0224cbe8;                 // +0x268 table: library thread context
+IpFragment data_ov031_0224cca8[8];                    // +0x328 table: IP reassembly buffers
 
 struct PendingRequest {
     void* context;
