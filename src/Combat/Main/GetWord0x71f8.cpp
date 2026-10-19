@@ -2,5 +2,10 @@
 
 // USA: func_02012078
 ARM int GetWord0x71f8_02012078(void* obj) {
-    return *(int*)((unsigned char*)obj + 0x7000 + 0x1f8);
+#if defined(jpn)
+    enum { regionalOffset0 = 0x6000, regionalOffset1 = 0xfb8 };
+#else
+    enum { regionalOffset0 = 0x7000, regionalOffset1 = 0x1f8 };
+#endif
+    return *(int*)((unsigned char*)obj + regionalOffset0 + regionalOffset1);
 }
