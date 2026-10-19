@@ -35,12 +35,33 @@ struct Flags021db8d8 {
 };
 
 struct Sub021db8d8 {
+#if defined(jpn)
+    char pad0[0x800];
+    char camera[0xa7c - 0x800];
+#else
     char pad0[0xc00];
     char camera[0xe7c - 0xc00];
+#endif
     struct Slot021db8d8* slot;
 };
 
 struct Work021db8d8 {
+#if defined(jpn)
+    char pad0[0x218];
+    void* battle;
+    char pad2a0[0x224 - 0x21c];
+    struct List02169b04* keys;
+    char pad2ac[0x3e8 - 0x228];
+    unsigned int flags46c;
+    char pad470[0x7f2 - 0x3ec];
+    unsigned short timer876;
+    char pad878[0xe28 - 0x7f4];
+    int stateeac;
+    char padeb0[0x57c8 - 0xe2c];
+    int mode55d8;
+    char pad55dc[0x5b41 - 0x57cc];
+    struct Flags021db8d8 flags5951;
+#else
     char pad0[0x29c];
     void* battle;
     char pad2a0[0x2a8 - 0x2a0];
@@ -55,6 +76,7 @@ struct Work021db8d8 {
     int mode55d8;
     char pad55dc[0x5951 - 0x55dc];
     struct Flags021db8d8 flags5951;
+#endif
 };
 
 struct Slot021db8d8* GetSlotPtr02160f20(void*);
@@ -79,6 +101,12 @@ extern "C" void func_02048e2c(GameObject* obj);
 extern "C" void func_ov025_021dc220(void* obj);
 extern "C" void func_ov025_021eb7fc(void* obj);
 
+#if defined(jpn)
+#define SUB_021db8d8 0x394
+#else
+#define SUB_021db8d8 0x18
+#endif
+
 // USA: func_ov025_021db8d8
 extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
     int dist;
@@ -97,7 +125,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Work021db8d8* self) {
     struct List02169b04* keys;
     game = GameState::GetInstance();
     battle = self->battle;
-    struct Sub021db8d8* sub = (struct Sub021db8d8*)((char*)self + 0x18);
+    struct Sub021db8d8* sub = (struct Sub021db8d8*)((char*)self + SUB_021db8d8);
     struct Slot021db8d8* slot = GetSlotPtr02160f20(self);
     actorId = -1;
     if (slot->actor) {
