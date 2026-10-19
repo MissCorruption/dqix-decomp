@@ -16,9 +16,15 @@ struct CameraCmd021e3c80 {
 };
 
 struct Holder021e3c80 {
+#if defined(jpn)
+    char pad[4];
+    char* ctx;
+    char pad8[0xc - 0x8];
+#else
     char pad[0xc];
     char* ctx;
     char pad10[0x1c - 0x10];
+#endif
     unsigned int flags;
 };
 extern Holder021e3c80 data_ov025_021ef988;
@@ -161,7 +167,12 @@ extern "C" ARM int func_ov025_021e3c80(CameraCmd021e3c80* cmd, List02160094* lis
         break;
     }
     if (work != 0 && moved) {
-        work[0x6fd5] = 1;
+#if defined(jpn)
+        enum { regionalOffset0 = 0x71c5 };
+#else
+        enum { regionalOffset0 = 0x6fd5 };
+#endif
+        work[regionalOffset0] = 1;
     }
     data_ov025_021ef988.flags |= 8;
     *(int*)(data_ov025_021ef988.ctx + 0x224) = 0;

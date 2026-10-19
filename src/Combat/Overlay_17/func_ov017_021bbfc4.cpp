@@ -37,7 +37,11 @@ struct LoadEvent021bbfc4 {
     short rotation;
     char pad_62[0x12];
     int task;
+#if defined(jpn)
+    char pad_78[0x18];
+#else
     char pad_78[0x1c];
+#endif
     int status;
     unsigned char reset;
     char pad_99[3];
@@ -76,7 +80,11 @@ struct Ticket021bbfc4 {
     char pad_61[0xd];
     unsigned char flags;
 };
+#if defined(jpn)
+struct GameView021bbfc4 { char pad_0[0x5a4c]; unsigned char restart; char pad_5cad[0x6fb4 - 0x5a4d]; int pending; };
+#else
 struct GameView021bbfc4 { char pad_0[0x5cac]; unsigned char restart; char pad_5cad[0x1547]; int pending; };
+#endif
 int IsSubBrightnessTransitionActive(GameResources*);
 extern "C" int* func_0202ae18();
 unsigned char* GetFieldIfFlag4_020100f8(char*);

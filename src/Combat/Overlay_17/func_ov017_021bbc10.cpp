@@ -8,6 +8,16 @@
 #include "World/Object3D.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define data_ov017_021d7d6c data_ov017_021d8544
+#define data_ov017_021d7d9e data_ov017_021d8576
+#define data_ov017_021d7db8 data_ov017_021d8590
+#define data_ov017_021d7dbb data_ov017_021d8593
+#define data_ov017_021d7dbf data_ov017_021d8597
+#define data_ov017_021d7de0 data_ov017_021d85b8
+#define data_ov017_021d7df9 data_ov017_021d85d1
+#endif
+
 struct ListHead02046b60;
 struct Obj020397cc;
 struct Obj020d7aa0;
@@ -22,7 +32,11 @@ struct Overlay021bbc10 {
     unsigned short result0a;
     unsigned char pad0c[0x68];
     int task74;
+#if defined(jpn)
+    unsigned char pad78[0x20];
+#else
     unsigned char pad78[0x24];
+#endif
     unsigned char useAltPath9c;
     unsigned char pad9d[0xcc - 0x9d];
     unsigned char flagCc;

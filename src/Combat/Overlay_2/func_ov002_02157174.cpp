@@ -37,6 +37,11 @@ void *GetFieldAt0x150_02053c6c(unsigned char *member);
 
 // USA: func_ov002_02157174
 extern "C" ARM void func_ov002_02157174(char *self, int combatantId) {
+#if defined(jpn)
+    enum { regionalOffset0 = 0x22d0, regionalOffset1 = 0x2350, regionalOffset2 = 0x2d0, regionalOffset3 = 0x27c, regionalOffset4 = 0x274, regionalOffset5 = 0x2000, regionalOffset6 = 0x144, regionalOffset7 = 0x8b8 };
+#else
+    enum { regionalOffset0 = 0x24a0, regionalOffset1 = 0x2520, regionalOffset2 = 0x4a0, regionalOffset3 = 0x44, regionalOffset4 = 0x3c, regionalOffset5 = 0x2400, regionalOffset6 = 0x150, regionalOffset7 = 0x950 };
+#endif
     unsigned char bits[0x42];
     short ids[0x42];
     unsigned char i;
@@ -50,10 +55,10 @@ extern "C" ARM void func_ov002_02157174(char *self, int combatantId) {
     int k;
     unsigned short b;
     for (i = 0; i < 0x20; i++) {
-        *(int *) (self + i * 4 + 0x24a0) = 0;
+        *(int *) (self + i * 4 + regionalOffset0) = 0;
     }
-    *(unsigned char *) (self + 0x2520) = 0;
-    out                                = (Entry_02157174 **) (self + 0x4a0 + 0x2000);
+    *(unsigned char *) (self + regionalOffset1) = 0;
+    out                                = (Entry_02157174 **) (self + regionalOffset2 + 0x2000);
     member                             = (unsigned char *) GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), combatantId);
     if (member == 0) {
         return;
@@ -64,7 +69,7 @@ extern "C" ARM void func_ov002_02157174(char *self, int combatantId) {
     }
     n = CollectSetBitIndices020839dc((struct BitArray020839dc *) pm, bits, 0x42);
     __clear(ids, 0x84);
-    n     = LookupValuesByIds_0209acdc((Holder0209a9dc *) (self + 0x44 + 0x2400), bits, n, (unsigned short *) ids);
+    n     = LookupValuesByIds_0209acdc((Holder0209a9dc *) (self + regionalOffset3 + regionalOffset5), bits, n, (unsigned short *) ids);
     count = 0;
     table = GetData02108e10_020797dc();
     for (j = 0; j < n; j++) {
@@ -76,15 +81,15 @@ extern "C" ARM void func_ov002_02157174(char *self, int combatantId) {
             }
         }
     }
-    if (*(int *) (*(char **) (member + 0x150) + 0x950) == 0) {
+    if (*(int *) (*(char **) (member + regionalOffset6) + regionalOffset7) == 0) {
         memset(bits, 0, 0x42);
         n = CollectSetBitIndices020839dc((struct BitArray020839dc *) pm, bits, 0x42);
     } else {
         memset(bits, 0, 0x42);
-        n = func_0209ab7c(self + 0x44 + 0x2400, member, bits);
+        n = func_0209ab7c(self + regionalOffset3 + regionalOffset5, member, bits);
     }
     memset(ids, 0, 0x84);
-    n = LookupValuesByIds_0209acdc((Holder0209a9dc *) (self + 0x44 + 0x2400), bits, n, (unsigned short *) ids);
+    n = LookupValuesByIds_0209acdc((Holder0209a9dc *) (self + regionalOffset3 + regionalOffset5), bits, n, (unsigned short *) ids);
     for (k = 0; k < n; k++) {
         Entry_02157174 *e = SearchBothTables02079e2c((char*)table, ids[k]);
         if (e != 0 && bits[k] != 0x3c) {
@@ -96,7 +101,7 @@ extern "C" ARM void func_ov002_02157174(char *self, int combatantId) {
     }
     for (b = 0; b < 0x11f; b++) {
         if (TestBitInArray0x8ec_02083b00(pm, b)) {
-            Skill_0209a594 *s = func_0209a594(self + 0x3c + 0x2400, b);
+            Skill_0209a594 *s = func_0209a594(self + regionalOffset4 + regionalOffset5, b);
             if (s != 0 && s->h8 != 0) {
                 Entry_02157174 *e = SearchBothTables02079e2c((char*)table, (short) s->h8);
                 if (e != 0 && e->kind18 == 1) {
@@ -108,5 +113,5 @@ extern "C" ARM void func_ov002_02157174(char *self, int combatantId) {
             }
         }
     }
-    *(unsigned char *) (self + 0x2520) = count;
+    *(unsigned char *) (self + regionalOffset1) = count;
 }

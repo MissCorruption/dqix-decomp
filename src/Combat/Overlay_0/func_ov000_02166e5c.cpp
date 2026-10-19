@@ -4,6 +4,16 @@
 #include <Resource/IndexedResourceEntry.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define data_ov000_02183aa5 data_ov000_02184bd8
+#define data_ov000_021839e2 data_ov000_02184b22
+#define data_ov000_02183abe data_ov000_02184bf1
+#define data_ov000_02183014 data_ov000_021840cc
+enum { combatantSize02166e5c = 0x2c8 };
+#else
+enum { combatantSize02166e5c = 0x2d4 };
+#endif
+
 extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 unsigned int FindFilesInNarcBySubstring(const void* narcBuffer, const char* substr, const void** pOutFilePtrs, unsigned int* pOutFileSizes, unsigned int maxOutputs);
@@ -15,9 +25,15 @@ struct InternalBlock02166e5c { char bytes[0x70]; };
 struct Field0x19cData { unsigned char data[0x578]; };
 struct CombatantModelState02166e5c { unsigned char data[0x70]; };
 struct BattleWork02166e5c {
+#if defined(jpn)
+    char pad_0[0x21c];
+    unsigned char* roster;
+    char pad_2a4[0x5924 - 0x220];
+#else
     char pad_0[0x2a0];
     unsigned char* roster;
     char pad_2a4[0x5734 - 0x2a4];
+#endif
     Field0x19cData selection;
     CombatantModelState02166e5c model;
 };
@@ -28,7 +44,11 @@ struct StatTriple02166e5c {
     unsigned int rest : 2;
 };
 struct ClassEntry02166e5c {
+#if defined(jpn)
+    char name[0xb];
+#else
     char name[0x10];
+#endif
     unsigned char level : 3;
     unsigned char rest_10 : 5;
     unsigned char pad_11;
@@ -36,7 +56,11 @@ struct ClassEntry02166e5c {
     unsigned char emblem;
     StatTriple02166e5c stats[3];
 };
+#if defined(jpn)
+struct ClassTable02166e5c { unsigned char data[0xa4]; };
+#else
 struct ClassTable02166e5c { unsigned char data[0xb8]; };
+#endif
 struct Growth02166e5c {
     unsigned int experience : 32;
     unsigned short vocation : 7;
@@ -52,7 +76,11 @@ struct CombatantData02166e5c {
     unsigned char mode;
     unsigned char level : 4;
     unsigned char rest_56b : 4;
+#if defined(jpn)
+    unsigned char pad_56c[0x8b4 - 0x56c];
+#else
     unsigned char pad_56c[0x94c - 0x56c];
+#endif
     int phase;
 };
 struct Combatant02166e5c {
@@ -63,7 +91,11 @@ struct Combatant02166e5c {
     PrimaryCombatStats* stats;
     BaseCombatStats* baseStats;
     char* savedStats;
+#if defined(jpn)
+    char pad_13c[0x144 - 0x13c];
+#else
     char pad_13c[0x150 - 0x13c];
+#endif
     CombatantData02166e5c* data;
 };
 struct PartyLog02166e5c {
@@ -118,17 +150,23 @@ extern "C" ARM void func_ov000_02166e5c(BattleWork02166e5c* self) {
     GameResources* resources = GetGameResources();
     SafeAllocator* allocator = &resources->allocator_array_38[3];
     blocks = (InternalBlock02166e5c*)resources->unknown_2cc;
+#if defined(jpn)
+    InternalBlock02166e5c* pairs = &blocks[3];
+#define blocks_3 (*pairs)
+#else
+#define blocks_3 blocks[3]
+#endif
     DestroyAllocators020545b8((T020545b8*)GetIndexedEntry_021a11f4(resources, 2));
     allocator->Reset();
-    CopyInternalFields0207df50((Foo0207df50*)&blocks[3]);
-    RestorePairTables0207df90(blocks[3].bytes);
+    CopyInternalFields0207df50((Foo0207df50*)&blocks_3);
+    RestorePairTables0207df90(blocks_3.bytes);
     BackgroundLoader::AddLockGlobal();
     unsigned int size;
     if (!LoadFileIntoMemory(data_ov000_02183aa5, data_0211e33c, &size)) {
         BackgroundLoader::RemoveLockGlobal();
         return;
     }
-    Combatant02166e5c* combatant = (Combatant02166e5c*)allocator->Allocate(0x2d4);
+    Combatant02166e5c* combatant = (Combatant02166e5c*)allocator->Allocate(combatantSize02166e5c);
     if (!combatant) {
         BackgroundLoader::RemoveLockGlobal();
         return;
@@ -209,7 +247,7 @@ extern "C" ARM void func_ov000_02166e5c(BattleWork02166e5c* self) {
     CancelPendingAction020397cc((Obj020397cc*)combatant, 1);
     CopyCombatantStats0208936c(combatant->savedStats, (char*)combatant->stats, (char*)combatant->baseStats);
     combatant->flags |= 0x20;
-    BackupPairTables0207dfac(blocks[3].bytes);
+    BackupPairTables0207dfac(blocks_3.bytes);
     int level = entry->level;
     CombatantData02166e5c* levelData = combatant->data;
     if (levelData) levelData->level = (unsigned char)level;
@@ -218,4 +256,5 @@ extern "C" ARM void func_ov000_02166e5c(BattleWork02166e5c* self) {
     CopyInRegion0x571d_020114c0((char*)game, codeLength, &code);
     SetCombatWorkFlags0x55f4_ov000_02160fa8(self, 0x400000);
     BackgroundLoader::RemoveLockGlobal();
+#undef blocks_3
 }

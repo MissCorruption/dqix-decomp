@@ -19006,3 +19006,39 @@ src/MSL/Main/func_0200c1c0.s:
 src/Runtime/Main/func_0200d34c.s:
     complete
     .text start:0x0200d1f8 end:0x0200d754
+
+src/Combat/Main/GetByte0x63d5.cpp:
+    complete
+    .text start:0x02011ddc end:0x02011de8
+
+src/Combat/Main/GetWord0x71f8.cpp:
+    complete
+    .text start:0x02011df4 end:0x02011e00
+
+src/Combat/Main/InitEntryListWithDecodedCount0201f500.cpp:
+    complete
+    .text start:0x0201f28c end:0x0201f2b4
+
+src/Combat/Main/AllocateArrayWithDecodedCount0201f580.cpp:
+    complete
+    .text start:0x0201f30c end:0x0201f334
+
+src/Combat/Main/func_0202555c.cpp:
+    complete
+    .text start:0x02024f30 end:0x020254e0
+
+src/Combat/Main/func_02027974.cpp:
+    complete
+    .text start:0x020271e0 end:0x02027344
+
+src/Combat/Main/func_02029988.cpp:
+    complete
+    .text start:0x02029540 end:0x0202a230
+
+src/Combat/Main/func_02025f28_02025f28.cpp:
+    complete
+    .text start:0x020258fc end:0x02025ce0
+
+src/Combat/Main/func_02038598.cpp:
+    complete
+    .text start:0x02037ff0 end:0x02038c04

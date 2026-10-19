@@ -7,13 +7,23 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define data_020efb44 data_020efa34
+#define data_020efb4e data_020efa3e
+#define data_020efb5a data_020efa4a
+#endif
+
 static inline fix32_t FX_MulInline(fix32_t v1, fix32_t v2) {
     return ((long long)v1 * v2 + 0x800LL) >> 12;
 }
 
 struct ActorMotion02038598 {
     GameObject resources;
+#if defined(jpn)
+    char unknown13c[0x1be - 0x13c];
+#else
     char unknown13c[0x1ca - 0x13c];
+#endif
     signed char actorId;
     char unknown1cb[0x252 - 0x1cb];
     unsigned char dispatch;

@@ -7,6 +7,13 @@
 #include "std_library_functions.h"
 #include "Resource/MonsterDefinition.h"
 
+#if defined(jpn)
+#define data_ov000_02183a47 data_ov000_02184b7a
+#define data_ov000_02183a4e data_ov000_02184b81
+#define data_ov000_02183a54 data_ov000_02184b87
+#define data_ov000_021839e2 data_ov000_02184b22
+#endif
+
 extern char data_ov000_02183a47[];
 extern char data_ov000_02183a4e[];
 extern char data_ov000_02183a54[];
@@ -40,11 +47,19 @@ struct CombatantRoster02166070 {
 struct Scene02166070 {
     unsigned char pad_00[0x44];
     SafeAllocator allocator;
+#if defined(jpn)
+    unsigned char pad_pre[0x138 - 0x44 - sizeof(SafeAllocator)];
+    char tables14c[0x70];
+    char tables1bc[0x21c - 0x1a8];
+    CombatantRoster02166070* roster;
+    unsigned char pad_2a4[0xe34 - 0x220];
+#else
     unsigned char pad_pre[0x14c - 0x44 - sizeof(SafeAllocator)];
     char tables14c[0x70];
     char tables1bc[0x2a0 - 0x1bc];
     CombatantRoster02166070* roster;
     unsigned char pad_2a4[0xeb8 - 0x2a4];
+#endif
     Object3D* models[4];
 };
 

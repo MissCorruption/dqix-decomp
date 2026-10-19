@@ -2,6 +2,11 @@
 #include "GameState/GameState.h"
 #include "Util/Random.h"
 
+#if defined(jpn)
+#define data_ov000_02182ff8 data_ov000_021840b0
+#define data_ov000_02182fd4 data_ov000_0218408c
+#endif
+
 struct Container02070e60;
 struct BinarySearchByComparatorStruct;
 struct FieldStruct02048934 {
@@ -89,12 +94,21 @@ struct BattleData021620f0 {
 };
 
 struct Scene021620f0 {
+#if defined(jpn)
+    unsigned char pad_0[0x218];
+    BattleData021620f0* data;
+    Roster021620f0* roster;
+    unsigned char pad_2a4[0xe44 - 0x220];
+    unsigned short field_ec8;
+    unsigned char pad_eca[0x6014 - 0xe46];
+#else
     unsigned char pad_0[0x29c];
     BattleData021620f0* data;
     Roster021620f0* roster;
     unsigned char pad_2a4[0xec8 - 0x2a4];
     unsigned short field_ec8;
     unsigned char pad_eca[0x5e24 - 0xeca];
+#endif
     Combatant021620f0 combatants[8];
     Model021620f0 models[8];
 };

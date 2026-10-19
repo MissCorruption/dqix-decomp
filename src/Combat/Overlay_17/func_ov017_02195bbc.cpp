@@ -39,6 +39,19 @@ extern "C" void func_0208f410(Obj0208f410* obj);
 
 struct Battle02195bbc {
     unsigned int flags[2];
+#if defined(jpn)
+    char pad8[0x34c0 - 0x8];
+    void* f36d0;
+    char pad36d4[0x34ec - 0x34c4];
+    int nodeList;
+    char pad3700[0x3508 - 0x34f0];
+    unsigned char* f3718;
+    char pad371c[0x3930 - 0x350c];
+    unsigned char* f3b50;
+    char pad3b54[0x393c - 0x3934];
+    unsigned char* f3b5c;
+    char pad3b60[0x41d8 - 0x3940];
+#else
     char pad8[0x36d0 - 0x8];
     void* f36d0;
     char pad36d4[0x36fc - 0x36d4];
@@ -50,6 +63,7 @@ struct Battle02195bbc {
     char pad3b54[0x3b5c - 0x3b54];
     unsigned char* f3b5c;
     char pad3b60[0x4488 - 0x3b60];
+#endif
     unsigned char f4488;
 };
 

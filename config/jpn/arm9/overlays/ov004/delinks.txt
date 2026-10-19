@@ -1409,3 +1409,7 @@ src/Combat/Overlay_4/func_ov004_02163944.cpp:
 src/Combat/Overlay_4/func_ov004_02169b4c.cpp:
     complete
     .text start:0x0216a044 end:0x0216a908
+
+src/Combat/Overlay_4/func_ov004_02162dd8.cpp:
+    complete
+    .text start:0x02163474 end:0x02163740

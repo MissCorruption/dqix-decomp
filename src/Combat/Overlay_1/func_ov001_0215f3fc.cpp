@@ -5,6 +5,13 @@
 #include <Combat/WorkRecord.h>
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define data_ov001_021657ad data_ov001_02166d71
+#define data_ov001_021657be data_ov001_02166d82
+#define data_ov001_021657ce data_ov001_02166d92
+#define data_ov001_021657d1 data_ov001_02166d95
+#endif
+
 struct SlotArray_0203e03c;
 struct SlotArray0203dd10;
 struct Node020408c8;
@@ -33,6 +40,9 @@ struct StreamDescriptor0215f3fc
     unsigned short field_0x0;
     unsigned char type;
     unsigned char pad_0x3;
+#if defined(jpn)
+    char pad_0x4[0xc];
+#endif
     char name[16];
 };
 struct StreamRecord0215f3fc
@@ -41,7 +51,11 @@ struct StreamRecord0215f3fc
 };
 struct StreamResources0215f3fc
 {
+#if defined(jpn)
+    char pad_0x0[0x27c];
+#else
     char pad_0x0[0x2cc];
+#endif
     StreamRecord0215f3fc records[33];
 };
 void* GetGlobalPtr021075f4_0203cf4c();
@@ -143,7 +157,12 @@ extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count
         return 0;
     }
     ClearWorkRecord0206bf2c(record);
-    StreamDescriptor0215f3fc* descriptor = (StreamDescriptor0215f3fc*)allocator->Allocate(0x14);
+#if defined(jpn)
+    enum { regionalOffset0 = 0x20 };
+#else
+    enum { regionalOffset0 = 0x14 };
+#endif
+    StreamDescriptor0215f3fc* descriptor = (StreamDescriptor0215f3fc*)allocator->Allocate(regionalOffset0);
     if (!descriptor)
     {
         if (locked)
@@ -152,7 +171,7 @@ extern "C" ARM int func_ov001_0215f3fc(TaggedValue0215f3fc* arguments, int count
         }
         return 0;
     }
-    memset(descriptor, 0, 0x14);
+    memset(descriptor, 0, regionalOffset0);
     entry->motion = (Obj0203f02c*)allocator->Allocate(0x9c);
     if (!entry->motion)
     {

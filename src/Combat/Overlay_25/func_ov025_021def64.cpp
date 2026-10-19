@@ -23,7 +23,11 @@ extern "C" fix32_t fix32_Divide(fix32_t a, fix32_t b);
 static inline int FxMul(int a, int b) { return (int)(((long long)a * b + 0x800) >> 12); }
 
 struct Obj021def64 {
+#if defined(jpn)
+    char pad[0x218];
+#else
     char pad[0x29c];
+#endif
     void* list;
 };
 

@@ -5,9 +5,17 @@
 struct TransferState {
     char pad0[0xa]; unsigned char result_; char padB;
     signed char player_; char padD[0x25 - 0xd]; unsigned char phase_;
+#if defined(jpn)
+    char pad26[0x218 - 0x26]; void* data_;
+#else
     char pad26[0x288 - 0x26]; void* data_;
+#endif
 };
+#if defined(jpn)
+struct TransferSettings { char pad0[0x27c4]; short field2784_; short field2786_; unsigned char enabled_; };
+#else
 struct TransferSettings { char pad0[0x2784]; short field2784_; short field2786_; unsigned char enabled_; };
+#endif
 struct PlayerLocation { unsigned short zone_; Vector3fix16 position_; };
 extern "C" TransferSettings* func_02012fe4();
 void* GetData02100044_0202ae24();

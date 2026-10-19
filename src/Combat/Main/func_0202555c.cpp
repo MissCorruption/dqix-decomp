@@ -45,7 +45,11 @@ struct Receiver0202555c {
     unsigned char forwardingPending;
     char padding55d[0x5b0 - 0x55d];
     fix32_t cameraHeight;
+#if defined(jpn)
+    char padding5b4[0x914 - 0x5b4];
+#else
     char padding5b4[0x9c0 - 0x5b4];
+#endif
     unsigned char actionState;
 };
 void* GetData02105254_0203b628();

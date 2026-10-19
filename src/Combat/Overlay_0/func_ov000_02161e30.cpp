@@ -41,7 +41,11 @@ struct BattleResources {
     char entries[0xc];
 };
 struct BattleState {
+#if defined(jpn)
+    char padding0[0x218];
+#else
     char padding0[0x29c];
+#endif
     PartyMirror* mirror;
     BattleResources* resources;
 };
