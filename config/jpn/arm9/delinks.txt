@@ -19046,3 +19046,7 @@ src/Combat/Main/func_02038598.cpp:
 src/Combat/Main/CountMatchingEntries02026a78.cpp:
     complete
     .text start:0x020263dc end:0x02026420
+
+src/Combat/Main/GetBitInArray0x910.cpp:
+    complete
+    .text start:0x020844d4 end:0x020844fc
