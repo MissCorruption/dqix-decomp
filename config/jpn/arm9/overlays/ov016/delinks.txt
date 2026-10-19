@@ -269,3 +269,7 @@ src/Combat/Overlay_16/XorMaskKeyInput_0218d2bc.cpp:
 src/Combat/Overlay_16/func_ov016_0219000c.s:
     complete
     .text start:0x02190008 end:0x021909c8
+
+src/Combat/Overlay_16/func_ov016_0218f6b8.s:
+    complete
+    .text start:0x0218f820 end:0x0218fde0

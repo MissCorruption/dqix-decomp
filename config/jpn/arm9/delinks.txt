@@ -19074,3 +19074,15 @@ src/Combat/Main/func_0207fe80.cpp:
 src/Combat/Main/UpdateGrottoRankLabelAndDispatch02014b04.cpp:
     complete
     .text start:0x020148d0 end:0x020149d0
+
+src/NitroSDK/Main/func_020c1280.s:
+    complete
+    .text start:0x020c2d4c end:0x020c2d68
+
+src/NitroSDK/Main/func_020ca95c.s:
+    complete
+    .text start:0x020cc428 end:0x020cc4dc
+
+src/Runtime/Main/func_0200c700.s:
+    complete
+    .text start:0x0200c5c4 end:0x0200c630
