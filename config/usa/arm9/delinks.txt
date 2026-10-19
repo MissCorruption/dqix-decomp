@@ -20615,3 +20615,8 @@ src/Combat/Main/_fadd_0200b9bc.s:
 src/Combat/Main/_dadd_0200ab28.s:
     complete
     .text start:0x0200ab28 end:0x0200ae40
+
+
+src/NitroSDK/Main/func_020b20b0.s:
+    complete
+    .text start:0x020b20b0 end:0x020b23a8
