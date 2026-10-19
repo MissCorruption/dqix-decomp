@@ -18882,3 +18882,7 @@ src/Combat/Main/GetByte0x63d5.cpp:
 src/Combat/Main/GetWord0x71f8.cpp:
     complete
     .text start:0x02011df4 end:0x02011e00
+
+src/Combat/Main/InitEntryListWithDecodedCount0201f500.cpp:
+    complete
+    .text start:0x0201f28c end:0x0201f2b4
