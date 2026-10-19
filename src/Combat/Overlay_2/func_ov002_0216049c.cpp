@@ -13,6 +13,14 @@ GameObject *GetCombatantWithFlag0x100_0200ff1c(GameState *gameState, int combata
 extern "C" int func_ov002_02159774(void *base, int id, int a2, int a3, int a4);
 extern "C" void func_ov002_02157480(void *obj, int *arr);
 
+#if defined(jpn)
+#define RG(u, j) (j)
+extern "C" int func_02042638(char *buf, const char *fmt, int b);
+extern "C" char data_ov002_0216da1d[];
+#else
+#define RG(u, j) (u)
+#endif
+
 static inline int IsPartySlot0216049c(int id) {
     return (id >= 0 && id <= 3) ? 1 : 0;
 }
@@ -24,7 +32,7 @@ extern "C" ARM void func_ov002_0216049c(unsigned char *base, char *dst, int flag
     GameState *gs = GameState::GetInstance();
     GameObject *m;
     int id;
-    int cursor = *(short *) (base + 0x1c08);
+    int cursor = *(short *) (base + RG(0x1c08, 0x1ad0));
     int ids[4];
     func_ov002_02157480(base, ids);
 
@@ -33,8 +41,12 @@ extern "C" ARM void func_ov002_0216049c(unsigned char *base, char *dst, int flag
     }
     AppendCursorTag_02041ea4(dst, cursor);
 
+#if defined(jpn)
+    func_02042638(dst, data_ov002_0216da1d, 0x10);
+#else
     int field = GetFieldByKey020e0434((struct Container020e0310 *) (base + 0x20), 0x1004);
     AppendFormatted02041fac(dst, field, 0x10);
+#endif
 
     for (int i = 0; i < 4; i++) {
         id = ids[i];
@@ -42,7 +54,7 @@ extern "C" ARM void func_ov002_0216049c(unsigned char *base, char *dst, int flag
         m = GetCombatantWithFlag0x100_0200ff1c(gs, id);
         if (m == NULL) return;
         if (i != 0) {
-            AppendString02042058(dst, *(const char **) (base + 0x1000 + 0xbdc));
+            AppendString02042058(dst, *(const char **) (base + 0x1000 + RG(0xbdc, 0xaa4)));
         }
         int pal = func_ov002_02159774(base, id, 0, 1, 1);
         AppendPaletteTag_02041e70(dst, pal);

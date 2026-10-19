@@ -262,3 +262,7 @@ src/Combat/Overlay_2/func_ov002_02159774.cpp:
 src/Combat/Overlay_2/InitBattleTag02161174.cpp:
     complete
     .text start:0x02162058 end:0x02162114
+
+src/Combat/Overlay_2/func_ov002_0216049c.cpp:
+    complete
+    .text start:0x021613b4 end:0x021614e0
