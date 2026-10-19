@@ -43,7 +43,11 @@ struct CombatantData0215582c {
     char pad1b4[0x49c - 0x1b4];
     unsigned char female : 1;
     unsigned char : 7;
+#if defined(jpn)
+    char pad49d[0x8b8 - 0x49d];
+#else
     char pad49d[0x950 - 0x49d];
+#endif
     int equipSet;
 };
 
@@ -72,14 +76,22 @@ struct Combatant0215582c {
     char pad6[0x130 - 6];
     struct CurStats0215582c* curStats;
     struct BaseStats0215582c* baseStats;
+#if defined(jpn)
+    char pad138[0x144 - 0x138];
+#else
     char pad138[0x150 - 0x138];
+#endif
     struct CombatantData0215582c* data;
 };
 
 struct Self0215582c {
     char pad0[0x90];
     char f90[0xcc - 0x90];
+#if defined(jpn)
+    char fcc[0x174 - 0xcc];
+#else
     char fcc[0x178 - 0xcc];
+#endif
     char list[0x1f7 - 0x178];
     signed char combatantId;
     char pad1f8[0x1fc - 0x1f8];
@@ -181,16 +193,24 @@ extern "C" ARM void func_ov003_0215582c(struct Self0215582c* self) {
     value = GetField0x3acValue_020100a8(gs);
     if (value == c->id) {
         GameState* g = GameState::GetInstance();
+#if defined(jpn)
+        struct Word569c0215582c* w = (struct Word569c0215582c*)((char*)g + 0x3c + 0x5400);
+#else
         struct Word569c0215582c* w = (struct Word569c0215582c*)((char*)g + 0x29c + 0x5400);
+#endif
         short id = w->id;
         if (id >= 700 && id < 800) {
             struct Combatant0215582c* hero = (struct Combatant0215582c*)g->GetProtagonist();
             int equipSet = hero->data->equipSet;
+#if defined(jpn)
+            w->id = equipSet + 700;
+#else
             int base = 20700;
             if (hero->data->female == 1) {
                 base += 50;
             }
             w->id = base - 20000 + equipSet;
+#endif
         }
         int buf[0x2c];
         LoadBattleBlock020ac4c0(buf);
