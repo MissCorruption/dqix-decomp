@@ -11,7 +11,6 @@
 #define data_ov000_02183a47 data_ov000_02184b7a
 #define data_ov000_02183a4e data_ov000_02184b81
 #define data_ov000_02183a54 data_ov000_02184b87
-#define data_ov000_021839e2 data_ov000_02184b22
 #endif
 
 extern char data_ov000_02183a47[];
