@@ -25,7 +25,11 @@ extern "C" ARM void func_020956b8(struct Header020956b8* header, SafeAllocator* 
         data_02109404.f4 = 0;
         data_02109404.allocator = allocator;
         data_02109404.selected = 0;
+#if defined(jpn)
+        *(short*)0x020f1524 = -1;
+#else
         *(short*)0x020f13d8 = -1;
+#endif
         header->listHead = 0;
         data_02109404.f0 = 0;
         Script runner;
