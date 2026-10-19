@@ -2,15 +2,26 @@
 #include <globaldefs.h>
 
 struct Entries {
+#if defined(jpn)
+    char pad0[0x2a];
+#else
     char pad0[0x36];
+#endif
     short sel;
 };
 
 struct Scene {
+#if defined(jpn)
+    char pad0[0x1f0];
+    char sub308[0x20c - 0x1f0];
+    Entries *entries;
+    char pad328[0x28c - 0x210];
+#else
     char pad0[0x308];
     char sub308[0x324 - 0x308];
     Entries *entries;
     char pad328[0x464 - 0x328];
+#endif
     unsigned int flags;
     char pad468[0x470 - 0x468];
     short *p470;
@@ -26,6 +37,12 @@ struct Scene {
     unsigned char c4a3;
     unsigned char state;
 };
+
+#if defined(jpn)
+#define REGION_OFF_354 0x134
+#else
+#define REGION_OFF_354 0x354
+#endif
 
 extern int data_02108760;
 extern "C" void func_020813ec(void *, int);
@@ -72,7 +89,7 @@ extern "C" ARM void func_ov003_02163fd4(Scene *self) {
         ResetWithSub0208203c((Obj0208203c*)self->sub308);
         self->state = self->state + 1;
         self->flags &= ~0x300;
-        *(unsigned char *) (GetWord0x0_0200fb8c((int*)GameState::GetInstance()) + 0x4000 + 0x354) = 0xa;
+        *(unsigned char *) (GetWord0x0_0200fb8c((int*)GameState::GetInstance()) + 0x4000 + REGION_OFF_354) = 0xa;
     } else if (state == 1) {
         self->p470 = &self->h48a;
         SetEntryLowNibbleAndElement02080c68(entries, self->h488, 0);
