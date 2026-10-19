@@ -19,6 +19,13 @@ void EnqueueEventTag122_021c8b78(unsigned short);
 void ClearBitAt0x34_020a367c(unsigned char*, int);
 int GetField0x3acValue_020100a8(GameState*);
 int CheckSubstructByte0x7cPositive_020535c8(signed char*);
+#if defined(jpn)
+#define IsField0x180NonNegative_020535e0 func_02054958
+#define func_ov000_02166e5c func_ov000_0216859c
+#define func_ov000_02164fac func_ov000_02166700
+#define func_ov000_02165490 func_ov000_02166bdc
+extern "C" int func_02054958(int*);
+#endif
 int IsField0x180NonNegative_020535e0(int*);
 Obj020d7aa0* GetGlobalResetObj020d7a50();
 void TeardownAndResetState020d7aa0(Obj020d7aa0*);
@@ -47,8 +54,13 @@ struct BattleConfig02163db4 {
     char pad_30[0x40 - 0x30];
 };
 struct BattleScene02163db4 {
+#if defined(jpn)
+    char pad_0[0x21c]; BattleConfig02163db4* config;
+    char pad_2a4[0xe44 - 0x220]; unsigned short field_ec8;
+#else
     char pad_0[0x2a0]; BattleConfig02163db4* config;
     char pad_2a4[0xec8 - 0x2a4]; unsigned short field_ec8;
+#endif
 };
 #define REG_DISPLAY_CONTROL (*(volatile unsigned int*)0x04000000)
 #define REG_BLEND_CONTROL (*(volatile unsigned short*)0x04000050)
