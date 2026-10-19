@@ -7,7 +7,11 @@ int TestFlagBit55dIfActive_0218b628(signed char bit);
 extern int data_020fdcb0[][8];
 
 struct Stat02159774 {
+#if defined(jpn)
+    unsigned char pad[0x10];
+#else
     unsigned char pad[0x34];
+#endif
     unsigned short cur;
     unsigned short max;
     unsigned char pad38[4];
@@ -15,6 +19,11 @@ struct Stat02159774 {
 
 // USA: func_ov002_02159774
 extern "C" ARM int func_ov002_02159774(char *self, int id, int check, int a, unsigned char b) {
+#if defined(jpn)
+    enum { regionalOffset0 = 0x1aee, regionalOffset1 = 0x22ac, regionalOffset2 = 0x1a80, regionalOffset3 = 0x1a08 };
+#else
+    enum { regionalOffset0 = 0x1c26, regionalOffset1 = 0x247c, regionalOffset2 = 0x1bb8, regionalOffset3 = 0x1ab0 };
+#endif
     GameObject *c;
     float cur, max, ratio;
     int res;
@@ -22,18 +31,18 @@ extern "C" ARM int func_ov002_02159774(char *self, int id, int check, int a, uns
     if (c == 0) return 3;
     if (check) {
         int special = 0;
-        if (*(short *) (self + 0x1c26) == 0xd1) special = 1;
+        if (*(short *) (self + regionalOffset0) == 0xd1) special = 1;
         if (func_020dc920(id & 0xff, a, b, special) == 0) return 3;
     }
     int *e = data_020fdcb0[c->obj3D_.unknown_4_];
     cur    = (float) e[0];
     max    = (float) e[2];
-    if ((*(int *) (self + 0x247c) & 1) || *(int *) (self + 0x1bb8) == 4) {
+    if ((*(int *) (self + regionalOffset1) & 1) || *(int *) (self + regionalOffset2) == 4) {
         if (TestFlagBit55dIfActive_0218b628(id)) {
             cur = (float) (int) c->combatFields_.savedState_130_->hp;
             max = (float) (int) c->baseStats_->primaryStats.maxHP;
         } else {
-            Stat02159774 *s = &((Stat02159774 *) (self + 0x1ab0))[c->obj3D_.unknown_4_];
+            Stat02159774 *s = &((Stat02159774 *) (self + regionalOffset3))[c->obj3D_.unknown_4_];
             cur             = (float) (unsigned int) s->cur;
             max             = (float) (unsigned int) s->max;
         }

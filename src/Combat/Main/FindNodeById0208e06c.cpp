@@ -4,6 +4,9 @@ struct Node0208e06c {
     short id;
     short field2;
     int field4;
+#if defined(jpn)
+    int field8;
+#endif
     struct Node0208e06c* next;
 };
 

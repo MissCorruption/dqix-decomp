@@ -4,6 +4,13 @@
 #include "std_library_functions.h"
 #include "World/Zone3D.h"
 
+#if defined(jpn)
+#define data_020ef19f data_020ef0db
+#define data_020ef1a9 data_020ef0e5
+#define data_020ef1b3 data_020ef0ef
+#define data_020ef1bd data_020ef0f9
+#define data_020ef1c7 data_020ef103
+#endif
 extern char data_020ef19f;
 extern char data_020ef1a9;
 extern char data_020ef1b3;
@@ -14,13 +21,18 @@ extern char data_020ef116;
 // USA: func_02014b04
 extern "C" ARM void _ZN6Zone3D26QueueLoadATS_AMBL_02014b04Ev(void* obj) {
     char* o = (char*)obj;
+#if defined(jpn)
+    enum { regionalOffset = 0x20 };
+#else
+    enum { regionalOffset = 0 };
+#endif
 
-    if (*(unsigned char*)(o + 0x23b8) != 0) {
-        ActiveGrottoClass* grotto = (ActiveGrottoClass*)(o + 0x23ec);
+    if (*(unsigned char*)(o + 0x23b8 + regionalOffset) != 0) {
+        ActiveGrottoClass* grotto = (ActiveGrottoClass*)(o + 0x23ec + regionalOffset);
         int env = grotto->GetActiveGrottoEnviron();
         if (env == 0) env = 1;
 
-        signed char rank = *(signed char*)(o + 0x23ba);
+        signed char rank = *(signed char*)(o + 0x23ba + regionalOffset);
         if (rank <= 0x4) {
             sprintf(o + 0xc, &data_020ef19f, env);
         } else if (rank <= 0x8) {
@@ -41,5 +53,5 @@ extern "C" ARM void _ZN6Zone3D26QueueLoadATS_AMBL_02014b04Ev(void* obj) {
     signed char b = *(signed char*)(o + 0xc);
     char buf[0x28];
     sprintf(buf, &data_020ef1c7, &data_020ef116, b);
-    *(int*)(o + 0x440) = ((BackgroundLoader*)(handle))->QueueLoadFile((const char*)((int)buf), (SafeAllocator*)(0));
+    *(int*)(o + 0x440 + regionalOffset) = ((BackgroundLoader*)(handle))->QueueLoadFile((const char*)((int)buf), (SafeAllocator*)(0));
 }

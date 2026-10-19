@@ -45,11 +45,25 @@ void _Z38RunFlaglearAndSetMode02167e6c_02167e6cPh(BattleWork*);
 int func_02032370(int);
 }
 
+#if defined(jpn)
+#define data_ov026_021dee5c data_ov026_021df50a
+#define data_ov026_021dee77 data_ov026_021df525
+#define data_ov026_021dee84 data_ov026_021df532
+#define data_ov026_021dee88 data_ov026_021df536
+#define data_ov026_021de6e8 data_ov026_021ded04
+#define data_ov026_021dee8f data_ov026_021df53d
+#define data_ov026_021dee9c data_ov026_021df54a
+#define data_ov026_021deeb5 data_ov026_021df563
+#endif
 extern const char data_ov026_021dee5c[];
 extern const char data_ov026_021dee77[];
 extern const char data_ov026_021dee84[];
 extern const char data_ov026_021dee88[];
+#if defined(jpn)
+struct LabelData { unsigned char a[2]; unsigned char b0; unsigned char b1; };
+#else
 struct LabelData { unsigned char a[4]; unsigned char b0; unsigned char b1; };
+#endif
 extern const LabelData data_ov026_021de6a0;
 struct Table4 { int v[4]; };
 struct AnimLabels { signed char letters[2]; };
@@ -60,7 +74,13 @@ struct RowLabels {
     int loadTask;
     const char* order[8];
 };
+#if defined(jpn)
+struct RowOrder021dc440 { const char* order[8]; };
+#define _ZZ12GetRowLabelsvE1s data_ov026_021dedac
+extern "C" RowOrder021dc440 _ZZ12GetRowLabelsvE1s;
+#else
 extern "C" RowLabels _ZZ12GetRowLabelsvE1s;
+#endif
 extern const char data_ov026_021dee9c[];
 extern const char data_ov026_021deeb5[];
 
@@ -156,7 +176,12 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* allocator, BattleWork* se
                 if (member) {
                     char tmp[0x14];
                     FormatEffectStats02072c9c(i, tmp);
-                    if (*(int*)((char*)member + 0x1c4)) {
+#if defined(jpn)
+                    enum { regionalOffset = 0x1b8 };
+#else
+                    enum { regionalOffset = 0x1c4 };
+#endif
+                    if (*(int*)((char*)member + regionalOffset)) {
                         sprintf(name, data_ov026_021dee9c);
                         LoadFileIntoMemory(name, data_0211e33c, &size);
                         buffer = data_0211e33c;

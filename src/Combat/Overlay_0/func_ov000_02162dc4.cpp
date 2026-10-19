@@ -13,6 +13,9 @@ void SetSubstructFlag0x100_02048c38(unsigned char*);
 void ResetCombatantSlot020d7334(unsigned char*, int);
 extern "C" void func_020d6f9c(void* param0, int combatantId, int reason);
 
+#if defined(jpn)
+#define data_ov000_021838d8 data_ov000_02184a18
+#endif
 extern const char data_ov000_021838d8[];
 
 enum CombatReason02162dc4 { REASON_0, REASON_1, REASON_2, REASON_3, REASON_4, REASON_NONE };
@@ -29,9 +32,15 @@ struct Combatant02162dc4 {
 };
 
 struct Battle02162dc4 {
+#if defined(jpn)
+    char pad0[0x218];
+    void* field29c;
+    char pad2a0[0xe20 - 0x21c];
+#else
     char pad0[0x29c];
     void* field29c;
     char pad2a0[0xea4 - 0x2a0];
+#endif
     unsigned char* slots;
 };
 

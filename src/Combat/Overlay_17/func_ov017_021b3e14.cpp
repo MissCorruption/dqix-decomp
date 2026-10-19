@@ -51,6 +51,11 @@ unsigned short GetPreferredPackedField020de234(struct StructDE234_020de234* p, i
 struct List021d6b34 {
     int v[8];
 };
+#if defined(jpn)
+#define data_ov017_021d6b34 data_ov017_021d6f2c
+#define data_ov017_021d7add data_ov017_021d821f
+#define data_ov017_021d7ae3 data_ov017_021d8225
+#endif
 extern struct List021d6b34 data_ov017_021d6b34;
 extern char data_ov017_021d7add[];
 extern char data_ov017_021d7ae3[];
@@ -78,12 +83,28 @@ struct Member021b3e14 {
     BaseCombatStats* baseStats134;
     ModifiableCombatStats* currentStats138;
     int* scriptState13c;
+#if defined(jpn)
+    char pad140[0x144 - 0x140];
+#else
     char pad140[0x150 - 0x140];
+#endif
     struct Ext150* ext150;
     GameResources::Substruct_12C8* models154;
+#if defined(jpn)
+    char pad158[0x180 - 0x14c];
+#else
     char pad158[0x18c - 0x158];
+#endif
     int flags18c;
 };
+
+#if defined(jpn)
+#define POLYGON_ID_ROWS_021b3e14 0x41ac
+#define EXT150_WORD_021b3e14 0x8b8
+#else
+#define POLYGON_ID_ROWS_021b3e14 0x445c
+#define EXT150_WORD_021b3e14 0x950
+#endif
 
 struct Active02054000 {
     char pad0[8];
@@ -174,7 +195,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
         for (int j = 0; (i = list.v[j]) > -1; j++) {
             GameObject* obj = gs->GetGameObjectByIndex(table.v[i]);
             if (obj != NULL && obj->obj3D_.pModel_ != NULL && obj->obj3D_.pModel_->rawInternalModel_ != NULL) {
-                (*(PolygonIdRow*)((unsigned char*)res + self->id * 11 + 0x445c))[i] =
+                (*(PolygonIdRow*)((unsigned char*)res + self->id * 11 + POLYGON_ID_ROWS_021b3e14))[i] =
                     NSBXX_Model_GetMaterialPolygonID(obj->obj3D_.pModel_->rawInternalModel_, 0);
             }
         }
@@ -312,7 +333,7 @@ extern "C" ARM int func_ov017_021b3e14(struct LoadWork021b3e14* self) {
                 }
                 ApplyCombatantBuffs(world, self->id);
                 func_ov017_021c6bc8();
-                func_ov017_021cf078(self->id, (unsigned char)*(int*)((char*)c->ext150 + 0x950), 1);
+                func_ov017_021cf078(self->id, (unsigned char)*(int*)((char*)c->ext150 + EXT150_WORD_021b3e14), 1);
             }
         } else {
             member->obj3D_.MakeVisible();

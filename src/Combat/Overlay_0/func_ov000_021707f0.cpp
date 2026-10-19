@@ -37,7 +37,11 @@ struct BattlePaletteState {
     PaletteCursor* cursor;
     char pad_174[8];
     int combatantIndex;
+#if defined(jpn)
+    char pad_180[0x1f98 - 0x180];
+#else
     char pad_180[0x1d60 - 0x180];
+#endif
     signed char states[8];
     signed char stateIndex;
 
@@ -46,7 +50,11 @@ struct BattlePaletteState {
 struct PaletteOwner {
     char pad_00[0x38];
     Struct_0205d81c* elements;
+#if defined(jpn)
+    char pad_3c[0x470 - 0x3c];
+#else
     char pad_3c[0x430 - 0x3c];
+#endif
     unsigned short colors[2];
     float phase;
 };
@@ -63,6 +71,11 @@ struct PaletteChannel {
     short value;
     short pad[2];
 };
+#if defined(jpn)
+#define data_ov000_02183488 data_ov000_02184510
+#define data_ov000_0218348a data_ov000_02184512
+#define data_ov000_0218348c data_ov000_02184514
+#endif
 extern PaletteChannel data_ov000_02183488[];
 extern PaletteChannel data_ov000_0218348a[];
 extern PaletteChannel data_ov000_0218348c[];

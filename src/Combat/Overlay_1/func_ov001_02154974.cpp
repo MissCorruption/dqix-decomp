@@ -20,7 +20,11 @@ struct Other02154974 {
 };
 
 struct Self02154974 {
+#if defined(jpn)
+    char pad0[0xcc];
+#else
     char pad0[0xd0];
+#endif
     struct Node02154974* nodes;
     struct Other02154974* others;
     char padd8[0xf8 - 0xd8];
@@ -57,6 +61,9 @@ void _Z20CallByIndex_0215acd4i(int index);
 
 void* EmptyStub0203d004(void* list);
 
+#if defined(jpn)
+#define data_ov001_02164bd1 data_ov001_02166171
+#endif
 extern char data_ov001_02164bd1[];
 
 // USA: func_ov001_02154974

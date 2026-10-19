@@ -4,6 +4,11 @@
 
 // USA: func_020abf38
 ARM int CopyOutBattleRegion0x75f0_020abf38(void* dst) {
-    memcpy(dst, (char*)GameState::GetInstance() + 0x75f0, 0x4d0);
+#if defined(jpn)
+    enum { regionalOffset0 = 0x73b0 };
+#else
+    enum { regionalOffset0 = 0x75f0 };
+#endif
+    memcpy(dst, (char*)GameState::GetInstance() + regionalOffset0, 0x4d0);
     return 1;
 }

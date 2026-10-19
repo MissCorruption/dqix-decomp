@@ -19042,3 +19042,35 @@ src/Combat/Main/func_02025f28_02025f28.cpp:
 src/Combat/Main/func_02038598.cpp:
     complete
     .text start:0x02037ff0 end:0x02038c04
+
+src/Combat/Main/CountMatchingEntries02026a78.cpp:
+    complete
+    .text start:0x020263dc end:0x02026420
+
+src/Combat/Main/GetBitInArray0x910.cpp:
+    complete
+    .text start:0x020844d4 end:0x020844fc
+
+src/Combat/Main/FindNodeById0208e06c.cpp:
+    complete
+    .text start:0x0208e97c end:0x0208e9b8
+
+src/Combat/Main/CopyOutBattleRegion0x75f0.cpp:
+    complete
+    .text start:0x020ada04 end:0x020ada2c
+
+src/Combat/Main/func_020a78dc.cpp:
+    complete
+    .text start:0x020a9660 end:0x020a9a64
+
+src/Combat/Main/func_020a9c14.cpp:
+    complete
+    .text start:0x020ab864 end:0x020ab9c8
+
+src/Combat/Main/func_0207fe80.cpp:
+    complete
+    .text start:0x020809bc end:0x02080c38
+
+src/Combat/Main/UpdateGrottoRankLabelAndDispatch02014b04.cpp:
+    complete
+    .text start:0x020148d0 end:0x020149d0

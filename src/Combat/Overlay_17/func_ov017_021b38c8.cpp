@@ -14,7 +14,12 @@ struct BattleAssets021b38c8 {
     char pad_e0[0x52c - 0xe0]; SafeAllocator animationAllocator, extraAllocator;
 };
 struct Combatant021b38c8 {
-    char pad_0[0x154]; BattleAssets021b38c8* assets;
+#if defined(jpn)
+    char pad_0[0x148];
+#else
+    char pad_0[0x154];
+#endif
+    BattleAssets021b38c8* assets;
     BattleAssets021b38c8* GetAssets() { return assets; }
 };
 struct Scale021b38c8 { char pad_0[8]; short field_8; char pad_a[0x18-0xa]; short width, height; };
@@ -30,6 +35,11 @@ extern "C" void func_02072afc(int, int*, short*);
 Entry02083554* FindEntryByShortField02083554(Container02083554*, int);
 extern "C" int func_02072e94(char*, int, int, Entry02083554*, Entry02083554*);
 void FormatAndAppendCombatMessage02072d58(int, char*, char*);
+#if defined(jpn)
+#define data_ov017_021d7a38 data_ov017_021d8188
+#define data_ov017_021d7ace data_ov017_021d8210
+#define data_ov017_021d7ad6 data_ov017_021d8218
+#endif
 extern const char* data_ov017_021d7a38[2];
 extern char data_ov017_021d7ace[], data_ov017_021d7ad6[];
 static inline int ScaleProduct(int first, int second) { return (int)(((long long)first * second + 0x800) >> 12); }

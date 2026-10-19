@@ -9,9 +9,14 @@ int AppendString02042058(char* dst, const char* src);
 
 // USA: func_ov002_021610c4  (semantic: AppendCursorAndFieldNames_021610c4)
 extern "C" ARM void func_ov002_021610c4(unsigned char* obj, char* dst, int flag) {
+#if defined(jpn)
+    enum { regionalOffset0 = 0x1ada, regionalOffset1 = 0x8, regionalOffset2 = 0x1aa4 };
+#else
+    enum { regionalOffset0 = 0x1c12, regionalOffset1 = 0x20, regionalOffset2 = 0x1bdc };
+#endif
     if (dst == NULL) return;
 
-    int cursor = *(short*)(obj + 0x1c12);
+    int cursor = *(short*)(obj + regionalOffset0);
     short id = 0x26ad;
 
     if (flag) {
@@ -20,10 +25,10 @@ extern "C" ARM void func_ov002_021610c4(unsigned char* obj, char* dst, int flag)
     AppendCursorTag_02041ea4(dst, cursor);
 
     for (int i = 0; i < 2; i++) {
-        int field = GetFieldByKey020e0434((Container020e0310*)(obj + 0x20), id++);
+        int field = GetFieldByKey020e0434((Container020e0310*)(obj + regionalOffset1), id++);
         AppendNameTag_02041b70(dst, i, (const char*)field);
         if (i != 1) {
-            AppendString02042058(dst, *(char**)(obj + 0x1bdc));
+            AppendString02042058(dst, *(char**)(obj + regionalOffset2));
         }
     }
 }

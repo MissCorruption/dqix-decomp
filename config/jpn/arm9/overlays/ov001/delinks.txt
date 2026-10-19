@@ -1959,3 +1959,23 @@ src/Combat/Overlay_1/func_ov001_02162a90.cpp:
 src/Combat/Overlay_1/func_ov001_0215f3fc.cpp:
     complete
     .text start:0x02160a10 end:0x02160d54
+
+src/Combat/Overlay_1/HandleField160AndUnlockCounters_02155d54.cpp:
+    complete
+    .text start:0x0215747c end:0x021574f8
+
+src/Combat/Overlay_1/func_ov001_0215686c.cpp:
+    complete
+    .text start:0x02157f44 end:0x021581f8
+
+src/Combat/Overlay_1/func_ov001_02154974.cpp:
+    complete
+    .text start:0x021560f4 end:0x021563e4
+
+src/Combat/Overlay_1/func_ov001_021557e0.cpp:
+    complete
+    .text start:0x02156f08 end:0x021572e0
+
+src/Combat/Overlay_1/func_ov001_021539d8.cpp:
+    complete
+    .text start:0x02155158 end:0x021560f4

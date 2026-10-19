@@ -34,14 +34,23 @@ void StoreInFirstEmptySlot_020e3368(unsigned char* base, unsigned char val);
 struct Self02154de4;
 int ProcessAndDispatchState_02154de4(struct Self02154de4* self);
 
+#if defined(jpn)
+#define data_ov001_02164bd1 data_ov001_02166171
+#endif
 extern const char data_ov001_02164bd1[];
+
+#if defined(jpn)
+#define COMBATANT_FLAGS_021557e0 0x180
+#else
+#define COMBATANT_FLAGS_021557e0 0x18c
+#endif
 
 struct Combatant021557e0 {
     char pad0[0xc1];
     unsigned char field_c1 : 2;
     char pad1[0x130 - 0xc2];
     unsigned int* stats130;
-    char pad2[0x18c - 0x134];
+    char pad2[COMBATANT_FLAGS_021557e0 - 0x134];
     unsigned int flags18c;
 };
 
@@ -52,7 +61,11 @@ struct Self021557e0 {
     unsigned char f12;
     char pad2[0x50 - 0x13];
     unsigned short f50;
+#if defined(jpn)
+    char pad3[0xf4 - 0x52];
+#else
     char pad3[0xf8 - 0x52];
+#endif
     unsigned int flag_f8 : 27;
     unsigned int rsv_f8 : 5;
     char pad4[0x101 - 0xfc];
@@ -79,7 +92,7 @@ extern "C" ARM int func_ov001_021557e0(struct Self021557e0* self) {
         self->f103 = 1;
         if (self->flag_f8 & 0x10) {
             GameObject* g = GetCombatantWithFlag0x100_0200ff1c(bs, 0);
-            ((unsigned int*)((char*)g + 0x18c))[0] |= 2;
+            ((unsigned int*)((char*)g + COMBATANT_FLAGS_021557e0))[0] |= 2;
         }
     }
 

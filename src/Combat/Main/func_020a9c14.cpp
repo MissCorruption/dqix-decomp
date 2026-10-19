@@ -21,11 +21,19 @@ struct SavedMapList020a9c14 {
     TreasureMapMetadata maps[99];
 };
 struct GameMapBank020a9c14 {
+#if defined(jpn)
+    unsigned char prefix[0x6000];
+#else
     unsigned char prefix[0x6400];
+#endif
     SavedMapList020a9c14 mapList;
 };
 struct GameMapList020a9c14 {
+#if defined(jpn)
+    unsigned char prefix[0x2b4];
+#else
     unsigned char prefix[0xf4];
+#endif
     GameMapBank020a9c14 bank;
 };
 struct MapPosition020a9c14 { int x; int y; int z; };

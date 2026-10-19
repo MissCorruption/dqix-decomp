@@ -38,7 +38,11 @@ struct Obj021a4e88 {
 };
 
 struct Res021a4e88 {
+#if defined(jpn)
+    char pad0[0x3e60];
+#else
     char pad0[0x4080];
+#endif
     int busy;
 };
 
