@@ -104,9 +104,9 @@ extern "C" THUMB int func_ov031_02220968() {
                 result = -7;
                 break;
             }
-            i++;
             source++;
             destination++;
+            i++;
         } while (i < 4);
         break;
     }

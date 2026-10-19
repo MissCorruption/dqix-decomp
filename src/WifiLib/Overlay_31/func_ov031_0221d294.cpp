@@ -30,21 +30,13 @@ extern "C" THUMB int func_ov031_0221d294(NameLabelTable* table) {
     if (table->count > 64) {
         count = 64;
     }
-    i = 0;
-    if (count > 0) {
-        char* entry = (char*)table;
-        char* name = (char*)table + 8;
-        do {
-            if ((*(unsigned int*)(entry + 0x54) & 1) != 0 &&
-                *(int*)(entry + 4) == func_ov031_0221e650(data_ov031_0224b0d0) &&
-                func_ov031_0221e4fc((unsigned char*)name, (unsigned char*)data_ov031_0224b0d0,
-                                    func_ov031_0221e650(data_ov031_0224b0d0)) == 0) {
-                found++;
-            }
-            i++;
-            entry += 0x54;
-            name += 0x54;
-        } while (i < count);
+    for (i = 0; i < count; i++) {
+        if ((table->entries[i].flags & 1) != 0 &&
+            table->entries[i].nameLength == func_ov031_0221e650(data_ov031_0224b0d0) &&
+            func_ov031_0221e4fc((unsigned char*)table->entries[i].name, (unsigned char*)data_ov031_0224b0d0,
+                                func_ov031_0221e650(data_ov031_0224b0d0)) == 0) {
+            found++;
+        }
     }
     if (found > 1) {
         result = 4;

@@ -700,7 +700,7 @@ func_ov031_0221cfdc kind:function(thumb,size=0x2c) addr:0x0221d7bc
 func_ov031_0221d008 kind:function(thumb,size=0x58) addr:0x0221d7e8
 func_ov031_0221d060 kind:function(thumb,size=0xc) addr:0x0221d840
 func_ov031_0221d06c kind:function(thumb,size=0xc) addr:0x0221d84c
-func_ov031_0221d858 kind:function(thumb,size=0x1f8) addr:0x0221d858
+func_ov031_0221d078 kind:function(thumb,size=0x1f8) addr:0x0221d858
 func_ov031_0221d270 kind:function(thumb,size=0x24) addr:0x0221da50
 func_ov031_0221d294 kind:function(thumb,size=0x7c) addr:0x0221da74
 func_ov031_0221d310 kind:function(thumb,size=0x44) addr:0x0221daf0
@@ -2764,10 +2764,10 @@ data_ov031_0224e704 kind:bss addr:0x0224f304
 data_ov031_0224f320 kind:bss addr:0x0224f320
 data_ov031_0224e9a0 kind:bss addr:0x0224f5a0
 data_ov031_0224f9a0 kind:bss addr:0x0224f9a0
-data_ov031_0224f9a8 kind:bss addr:0x0224f9a8
-data_ov031_0224fad8 kind:bss addr:0x0224fad8
-data_ov031_0224fc08 kind:bss addr:0x0224fc08
-data_ov031_0224fc78 kind:bss addr:0x0224fc78
+data_ov031_0224eda8 kind:bss addr:0x0224f9a8
+data_ov031_0224eed8 kind:bss addr:0x0224fad8
+data_ov031_0224f008 kind:bss addr:0x0224fc08
+data_ov031_0224f078 kind:bss addr:0x0224fc78
 data_ov031_0224f440 kind:bss addr:0x02250040
 data_ov031_0224f448 kind:bss addr:0x02250048
 data_ov031_0224f44a kind:bss addr:0x0225004a
