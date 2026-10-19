@@ -7725,3 +7725,9 @@ src/NetworkLib/Overlay_31/func_ov031_02224ca4.cpp:
     complete
     .text start:0x02224ca4 end:0x02224f20
     .rodata start:0x022489c0 end:0x022489dc
+
+
+src/NetworkLib/Overlay_31/func_ov031_0221c5ac.cpp:
+    complete
+    .text start:0x0221c5ac end:0x0221cfc4
+    .rodata start:0x022460dc end:0x022460e0
