@@ -38,38 +38,58 @@ extern "C" void func_ov002_02156e90(void *obj);
 
 extern "C" char data_02108760;
 
-#define OBJ (self + 0x2c8 + 0xc00)
-#define CUR (*(short *) (self + 0x1be6))
-#define SEL (*(signed char *) (self + 0x1c20))
-#define LAST (*(signed char *) (self + 0x1c73))
+#if defined(jpn)
+#define RG(u, j) (j)
+extern "C" void func_ov002_02162acc(char *self);
+extern "C" void func_ov002_0215d68c(char *self);
+extern "C" void func_ov002_0215c618(char *self, int v);
+extern "C" int func_ov002_02162930(char *self, int v);
+extern "C" void func_ov002_0215852c(void *obj);
+#define func_ov002_02161cf0 func_ov002_02162acc
+#define func_ov002_0215c614 func_ov002_0215d68c
+#define func_ov002_0215b458 func_ov002_0215c618
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+#define func_ov002_02156e90 func_ov002_0215852c
+#else
+#define RG(u, j) (u)
+#endif
+
+#define OBJ (self + RG(0x2c8 + 0xc00, 0xe20))
+#define CUR (*(short *) (self + RG(0x1be6, 0x1aae)))
+#define SEL (*(signed char *) (self + RG(0x1c20, 0x1ae8)))
+#define LAST (*(signed char *) (self + RG(0x1c73, 0x1b37)))
 
 // USA: func_ov002_02162964
 extern "C" ARM void func_ov002_02162964(char *self) {
-    int state = *(int *) (self + 0x1bc0);
+    int state = *(int *) (self + RG(0x1bc0, 0x1a88));
     if (state == 0) {
-        unsigned int f = *(unsigned int *) (self + 0x247c);
+        unsigned int f = *(unsigned int *) (self + RG(0x247c, 0x22ac));
         if (f & 2) {
             return;
         }
+#if !defined(jpn)
         if (!(f & 0x20)) {
             return;
         }
-        *(unsigned char *) (self + 0x248d) = 0;
+#endif
+        *(unsigned char *) (self + RG(0x248d, 0x22bd)) = 0;
+#if !defined(jpn)
         func_ov002_0215b2c8(self);
+#endif
         CUR = 0;
-        SEL = *(int *) (self + CUR * 4 + 0x1c3c);
+        SEL = *(int *) (self + CUR * 4 + RG(0x1c3c, 0x1b00));
         FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) OBJ, 0, 2);
         func_ov002_02161cf0(self);
         func_ov002_0215c614(self);
-        *(int *) (self + 0x1bc0) += 1;
+        *(int *) (self + RG(0x1bc0, 0x1a88)) += 1;
     } else if (state == 1) {
-        *(short *) (self + 0x1bf0) = -1;
-        *(unsigned int *) (self + 0x247c) |= 4;
+        *(short *) (self + RG(0x1bf0, 0x1ab8)) = -1;
+        *(unsigned int *) (self + RG(0x247c, 0x22ac)) |= 4;
         short old = CUR;
         CUR       = GetActiveScaledSum0205d794((struct Struct_0205c570 *) OBJ);
-        func_ov002_0215b9a4(self, *(int *) (self + 0x1bb8) & 0xff, 0);
+        func_ov002_0215b9a4(self, *(int *) (self + RG(0x1bb8, 0x1a80)) & 0xff, 0);
         signed char prev = SEL;
-        SEL              = *(signed char *) (self + CUR + 0x1c6e);
+        SEL              = *(signed char *) (self + CUR + RG(0x1c6e, 0x1b32));
         if (CUR == LAST) {
             SEL = 4;
         }
@@ -87,7 +107,7 @@ extern "C" ARM void func_ov002_02162964(char *self) {
         if (g_keyManager.TestKeysHeld(0x80)) {
             return;
         }
-        if ((g_keyManager.TestKeysPressed(4) || func_0205df38(OBJ, 0x28)) && CUR == LAST) {
+        if ((g_keyManager.TestKeysPressed(4) || func_0205df38(OBJ, RG(0x28, 0x2b))) && CUR == LAST) {
             func_ov002_0215b458(self, 0);
             return;
         }
@@ -102,47 +122,47 @@ extern "C" ARM void func_ov002_02162964(char *self) {
         int u  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)OBJ, 0x14);
         int ok = (t | u) ? 1 : 0;
         if (ok || pick) {
-            *(unsigned char *) (self + 0x1c21) = GetField0x3acValue_020100a8(GameState::GetInstance());
+            *(unsigned char *) (self + RG(0x1c21, 0x1ae9)) = GetField0x3acValue_020100a8(GameState::GetInstance());
             TeardownAndResetState020d7aa0(GetGlobalResetObj020d7a50());
-            *(unsigned char *) (self + 0xf80) = *(int *) (self + 0x1bb8);
-            *(unsigned int *) (self + 0x247c) &= ~4;
+            *(unsigned char *) (self + RG(0xf80, 0xed8)) = *(int *) (self + RG(0x1bb8, 0x1a80));
+            *(unsigned int *) (self + RG(0x247c, 0x22ac)) &= ~4;
             DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
             if (CUR == LAST + 1) {
                 if (LAST != 1) {
-                    *(int *) (self + 0x1bb8) = 0xb;
+                    *(int *) (self + RG(0x1bb8, 0x1a80)) = RG(0xb, 0xc);
                 } else {
-                    *(unsigned char *) (self + 0x1c32) = 0;
+                    *(unsigned char *) (self + RG(0x1c32, 0x1afa)) = 0;
                     SetElementFieldC2_0205deb4((struct Struct_0205d81c *) OBJ, 4, 1);
-                    *(short *) (self + 0x1bf0) = *(unsigned char *) (self + 0x2521) = 1;
+                    *(short *) (self + RG(0x1bf0, 0x1ab8)) = *(unsigned char *) (self + RG(0x2521, 0x2351)) = 1;
                     SEL                                = GetFieldC54ArrayValue021573f8(self, 1);
-                    *(short *) (self + 0x1c12)         = 0;
-                    *(short *) (self + 0x1c28)         = 0x238d;
-                    *(short *) (self + 0x1c2a)         = -1;
-                    *(int *) (self + 0x1bb8)           = 0x26;
-                    *(int *) (self + 0x1bbc)           = 4;
-                    *(unsigned char *) (self + 0x1c2e) = 1;
+                    *(short *) (self + RG(0x1c12, 0x1ada))         = 0;
+                    *(short *) (self + RG(0x1c28, 0x1af0))         = 0x238d;
+                    *(short *) (self + RG(0x1c2a, 0x1af2))         = -1;
+                    *(int *) (self + RG(0x1bb8, 0x1a80))           = RG(0x26, 0x29);
+                    *(int *) (self + RG(0x1bbc, 0x1a84))           = 4;
+                    *(unsigned char *) (self + RG(0x1c2e, 0x1af6)) = 1;
                 }
-                *(int *) (self + 0x1bc0) = 0;
+                *(int *) (self + RG(0x1bc0, 0x1a88)) = 0;
                 return;
             }
-            *(int *) (self + 0x1bb8) = 5;
-            *(int *) (self + 0x1bc0) = 0;
+            *(int *) (self + RG(0x1bb8, 0x1a80)) = 5;
+            *(int *) (self + RG(0x1bc0, 0x1a88)) = 0;
             if (!GetCountByType02157108(self, SEL)) {
-                *(short *) (self + 0x1c28) = 0x2369;
-                *(short *) (self + 0x1c2a) = -1;
+                *(short *) (self + RG(0x1c28, 0x1af0)) = 0x2369;
+                *(short *) (self + RG(0x1c2a, 0x1af2)) = -1;
                 int in                     = 0;
                 if (SEL >= 0 && SEL <= 3) {
                     in = 1;
                 }
                 if (in) {
-                    *(short *) (self + 0x1c28) = 0x235a;
+                    *(short *) (self + RG(0x1c28, 0x1af0)) = 0x235a;
                 }
-                *(int *) (self + 0x1bb8)           = 0x26;
-                *(int *) (self + 0x1bbc)           = 5;
-                *(unsigned char *) (self + 0x2478) = 1;
-                *(unsigned char *) (self + 0x1c31) = 0;
+                *(int *) (self + RG(0x1bb8, 0x1a80))           = RG(0x26, 0x29);
+                *(int *) (self + RG(0x1bbc, 0x1a84))           = 5;
+                *(unsigned char *) (self + RG(0x2478, 0x22a8)) = 1;
+                *(unsigned char *) (self + RG(0x1c31, 0x1af9)) = 0;
             }
-            *(short *) (self + 0x1be8) = 0;
+            *(short *) (self + RG(0x1be8, 0x1ab0)) = 0;
             if (CUR != LAST) {
                 return;
             }
@@ -152,16 +172,18 @@ extern "C" ARM void func_ov002_02162964(char *self) {
                 return;
             }
             unsigned char *q = GetFieldAt0x150_02053c6c((unsigned char *) hero);
-            *(short *) (self + 0x1be8) =
-                FindKeyIndex020a0af4((struct S_a0af4 *) GetPtrField0x2a04_02010828(gs), *(short *) (q + 0x958));
-            if (*(short *) (self + 0x1be8) == -1) {
-                *(short *) (self + 0x1be8) = 0;
+            *(short *) (self + RG(0x1be8, 0x1ab0)) =
+                FindKeyIndex020a0af4((struct S_a0af4 *) GetPtrField0x2a04_02010828(gs), *(short *) (q + RG(0x958, 0x8c0)));
+            if (*(short *) (self + RG(0x1be8, 0x1ab0)) == -1) {
+                *(short *) (self + RG(0x1be8, 0x1ab0)) = 0;
             }
         } else if (CheckFlagOrThreshold_02161b48(self, 1)) {
+#if !defined(jpn)
             ResetAllocatorsAndClearFields0215b428((unsigned char *) self);
+#endif
             SEL                                = -1;
             CUR                                = -1;
-            *(unsigned char *) (self + 0x2521) = 0;
+            *(unsigned char *) (self + RG(0x2521, 0x2351)) = 0;
             func_ov002_02156e90(self);
         }
     }
