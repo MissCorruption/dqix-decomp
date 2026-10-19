@@ -25,7 +25,6 @@ extern MapDisplayPointers data_ov004_02171010;
 extern char data_ov004_0217055c[];
 extern char data_ov004_02170572[];
 #if defined(jpn)
-#define func_020a3844 func_020a55a0
 #define InitBufferAndCopyByte_0216342c func_ov004_02163a20
 #define SetFieldAt0x76c_020263dc func_02025db0
 extern "C" {
