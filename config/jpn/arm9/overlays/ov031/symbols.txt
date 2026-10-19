@@ -2673,8 +2673,8 @@ data_ov031_0224d4bc kind:data(any) addr:0x0224d4bc
 data_ov031_0224c8dc kind:data(any) addr:0x0224d4dc
 data_ov031_0224d50c kind:data(any) addr:0x0224d50c
 data_ov031_0224d520 kind:data(any) addr:0x0224d520
-data_ov031_0224d538 kind:data(any) addr:0x0224d538
-data_ov031_0224d53d kind:data(any) addr:0x0224d53d
+data_ov031_0224c938 kind:data(any) addr:0x0224d538
+data_ov031_0224c93d kind:data(any) addr:0x0224d53d
 data_ov031_0224c94e kind:data(any) addr:0x0224d54e
 data_ov031_0224c954 kind:data(any) addr:0x0224d554
 data_ov031_0224c980 kind:bss addr:0x0224d580
