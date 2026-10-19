@@ -11,6 +11,12 @@
 #define func_0206df6c func_0206f0c0
 #endif
 
+#if defined(jpn)
+#define func_ov002_0215a7b4 func_ov002_0215bbac
+#define func_ov002_0216c42c func_ov002_0216ca7c
+#define func_ov002_02159900 func_ov002_0215ae80
+#endif
+
 struct Container020dedd0;
 struct Struct020a8170 {
     char pad[0xc];
@@ -48,9 +54,15 @@ struct MenuFlags {
     unsigned char rest : 7;
 };
 struct BattleMenu {
+#if defined(jpn)
+    char pad0[0x750];
+    char container7ec[0xb4];
+    char alloc8a0[0x127c];
+#else
     char pad0[0x7ec];
     char container7ec[0xb4];
     char alloc8a0[0x1318];
+#endif
     int state;
     int nextState;
     int timer;
@@ -65,7 +77,11 @@ struct BattleMenu {
     short msgId2;
     char pad1c2c[2];
     unsigned char f1c2e;
+#if defined(jpn)
+    char pad1c2f[0x41];
+#else
     char pad1c2f[0x45];
+#endif
     int wait;
     char pad1c78[2];
     unsigned char waitMode;
@@ -78,7 +94,11 @@ struct BattleMenu {
     unsigned char cc6;
     unsigned char cc7;
     char stateArray[0x3c];
+#if defined(jpn)
+    char pad1d04[0x6dc];
+#else
     char pad1d04[0x770];
+#endif
     struct Struct020a8170* anim;
     char pad2478[0x10];
     short prompt;
@@ -126,6 +146,12 @@ extern "C" void func_ov002_0215a7b4(char* self, int type, int key, int extra, un
 extern "C" void func_ov002_0216c42c(void* ctx, void* buf, void* entry);
 extern "C" void func_ov002_02159900(char* base, char* arr, int any);
 
+#if defined(jpn)
+enum { regionalState6 = 7, regionalState7 = 8, regionalState14 = 0x15, regionalState26 = 0x29, regionalState2b = 0x2e };
+#else
+enum { regionalState6 = 6, regionalState7 = 7, regionalState14 = 0x14, regionalState26 = 0x26, regionalState2b = 0x2b };
+#endif
+
 // USA: func_ov002_02157634
 extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
     struct StateArray st;
@@ -139,8 +165,8 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
     p->nextState = p->state;
     p->timer = 0;
     int flag = 0;
-    int next = 0x26;
-    if (p->state == 6) {
+    int next = regionalState26;
+    if (p->state == regionalState6) {
         void* check = func_0202ae18();
         unsigned short* obj = (unsigned short*)func_02012fe4();
         unsigned short id = *obj;
@@ -149,7 +175,7 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
             if (func_0202c540(check) != 0) {
                 p->msgId = 0x797c;
                 p->msgId2 = -1;
-                p->state = 0x26;
+                p->state = regionalState26;
                 p->nextState = 5;
                 p->f1c2e = 1;
                 return;
@@ -161,8 +187,8 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
                     Something_021a6b9c(GetGameResources(), 1);
                     p->msgId = 0x7530;
                     p->msgId2 = -1;
-                    p->nextState = 0x2b;
-                    next = 0x26;
+                    p->nextState = regionalState2b;
+                    next = regionalState26;
                 } else {
                     p->msgId = 0x7530;
                     p->msgId2 = -1;
@@ -194,19 +220,19 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
                 p->msgId2 = -1;
                 p->prompt = 0x7919;
                 p->showPrompt = 1;
-                p->state = 0x26;
+                p->state = regionalState26;
                 p->nextState = 5;
                 ((SafeAllocator*)p->alloc8a0)->Reset();
                 p->anim = 0;
             } else {
-                p->state = 0x14;
+                p->state = regionalState14;
                 p->timer = 0;
             }
             return;
         case 0x56f1:
             p->msgId = 0x792c;
             p->msgId2 = -1;
-            p->state = 0x26;
+            p->state = regionalState26;
             p->nextState = 5;
             {
                 unsigned int r = func_ov017_021ab860(p->actor, 1);
@@ -217,7 +243,7 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
                 } else if (r == 3) {
                     p->showPrompt = 0;
                     p->prompt = -1;
-                    p->nextState = 0x2b;
+                    p->nextState = regionalState2b;
                     func_ov002_0215a7b4((char*)p, p->actor, p->command, p->f1be8, 1);
                 }
             }
@@ -239,12 +265,12 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
             }
         }
         if (p->type == 2 || p->type == 7) {
-            next = 7;
+            next = regionalState7;
         } else {
             p->target = GetField0x397cValue_020100b0(gs);
             flag = 1;
         }
-    } else if (p->state == 7) {
+    } else if (p->state == regionalState7) {
         flag = 1;
     }
     if (flag) {
@@ -307,8 +333,8 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
                 memcpy(p->stateArray, &st, 0x3c);
                 p->msgId = -1;
                 p->msgId2 = -1;
-                p->state = 0x26;
-                p->nextState = 0x26;
+                p->state = regionalState26;
+                p->nextState = regionalState26;
                 p->prompt = -1;
                 p->showPrompt = 0;
                 p->waitMode = 1;
@@ -323,11 +349,11 @@ extern "C" ARM void func_ov002_02157634(struct BattleMenu* p) {
         }
         func_ov002_02159900((char*)p, (char*)&st, res);
         if (st.tail != 0) {
-            p->state = 0x26;
-            p->nextState = 0x2b;
+            p->state = regionalState26;
+            p->nextState = regionalState2b;
             return;
         }
-        p->state = 0x26;
+        p->state = regionalState26;
         p->nextState = 5;
     }
     p->state = next;
