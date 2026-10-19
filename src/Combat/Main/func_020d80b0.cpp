@@ -45,16 +45,31 @@ extern "C" void func_02046380(void*);
 int TestBitInByteArray_0206dfb0(int, unsigned char*, int);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void* FindEntryByKey_02072a68(TableA68*, int);
+#if defined(jpn)
+extern "C" void func_0204500c(void*, char*, int);
+#define SHOW_TEXT_020d80b0(d, t) func_0204500c(d, t, 0)
+extern char data_020f24b8[];
+#else
 extern "C" void func_0204500c(void*, char*, int, int);
+#define SHOW_TEXT_020d80b0(d, t) func_0204500c(d, t, 0, 0xe3)
+#endif
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 void SetByteField0x253_020397c0(void*);
 void SetCombatModeFromCase020dc2d0(int);
 struct Dialog020d80b0 {
+#if defined(jpn)
+    unsigned char field0[0x28];
+    char* text;
+    unsigned char field60[0x868-0x2c];
+    int busy;
+    unsigned char field99c[0x17e2-0x86c];
+#else
     unsigned char field0[0x5c];
     char* text;
     unsigned char field60[0x998-0x60];
     int busy;
     unsigned char field99c[0x19b2-0x99c];
+#endif
     unsigned char flag;
 };
 struct Bits020d80b0 { unsigned char field0[0x8c]; unsigned char flags[1]; };
@@ -80,7 +95,11 @@ extern "C" ARM void func_020d80b0(Obj020d8484* self) {
         CancelPendingAction020397cc((Obj020397cc*)object, 1);
         ClearIntAt0x23c_020a27b8(field);
         self->allocator.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0x300), 0x300);
+#if defined(jpn)
+        self->task = BackgroundLoader::GetInstance()->QueueLoadFile(data_020f24b8, 0);
+#else
         self->task = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_020f235c, data_020f2371, 0);
+#endif
         self->state = 1;
     } else if (self->state == 1) {
         if (BackgroundLoader::GetInstance()->GetTaskStatus(self->task)) {
@@ -106,7 +125,7 @@ extern "C" ARM void func_020d80b0(Obj020d8484* self) {
     } else if (self->state == 3) {
         char* text = dialog->text;
         strcpy(text, (char*)FindEntryByKey_02072a68(&self->table, 2));
-        func_0204500c(dialog, text, 0, 0xe3);
+        SHOW_TEXT_020d80b0(dialog, text);
         dialog->flag = 0;
         dialog->busy = 1;
         self->state = 4;
@@ -118,7 +137,7 @@ extern "C" ARM void func_020d80b0(Obj020d8484* self) {
     } else if (self->state == 5) {
         char* text = dialog->text;
         strcpy(text, (char*)FindEntryByKey_02072a68(&self->table, 1));
-        func_0204500c(dialog, text, 0, 0xe3);
+        SHOW_TEXT_020d80b0(dialog, text);
         dialog->flag = 0;
         dialog->busy = 1;
         self->state = 6;
