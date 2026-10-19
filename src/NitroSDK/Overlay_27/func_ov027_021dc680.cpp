@@ -60,7 +60,6 @@ struct Ctx021dc680 {
 
 extern Ctx021dc680 data_ov027_021e33e0;
 
-// Lifetimes (frame, cam, mp, table) read by IssueIdleBattleCommand_021db490 for WM_SetLifeTime.
 unsigned short data_ov027_021dd8ec = 5;
 unsigned short data_ov027_021dd8f2 = 0xffff;
 unsigned short data_ov027_021dd8f0 = 40;
@@ -86,7 +85,6 @@ static inline void SetNames_021dc680(Param021dc680* param, const UserInfo021dc68
 	}
 }
 
-// Power-save flag, read by func_ov027_021db524.
 int data_ov027_021dd8f8 = 1;
 
 unsigned short IncrementSlotIndex020d4dd4(void);

@@ -21,7 +21,6 @@ struct Entity02224ca4 {
 };
 
 extern Entity02224ca4* data_ov031_02250bfc;
-// .rodata of this file: six separate objects read off one section-base literal
 extern const Point16_02224ca4 data_ov031_022489c0 = {0x1c, 2};
 extern const Point16_02224ca4 data_ov031_022489c4 = {0x78, 0x12};
 extern const Point16_02224ca4 data_ov031_022489c8 = {0x11, 0x12};

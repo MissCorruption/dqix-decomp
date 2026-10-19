@@ -8,7 +8,6 @@ struct HttpBlock_0224185c {
     signed char data[0x200];
 };
 
-// Shared with the caller's thread, which polls the lengths while the transfer runs.
 struct HttpResp_0224185c {
     volatile int hdrLen;
     volatile int bodyLen;
@@ -143,8 +142,6 @@ static inline HttpBlock_0224185c* AllocBlock_0224185c(void) {
     return (HttpBlock_0224185c*)data_ov031_02290fc4(sizeof(HttpBlock_0224185c), 4);
 }
 
-// Queue `len` bytes of the request; a send error ends the request, a dropped
-// connection reconnects and starts the request again.
 #define HTTP_SEND(str, len)                                                 \
     do {                                                                    \
         int sent = func_ov031_022415e0(req, sock, &pos, (str), (len));      \
@@ -275,7 +272,6 @@ extern "C" ARM void func_ov031_0224185c(void) {
         len = func_ov031_022415a8(req->url);
         err = 10;
 
-        // request line
         switch (req->method) {
         case 0:
             HTTP_SEND(data_ov031_0224c794, 4);
@@ -295,14 +291,12 @@ extern "C" ARM void func_ov031_0224185c(void) {
         }
         HTTP_SEND(data_ov031_0224c7b0, 11);
 
-        // Host header
         tmp = req->secure != 0 ? 8 : 7;
         HTTP_SEND(data_ov031_0224c7bc, 6);
         n = req->hostEnd - tmp;
         if (n != 0) HTTP_SEND(req->url + tmp, n);
         HTTP_SEND(data_ov031_0224c7c4, 2);
 
-        // user headers
         {
             HttpHeader_0224185c* h = func_ov031_0223ff38(&req->headers);
             while (h != 0) {
@@ -317,7 +311,6 @@ extern "C" ARM void func_ov031_0224185c(void) {
             }
         }
 
-        // POST: Content-Type and Content-Length
         if (req->method == 1) {
             HttpParam_0224185c* list;
             HttpParam_0224185c* p;
@@ -365,7 +358,6 @@ extern "C" ARM void func_ov031_0224185c(void) {
         }
         HTTP_SEND(data_ov031_0224c7c4, 2);
 
-        // POST body
         if (req->method == 1) {
             if (hasFile != 0) {
                 HttpParam_0224185c* p = req->params;
@@ -409,7 +401,6 @@ extern "C" ARM void func_ov031_0224185c(void) {
             if (sent == 0) goto retry;
         }
 
-        // response header, read one byte at a time up to the blank line
         resp->hdrLen = 0;
         buf[0] = 0;
         buf[1] = 0;
@@ -458,13 +449,11 @@ extern "C" ARM void func_ov031_0224185c(void) {
         }
         if (resp->hdrLen == 0) goto done;
 
-        // status line
         if (func_ov031_022406f8(resp, data_ov031_02291a04, 0, 0xe) == 0) goto done;
         if (func_ov031_02241540(data_ov031_02291a04, data_ov031_0224c858, 5) != 0 || data_ov031_02291a04[8] != ' ') goto done;
         if (func_ov031_02242d3c(data_ov031_02291a0d, 3) < 0) goto done;
         if (func_ov031_022404e8(resp, 0xc, resp->hdrLen, &colon) < 0) goto done;
 
-        // Content-Length
         len = func_ov031_022410d8(resp, data_ov031_0224c860, &tmp);
         if (len == 0) {
             err = 0;
@@ -480,7 +469,6 @@ extern "C" ARM void func_ov031_0224185c(void) {
             req->contentLength = -1;
         }
 
-        // Connection: without the header, keep-alive is the HTTP/1.1 default
         n = func_ov031_022410d8(resp, data_ov031_0224c870, &tmp);
         keepAlive = n;
         if (n == 0) goto done;
@@ -503,7 +491,6 @@ extern "C" ARM void func_ov031_0224185c(void) {
             }
         }
 
-        // Transfer-Encoding
         n = func_ov031_022410d8(resp, data_ov031_0224c888, &tmp);
         if (n == 0) goto done;
         if (n > 0x400) {
@@ -515,7 +502,6 @@ extern "C" ARM void func_ov031_0224185c(void) {
         }
         if (req->method == 2) goto done;
 
-        // body
         if (len >= 0) {
             while (len > 0 && IsFieldCLessOrEqual_022407e4((Struct022407e4*)resp, resp->bodyLen) == 0) {
                 int got = func_ov031_02240820(req, sock, resp->bodyLen, len, 0);

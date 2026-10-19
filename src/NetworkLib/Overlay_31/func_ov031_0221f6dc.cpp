@@ -76,4 +76,3 @@ extern "C" THUMB int func_ov031_0221f6dc(unsigned char* address, unsigned char* 
     SetIRQInterruptState(irqState);
     return 0;
 }
-

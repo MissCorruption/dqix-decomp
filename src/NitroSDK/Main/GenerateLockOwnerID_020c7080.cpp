@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSDK OS_GetLockID (os_spinLock.c), an `asm` function in the SDK; pokediamond has it as
-// arm9/lib/NitroSDK/src/OS_spinLock.c. 0x027fffb0 is HW_LOCK_ID_FLAG_MAIN. The SDK's movne and
-// bxeq appear in the ROM as a branch over a branch (`bne; b; mov`), so they are written out
-// that way here, as in VectorizedInvertedMemcpy.
 // KEEP-NAME: the ROM symbol is a curated name, not a func_ tag.
 // USA: func_020c7080
 ARM asm int GenerateLockOwnerID(void)

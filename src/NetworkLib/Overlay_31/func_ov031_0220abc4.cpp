@@ -6,7 +6,6 @@ struct Md5Ctx_0220abc4 {
 
 ARM void CopyForward_0220abac(void* dst, const void* src, unsigned int length);
 
-// per-step message word index and sine constant tables
 extern unsigned char data_ov031_02249764[];
 extern unsigned int data_ov031_022497e4[];
 

@@ -1,41 +1,3 @@
-// _dadd at 0x0200ab28 -- double-precision add, MSL (mwccarm) runtime.
-//
-// PROVENANCE: pokediamond/arm9/asm/RUNTIME_d_add.s -- _dadd. The MSL runtime ships this
-// routine as assembly, not as compilable C; sm64ds-decomp carries the same block in
-// src/_dadd.c (as `asm double _dadd(double, double)`), but that build is a different
-// library revision: it pushes {r0,r1,r2,r3,r4,lr}, reads and updates the FP status word
-// through func_0207322c and leaves through func_0206dd7c / func_0206dcd4 on a trap.
-// Our block has none of that -- no stack frame beyond {r4,lr}, no calls at all, and it
-// returns the 0x7ff00000 infinity pattern directly -- so it is pokediamond's build that
-// matches, and pokediamond writes it exactly as transcribed below.
-//
-// WHY .s AND NOT AN `ARM asm` BLOCK: two constructs the mwccarm inline assembler cannot
-// express are both required by these bytes. (`.arm` below is this file's `ARM`.)
-//
-//  1. The differing-sign path tail-jumps into a SIBLING routine's interior. `bmi` at
-//     +0x0c goes to 0x0200b618, which is _dsub (0x0200b608) + 0x10 -- _dsub's
-//     magnitude-subtract core, the mirror of the core at +0x10 here. (_dsub repays it:
-//     its own +0x0c branches to 0x0200ab38, _dadd + 0x10.) Nothing in
-//     config/usa/arm9/symbols.txt names that interior address, and `config/` is not ours
-//     to edit, so there is no symbol for the branch to name. The inline assembler refuses
-//     every spelling of the destination: `b 0x0200b618`, `bmi (0x2b7)` and `bmi . + 0x2b7`
-//     are all "illegal operand"; `bmi _dsub + 0x10` and `bmi L_x + 0x2b7` are "end of
-//     line expected". `bmi _dsub` does assemble, but it is genuinely wrong rather than
-//     merely unprovable: it encodes a displacement to 0x0200b608, four instructions short
-//     of the ROM's target, so it links to a different address and fails the overlay
-//     checksum. wgate agrees -- RELOC-WRONG at +0x0c, "want callee@0x200b618". So the
-//     displacement is encoded directly, 0xADC words past the instruction:
-//       .word 0x4a0002b7   ==   bmi #0x0200b618
-//     It carries no relocation, so it links to exactly the bytes the ROM holds.
-//  2. The 0x7ff00000 infinity pattern lives in a literal pool word at the end of the
-//     routine, at +0x314. The inline assembler has no `.word`. (`ldr r1, =0x7ff00000` is
-//     its inline equivalent and was measured working -- it makes mwcc lay the single pool
-//     word at +0x314 and compute both `ldr [pc,#..]` offsets, 0x50 and 0xc. See
-//     _dadd.cpp, the inline-asm variant, which is byte-exact everywhere except the branch
-//     above. This file has to be `.s` for that one word plus the one displacement.)
-//
-// Everything else is a plain mnemonic. One `.text` section, 0x318 bytes, no relocations.
-
 	.section .text
 	.arm
 
@@ -46,7 +8,7 @@ _dadd:
 	stmdb sp!, {r4, lr}
 	eors ip, r1, r3
 	eormi r3, r3, #0x80000000
-	.word 0x4a0002b7		// bmi _dsub + 0x10 (0x0200b618)
+	.word 0x4a0002b7
 	subs ip, r0, r2
 	sbcs lr, r1, r3
 	bhs L_002c

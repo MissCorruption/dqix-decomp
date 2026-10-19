@@ -1,12 +1,3 @@
-// __sinit_ov029_021d90ec at 0x021d90ec is hand-written assembly, transcribed
-// instruction-for-instruction from the ROM. It is not un-decompiled C.
-//
-// Most of overlay 29 is encrypted code. This static initialiser hands an inline
-// table of {block, 0x021dbb48} pairs (terminated by {0, 0}) to the decryptor
-// func_ov029_021d9824. The table sits in .text right after the function and is
-// addressed pc-relative (`add r0, pc, #4`), which mwccarm never emits: it puts
-// tables in .rodata/.data and loads their address from a literal pool.
-
 	.section .text
 	.arm
 

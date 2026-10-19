@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" const unsigned int data_ov031_02247d10[256];   // Te4
-extern "C" const unsigned int data_ov031_022460e8[10];    // rcon
+extern "C" const unsigned int data_ov031_02247d10[256];
+extern "C" const unsigned int data_ov031_022460e8[10];
 
 #define Te4 data_ov031_02247d10
 #define rcon data_ov031_022460e8

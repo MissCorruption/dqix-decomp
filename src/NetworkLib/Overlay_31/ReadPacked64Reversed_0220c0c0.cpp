@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-// CPS bignum get64bits: reads the four halfwords at and below `top` into a u64 (r1:r0).
-// An `asm` function in the library: SonicRushAdventure-Decomp lib/NitroWiFi/asm/ARM9/ssl.s
-// and the pokeheartgold fork's lib/libCPS/src/cps_bignum.c (`asm u64 get64bits(const u16 *top)`).
 // USA: func_ov031_0220c0c0
 ARM asm unsigned long long ReadPacked64Reversed_0220c0c0(unsigned short* top)
 {

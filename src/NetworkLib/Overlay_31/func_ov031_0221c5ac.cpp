@@ -13,21 +13,21 @@ struct Packet_0221c5ac {
 
 struct Net_0221c5ac {
     int f0;
-    void* handle;                 // 0x04
+    void* handle;
     int f8;
-    Status_0221c5ac* status;      // 0x0c
-    int error;                    // 0x10
-    Packet_0221c5ac* packet;      // 0x14
+    Status_0221c5ac* status;
+    int error;
+    Packet_0221c5ac* packet;
     char pad18[0x2c - 0x18];
-    unsigned int flags;           // 0x2c
+    unsigned int flags;
     int f30;
-    unsigned int addr;            // 0x34
-    unsigned int mask;            // 0x38
+    unsigned int addr;
+    unsigned int mask;
 };
 
 struct Link_0221c5ac {
     char pad0[0x1c];
-    signed char connected;        // 0x1c
+    signed char connected;
 };
 
 struct Socket_0221c5ac {
@@ -68,13 +68,13 @@ struct Request_0221c5ac {
 
 struct Conn_0221c5ac {
     char pad0[0x106];
-    short connTries;              // 0x106
-    short connWait;               // 0x108
-    short recvTries;              // 0x10a
-    short recvWait;               // 0x10c
-    short timeout;                // 0x10e
-    char config[6];               // 0x110
-    unsigned char state;          // 0x116
+    short connTries;
+    short connWait;
+    short recvTries;
+    short recvWait;
+    short timeout;
+    char config[6];
+    unsigned char state;
 };
 
 extern "C" void func_ov031_0221e52c(void* dst, int value, unsigned int length);
