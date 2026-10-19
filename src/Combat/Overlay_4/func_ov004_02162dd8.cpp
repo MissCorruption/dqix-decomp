@@ -8,6 +8,10 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define data_ov004_0217052d data_ov004_02170deb
+#endif
+
 struct StreamHeader;
 struct MapAllocatorNode { int field0; SafeAllocator allocator; };
 
@@ -17,10 +21,17 @@ struct Slot02162dd8 {
 };
 
 struct Loader02162dd8 {
+#if defined(jpn)
+    char pad0[0xa];
+    unsigned char active;
+    unsigned char running;
+    char padc[8];
+#else
     unsigned char running;
     char pad1[3];
     unsigned char active;
     char pad5[0xf];
+#endif
     Slot02162dd8* entries;
 };
 
