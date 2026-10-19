@@ -2,7 +2,7 @@
 #include "World/ZoneWarpScript.h"
 #include "Graphics/Vector.h"
 
-#if defined(usa)
+#if defined(usa) || defined(jpn)
 
 // USA: func_0201e018
 ARM int WarpScript_Opcode_7c_0201e018(Script::Parameter* params, int numParams)

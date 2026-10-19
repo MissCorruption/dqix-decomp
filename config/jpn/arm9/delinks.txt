@@ -19117,3 +19117,7 @@ src/Combat/Main/RunAlternateQuestScript0209576c.cpp:
     complete
     .text start:0x020973bc end:0x02097444
     .bss start:0x021090bc end:0x021090d0
+
+src/World/WarpScriptOpcode7c.cpp:
+    complete
+    .text start:0x0201dda4 end:0x0201df5c
