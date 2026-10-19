@@ -4,6 +4,17 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define REGIONAL_OFFSET(jp, us) jp
+#define data_ov002_0216c96c data_ov002_0216cfc0
+#define func_ov002_0215bba8 func_ov002_0215cd18
+#define func_ov002_02161cf0 func_ov002_02162acc
+enum { regionalState2b = 0x2e };
+#else
+#define REGIONAL_OFFSET(jp, us) us
+enum { regionalState2b = 0x2b };
+#endif
+
 struct Struct_0205d81c;
 struct Struct_0205c570;
 struct AllocTarget0204b12c;
@@ -82,8 +93,13 @@ struct Bytes3_0215624c {
 
 struct Tbl0216c96c {
     unsigned char pad[4];
+#if defined(jpn)
+    struct Bytes3_0215624c layer;
+    struct Bytes3_0215624c prio;
+#else
     struct Bytes3_0215624c prio;
     struct Bytes3_0215624c layer;
+#endif
 };
 
 struct Layer0215624c {
@@ -93,6 +109,10 @@ struct Layer0215624c {
 };
 
 extern struct Tbl0216c96c data_ov002_0216c96c;
+#if defined(jpn)
+extern char data_ov002_0216d50c[];
+extern char data_ov002_0216d520[];
+#endif
 extern char data_ov002_0216ced4[];
 extern char data_ov002_0216cee8[];
 extern char data_ov002_0216cef8[];
@@ -109,54 +129,54 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
     BackgroundLoader *loader = BackgroundLoader::GetInstance();
 
     if (g_keyManager.TestKeysPressed(0x601)) {
-        U8(0x1c2f) = 1;
+        U8(REGIONAL_OFFSET(0x1af7, 0x1c2f)) = 1;
     }
     if (g_keyManager.TestKeysPressed(0x802)) {
-        U8(0x1c2f)  = 0;
-        S32(0x1bb8) = 0x2b;
-        if (S32(0x1bc4) >= 0) {
-            loader->RemoveTask(S32(0x1bc4));
-            S32(0x1bc4) = -1;
+        U8(REGIONAL_OFFSET(0x1af7, 0x1c2f))  = 0;
+        S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = regionalState2b;
+        if (S32(REGIONAL_OFFSET(0x1a8c, 0x1bc4)) >= 0) {
+            loader->RemoveTask(S32(REGIONAL_OFFSET(0x1a8c, 0x1bc4)));
+            S32(REGIONAL_OFFSET(0x1a8c, 0x1bc4)) = -1;
         }
         for (int i = 0; i < 5; i++) {
-            loader->RemoveTask(((int *) (self + 0x1ba4))[i]);
-            *(int *) (self + i * 4 + 0x1ba4) = -1;
+            loader->RemoveTask(((int *) (self + REGIONAL_OFFSET(0x1a6c, 0x1ba4)))[i]);
+            *(int *) (self + i * 4 + REGIONAL_OFFSET(0x1a6c, 0x1ba4)) = -1;
         }
         return;
     }
 
-    unsigned char *e = FindElementForFieldB0_0205d8c4((struct Struct_0205d81c *) (self + 0xec8));
+    unsigned char *e = FindElementForFieldB0_0205d8c4((struct Struct_0205d81c *) (self + REGIONAL_OFFSET(0xe20, 0xec8)));
     if (e != 0 && IsField0x9cEqual3_0204c7cc(e) && !(e[0xc5] & 2)) {
-        SetFieldAt0x30_0205bc24(&((struct Obj0ec8_0215624c *) (self + 0xec8))->f4, -1);
+        SetFieldAt0x30_0205bc24(&((struct Obj0ec8_0215624c *) (self + REGIONAL_OFFSET(0xe20, 0xec8)))->f4, -1);
     }
-    S32(0x1bc8) = func_0205d0e0(self + 0xec8, S32(0x1ba0));
-    short old   = S16(0x1be0);
-    S16(0x1be0) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + 0xec8));
-    if (S32(0x1bc0) >= 1 && old != S16(0x1be0)) {
-        S32(0x1bc8) = 1;
-        int saved   = S32(0x1bb8);
-        S32(0x1bb8) = 1;
+    S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = func_0205d0e0(self + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
+    short old   = S16(REGIONAL_OFFSET(0x1aa8, 0x1be0));
+    S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)));
+    if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) >= 1 && old != S16(REGIONAL_OFFSET(0x1aa8, 0x1be0))) {
+        S32(REGIONAL_OFFSET(0x1a90, 0x1bc8)) = 1;
+        int saved   = S32(REGIONAL_OFFSET(0x1a80, 0x1bb8));
+        S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = 1;
         func_ov002_0215bba8(self);
-        S32(0x1bb8) = saved;
+        S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = saved;
     }
 
-    if (S32(0x1bc0) == 0) {
+    if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) == 0) {
         PushInputLogB_020a1ef0(1);
         char *w     = (char *) GetWord0x0_0200fb8c((int *) GameState::GetInstance());
-        S32(0x1bd0) = *(int *) ((char *) GetGlobalField0x1c020421a0() + 0x5c);
-        ((SafeAllocator *) (self + 0x828))->Reset();
+        S32(REGIONAL_OFFSET(0x1a98, 0x1bd0)) = *(int *) ((char *) GetGlobalField0x1c020421a0() + REGIONAL_OFFSET(0x28, 0x5c));
+        ((SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)))->Reset();
 
         struct Bytes3_0215624c prio  = data_ov002_0216c96c.prio;
         struct Bytes3_0215624c layer = data_ov002_0216c96c.layer;
         struct Layer0215624c *o;
         for (int i = 0; i < 3; i++) {
-            o = (struct Layer0215624c *) (self + 0xf84 + i * 0x20);
+            o = (struct Layer0215624c *) (self + REGIONAL_OFFSET(0xedc, 0xf84) + i * 0x20);
             SetWord0x18ClearByte0x1f_0204b11c((unsigned char *) o, 0);
             o->lo = 0;
             o->hi = prio.v[i];
             func_0204b5b4(o, layer.v[i]);
             AllocateAndClearBuffer0204b12c((struct AllocTarget0204b12c *) o,
-                                                                                     (SafeAllocator *) (self + 0x828));
+                                                                                     (SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)));
             DispatchViaTable0204b5e8((struct Obj0204b5e8 *) o, 0, 0);
         }
 
@@ -167,99 +187,110 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
 
         char *o2;
         for (int i = 0; i < 3; i++) {
-            o2 = self + 0xf84 + i * 0x20;
+            o2 = self + REGIONAL_OFFSET(0xedc, 0xf84) + i * 0x20;
             func_0204bc74(o2, 0, 0, 0, 0x20, 0x19, 0);
             FlushAndDispatchList0204b0e8((struct List0204b0e8 *) o2, 0);
         }
 
         void *gfx = *(void **) (w + 0x2c);
-        func_0204b174(self + 0xfa4, gfx, (SafeAllocator *) (self + 0x828), 0);
-        func_0204b174(self + 0xfc4, gfx, (SafeAllocator *) (self + 0x828), 0);
+        func_0204b174(self + REGIONAL_OFFSET(0xefc, 0xfa4), gfx, (SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)), 0);
+        func_0204b174(self + REGIONAL_OFFSET(0xf1c, 0xfc4), gfx, (SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)), 0);
 
         for (int i = 0; i < 3; i++) {
-            struct Hdr0215624c *h = (struct Hdr0215624c *) (self + 0xf84) + i;
+            struct Hdr0215624c *h = (struct Hdr0215624c *) (self + REGIONAL_OFFSET(0xedc, 0xf84)) + i;
             h->size               = 0x60;
             h->count              = 3;
         }
 
-        S32(0x1bd8) = (int) ((SafeAllocator *) (self + 0x828))->Allocate(0x4400);
+        S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) = (int) ((SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)))->Allocate(0x4400);
         for (int i = 0; i < 12; i++) {
-            char *o = self + 0xfe4 + i * 0xe0;
+            char *o = self + REGIONAL_OFFSET(0xf3c, 0xfe4) + i * 0xe0;
             AllocateBuffer0204c7a8((struct Obj0204c7a8 *) o,
-                                                                       (SafeAllocator *) (self + 0x828), S32(0x1bd8), 0x400);
-            *(char **) (o + 4) = self + 0xfa4;
+                                                                       (SafeAllocator *) (self + REGIONAL_OFFSET(0x78c, 0x828)), S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x400);
+            *(char **) (o + 4) = self + REGIONAL_OFFSET(0xefc, 0xfa4);
         }
-        *(char **) (self + 0xf60) = self + 0xf84;
-        U8(0xf7a)                 = 3;
-        LinkArrayPrevPointers0205cf78((struct Struct_0205cf78 *) (self + 0xec8),
-                                                                             (struct Elem_0205cf78 *) (self + 0xfe4), 12);
+        *(char **) (self + REGIONAL_OFFSET(0xeb8, 0xf60)) = self + REGIONAL_OFFSET(0xedc, 0xf84);
+        U8(REGIONAL_OFFSET(0xed2, 0xf7a))                 = 3;
+        LinkArrayPrevPointers0205cf78((struct Struct_0205cf78 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)),
+                                                                             (struct Elem_0205cf78 *) (self + REGIONAL_OFFSET(0xf3c, 0xfe4)), 12);
 
-        memset((void *) S32(0x1bd8), 0, 0x60);
-        memset((char *) S32(0x1bd8) + 0x20, 0x11111111, 0x20);
-        memcpy((char *) S32(0x1bd8) + 0x40, GetTableEntry020421b0(0x15), 0x20);
-        CleanInvalidateCacheRange((void *) S32(0x1bd8), 0x60);
-        LoadToMainBG1CharacterData((void *) S32(0x1bd8), 0, 0x60);
-        LoadToMainBG3CharacterData((void *) S32(0x1bd8), 0, 0x60);
+        memset((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
+        memset((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x20, 0x11111111, 0x20);
+        memcpy((char *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)) + 0x40, GetTableEntry020421b0(REGIONAL_OFFSET(0x1f, 0x15)), 0x20);
+        CleanInvalidateCacheRange((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0x60);
+        LoadToMainBG1CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
+        LoadToMainBG3CharacterData((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), 0, 0x60);
 
-        for (unsigned char i = 0; i < 0x2b; i++) {
-            Init0205a198((struct Struct0205a198 *) (S32(0x1a64) + i * 0x28));
+        for (unsigned char i = 0; i < REGIONAL_OFFSET(0x2c, 0x2b); i++) {
+            Init0205a198((struct Struct0205a198 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + i * 0x28));
         }
-        ClearField0And40205a234((struct ClearTarget0205a234 *) S32(0x1a6c));
-        InitStruct0205a444((char *) S32(0x1a68));
-        *(unsigned char *) (S32(0x1a68) + 0x50) = 0;
+        ClearField0And40205a234((struct ClearTarget0205a234 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
+        InitStruct0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
+        *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
         {
-            char *p               = (char *) S32(0x1a68);
-            *(int *) (p + 0x40)   = S32(0x1a64);
-            *(short *) (p + 0x4c) = 0x2b;
+            char *p               = (char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68));
+            *(int *) (p + 0x40)   = S32(REGIONAL_OFFSET(0x19bc, 0x1a64));
+            *(short *) (p + 0x4c) = REGIONAL_OFFSET(0x2c, 0x2b);
         }
-        *(int *) (S32(0x1a68) + 0x3c) = S32(0x1a6c);
-        memcpy((void *) S32(0x1bd8), *(void **) (w + 0x30), *(unsigned int *) (w + 0x34));
+        *(int *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x3c) = S32(REGIONAL_OFFSET(0x19c4, 0x1a6c));
+        memcpy((void *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), *(void **) (w + 0x30), *(unsigned int *) (w + 0x34));
 
-        ((SafeAllocator *) (self + 0x878))->Reset();
+        ((SafeAllocator *) (self + REGIONAL_OFFSET(0x7dc, 0x878)))->Reset();
         for (int i = 0; i < 4; i++) {
             int val;
             void *out;
-            void *rec = FindRecordByIndex((struct Rec020467f0 *) S32(0x1bd8), i, &out, &val);
-            func_0205a528((void *) S32(0x1a68), rec, val, self + 0x878);
+            void *rec = FindRecordByIndex((struct Rec020467f0 *) S32(REGIONAL_OFFSET(0x1aa0, 0x1bd8)), i, &out, &val);
+            func_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), rec, val, self + REGIONAL_OFFSET(0x7dc, 0x878));
         }
 
-        S16(0x1be0) = 0;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (self + 0xec8), 0, 2);
+        S16(REGIONAL_OFFSET(0x1aa8, 0x1be0)) = 0;
+        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (self + REGIONAL_OFFSET(0xe20, 0xec8)), 0, 2);
 
-        if (U8(0x2485) == 0 && U8(0x253c) == 0) {
+        if (U8(REGIONAL_OFFSET(0x22b5, 0x2485)) == 0 && U8(REGIONAL_OFFSET(0x2364, 0x253c)) == 0) {
             InitBattleTag0215bf34(self);
             InitBattleTag0215c028(self);
-            int saved   = S32(0x1bb8);
-            S32(0x1bb8) = 1;
+            int saved   = S32(REGIONAL_OFFSET(0x1a80, 0x1bb8));
+            S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = 1;
             func_ov002_02161cf0(self);
             func_ov002_0215c0f8(self);
-            S32(0x1bb8) = saved;
+            S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = saved;
         }
 
-        S32(0x247c) |= 4;
+        S32(REGIONAL_OFFSET(0x22ac, 0x247c)) |= 4;
         REG16(0x04000008) = (REG16(0x04000008) & ~3) | 3;
         REG16(0x0400000a) = (REG16(0x0400000a) & ~3) | 2;
         REG16(0x0400000c) = (REG16(0x0400000c) & ~3) | 1;
         REG16(0x0400000e) = (REG16(0x0400000e) & ~3);
         REG32(0x04000000) = (REG32(0x04000000) & ~0x1f00) | 0x1f00;
-        func_0205d0e0(self + 0xec8, S32(0x1ba0));
-        func_0205d0e0(self + 0xec8, S32(0x1ba0));
+        func_0205d0e0(self + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
+        func_0205d0e0(self + REGIONAL_OFFSET(0xe20, 0xec8), S32(REGIONAL_OFFSET(0x1a68, 0x1ba0)));
 
-        if (U8(0x2485) != 0) {
+        if (U8(REGIONAL_OFFSET(0x22b5, 0x2485)) != 0) {
             char *gs                 = (char *) GameState::GetInstance();
+#if defined(jpn)
+            *(short *) (gs + 0x6f9c) = 0;
+            *(short *) (gs + 0x6f9e) = -1;
+            *(short *) (gs + 0x6fa0) = -1;
+#else
             *(short *) (gs + 0x71dc) = 0;
             *(short *) (gs + 0x7f58) = 0;
             *(short *) (gs + 0x71de) = -1;
             *(short *) (gs + 0x71e0) = -1;
+#endif
         }
 
-        S32(0x1ba4) = loader->QueueLoadFileInGP2(data_ov002_0216ced4, data_ov002_0216cee8, 0);
-        S32(0x1ba8) = loader->QueueLoadFileInGP2(data_ov002_0216cef8, data_ov002_0216cf11, 0);
-        S32(0x1bc0)++;
-    } else if (S32(0x1bc0) == 1) {
+#if defined(jpn)
+        S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)) = loader->QueueLoadFile(data_ov002_0216d50c, 0);
+        S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)) = loader->QueueLoadFile(data_ov002_0216d520, 0);
+#else
+        S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)) = loader->QueueLoadFileInGP2(data_ov002_0216ced4, data_ov002_0216cee8, 0);
+        S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)) = loader->QueueLoadFileInGP2(data_ov002_0216cef8, data_ov002_0216cf11, 0);
+#endif
+        S32(REGIONAL_OFFSET(0x1a88, 0x1bc0))++;
+    } else if (S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) == 1) {
         unsigned char ready = 0;
         for (int i = 0; i < 2; i++) {
-            if (loader->GetTaskStatus(*(int *) (self + i * 4 + 0x1ba4))) {
+            if (loader->GetTaskStatus(*(int *) (self + i * 4 + REGIONAL_OFFSET(0x1a6c, 0x1ba4)))) {
                 ready++;
             }
         }
@@ -267,57 +298,57 @@ extern "C" ARM void func_ov002_0215624c(char *self) {
             return;
         }
 
-        if (loader->GetTaskStatus(S32(0x1ba4))) {
+        if (loader->GetTaskStatus(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)))) {
             void *out;
             void *data;
             unsigned int len;
             int val;
-            loader->GetLoadedFileByID(S32(0x1ba4), &data, &len);
+            loader->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)), &data, &len);
             int n = CountActiveEntries((struct ActiveEntry02046900 *) data);
-            for (unsigned char i = 0; i < 0x2b; i++) {
-                Init0205a198((struct Struct0205a198 *) (S32(0x1a64) + i * 0x28));
+            for (unsigned char i = 0; i < REGIONAL_OFFSET(0x2c, 0x2b); i++) {
+                Init0205a198((struct Struct0205a198 *) (S32(REGIONAL_OFFSET(0x19bc, 0x1a64)) + i * 0x28));
             }
-            ClearField0And40205a234((struct ClearTarget0205a234 *) S32(0x1a6c));
-            InitStruct0205a444((char *) S32(0x1a68));
-            *(unsigned char *) (S32(0x1a68) + 0x50) = 0;
+            ClearField0And40205a234((struct ClearTarget0205a234 *) S32(REGIONAL_OFFSET(0x19c4, 0x1a6c)));
+            InitStruct0205a444((char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)));
+            *(unsigned char *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x50) = 0;
             {
-                char *p               = (char *) S32(0x1a68);
-                *(int *) (p + 0x40)   = S32(0x1a64);
-                *(short *) (p + 0x4c) = 0x2b;
+                char *p               = (char *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68));
+                *(int *) (p + 0x40)   = S32(REGIONAL_OFFSET(0x19bc, 0x1a64));
+                *(short *) (p + 0x4c) = REGIONAL_OFFSET(0x2c, 0x2b);
             }
-            *(int *) (S32(0x1a68) + 0x3c) = S32(0x1a6c);
-            ((SafeAllocator *) (self + 0x878))->Reset();
+            *(int *) (S32(REGIONAL_OFFSET(0x19c0, 0x1a68)) + 0x3c) = S32(REGIONAL_OFFSET(0x19c4, 0x1a6c));
+            ((SafeAllocator *) (self + REGIONAL_OFFSET(0x7dc, 0x878)))->Reset();
             for (int i = 0; i < n; i++) {
                 void *rec = FindRecordByIndex((struct Rec020467f0 *) data, i, &out, &val);
-                func_0205a528((void *) S32(0x1a68), rec, val, self + 0x878);
+                func_0205a528((void *) S32(REGIONAL_OFFSET(0x19c0, 0x1a68)), rec, val, self + REGIONAL_OFFSET(0x7dc, 0x878));
             }
-            loader->RemoveTask(S32(0x1ba4));
-            S32(0x1ba4) = -1;
+            loader->RemoveTask(S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)));
+            S32(REGIONAL_OFFSET(0x1a6c, 0x1ba4)) = -1;
         }
 
-        if (loader->GetTaskStatus(S32(0x1ba8))) {
+        if (loader->GetTaskStatus(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)))) {
             void *data;
             unsigned int len;
-            loader->GetLoadedFileByID(S32(0x1ba8), &data, &len);
-            ((SafeAllocator *) (self + 0x83c))->Reset();
-            func_020dfec0(self + 0x20, self + 0x83c, data, len);
-            S32(0x1bdc) = GetFieldByKey020e0434((struct Container020e0310 *) (self + 0x20), 0);
-            loader->RemoveTask(S32(0x1ba8));
-            S32(0x1ba8) = -1;
+            loader->GetLoadedFileByID(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)), &data, &len);
+            ((SafeAllocator *) (self + REGIONAL_OFFSET(0x7a0, 0x83c)))->Reset();
+            func_020dfec0(self + REGIONAL_OFFSET(0x8, 0x20), self + REGIONAL_OFFSET(0x7a0, 0x83c), data, len);
+            S32(REGIONAL_OFFSET(0x1aa4, 0x1bdc)) = GetFieldByKey020e0434((struct Container020e0310 *) (self + REGIONAL_OFFSET(0x8, 0x20)), 0);
+            loader->RemoveTask(S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)));
+            S32(REGIONAL_OFFSET(0x1a70, 0x1ba8)) = -1;
         }
 
-        if (U8(0x2485) != 0) {
-            S32(0x1bb8) = 4;
-            S32(0x1bbc) = 0x2b;
-            S32(0x1bc0) = 0;
+        if (U8(REGIONAL_OFFSET(0x22b5, 0x2485)) != 0) {
+            S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = 4;
+            S32(REGIONAL_OFFSET(0x1a84, 0x1bbc)) = regionalState2b;
+            S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) = 0;
         } else {
-            S32(0x1bb8) = 1;
-            S32(0x1bbc) = 0x2b;
-            S32(0x1bc0) = 1;
+            S32(REGIONAL_OFFSET(0x1a80, 0x1bb8)) = 1;
+            S32(REGIONAL_OFFSET(0x1a84, 0x1bbc)) = regionalState2b;
+            S32(REGIONAL_OFFSET(0x1a88, 0x1bc0)) = 1;
         }
-        S32(0x247c) |= 2;
-        U8(0x247a) = 0;
-        if (U8(0x2485) == 0) {
+        S32(REGIONAL_OFFSET(0x22ac, 0x247c)) |= 2;
+        U8(REGIONAL_OFFSET(0x22aa, 0x247a)) = 0;
+        if (U8(REGIONAL_OFFSET(0x22b5, 0x2485)) == 0) {
             func_ov002_0215a938(self);
         }
         func_020dc7e8(1, -1);
