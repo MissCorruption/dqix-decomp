@@ -9,6 +9,19 @@
 
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
+#define data_ov017_021d7c90 data_ov017_021d846c
+#define data_ov017_021d7c95 data_ov017_021d8471
+enum {
+    kAreaList = 0x860, kInfoTag = 0x10, kMsgEntry = 0x1708, kMsgOut = 0x28, kMsgIn = 0x2c,
+    kMsgBusy = 0x868, kMsgKind = 0x86c, kMsgMode = 0x870, kMsgTimer = 0x4c, kMsgFlag = 0x17e2,
+    kTextSize = 0x800
+};
+#else
+enum {
+    kAreaList = 0x840, kInfoTag = 4, kMsgEntry = 0x1838, kMsgOut = 0x5c, kMsgIn = 0x60,
+    kMsgBusy = 0x998, kMsgKind = 0x99c, kMsgMode = 0x9a0, kMsgTimer = 0x8c, kMsgFlag = 0x19b2,
+    kTextSize = 0x960
+};
 #endif
 
 struct Obj020397cc;
@@ -117,7 +130,11 @@ int ListContainsId(ListHead02046b60* list, int id);
 extern "C" void func_020a0cc4(unsigned int size);
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
 void InitAllocatorsAndBuffers0208b8c4(struct Obj0208b8c4* obj, SafeAllocator* allocator);
+#if defined(jpn)
+extern "C" void func_0204500c(void* obj, char* buffer, int a);
+#else
 extern "C" void func_0204500c(void* obj, char* buffer, int a, int b);
+#endif
 extern "C" void func_0208bb78(void* timer, unsigned int ticks);
 int LookupAndForEachNode020649b0(void* a, int mode, void* c);
 extern "C" void func_0206f81c(void* p);
@@ -183,16 +200,16 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         }
         TeardownAndResetState020d7aa0(GetGlobalResetObj020d7a50());
         self->lastId = self->rec->id;
-        if (IsIdInRange020981e4((int)((char*)area + 0x840), areaId) &&
-            IsInRange1To63_02098268((int)((char*)area + 0x840), self->rec->id)) {
+        if (IsIdInRange020981e4((int)((char*)area + kAreaList), areaId) &&
+            IsInRange1To63_02098268((int)((char*)area + kAreaList), self->rec->id)) {
             self->hasSub = 1;
         }
         Vec3_021b8e8c to = _Z29SelectVec3FromSources020406f8P13Vec3_020406f8P12Node020406f8((Node020406f8*)entry);
         SetVecYByMode02033834((Obj02033834*)leader, fix32ReduceAngle0To2Pi(fix32_Atan2(to.x - from.x, to.z - from.z)));
-        *(int*)(msg + 0x1838) = FindEntryByKey0203dfdc(table, self->rec->id);
-        *(int*)(msg + 0x183c) = GetFieldFromActiveChild((Owner02040a90*)entry);
+        *(int*)(msg + kMsgEntry) = FindEntryByKey0203dfdc(table, self->rec->id);
+        *(int*)(msg + kMsgEntry + 4) = GetFieldFromActiveChild((Owner02040a90*)entry);
         char* info = (char*)GetField0x8_02040528((int*)entry);
-        if (info != NULL && strstr(info + 4, &data_ov017_021d7c90) != NULL && !(entry->flags & 0x4000) &&
+        if (info != NULL && strstr(info + kInfoTag, &data_ov017_021d7c90) != NULL && !(entry->flags & 0x4000) &&
             entry->combat != NULL) {
             SetCombatFlags0x5c(entry->combat, 1, 0);
         }
@@ -205,7 +222,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
             TailList020469b4* tail;
             TailNode020469b4* node = (TailNode020469b4*)res->unknown_ptr_array_3afc[0x22];
             tail = (TailList020469b4*)res->unknown_ptr_array_36fc[0];
-            Entry0209854c* found = FindEntryByFieldC0209854c((Entry0209854c*)((char*)area + 0x840), *(unsigned short*)info);
+            Entry0209854c* found = FindEntryByFieldC0209854c((Entry0209854c*)((char*)area + kAreaList), *(unsigned short*)info);
             func_ov017_021a967c(node, -1);
             *(Entry0209854c**)((char*)node + 0x54) = found;
             AppendNodeToTail(tail, node);
@@ -217,10 +234,14 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         if (hud != NULL) {
             ClearIntAt0x23c_020a27b8((unsigned char*)hud);
         }
+#if defined(jpn)
+        self->task = loader->QueueLoadFile(path, NULL);
+#else
         char name[0x10];
         __clear(name, sizeof(name));
         sprintf(name, &data_ov017_021d7cad, *(unsigned short*)info);
         self->task = loader->QueueLoadFileInGP2(path, name, NULL);
+#endif
         self->state = 1;
         break;
     }
@@ -265,14 +286,21 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         }
         IncrementNibble0206ec64((int)nibbles, id, nibbles, 0x80);
         IncrementNibble0206ec64((int)nibbles, id, nibbles + 0x80, 0x80);
-        *(int*)(msg + 0x99c) = self->rec->kind;
-        char* out = *(char**)(msg + 0x5c);
-        char* in = *(char**)(msg + 0x60);
-        memset(out, 0, 0x960);
-        memset(in, 0, 0x960);
-        if (strlen(text) >= 0x960) {
-            text[0x95f] = 0;
+        *(int*)(msg + kMsgKind) = self->rec->kind;
+        char* out = *(char**)(msg + kMsgOut);
+        char* in = *(char**)(msg + kMsgIn);
+        memset(out, 0, kTextSize);
+        memset(in, 0, kTextSize);
+#if defined(jpn)
+        Rec021b8e8c* rec = self->rec;
+        if (strlen(text) + strlen((char*)rec + 4) >= kTextSize) {
+            text[kTextSize - 1 - strlen((char*)rec + 4)] = 0;
         }
+#else
+        if (strlen(text) >= kTextSize) {
+            text[kTextSize - 1] = 0;
+        }
+#endif
         AppendString02042058(in, text);
         loader->RemoveTask(self->task);
         self->task = -1;
@@ -324,7 +352,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         func_020a0cc4(0xa000);
         self->allocA.CreateTypeA(AllocateAligned4_02012d88(&data_02114e20, 0xa000), 0xa000);
         InitAllocatorsAndBuffers0208b8c4((Obj0208b8c4*)self->timer, &self->allocA);
-        char* buffer = *(char**)(msg + 0x5c);
+        char* buffer = *(char**)(msg + kMsgOut);
         int scroll = 1;
         switch (areaId) {
         case 1:
@@ -343,11 +371,15 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
             break;
         }
         }
+#if defined(jpn)
+        func_0204500c(msg, buffer, scroll);
+#else
         func_0204500c(msg, buffer, scroll, 0xe3);
-        *(int*)(msg + 0x998) = 1;
-        *(unsigned char*)(msg + 0x19b2) = 1;
-        *(void**)(msg + 0x8c) = self->timer;
-        *(int*)(msg + 0x99c) = self->rec->kind;
+#endif
+        *(int*)(msg + kMsgBusy) = 1;
+        *(unsigned char*)(msg + kMsgFlag) = 1;
+        *(void**)(msg + kMsgTimer) = self->timer;
+        *(int*)(msg + kMsgKind) = self->rec->kind;
         self->state = 5;
         func_0208bb78(self->timer, gs->GetTickCount());
         if (ListContainsId((ListHead02046b60*)res->unknown_ptr_array_36fc[0], 0x17) == 0) {
@@ -377,11 +409,11 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
         if (self->hasSub != 0) {
             func_ov008_02184754(self->sub);
         }
-        if (*(int*)(msg + 0x9a0) == 3) {
+        if (*(int*)(msg + kMsgMode) == 3) {
             ReinitController02043204(msg);
             func_02043124(msg);
         }
-        if (*(int*)(msg + 0x998) != 0) {
+        if (*(int*)(msg + kMsgBusy) != 0) {
             break;
         }
         if (self->hasSub != 0) {
@@ -400,7 +432,7 @@ extern "C" ARM void func_ov017_021b8e8c(Self021b8e8c* self, ListHead02046b60* li
             break;
         }
         char* info = (char*)GetField0x8_02040528((int*)entry);
-        if (info != NULL && strstr(info + 4, &data_ov017_021d7c90) != NULL && !(entry->flags & 0x4000) &&
+        if (info != NULL && strstr(info + kInfoTag, &data_ov017_021d7c90) != NULL && !(entry->flags & 0x4000) &&
             entry->combat != NULL) {
             SetCombatFlags0x5c(entry->combat, 1, 1);
         }
