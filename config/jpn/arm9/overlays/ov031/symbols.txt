@@ -802,7 +802,7 @@ func_ov031_02220274 kind:function(thumb,size=0xa4) addr:0x02220274
 func_ov031_0221fb38 kind:function(thumb,size=0x58) addr:0x02220318
 func_ov031_0221fb90 kind:function(thumb,size=0x124) addr:0x02220370
 func_ov031_0221fcb4 kind:function(thumb,size=0x64) addr:0x02220494
-func_ov031_022204f8 kind:function(thumb,size=0x1cc) addr:0x022204f8
+func_ov031_0221fd18 kind:function(thumb,size=0x1cc) addr:0x022204f8
 func_ov031_022206c4 kind:function(thumb,size=0x294) addr:0x022206c4
 func_ov031_02220178 kind:function(thumb,size=0x18) addr:0x02220958
 func_ov031_02220190 kind:function(thumb,size=0x3c) addr:0x02220970
@@ -2414,7 +2414,7 @@ data_ov031_0224b0dc kind:data(any) addr:0x0224bcdc
 data_ov031_0224b0e4 kind:data(any) addr:0x0224bce4
 data_ov031_0224b114 kind:data(any) addr:0x0224bd14
 data_ov031_0224b128 kind:data(any) addr:0x0224bd28
-data_ov031_0224bd80 kind:data(any) addr:0x0224bd80
+data_ov031_0224b180 kind:data(any) addr:0x0224bd80
 data_ov031_0224bd88 kind:data(any) addr:0x0224bd88
 data_ov031_0224bd94 kind:data(any) addr:0x0224bd94
 data_ov031_0224bdd4 kind:data(any) addr:0x0224bdd4

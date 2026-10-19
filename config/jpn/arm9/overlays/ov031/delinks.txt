@@ -7261,3 +7261,7 @@ src/NetworkLib/Overlay_31/func_ov031_02215ce0.c:
 src/WifiLib/Overlay_31/func_ov031_0221d078.cpp:
     complete
     .text start:0x0221d858 end:0x0221da50
+
+src/WifiLib/Overlay_31/func_ov031_0221fd18.cpp:
+    complete
+    .text start:0x022204f8 end:0x022206c4
