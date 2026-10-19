@@ -1,6 +1,3 @@
-#if defined(jpn)
-#define func_0200f3a4 func_0200f268
-#endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
