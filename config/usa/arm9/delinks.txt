@@ -20587,3 +20587,11 @@ src/NitroSDK/Main/func_020ca7d0.cpp:
 src/NitroSDK/Main/func_020cf864.cpp:
     complete
     .text start:0x020cf864 end:0x020cf87c
+
+src/NitroSDK/Main/GenerateLockOwnerID_020c7080.cpp:
+    complete
+    .text start:0x020c7080 end:0x020c70e8
+
+src/NitroSDK/Main/ReleaseLockOwnerID_020c70e8.cpp:
+    complete
+    .text start:0x020c70e8 end:0x020c7130
