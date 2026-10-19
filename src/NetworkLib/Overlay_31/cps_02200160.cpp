@@ -1237,7 +1237,7 @@ extern "C" ARM void* func_ov031_02201e0c(void* a, void* b) {
 
 // USA: func_ov031_02201e70
 extern "C" ARM void func_ov031_02201e70(void *source, void *destination) {
-    unsigned char *bytes  = static_cast<unsigned char *>(source);
+    unsigned char *bytes  = (unsigned char *)source;
     unsigned short *value = (unsigned short *)((unsigned char *)destination + 0x2e);
     *value                = 0x218;
     int length            = (bytes[0xc] & 0xf0) / 4 - 0x14;
