@@ -102,7 +102,7 @@ extern "C" int func_020d54d0(void* fn, void* a, void* b, int c, unsigned short f
 extern "C" void func_020ca3b8(const void* src, void* dst, unsigned int len);
 extern "C" void func_020c9be0(void);
 
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 void DMAMemcpySynchronous16Bit(int chan, unsigned int src, unsigned int dst, unsigned int len);
 int IssueBattleCommandSlot29_020d6ad4(int a, int b, int c, int d, unsigned short e);
 int IssueBattleCommandSlot10(int a, BattleCtx020d5254* ctx);

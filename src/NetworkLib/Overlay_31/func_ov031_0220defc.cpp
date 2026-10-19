@@ -16,7 +16,7 @@ struct BattleState0220defc {
 extern BattleState0220defc* data_ov031_0224e53c;
 extern "C" void func_ov031_0220da1c(int);
 extern "C" int func_ov031_0220d984(int, int, int, int);
-void InvalidateDataCacheRange(const void*, unsigned int);
+extern "C" void InvalidateDataCacheRange(const void*, unsigned int);
 extern "C" void func_ov031_0220ec5c(int, unsigned short);
 void DispatchEvent_0220d9c8(short, short, int, int, int);
 extern "C" unsigned int func_ov031_0220db38(unsigned int);

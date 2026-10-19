@@ -580,7 +580,7 @@ func_ov031_022158fc kind:function(arm,size=0x4c) addr:0x022160dc
 func_ov031_02215948 kind:function(arm,size=0x1ac) addr:0x02216128
 _Z25DecodeBase64Char_02215af4j kind:function(arm,size=0x70) addr:0x022162d4
 func_ov031_02215b64 kind:function(arm,size=0x168) addr:0x02216344
-_Z19EncodeChar_02215ccci kind:function(arm,size=0x14) addr:0x022164ac
+EncodeChar_02215ccc kind:function(arm,size=0x14) addr:0x022164ac
 func_ov031_02215ce0 kind:function(arm,size=0x2ec) addr:0x022164c0
 _Z26GetBufferSize1da0_02215fccv kind:function(arm,size=0xc) addr:0x022167ac
 func_ov031_02215fd8 kind:function(arm,size=0x98) addr:0x022167b8
@@ -1970,7 +1970,7 @@ data_ov031_02246028 kind:data(any) addr:0x02246c1c
 data_ov031_02246083 kind:data(any) addr:0x02246c77
 data_ov031_0224609c kind:data(any) addr:0x02246c90
 data_ov031_022460ac kind:data(any) addr:0x02246ca0
-data_ov031_02246cb0 kind:data(any) addr:0x02246cb0
+magic$8 kind:data(any) addr:0x02246cb0 local
 data_ov031_022460c0 kind:data(any) addr:0x02246cb4
 data_ov031_022460c4 kind:data(any) addr:0x02246cb8
 data_ov031_022460cc kind:data(any) addr:0x02246cc0

@@ -41,7 +41,7 @@ extern DispatchInfo0202cefc data_02101640;
 extern DispatchEntry0202cefc data_021016e0;
 void SetField0x48UnlessState9Or10_0202c848(int);
 int IsDispatchComplete0202d0e0();
-void InvalidateDataCacheRange(const void*, unsigned int);
+extern "C" void InvalidateDataCacheRange(const void*, unsigned int);
 extern "C" int func_020c0290(DispatchEntry0202cefc*);
 extern "C" int func_0202cddc();
 static inline int IsDispatchEntryMode0202cefc(DispatchEntry0202cefc* entry) { return entry->mode == 1; }

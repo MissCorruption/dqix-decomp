@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-void InvalidateDataCacheRange(const void* addr, unsigned int size);
+extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 ARM unsigned int NormalizeIndex_022135ac(unsigned int idx);
 ARM void CopyBufferIfMatch_02215778(int a, void* b);
