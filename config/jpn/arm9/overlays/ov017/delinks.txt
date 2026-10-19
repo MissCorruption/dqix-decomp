@@ -4764,3 +4764,7 @@ src/Combat/Overlay_17/SetLowNibble56b_0218f57c.cpp:
 src/Combat/Overlay_17/func_ov017_021a4e88.cpp:
     complete
     .text start:0x021a58fc end:0x021a5c18
+
+src/Combat/Overlay_17/func_ov017_021b38c8.cpp:
+    complete
+    .text start:0x021b3fbc end:0x021b4508
