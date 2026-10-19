@@ -11,11 +11,19 @@ struct TargetNode021db458 { char pad0[0xe]; short ids[4]; char pad16; unsigned c
 struct Body021db458 { char pad0[4]; short id; char pad6[0x3e]; WrappedVector3fix position; };
 
 struct Work021db458 {
+#if defined(jpn)
+    char pad0[0x218];
+    void* field29c;
+    char pad2a0[0xe10 - 0x21c];
+    void* list;
+    char padE98[0x5b41 - 0xe14];
+#else
     char pad0[0x29c];
     void* field29c;
     char pad2a0[0xe94 - 0x2a0];
     void* list;
     char padE98[0x5951 - 0xe98];
+#endif
     unsigned char mode : 2;
     unsigned char flags : 6;
 };
