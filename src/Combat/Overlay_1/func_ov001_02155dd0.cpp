@@ -129,7 +129,11 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
             unsigned char* p = (unsigned char*)GetField0x8_02040528(entry);
             if (p[2] == 3) {
                 Container0204039c* cont = (Container0204039c*)EmptyStub0203d004(list);
+#if defined(jpn)
+                sprintf(nameBuf, fmt, p + 0x10);
+#else
                 sprintf(nameBuf, fmt, p + 4);
+#endif
                 int idx = FindEntryIndexByName02040404((Container02040404*)cont, nameBuf);
                 ReleaseOrDecrementSlot0204039c(cont, idx);
                 Reset02040504(entry);
@@ -152,9 +156,11 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Scene02155dd0* self) {
 
     REG_DISPSTAT_304 &= ~0x8000;
     if (TestFlags00(res2, 0x1000) != 0) {
+#if !defined(jpn)
         ResetAndReinit0209c278(data_02109bf4);
         Dispatch0203a974With0x57000_0209c290(data_02109bf4);
         SetupContextForMode0205ea20(data_02108760, 0x64);
+#endif
         ClearFlags00((GameResources*)res2, 0x1000);
         func_ov028_021d9714();
         PopStack1AndTrigger_020a1f4c(1);
