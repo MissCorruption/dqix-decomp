@@ -24,7 +24,11 @@ struct Elem0207fe80 {
 };
 
 struct Cont0207fe80 {
+#if defined(jpn)
+    char pad0[0x20];
+#else
     char pad0[0x2c];
+#endif
     struct Sub0207fe80* subs;
     struct Elem0207fe80* elems;
     char pad1[0x38 - 0x34];
