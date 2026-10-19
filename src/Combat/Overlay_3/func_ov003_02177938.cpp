@@ -189,7 +189,9 @@ extern "C" ARM void func_ov003_02177938(ListMenu_02177938 *self) {
                 count = elem->count;
                 value = elem->value;
             }
+#if !defined(jpn)
             Forward0207f7acObjPlus4Size0x40_020805f4(elemObj, idA);
+#endif
             ClearSublistEntryFlag2_020806c4(elemObj, idA);
             SetEntryFirstField02080f8c((struct Container02080f8c *) elemObj, idA, value);
             SetEntryFirstField02080fa8((struct Container02080fa8 *) elemObj, idB, count);
