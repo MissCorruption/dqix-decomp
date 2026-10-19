@@ -10,7 +10,7 @@ struct DataBlock02291e04 {
 #endif
     unsigned char field5;
 #if defined(jpn)
-    unsigned char pad1[0x22];
+    unsigned char pad1[0x26];
 #else
     unsigned char pad1[0x22];
 #endif
