@@ -5,7 +5,9 @@
 #include "Resource/FontGlyphTable.h"
 
 struct Run0216e714;
+#if !defined(jpn)
 extern "C" struct Run0216e714 *func_02012fe4(void);
+#endif
 struct ActiveEntry02046900;
 int CountActiveEntries(ActiveEntry02046900 *pac);
 struct Rec020467f0;
@@ -45,10 +47,23 @@ struct Progress0216e714 {
     int count;
 };
 
+#if defined(jpn)
+struct Run0216e714 {
+    unsigned char pad0[0x1000];
+    struct Progress0216e714 progress;
+};
+
+struct Game0216e714 {
+    unsigned char pad0[0x860];
+    struct Run0216e714 run;
+};
+extern "C" struct Game0216e714 *func_02012fe4(void);
+#else
 struct Run0216e714 {
     unsigned char pad0[0x1840];
     struct Progress0216e714 progress;
 };
+#endif
 
 static inline struct Progress0216e714 *GetProgress(struct Run0216e714 *run) { return &run->progress; }
 static inline int GetCount(struct Progress0216e714 *progress) { return progress->count; }
@@ -110,6 +125,182 @@ struct Menu0216e714 {
     int kinds[8];
 };
 
+#if defined(jpn)
+extern char data_ov003_0217e264[];
+extern char data_ov003_0217ea1f[];
+extern char data_ov003_0217ea2b[];
+extern char data_ov003_0217ea2e[];
+extern char data_ov003_0217ea33[];
+extern char data_ov003_0217ea38[];
+extern char data_ov003_0217ea3d[];
+extern char data_ov003_0217ea42[];
+extern char data_ov003_0217ea47[];
+extern char data_ov003_0217ea4c[];
+extern char data_ov003_0217ea51[];
+extern char data_ov003_0217ea56[];
+extern char data_ov003_0217ea5b[];
+extern char data_ov003_0217ea60[];
+extern char data_ov003_0217ea65[];
+extern char data_ov003_0217ea6a[];
+extern char data_ov003_0217ea6f[];
+extern char data_ov003_0217ea74[];
+extern char data_ov003_0217ea83[];
+extern char data_ov003_0217ea86[];
+extern char data_ov003_0217ea89[];
+extern "C" void func_02050678(void *obj, short x, short y, char *str, int d, int e, short *outA, short *outB);
+
+struct Path0216e714 {
+    char s[0x40];
+};
+
+// JPN: no name buffer (records print straight via %s), a per-kind label switch, a per-category
+// label switch, one date/rank/level line, fixed page arrows and a single page line, no kinds[] table.
+extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
+    int row;
+    int start;
+    int index;
+    Record0216e714 *rec;
+    int end;
+    Run0216e714 *run         = &func_02012fe4()->run;
+    BackgroundLoader *loader = BackgroundLoader::GetInstance();
+    if (self->step == 0) {
+        Path0216e714 path = *(Path0216e714 *) data_ov003_0217e264;
+        self->task        = loader->QueueLoadFile(path.s, 0);
+        if (!(self->flags & 0x20)) {
+            ColorEffect_ConfigureAlphaBlend(0x04000050, 0x18, 1, 0, 0x10);
+        }
+        self->step = 1;
+    } else if (self->step == 1) {
+        if (loader->GetTaskStatus(self->task) != 0) {
+            Canvas0216e714 canvas;
+            char text[0x80];
+            File0216e714 *files[3];
+            int sizes[3];
+            Background0216e714 bg;
+            void *entry;
+            void *file;
+            unsigned int size;
+            short outA;
+            short outB;
+            int y;
+            loader->GetLoadedFileByID(self->task, &file, &size);
+            int numFiles = CountActiveEntries((ActiveEntry02046900 *) file);
+            for (int i = 0; i < numFiles; i++) {
+                files[i] = (File0216e714 *) FindRecordByIndex((Rec020467f0 *) file, i, &entry, &sizes[i]);
+            }
+            func_0204c684(&canvas);
+            canvas.text   = (char *) files[0] + 0x10;
+            canvas.width  = 0x20;
+            canvas.height = 0x18;
+            canvas.fontW  = 10;
+            canvas.fontH  = 10;
+            row           = 0;
+            start         = (self->page - 1) * 8;
+            __clear(text, sizeof(text));
+            end = start + 8;
+            for (index = start; index < end; row++, index++) {
+                if (index >= GetCount(GetProgress(run))) break;
+                rec          = self->records[index];
+                canvas.fontW = 10;
+                canvas.fontH = 10;
+                if (index == self->selected + (self->page - 1) * 8) {
+                    sprintf(text, data_ov003_0217ea1f, rec);
+                } else {
+                    sprintf(text, data_ov003_0217ea2b, rec);
+                }
+                func_02050678(&canvas, 0x14, row * 16 + 0x2f, text, 10, 15, &outA, &outB);
+                switch (rec->kind) {
+                    case 0: sprintf(text, data_ov003_0217ea2e); break;
+                    case 1: sprintf(text, data_ov003_0217ea33); break;
+                    case 2: sprintf(text, data_ov003_0217ea38); break;
+                    case 3: sprintf(text, data_ov003_0217ea3d); break;
+                    case 4: sprintf(text, data_ov003_0217ea42); break;
+                    case 5: sprintf(text, data_ov003_0217ea47); break;
+                    case 6: sprintf(text, data_ov003_0217ea4c); break;
+                    case 7: sprintf(text, data_ov003_0217ea51); break;
+                    case 8: sprintf(text, data_ov003_0217ea56); break;
+                    case 9: sprintf(text, data_ov003_0217ea5b); break;
+                    case 10: sprintf(text, data_ov003_0217ea60); break;
+                    case 11: sprintf(text, data_ov003_0217ea65); break;
+                    case 12: sprintf(text, data_ov003_0217ea6a); break;
+                    default: sprintf(text, data_ov003_0217ea6f); break;
+                }
+                func_02050678(&canvas, 0x51, row * 16 + 0x2f, text, 10, 15, &outA, &outB);
+                switch (rec->category) {
+                    case 2: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 0)); break;
+                    case 3:
+                    case 4: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 1)); break;
+                    case 5:
+                    case 6: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 2)); break;
+                    case 9:
+                    case 10: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 3)); break;
+                    default: sprintf(text, (char *) GetFieldByKey020e0434((Container020e0310 *) self->texts, 4)); break;
+                }
+                func_02050678(&canvas, 0x80, row * 16 + 0x2f, text, 10, 15, &outA, &outB);
+                canvas.fontW = 8;
+                canvas.fontH = 8;
+                sprintf(text, data_ov003_0217ea74, rec->year + 2000, rec->rank, rec->level);
+                func_02050678(&canvas, 0xa0, row * 16 + 0x30, text, 8, 15, &outA, &outB);
+            }
+            if (GetCount(GetProgress(run)) > 8) {
+                canvas.fontW = 8;
+                canvas.fontH = 8;
+                func_02050678(&canvas, 0xc, 0xb2, data_ov003_0217ea83, 8, 15, &outA, &outB);
+                func_02050678(&canvas, 0xee, 0xb2, data_ov003_0217ea86, 8, 15, &outA, &outB);
+                canvas.fontW = 10;
+                canvas.fontH = 10;
+                sprintf(text, data_ov003_0217ea89, self->page, self->pages);
+                func_02050678(&canvas, 0x71, 0xaf, text, 8, 15, &outA, &outB);
+            }
+            switch (self->move) {
+                case 1: self->cursor = self->count - 1; break;
+                case 2: self->cursor = 0; break;
+            }
+            self->move = 0;
+            if (self->cursor >= self->count) {
+                self->cursor = self->count - 1;
+            }
+            ResetList0204af64((struct List0204af64 *) &bg);
+            bg.lo = 0;
+            bg.hi = 3;
+            SetWord0x18ClearByte0x1f_0204b11c((unsigned char *) &bg, 0);
+            DispatchViaTable0204b5e8((struct Obj0204b5e8 *) &bg, 0, 0);
+            BG3CNT = (BG3CNT & 0x43) | 0xf00;
+            for (int i = 0; i < numFiles; i++) {
+                if (i == 2) {
+                    File0216e714 *f  = files[i];
+                    unsigned int len = f->size;
+                    CleanInvalidateCacheRange((char *) f + 0x10, len);
+                    LoadToMainBG3ScreenData((int) ((char *) f + 0x10), 0, len);
+                } else {
+                    func_0204b174(&bg, files[i], 0, sizes[i]);
+                }
+            }
+            FlushAndDispatchList0204b0e8((struct List0204b0e8 *) &bg, 0);
+            ResetRecordList0204afb4((struct List0204afb4 *) &bg);
+            loader->RemoveTask(self->task);
+            self->task = -1;
+            if (!(self->flags & 0x20)) {
+                DISPCNT     = (DISPCNT & ~0x1f00) | 0xf00;
+                BG0CNT      = (BG0CNT & ~3) | 3;
+                BG1CNT      = BG1CNT & ~3;
+                BG2CNT      = (BG2CNT & ~3) | 1;
+                BG3CNT      = (BG3CNT & ~3) | 2;
+                self->state = 3;
+                self->step  = 0;
+            } else {
+                DISPCNT     = (DISPCNT & ~0x1f00) | 0x1f00;
+                BG0CNT      = BG0CNT & ~3;
+                BG1CNT      = (BG1CNT & ~3) | 1;
+                BG2CNT      = (BG2CNT & ~3) | 2;
+                BG3CNT      = (BG3CNT & ~3) | 3;
+                self->state = 4;
+                self->step  = 0;
+            }
+        }
+    }
+}
+#else
 // USA: func_ov003_0216e714
 extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
     int end;
@@ -259,3 +450,4 @@ extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
         }
     }
 }
+#endif
