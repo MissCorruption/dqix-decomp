@@ -20219,6 +20219,10 @@ src/NitroSDK/Main/func_020b245c.cpp:
     complete
     .text start:0x020b246c end:0x020b25d4
 
+src/NitroSDK/Main/func_020b25c4.c:
+    complete
+    .text start:0x020b25d4 end:0x020b26f8
+
 src/NitroSDK/Main/func_020b1300.cpp:
     complete
     .text start:0x020b1310 end:0x020b1550
