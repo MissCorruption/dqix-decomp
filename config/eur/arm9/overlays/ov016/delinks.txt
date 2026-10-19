@@ -337,3 +337,7 @@ src/VideoLib/Overlay_16/func_ov016_0218feb4.cpp:
 src/Combat/Overlay_16/func_ov016_0219000c.s:
     complete
     .text start:0x0219000c end:0x021909cc
+
+src/Combat/Overlay_16/func_ov016_0218f6b8.s:
+    complete
+    .text start:0x0218f6b8 end:0x0218fc78

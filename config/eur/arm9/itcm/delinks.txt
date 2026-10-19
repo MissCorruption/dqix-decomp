@@ -24,3 +24,19 @@ src/NitroSDK/itcm/func_01ff8300.cpp:
 src/NitroSDK/itcm/func_01ff83a8.cpp:
     complete
     .text start:0x01ff83a8 end:0x01ff8480
+
+src/NitroSDK/itcm/func_01ff8000.cpp:
+    complete
+    .text start:0x01ff8000 end:0x01ff8068
+
+src/NitroSDK/itcm/func_01ff8068.cpp:
+    complete
+    .text start:0x01ff8068 end:0x01ff81e4
+
+src/NitroSDK/itcm/func_01ff8218.cpp:
+    complete
+    .text start:0x01ff8218 end:0x01ff82e4
+
+src/NitroSDK/itcm/func_01ff82e4.cpp:
+    complete
+    .text start:0x01ff82e4 end:0x01ff8300
