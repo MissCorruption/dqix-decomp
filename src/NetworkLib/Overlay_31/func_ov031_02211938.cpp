@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-// NitroSDK libcrypto CRYPTO_RC4Encrypt. The SDK wrote it in assembly, as pokebw2 (lib/nitro/src/crypto/rc4.c) and
-// pokeheartgold (lib/src/nitrocrypto_rc4.c) have it: i and j are kept in the top byte of their registers so they wrap
-// at 256, and the odd register list {r4-r9, lr} is saved without the r3 pad mwcc always adds.
-
 struct RC4Context_02211938 {
 	unsigned char i;
 	unsigned char j;

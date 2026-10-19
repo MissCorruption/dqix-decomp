@@ -1,14 +1,8 @@
 #include <globaldefs.h>
 #include "System/DTCM.h"
 
-// NitroSDK os_irqHandler.c (ITCM section), hand assembly in the SDK; ref pret/pokediamond
-// arm9/lib/NitroSDK/src/OS_irqHandler.c. This SDK's build turned each conditional return
-// (`ldmeqfd sp!, {pc}`) into a branch around an unconditional one, so it is written that way.
+extern "C" void func_01ff8068(void);
 
-extern "C" void func_01ff8068(void); // OS_IrqHandler_ThreadSwitch
-
-// NitroSDK OS_IrqHandler: acknowledge the highest pending IRQ and jump to its OS_IRQTable entry, returning
-// through OS_IrqHandler_ThreadSwitch
 // USA: func_01ff8000
 extern "C" ARM asm void func_01ff8000(void)
 {

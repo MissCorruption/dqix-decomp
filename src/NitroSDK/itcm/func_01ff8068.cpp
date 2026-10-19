@@ -1,16 +1,10 @@
 #include <globaldefs.h>
 
-// NitroSDK os_irqHandler.c (ITCM section), hand assembly in the SDK; ref pret/pokediamond
-// arm9/lib/NitroSDK/src/OS_irqHandler.c. This SDK's build turned each conditional instruction into a
-// branch around an unconditional one, so it is written that way.
+extern char data_027e0060[];
+extern unsigned short data_02111304;
+void SaveDivSqrtState_020cd594(void*);
+extern "C" void func_020cd5d4(void*);
 
-extern char data_027e0060[];          // OSi_IrqThreadQueue
-extern unsigned short data_02111304;  // OSi_ThreadInfo
-void SaveDivSqrtState_020cd594(void*); // CP_SaveContext
-extern "C" void func_020cd5d4(void*);  // CPi_RestoreContext
-
-// NitroSDK OS_IrqHandler_ThreadSwitch: wake the threads waiting on IRQs, then switch to the highest-priority
-// runnable thread if a reschedule is pending
 // USA: func_01ff8068
 extern "C" ARM asm void func_01ff8068(void)
 {

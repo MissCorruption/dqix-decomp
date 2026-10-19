@@ -1,10 +1,8 @@
 #include <globaldefs.h>
 #include "System/DTCM.h"
 
-// NitroSDK OSi_CpuClear32 (static asm in OS_reset.c)
 extern "C" void func_01ff82e4(unsigned int data, void* dest, unsigned int size);
 
-// NitroSDK OSi_DoBoot (asm in OS_reset.c; ref pret/pokediamond arm9/lib/NitroSDK/src/OS_reset.c)
 // USA: func_01ff8218
 extern "C" ARM asm void func_01ff8218(void)
 {
