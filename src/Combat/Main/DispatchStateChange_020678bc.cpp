@@ -17,8 +17,8 @@ struct Ctx0206b2c8;
 void InitOrReinitContext0206b2c8(Ctx0206b2c8*, int, void*);
 #endif
 #if defined(jpn)
-extern "C" void func_0205dba0(unsigned char*);
-#define InitBigStructVariant0205c840 func_0205dba0
+void InitBigStructVariant0205c840(char* obj);
+#define InitBigStructVariant0205c840(p) InitBigStructVariant0205c840((char*)(p))
 #else
 void InitBigStructVariant0205c840(char* obj);
 #endif
