@@ -12,19 +12,19 @@ src/Combat/Overlay_16/SetPowCnt1Bit15_0218bc70.cpp:
     complete
     .text start:0x0218c750 end:0x0218c76c
 
-src/Combat/Overlay_16/CallIfNonNull_0218e678.cpp:
+src/VideoLib/Overlay_16/CallIfNonNull_0218e678.cpp:
     complete
     .text start:0x0218e8b4 end:0x0218e8cc
 
-src/Combat/Overlay_16/CallIfNonNull_0218e690.cpp:
+src/VideoLib/Overlay_16/CallIfNonNull_0218e690.cpp:
     complete
     .text start:0x0218e8cc end:0x0218e8e4
 
-src/Combat/Overlay_16/ClearAndReset_0218e640.cpp:
+src/VideoLib/Overlay_16/ClearAndReset_0218e640.cpp:
     complete
     .text start:0x0218e87c end:0x0218e89c
 
-src/Combat/Overlay_16/GetFlagValue_0218ef2c.cpp:
+src/VideoLib/Overlay_16/GetFlagValue_0218ef2c.cpp:
     complete
     .text start:0x0218f160 end:0x0218f184
 
@@ -32,31 +32,31 @@ src/Combat/Overlay_16/GetNthNode_0218e14c.cpp:
     complete
     .text start:0x0218e734 end:0x0218e75c
 
-src/Combat/Overlay_16/AwaitIfActive_0218f678.cpp:
+src/VideoLib/Overlay_16/AwaitIfActive_0218f678.cpp:
     complete
     .text start:0x0218f7e0 end:0x0218f808
 
-src/Combat/Overlay_16/InitDiffFields_0218f508.cpp:
+src/VideoLib/Overlay_16/InitDiffFields_0218f508.cpp:
     complete
     .text start:0x0218f670 end:0x0218f6a8
 
-src/Combat/Overlay_16/ReadAlignedAsync_0218f5fc.cpp:
+src/VideoLib/Overlay_16/ReadAlignedAsync_0218f5fc.cpp:
     complete
     .text start:0x0218f764 end:0x0218f7e0
 
-src/Combat/Overlay_16/SeekAndReadSync_0218f58c.cpp:
+src/VideoLib/Overlay_16/SeekAndReadSync_0218f58c.cpp:
     complete
     .text start:0x0218f6f4 end:0x0218f764
 
-src/Combat/Overlay_16/SeekIfInactive_0218f540.cpp:
+src/VideoLib/Overlay_16/SeekIfInactive_0218f540.cpp:
     complete
     .text start:0x0218f6a8 end:0x0218f6f4
 
-src/Combat/Overlay_16/SetData_0218fc8c.cpp:
+src/VideoLib/Overlay_16/SetData_0218fc8c.cpp:
     complete
     .text start:0x0218fdf4 end:0x0218fe14
 
-src/Combat/Overlay_16/SetupHandle_0218fcac.cpp:
+src/VideoLib/Overlay_16/SetupHandle_0218fcac.cpp:
     complete
     .text start:0x0218fe14 end:0x0218fe3c
 
@@ -64,43 +64,43 @@ src/Combat/Overlay_16/AppendListNode_0218e020.cpp:
     complete
     .text start:0x0218e608 end:0x0218e680
 
-src/Combat/Overlay_16/CallIfNonNull_0218e6a8.cpp:
+src/VideoLib/Overlay_16/CallIfNonNull_0218e6a8.cpp:
     complete
     .text start:0x0218e8e4 end:0x0218e8fc
 
-src/Combat/Overlay_16/ZeroFields_0218e7bc.cpp:
+src/VideoLib/Overlay_16/ZeroFields_0218e7bc.cpp:
     complete
     .text start:0x0218e9f8 end:0x0218ea28
 
-src/Combat/Overlay_16/TailCallAllocate_0218e7a4.cpp:
+src/VideoLib/Overlay_16/TailCallAllocate_0218e7a4.cpp:
     complete
     .text start:0x0218e9e0 end:0x0218e9ec
 
-src/Combat/Overlay_16/BlankFunction_0218e78c.cpp:
+src/VideoLib/Overlay_16/BlankFunction_0218e78c.cpp:
     complete
     .text start:0x0218e9c8 end:0x0218e9cc
 
-src/Combat/Overlay_16/BlankFunction_0218f6b4.cpp:
+src/VideoLib/Overlay_16/BlankFunction_0218f6b4.cpp:
     complete
     .text start:0x0218f81c end:0x0218f820
 
-src/Combat/Overlay_16/CallIfNonNullBool_0218e6c0.cpp:
+src/VideoLib/Overlay_16/CallIfNonNullBool_0218e6c0.cpp:
     complete
     .text start:0x0218e8fc end:0x0218e920
 
-src/Combat/Overlay_16/CallIfNonNullBool_0218e708.cpp:
+src/VideoLib/Overlay_16/CallIfNonNullBool_0218e708.cpp:
     complete
     .text start:0x0218e944 end:0x0218e968
 
-src/Combat/Overlay_16/CallIfNonNullBool_0218e72c.cpp:
+src/VideoLib/Overlay_16/CallIfNonNullBool_0218e72c.cpp:
     complete
     .text start:0x0218e968 end:0x0218e98c
 
-src/Combat/Overlay_16/GetConst25980_0218fc78.cpp:
+src/VideoLib/Overlay_16/GetConst25980_0218fc78.cpp:
     complete
     .text start:0x0218fde0 end:0x0218fdec
 
-src/Combat/Overlay_16/GetConst9600_0218fc84.cpp:
+src/VideoLib/Overlay_16/GetConst9600_0218fc84.cpp:
     complete
     .text start:0x0218fdec end:0x0218fdf4
 
@@ -108,23 +108,23 @@ src/Combat/Overlay_16/GetField4_0218e174.cpp:
     complete
     .text start:0x0218e75c end:0x0218e764
 
-src/Combat/Overlay_16/GetField_0218ef14_0218ef14.cpp:
+src/VideoLib/Overlay_16/GetField_0218ef14_0218ef14.cpp:
     complete
     .text start:0x0218f148 end:0x0218f150
 
-src/Combat/Overlay_16/CallVTableFnAt20_0218f6a0.cpp:
+src/VideoLib/Overlay_16/CallVTableFnAt20_0218f6a0.cpp:
     complete
     .text start:0x0218f808 end:0x0218f81c
 
-src/Combat/Overlay_16/InitAndReturnSelf_0218e790.cpp:
+src/VideoLib/Overlay_16/InitAndReturnSelf_0218e790.cpp:
     complete
     .text start:0x0218e9cc end:0x0218e9e0
 
-src/Combat/Overlay_16/Synth_0218ef1c.cpp:
+src/VideoLib/Overlay_16/Synth_0218ef1c.cpp:
     complete
     .text start:0x0218f150 end:0x0218f158
 
-src/Combat/Overlay_16/Synth_0218ef24.cpp:
+src/VideoLib/Overlay_16/Synth_0218ef24.cpp:
     complete
     .text start:0x0218f158 end:0x0218f160
 
@@ -136,23 +136,23 @@ src/Combat/Overlay_16/Trans_0218b5a0.cpp:
     complete
     .text start:0x0218c1c0 end:0x0218c1e0
 
-src/Combat/Overlay_16/Trans_0218e62c.cpp:
+src/VideoLib/Overlay_16/Trans_0218e62c.cpp:
     complete
     .text start:0x0218e868 end:0x0218e87c
 
-src/Combat/Overlay_16/Trans_0218f330.cpp:
+src/VideoLib/Overlay_16/Trans_0218f330.cpp:
     complete
     .text start:0x0218f550 end:0x0218f560
 
-src/Combat/Overlay_16/SafeGetField_0218e660.cpp:
+src/VideoLib/Overlay_16/SafeGetField_0218e660.cpp:
     complete
     .text start:0x0218e89c end:0x0218e8b4
 
-src/Combat/Overlay_16/SafeGetField_0218e750.cpp:
+src/VideoLib/Overlay_16/SafeGetField_0218e750.cpp:
     complete
     .text start:0x0218e98c end:0x0218e9a4
 
-src/Combat/Overlay_16/TailCallFree_0218e7b0.cpp:
+src/VideoLib/Overlay_16/TailCallFree_0218e7b0.cpp:
     complete
     .text start:0x0218e9ec end:0x0218e9f8
 
@@ -172,50 +172,53 @@ src/Combat/Overlay_16/GetSomeConstByFlag_0218be5c.cpp:
     complete
     .text start:0x0218c93c end:0x0218c95c
 
-src/Combat/Overlay_16/IncrementCounters_0218f2f0.cpp:
+src/VideoLib/Overlay_16/IncrementCounters_0218f2f0.cpp:
     complete
     .text start:0x0218f510 end:0x0218f550
 
-src/Combat/Overlay_16/CreateDiffNode_0218e558.cpp:
+src/VideoLib/Overlay_16/CreateDiffNode_0218e558.cpp:
     .text start:0x0218e794 end:0x0218e868
 
 src/Combat/Overlay_16/RegisterObjectAndRunScript0218e098.cpp:
     .text start:0x0218e680 end:0x0218e70c
 
-src/Combat/Overlay_16/CheckStateEqualsOne_0218e768.cpp:
+src/VideoLib/Overlay_16/CheckStateEqualsOne_0218e768.cpp:
     .text start:0x0218e9a4 end:0x0218e9c8
 
-src/Combat/Overlay_16/GetOrStreamPoolBlockA_0218fd50.cpp:
+src/VideoLib/Overlay_16/GetOrStreamPoolBlockA_0218fd50.cpp:
     .text start:0x0218feb8 end:0x0218ff28
 
-src/Combat/Overlay_16/GetOrStreamPoolBlockB_0218fdc0.cpp:
+src/VideoLib/Overlay_16/GetOrStreamPoolBlockB_0218fdc0.cpp:
     .text start:0x0218ff28 end:0x0218ff98
 
-src/Combat/Overlay_16/GetOrStreamPoolBlockC_0218fe30.cpp:
+src/VideoLib/Overlay_16/GetOrStreamPoolBlockC_0218fe30.cpp:
     .text start:0x0218ff98 end:0x02190008
 
-src/Combat/Overlay_16/GetOrStreamPoolBlockD_0218fcd4.cpp:
+src/VideoLib/Overlay_16/GetOrStreamPoolBlockD_0218fcd4.cpp:
     .text start:0x0218fe3c end:0x0218feb8
 
-src/Combat/Overlay_16/CallStubAndForward_0218e528.cpp:
+src/VideoLib/Overlay_16/CallStubAndForward_0218e528.cpp:
     .text start:0x0218e764 end:0x0218e794
 
-src/Combat/Overlay_16/CallIfNonNullBool_0218e6e4.cpp:
+src/VideoLib/Overlay_16/CallIfNonNullBool_0218e6e4.cpp:
     .text start:0x0218e920 end:0x0218e944
 
-src/Combat/Overlay_16/TailCallFree_0218f4fc.cpp:
+src/VideoLib/Overlay_16/TailCallFree_0218f4fc.cpp:
     .text start:0x0218f664 end:0x0218f670
 
 src/Combat/Overlay_16/Synth_0218b5c0.cpp:
     .text start:0x0218c1e0 end:0x0218c1e4
 
-src/Combat/Overlay_16/Trans_0218e7ec.cpp:
+src/VideoLib/Overlay_16/Trans_0218e7ec.cpp:
     .text start:0x0218ea28 end:0x0218ea3c
 
-src/Combat/Overlay_16/func_ov016_0218ef50.cpp:
+src/VideoLib/Overlay_16/func_ov016_0218e800.cpp:
+    .text start:0x0218ea3c end:0x0218efe0
+
+src/VideoLib/Overlay_16/func_ov016_0218ef50.cpp:
     .text start:0x0218f184 end:0x0218f2bc
 
-src/Combat/Overlay_16/TailCallAllocate_0218f4f0.cpp:
+src/VideoLib/Overlay_16/TailCallAllocate_0218f4f0.cpp:
     .text start:0x0218f658 end:0x0218f664
 
 src/Combat/Overlay_16/EnsureInitAndSetFlag_0218be1c.cpp:
@@ -233,7 +236,7 @@ src/Combat/Overlay_16/ToggleAndConfigureDisplay_0218d034.cpp:
 src/Combat/Overlay_16/func_ov016_0218bce8.cpp:
     .text start:0x0218c7c8 end:0x0218c8fc
 
-src/Combat/Overlay_16/func_ov016_0218edac.cpp:
+src/VideoLib/Overlay_16/func_ov016_0218edac.cpp:
     .text start:0x0218efe0 end:0x0218f148
 
 src/Combat/Overlay_16/SetFlagAndMaybeIncrement_0218c024.cpp:
@@ -245,10 +248,13 @@ src/Combat/Overlay_16/SetFlagAndMaybeIncrement_0218d294.cpp:
 src/Combat/Overlay_16/IncCounter_0218cf34.cpp:
     .text start:0x0218d6e4 end:0x0218d708
 
-src/Combat/Overlay_16/func_ov016_0218f088.cpp:
+src/VideoLib/Overlay_16/func_ov016_0218f088.cpp:
     .text start:0x0218f2bc end:0x0218f38c
 
-src/Combat/Overlay_16/func_ov016_0218f340.cpp:
+src/VideoLib/Overlay_16/func_ov016_0218f16c.cpp:
+    .text start:0x0218f38c end:0x0218f510
+
+src/VideoLib/Overlay_16/func_ov016_0218f340.cpp:
     .text start:0x0218f560 end:0x0218f658
 
 src/Combat/Overlay_16/func_ov016_0218de60.cpp:
