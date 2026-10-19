@@ -4,10 +4,13 @@
 enum { kRegion9a0 = 0x870 };
 enum { kRegion9ae = 0x7de };
 enum { kRegion960 = 0x800 };
+enum { kRegion950 = 0x8b8, kRegion150 = 0x144, kRegion18c = 0x180, kRegion3700 = 0x34f0 };
+#define data_ov003_0217f39c data_ov003_0217e09c
 #else
 enum { kRegion9a0 = 0x9a0 };
 enum { kRegion9ae = 0x9ae };
 enum { kRegion960 = 0x960 };
+enum { kRegion950 = 0x950, kRegion150 = 0x150, kRegion18c = 0x18c, kRegion3700 = 0x3700 };
 #endif
 
 #include "GameState/GameState.h"
@@ -122,7 +125,7 @@ extern "C" ARM void func_ov003_0215a740(void* self, int p1, int p2) {
             unsigned char* combatant =
                 (unsigned char*)(void*)GetCombatantWithFlag0x100_0200ff1c(game, *(unsigned char*)(s + *(signed char*)(s + 0x5a1) + 0x591));
             unsigned char* sub = GetFieldAt0x150_02053c6c(combatant);
-            int x = *(int*)(sub + 0x950);
+            int x = *(int*)(sub + kRegion950);
             *(int*)(s + 0x5a4) = *(int*)(combatant + 0x134);
             *(int*)(s + 0x5a8) = *(int*)(*(int**)(combatant + 0x130));
             int flag = 0;
@@ -155,10 +158,12 @@ extern "C" ARM void func_ov003_0215a740(void* self, int p1, int p2) {
                 func_ov003_02159250(self, *(void**)(s + 0x7c));
                 *(unsigned char*)(s + 0x580) = *(unsigned char*)(s + 0x580) + 1;
             } else {
+#if !defined(jpn)
                 NameBuf0215a740 nb;
                 InitObjFromCombatantId020e4bf4(&nb,
                     *(unsigned char*)(s + *(signed char*)(s + 0x5a1) + 0x591));
                 *(void**)(g + 0x10) = &nb;
+#endif
                 SetIndexedName02046574((Obj02046574*)g, 0, *(char**)(s + 0x5a4));
                 memset(*(void**)(s + 0x7c), 0, kRegion960);
                 AppendFieldTwice_02159290(self, (p2 + 2), 0x42e);
@@ -188,10 +193,14 @@ extern "C" ARM void func_ov003_0215a740(void* self, int p1, int p2) {
                 *(unsigned char*)(s + 0x580) = 6;
             } else {
                 *(unsigned char*)(s + 0x59f) = *(unsigned char*)(s + 0x59f) | 0x10;
+#if defined(jpn)
+                SetIndexedName02046574((Obj02046574*)g, 0, *(char**)(s + 0x5a4));
+#else
                 NameBuf0215a740 nb;
                 InitObjFromCombatantId020e4bf4(&nb,
                     *(unsigned char*)(s + *(signed char*)(s + 0x5a1) + 0x591));
                 *(void**)(g + 0x10) = &nb;
+#endif
                 func_ov003_02159250(self,
                     GetFieldByKey020e0434((Container020e0310*)(s + 0x64), (short)(p2 + 1)));
                 *(unsigned char*)(s + 0x580) = *(unsigned char*)(s + 0x580) + 1;
@@ -218,9 +227,9 @@ extern "C" ARM void func_ov003_0215a740(void* self, int p1, int p2) {
         switch (p2) {
         case 0x406: {
             func_02048150(combatant, 0, 1);
-            int f18c = *(int*)(combatant + 0x18c);
+            int f18c = *(int*)(combatant + kRegion18c);
             if (f18c & 1) {
-                *(int*)(combatant + 0x18c) = f18c & ~1;
+                *(int*)(combatant + kRegion18c) = f18c & ~1;
             }
             break;
         }
@@ -234,7 +243,7 @@ extern "C" ARM void func_ov003_0215a740(void* self, int p1, int p2) {
             for (int i = 0; i < 0xb; i++) {
                 if (i == 2 || i == 3 || i == 4) continue;
                 unsigned char j = (unsigned char)i;
-                unsigned char* ep = *(unsigned char**)(combatant + 0x150) + 0x194 + j * 0x20;
+                unsigned char* ep = *(unsigned char**)(combatant + kRegion150) + 0x194 + j * 0x20;
                 if (ep == 0) continue;
                 struct Slot0215a740* e = (struct Slot0215a740*)ep;
                 if (e->bits.hit == 0) continue;
@@ -250,8 +259,8 @@ extern "C" ARM void func_ov003_0215a740(void* self, int p1, int p2) {
                     func_ov017_021c4418(cid, -1);
                 }
                 void* bg = (void*)GetGameResources();
-                void* ctxA = *(void**)((char*)bg + 0x3700);
-                void* ctxB = *(void**)((char*)bg + 0x3704);
+                void* ctxA = *(void**)((char*)bg + kRegion3700);
+                void* ctxB = *(void**)((char*)bg + kRegion3700 + 4);
                 void* loader = BackgroundLoader::GetInstance();
                 func_ov017_0218f5a4(bg, cid, 1, 0, 0);
                 while (GetHeadNodeIdOrMinusOne((HeadNode02046b24**)ctxA) == 0x13) {
