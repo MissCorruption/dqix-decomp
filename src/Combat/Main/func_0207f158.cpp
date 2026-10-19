@@ -56,8 +56,10 @@ extern "C" ARM int func_0207f158(Script::Parameter* parameters) {
     element.field24 = -1;
     element.field28 = 0;
     element.field2a = 0;
+#if !defined(jpn)
     element.field2b = 0;
     element.field2c = 0;
+#endif
     element.id = parameters[0].ToInt();
     element.field06 = parameters[1].ToInt();
     element.field08 = parameters[2].ToInt();

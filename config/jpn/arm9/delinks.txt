@@ -19090,3 +19090,7 @@ src/Runtime/Main/func_0200c700.s:
 src/Combat/Main/func_02011b68.cpp:
     complete
     .text start:0x020118e0 end:0x02011d30
+
+src/Combat/Main/func_0207f158.cpp:
+    complete
+    .text start:0x0207fed8 end:0x02080220
