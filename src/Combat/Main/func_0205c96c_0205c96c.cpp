@@ -1,5 +1,11 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Struct_0205c570;
 int GetGlobalField0x1c020421a0(void);
 int GetActiveScaledSum0205c570(struct Struct_0205c570* s);
@@ -7,7 +13,11 @@ void SetField0x1e20_02042b10(void* obj, void* value);
 void EmitScaledField0x440_0202f404(void* obj, int a, int b);
 void InitSelfPointer_02042b1c(unsigned char* base);
 int CheckGlobalObjState2AndInit0205cde8(unsigned char* p);
+#if defined(jpn)
+extern "C" void func_02046c78(void* ctx, void* ptr, int x, int y, int color, int a, int b, int flag);
+#else
 extern "C" void func_02045f3c(void* ctx, void* ptr, int x, int y, int color, int a, int b, int flag, int c, int d);
+#endif
 
 struct Container0205a3d0;
 struct Entry0205a3d0 {
@@ -43,7 +53,7 @@ extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
     unsigned short key;
     struct Entry0205a3d0* entry;
 
-    if (obj[0x233] == 0 || obj[0x232] == 0) {
+    if (obj[RG(0x233, 0x1c3)] == 0 || obj[RG(0x232, 0x1c2)] == 0) {
         return;
     }
 
@@ -51,14 +61,14 @@ extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
     cursor = *(int*)(obj + 0x50);
     sum = GetActiveScaledSum0205c570((struct Struct_0205c570*)(obj + 0x1c));
     color = 0x7fff;
-    if (obj[0x234] == 0) {
+    if (obj[RG(0x234, 0x1c4)] == 0) {
         color = 0x3def;
     }
 
     if (flag == 0) {
         *(short*)(obj + 0xcc) = color;
         SetField0x1e20_02042b10(ctx, obj + 0xb4);
-        EmitScaledField0x440_0202f404(ctx + 0x19e0, 1, 1);
+        EmitScaledField0x440_0202f404(ctx + RG(0x19e0, 0x1804), 1, 1);
         InitSelfPointer_02042b1c(ctx);
     }
 
@@ -66,7 +76,7 @@ extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
         return;
     }
 
-    ctx[0x19b0] = 1;
+    ctx[RG(0x19b0, 0x17e0)] = 1;
 
     perRow = *(int*)(obj + 0x7c);
     i = perRow * *(int*)(obj + 0x84);
@@ -80,7 +90,11 @@ extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
         if (i == cursor && cursor == sum) {
             c = 0xf0a;
         }
+#if defined(jpn)
+        func_02046c78(ctx, (unsigned short*)(obj + 0x120) + *(unsigned short*)(obj + 0x1b0 + i * 2), x, y, c, 0xc, 0x14, flag);
+#else
         func_02045f3c(ctx, (unsigned short*)(obj + 0x120) + *(unsigned short*)(obj + 0x220 + i * 2), x, y, c, 0xc, 0x14, flag, 1, 0x11);
+#endif
         y += *(int*)(obj + 0xd8);
     }
 
@@ -92,9 +106,9 @@ extern "C" ARM void func_0205c96c(unsigned char* obj, int flag) {
     row = GetCursorRow(obj);
     x = column * *(int*)(obj + 0xd4) + (x - 0x10);
     y = row * *(int*)(obj + 0xd8) + (top - 2);
-    list = *(void**)(ctx + 0x2d8);
-    entries = *(struct Container0205a3d0**)(ctx + 0x2e0);
-    key = *(unsigned short*)(ctx + 0x2e4);
+    list = *(void**)(ctx + RG(0x2d8, 0x228));
+    entries = *(struct Container0205a3d0**)(ctx + RG(0x2e0, 0x230));
+    key = *(unsigned short*)(ctx + RG(0x2e4, 0x234));
     if (list == NULL || entries == NULL) {
         return;
     }
