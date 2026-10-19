@@ -2,6 +2,7 @@
 #include <Resource/UiArrayEntry.h>
 #include <System/ColorEffects.h>
 
+struct FourShorts_0223cb1c { unsigned short l; unsigned short t; unsigned short r; unsigned short b; };
 struct Obj0223bcc8;
 struct MenuState02237b2c {
     Obj0223bcc8* mainSprite;
@@ -29,7 +30,7 @@ extern const unsigned char data_ov031_0224938c[];
 extern unsigned char data_ov031_02249394[];
 extern const unsigned char data_ov031_022492fe[][2];
 extern const Dimensions02237b2c data_ov031_0224931c[];
-extern const unsigned char data_ov031_022492e2[];
+extern const FourShorts_0223cb1c data_ov031_022492e2;
 extern "C" void* func_ov031_0223cf4c(unsigned int, int);
 extern "C" Obj0223bcc8* func_ov031_0223be70(int, int, int);
 extern "C" void func_ov031_0223bbd8(Obj0223bcc8*, int, int, int);
@@ -40,7 +41,7 @@ int GetTableEntryByField0_022236d0();
 extern "C" void func_ov031_0223c980(void*, int, int, int, int, int, int, void*);
 extern "C" void func_ov031_0223ca54(void*, int, int, void*, int);
 extern "C" void func_ov031_0223cd30(int, int, int, int);
-extern "C" void func_ov031_0223cc18(int, int, const unsigned char*);
+extern "C" void func_ov031_0223cc18(int, int, const FourShorts_0223cb1c*);
 extern "C" void func_ov031_022381c8(int);
 void* CallWithZeroExtra_0223e218(void*, void*, void*, int);
 extern "C" void func_ov031_02237ecc(void*);
@@ -84,7 +85,7 @@ extern "C" ARM void func_ov031_02237b2c(int id, int style, unsigned char flag, i
     func_ov031_0223cd30(0, 0, 31, 0);
     func_ov031_0223cd30(0, 1, 31, priority[data_ov031_02290d10->style]);
     func_ov031_0223cd30(0, 3, 31, 1);
-    func_ov031_0223cc18(0, 1, data_ov031_022492e2);
+    func_ov031_0223cc18(0, 1, &data_ov031_022492e2);
     func_ov031_022381c8(192);
     REG_DISPCNT = (REG_DISPCNT & ~0xe000) | 0x6000;
     if (flag) data_ov031_02290d10->task = CallWithZeroExtra_0223e218((void*)1, (void*)func_ov031_02237ecc, 0, 120);
