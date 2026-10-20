@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+extern "C" void func_02042638(char *buf, int str, int n);
+#define AppendFormatted02041fac func_02042638
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Container020e0310;
 
 struct GameState;
@@ -17,14 +25,14 @@ extern "C" ARM void func_ov002_0215c52c(unsigned char *self, char *buf, int fram
     if (buf == 0) return;
     short key = 0x3ea;
     int n     = 3;
-    short x   = *(short *) (self + 0x1be4);
+    short x   = *(short *) (self + RG(0x1be4, 0x1aac));
     if (ReadBattleField0x64f4Byte_02011804(GameState::GetInstance()) == 0) n = 2;
     if (frame) AppendFrameTag02041c08(buf, x, 8, 5, 5, 5);
     AppendCursorTag_02041ea4(buf, x);
     AppendFormatted02041fac(
-        buf, (int) GetFieldByKey020e0434((Container020e0310 *) (self + 0x20), 1000), 0x18);
+        buf, (int) GetFieldByKey020e0434((Container020e0310 *) (self + RG(0x20, 0x8)), 1000), 0x18);
     for (int i = 0; i < n; i++) {
-        AppendNameTag_02041b70(buf, i, GetFieldByKey020e0434((Container020e0310 *) (self + 0x20), key++));
-        if (i != n - 1) AppendString02042058(buf, *(const char **) (self + 0x1bdc));
+        AppendNameTag_02041b70(buf, i, GetFieldByKey020e0434((Container020e0310 *) (self + RG(0x20, 0x8)), key++));
+        if (i != n - 1) AppendString02042058(buf, *(const char **) (self + RG(0x1bdc, 0x1aa4)));
     }
 }

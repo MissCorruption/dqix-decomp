@@ -570,3 +570,23 @@ src/Combat/Overlay_2/func_ov002_0216a300.cpp:
 src/Combat/Overlay_2/func_ov002_0216acf0.cpp:
     complete
     .text start:0x0216b3f8 end:0x0216c3b0
+
+src/Combat/Overlay_2/AppendCursorAndFieldNames_0215dd0c.cpp:
+    complete
+    .text start:0x0215ede0 end:0x0215ee90
+
+src/Combat/Overlay_2/func_ov002_0215c52c.cpp:
+    complete
+    .text start:0x0215d5a4 end:0x0215d68c
+
+src/Combat/Overlay_2/func_ov002_0215c72c.cpp:
+    complete
+    .text start:0x0215d790 end:0x0215d908
+
+src/Combat/Overlay_2/func_ov002_0215d0e8.cpp:
+    complete
+    .text start:0x0215e184 end:0x0215e2b0
+
+src/Combat/Overlay_2/func_ov002_0215d72c.cpp:
+    complete
+    .text start:0x0215e720 end:0x0215e858
