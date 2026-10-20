@@ -1,5 +1,11 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+enum { CursorOffset = 0x1ac6, NamesOffset = 0x8 };
+#else
+enum { CursorOffset = 0x1bfe, NamesOffset = 0x20 };
+#endif
+
 struct Container020e0310;
 int GetFieldByKey020e0434(struct Container020e0310* c, int key);
 int AppendString02042058(char* dst, const char* src);
@@ -17,9 +23,9 @@ ARM void AppendField0215f644(void* self, char* dst, int) {
     }
     struct StackTmp0215f644 tmp;
     func_ov002_02156080(self, tmp.arr, &tmp.pad0);
-    int idx = *(short*)((char*)self + 0x1bfe);
+    int idx = *(short*)((char*)self + CursorOffset);
     short val = tmp.arr[idx];
     int key = (short)(val + 0xfb4);
-    int fmt = GetFieldByKey020e0434((struct Container020e0310*)((char*)self + 0x20), key);
+    int fmt = GetFieldByKey020e0434((struct Container020e0310*)((char*)self + NamesOffset), key);
     AppendString02042058(dst, (const char*)fmt);
 }

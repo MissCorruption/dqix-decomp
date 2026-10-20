@@ -690,3 +690,7 @@ src/Combat/Overlay_2/func_ov002_02160068.cpp:
 src/Combat/Overlay_2/HasPositiveContainerAndField_0215edc8.cpp:
     complete
     .text start:0x0215ffc8 end:0x02160004
+
+src/Combat/Overlay_2/AppendField0215f644.cpp:
+    complete
+    .text start:0x02160700 end:0x02160760
