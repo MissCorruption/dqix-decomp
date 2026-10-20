@@ -38,7 +38,6 @@ extern "C" int func_ov002_0215c974(char *self, int id);
 extern "C" void func_ov002_02158c44(char *base);
 extern "C" int func_ov002_02158b7c(char *base, int, int);
 extern "C" void func_ov002_0215852c(char *base);
-extern "C" int func_ov002_02162930(char *base, int a);
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define InitBattleTag0215ccc4 func_ov002_0215de30
 #define func_ov002_0215b814 func_ov002_0215ca68
@@ -46,7 +45,6 @@ extern "C" int func_ov002_02162930(char *base, int a);
 #define SetupTargetAndApplyState021575d4 func_ov002_02158c44
 #define GetInventoryItemFlagField_02157500 func_ov002_02158b7c
 #define func_ov002_02156e90 func_ov002_0215852c
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
 #else
 #define RG(u, j) (u)
 #endif

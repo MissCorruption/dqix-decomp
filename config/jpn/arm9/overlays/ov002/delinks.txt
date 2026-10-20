@@ -342,3 +342,7 @@ src/Combat/Overlay_2/SetTag2aIfNotAlreadyFlagged_02155024.cpp:
 src/Combat/Overlay_2/ClearFlagBit1IfEnabled_02156178.cpp:
     complete
     .text start:0x0215785c end:0x02157894
+
+src/Combat/Overlay_2/CheckFlagOrThreshold_02161b48.cpp:
+    complete
+    .text start:0x02162930 end:0x0216297c

@@ -7,8 +7,6 @@
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215c474 func_ov002_0215d4f4
 #define func_ov002_02156e90 func_ov002_0215852c
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
-extern "C" int func_ov002_02162930(char *self, int flag);
 #else
 #define RG(u, j) (u)
 #endif
