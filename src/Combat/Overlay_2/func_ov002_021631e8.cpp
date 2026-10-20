@@ -32,12 +32,10 @@ extern "C" char data_02108760[];
 #if defined(jpn)
 #define RG(u, j) (j)
 extern "C" void func_ov002_02162acc(char *base);
-extern "C" void func_ov002_0215de30(char *base);
 extern "C" int func_ov002_0215c974(char *self, int id);
 extern "C" int func_ov002_02158b7c(char *base, int, int);
 extern "C" void func_ov002_0215852c(char *base);
 #define func_ov002_02161cf0 func_ov002_02162acc
-#define InitBattleTag0215ccc4 func_ov002_0215de30
 #define func_ov002_0215b720 func_ov002_0215c974
 #define GetInventoryItemFlagField_02157500 func_ov002_02158b7c
 #define func_ov002_02156e90 func_ov002_0215852c
