@@ -79,12 +79,130 @@ extern "C" void func_0204b5b4(BackgroundGraphics*, int);
 extern "C" void func_0204b174(BackgroundGraphics*, void*, SafeAllocator*, unsigned int);
 extern "C" void func_ov016_0218c04c(char*, void*);
 
+#if !defined(jpn)
 extern DisplayContext0218caa8 data_ov016_0219d0c0;
+#endif
 extern int data_ov016_0219d0cc;
 extern int data_02109bf4;
 extern AllocatorUnion data_02114e20;
 extern const char data_ov016_0219d030[];
 
+#if defined(jpn)
+struct ScriptNodeJ0218caa8 {
+    unsigned short id;
+    unsigned char padding2[2];
+    int value;
+    const char* mainName;
+    const char* subName;
+    short scene;
+};
+
+struct DisplayContextJ0218caa8 {
+    void* owner;
+    unsigned char padding4[0xc];
+    ScriptNodeJ0218caa8* node;
+    int mode;
+    int negativeScene;
+    unsigned char padding1c[0x4c - 0x1c];
+    int displayState[2];
+};
+
+struct SelfTag0204b3a0;
+void DispatchByTag0204b2e0(void*, char*);
+void DispatchByTagLookup0204b3a0(SelfTag0204b3a0*, char*);
+extern "C" void func_ov016_0218ca98(char*);
+extern const char data_ov016_0219cf00[];
+extern DisplayContextJ0218caa8 data_ov016_0219d0c0;
+
+// USA: func_ov016_0218caa8
+extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNodeJ0218caa8* node, int mode)
+{
+    data_ov016_0219d0c0.node = node;
+    data_ov016_0219d0c0.displayState[0] = 0;
+    data_ov016_0219d0c0.displayState[1] = 0;
+    data_ov016_0219d0c0.negativeScene = node->scene < 0;
+    data_ov016_0219d0c0.mode = mode;
+    func_020c39a0((short*)0x0400006c, -16);
+    func_020c39a0((short*)0x0400106c, -16);
+    SetInterruptHandler(1, (const void*)EnsureInitAndSetFlag_0218be1c);
+    EnableSpecificInterrupts(0x60078);
+    unsigned short previousMasterEnable = IRQ_MASTER_ENABLE;
+    IRQ_MASTER_ENABLE = 1;
+    SetVBlankIrqEnable_020c3864(1);
+    GameState* gameState = GameState::GetInstance();
+    if (GetWord0x7f6c_0201201c(gameState) == 5)
+    {
+        MapVRAMBanksToLCDC(0x1ff);
+        func_020ca458(0, (void*)0x06800000, 0xa4000);
+        func_020ca458(0xc0, (void*)0x07000000, 0x400);
+        func_020ca458(0, (void*)0x05000000, 0x400);
+        func_020ca458(0xc0, (void*)0x07000400, 0x400);
+        func_020ca458(0, (void*)0x05000400, 0x400);
+        MapVRAMBanksToLCDC(3);
+        MapVRAMBanksToSubBG(0x80);
+        SetSubBgMode_020c3984(0);
+        DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x100;
+        BG0CNTSUB &= ~3;
+        unsigned short backgroundControl = BG0CNTSUB;
+        backgroundControl &= 0x43;
+        backgroundControl |= 0xf00;
+        BG0CNTSUB = backgroundControl;
+        SUB_BG0_SCROLL = 0;
+
+        int task;
+        BackgroundLoader* loader = BackgroundLoader::GetInstance();
+        loader->MaybeReset();
+        task = loader->QueueLoadFile(data_ov016_0219cf00, NULL);
+        void* recordName;
+        void* archive;
+        unsigned int archiveLength;
+        for (;;)
+        {
+            if (loader->GetTaskStatus(task) != 0)
+            {
+                loader->GetLoadedFileByID(task, &archive, &archiveLength);
+                int count = CountActiveEntries((ActiveEntry02046900*)archive);
+                BackgroundGraphics background;
+                ResetList0204af64((List0204af64*)&background);
+                background.screen = 1;
+                background.layer = 0;
+                func_0204b5b4(&background, 0);
+                SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&background, 0);
+                for (int index = 0; index < count; index++)
+                {
+                    int recordLength;
+                    char* record = (char*)FindRecordByIndex((Rec020467f0*)archive, index, &recordName, &recordLength);
+                    if (record != NULL)
+                    {
+                        DispatchByTag0204b2e0(&background, record);
+                        DispatchByTagLookup0204b3a0((SelfTag0204b3a0*)&background, record);
+                    }
+                }
+                loader->RemoveTask(task);
+                break;
+            }
+            loader->RemoveAllLocks();
+        }
+    }
+    else
+    {
+        MapVRAMBanksToLCDC(0x1ff);
+        func_020ca458(0, (void*)0x06800000, 0xa4000);
+        DisableLCDCMappedVRAMBanks();
+        func_020ca458(0xc0, (void*)0x07000000, 0x400);
+        func_020ca458(0, (void*)0x05000000, 0x400);
+        func_020ca458(0xc0, (void*)0x07000400, 0x400);
+        func_020ca458(0, (void*)0x05000400, 0x400);
+        MapVRAMBanksToLCDC(0x1ff);
+    }
+    DelayThenSyncBit0_020c9820();
+    data_ov016_0219d0c0.owner = owner;
+    func_020c39a0((short*)0x0400006c, 0);
+    func_020c39a0((short*)0x0400106c, 0);
+    func_ov016_0218ca98(name);
+    SetInterruptHandler(1, (const void*)InitOverlay17ObjAndBumpBattleCounter02012bd8);
+}
+#else
 // USA: func_ov016_0218caa8
 extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218caa8* node, int mode, void* script)
 {
@@ -215,3 +333,4 @@ extern "C" ARM void func_ov016_0218caa8(char* name, void* owner, ScriptNode0218c
     func_ov016_0218c04c(name, script);
     SetInterruptHandler(1, (const void*)InitOverlay17ObjAndBumpBattleCounter02012bd8);
 }
+#endif

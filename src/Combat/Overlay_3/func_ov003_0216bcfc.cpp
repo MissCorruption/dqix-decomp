@@ -71,10 +71,9 @@ extern "C" void func_02043124(void *p);
 extern "C" void func_0205a528(void *renderer, void *file, unsigned int size, SafeAllocator *allocator);
 #if defined(jpn)
 extern "C" void func_ov003_0216d8d4(void *self, int a);
-extern "C" void func_ov003_0216d858(void *sub, SafeAllocator *allocator);
+extern "C" void func_ov003_0216e02c(void *sub, SafeAllocator *allocator);
 extern char data_ov003_0217e985[];
 #define func_ov003_0216d8d4(self, a, b, c, d) func_ov003_0216d8d4(self, a)
-#define func_ov003_0216e02c func_ov003_0216d858
 #define data_ov003_021801c9 data_ov003_0217e985
 #else
 extern "C" void func_ov003_0216d8d4(void *self, int a, int b, int c, int d);

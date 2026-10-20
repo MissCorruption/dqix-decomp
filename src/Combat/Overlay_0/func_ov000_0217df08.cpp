@@ -75,15 +75,178 @@ extern "C" void func_02046608(Messages0217df08*, int, char*, char*, int, int, in
 extern "C" void __clear(void*, int);
 void TrimTrailingLetterCode_0217aa08(char*, char*);
 extern "C" void func_020e4f18(NameParts0217df08*, NameParts0217df08*, int);
+#if !defined(jpn)
 extern "C" void func_0204500c(Messages0217df08*, char*, int, int);
+#endif
 extern "C" void func_02043124(Messages0217df08*);
 void ReinitController02043204(char*);
+#if !defined(jpn)
 extern "C" void func_ov000_0217c638(Battle0217df08* obj, int arg1, int arg2);
+#endif
+#if !defined(jpn)
 extern "C" void func_ov000_02176e3c(Battle0217df08* obj, int zero, int val, int arg1, int arg2, int one);
+#endif
 
 extern const char data_ov000_02184070[];
 extern const char data_ov000_0218408a[];
 
+#if defined(jpn)
+struct CombatantJ0217df08 {
+    char pad0[0x144];
+    Rank0217df08* rank;
+    char pad148[0x14c - 0x148];
+    char name[1];
+};
+
+struct MessagesJ0217df08 {
+    char pad0[0x28];
+    char* work;
+    char* text;
+    char pad30[0x868 - 0x30];
+    int active;
+};
+
+struct BattleJ0217df08 {
+    char pad0[0xb8];
+    char messages[0x90c - 0xb8];
+    int taskId;
+    char pad910[0x950 - 0x910];
+    int f950;
+    unsigned char f954;
+    unsigned char f955;
+    char pad956[0x1f74 - 0x956];
+    int combatantIds[8];
+    char pad1f94[0x1f98 - 0x1f94];
+    signed char commands[8];
+    signed char index;
+    char pad1fa1[0x1fa8 - 0x1fa1];
+    unsigned char state;
+    char pad1fa9;
+    unsigned short flags;
+};
+
+struct Obj02046574;
+void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_020474a8(MessagesJ0217df08*, int, char*, char*);
+extern "C" void func_0204500c(MessagesJ0217df08*, char*, int);
+extern "C" void func_ov000_0217c638(BattleJ0217df08* obj, int arg1, int arg2);
+extern "C" void func_ov000_02176e3c(BattleJ0217df08* obj, int zero, int val, int arg1, int arg2, int one);
+extern const char data_ov000_021851cc[];
+
+// USA: func_ov000_0217df08
+extern "C" ARM void func_ov000_0217df08(BattleJ0217df08* self, int arg1, int arg2) {
+    GameState* gs = GameState::GetInstance();
+    MessagesJ0217df08* g = (MessagesJ0217df08*)GetGlobalField0x1c020421a0();
+    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+
+    if (self->state == 0) {
+        if (self->taskId >= 0) {
+            loader->RemoveTask(self->taskId);
+            self->taskId = -1;
+        }
+        self->taskId = loader->QueueLoadFile(data_ov000_021851cc, 0);
+        self->state++;
+    } else if (self->state == 1) {
+        if (loader->GetTaskStatus(self->taskId) != 0) {
+            void* data;
+            unsigned int size;
+            loader->GetLoadedFileByID(self->taskId, &data, &size);
+            if (data != 0) {
+                const char* separator = GetFieldByKey020e0434((Container020e0310*)self->messages, 6);
+                char* work = g->work;
+                char* text = g->text;
+                memset(work, 0, 0x800);
+                memset(text, 0, 0x800);
+                int best = -1;
+                char* bestName = 0;
+                int appended;
+                int i;
+                int j;
+                CombatantJ0217df08* c;
+                int msg;
+                Rank0217df08* rank;
+                for (i = 0; i < arg2; i++) {
+                    CombatantJ0217df08* c = (CombatantJ0217df08*)GetCombatantWithFlag0x400_0200fea4(gs, self->combatantIds[i]);
+                    if (c != 0) {
+                        rank = c->rank;
+                        if (rank == 0) {
+                            return;
+                        }
+                        if (best < rank->level) {
+                            best = rank->level;
+                            bestName = c->name;
+                        }
+                    }
+                }
+                appended = 0;
+                for (j = 0; j < arg2; j++) {
+                    c = (CombatantJ0217df08*)GetCombatantWithFlag0x400_0200fea4(gs, self->combatantIds[j]);
+                    if (c != 0) {
+                        int amount = -1;
+                        msg = func_ov000_0217ff34(self, self->combatantIds[j], &amount);
+                        if (msg >= 0) {
+                            char* memberName = 0;
+                            GameObject* member = gs->GetPartyMemberByIndex(amount);
+                            if (member != 0) {
+                                memberName = *(char**)((char*)member + 0x134);
+                            }
+                            func_02046380((Messages0217df08*)g);
+                            SetIndexedName02046574((Obj02046574*)g, 0, c->name);
+                            SetIndexedName02046574((Obj02046574*)g, 1, memberName);
+                            if (appended != 0) {
+                                AppendString02042058(text, separator);
+                            }
+                            appended = 1;
+                            memset(work, 0, 0x800);
+                            func_020e046c(work, data, size, msg);
+                            AppendString02042058(text, work);
+                            memset(work, 0, 0x800);
+                            func_020474a8(g, 0xc, text, work);
+                            memset(text, 0, 0x800);
+                            sprintf(text, work);
+                        }
+                    }
+                }
+                if (appended == 0) {
+                    short msg = 0;
+                    msg = msg + (NextRandomMax(GetBTRandom(), 100) & 1);
+                    if (self->f950 == 0 && self->f954 == 1) {
+                        msg = self->f955 + 0x3c;
+                    }
+                    if (arg2 > 1) {
+                        msg = msg + 2;
+                    }
+                    char name[0x40];
+                    __clear(name, 0x40);
+                    if (bestName != 0) {
+                        TrimTrailingLetterCode_0217aa08(bestName, name);
+                    }
+                    func_02046380((Messages0217df08*)g);
+                    SetIndexedName02046574((Obj02046574*)g, 2, name);
+                    func_020e046c(text, data, size, msg);
+                    func_020474a8(g, 0xc, text, work);
+                }
+                func_0204500c(g, work, 0);
+                g->active = 1;
+            }
+            loader->RemoveTask(self->taskId);
+            self->taskId = -1;
+            self->state++;
+        }
+    } else if (self->state == 2) {
+        if (g->active == 0 || g_keyManager.TestKeysPressed(0x800) != 0) {
+            func_02043124((Messages0217df08*)g);
+            ReinitController02043204((char*)g);
+            self->state = 0;
+            self->commands[self->index] = 0;
+            self->index = self->index - 1;
+            func_ov000_0217c638(self, arg1, arg2);
+            self->flags |= 0x100;
+            func_ov000_02176e3c(self, 0, 1, arg1, arg2, 0);
+        }
+    }
+}
+#else
 // USA: func_ov000_0217df08
 extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2) {
     GameState* gs = GameState::GetInstance();
@@ -224,3 +387,4 @@ extern "C" ARM void func_ov000_0217df08(Battle0217df08* self, int arg1, int arg2
         }
     }
 }
+#endif

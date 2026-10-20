@@ -3,10 +3,6 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
-#if defined(jpn)
-#define func_ov003_0217dd60 func_ov003_0217c9e0
-#endif
-
 struct Run02012fe4;
 extern "C" struct Run02012fe4 *func_02012fe4(void);
 extern "C" void func_0205d7a0(void *list, int index);

@@ -47,6 +47,8 @@ extern "C" ARM int func_ov004_02155d54(void* self) {
         mode = 0xf;
     }
 
+#if !defined(jpn)
+    // JPN: no copy of node 0x19's value into node 0x14.
     Node02155d54* node = func_ov023_021f6880(func_ov011_021849c8(self), 0x14);
     if (node) {
         char* entry = (char*)Lookup4Entry_021f63ac(self, 4, GetField38IfKind8_021f6378(self, 0x19));
@@ -58,6 +60,7 @@ extern "C" ARM int func_ov004_02155d54(void* self) {
             }
         }
     }
+#endif
 
     func_ov023_021f645c(self, 7, mode, 0xf);
     func_ov023_021f64a8(self, 0x14, value, 0xf);

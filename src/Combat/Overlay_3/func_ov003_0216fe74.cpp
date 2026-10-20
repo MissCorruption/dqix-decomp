@@ -11,7 +11,19 @@ struct Container020e0310;
 extern "C" short func_ov003_0216df38(char* dst, struct Container020e0310* c, int flag);
 
 struct StructA0205d5d0;
+#if defined(jpn)
+// JPN: builds the text from three formatted lines (like func_ov003_0216fc58) instead of func_ov003_0216df38 and keeps the window position.
+extern "C" int sprintf(char* dst, const char* fmt, ...);
+int AppendString02042058(char* dst, const char* src);
+const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
+extern char data_ov003_0217ea90[];
+extern char data_ov003_0217eaac[];
+extern char data_ov003_0217eabf[];
+extern char data_ov003_0217ea6f[];
+int TryApplyElemFields0205d5d0(struct StructA0205d5d0* a, int b, int c, int d);
+#else
 int TryApplyElemFields0205d5d0(struct StructA0205d5d0* a, int b, int c, int d, unsigned char e);
+#endif
 
 // USA: func_ov003_0216fe74  (semantic: SetupAndDispatchBattleMessage_0216fe74)
 extern "C" ARM void func_ov003_0216fe74(char* self, int p1, int p2, int p3) {
@@ -32,7 +44,11 @@ extern "C" ARM void func_ov003_0216fe74(char* self, int p1, int p2, int p3) {
     *(short*)(field3c + 0xa6) = 6;
 
     field3c = *(char**)(self + 0x3c);
+#if defined(jpn)
+    *(short*)(field3c + 0xa8) = 0;
+#else
     *(short*)(field3c + 0xa8) = 0xc;
+#endif
     *(short*)(field3c + 0xaa) = 0xe;
 
     field3c = *(char**)(self + 0x3c);
@@ -41,6 +57,29 @@ extern "C" ARM void func_ov003_0216fe74(char* self, int p1, int p2, int p3) {
 
     (*(char**)(self + 0x3c))[0xb5] = 1;
 
+#if defined(jpn)
+    char buf[0x200];
+    char line[0x80];
+    __clear(buf, 0x200);
+    __clear(line, 0x80);
+
+    if (p3 != -1) {
+        AppendFrameTag02041c08(buf, p3, 8, 5, 5, 5);
+    }
+
+    if (p1) {
+        sprintf(line, data_ov003_0217ea90, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 6));
+    } else {
+        sprintf(line, data_ov003_0217ea90, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 5));
+    }
+    AppendString02042058(buf, line);
+    sprintf(line, data_ov003_0217eaac, GetFieldByKey020e0434((struct Container020e0310*)(self + 0xdc), 7));
+    AppendString02042058(buf, line);
+    sprintf(line, data_ov003_0217eabf, data_ov003_0217ea6f);
+    AppendString02042058(buf, line);
+
+    TryApplyElemFields0205d5d0((struct StructA0205d5d0*)*(char**)(self + 0x3c), 0, (int)buf, 1);
+#else
     char buf[0x200];
     __clear(buf, 0x200);
 
@@ -59,4 +98,5 @@ extern "C" ARM void func_ov003_0216fe74(char* self, int p1, int p2, int p3) {
     *(short*)(field3c + 0xa2) = 9;
 
     TryApplyElemFields0205d5d0((struct StructA0205d5d0*)*(char**)(self + 0x3c), 0, (int)buf, 1, 0);
+#endif
 }
