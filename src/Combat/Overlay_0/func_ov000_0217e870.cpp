@@ -19,7 +19,11 @@ struct BattleMenuState {
     char padding0[0x1c];
     signed char current;
     char padding1d[0x16b];
+#if defined(jpn)
+    char entries[0x1e10];
+#else
     char entries[0x1bd8];
+#endif
     signed char commands[8];
     signed char selected;
     char padding1d69[9];
@@ -33,7 +37,13 @@ struct PartyState {
     unsigned char count;
 };
 extern Obj0205eaa0 data_02108760;
+#if defined(jpn)
+extern int data_ov000_02184294[3];
+#define G02184294(i) data_ov000_02184294[(i) + 1]
+#else
 extern int data_ov000_02184294[2];
+#define G02184294(i) data_ov000_02184294[i]
+#endif
 int GetField0x3acValue_020100a8(GameState*);
 int GetActiveScaledSum0205d794(Struct_0205c570*);
 extern "C" BattleCommand* func_ov000_02161318(BattleMenuState*, int);
@@ -56,7 +66,7 @@ extern "C" ARM void func_ov000_0217e870(BattleMenuState* state, int first, int s
     if (func_ov000_0217c594(state, 0)) {
         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
         if (!command) return;
-        func_ov000_02176e3c(state, command, state->commands[state->selected], data_ov000_02184294[1], data_ov000_02184294[0], 1);
+        func_ov000_02176e3c(state, command, state->commands[state->selected], G02184294(1), G02184294(0), 1);
         state->flags &= ~0x100;
         state->selected++;
         state->commands[state->selected] = 0x64;
@@ -95,7 +105,7 @@ extern "C" ARM void func_ov000_0217e870(BattleMenuState* state, int first, int s
             }
         }
         state->field1d79 = 0;
-        func_ov000_02176e3c(state, candidate, 0x17, data_ov000_02184294[1], data_ov000_02184294[0], 0);
+        func_ov000_02176e3c(state, candidate, 0x17, G02184294(1), G02184294(0), 0);
     }
     func_ov000_02177038(state, command, 0x19, first, second);
 }
