@@ -3,11 +3,6 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_ov003_02158480 func_ov003_0215996c
-#define func_ov003_02158754 func_ov003_02159c40
-#endif
-
 extern "C" {
 int _Z26FindMappedMemberId02080468Pvi(void *, int);
 void _Z26ClearFieldsIfZero_0215385cPv(void *);

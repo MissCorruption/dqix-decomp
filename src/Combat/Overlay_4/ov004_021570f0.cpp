@@ -88,7 +88,6 @@ ARM int HasFlag101_021571d8(int a) {
 #define data_ov015_02193d2c data_ov015_0219485c
 #define data_ov015_02193d38 data_ov015_02194868
 #define data_ov027_021dd8e0 data_ov027_021de1a0
-#define func_ov003_0215a740 func_ov003_0215bbc0
 #define func_ov014_0218854c func_ov014_0218942c
 #define func_ov014_021885bc func_ov014_0218948c
 #define func_ov015_0219050c func_ov015_021910b0
