@@ -1,4 +1,10 @@
 #include <globaldefs.h>
+#if defined(jpn)
+#define REGION_LAYOUT(j,u) j
+#define data_ov005_0215cd68 data_ov005_0215e148
+#else
+#define REGION_LAYOUT(j,u) u
+#endif
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
@@ -66,6 +72,11 @@ extern char data_ov005_0215cdcd[];
 extern unsigned int data_ov005_0215cd68[3];
 extern char data_ov005_0215cddd[];
 extern char data_ov005_0215cdf3[];
+#if defined(jpn)
+extern char data_ov005_0215e194[];
+extern char data_ov005_0215e1ad[];
+void* LoadFileIntoMemory(const char* path, void* archive, unsigned int* size);
+#endif
 
 struct List0215436c {
     char pad0[0x1c];
@@ -102,7 +113,7 @@ struct Scene0215436c {
     int fdf4;
     char container[0xe10 - 0xdf8];
     int fe10;
-    char pad4[0xe84 - 0xe14];
+    char pad4[REGION_LAYOUT(0xe80, 0xe84) - 0xe14];
     List0215436c lists[3];
     char linkHead[0xf7c - 0xee4];
     List0215436c* linkList;
@@ -113,7 +124,7 @@ struct Scene0215436c {
     void* buffer;
     char effect[0x128c - 0x1244];
     int f128c;
-    char pad7[0x19b8 - 0x1290];
+    char pad7[REGION_LAYOUT(0x1930 - 0x128c, 0x19b8 - 0x1290)];
     unsigned short f19b8;
     char pad8[0x19be - 0x19ba];
     unsigned char f19be;
@@ -149,8 +160,8 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
     unsigned int len4;
     void* file5;
     unsigned int len5;
-    void* datas[38];
-    int sizes[38];
+    void* datas[REGION_LAYOUT(36, 38)];
+    int sizes[REGION_LAYOUT(36, 38)];
 
     if (self->state == 0xff) {
         return 1;
@@ -174,6 +185,15 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
             self->state++;
         }
     } else if (self->state == 2) {
+#if defined(jpn)
+        self->alloc.Reset();
+        void* data = self->alloc.Allocate(0x2000);
+        LoadFileIntoMemory(data_ov005_0215e194, data, &size);
+        self->fileAlloc.Reset();
+        func_020dfec0(self->container, &self->fileAlloc, data, size);
+        self->alloc.Reset();
+        self->fe10 = *(int*)(GetGlobalField0x1c020421a0() + 0x28);
+#else
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
         void* data = ExtractFileFromGP2(data_ov005_0215cdb4, data_ov005_0215cdcd, &size);
@@ -181,6 +201,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         func_020dfec0(self->container, &self->fileAlloc, data, size);
         BackgroundLoader::RemoveLockGlobal();
         self->fe10 = *(int*)(GetGlobalField0x1c020421a0() + 0x5c);
+#endif
         Set3DClearColor_020c5588(0, 0, 0x7fff, 0, 0);
         SetFlags04((GameResources*)word, 0x800);
         int* bank = GetData02105254_0203b628();
@@ -217,9 +238,13 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         bgcnt[2] = (bgcnt[2] & 0x43) | 0x1f04;
         ColorEffect_ConfigureAlphaBlend((unsigned int*)0x4000050, 1, 2, 0xa, 6);
 
+#if defined(jpn)
+        self->handle = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)self->container, 0x3e8), 0);
+#else
         const char* inner = GetFieldByKey020e0434((Container020e0310*)self->container, 0x3e9);
         const char* gp2 = GetFieldByKey020e0434((Container020e0310*)self->container, 0x3e8);
         self->handle = loader->QueueLoadFileInGP2(gp2, inner, 0);
+#endif
         self->state++;
     } else if (self->state == 3) {
         if (loader->GetTaskStatus(self->handle) != 0) {
@@ -260,7 +285,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
             self->linkFlag = 1;
             LinkArrayPrevPointers0205cf78((Struct_0205cf78*)self->linkHead, (Elem_0205cf78*)self->elems, 3);
 
-            const char* name = GetFieldByKey020e0434((Container020e0310*)self->container, 0x3ea);
+            const char* name = GetFieldByKey020e0434((Container020e0310*)self->container, REGION_LAYOUT(0x3e9, 0x3ea));
             self->handle = loader->QueueLoadFile(name, 0);
             self->state++;
         }
@@ -268,6 +293,19 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
         if (loader->GetTaskStatus(self->handle) != 0) {
             loader->GetLoadedFileByID(self->handle, &file4, &len4);
             int count = CountActiveEntries((ActiveEntry02046900*)file4);
+#if defined(jpn)
+            const char* name = GetFieldByKey020e0434((Container020e0310*)self->container, 0x7d0);
+            if (FindMatchingRecords0204684c((Rec020467f0*)file4, name, datas, count, sizes, 0) != 0) {
+                RestorePairTables0207df90((char*)self->pairTables);
+                for (int i = 0; i < count; i++) {
+                    Forward02047b30(self->records + i * 0x88, (int)datas[i], sizes[i], (int)((char*)self + 0x14));
+                }
+                BackupPairTables0207dfac((char*)self->pairTables);
+            }
+            loader->RemoveTask(self->handle);
+            self->handle = -1;
+            self->handle = loader->QueueLoadFile(data_ov005_0215e1ad, 0);
+#else
             int mode = NormalizeField5_0200fb08((Struct0200fb08*)gs);
             int n = 0;
             const char* name = GetFieldByKey020e0434((Container020e0310*)self->container, 0x7d0);
@@ -295,6 +333,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
             loader->RemoveTask(self->handle);
             self->handle = -1;
             self->handle = loader->QueueLoadFileInGP2(data_ov005_0215cddd, data_ov005_0215cdf3, 0);
+#endif
             self->state++;
         }
     } else if (self->state == 5) {
@@ -337,7 +376,7 @@ extern "C" ARM int func_ov005_0215436c(Scene0215436c* self) {
 
         GameState::GetInstance();
         char* res = (char*)GetGameResources();
-        int v = *(int*)(GetField1c_021a193c((int*)(*(int*)(res + 0x3708))) + 0x4fc);
+        int v = *(int*)(GetField1c_021a193c((int*)(*(int*)(res + REGION_LAYOUT(0x34f8, 0x3708)))) + REGION_LAYOUT(0x4f8, 0x4fc));
         func_020dc7e8(5, (signed char)v);
         self->effectAlloc.Reset();
         func_ov023_021dc134(self->effect, self->f2d90, 0);
