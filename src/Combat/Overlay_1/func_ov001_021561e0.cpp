@@ -11,6 +11,9 @@
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
 #endif
 
 struct CleanupState021561e0 {
@@ -19,7 +22,7 @@ struct CleanupState021561e0 {
     unsigned short state;
     char field_c[0x44];
     unsigned short flags;
-    char field_52[0x2a];
+    char field_52[RG(0x2a, 0x26)];
     SafeAllocator allocator;
     char field_90[0x6c];
     unsigned char active;
@@ -36,8 +39,8 @@ struct CleanupState021561e0 {
     int resetGameFlag;
     void* allocation;
 };
-struct GameFlag021561e0 { char field_0[0x5cac]; unsigned char active; };
-struct CombatantFlags021561e0 { Object3D object; char field_ac[0xe0]; unsigned int flags; };
+struct GameFlag021561e0 { char field_0[RG(0x5cac, 0x5a4c)]; unsigned char active; };
+struct CombatantFlags021561e0 { Object3D object; char field_ac[RG(0xe0, 0xd4)]; unsigned int flags; };
 struct EventFlags021561e0 { char field_0[0x8c]; unsigned char flags[1]; };
 struct Entry_02028bd0;
 struct Obj02028c64;
