@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 
+#if defined(jpn)
+#define func_0204f41c func_02050678
+#endif
+
 struct TableA68;
 struct Obj02046574;
 struct TextRenderer {
@@ -39,10 +43,49 @@ extern "C" int func_020420e8(char*, int);
 int GetGlobalField0x1c020421a0();
 extern "C" void func_02046380(Obj02046574*);
 void SetIndexedName02046574(Obj02046574*, int, char*);
+#if defined(jpn)
+int StringLength_020d2ff0(const char*);
+extern "C" void func_020474a8(Obj02046574*, int, void*, char*);
+extern "C" void func_0204f41c(TextWindow*, short, int, char*, int, int, short*, short*);
+#else
 extern "C" void func_02046608(Obj02046574*, int, void*, char*, int, int, int);
 extern "C" void func_0204f41c(TextWindow*, short, int, char*, int, int, short*, short*, int);
+#endif
 
 // USA: func_02081870
+// JPN: centred by half the string length times the font width; 0x800 buffer; no alignment offset
+#if defined(jpn)
+extern "C" ARM void func_02081870(TextRenderer* renderer, TextWindow* window, TextItem* item) {
+    int color = item->color;
+    if (item->flags & 4) color = 5;
+    if (item->flags & 8) {
+        char* text = (char*)FindEntryByKey_02072a68(renderer->strings, item->stringId);
+        if (text) {
+            short width = window->width * 8;
+            int half = StringLength_020d2ff0(text) >> 1;
+            item->x = (short)(width - half * item->font) >> 1;
+        }
+    }
+    Obj02046574* formatter = (Obj02046574*)GetGlobalField0x1c020421a0();
+    memset(renderer->buffer, 0, 0x800);
+    func_02046380(formatter);
+    SetIndexedName02046574(formatter, item->nameIndex, item->name);
+    void* text = FindEntryByKey_02072a68(renderer->strings, item->stringId);
+    func_020474a8(formatter, item->font, text, renderer->buffer);
+    int firstFont = item->font;
+    window->firstFont = firstFont;
+    window->lastFont = firstFont + 1;
+    if (item->flags & 0x10) {
+        int selectedFont = item->font;
+        if (selectedFont == 12) {
+            window->firstFont = selectedFont;
+            window->lastFont = 20;
+        }
+    }
+    func_0204f41c(window, (short)(item->x + item->xOffset), item->y,
+        renderer->buffer, item->font, color, &item->width, &item->height);
+}
+#else
 extern "C" ARM void func_02081870(TextRenderer* renderer, TextWindow* window, TextItem* item) {
     int color = item->color;
     if (item->flags & 4) color = 5;
@@ -75,3 +118,4 @@ extern "C" ARM void func_02081870(TextRenderer* renderer, TextWindow* window, Te
     func_0204f41c(window, (short)(item->x + item->xOffset - offset), item->y,
         renderer->buffer, item->font, color, &item->width, &item->height, 0);
 }
+#endif

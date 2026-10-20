@@ -22,7 +22,7 @@ struct StructA0205d5d0 {
 int CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char* obj);
 void ApplyElemFields0205d904(unsigned char* obj);
 #if defined(jpn)
-extern "C" void func_0204d8f0(void* elem, int c, int d);
+extern "C" void func_0204cb20(void* elem, int c, int d);
 #else
 extern "C" void func_0204cb20(void* elem, int c, int d, unsigned char e);
 #endif
@@ -45,7 +45,7 @@ ARM int TryApplyElemFields0205d5d0(struct StructA0205d5d0* a, int b, int c, int 
         if (!CheckField0x9cSetWhenField0xd4Present_0204c7e0((unsigned char*)elem)) continue;
         if (b != elem->fieldC4) continue;
 #if defined(jpn)
-        func_0204d8f0(elem, c, d);
+        func_0204cb20(elem, c, d);
 #else
         func_0204cb20(elem, c, d, e);
 #endif

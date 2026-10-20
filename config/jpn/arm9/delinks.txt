@@ -19256,3 +19256,19 @@ src/Combat/Main/SetWord0x2f4AndDispatch02041640.cpp:
 src/Combat/Main/func_020a9b2c.cpp:
     complete
     .text start:0x020ab780 end:0x020ab7f4
+
+src/Combat/Main/func_0204cb20.cpp:
+    complete
+    .text start:0x0204d8f0 end:0x0204da00
+
+src/Combat/Main/func_02081870.cpp:
+    complete
+    .text start:0x020820d8 end:0x02082234
+
+src/Combat/Main/func_020ab5d4.cpp:
+    complete
+    .text start:0x020ad0ec end:0x020ad270
+
+src/Combat/Main/func_020aaf84.cpp:
+    complete
+    .text start:0x020acaec end:0x020ace34

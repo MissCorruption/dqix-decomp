@@ -47,6 +47,65 @@ struct Sz3c00_020ab5d4 {
 };
 
 // USA: func_020ab5d4
+// JPN: no save-flag bit, no name conversion; each entry keeps a 0xc-byte raw copy
+#if defined(jpn)
+struct ElemJ020ab5d4 {
+    char data[0xc];
+    unsigned char f0c;
+    unsigned char f0d;
+    unsigned short f0e;
+};
+
+struct LocalJ020ab5d4 {
+    struct ElemJ020ab5d4 elems[4];
+    int f40;
+    unsigned char f44;
+    unsigned char f45;
+    unsigned char f46;
+    unsigned char f47;
+};
+
+extern "C" ARM int func_020ab5d4(void* param0, int param1, int param2, void* param3) {
+    if (func_020aaf84(param0, 0, 0, 1) == 0) {
+        return 0;
+    }
+    BackgroundLoader::AddLockGlobal();
+    BackgroundLoader::FreeAllocationsGlobal();
+    unsigned char* base = (unsigned char*)&data_0211e33c[0] + 0x28000;
+    GameState* gs = GameState::GetInstance();
+    unsigned char* arr = base + 4;
+    struct LocalJ020ab5d4 loc;
+    loc.f44 = arr[0x1d11];
+    loc.f40 = *(unsigned short*)(arr + 0x2c4c);
+    int i;
+    for (i = 0; i < loc.f44; i++) {
+        unsigned char* e = arr + (arr[0x1d0c] + i) * 0x23c;
+        if (e != 0) {
+            struct ElemJ020ab5d4* el = &loc.elems[i];
+            int v = GetFieldAt0x50((struct Struct020865b0*)e);
+            el->f0c = v;
+            unsigned char* p = e + v;
+            el->f0d = p[0xf];
+            el->f0e = p[2];
+            memcpy(el->data, e + 0x140, 0xc);
+        }
+    }
+    unsigned char* caddr = base + 0x2cac;
+    void* ctx = func_0205ec34();
+    func_020a9a50(caddr, (char*)ctx, 0);
+    loc.f45 = TestBitInByteArray_0206dfb0((int)ctx, (unsigned char*)ctx + 0x8c, 0x796);
+    loc.f46 = *(int*)caddr;
+    loc.f47 = TestBitInByteArray_0206dfb0((int)ctx, (unsigned char*)ctx + 0x8c, 0x1142) != 0;
+    memcpy((char*)gs + 0x7c40, &loc, 0x48);
+    memcpy(param3, (char*)(((struct Sz3c00_020ab5d4*)(base + 0x1d8)) + 1) + 0x3c, 4);
+    if (VerifyAndApplySaveBuffer_020ac864(0) == 0) {
+        BackgroundLoader::RemoveLockGlobal();
+        return 0;
+    }
+    BackgroundLoader::RemoveLockGlobal();
+    return 1;
+}
+#else
 extern "C" ARM int func_020ab5d4(void* param0, int param1, int param2, void* param3) {
     if (func_020aaf84(param0, 0, 0, 1) == 0) {
         return 0;
@@ -95,3 +154,4 @@ extern "C" ARM int func_020ab5d4(void* param0, int param1, int param2, void* par
     ClearFlags020466f4((struct FlagWord020466f4*)flags, 0x2000000);
     return 1;
 }
+#endif
