@@ -7,7 +7,13 @@
 struct InitTarget0205cfd4 { char pad[0xbc]; };
 struct Struct_0205bef8 { char pad[0x40]; };
 struct Obj02092aa4 { char pad[0x3c]; };
+#if defined(jpn)
+struct State0xc0cc { char pad[0x38]; };
+enum { regionalEntrySize = 0x488, regionalStates1b84 = 5 };
+#else
 struct State0xc0cc { char pad[0x18]; };
+enum { regionalEntrySize = 0x448, regionalStates1b84 = 9 };
+#endif
 
 void ZeroInit020de848(void* obj);
 void ResetList0204af64(struct List0204af64* obj);
@@ -34,7 +40,7 @@ struct Entry021723a8 {
     char pad3c[0x44 - 0x3c];
     int f44;
     int f48;
-    char pad4c[0x448 - 0x4c];
+    char pad4c[regionalEntrySize - 0x4c];
 };
 
 struct Battle021723a8 {
@@ -95,10 +101,12 @@ struct Battle021723a8 {
     int f1af0;
     char pad1af4[4];
     SafeAllocator alloc1af8;
+#if !defined(jpn)
     struct State0xc0cc states1b0c[3];
+#endif
     struct State0xc0cc state1b54;
     struct State0xc0cc state1b6c;
-    struct State0xc0cc states1b84[9];
+    struct State0xc0cc states1b84[regionalStates1b84];
     struct State0xc0cc states1c5c[8];
     char pad1d1c[0x1d5c - 0x1d1c];
     unsigned char f1d5c;
@@ -220,12 +228,14 @@ extern "C" ARM void func_ov000_021723a8(struct Battle021723a8* self, int arg) {
     func_ov000_0217228c(self);
     InitFields0x0_0203c0cc(&self->state1b54);
     InitFields0x0_0203c0cc(&self->state1b6c);
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < regionalStates1b84; i++) {
         InitFields0x0_0203c0cc(&self->states1b84[i]);
     }
+#if !defined(jpn)
     for (int i = 0; i < 3; i++) {
         InitFields0x0_0203c0cc(&self->states1b0c[i]);
     }
+#endif
     for (int i = 0; i < 8; i++) {
         InitFields0x0_0203c0cc(&self->states1c5c[i]);
     }
