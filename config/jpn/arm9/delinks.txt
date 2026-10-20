@@ -19200,3 +19200,7 @@ src/NitroSDK/Main/func_020b20b0.cpp:
 src/Combat/Main/RepeatStepClampedToField0x3c4.cpp:
     complete
     .text start:0x0206982c end:0x02069878
+
+src/Combat/Main/UpdateStreamStateAndDispatch02044f3c.cpp:
+    complete
+    .text start:0x02045ca4 end:0x02045d88
