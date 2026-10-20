@@ -18,9 +18,15 @@ struct HeadNode02046b24;
 struct SlotState02082d6c;
 struct SlotRecord02082d6c;
 struct SelectionPage02166a90 {
+#if defined(jpn)
+    unsigned char pad0[0x2ca];
+    signed char slot;
+    unsigned char pad4a3[0x2e4 - 0x2cb];
+#else
     unsigned char pad0[0x4a2];
     signed char slot;
     unsigned char pad4a3[0x4bc - 0x4a3];
+#endif
     unsigned char step;
 };
 struct SelectedEntry02166a90 {
@@ -163,9 +169,13 @@ extern "C" ARM int func_ov003_02166a90(SelectionPage02166a90* self, int key) {
         ((ByteSetterWithIntArgument02166a90)SetField0x2d1_020546b4)(member, sameGroup);
         GetPtrField0x2a04_02010828(state);
         Appearance02166a90* appearance = (Appearance02166a90*)GetFieldAt0x150_02053c6c((unsigned char*)member);
+#if defined(jpn)
+        strcpy(((Combatant02166a90*)member)->name, (char*)entry->name);
+#else
         char name[0x30] = {0};
         func_02042764(entry->name, name, 1);
         strcpy(((Combatant02166a90*)member)->name, name);
+#endif
         int index = GetFieldAt0x50((Struct020865b0*)entry);
         appearance->values[index] = entry->metadataValues[GetFieldAt0x50((Struct020865b0*)entry)];
         SetBit0x954StoreIndex0x950_02083ca0((unsigned char*)appearance, GetFieldAt0x50((Struct020865b0*)entry));

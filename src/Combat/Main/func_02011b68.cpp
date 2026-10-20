@@ -36,13 +36,25 @@ struct KeyManager {
     unsigned int deltaTicks;
     char pad_3c8[0xc];
     float timeScale;
+#if defined(jpn)
+    char pad_3d8[0x50e5];
+#else
     char pad_3d8[0x5345];
+#endif
     unsigned char selected[4];
     signed char selectedCount;
+#if defined(jpn)
+    char pad_5722[0x1afe];
+#else
     char pad_5722[0x1ade];
+#endif
     TimedKey timed[16];
     PartyKey previous[3];
+#if defined(jpn)
+    char pad_74de[0xa1a];
+#else
     char pad_74de[0xaae];
+#endif
     State0200fad4 cache[3];
 };
 int CompareSixBytes_02011fb4(unsigned char*, SixBytes);

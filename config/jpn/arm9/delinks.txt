@@ -19151,3 +19151,19 @@ src/Combat/Main/func_0200f3a4.cpp:
 src/Combat/Main/func_020e3f1c.cpp:
     complete
     .text start:0x020e5abc end:0x020e60f4
+
+src/Combat/Main/func_02011b68.cpp:
+    complete
+    .text start:0x020118e0 end:0x02011d30
+
+src/Combat/Main/func_0207f158.cpp:
+    complete
+    .text start:0x0207fed8 end:0x02080220
+
+src/Combat/Main/func_020d80b0.cpp:
+    complete
+    .text start:0x020d9a24 end:0x020d9db0
+
+src/Combat/Main/func_02086f24.cpp:
+    complete
+    .text start:0x02087844 end:0x02087db8

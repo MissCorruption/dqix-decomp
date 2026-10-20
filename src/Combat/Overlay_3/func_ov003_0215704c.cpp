@@ -3,6 +3,11 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_ov003_02158480 func_ov003_0215996c
+#define func_ov003_02158754 func_ov003_02159c40
+#endif
+
 extern "C" {
 int _Z26FindMappedMemberId02080468Pvi(void *, int);
 void _Z26ClearFieldsIfZero_0215385cPv(void *);
@@ -46,6 +51,12 @@ void *_Z26GetGlobal02109418_02094d6cv(void);
 int func_ov003_02158754(void *);
 }
 
+#if defined(jpn)
+#define JPN_OFS(j, u) (j)
+#else
+#define JPN_OFS(j, u) (u)
+#endif
+
 extern char data_02108760[];
 extern char data_02109bf4[];
 extern const char *data_020f2a38;
@@ -86,7 +97,11 @@ struct Ctrl0215704c {
     char pad0c[0x18 - 0xc];
     void *f18;
     char pad1c[0x80 - 0x1c];
+#if defined(jpn)
+    char sub80[0x174 - 0x80];
+#else
     char sub80[0x178 - 0x80];
+#endif
     char sub178[0x1d0 - 0x178];
     int task;
     int f1d4;
@@ -127,7 +142,11 @@ extern "C" ARM void func_ov003_0215704c(struct Ctrl0215704c *self) {
             self->f1e4 = _Z26FindMappedMemberId02080468Pvi(p, self->f1e6);
             self->f1e8 = self->f1e4;
         }
+#if defined(jpn)
+        ((short *) p)[0x2a / 2] = self->f1e4;
+#else
         ((short *) p)[0x36 / 2] = self->f1e4;
+#endif
         func_ov003_02158480(self);
         _Z20ResetWithSub0208203cP11Obj0208203c(self->sub80);
         self->f08   = 0;
@@ -188,7 +207,11 @@ extern "C" ARM void func_ov003_0215704c(struct Ctrl0215704c *self) {
             self->state = 0;
         }
     } else if (state == 4) {
+#if defined(jpn)
+        self->task  = BackgroundLoader::GetInstance()->QueueLoadGP1(data_020f2a38, 0);
+#else
         self->task  = BackgroundLoader::GetInstance()->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, 0);
+#endif
         self->state = self->state + 1;
     } else if (state == 5) {
         BackgroundLoader *loader = BackgroundLoader::GetInstance();
@@ -226,7 +249,7 @@ extern "C" ARM void func_ov003_0215704c(struct Ctrl0215704c *self) {
         }
     } else if (state == 8) {
         char *x = (char *) GetGameResources();
-        if (_Z23GetHeadNodeIdOrMinusOnePP16HeadNode02046b24(*(void **) (x + 0x3000 + 0x700)) == 0x13) {
+        if (_Z23GetHeadNodeIdOrMinusOnePP16HeadNode02046b24(*(void **) (x + 0x3000 + JPN_OFS(0x4f0, 0x700))) == 0x13) {
             return;
         }
         self->state = self->state + 1;
@@ -244,7 +267,7 @@ extern "C" ARM void func_ov003_0215704c(struct Ctrl0215704c *self) {
         }
         void *c2 = _Z34GetCombatantWithFlag0x100_0200ff1cP9GameStatei(gs, self->f1f7);
         if (c2 != 0) {
-            func_02083e28(*(void **) ((char *) c2 + 0x150), 0);
+            func_02083e28(*(void **) ((char *) c2 + JPN_OFS(0x144, 0x150)), 0);
         }
         func_ov003_02155740(self);
         struct Glob0215704c *g = (struct Glob0215704c *) _Z26GetGlobal02109418_02094d6cv();

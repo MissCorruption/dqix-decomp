@@ -269,7 +269,9 @@ extern "C" ARM void func_ov006_0215c154(AlchemyMenu* self) {
             func_ov006_021553bc(self->pot_, self->chosenItems_, self->chosenCounts_);
             self->state_ = 7;
             self->step_ = 0;
+#if !defined(jpn)
             self->times_ = self->count_;
+#endif
             self->message_ = 0x3a;
             self->messageStep_ = 0;
             self->flags_ |= 0x120;

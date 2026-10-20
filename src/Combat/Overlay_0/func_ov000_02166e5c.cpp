@@ -6,7 +6,6 @@
 
 #if defined(jpn)
 #define data_ov000_02183aa5 data_ov000_02184bd8
-#define data_ov000_021839e2 data_ov000_02184b22
 #define data_ov000_02183abe data_ov000_02184bf1
 #define data_ov000_02183014 data_ov000_021840cc
 enum { combatantSize02166e5c = 0x2c8 };

@@ -33,6 +33,9 @@ void SetPtrFieldIfNonNull0x13c_ov000_02165480(void*, int);
 struct CombatantData02164fac;
 CombatantData02164fac* GetFieldAt0x150_02053c6c(unsigned char* obj);
 extern "C" void func_ov000_02166a94(void* work);
+#if defined(jpn)
+extern "C" void func_0207ab68(ActionDataTables* tables, SafeAllocator* allocator);
+#endif
 int GetFieldB08_0219e008(void* ov);
 void CopyState0207dfc8(State0207dfc8* src, State0207dfc8* dst);
 
@@ -56,12 +59,21 @@ struct BattleWork02164fac {
     char pad_8[0x44 - 0x8];
     SafeAllocator effectAllocator;
     SafeAllocator tableAllocator;
+#if defined(jpn)
+    char pad_6c[0x1a8 - 0x6c];
+    char state[0x21c - 0x1a8];
+    unsigned char* roster;
+    char pad_220[0x5914 - 0x220];
+    int scriptState;
+    char pad_5918[0x5e2c - 0x5918];
+#else
     char pad_6c[0x1bc - 0x6c];
     char state[0x2a0 - 0x1bc];
     unsigned char* roster;
     char pad_2a4[0x5724 - 0x2a4];
     int scriptState;
     char pad_5728[0x5c3c - 0x5728];
+#endif
     ModelState02164fac models[4];
 };
 
@@ -73,18 +85,35 @@ struct CombatantFlags02164fac {
 struct CombatantData02164fac {
     char pad_0[0x49c];
     CombatantFlags02164fac flags;
+#if defined(jpn)
+    char pad_49d[0x8b4 - 0x49d];
+#else
     char pad_49d[0x94c - 0x49d];
+#endif
     int phase;
 };
+
+#if defined(jpn)
+#define INFO_NAME_ID 0xc
+#else
+#define INFO_NAME_ID 0x11
+#endif
 
 struct Combatant02164fac {
     Object3D object;
     char pad_ac[0xc2 - 0xac];
     unsigned char flags;
+#if defined(jpn)
+    char pad_c3[0x144 - 0xc3];
+    CombatantData02164fac* data;
+    unsigned char* model;
+    char pad_14c[0x1b8 - 0x14c];
+#else
     char pad_c3[0x150 - 0xc3];
     CombatantData02164fac* data;
     unsigned char* model;
     char pad_158[0x1c4 - 0x158];
+#endif
     unsigned char* info;
 };
 
@@ -113,8 +142,12 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
     BackgroundLoader::AddLockGlobal();
     func_02012de8();
     ActionDataTables* table = GetData02108e10_020797dc();
+#if defined(jpn)
+    func_0207ab68(table, allocator);
+#else
     work->tableAllocator.Reset();
     func_02079cf8(table, allocator, &work->tableAllocator);
+#endif
     func_02012de8();
 
     if (LoadFileIntoMemory(data_ov000_02183960, data_0211e33c, &size)) {
@@ -152,7 +185,7 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
             if (CheckField0x56bLowNibble((Obj02061bd8*)c)) {
                 c->object.Destroy();
                 if (c->info != NULL) {
-                    sprintf(name, data_ov000_0218399e, c->info[0x11]);
+                    sprintf(name, data_ov000_0218399e, c->info[INFO_NAME_ID]);
                 }
                 alloc = (SafeAllocator*)(model + 4);
                 alloc->Reset();
@@ -187,7 +220,7 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
             if (CheckField0x56bLowNibble((Obj02061bd8*)c)) {
                 BackupPairTables0207dfac((char*)(model + 0xcc));
                 if (c->info != NULL) {
-                    sprintf(name, data_ov000_021839c0, c->info[0x11]);
+                    sprintf(name, data_ov000_021839c0, c->info[INFO_NAME_ID]);
                 }
                 LoadFileIntoMemory(name, data_0211e33c, &size);
                 buf = data_0211e33c;
@@ -230,7 +263,11 @@ extern "C" ARM void func_ov000_02164fac(BattleWork02164fac* work) {
     BackgroundLoader::RemoveLockGlobal();
     func_02012de8();
     func_ov000_02166a94(work);
+#if defined(jpn)
+    unsigned int effectSize = allocator->GetMaxPossibleAllocation();
+#else
     unsigned int effectSize = 0x26a80;
+#endif
     void* mem = allocator->Allocate(effectSize);
     if (mem != NULL) {
         work->effectAllocator.CreateTypeA(mem, effectSize);

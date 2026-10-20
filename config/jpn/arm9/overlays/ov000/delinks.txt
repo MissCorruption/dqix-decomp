@@ -3250,3 +3250,15 @@ src/Combat/Overlay_0/func_ov000_0215b5a0.cpp:
     complete
     .text start:0x0215cd20 end:0x0215d33c
     .rodata start:0x02183c9c end:0x02183cbc
+
+src/Combat/Overlay_0/func_ov000_02166a94.cpp:
+    complete
+    .text start:0x021681d0 end:0x0216857c
+
+src/Combat/Overlay_0/func_ov000_02164fac.cpp:
+    complete
+    .text start:0x02166700 end:0x02166bcc
+
+src/Combat/Overlay_0/func_ov000_02160140.cpp:
+    complete
+    .text start:0x021618c0 end:0x02161c6c
