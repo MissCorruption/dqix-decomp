@@ -244,7 +244,7 @@ _Z28UpdateEntryPosition_0216acf0Pc kind:function(arm,size=0xd0) addr:0x0216a88c
 _Z18MaybeReset0216adbcPv kind:function(arm,size=0x50) addr:0x0216a95c
 func_ov003_0216ae0c kind:function(arm,size=0x108) addr:0x0216a9ac
 func_ov003_0216af14 kind:function(arm,size=0x168) addr:0x0216aab4
-func_ov003_0216ac1c kind:function(arm,size=0x750) addr:0x0216ac1c
+func_ov003_0216b07c kind:function(arm,size=0x750) addr:0x0216ac1c
 func_ov003_0216b7bc kind:function(arm,size=0x1fc) addr:0x0216b36c
 func_ov003_0216b968 kind:function(arm,size=0x280) addr:0x0216b568
 func_ov003_0216bb70 kind:function(arm,size=0x178) addr:0x0216b7e8
@@ -499,7 +499,7 @@ data_ov003_0217f4dc kind:data(any) addr:0x0217e184
 data_ov003_0217f4e4 kind:data(any) addr:0x0217e18c
 data_ov003_0217f4f0 kind:data(any) addr:0x0217e198
 data_ov003_0217f528 kind:data(any) addr:0x0217e1d0
-data_ov003_0217e1d8 kind:data(any) addr:0x0217e1d8
+data_ov003_0217f56c kind:data(any) addr:0x0217e1d8
 data_ov003_0217f578 kind:data(any) addr:0x0217e1e4
 data_ov003_0217f5c0 kind:data(any) addr:0x0217e224
 data_ov003_0217e264 kind:data(any) addr:0x0217e264
