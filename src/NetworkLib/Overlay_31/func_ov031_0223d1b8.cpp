@@ -3,8 +3,7 @@
 
 typedef struct TouchPos_0223d1b8 TouchPos_0223d1b8;
 struct TouchPos_0223d1b8 {
-    unsigned short x;
-    unsigned short y;
+    unsigned short v[2];
 };
 
 typedef struct InputState_0223d1b8 InputState_0223d1b8;
