@@ -698,3 +698,7 @@ src/Combat/Overlay_2/AppendField0215f644.cpp:
 src/Combat/Overlay_2/AppendCursorFrameTag_02160190.cpp:
     complete
     .text start:0x02161158 end:0x021611a8
+
+src/Combat/Overlay_2/RegisterOrCheckEntry0215b720.cpp:
+    complete
+    .text start:0x0215c974 end:0x0215ca24
