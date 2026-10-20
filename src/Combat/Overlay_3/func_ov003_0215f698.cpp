@@ -39,6 +39,53 @@ extern "C" int sprintf(char* dst, const char* fmt, ...);
 extern "C" void* memcpy(void* dst, const void* src, int size);
 
 // USA: func_ov003_0215f698
+#if defined(jpn)
+struct Record0215f89c {
+    unsigned char active : 1;
+    unsigned char level : 6;
+    unsigned char valid : 1;
+    char name[0x13];
+    signed char nameLevel;
+    unsigned char id[6];
+};
+
+extern "C" ARM void func_ov003_0215f698(struct Record0215f89c* records, short* count) {
+    void* ctx = func_0202ae18();
+    int n = GetField0xc_0202bae4(ctx);
+
+    struct Record0215f89c* rec = records;
+    for (short i = 0; i < 10; i++) {
+        rec->active = 0;
+        rec++;
+    }
+
+    for (int k = 0; k < n; k++) {
+        struct Element0202bad4* elem = GetElementAt0x10Stride0xc0((struct ElementArray0202bad4*)ctx, k);
+        int found = 0;
+        for (short j = 0; j < *count; j++) {
+            rec = &records[j];
+            if (elem->removed == 0 && func_02001aec(rec->id, elem->id, 6) == 0 && !elem->hidden && !elem->present) {
+                rec->valid = 1;
+                rec->active = 1;
+                memcpy(rec->name, elem->name, 0x14);
+                memcpy(rec->id, elem->id, 6);
+                rec->level = rec->nameLevel;
+                found = 1;
+                break;
+            }
+        }
+        if (!found && *count < 10 && elem->removed == 0 && !elem->hidden && !elem->present && elem->level > 0) {
+            struct Record0215f89c* added = &records[*count];
+            added->valid = 1;
+            added->active = 1;
+            memcpy(added->name, elem->name, 0x14);
+            memcpy(added->id, elem->id, 6);
+            added->level = elem->level;
+            (*count)++;
+        }
+    }
+}
+#else
 extern "C" ARM void func_ov003_0215f698(struct Record0215f698* records, short* count) {
     void* ctx = func_0202ae18();
     int n = GetField0xc_0202bae4(ctx);
@@ -83,3 +130,4 @@ extern "C" ARM void func_ov003_0215f698(struct Record0215f698* records, short* c
         }
     }
 }
+#endif
