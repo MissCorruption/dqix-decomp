@@ -350,3 +350,7 @@ src/Combat/Overlay_2/CheckFlagOrThreshold_02161b48.cpp:
 src/Combat/Overlay_2/SetupTargetAndApplyState021575d4.cpp:
     complete
     .text start:0x02158c44 end:0x02158ca4
+
+src/Combat/Overlay_2/ResetOrFinalizeLoaderState_021561b0.cpp:
+    complete
+    .text start:0x02157894 end:0x02157930
