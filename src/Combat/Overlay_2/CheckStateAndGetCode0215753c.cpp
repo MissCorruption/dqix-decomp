@@ -4,6 +4,40 @@ extern "C" void func_ov002_0215a658(void* obj, int val);
 extern "C" void func_ov002_0215a7b4(void* obj, int val, int count, int val2, int flag);
 
 // USA: func_ov002_0215753c
+#if defined(jpn)
+extern "C" void func_ov002_0215bbac(void* obj, int val, int count, int val2, int flag);
+#define func_ov002_0215a7b4 func_ov002_0215bbac
+ARM int CheckStateAndGetCode0215753c(unsigned char* obj) {
+    int result = -1;
+
+    if (*(short*)(obj + 0x1ada) != 0) {
+        goto end;
+    }
+
+    if (*(short*)(obj + 0x1ab8) >= 0) {
+        signed char b = *(signed char*)(obj + 0x1ae8);
+        result = 0x238e;
+        func_ov002_0215a658(obj, b);
+    }
+
+    if (*(short*)(obj + 0x1aea) > 0) {
+        if (*(short*)(obj + 0x1ab2) == 2) {
+            signed char b2 = *(signed char*)(obj + 0x1ae8);
+            short c = *(short*)(obj + 0x1aea);
+            short e = *(short*)(obj + 0x1ab0);
+            result = 0x2366;
+            func_ov002_0215a7b4(obj, b2, c, e, 0);
+        }
+    }
+
+    if (*(int*)(obj + 0x1a84) == 0x27) {
+        result = 0x125d;
+    }
+
+end:
+    return result;
+}
+#else
 ARM int CheckStateAndGetCode0215753c(unsigned char* obj) {
     int result = -1;
 
@@ -34,3 +68,4 @@ ARM int CheckStateAndGetCode0215753c(unsigned char* obj) {
 end:
     return result;
 }
+#endif
