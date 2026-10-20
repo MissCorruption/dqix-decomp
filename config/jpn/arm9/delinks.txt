@@ -19240,3 +19240,7 @@ src/Combat/Main/AppendNamedEntry020d3cf0.cpp:
 src/Combat/Main/func_020d39dc.cpp:
     complete
     .text start:0x020d5440 end:0x020d566c
+
+src/Combat/Main/func_02038138.cpp:
+    complete
+    .text start:0x02037b90 end:0x02037f58

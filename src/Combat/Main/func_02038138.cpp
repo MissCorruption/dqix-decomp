@@ -6,6 +6,13 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define RG(usa, jpn) (jpn)
+#define data_020e780c data_020e8150
+#else
+#define RG(usa, jpn) (usa)
+#endif
+
 struct Vec3 { int x; int y; int z; };
 struct Bytes02033b88;
 struct Obj02033b68;
@@ -41,7 +48,7 @@ struct Actor02038138 {
     unsigned char fbe;
     char padbf;
     unsigned char fc0;
-    char padc1[0x250 - 0xc1];
+    char padc1[RG(0x250, 0x244) - 0xc1];
     unsigned char dir;
     char pad251;
     unsigned char f252;
@@ -148,7 +155,7 @@ extern "C" ARM void func_02038138(struct Actor02038138* self) {
         if (self->lockedDir == self->dir) {
             angle = self->lockedAngle;
         } else {
-            struct Box0201e8fc* box = FindBoxContainingPoint0201e8fc((struct Container0201e8fc*)(world + 0x6c), &self->pos);
+            struct Box0201e8fc* box = FindBoxContainingPoint0201e8fc((struct Container0201e8fc*)(world + RG(0x6c, 0x8c)), &self->pos);
             if (box) {
                 if (fix32abs(fix32SignedAngleDistance(angle, box->angle)) < 0xc91) {
                     self->lockedDir = self->dir;
