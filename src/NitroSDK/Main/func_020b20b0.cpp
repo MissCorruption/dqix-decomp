@@ -4,8 +4,6 @@ typedef unsigned int u32;
 typedef unsigned short u16;
 typedef unsigned char u8;
 
-// NitroSystem g2d_CharCanvas.c: NNS_G2dArrangeOBJ1D
-
 #define CHARACTER_WIDTH  8
 #define CHARACTER_HEIGHT 8
 
@@ -48,10 +46,8 @@ struct ObjectSize {
     u8 heightShift;
 };
 
-// GetMaxObjectSize's objs[4][4]
 extern ObjectSize data_020e91e0[4][4];
 
-// OBJSizeToShape
 GXOamShape LookupWord2D_020b11ac(u8 *pSize);
 
 static inline u32 MATH_CountLeadingZerosInline(u32 x) {

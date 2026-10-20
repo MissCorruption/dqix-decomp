@@ -154,7 +154,6 @@ struct Path0216e714 {
 };
 
 // JPN: no name buffer (records print straight via %s), a per-kind label switch, a per-category
-// label switch, one date/rank/level line, fixed page arrows and a single page line, no kinds[] table.
 extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
     int row;
     int start;
