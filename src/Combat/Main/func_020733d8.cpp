@@ -7,9 +7,7 @@
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
 #define data_020e88a8 data_020e89bc
-#define SetVec3At0x002073d50 func_02074edc
 struct Vec3Target02073d50;
-extern "C" void func_02074edc(struct Vec3Target02073d50* obj, int x, int y, int z);
 enum { regionalOffsetList = 0x14, regionalOffsetMask = 0x5c };
 #else
 enum { regionalOffsetList = 0x18, regionalOffsetMask = 0x60 };
