@@ -23580,7 +23580,7 @@ from:0x020cdf08 kind:arm_call to:0x020c9720 module:main
 from:0x020cdf4c kind:arm_call to:0x020c9720 module:main
 from:0x020cdf78 kind:arm_call to:0x020c9720 module:main
 from:0x020ce104 kind:load to:0x021117b0 module:main
-from:0x020ce108 kind:load to:0x021117cc module:main
+from:0x020ce108 kind:load to:0x021117b0 add:0x1c module:main
 from:0x020ce120 kind:load to:0x021117b0 module:main
 from:0x020ce134 kind:load to:0x021117b0 module:main
 from:0x020ce154 kind:load to:0x021117ec module:main
