@@ -3,7 +3,6 @@
 
 #if defined(jpn)
 #define func_ov002_02157030 func_ov002_021586b0
-#define func_ov002_0215c988 func_ov002_0215d9e0
 #endif
 
 extern "C" void func_ov002_02157030(void *base, int type, short *a, short *b, short *c, short *d);
