@@ -4,6 +4,7 @@
 #include "Resource/GameResources.h"
 
 #if defined(jpn)
+#include <std_library_functions.h>
 #define func_0205ec34 func_0205ff20
 #endif
 
@@ -16,7 +17,11 @@ struct Transition0215657c {
     char field_c[0xa];
     unsigned short currentId;
     unsigned short currentKind;
+#if defined(jpn)
+    char field_1a[0x76];
+#else
     char field_1a[0x7a];
+#endif
     int context;
     char field_98[0xba];
     unsigned short targetId;
@@ -24,6 +29,17 @@ struct Transition0215657c {
     unsigned short area;
     unsigned short targetKind;
 };
+#if defined(jpn)
+struct Obj02046574 {
+    char field_0[0x868];
+    int active;
+    char field_86c[0xf76];
+    unsigned char field_19b2;
+    char field_17e3[0xb];
+    unsigned char field_19be;
+};
+extern const char data_ov001_021661e8[];
+#else
 struct Obj02046574 {
     char field_0[0x998];
     int active;
@@ -32,6 +48,7 @@ struct Obj02046574 {
     char field_19b3[0xb];
     unsigned char field_19be;
 };
+#endif
 struct Rgb02070900 { int red; int green; int blue; };
 struct EffectParam02070900;
 struct Timer020707c8;
@@ -44,7 +61,11 @@ Obj02046574* GetGlobalField0x1c020421a0();
 void SetIndexedName02046574(Obj02046574*, int, char*);
 int CallFunc020e0434With02153694_020e51cc(int);
 extern "C" void func_02046608(Obj02046574*, int, int, char*, int, int, int);
+#if defined(jpn)
+extern "C" void func_0204500c(Obj02046574*, char*, int);
+#else
 extern "C" void func_0204500c(Obj02046574*, char*, int, int);
+#endif
 void SetMainBrightness(GameResources*, int, int);
 extern "C" EffectParam02070900* func_020704fc();
 void SetColoredEffectParam02070900(EffectParam02070900*, Rgb02070900*, unsigned int);
@@ -82,11 +103,17 @@ extern "C" ARM int func_ov001_0215657c(Transition0215657c* transition, void* lis
         GameObject* member = GetCombatantWithFlag0x100_0200ff1c(state, 0);
         if (member) {
             char* name = (char*)member->baseStats_;
+#if defined(jpn)
+            char text[0x50];
+            sprintf(text, data_ov001_021661e8, name);
+            func_0204500c(message, text, 0);
+#else
             SetIndexedName02046574(message, 0, name);
             char text[0x100];
             int messageId = CallFunc020e0434With02153694_020e51cc(0x34);
             func_02046608(message, 12, messageId, text, 0xe3, 0, 1);
             func_0204500c(message, text, 0, 0xe3);
+#endif
             message->active = 1;
             message->field_19b2 = 0;
             message->field_19be = 1;
