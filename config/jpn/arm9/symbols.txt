@@ -5987,7 +5987,7 @@ _Z39NotifyManagerForSetArrayEntries020e3ed8P14Struct020e3ed8 kind:function(arm,s
 func_020e3f1c kind:function(arm,size=0x638) addr:0x020e5abc
 _Z32StartBattleTimerSequence020e4524Pc kind:function(arm,size=0x38) addr:0x020e60f4
 _Z25ProcessBattleTick020e455cP18MainStruct020e455c kind:function(arm,size=0xd0) addr:0x020e612c
-__sinit_020e61fc kind:function(arm,size=0xac) addr:0x020e61fc
+__sinit_020e5920 kind:function(arm,size=0xac) addr:0x020e61fc
 __sinit_020e59c8 kind:function(arm,size=0xac) addr:0x020e62a8
 __sinit_020e5a74 kind:function(arm,size=0x88) addr:0x020e6354
 __sinit_020e5afc kind:function(arm,size=0x2c) addr:0x020e63dc
@@ -6451,7 +6451,7 @@ data_020eefa4 kind:data(any) addr:0x020eefa4
 data_020ef048 kind:data(any) addr:0x020eefa8
 data_020ef070 kind:data(any) addr:0x020eefd0
 data_020ef078 kind:data(any) addr:0x020eefd8
-data_020eefdc kind:data(any) addr:0x020eefdc
+data_020ef07c kind:data(any) addr:0x020eefdc
 data_020eeff3 kind:data(any) addr:0x020eeff3
 data_020ef0ca kind:data(any) addr:0x020ef008
 data_020ef0dc kind:data(any) addr:0x020ef018
