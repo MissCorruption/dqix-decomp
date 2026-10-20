@@ -240,3 +240,7 @@ src/Combat/Overlay_12/func_ov012_02186c1c.cpp:
 src/Combat/Overlay_12/func_ov012_02187608.cpp:
     complete
     .text start:0x02187d2c end:0x021882b0
+
+src/Combat/Overlay_12/func_ov012_02187fe4.cpp:
+    complete
+    .text start:0x02188790 end:0x02188bb0
