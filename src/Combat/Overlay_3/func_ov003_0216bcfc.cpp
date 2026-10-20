@@ -6,9 +6,15 @@
 #include <globaldefs.h>
 
 struct Global0216bcfc {
+#if defined(jpn)
+    char unk_0[0x28];
+    char *text_;
+    char unk_2c[0x868 - 0x2c];
+#else
     char unk_0[0x5c];
     char *text_;
     char unk_60[0x998 - 0x60];
+#endif
     int unk_998;
     char unk_99c[4];
     int unk_9a0;
@@ -20,10 +26,17 @@ struct Menu0216bcfc {
     short step_;
     char unk_8[4];
     int task_;
+#if defined(jpn)
+    char unk_10[0x428 - 0x10];
+    char sub_410[0x500 - 0x428];
+    void *unk_4e8;
+    char unk_4ec[0x10f4 - 0x504];
+#else
     char unk_10[0x410 - 0x10];
     char sub_410[0x4e8 - 0x410];
     void *unk_4e8;
     char unk_4ec[0x1264 - 0x4ec];
+#endif
     int unk_1264;
     int unk_1268;
     char unk_126c[0x12a8 - 0x126c];
@@ -56,8 +69,19 @@ extern "C" void *func_0202ae18();
 extern "C" void func_0202c288();
 extern "C" void func_02043124(void *p);
 extern "C" void func_0205a528(void *renderer, void *file, unsigned int size, SafeAllocator *allocator);
+#if defined(jpn)
+extern "C" void func_ov003_0216d8d4(void *self, int a);
+extern "C" void func_ov003_0216f9cc(void *sub);
+extern "C" void func_ov003_0216d858(void *sub, SafeAllocator *allocator);
+extern char data_ov003_0217e985[];
+#define func_ov003_0216d8d4(self, a, b, c, d) func_ov003_0216d8d4(self, a)
+#define InitField170_021700bc(p) func_ov003_0216f9cc(p)
+#define func_ov003_0216e02c func_ov003_0216d858
+#define data_ov003_021801c9 data_ov003_0217e985
+#else
 extern "C" void func_ov003_0216d8d4(void *self, int a, int b, int c, int d);
 extern "C" void func_ov003_0216e02c(void *sub, SafeAllocator *allocator);
+#endif
 extern "C" int func_ov003_0216e124(void *sub);
 extern "C" void func_ov003_021700dc(void *sub);
 void *GetGlobalField0x1c020421a0();
@@ -82,7 +106,11 @@ extern "C" ARM void func_ov003_0216bcfc(Menu0216bcfc *self) {
             return;
         }
         Global0216bcfc *global2 = (Global0216bcfc *) GetGlobalField0x1c020421a0();
+#if defined(jpn)
+        memset(global2->text_, 0, 0x800);
+#else
         memset(global2->text_, 0, 0x960);
+#endif
         void *buffer = AllocateAligned4_02012d88((AllocatorUnion *) &data_02114e20, 0x8000);
         VectorizedMemset(buffer, 0, 0x8000);
         self->allocator_.CreateTypeA(buffer, 0x8000);
@@ -107,7 +135,11 @@ extern "C" ARM void func_ov003_0216bcfc(Menu0216bcfc *self) {
             self->allocator_.Destroy();
             TailForward02012da4((AllocatorUnion *) &data_02114e20, signedAlloc);
         }
+#if defined(jpn)
+        EmptyDestructor0205a494((char *) self + 0x10fc);
+#else
         EmptyDestructor0205a494((char *) self + 0x126c);
+#endif
         self->unk_12bc = 0;
         self->unk_12ac = self->unk_1264;
         self->unk_12b8 = 0xf;
@@ -126,7 +158,11 @@ extern "C" ARM void func_ov003_0216bcfc(Menu0216bcfc *self) {
         SafeAllocator *alloc = &self->allocators_[0];
         for (int i = 0; i < count; i++) {
             void *data = FindRecordByIndex((Rec020467f0 *) file, i, &name, &fileSize);
+#if defined(jpn)
+            func_0205a528((char *) self + 0x10fc, data, fileSize, alloc);
+#else
             func_0205a528((char *) self + 0x126c, data, fileSize, alloc);
+#endif
         }
         loader->RemoveTask(self->task_);
         self->task_ = -1;
