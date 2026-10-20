@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 
 struct Obj2081 {
+#if defined(jpn)
+    char unk_0[0x2a];
+#else
     char unk_0[0x36];
+#endif
     short selected;
 };
 int HasElementByByte0xc4_020811d0(struct Obj2081* obj, int key);
@@ -21,7 +25,11 @@ extern "C" int func_ov003_021765b4(void* self);
 extern "C" int func_ov003_021766e8(void* self);
 
 struct Menu_0217a280 {
+#if defined(jpn)
+    char unk_0[0x808];
+#else
     char unk_0[0x88c];
+#endif
     char repeat[0x89c - 0x88c];
     struct Obj2081* menu;
     char unk_8a0[0xff8 - 0x8a0];

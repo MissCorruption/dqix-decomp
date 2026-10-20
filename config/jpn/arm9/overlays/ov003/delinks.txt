@@ -1692,3 +1692,11 @@ src/Combat/Overlay_3/FormatEntriesFromBase_02160344.cpp:
 src/Combat/Overlay_3/func_ov003_0217b214.cpp:
     complete
     .text start:0x02179f90 end:0x0217a18c
+
+src/Combat/Overlay_3/func_ov003_0217a280.cpp:
+    complete
+    .text start:0x021790b0 end:0x021792b8
+
+src/Combat/Overlay_3/func_ov003_0217a764.cpp:
+    complete
+    .text start:0x02179550 end:0x021798e4

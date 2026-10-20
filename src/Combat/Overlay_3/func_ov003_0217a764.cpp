@@ -119,9 +119,11 @@ extern "C" ARM void func_ov003_0217a764(unsigned char* self) {
             *(short*)(self + (0x1000 + 0x36 - kRegionSelfShift)) = next36;
             *(unsigned char*)(self + (0x1000 + 0x3f - kRegionSelfShift)) = next3f;
             *(unsigned short*)(self + (0x1000 + 0x46 - kRegionSelfShift)) |= 0x2000;
+#if !defined(jpn)
             if (((struct ElemKind0217a764*)*(void**)(self + 8))->kind_ == 0) {
                 *(unsigned short*)(self + (0x1000 + 0x46 - kRegionSelfShift)) &= ~0x2000;
             }
+#endif
             return;
         }
         if (func_ov003_021766e8(self) == 0) return;
