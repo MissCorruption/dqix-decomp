@@ -19204,3 +19204,7 @@ src/Combat/Main/RepeatStepClampedToField0x3c4.cpp:
 src/Combat/Main/UpdateStreamStateAndDispatch02044f3c.cpp:
     complete
     .text start:0x02045ca4 end:0x02045d88
+
+src/Combat/Main/FindMatchingEntryIndex.cpp:
+    complete
+    .text start:0x0204687c end:0x02046948
