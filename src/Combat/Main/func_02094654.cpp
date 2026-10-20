@@ -1,7 +1,13 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+enum { regionalState = 0x138 };
+#else
+enum { regionalState = 0x3c8 };
+#endif
+
 struct Display02094654 {
-    char pad0[0x3c8];
+    char pad0[regionalState];
     unsigned char state : 7;
     unsigned char display : 1;
 };

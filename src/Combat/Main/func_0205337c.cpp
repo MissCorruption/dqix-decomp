@@ -25,12 +25,18 @@ struct Anim0205337c {
     int GetIndex() const { return animIdx; }
 };
 
+#if defined(jpn)
+enum { regionalAnim = 0x16c, regionalNode = 0x184 };
+#else
+enum { regionalAnim = 0x178, regionalNode = 0x190 };
+#endif
+
 struct Obj0205337c {
     unsigned char pad0[0x44];
     struct Vec3copy0202ec84 pose;
-    unsigned char pad1[0x178 - 0x50];
+    unsigned char pad1[regionalAnim - 0x50];
     struct Anim0205337c anim;
-    unsigned char pad2[0x190 - 0x17e];
+    unsigned char pad2[regionalNode - regionalAnim - 6];
     struct Node0205337c* node;
 };
 

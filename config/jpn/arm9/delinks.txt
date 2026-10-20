@@ -19196,3 +19196,19 @@ src/Combat/Main/func_02020c18.cpp:
 src/NitroSDK/Main/func_020b20b0.cpp:
     complete
     .text start:0x020b3b7c end:0x020b3e74
+
+src/Combat/Main/SetField9a0AndIncrementField78.cpp:
+    complete
+    .text start:0x02044be8 end:0x02044c00
+
+src/Combat/Main/func_02094654.cpp:
+    complete
+    .text start:0x02094f3c end:0x02094fe0
+
+src/Combat/Main/func_020947f0.cpp:
+    complete
+    .text start:0x020950d8 end:0x02095234
+
+src/Combat/Main/func_0205337c.cpp:
+    complete
+    .text start:0x020546f4 end:0x02054824
