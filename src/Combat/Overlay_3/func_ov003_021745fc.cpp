@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-#define func_ov003_021760cc func_ov003_021750e4
 #define data_ov003_02180cc8 data_ov003_0217ef40
 #define data_ov003_02180aa4 data_ov003_0217ed08
 #endif

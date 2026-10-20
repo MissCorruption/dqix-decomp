@@ -9,6 +9,17 @@ extern int data_020f2a38;
 extern int data_020f2a30;
 
 // USA: func_ov023_021fbef0
+#if defined(jpn)
+ARM int InitField1cOrRegisterCallback_021fbef0(void* a, void* b) {
+    void* sub = func_ov011_021849c8(b);
+    if (func_ov023_021f6bb8(sub) >= 0) {
+        return *(int*)((char*)a + 0x1c);
+    }
+    int result = ((BackgroundLoader*)((int)BackgroundLoader::GetInstance()))->QueueLoadGP1((const char*)(data_020f2a38), (SafeAllocator*)(0));
+    func_ov023_021f6bb0(sub, result);
+    return 1;
+}
+#else
 ARM int InitField1cOrRegisterCallback_021fbef0(void* a, void* b) {
     void* sub = func_ov011_021849c8(b);
     if (func_ov023_021f6bb8(sub) >= 0) {
@@ -18,3 +29,4 @@ ARM int InitField1cOrRegisterCallback_021fbef0(void* a, void* b) {
     func_ov023_021f6bb0(sub, result);
     return 1;
 }
+#endif

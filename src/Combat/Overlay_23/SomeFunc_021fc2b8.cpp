@@ -11,6 +11,21 @@ extern char data_ov023_021ff496;
 struct Self021fc2b8 { char pad[0x1c]; int field1c; };
 
 // USA: func_ov023_021fc2b8
+#if defined(jpn)
+extern char data_ov023_021fe718;
+
+ARM int SomeFunc_021fc2b8(struct Self021fc2b8* self, void* arg1) {
+    void* sub = func_ov011_021849c8(arg1);
+    int v = func_ov023_021f6bb8(sub);
+    if (v >= 0) {
+        return self->field1c;
+    }
+    int getter = (int)BackgroundLoader::GetInstance();
+    int result = ((BackgroundLoader*)(getter))->QueueLoadFile((const char*)((int)&data_ov023_021fe718), (SafeAllocator*)(0));
+    func_ov023_021f6bb0(sub, result);
+    return 1;
+}
+#else
 ARM int SomeFunc_021fc2b8(struct Self021fc2b8* self, void* arg1) {
     void* sub = func_ov011_021849c8(arg1);
     int v = func_ov023_021f6bb8(sub);
@@ -22,3 +37,4 @@ ARM int SomeFunc_021fc2b8(struct Self021fc2b8* self, void* arg1) {
     func_ov023_021f6bb0(sub, result);
     return 1;
 }
+#endif

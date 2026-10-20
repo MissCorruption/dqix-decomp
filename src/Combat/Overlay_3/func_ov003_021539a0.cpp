@@ -119,9 +119,149 @@ extern char data_ov003_0217fcd5[];
 extern char data_ov003_0217fcde[];
 extern short data_ov003_0217f288[];
 
+#if defined(jpn)
+#define data_ov003_0217fca0 data_ov003_0217e520
+#define data_ov003_0217f288 data_ov003_0217df8c
+extern char data_ov003_0217e520[];
+extern short data_ov003_0217df8c[];
+#endif
+
 #define CAP999(x) ((x) > 999 ? 999 : (x))
 
 // USA: func_ov003_021539a0
+#if defined(jpn)
+extern "C" ARM void func_ov003_021539a0(struct Self_021539a0* self) {
+    if (self->member < 0) return;
+    if (!(self->flags & 1)) return;
+    struct Loader* loader = (Loader*)BackgroundLoader::GetInstance();
+    if (self->state == 0) {
+        char path[0x18];
+        __clear(path, 0x18);
+        sprintf(path, data_ov003_0217fca0, self->idx);
+        self->task50 = ((BackgroundLoader*)loader)->QueueLoadFile(path, (SafeAllocator*)0);
+        self->task54 = ((BackgroundLoader*)loader)->QueueLoadFile(data_ov003_0217fcb5, (SafeAllocator*)0);
+        self->state++;
+    } else if (self->state == 1) {
+        if (((BackgroundLoader*)loader)->GetTaskStatus(self->task50) == 0) return;
+        if (((BackgroundLoader*)loader)->GetTaskStatus(self->task54) == 0) return;
+        struct Draw_021539a0 draw;
+        struct ListObj_021539a0 list;
+        int vals[9];
+        void* file;
+        unsigned int size;
+        void* rp;
+        int rs;
+        ((BackgroundLoader*)loader)->GetLoadedFileByID(self->task50, &file, &size);
+        void* gs = GameState::GetInstance();
+        unsigned char* obj = (unsigned char*)((GameState*)gs)->GetPartyMemberByIndex(self->member);
+        Clear0x54Bytes0208247c(self->stats);
+        unsigned char* base = 0;
+        unsigned char* gfx;
+        if (obj != 0 && file != 0) {
+            base = GetFieldAt0x150_02053c6c(obj);
+            func_02082490(self->stats, file, size, *(unsigned short*)(base + 0x100 + self->idx * 2 + 0x6c), 0);
+        }
+        ((BackgroundLoader*)loader)->RemoveTask(self->task50);
+        self->task50 = -1;
+        ((BackgroundLoader*)loader)->GetLoadedFileByID(self->task54, &file, &size);
+        obj = (unsigned char*)FindRecordByIndex((Rec020467f0*)file, 0, &rp, &rs);
+        if (obj != 0) {
+            list.lo = 1;
+            list.hi = 0;
+            SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)&list, 0);
+            func_0204b5b4(&list, 0);
+            DispatchViaTable0204b5e8((Obj0204b5e8*)&list, 0, 0);
+            gfx = obj + 0x10;
+            func_0204c684(&draw);
+            draw.s28 = 0x20;
+            draw.s2a = 0x18;
+            draw.s34 = 0xc;
+            draw.p8 = gfx;
+            draw.s36 = 0x10;
+            struct Layout_021539a0* ents;
+            struct Stats_021539a0* stats;
+            int idx;
+            void* cont;
+            cont = self->cont;
+            idx = self->idx;
+            stats = self->stats;
+            ents = self->ents;
+            if (base != 0) {
+                struct Entry_021539a0* e;
+                unsigned short i;
+                unsigned short count;
+                struct Entry_021539a0* arr;
+                arr = ents->arr;
+                if (arr == NULL) {
+                    e = 0;
+                } else {
+                    count = ents->count;
+                    if (count == 0) {
+                        e = 0;
+                    } else {
+                        for (i = 0; i < count; i++) {
+                            short id = arr[i].id;
+                            if (id == 1) {
+                                e = &arr[i];
+                                goto found;
+                            }
+                        }
+                        e = 0;
+                    }
+                }
+            found:
+                if (e) {
+                    e->f16 &= ~1;
+                }
+                DispatchIndexedEntry0204b988((Obj0204b988*)self->list, (unsigned char)(idx + 1) & 0xff, 3, 2, 0xffff);
+                FlushAndDispatchList0204b0e8((List0204b0e8*)self->list, 0);
+                unsigned char cls = idx - 1;
+                draw.s38 = 0xa;
+                draw.s3a = 0x10;
+                unsigned char key = cls + cls * 2;
+                SetEntryFields_021e23d0(ents, 7, (int)GetFieldByKey020e0434((Container020e0310*)cont, key), 0xc, 0xf);
+                SetEntryFields_021e23d0(ents, 8, (int)GetFieldByKey020e0434((Container020e0310*)cont, (short)(key + 1)), 0xc, 0xf);
+                SetEntryFields_021e23d0(ents, 9, (int)GetFieldByKey020e0434((Container020e0310*)cont, (short)(key + 2)), 0xc, 0xf);
+                int off = (idx & 0xff) * 0xc;
+                unsigned char* statBase = base + 0x7b8;
+                struct Packed3x10* row = (struct Packed3x10*)(statBase + off);
+                vals[0] = CAP999(AccumulateFlaggedSlotBits02085fb4(base) + stats->w[0].a + row[0].a);
+                vals[1] = CAP999(AccumulateFlaggedSlotBits02086020(base) + stats->w[0].b + row[0].b);
+                vals[2] = CAP999(AccumulateFlaggedSlotBits0208608c(base) + stats->w[0].c + row[0].c);
+                vals[3] = CAP999(AccumulateFlaggedSlotBits020860f8(base) + stats->w[1].a + row[1].a);
+                vals[4] = CAP999(AccumulateFlaggedSlotBits02086164(base) + stats->w[1].b + row[1].b);
+                vals[5] = CAP999(AccumulateFlaggedSlotBits020861d0(base) + stats->w[1].c + row[1].c);
+                vals[6] = CAP999(AccumulateFlaggedSlotBits0208623c(base) + stats->w[2].a + row[2].a);
+                vals[7] = CAP999(AccumulateSlotBitsFromTable020862a8(base) + stats->w[2].b + row[2].b);
+                vals[8] = CAP999(AccumulateSlotBitsFromTable02086314(base) + stats->w[2].c + row[2].c);
+                for (unsigned char i = 0; data_ov003_0217f288[i] >= 0; i++) {
+                    SetPackedFields_021e24b0(ents, data_ov003_0217f288[i], vals[i], 8, 0xf, 1, 3, 0, 0);
+                }
+                ents->p4 = &draw;
+                ents->s12 = 1;
+                func_ov023_021e257c(ents);
+            }
+            CleanInvalidateCacheRange(gfx, 0x6000);
+            LoadToSubBG0CharacterData((int)gfx, 0, 0x6000);
+        }
+        ((BackgroundLoader*)loader)->RemoveTask(self->task54);
+        self->task54 = -1;
+        self->f10 = self->idx;
+        void* axis = GetWord0x0_0200fb8c((int*)gs);
+        if ((self->flags & 2) || !IsBrightnessWithinValidRange((GameResources*)axis, true)) {
+            self->flags &= ~2;
+            self->state++;
+        } else {
+            self->flags &= ~1;
+            self->state = 0;
+        }
+    } else if (self->state == 2) {
+        SetSubBrightness((GameResources*)(GetWord0x0_0200fb8c((int*)GameState::GetInstance())), 0, 1);
+        self->state = 0;
+        self->flags &= ~1;
+    }
+}
+#else
 extern "C" ARM void func_ov003_021539a0(struct Self_021539a0* self) {
     if (self->member < 0) return;
     if (!(self->flags & 1)) return;
@@ -263,3 +403,4 @@ extern "C" ARM void func_ov003_021539a0(struct Self_021539a0* self) {
         self->flags &= ~1;
     }
 }
+#endif

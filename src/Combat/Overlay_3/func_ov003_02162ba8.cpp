@@ -2,10 +2,6 @@
 #include "GameState/GameState.h"
 #include "Combat/CombatantRecovery.h"
 
-#if defined(jpn)
-#define func_ov003_02165888 func_ov003_02165864
-#endif
-
 struct StatusOwner02081198;
 struct StatusOwner02081164;
 struct Obj0208203c;

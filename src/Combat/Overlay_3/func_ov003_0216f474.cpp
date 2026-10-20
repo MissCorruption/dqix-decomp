@@ -2,7 +2,6 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-#define func_ov003_0216fc58 func_ov003_0216f54c
 #define func_ov003_0216fe74 func_ov003_0216f728
 #endif
 

@@ -10,7 +10,7 @@ extern "C" void func_ov009_02186158(unsigned char*);
 extern "C" void func_ov023_021d9a6c(char*);
 void RefreshFieldIfFlag4000_021d9d34(char*);
 void BuildFieldTag_021d9e60(char*);
-extern "C" void func_ov023_021da9a8(unsigned char*);
+extern "C" void func_ov023_021da1dc(unsigned char*);
 #else
 extern "C" void func_ov009_02184e58(unsigned char*);
 extern "C" void func_ov023_021d9a6c(char*);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov009_02184ca4(unsigned char* storage) {
     func_ov023_021d9a6c((char*)storage);
     RefreshFieldIfFlag4000_021d9d34((char*)storage);
     BuildFieldTag_021d9e60((char*)storage);
-    func_ov023_021da9a8(storage);
+    func_ov023_021da1dc(storage);
 #else
     func_ov023_021d9a6c((char*)storage);
     RefreshFieldIfFlag4000_021d9d34((char*)storage);

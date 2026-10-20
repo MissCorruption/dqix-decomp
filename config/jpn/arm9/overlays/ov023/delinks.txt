@@ -3169,3 +3169,31 @@ src/Combat/Overlay_23/BlankFunction_021faa5c.cpp:
 src/Combat/Overlay_23/BlankFunction_021faa58.cpp:
     complete
     .text start:0x021f9e3c end:0x021f9e40
+
+src/Combat/Overlay_23/InitEvent10_021fa760.cpp:
+    complete
+    .text start:0x021f9b88 end:0x021f9bf4
+
+src/Combat/Overlay_23/InitEvent4_021fa298.cpp:
+    complete
+    .text start:0x021f9724 end:0x021f9778
+
+src/Combat/Overlay_23/SomeFunc_021fc2b8.cpp:
+    complete
+    .text start:0x021fb5b8 end:0x021fb604
+
+src/Combat/Overlay_23/InitField1cOrRegisterCallback_021fbef0.cpp:
+    complete
+    .text start:0x021fb26c end:0x021fb2bc
+
+src/Combat/Overlay_23/FormatAndDispatchByField20_021fa8fc.cpp:
+    complete
+    .text start:0x021f9d1c end:0x021f9d88
+
+src/Combat/Overlay_23/func_ov023_021f75d0.cpp:
+    complete
+    .text start:0x021f6b04 end:0x021f6b80
+
+src/Combat/Overlay_23/func_ov023_021da1dc.cpp:
+    complete
+    .text start:0x021da9a8 end:0x021daa30
