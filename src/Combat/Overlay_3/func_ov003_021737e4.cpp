@@ -30,7 +30,6 @@ struct Canvas021737e4 {
 };
 
 #if defined(jpn)
-// JPN: no label kind; the name line gets a "%s　さん" suffix and the two hero titles are spotted with strstr
 struct Obj021737e4 {
     unsigned char unk_0;
     unsigned char twoLines_;

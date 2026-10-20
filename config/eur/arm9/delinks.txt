@@ -20298,7 +20298,7 @@ src/Runtime/Main/func_0200ea08.cpp:
 
 src/Input/Input.cpp:
     complete
-    .text start:0x02012254 end:0x02012540
+    .text start:0x02012254 end:0x02012be8
 
 src/Resource/Brightness.cpp:
     complete
@@ -20500,3 +20500,8 @@ src/Runtime/Main/func_0200c76c.s:
 src/NitroSDK/Main/func_020b20b0.cpp:
     complete
     .text start:0x020b20c0 end:0x020b23b8
+
+src/NitroSDK/TouchScreen.cpp:
+    complete
+    .text start:0x020cd620 end:0x020ce138
+    .bss start:0x021117b0 end:0x021117ec
