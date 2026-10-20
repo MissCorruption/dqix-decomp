@@ -2,8 +2,14 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Sub {
-    unsigned char pad[0xc68];
+    unsigned char pad[RG(0xc68, 0xb2c)];
     unsigned char slots[5];
 };
 
@@ -26,12 +32,12 @@ ARM int BuildFlaggedCombatantSlotList_02154f4c(unsigned char* obj) {
         }
     }
     ((Sub*)(obj + count + 0x1000))->slots[0] = 4;
-    obj[0x1000 + 0xc6d] = count;
+    obj[0x1000 + RG(0xc6d, 0xb31)] = count;
 
     int j;
     for (j = 0; j < 4; j++) {
-        memset(obj + 0xa70 + 0x1000 + j * 16, 0, 4);
+        memset(obj + RG(0xa70 + 0x1000, 0x19c8) + j * 16, 0, 4);
     }
-    func_ov002_02154c30(obj + 0xa70 + 0x1000);
+    func_ov002_02154c30(obj + RG(0xa70 + 0x1000, 0x19c8));
     return 0;
 }

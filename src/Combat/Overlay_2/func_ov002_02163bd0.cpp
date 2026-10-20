@@ -9,8 +9,6 @@
 #define func_ov002_02156e90 func_ov002_0215852c
 #define func_ov002_0215a7b4 func_ov002_0215bbac
 #define func_ov002_0216bfd4 func_ov002_0216c628
-extern "C" int func_ov002_021566cc(unsigned char *obj);
-#define BuildFlaggedCombatantSlotList_02154f4c func_ov002_021566cc
 enum { regionalState0d = 0xe, regionalState26 = 0x29 };
 #else
 #define REGIONAL_OFFSET(jp, us) us
