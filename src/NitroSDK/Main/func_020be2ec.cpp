@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020be2ec func_020bfdb8
-#endif
 #include "System/Memory.h"
 
 int GetListEntryWord8020bd8ac(unsigned int index);
@@ -32,7 +29,11 @@ extern "C" ARM void* func_020be2ec(unsigned int index, struct Obj020bda58* obj, 
     if (func_020bd7c4(index, &data_02110374, 0x3c, 0) != 0x3c) {
         return NULL;
     }
+#if defined(jpn)
+    struct ListHeader020be2ec* hdr = (struct ListHeader020be2ec*)0x02110014;
+#else
     struct ListHeader020be2ec* hdr = (struct ListHeader020be2ec*)0x02110374;
+#endif
     unsigned int sizeField = hdr->field38;
     unsigned int size1 = sizeField * 4;
     size2 = size1 * 2;

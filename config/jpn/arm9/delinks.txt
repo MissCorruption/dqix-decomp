@@ -19282,3 +19282,7 @@ src/NitroSDK/Main/InvokeBattleActionSlot3.cpp:
 src/NitroSDK/Main/func_020c745c.cpp:
     complete
     .text start:0x020c8f28 end:0x020c9070
+
+src/NitroSDK/Main/func_020be2ec.cpp:
+    complete
+    .text start:0x020bfdb8 end:0x020bfec0

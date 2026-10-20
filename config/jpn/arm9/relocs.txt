@@ -22174,7 +22174,7 @@ from:0x020bfe88 kind:arm_call to:0x020cc060 module:main
 from:0x020bfe94 kind:arm_call to:0x020c9da0 module:main
 from:0x020bfea8 kind:arm_call to:0x020bf3a0 module:main
 from:0x020bfeb4 kind:load to:0x02110014 module:main
-from:0x020bfeb8 kind:load to:0x02110014 module:main
+from:0x020bfeb8 kind:load to:0x02110014 module:none
 from:0x020bfebc kind:load to:0x020bffa0 module:main
 from:0x020bfed4 kind:arm_call to:0x020cb1c8 module:main
 from:0x020bfee0 kind:arm_call to:0x020beef8 module:main
