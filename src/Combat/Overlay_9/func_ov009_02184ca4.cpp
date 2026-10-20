@@ -6,7 +6,7 @@ struct Obj0205d2bc;
 void InitEntries0205d2bc(Obj0205d2bc*);
 extern "C" void func_0204b088(CreationTileMap*, void*);
 #if defined(jpn)
-extern "C" void func_ov009_02186158(unsigned char*);
+extern "C" void func_ov009_02184e58(unsigned char*);
 extern "C" void func_ov023_021d9a6c(char*);
 void RefreshFieldIfFlag4000_021d9d34(char*);
 void BuildFieldTag_021d9e60(char*);
@@ -22,7 +22,7 @@ extern "C" void func_ov023_021da1dc(unsigned char*);
 extern "C" ARM void func_ov009_02184ca4(unsigned char* storage) {
     CharacterCreationUI* editor = (CharacterCreationUI*)storage;
 #if defined(jpn)
-    func_ov009_02186158(storage);
+    func_ov009_02184e58(storage);
 #else
     func_ov009_02184e58(storage);
 #endif

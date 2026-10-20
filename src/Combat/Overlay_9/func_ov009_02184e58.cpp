@@ -80,6 +80,212 @@ struct CharacterCreation {
     unsigned char unk_db6;
 };
 
+#if defined(jpn)
+extern const unsigned char data_ov009_0218b93b[];
+extern const signed char data_ov009_0218b939[];
+extern const unsigned char data_ov009_0218b93d[];
+extern const signed char data_ov009_0218b943[];
+extern const signed char data_ov009_0218b946[];
+extern const signed char data_ov009_0218ba30[];
+extern char data_ov009_0218bc20[];
+
+struct CharacterCreationJ {
+    SafeAllocator allocators_[2];
+    char unk_28[0xfc - 0x28];
+    BackgroundGraphics backgrounds_[5];
+    char unk_19c[0xc1c - 0x19c];
+    signed char state_;
+    unsigned char step_;
+    char unk_c1e[0xd54 - 0xc1e];
+    int task_;
+    unsigned char loadStep_;
+    unsigned char mode_;
+    char unk_d5a[0xd60 - 0xd5a];
+    unsigned int flags_;
+    char unk_d64[0xd8f - 0xd64];
+    unsigned char unk_d8f;
+};
+
+// USA: func_ov009_02184e58
+extern "C" ARM void func_ov009_02184e58(CharacterCreationJ* self)
+{
+    int first;
+    int firstEnd;
+    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+    if (self->loadStep_ != 2)
+        return;
+
+    if (self->state_ == 10)
+    {
+        self->allocators_[0].Reset();
+        BackgroundGraphics* backgrounds[] = {&self->backgrounds_[0], &self->backgrounds_[1], &self->backgrounds_[2]};
+        for (int i = 0; i < 3; i++)
+        {
+            BackgroundGraphics* background = backgrounds[i];
+            ResetList0204af64((List0204af64*)background);
+            SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
+            background->unk_1c_0_ = 0;
+            background->unk_1c_4_ = data_ov009_0218b93d[i];
+            func_0204b5b4(background, data_ov009_0218b946[i]);
+            DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
+            AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)background, &self->allocators_[0]);
+            if (data_ov009_0218b943[i] > 0)
+                AllocateArray0204af38((Foo0204af38*)background, (unsigned char)data_ov009_0218b943[i], &self->allocators_[0]);
+        }
+        char name[4];
+        void* archive;
+        unsigned int archiveSize;
+        loader->GetLoadedFileByID(self->task_, &archive, &archiveSize);
+        int count = CountActiveEntries((ActiveEntry02046900*)archive);
+        if (self->mode_ == 1)
+            count--;
+        for (int i = 0; i < count; i++)
+        {
+            unsigned int size;
+            void* file = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, (int*)&size);
+            if (file != NULL)
+            {
+                if (i == 2)
+                {
+                    func_0204b174(&self->backgrounds_[1], file, &self->allocators_[0], size);
+                    func_0204b174(&self->backgrounds_[2], file, &self->allocators_[0], size);
+                }
+                else
+                {
+                    func_0204b174(&self->backgrounds_[0], file, &self->allocators_[0], size);
+                }
+            }
+        }
+        loader->RemoveTask(self->task_);
+        self->task_ = -1;
+        DispatchEntry0204b8d0((Obj0204b8d0*)&self->backgrounds_[0], 0, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+        FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[0], 0);
+        func_0204bc74(&self->backgrounds_[1], 0, 0, 0, 0x20, 0x19, 0);
+        FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[1], 0);
+        func_0204bc74(&self->backgrounds_[2], 0, 0, 0, 0x20, 0x19, 0);
+        FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[2], 0);
+        self->flags_ &= ~0x80;
+        self->loadStep_ = 0;
+        return;
+    }
+
+    DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x1500;
+    self->allocators_[1].Reset();
+    first = 0;
+    BackgroundGraphics* backgrounds[] = {&self->backgrounds_[3], &self->backgrounds_[4]};
+    for (int i = 0; i < 2; i++)
+    {
+        BackgroundGraphics* background = backgrounds[i];
+        ResetList0204af64((List0204af64*)background);
+        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)background, 0);
+        background->unk_1c_0_ = 1;
+        background->unk_1c_4_ = data_ov009_0218b93b[i];
+        func_0204b5b4(background, data_ov009_0218b939[i]);
+        DispatchViaTable0204b5e8((Obj0204b5e8*)background, 0, 0);
+        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)background, &self->allocators_[1]);
+        unsigned char screen = 0;
+        for (int j = 0; data_ov009_0218ba30[j] >= 0; j += 3)
+        {
+            if (self->state_ == data_ov009_0218ba30[j])
+            {
+                screen = data_ov009_0218ba30[j + i + 1];
+                if (i == 0)
+                    first = screen;
+                break;
+            }
+        }
+        if (screen != 0)
+            AllocateArray0204af38((Foo0204af38*)background, screen, &self->allocators_[1]);
+    }
+
+    char name[4];
+    void* archive;
+    unsigned int archiveSize;
+    unsigned int size;
+    loader->GetLoadedFileByID(self->task_, &archive, &archiveSize);
+    void* file;
+    int count = CountActiveEntries((ActiveEntry02046900*)archive);
+    if (self->state_ == 8)
+    {
+        if (self->unk_d8f != 0)
+            self->unk_d8f = 0;
+        else
+            self->unk_d8f = 1;
+    }
+    if (self->mode_ == 1)
+        count--;
+    int pairEnd = first * 2 + 1;
+    firstEnd = first + 1;
+    for (int i = 0; i < count; i++)
+    {
+        file = FindRecordByIndex((Rec020467f0*)archive, i, (void**)name, (int*)&size);
+        if (file == NULL)
+            continue;
+        if (self->state_ == 8)
+        {
+            BackgroundGraphics* background = &self->backgrounds_[4];
+            if (i < pairEnd)
+            {
+                if (self->mode_ == 1)
+                {
+                    if (i >= firstEnd)
+                        continue;
+                }
+                else if (i < firstEnd && i != 0)
+                {
+                    continue;
+                }
+                background = &self->backgrounds_[3];
+            }
+            if (self->unk_d8f != 0)
+            {
+                DispatchByTag0204b2e0(background, (char*)file);
+            }
+            else
+            {
+                char type[5] = {};
+                memcpy(type, file, 4);
+                DispatchByTagLookup0204b3a0((SelfTag0204b3a0*)background, (char*)file);
+                if (func_02001aec(type, data_ov009_0218bc20, 4) == 0)
+                    func_0204b174(background, file, &self->allocators_[1], size);
+            }
+        }
+        else if (i < firstEnd)
+        {
+            func_0204b174(&self->backgrounds_[3], file, &self->allocators_[1], size);
+        }
+        else
+        {
+            func_0204b174(&self->backgrounds_[4], file, &self->allocators_[1], size);
+        }
+    }
+
+    if (self->unk_d8f != 0)
+        return;
+    loader->RemoveTask(self->task_);
+    self->task_ = -1;
+    int unk = 0;
+    if (self->mode_ == 0 && self->state_ == 1)
+        unk = 1;
+    DispatchEntry0204b8d0((Obj0204b8d0*)&self->backgrounds_[3], unk, 0, 0, 0, 0, 0x20, 0x18, 0xffff);
+    func_0204bc74(&self->backgrounds_[4], 0, 0, 0, 0x20, 0x19, 0);
+    self->flags_ |= 0x2000;
+    if (self->backgrounds_[4].unk_1d != 0)
+        func_ov023_021da274(self);
+    self->flags_ &= ~0x2000;
+    FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[3], 0);
+    FlushAndDispatchList0204b0e8((List0204b0e8*)&self->backgrounds_[4], 0);
+    self->flags_ |= 0x4000;
+    RefreshFieldIfFlag4000_021d9d34((char*)self);
+    self->flags_ &= ~0x4000;
+    self->flags_ |= 0x8000;
+    BuildFieldTag_021d9e60((char*)self);
+    self->flags_ &= ~0x8000;
+    self->flags_ &= ~0x80;
+    self->loadStep_ = 0;
+    DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x1700;
+}
+#else
 // USA: func_ov009_02184e58
 extern "C" ARM void func_ov009_02184e58(CharacterCreation* self)
 {
@@ -283,3 +489,4 @@ extern "C" ARM void func_ov009_02184e58(CharacterCreation* self)
     self->loadStep_ = 0;
     DISPCNTSUB = (DISPCNTSUB & ~0x1f00) | 0x1700;
 }
+#endif
