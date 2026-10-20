@@ -83,6 +83,10 @@ void InvokeHandlerAndClear_02216a2c();
 int FindAndTerminate_02218e84(void* self, int key, char* buf, int size);
 extern "C" int func_ov031_02218710(Conn_022192c0* conn, char* body);
 
+#if defined(jpn)
+#define data_ov031_0224a170 data_ov031_0224ad70
+#define data_ov031_0224a198 data_ov031_0224ad98
+#endif
 extern Global_022192c0 data_ov031_0224e60c;
 extern Request_022192c0 data_ov031_0224e624;
 extern Session_022192c0 data_ov031_0224e640;

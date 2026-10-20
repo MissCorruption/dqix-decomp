@@ -1,12 +1,7 @@
 #include <globaldefs.h>
 #include "System/ProcessorContext.h"
 
-#if defined(jpn)
-extern "C" int func_ov031_0220afe0(char* self);
-#define GetRemainingOrStatus_0220a800 func_ov031_0220afe0
-#else
 int GetRemainingOrStatus_0220a800(char* self);
-#endif
 
 // USA: func_ov031_02203b1c  (semantic: GetActiveContextRemainingOrStatus_02203b1c)
 extern "C" ARM int func_ov031_02203b1c(void) {

@@ -7413,3 +7413,79 @@ src/WifiLib/Overlay_31/CopyBytes_02222818.cpp:
 src/WifiLib/Overlay_31/func_ov031_02220af0.cpp:
     complete
     .text start:0x022212d0 end:0x022216b4
+
+src/NetworkLib/Overlay_31/GetRemainingOrStatus_0220a800.cpp:
+    complete
+    .text start:0x0220afe0 end:0x0220b05c
+
+src/WifiLib/Overlay_31/func_ov031_022228f4.cpp:
+    complete
+    .text start:0x022230d4 end:0x02223108
+
+src/NetworkLib/Overlay_31/func_ov031_022052b4.cpp:
+    complete
+    .text start:0x02205a94 end:0x02205b44
+
+src/NetworkLib/Overlay_31/func_ov031_02217604.cpp:
+    complete
+    .text start:0x02217de4 end:0x02218094
+
+src/NetworkLib/Overlay_31/func_ov031_0223db7c.cpp:
+    complete
+    .text start:0x0223e35c end:0x0223e4d4
+
+src/NetworkLib/Overlay_31/func_ov031_02227898.cpp:
+    complete
+    .text start:0x02228078 end:0x02228318
+
+src/NetworkLib/Overlay_31/func_ov031_02207440.cpp:
+    complete
+    .text start:0x02207c20 end:0x02207ce0
+    .bss start:0x0224ee34 end:0x0224ee74
+
+src/NetworkLib/Overlay_31/func_ov031_022386d4.cpp:
+    complete
+    .text start:0x02238eb4 end:0x02238fd4
+
+src/NetworkLib/Overlay_31/func_ov031_0223e8d4.cpp:
+    complete
+    .text start:0x0223f0b4 end:0x0223f1b4
+    .bss start:0x02291a4c end:0x02291a88
+
+src/NetworkLib/Overlay_31/func_ov031_02203c6c.cpp:
+    complete
+    .text start:0x0220444c end:0x022047bc
+
+src/NetworkLib/Overlay_31/func_ov031_022128fc.cpp:
+    complete
+    .text start:0x022130dc end:0x02213294
+
+src/NetworkLib/Overlay_31/func_ov031_0222b918.cpp:
+    complete
+    .text start:0x0222c0f8 end:0x0222c26c
+
+src/NetworkLib/Overlay_31/func_ov031_02237b2c.cpp:
+    complete
+    .text start:0x0223830c end:0x02238638
+
+src/NetworkLib/Overlay_31/func_ov031_022381c8.cpp:
+    complete
+    .text start:0x022389a8 end:0x02238b50
+
+src/NetworkLib/Overlay_31/func_ov031_0224185c.cpp:
+    complete
+    .text start:0x0224203c end:0x0224333c
+
+src/NetworkLib/Overlay_31/func_ov031_022192c0.cpp:
+    complete
+    .text start:0x02219aa0 end:0x0221a9b4
+
+src/NetworkLib/Overlay_31/func_ov031_02224ca4.cpp:
+    complete
+    .text start:0x02225484 end:0x02225700
+    .rodata start:0x022495b4 end:0x022495d0
+
+src/NetworkLib/Overlay_31/func_ov031_02230330.cpp:
+    complete
+    .text start:0x02230b10 end:0x02230d84
+    .rodata start:0x02249b50 end:0x02249b6c

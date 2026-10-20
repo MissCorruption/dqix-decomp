@@ -3,7 +3,6 @@
 #if defined(jpn)
 #define data_ov031_0224b1d4 data_ov031_0224bdd4
 #define data_ov031_0224fb20 data_ov031_02250720
-#define func_ov031_022228f4 func_ov031_022230d4
 #endif
 
 struct HardwareAddress {
