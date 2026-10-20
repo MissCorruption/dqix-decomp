@@ -4794,3 +4794,7 @@ src/Combat/Overlay_17/func_ov017_021a476c.cpp:
     .text start:0x021a51e0 end:0x021a5764
     .data start:0x021d7b18 end:0x021d7b1c
     .bss start:0x021d8c68 end:0x021d8c6c
+
+src/Combat/Overlay_17/InitAndInsertNode_021acd30.cpp:
+    complete
+    .text start:0x021ad568 end:0x021ad5b4
