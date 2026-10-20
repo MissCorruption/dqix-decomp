@@ -7357,3 +7357,55 @@ src/WifiLib/Overlay_31/func_ov031_0221fa94.cpp:
 src/NetworkLib/Overlay_31/func_ov031_0221eadc.cpp:
     complete
     .text start:0x0221f2bc end:0x0221f48c
+
+src/WifiLib/Overlay_31/ComputeChecksumReversed_0221d8e8.cpp:
+    complete
+    .text start:0x0221e0c8 end:0x0221e0ec
+
+src/WifiLib/Overlay_31/func_ov031_0221d90c.cpp:
+    complete
+    .text start:0x0221e0ec end:0x0221e240
+
+src/WifiLib/Overlay_31/func_ov031_0221e1ec.cpp:
+    complete
+    .text start:0x0221e9cc end:0x0221ea30
+
+src/WifiLib/Overlay_31/func_ov031_0221e354.cpp:
+    complete
+    .text start:0x0221eb34 end:0x0221ebb0
+
+src/NetworkLib/Overlay_31/func_ov031_0221efe8.cpp:
+    complete
+    .text start:0x0221f7c8 end:0x0221f80c
+
+src/WifiLib/Overlay_31/func_ov031_022201d8.cpp:
+    complete
+    .text start:0x022209b8 end:0x02220a28
+
+src/WifiLib/Overlay_31/func_ov031_02220248.cpp:
+    complete
+    .text start:0x02220a28 end:0x02220a78
+
+src/WifiLib/Overlay_31/func_ov031_022202cc.cpp:
+    complete
+    .text start:0x02220aac end:0x02220b70
+
+src/WifiLib/Overlay_31/func_ov031_02220390.cpp:
+    complete
+    .text start:0x02220b70 end:0x02220bd0
+
+src/WifiLib/Overlay_31/XorBlock8_0222127c.cpp:
+    complete
+    .text start:0x02221a5c end:0x02221aa4
+
+src/WifiLib/Overlay_31/func_ov031_02221eac.cpp:
+    complete
+    .text start:0x0222268c end:0x02222704
+
+src/WifiLib/Overlay_31/func_ov031_022227ec.cpp:
+    complete
+    .text start:0x02222fcc end:0x02222ff8
+
+src/WifiLib/Overlay_31/CopyBytes_02222818.cpp:
+    complete
+    .text start:0x02222ff8 end:0x02223010
