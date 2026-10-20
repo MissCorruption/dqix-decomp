@@ -17,7 +17,6 @@ void ZeroFourHalfwords02044074(struct Struct02044074* s);
 #if defined(jpn)
 #define func_02042b98 func_02043270
 #define func_02043600 func_02043de0
-#define func_020437bc func_02043f88
 #endif
 extern "C" void func_02042b98(void* self, int arg1, int arg2, int arg3, int arg4);
 void SetFourHalfwords(struct Struct0204408c* s, short x, short y, short z, short w);
