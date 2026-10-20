@@ -36,14 +36,14 @@ struct PlaybackState {
 #if defined(jpn)
 struct PlaybackStateJ {
     char pad0[4];
-    int pending;        // 0x04
-    volatile int ready; // 0x08
+    int pending;
+    volatile int ready;
     char pad0c[0x1c - 0xc];
-    unsigned int consecutive; // 0x1c
+    unsigned int consecutive;
     char pad20[0x30 - 0x20];
-    int elapsed;   // 0x30
-    int toggle;    // 0x34
-    int displayed; // 0x38
+    int elapsed;
+    int toggle;
+    int displayed;
 };
 extern PlaybackStateJ data_ov016_0219d0c0;
 #else

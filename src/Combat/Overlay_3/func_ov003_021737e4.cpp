@@ -31,7 +31,6 @@ struct Canvas021737e4 {
 
 #if defined(jpn)
 // JPN: no label kind; the name line gets a "%s　さん" suffix and the two hero titles are spotted with strstr
-// and drawn as a drop-shadowed line (func_02041f50 builds the shadow text, func_02050678 draws).
 struct Obj021737e4 {
     unsigned char unk_0;
     unsigned char twoLines_;

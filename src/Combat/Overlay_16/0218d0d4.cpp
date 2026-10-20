@@ -28,14 +28,14 @@ struct DualPlaybackState {
 
 #if defined(jpn)
 struct DualPlaybackStateJ {
-    int pending;        // 0x00
-    int bank;           // 0x04
+    int pending;
+    int bank;
     char pad08[4];
-    volatile int ready; // 0x0c
+    volatile int ready;
     char pad10[4];
-    int elapsed;              // 0x14
-    int displayed;            // 0x18
-    unsigned int consecutive; // 0x1c
+    int elapsed;
+    int displayed;
+    unsigned int consecutive;
 };
 extern DualPlaybackStateJ data_ov016_0219d144;
 #else
