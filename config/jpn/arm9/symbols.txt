@@ -724,7 +724,7 @@ _Z32ClearRegionAndReturnSelf020269d0P24LootableContainerManager kind:function(ar
 _Z20AppendRecord020269e4PcPKv kind:function(arm,size=0x44) addr:0x02026348
 _Z23CountEntriesByField0x8cP12List02026a28 kind:function(arm,size=0x50) addr:0x0202638c
 _Z28CountMatchingEntries02026a78Pc kind:function(arm,size=0x44) addr:0x020263dc
-func_02026420 kind:function(arm,size=0x50) addr:0x02026420
+_Z23CountEntriesByField0x8eP12List02026abc kind:function(arm,size=0x50) addr:0x02026420
 _Z26AllocateNameBuffer02026b0cP11Obj02026b0ci kind:function(arm,size=0x30) addr:0x02026470
 func_020264a0 kind:function(arm,size=0x40) addr:0x020264a0
 _Z32MarkActiveCombatantSlots02026b7cPh kind:function(arm,size=0x4c) addr:0x020264e0

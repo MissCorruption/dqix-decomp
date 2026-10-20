@@ -19224,3 +19224,7 @@ src/Combat/Main/SetBit02026bc8.cpp:
 src/Combat/Main/CountEntriesByField0x8c.cpp:
     complete
     .text start:0x0202638c end:0x020263dc
+
+src/Combat/Main/CountEntriesByField0x8e.cpp:
+    complete
+    .text start:0x02026420 end:0x02026470

@@ -8,7 +8,11 @@ struct Elem02026abc {
 };
 
 struct List02026abc {
+#if defined(jpn)
+    unsigned char pad0[0x6d4];
+#else
     unsigned char pad0[0x780];
+#endif
     unsigned char count;
     unsigned char pad1[9];
     struct Elem02026abc elems[1];
