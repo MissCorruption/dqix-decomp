@@ -2,9 +2,19 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 
+#if defined(jpn)
+#define R(j, u) (j)
+#else
+#define R(j, u) (u)
+#endif
+
 struct AlchemyBufferInitializationView;
 struct AlchemyInitializedBuffersView {
+#if defined(jpn)
+    char unknown00[0x24];
+#else
     char unknown00[0x1a4];
+#endif
     void* data;
     char unknown1a8[4];
     void* ownerData;
@@ -26,8 +36,10 @@ struct AlchemyMenuListOwnerView {
     AlchemyMenuListView* list;
 };
 struct AlchemyMenuInitializationView {
+#if !defined(jpn)
     char unknown00[4];
     unsigned char** byteTables;
+#endif
     void* data;
     SafeAllocator* allocators;
     AlchemyBufferInitializationView* buffers;
@@ -43,9 +55,17 @@ struct AlchemyMenuInitializationView {
     short** ingredientTables;
     unsigned char** quantityTables;
     unsigned short* entryCounts;
+#if defined(jpn)
+    char unknown54[0x100];
+#else
     char unknown54[0x104];
+#endif
     char otherOwnerData[0x18];
+#if defined(jpn)
+    char ownerData[0x230];
+#else
     char ownerData[0x224];
+#endif
     unsigned short flags;
 };
 extern "C" {
@@ -79,15 +99,15 @@ extern "C" ARM void func_ov006_021576a0(AlchemyMenuInitializationView* state, Sa
     }
     state->data = allocator->Allocate(0x4000);
     state->allocators = (SafeAllocator*)allocator->Allocate(0xc8);
-    state->extraBuffer = static_cast<Manager0207f7f0*>(allocator->Allocate(0x40));
+    state->extraBuffer = static_cast<Manager0207f7f0*>(allocator->Allocate(R(0x34, 0x40)));
     state->pairBuffer = (char (*)[0x20])allocator->Allocate(0x40);
     state->sevenBuffer = (char (*)[0xe0])allocator->Allocate(0x620);
     state->entryBuffer = (char (*)[0x28])allocator->Allocate(0x488);
     state->listData = allocator->Allocate(8);
-    state->buffers = (AlchemyBufferInitializationView*)allocator->Allocate(0x12c0);
+    state->buffers = (AlchemyBufferInitializationView*)allocator->Allocate(R(0x10bc, 0x12c0));
     state->recipeStatus = (AlchemyRecipeStatusView*)allocator->Allocate(0x75c);
     state->listOwner = (AlchemyMenuListOwnerView*)allocator->Allocate(0x24);
-    _Z24InitEntryManager020e2490P20EntryManager020e2490iiPvP13SafeAllocatorih(state->listOwner, 1, 1, state->listData, allocator, 4, 0x40);
+    _Z24InitEntryManager020e2490P20EntryManager020e2490iiPvP13SafeAllocatorih(state->listOwner, 1, 1, state->listData, allocator, R(3, 4), 0x40);
     AlchemyMenuListView* list = state->listOwner->list;
     list->Enable();
     for (unsigned char index = 0; index < 10; index++) {
@@ -114,9 +134,11 @@ extern "C" ARM void func_ov006_021576a0(AlchemyMenuInitializationView* state, Sa
     ((AlchemyInitializedBuffersView*)state->buffers)->otherOwnerData = state->otherOwnerData;
     if (state->flags & 2) _Z17SetFlag8_021553a8Pv(state->buffers);
     func_020ac234(state->recipeStatus);
+#if !defined(jpn)
     state->byteTables = (unsigned char**)allocator->Allocate(0x40);
     for (int index = 0; index < 16; index++) {
         state->byteTables[index] = (unsigned char*)allocator->Allocate(0x80);
         memset(state->byteTables[index], 0, 0x80);
     }
+#endif
 }

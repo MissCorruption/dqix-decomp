@@ -51,7 +51,7 @@ func_ov006_02157368 kind:function(arm,size=0x60) addr:0x02158970
 _Z25ClearFlagsForIds_021573c8Pv kind:function(arm,size=0x94) addr:0x021589d0
 func_ov006_0215745c kind:function(arm,size=0x140) addr:0x02158a64
 func_ov006_0215759c kind:function(arm,size=0x104) addr:0x02158ba4
-func_ov006_02158ca8 kind:function(arm,size=0x36c) addr:0x02158ca8
+func_ov006_021576a0 kind:function(arm,size=0x36c) addr:0x02158ca8
 func_ov006_02157a60 kind:function(arm,size=0x214) addr:0x02159014
 _Z16InitObj_02157c78P11Obj02157c78 kind:function(arm,size=0x48) addr:0x02159228
 func_ov006_02157cc0 kind:function(arm,size=0xbc) addr:0x02159270
@@ -143,10 +143,10 @@ data_ov006_0216132e kind:data(any) addr:0x0216132e
 data_ov006_02161336 kind:data(any) addr:0x02161336
 data_ov006_0215ffda kind:data(any) addr:0x0216133e
 data_ov006_02161346 kind:data(any) addr:0x02161346
-data_ov006_02161350 kind:data(any) addr:0x02161350
+data_ov006_0215fffe kind:data(any) addr:0x02161350
 data_ov006_02161364 kind:data(any) addr:0x02161364
 data_ov006_02161384 kind:data(any) addr:0x02161384
-data_ov006_021613a8 kind:data(any) addr:0x021613a8
+data_ov006_02160054 kind:data(any) addr:0x021613a8
 data_ov006_02160080 kind:data(any) addr:0x021613e0
 data_ov006_02160087 kind:data(any) addr:0x021613e7
 data_ov006_02160089 kind:data(any) addr:0x021613e9
