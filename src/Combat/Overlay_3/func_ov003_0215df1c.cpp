@@ -13,10 +13,18 @@ char* GetGlobalField0x1c020421a0(void);
 int DispatchViaTable0204b5e8(struct Obj0204b5e8* obj, int a, int b);
 extern "C" void memset(void* dst, int val, int size);
 void AppendEntryNames_0215e13c(char* base, char* dst, int flag);
+#if defined(jpn)
+extern "C" void func_0205d304(void* window, char* buf, int a, int b, int c, int d, int e);
+#else
 extern "C" void func_0205d304(void* a, void* b, int p2, int p3, int p4, int p5, int p6, int p7);
+#endif
 
 struct BattleMenu_0215df1c {
+#if defined(jpn)
+    char unk_0[0x64 + 0x18];
+#else
     char unk_0[0x64];
+#endif
     char messages[0x7c - 0x64];
     char* text;
     char unk_80[0x98 - 0x80];
@@ -67,6 +75,9 @@ extern "C" ARM void func_ov003_0215df1c(struct BattleMenu_0215df1c* self) {
     }
 
     short height = (self->count * 14 + 0x12) / 8;
+#if defined(jpn)
+    short width = 7;
+#else
     int maxWidth = 0;
     for (int i = 0; i < self->count; i++) {
         short w = func_020420e8((char*)GetFieldByKey020e0434((struct Container020e0310*)self->messages, self->keys[i]), 0);
@@ -75,6 +86,7 @@ extern "C" ARM void func_ov003_0215df1c(struct BattleMenu_0215df1c* self) {
         }
     }
     short width = (maxWidth + 0x18) >> 3;
+#endif
 
     FindAndLinkMatchingEntry0205de24((struct Struct0205de24*)self->window, 0, 2);
     self->width = width;
@@ -90,7 +102,11 @@ extern "C" ARM void func_ov003_0215df1c(struct BattleMenu_0215df1c* self) {
     self->field14d = 1;
 
     if (self->lowerScreen) {
+#if defined(jpn)
+        short pos = *(short*)(GetGlobalField0x1c020421a0() + 0x7e6);
+#else
         short pos = *(short*)(GetGlobalField0x1c020421a0() + 0x916);
+#endif
         short row = pos / 8;
         short offset = pos % 8;
         self->x = 0x20 - width;
@@ -101,7 +117,15 @@ extern "C" ARM void func_ov003_0215df1c(struct BattleMenu_0215df1c* self) {
     }
 
     self->cursor = 0;
+#if defined(jpn)
+    memset(self->text, 0, 0x800);
+#else
     memset(self->text, 0, 0x960);
+#endif
     AppendEntryNames_0215e13c((char*)self, self->text, 0);
+#if defined(jpn)
+    func_0205d304(self->window, self->text, 0, 1, 0, 1, 0);
+#else
     func_0205d304(self->window, self->text, 0, 1, 0, 1, 0, 0);
+#endif
 }
