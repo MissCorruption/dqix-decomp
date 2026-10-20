@@ -6027,8 +6027,8 @@ __sinit_020e677c kind:function(arm,size=0x14) addr:0x020e705c
 __sinit_020e6790 kind:function(arm,size=0x164) addr:0x020e7070
 data_020e692c kind:data(any) addr:0x020e71d4
 data_020e69ac kind:data(any) addr:0x020e7254
-data_020e7354 kind:data(any) addr:0x020e7354
-data_020e7359 kind:data(any) addr:0x020e7359
+@91 kind:data(any) addr:0x020e7354 local
+@73 kind:data(any) addr:0x020e7359 local
 data_020e6abc kind:data(any) addr:0x020e7364
 data_020e6acc kind:data(any) addr:0x020e7374
 data_020e6adc kind:data(any) addr:0x020e7384
@@ -6036,9 +6036,9 @@ data_020e6aec kind:data(any) addr:0x020e7394
 data_020e6b6c kind:data(any) addr:0x020e7414
 data_020e6c74 kind:data(any) addr:0x020e751c
 data_020e6c84 kind:data(any) addr:0x020e752c
-data_020e756c kind:data(any) addr:0x020e756c
-data_020e758c kind:data(any) addr:0x020e758c
-data_020e75ac kind:data(any) addr:0x020e75ac
+atanlo kind:data(any) addr:0x020e756c local
+atanhi kind:data(any) addr:0x020e758c local
+data_020e6d04 kind:data(any) addr:0x020e75ac
 data_020e6d5c kind:data(any) addr:0x020e7604
 data_020e7610 kind:data(any) addr:0x020e7610
 data_020e7618 kind:data(any) addr:0x020e7618
