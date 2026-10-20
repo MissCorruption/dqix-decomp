@@ -4,9 +4,15 @@
 #include "Combat/EntryGetterTypes.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+enum { regionalScene = 0x18, regionalCtl = -0x130, regionalRes = 0x500 };
+#else
+enum { regionalScene = 0, regionalCtl = 0, regionalRes = 0x710 };
+#endif
+
 struct Scene {
     char pad0[0x64];
-    char cont64[0x98 - 0x64];
+    char cont64[0x98 - 0x64 + regionalScene];
     char list98[0x3b8 - 0x98];
     unsigned char state;
     char pad3b9[2];
@@ -36,7 +42,7 @@ struct Scene {
 };
 
 struct Ctl {
-    char pad0[0x998];
+    char pad0[0x998 + regionalCtl];
     int w998;
 };
 
@@ -135,7 +141,7 @@ extern "C" ARM void func_ov003_0215d4fc(Scene *self) {
         }
         func_ov003_0215cab0(self, GetFieldByKey020e0434((Container020e0310*)self->cont64, key));
         self->b3bb = 2;
-        void *e = FindEntryPointerByKey0203df78(b, (*(Ent **) ((char *) GetGameResources() + 0x3000 + 0x710))->key);
+        void *e = FindEntryPointerByKey0203df78(b, (*(Ent **) ((char *) GetGameResources() + 0x3000 + regionalRes))->key);
         if (e != 0) {
             self->w3f8 = GetOffset0x54FromFallbackChain_02040a20((Entry_203dce4*)e);
         }
@@ -209,7 +215,7 @@ extern "C" ARM void func_ov003_0215d4fc(Scene *self) {
         func_0205e944(&data_02108760, 0x7f);
         self->b3ec = 1;
         self->b3ed = 0;
-        void *e = FindEntryPointerByKey0203df78(b, (*(Ent **) ((char *) GetGameResources() + 0x3000 + 0x710))->key);
+        void *e = FindEntryPointerByKey0203df78(b, (*(Ent **) ((char *) GetGameResources() + 0x3000 + regionalRes))->key);
         if (e != 0) {
             PropagateValueToActiveSlot02040b2c((Obj02040b2c*)e, self->w3f8);
         }
