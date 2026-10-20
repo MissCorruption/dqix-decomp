@@ -1,10 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-#if defined(jpn)
-#define func_ov002_0215e250 func_ov002_0215f3d4
-#endif
-
 extern "C" void func_ov002_0215be00(void* base, int a, int b, int c);
 extern "C" void func_ov002_0215e250(void* base, void* dst, int flag);
 #if defined(jpn)
