@@ -662,3 +662,7 @@ src/Combat/Overlay_2/func_ov002_0215e44c.cpp:
 src/Combat/Overlay_2/BuildStatusString_0215c178.cpp:
     complete
     .text start:0x0215d250 end:0x0215d35c
+
+src/Combat/Overlay_2/InitBattleTag0215dae0.cpp:
+    complete
+    .text start:0x0215eb60 end:0x0215ec60
