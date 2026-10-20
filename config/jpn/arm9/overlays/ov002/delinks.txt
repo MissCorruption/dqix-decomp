@@ -642,3 +642,11 @@ src/Combat/Overlay_2/func_ov002_0215e900.cpp:
 src/Combat/Overlay_2/AppendCursorAndProductTag_0215ec4c.cpp:
     complete
     .text start:0x0215fdc0 end:0x0215fe54
+
+src/Combat/Overlay_2/func_ov002_0215eadc.cpp:
+    complete
+    .text start:0x0215fc6c end:0x0215fdc0
+
+src/Combat/Overlay_2/func_ov002_0215cd98.cpp:
+    complete
+    .text start:0x0215defc end:0x0215dfd0
