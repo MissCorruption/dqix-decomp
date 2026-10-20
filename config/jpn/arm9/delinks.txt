@@ -19220,3 +19220,11 @@ src/NitroSDK/Main/func_020d1d1c.cpp:
 src/NitroSDK/Main/func_020ca458.cpp:
     complete
     .text start:0x020cbf24 end:0x020cbf80
+
+src/NitroSDK/Main/func_020c197c.cpp:
+    complete
+    .text start:0x020c3448 end:0x020c3468
+
+src/NitroSDK/Main/Mat4x3_WriteRotationY.cpp:
+    complete
+    .text start:0x020c3468 end:0x020c3484
