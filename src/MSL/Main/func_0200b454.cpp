@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0200b454 func_0200b318
+#endif
+
 // KEEP-NAME
 // USA: func_0200b454
 extern "C" ARM

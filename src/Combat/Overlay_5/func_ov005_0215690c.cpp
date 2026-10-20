@@ -4,6 +4,10 @@
 #include <Graphics/Vector.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0200b454 func_0200b318
+#endif
+
 struct Obj0205eaa0;
 struct Vec3copy0202ec84;
 struct Field150Holder02052df8;

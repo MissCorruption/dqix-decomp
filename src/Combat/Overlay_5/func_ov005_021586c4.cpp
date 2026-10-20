@@ -11,6 +11,10 @@ enum { kMember = 0x4fc };
 #include <Graphics/Vector.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_0200b454 func_0200b318
+#endif
+
 struct Obj021e4e20 { char pad[kMember]; int member; };
 struct Body { char pad[0x50]; Vector3fix rotation; };
 struct Vec3copy0202ec84;

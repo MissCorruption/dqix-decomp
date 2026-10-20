@@ -119,7 +119,7 @@ _ll_ufrom_d kind:function(arm,size=0x8c) addr:0x0200aeac
 _dflt kind:function(arm,size=0x40) addr:0x0200af38
 _dfltu kind:function(arm,size=0x3c) addr:0x0200af78
 _dmul kind:function(arm,size=0x364) addr:0x0200afb4
-func_0200b454 kind:function(arm,size=0x19c) addr:0x0200b318
+func_0200b318 kind:function(arm,size=0x19c) addr:0x0200b318
 _dsub kind:function(arm,size=0x3b4) addr:0x0200b4cc
 _fadd kind:function(arm,size=0x21c) addr:0x0200b880
 func_0200bbd8 kind:function(arm,size=0x8) addr:0x0200ba9c
@@ -7444,7 +7444,7 @@ data_020f33d8 kind:bss addr:0x020f33d8
 data_020f4620 kind:bss addr:0x020f4620
 data_020f4638 kind:bss addr:0x020f4638
 data_020f83d8 kind:bss addr:0x020f83d8
-data_020fb3cc kind:bss addr:0x020fb0f8
+data_020fb0f8 kind:bss addr:0x020fb0f8
 data_020fb3d0 kind:bss addr:0x020fb0fc
 data_020fb3e4 kind:bss addr:0x020fb110
 data_020fb3f0 kind:bss addr:0x020fb11c
@@ -7791,7 +7791,7 @@ data_02114e14 kind:bss addr:0x02114ab4
 data_02114e20 kind:bss addr:0x02114ac0
 g_keyManager kind:bss addr:0x02114ad0
 data_02114e50 kind:bss addr:0x02114af0
-data_02114e54 kind:bss addr:0x02114af4
+g_touchInput kind:bss addr:0x02114af4
 data_02114ec4 kind:bss addr:0x02114b64
 data_0211e33c kind:bss addr:0x0211fb64
 data_0212020d kind:bss addr:0x0212020d

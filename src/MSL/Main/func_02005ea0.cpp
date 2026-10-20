@@ -1,5 +1,9 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define func_0200b454 func_0200b318
+#endif
+
 extern "C" ARM double func_0200b454(double x);
 extern "C" ARM double func_02008f3c(double x);
 extern "C" ARM double func_0200aae4(double x, int n);
