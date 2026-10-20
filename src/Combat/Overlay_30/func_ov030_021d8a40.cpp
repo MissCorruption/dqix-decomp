@@ -17,7 +17,11 @@ void* ResetHeaderAndReturn_021d92b4(void* p);
 void* ResetHeaderAndReturn_021d92c8(void* p);
 void* ResetHeaderAndReturn_021d92dc(void* p);
 
-enum { kSceneDataSize = 0x36c0 };
+#if defined(jpn)
+enum { kSceneDataSize = 0x33f8, kSceneAllocs = 29, kEntry3a9cSize = 0x14, kAllocGap = 0xf2c - 0x27c, kGap432c = 0x60 };
+#else
+enum { kSceneDataSize = 0x36c0, kSceneAllocs = 33, kEntry3a9cSize = 0x18, kAllocGap = 0x113c - 0x2cc, kGap432c = 0x441c - 0x432c };
+#endif
 
 struct SceneAllocGroup {
     int unk0;
@@ -32,8 +36,8 @@ struct SceneAllocGroup {
 
 struct BattleScene {
     unsigned char unk0[0x38];
-    SafeAllocator allocs[33];
-    unsigned char unk2cc[0x113c - 0x2cc];
+    SafeAllocator allocs[kSceneAllocs];
+    unsigned char unk2cc[kAllocGap];
     SafeAllocator a113c;
     unsigned char unk1150[0x11c0 - 0x1150];
     SafeAllocator a11c0;
@@ -56,7 +60,7 @@ struct BattleScene {
     void* unk36dc[8];
     void* p36fc[16];
     unsigned char entries373c[0xc][0x48];
-    unsigned char entries3a9c[4][0x18];
+    unsigned char entries3a9c[4][kEntry3a9cSize];
     void* p3afc[51];
     unsigned char entries3bc8[3][0x14];
     unsigned char entries3c04[4][0x28];
@@ -72,7 +76,7 @@ struct BattleScene {
     void* p41c4;
     unsigned char unk41c8[0x4328 - 0x41c8];
     void* p4328;
-    unsigned char unk432c[0x441c - 0x432c];
+    unsigned char unk432c[kGap432c];
     void* p441c;
     unsigned char unk4420[0x44c4 - 0x4420];
     void* p44c4;
@@ -99,6 +103,90 @@ extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned 
         void *q3bac, *q3bb0, *q3bb4, *q3bb8, *q3bbc, *q3bc0, *q3bc4;
         void *q3ca8, *q3cac, *q3cb0, *q4088, *q408c, *q4090, *q41c4, *q4328;
         void *q441c, *q44c4, *q3ca4;
+#if defined(jpn)
+        q3ca4 = d + 0x33ac;
+        q44c4 = d + 0x32a9;
+        q441c = d + 0x3298;
+        q4328 = d + 0x3064;
+        q41c4 = d + 0x3010;
+        q4090 = d + 0x2e74;
+        q408c = d + 0x2e72;
+        q4088 = d + 0x2e70;
+        q3cb0 = d + 0x2db4;
+        q3cac = d + 0x2db2;
+        q3ca8 = d + 0x2db0;
+        q3bc4 = d + 0x2d84;
+        q3bc0 = d + 0x2d4c;
+        q3bbc = d + 0x2d38;
+        q3bb8 = d + 0x2d2c;
+        q3bb4 = d + 0x2d20;
+        q3bb0 = d + 0x2c80;
+        q3bac = d + 0x2c64;
+        q3ba8 = d + 0x2c54;
+        q3ba4 = d + 0x2c28;
+        q3ba0 = d + 0x2c1c;
+        q3b9c = d + 0x2be0;
+        q3b98 = d + 0x2bbc;
+        q3b94 = d + 0x29a4;
+        q3b90 = d + 0x295c;
+        q3b8c = d + 0x2908;
+        q3b88 = d + 0x28f4;
+        q3b84 = d + 0x289c;
+        q3b80 = d + 0x2888;
+        q3b7c = d + 0x2668;
+        q3b78 = d + 0x2658;
+        q3b74 = d + 0x2648;
+        q3b70 = d + 0x261c;
+        q3b6c = d + 0x25ac;
+        q3b68 = d + 0x2298;
+        q3b64 = d + 0x2288;
+        q3b60 = d + 0x2274;
+        q3b5c = d + 0x2170;
+        q3b58 = d + 0x2164;
+        q3b54 = d + 0x2140;
+        q3b50 = d + 0x2120;
+        q3b4c = d + 0x20d0;
+        q3b48 = d + 0x2074;
+        q3b44 = d + 0x2028;
+        q3b40 = d + 0x1fec;
+        q3b3c = d + 0x1f2c;
+        q3b38 = d + 0x1f04;
+        q3b34 = d + 0x1ef4;
+        q3b30 = d + 0x1cd8;
+        q3b2c = d + 0x1cc4;
+        q3b28 = d + 0x1c84;
+        q3b24 = d + 0x1c44;
+        q3b20 = d + 0x1a30;
+        q3b1c = d + 0x1a0c;
+        q3b18 = d + 0x19e0;
+        q3b14 = d + 0x19b8;
+        q3b10 = d + 0x1998;
+        q3b0c = d + 0x1930;
+        q3b08 = d + 0x1920;
+        q3b04 = d + 0x1868;
+        q3b00 = d + 0x1840;
+        q3afc = d + 0x17d4;
+        q3738 = d + 0x17b0;
+        q3734 = d + 0x15ec;
+        q3730 = d + 0x15c4;
+        q372c = d + 0x15a0;
+        q3728 = d + 0x1578;
+        q3724 = d + 0x156c;
+        q3720 = d + 0x150c;
+        q371c = d + 0x14dc;
+        q3718 = d + 0xe10;
+        q3714 = d + 0xe04;
+        q3710 = d + 0xcc8;
+        q370c = d + 0xca0;
+        q3708 = d + 0xc7c;
+        q3704 = d + 0xc74;
+        q3700 = d + 0xc6c;
+        q36fc = d + 0xc64;
+        q36d8 = d + 0xc44;
+        q36d0 = d + 0x16c;
+        q36cc = d + 0xc0;
+        q36c8 = d + 0x14;
+#else
         q3ca4 = d + 0x3674;
         q44c4 = d + 0x3571;
         q441c = d + 0x3560;
@@ -181,12 +269,13 @@ extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned 
         q36d0 = d + 0x16c;
         q36cc = d + 0xc0;
         q36c8 = d + 0x14;
+#endif
 
         SafeAllocator* a = scene->allocs;
         do {
             a->ResetAllocatorPointer();
             a++;
-        } while (a < scene->allocs + 33);
+        } while (a < scene->allocs + kSceneAllocs);
         scene->a113c.ResetAllocatorPointer();
         scene->a11c0.ResetAllocatorPointer();
         scene->a1244.ResetAllocatorPointer();
@@ -230,7 +319,7 @@ extern "C" ARM BattleScene* func_ov030_021d8a40(AllocatorUnion* alloc, unsigned 
         scene->p36fc[14] = q3734;
         scene->p36fc[15] = q3738;
         func_0200ee94(scene->entries373c, 0xc, 0x48, (void*)ResetHeaderAndReturn_021d9250, (void*)ResetHeaderAndReturn_021d9264);
-        func_0200ee94(scene->entries3a9c, 4, 0x18, (void*)ResetHeaderAndReturn_021d9278, (void*)ResetHeaderAndReturn_021d928c);
+        func_0200ee94(scene->entries3a9c, 4, kEntry3a9cSize, (void*)ResetHeaderAndReturn_021d9278, (void*)ResetHeaderAndReturn_021d928c);
 
         scene->p3afc[0] = q3afc;
         scene->p3afc[1] = q3b00;

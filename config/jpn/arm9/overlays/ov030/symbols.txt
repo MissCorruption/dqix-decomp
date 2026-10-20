@@ -1,4 +1,4 @@
-func_ov030_021d9300 kind:function(arm,size=0x810) addr:0x021d9300
+func_ov030_021d8a40 kind:function(arm,size=0x810) addr:0x021d9300
 _Z29ResetHeaderAndReturn_021d9250Pv kind:function(arm,size=0x14) addr:0x021d9b10
 _Z29ResetHeaderAndReturn_021d9264Pv kind:function(arm,size=0x14) addr:0x021d9b24
 _Z29ResetHeaderAndReturn_021d9278Pv kind:function(arm,size=0x14) addr:0x021d9b38
