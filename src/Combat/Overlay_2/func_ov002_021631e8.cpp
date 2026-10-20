@@ -33,11 +33,9 @@ extern "C" char data_02108760[];
 #define RG(u, j) (j)
 extern "C" void func_ov002_02162acc(char *base);
 extern "C" int func_ov002_0215c974(char *self, int id);
-extern "C" int func_ov002_02158b7c(char *base, int, int);
 extern "C" void func_ov002_0215852c(char *base);
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215b720 func_ov002_0215c974
-#define GetInventoryItemFlagField_02157500 func_ov002_02158b7c
 #define func_ov002_02156e90 func_ov002_0215852c
 #else
 #define RG(u, j) (u)

@@ -46,11 +46,9 @@ extern "C" char data_02108760;
 extern "C" void func_ov002_02162acc(char *self);
 extern "C" void func_ov002_0215fc6c(void *obj, int val);
 extern "C" int func_ov002_0215c974(char *self, int id);
-extern "C" void func_ov002_02158674(unsigned char *self, int v);
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215eadc func_ov002_0215fc6c
 #define func_ov002_0215b720 func_ov002_0215c974
-#define ClearMatchingEntry_02156ff0 func_ov002_02158674
 
 extern "C" ARM void func_ov002_02165764(char *self) {
     int state = *(int *) (self + 0x1a88);

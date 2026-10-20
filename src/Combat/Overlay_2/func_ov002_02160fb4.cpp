@@ -49,8 +49,6 @@ static inline void SetSize02160fb4(struct Elem_0205d81c *e, short w, short h) {
 
 // USA: func_ov002_02160fb4
 #if defined(jpn)
-extern "C" void func_ov002_021586b0(void *base, int type, short *a, short *b, short *c, short *d);
-#define func_ov002_02157030 func_ov002_021586b0
 extern "C" ARM void func_ov002_02160fb4(char *base) {
     short s16, s14, s12, s10;
     func_ov002_0215be00(base, ((struct FieldOv02160fb4 *) (base + 0x1000))->field & 0xff, 1, 1);

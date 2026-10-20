@@ -23,9 +23,7 @@ struct FieldOv021609d4 { char pad[0xbb8]; int field; };
 struct Struct_0205d81c;
 void SetElementFieldC2_0205deb4(struct Struct_0205d81c*, int, int);
 extern "C" void func_ov002_02161938(void* base, void* dst, int flag);
-#define func_ov002_02157030 func_ov002_021586b0
 #define func_ov002_02160aa0 func_ov002_02161938
-extern "C" void func_ov002_021586b0(void* base, int type, short* a, short* b, short* c, short* d);
 ARM void InitBattleTag021609d4(char* base) {
     short s16 = 0, s14 = 0, s12 = 1, s10 = 1;
     func_ov002_02157030(base, 0x24, &s16, &s14, &s12, &s10);
