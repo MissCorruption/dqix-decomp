@@ -694,3 +694,7 @@ src/Combat/Overlay_2/HasPositiveContainerAndField_0215edc8.cpp:
 src/Combat/Overlay_2/AppendField0215f644.cpp:
     complete
     .text start:0x02160700 end:0x02160760
+
+src/Combat/Overlay_2/AppendCursorFrameTag_02160190.cpp:
+    complete
+    .text start:0x02161158 end:0x021611a8
