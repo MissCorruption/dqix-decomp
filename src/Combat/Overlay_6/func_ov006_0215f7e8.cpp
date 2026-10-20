@@ -23,8 +23,10 @@ struct RecipeRecord {
 };
 
 struct AlchemyMenu {
+#if !defined(jpn)
     int textPosition_;
     char** texts_;
+#endif
     void* canvasBuffer_;
     void* allocators_;
     AlchemyPot* pot_;
@@ -49,10 +51,17 @@ struct AlchemyMenu {
     unsigned short buttons_;
     unsigned char unk_aa;
     int renderer_[0x54 / 4];
+#if defined(jpn)
+    int layout_[0x48 / 4];
+#else
     int layout_[0x4c / 4];
+#endif
     int table_[0xc / 4];
     int menuTexts_[0x18 / 4];
     char itemNames_[0xc];
+#if defined(jpn)
+    char reservedBeforeResults_[0xc];
+#endif
     int results_[4][0x74 / 4];
     int ticks_;
     int menuResult_;
@@ -158,6 +167,11 @@ extern "C" ARM void func_ov006_0215f7e8(AlchemyMenu* self) {
             if (record != 0)
             {
                 const char* text = unknown;
+#if defined(jpn)
+                if (record->made_)
+                    text = GetFieldByKey020e0434((Container020e0310*)self->itemNames_, entry->item_);
+                SetEntryFirstField02080f8c((Container02080f8c*)menu, item, (int)text);
+#else
                 if (record->made_)
                 {
                     const char** name = CallFunc020e52a0_020e5294(self->itemNames_, entry->item_);
@@ -170,6 +184,7 @@ extern "C" ARM void func_ov006_0215f7e8(AlchemyMenu* self) {
                 }
                 SetEntryFirstField02080f8c((Container02080f8c*)menu, item, (int)text);
                 Forward0207f7acObjPlus4Size0x40_020805f4(menu, item);
+#endif
                 SetEntryHighNibble0x13((Container02080cc0*)menu, item, 0xf);
             }
             entry = entry->next_;
