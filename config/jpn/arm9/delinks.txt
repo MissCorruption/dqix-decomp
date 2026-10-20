@@ -19167,3 +19167,28 @@ src/Combat/Main/func_020d80b0.cpp:
 src/Combat/Main/func_02086f24.cpp:
     complete
     .text start:0x02087844 end:0x02087db8
+
+src/Combat/Main/func_0205c96c_0205c96c.cpp:
+    complete
+    .text start:0x0205dcd4 end:0x0205deb8
+
+src/Combat/Main/InitBigStructVariant0205c840.cpp:
+    complete
+    .text start:0x0205dba0 end:0x0205dc6c
+
+src/Combat/Main/func_020ab314.cpp:
+    complete
+    .text start:0x020ace34 end:0x020ad0ec
+
+src/Combat/Main/ProcessCommandEntry02081a14.cpp:
+    complete
+    .text start:0x02082234 end:0x02082350
+
+src/Combat/Main/func_02050100.cpp:
+    complete
+    .text start:0x020515ec end:0x020518d0
+
+src/Combat/Main/func_02020c18.cpp:
+    complete
+    .text start:0x02020834 end:0x020208cc
+    .bss start:0x020fd9b8 end:0x020fd9c8

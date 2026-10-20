@@ -5,7 +5,12 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
+#define RG(u, j) (j)
 #define func_0205ec34 func_0205ff20
+#define func_020a95a4 func_020ab210
+#define func_020a9b2c func_020ab780
+#else
+#define RG(u, j) (u)
 #endif
 
 struct Buf020a94f8 { int checksum; char field_4[4]; char signature[12]; };
@@ -38,15 +43,15 @@ struct SaveBuffer020ab314 {
 };
 struct SaveScratch020ab314 { char pad_0[0x28000]; SaveBuffer020ab314 buffer; };
 struct SaveState020ab314 {
-    char pad_0[0x569c];
+    char pad_0[RG(0x569c, 0x543c)];
     char state569c[0x7c];
-    char pad_5718[0x5cc8 - 0x5718];
+    char pad_5718[RG(0x5cc8 - 0x5718, 0x5a68 - 0x54b8)];
     unsigned char error;
-    char pad_5cc9[0x5e6c - 0x5cc9];
+    char pad_5cc9[RG(0x5e6c - 0x5cc9, 0x5c0c - 0x5a69)];
     char state5e6c[0x110];
-    char pad_5f7c[0x6380 - 0x5f7c];
+    char pad_5f7c[RG(0x6380 - 0x5f7c, 0x6120 - 0x5d1c)];
     char globals[0x54];
-    char pad_63d4[0x71fc - 0x63d4];
+    char pad_63d4[RG(0x71fc - 0x63d4, 0x6fbc - 0x6174)];
     char state71fc[0x2c4];
     char pad_74c0[0x44];
     char state7504[0xec];
@@ -65,7 +70,11 @@ extern "C" int func_01ff85b8(void*, int);
 extern "C" void* func_0205ec34();
 Globals020ab314* GetGlobal02109418_02094d6c();
 void* GetSlotEntry020108d8(char*, int);
+#if defined(jpn)
+extern "C" int func_020a95a4(void*, void*);
+#else
 extern "C" int func_020a95a4(void*, void*, unsigned char*);
+#endif
 extern "C" int func_020a9a50(void*, void*, int);
 void LoadBattleRegion0x5cdc_020a9af8(unsigned char*);
 extern "C" void func_020a9b2c(void*);
@@ -110,8 +119,12 @@ extern "C" ARM int func_020ab314(int* output, int unused, int alternate) {
     }
     void* context = func_0205ec34();
     Globals020ab314* globals = GetGlobal02109418_02094d6c();
+#if defined(jpn)
+    func_020a95a4(body->actorData, GetSlotEntry020108d8((char*)state, 0));
+#else
     unsigned char status = 0;
     func_020a95a4(body->actorData, GetSlotEntry020108d8((char*)state, 0), &status);
+#endif
     func_020a9a50(body->context, context, 0);
     memcpy(globals, body->globalData, 0xa0);
     memcpy(GetGlobal02109418_02094d6c()->extra, body->globalExtra, 0x330);

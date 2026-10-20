@@ -2,6 +2,17 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#define func_ov002_02161cf0 func_ov002_02162acc
+#define func_ov002_0215c474 func_ov002_0215d4f4
+#define func_ov002_02156e90 func_ov002_0215852c
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+extern "C" int func_ov002_02162930(char *self, int flag);
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Struct0205de24;
 struct Struct_0205c570;
 struct Obj0205eaa0;
@@ -28,64 +39,64 @@ extern Obj0205eaa0 data_02108760;
 
 // USA: func_ov002_02162714
 extern "C" ARM void func_ov002_02162714(char *self) {
-    int phase = *(int *) (self + 0x1bc0);
+    int phase = *(int *) (self + RG(0x1bc0, 0x1a88));
     if (phase == 0) {
-        *(short *) (self + 0x1be4) = 0;
-        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (self + 0xec8), 0, 2);
+        *(short *) (self + RG(0x1be4, 0x1aac)) = 0;
+        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (self + RG(0xec8, 0xe20)), 0, 2);
         func_ov002_02161cf0(self);
         func_ov002_0215c474(self);
-        (*(int *) (self + 0x1bc0))++;
+        (*(int *) (self + RG(0x1bc0, 0x1a88)))++;
     } else if (phase == 1) {
-        *(int *) (self + 0x247c) |= 4;
-        short old = *(short *) (self + 0x1be4);
-        *(short *) (self + 0x1be4) =
-            GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + 0xec8));
-        if (old != *(short *) (self + 0x1be4)) {
+        *(int *) (self + RG(0x247c, 0x22ac)) |= 4;
+        short old = *(short *) (self + RG(0x1be4, 0x1aac));
+        *(short *) (self + RG(0x1be4, 0x1aac)) =
+            GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + RG(0xec8, 0xe20)));
+        if (old != *(short *) (self + RG(0x1be4, 0x1aac))) {
             return;
         }
         int a  = g_keyManager.TestKeysPressed(0x601);
-        int b  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0xec8), 0x14);
+        int b  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + RG(0xec8, 0xe20)), 0x14);
         int ok = (a | b) ? 1 : 0;
         if (ok) {
-            int flags = *(int *) (self + 0x247c);
+            int flags = *(int *) (self + RG(0x247c, 0x22ac));
             if (flags & 2) return;
             if (!(flags & 0x10)) return;
             GameState *gs = GameState::GetInstance();
             GetWord0x0_0200fb8c((int *) gs);
             GameObject *prot = gs->GetProtagonist();
             if (prot != 0) {
-                *(short *) ((char *) GetFieldAt0x150_02053c6c((unsigned char *) prot) + 0x95a) = *(short *) (self + 0x1be4);
+                *(short *) ((char *) GetFieldAt0x150_02053c6c((unsigned char *) prot) + RG(0x95a, 0x8c2)) = *(short *) (self + RG(0x1be4, 0x1aac));
             }
-            switch (*(short *) (self + 0x1be4)) {
+            switch (*(short *) (self + RG(0x1be4, 0x1aac))) {
                 case 0:
                     DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-                    *(int *) (self + 0x1bb8) = 4;
-                    *(int *) (self + 0x1bc0) = 0;
+                    *(int *) (self + RG(0x1bb8, 0x1a80)) = 4;
+                    *(int *) (self + RG(0x1bc0, 0x1a88)) = 0;
                     break;
                 case 1:
-                    *(unsigned char *) (self + 0xf80) = *(int *) (self + 0x1bb8);
-                    *(int *) (self + 0x247c) &= ~4;
+                    *(unsigned char *) (self + RG(0xf80, 0xed8)) = *(int *) (self + RG(0x1bb8, 0x1a80));
+                    *(int *) (self + RG(0x247c, 0x22ac)) &= ~4;
                     DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
-                    *(signed char *) (self + 0x1c20) = 5;
-                    *(int *) (self + 0x1bb8)         = 10;
-                    *(int *) (self + 0x1bc0)         = 0;
-                    if (GetCountByType02157108(self, *(signed char *) (self + 0x1c20)) != 0) {
+                    *(signed char *) (self + RG(0x1c20, 0x1ae8)) = 5;
+                    *(int *) (self + RG(0x1bb8, 0x1a80))         = RG(10, 0xb);
+                    *(int *) (self + RG(0x1bc0, 0x1a88))         = 0;
+                    if (GetCountByType02157108(self, *(signed char *) (self + RG(0x1c20, 0x1ae8))) != 0) {
                         return;
                     }
                     TeardownAndResetState020d7aa0(GetGlobalResetObj020d7a50());
-                    *(short *) (self + 0x1c28) = 0x2395;
-                    *(short *) (self + 0x1c2a) = -1;
-                    *(int *) (self + 0x1bb8)   = 0x26;
-                    *(int *) (self + 0x1bbc)   = 3;
+                    *(short *) (self + RG(0x1c28, 0x1af0)) = 0x2395;
+                    *(short *) (self + RG(0x1c2a, 0x1af2)) = -1;
+                    *(int *) (self + RG(0x1bb8, 0x1a80))   = RG(0x26, 0x29);
+                    *(int *) (self + RG(0x1bbc, 0x1a84))   = 3;
                     break;
                 case 2:
                     func_020d7978(self);
-                    *(int *) (self + 0x1bb8) = 0x2b;
-                    *(int *) (self + 0x1bc0) = 0;
+                    *(int *) (self + RG(0x1bb8, 0x1a80)) = RG(0x2b, 0x2e);
+                    *(int *) (self + RG(0x1bc0, 0x1a88)) = 0;
                     break;
             }
         } else if (CheckFlagOrThreshold_02161b48(self, 1)) {
-            *(short *) (self + 0x1be4) = -1;
+            *(short *) (self + RG(0x1be4, 0x1aac)) = -1;
             func_ov002_02156e90(self);
         }
     }

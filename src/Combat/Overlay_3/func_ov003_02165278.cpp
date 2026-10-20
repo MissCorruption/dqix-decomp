@@ -2,6 +2,12 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Cont0207fe44;
 struct Container0205a3d0;
 struct Elem0205a3d0 {
@@ -13,16 +19,16 @@ struct Obj020397cc;
 struct FlagWord020466f4;
 
 struct Global02109030 {
-    unsigned char pad_0x0[0x3c9];
+    unsigned char pad_0x0[RG(0x3c9, 0x139)];
     unsigned char flag3c9 : 1;
 };
 
 struct Battle02165278 {
-    char pad0[0x324];
+    char pad0[RG(0x324, 0x20c)];
     struct Cont0207fe44* model;
-    char pad328[0x38c - 0x328];
+    char pad328[RG(0x38c - 0x328, 0x274 - 0x210)];
     struct Container0205a3d0* container;
-    char pad390[0x464 - 0x390];
+    char pad390[RG(0x464 - 0x390, 0x28c - 0x278)];
     unsigned int flags;
     char pad468[0x484 - 0x468];
     short field484;
@@ -84,13 +90,13 @@ extern "C" ARM void func_ov003_02165278(struct Battle02165278* obj) {
             return;
         }
         OrBitsIntoField0_020466e4((unsigned int*)GetDataPtr02114e04_020d6c00(), 0x80);
-        ClearStruct020a9ea4((struct Struct020a9ea4*)((char*)obj + 0x4b4));
+        ClearStruct020a9ea4((struct Struct020a9ea4*)((char*)obj + RG(0x4b4, 0x2dc)));
         obj->step++;
     } else if (step == 0xf) {
         obj->flags |= 0x2000000;
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
-        if (func_020aad1c((char*)obj + 0x4b4, &data_0211e33c, 10, 0) == 1) {
+        if (func_020aad1c((char*)obj + RG(0x4b4, 0x2dc), &data_0211e33c, 10, 0) == 1) {
             struct Elem0205a3d0* entry = FindEntryByHalfword0205a3d0(obj->container, 0);
             if (entry != NULL) {
                 entry->flags |= 8;

@@ -1,5 +1,11 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Struct0203c1c8 {
     int x;
     int y;
@@ -7,12 +13,19 @@ struct Struct0203c1c8 {
     int alignment;
     int priority;
     short entryIndex;
+#if defined(jpn)
+    char padJpn[0x20];
+#endif
 };
 
 struct Obj0203c108;
 
 void DispatchEntriesOnce021704d8(struct Struct0203c1c8* obj, int* arr1, int* arr2, int* arr3);
 int HasAnyFlags_021719f8_021719f8(int* obj);
+#if defined(jpn)
+struct Container020e0310;
+int GetFieldByKey020e0434(struct Container020e0310* c, int key);
+#endif
 void SwapGlobalEntry0203c108(struct Obj0203c108* obj, char* fmt);
 void ReleaseGlobalEntry0203c198(char* obj);
 
@@ -40,22 +53,26 @@ struct Slot02170538 {
     int idx;
     struct Struct0203c1c8 label;
     struct Struct0203c1c8 text;
-    char pad80[0x87 - 0x80];
+    char pad80[RG(0x87 - 0x80, 0xc7 - 0xc0)];
     unsigned char visible;
-    char pad88[0x443 - 0x88];
+    char pad88[RG(0x443 - 0x88, 0x483 - 0xc8)];
     signed char b443;
 };
 
 extern "C" int func_ov000_0217f5dc(struct Slot02170538* e);
 extern "C" int func_ov000_02170c7c(struct Slot02170538* e);
+#if defined(jpn)
+extern "C" int func_ov000_02171a74(struct Slot02170538* e);
+#else
 extern "C" int func_ov000_02171a74(struct Slot02170538* e, char* buf);
+#endif
 
 struct Palette02170538 {
     int v[2];
 };
 
 extern const struct Rodata02170538 {
-    char pad0[0x7c];
+    char pad0[RG(0x7c, 0x70)];
     struct Palette02170538 large;
     struct Palette02170538 small;
 } data_ov000_021832f4;
@@ -73,7 +90,7 @@ extern "C" ARM void func_ov000_02170538(struct Slot02170538* e, int ox, int oy, 
         DispatchEntriesOnce021704d8(&e->text, a2, b2, c2.v);
         return;
     }
-    int a[2] = { e->x + 0x28 + ox, e->x + 0x30 + ox };
+    int a[2] = { e->x + RG(0x28, 0x2f) + ox, e->x + 0x30 + ox };
     int b[2] = { e->y + 8 + oy, e->y + 8 + oy };
     struct Palette02170538 c = data_ov000_021832f4.small;
     c.v[0] = cls;
@@ -86,11 +103,18 @@ extern "C" ARM void func_ov000_02170538(struct Slot02170538* e, int ox, int oy, 
     unsigned int want = e->f28 & 0x80019;
     if (HasAnyFlags_021719f8_021719f8((int*)e)) {
         if (cur != want) {
+#if defined(jpn)
+            char* str = (char*)GetFieldByKey020e0434(*(struct Container020e0310**)((char*)e + 4), func_ov000_02171a74(e));
+            if (str != NULL) {
+                SwapGlobalEntry0203c108((struct Obj0203c108*)&e->label, str);
+            }
+#else
             char buf[0x80];
             __clear(buf, sizeof(buf));
             if (func_ov000_02171a74(e, buf) >= 0) {
                 SwapGlobalEntry0203c108((struct Obj0203c108*)&e->label, buf);
             }
+#endif
             e->f3c = e->f28;
         }
         DispatchEntriesOnce021704d8(&e->label, d, f[0], c.v);

@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ab314 func_020ace34
-#endif
 #include "GameState/GameState.h"
 #include "System/Timing.h"
 #include "System/GamecardBusOwnership.h"

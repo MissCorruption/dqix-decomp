@@ -14,6 +14,9 @@ struct Global020fdc4c_020276dc {
     char pad[0x12];
 };
 extern struct Global020fdc4c_020276dc data_020fdc4c;
+#if defined(jpn)
+#define data_020fdc50 data_020fdc54
+#endif
 extern char data_020fdc50[];
 
 struct PaletteTiers020276dc {

@@ -2,6 +2,12 @@
 #include "GameState/GameState.h"
 #include "System/Matrix.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Battle_021dc940 {
     char pad0[0x8e14];
     signed char f8e14;
@@ -23,17 +29,17 @@ struct Slot_021dc940 {
 };
 
 struct Obj_021dc940 {
-    char pad0[0x29c];
+    char pad0[RG(0x29c, 0x218)];
     Battle_021dc940* battle;
-    char pad2a0[0x4d4 - 0x2a0];
+    char pad2a0[RG(0x4d4 - 0x2a0, 0x450 - 0x21c)];
     char sub4d4[0x890 - 0x4d4];
     char msg890[0xc18 - 0x890];
     char cameraBase[0xc88 - 0xc18];
     int cameraPos[3];
-    char padc94[0x3760 - 0xc94];
-    char entryList[0x55d8 - 0x3760];
+    char padc94[RG(0x3760 - 0xc94, 0x371c - 0xc10)];
+    char entryList[RG(0x55d8 - 0x3760, 0x57c8 - 0x371c)];
     int f55d8;
-    char pad55dc[0x6e4b - 0x55dc];
+    char pad55dc[RG(0x6e4b - 0x55dc, 0x703b - 0x57cc)];
     unsigned char state;
     unsigned char subState;
     char pad6e4d[0x6efc - 0x6e4d];
@@ -87,7 +93,7 @@ static inline int IsPartyIndex_021dc940(int id) {
     return id >= 0 && id <= 3;
 }
 
-struct TurnBlock_021dc940 { char pad[0x5d8]; int turn; };
+struct TurnBlock_021dc940 { char pad[RG(0x5d8, 0x7c8)]; int turn; };
 
 // USA: func_ov025_021dc940
 extern "C" ARM int func_ov025_021dc940(Obj_021dc940* obj) {

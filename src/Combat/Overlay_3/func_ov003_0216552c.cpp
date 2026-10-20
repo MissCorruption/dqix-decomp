@@ -2,6 +2,12 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 unsigned char* GetGlobal02109030_020936f8(void);
 extern "C" void func_ov003_021612c0(void* obj);
 extern "C" int func_ov003_02161344(void* obj);
@@ -29,14 +35,14 @@ struct Camera0216552c {
 };
 
 struct Window0216552c {
-    char unk_0[0x36];
+    char unk_0[RG(0x36, 0x2a)];
     short messageId_;
 };
 
 struct Menu0216552c {
-    char unk_0[0x324];
+    char unk_0[RG(0x324, 0x20c)];
     Window0216552c* window_;
-    char unk_328[0x13c];
+    char unk_328[RG(0x13c, 0x7c)];
     unsigned int flags_;
     char unk_468[0xc];
     short messageId_;

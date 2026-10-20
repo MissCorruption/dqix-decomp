@@ -1981,7 +1981,7 @@ func_0204fc40 kind:function(arm,size=0xc0) addr:0x0205112c
 func_0204fd00 kind:function(arm,size=0x2c0) addr:0x020511ec
 _Z29ProcessRefAndDispatch0204ffc0P11Obj0204ffc0i kind:function(arm,size=0xa4) addr:0x020514ac
 func_02050064 kind:function(arm,size=0x9c) addr:0x02051550
-func_020515ec kind:function(arm,size=0x2e4) addr:0x020515ec
+func_02050100 kind:function(arm,size=0x2e4) addr:0x020515ec
 _Z26SetField0xd8State_02050400Phi kind:function(arm,size=0x2c) addr:0x020518d0
 _Z30SetByte0xd9AndFlag0x2_0205042cPhh kind:function(arm,size=0x14) addr:0x020518fc
 _Z30SetByte0xdaAndFlag0x2_02050440Phi kind:function(arm,size=0x14) addr:0x02051910
@@ -2229,7 +2229,7 @@ _Z37SelectField0x18Or0x68ByFlags_0205c710Ph kind:function(arm,size=0x2c) addr:0x
 _Z21InitSubstruct0205c73cP25InitSubstruct0205c73cData kind:function(arm,size=0x40) addr:0x0205da9c
 _Z33ResetBytesAndSetByte0x16_0205c77cP28ResetBytesAndSetByte0x16Datai kind:function(arm,size=0x14) addr:0x0205dadc
 _Z21InitBigStruct0205c790Pc kind:function(arm,size=0xb0) addr:0x0205daf0
-func_0205dba0 kind:function(arm,size=0xcc) addr:0x0205dba0
+_Z28InitBigStructVariant0205c840Pc kind:function(arm,size=0xcc) addr:0x0205dba0
 _Z24SetupAndDispatch0205c904Phi kind:function(arm,size=0x68) addr:0x0205dc6c
 func_0205c96c kind:function(arm,size=0x1e4) addr:0x0205dcd4
 _Z23EmptyDestructor0205cb60Pv kind:function(arm,size=0x4) addr:0x0205deb8
@@ -2981,7 +2981,7 @@ _Z24ProcessEntryList02081574PvS_S_ kind:function(arm,size=0xf8) addr:0x02081e78
 func_02081f70 kind:function(arm,size=0x110) addr:0x02081f70
 _Z26DrawRectFromStruct02081818iPvP18RectStruct02081818 kind:function(arm,size=0x58) addr:0x02082080
 func_020820d8 kind:function(arm,size=0x15c) addr:0x020820d8
-func_02082234 kind:function(arm,size=0x11c) addr:0x02082234
+_Z27ProcessCommandEntry02081a14P12AObj02081a14P12BObj02081a14P13Entry02081a14 kind:function(arm,size=0x11c) addr:0x02082234
 func_02082350 kind:function(arm,size=0x134) addr:0x02082350
 func_02082484 kind:function(arm,size=0x260) addr:0x02082484
 _Z30FindElementByByte0xc4_02081da8P7Obj2081i kind:function(arm,size=0x38) addr:0x020826e4
@@ -4144,7 +4144,7 @@ _Z19ClearStruct020a9ea4P14Struct020a9ea4 kind:function(arm,size=0x14) addr:0x020
 func_020a9eb8 kind:function(arm,size=0xe0c) addr:0x020abb08
 func_020aad1c kind:function(arm,size=0x1d8) addr:0x020ac914
 func_020aaf84 kind:function(arm,size=0x348) addr:0x020acaec
-func_020ace34 kind:function(arm,size=0x2b8) addr:0x020ace34
+func_020ab314 kind:function(arm,size=0x2b8) addr:0x020ace34
 func_020ad0ec kind:function(arm,size=0x184) addr:0x020ad0ec
 func_020ab7a8 kind:function(arm,size=0x218) addr:0x020ad270
 _Z30CheckSaveBufferStatus_020ab9c0i kind:function(arm,size=0x9c) addr:0x020ad488
@@ -7455,7 +7455,9 @@ data_020fdc14 kind:bss addr:0x020fd980
 data_020fdc20 kind:bss addr:0x020fd98c
 data_020fdc40 kind:bss addr:0x020fd9ac
 data_020fdc4c kind:bss addr:0x020fd9b8
-data_020fdc50 kind:bss addr:0x020fd9bc
+data_020fdc54 kind:bss addr:0x020fd9bc
+data_020fdc58 kind:bss addr:0x020fd9c0
+data_020fdc5c kind:bss addr:0x020fd9c4
 data_020fdc60 kind:bss addr:0x020fd9c8
 data_020fdcb0 kind:bss addr:0x020fda18
 data_020fdcb8 kind:bss addr:0x020fda20

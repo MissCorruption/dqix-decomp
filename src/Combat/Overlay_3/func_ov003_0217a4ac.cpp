@@ -1,8 +1,15 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#define func_ov003_02177938 func_ov003_021768dc
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Obj2081 {
-    char unk_0[0x36];
+    char unk_0[RG(0x36, 0x2a)];
     short selected;
 };
 
@@ -26,7 +33,7 @@ extern "C" int func_ov003_021766e8(void* self);
 extern struct Obj0205eaa0 data_02108760;
 
 struct Menu_0217a4ac {
-    char unk_0[0x88c];
+    char unk_0[RG(0x88c, 0x808)];
     char repeat[0x89c - 0x88c];
     struct Obj2081* menu;
     char unk_8a0[0xff8 - 0x8a0];
@@ -136,7 +143,9 @@ extern "C" ARM void func_ov003_0217a4ac(struct Menu_0217a4ac* self) {
         if (!func_ov003_021766e8(self)) {
             return;
         }
+#if !defined(jpn)
         self->cursor = 0;
+#endif
         CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0*)menu, 0);
         self->mode = 3;
         self->step = 0;
