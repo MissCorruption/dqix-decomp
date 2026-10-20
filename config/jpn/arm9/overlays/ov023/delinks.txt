@@ -3117,3 +3117,7 @@ src/Combat/Overlay_23/TailCallOffset20_021fbddc.cpp:
 src/Combat/Overlay_23/RunIfPtr_021e4e20.cpp:
     complete
     .text start:0x021e5014 end:0x021e5030
+
+src/Combat/Overlay_23/SetFlagAndData_021dbfa8.cpp:
+    complete
+    .text start:0x021dc8a0 end:0x021dc8c8
