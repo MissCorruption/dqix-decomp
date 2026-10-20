@@ -11,20 +11,26 @@ struct S {
     int cur;
 };
 
+#if defined(jpn)
+#define RG(usa, jpn) (jpn)
+#else
+#define RG(usa, jpn) (usa)
+#endif
+
 // USA: func_ov002_02160004
 extern "C" ARM void func_ov002_02160004(char *p, char *dst) {
     if (dst == NULL) {
         return;
     }
 
-    struct S *s = (struct S *) (p + 0x2c8 + 0xc00);
+    struct S *s = (struct S *) (p + RG(0x2c8 + 0xc00, 0xe20));
     int *q      = &s->id;
     short cur   = q[1];
     short id    = q[0];
-    if (cur == *(signed char *) (p + 0x1c00 + 0x73)) {
+    if (cur == *(signed char *) (p + RG(0x1c00 + 0x73, 0x1b00 + 0x37))) {
         return;
     }
 
-    int name = GetFieldByKey020e0434((struct Container020e0310 *) (p + 0x20), (short) (id + 0xfbe));
+    int name = GetFieldByKey020e0434((struct Container020e0310 *) (p + RG(0x20, 8)), (short) (id + 0xfbe));
     AppendString02042058(dst, (const char *) name);
 }

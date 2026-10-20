@@ -3,6 +3,10 @@
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define func_ov003_0217dd60 func_ov003_0217c9e0
+#endif
+
 struct Run02012fe4;
 extern "C" struct Run02012fe4 *func_02012fe4(void);
 extern "C" void func_0205d7a0(void *list, int index);
@@ -34,13 +38,19 @@ extern "C" void func_ov003_0217dd60(State_0217d6ac *self);
 extern "C" int func_ov003_0217e1e4(State_0217d6ac *self);
 extern "C" void func_ov003_0217dfb4(State_0217d6ac *self);
 
+#if defined(jpn)
+#define RG(usa, jpn) (jpn)
+#else
+#define RG(usa, jpn) (usa)
+#endif
+
 struct Progress02012fe4 {
-    unsigned char pad0[0xb3c];
+    unsigned char pad0[RG(0xb3c, 0x1b3c)];
     int chapter;
 };
 
 struct Run02012fe4 {
-    unsigned char pad0[0x1840];
+    unsigned char pad0[RG(0x1840, 0x860)];
     struct Progress02012fe4 progress;
 };
 
@@ -50,7 +60,7 @@ static inline int GetChapter(struct Progress02012fe4 *progress) { return progres
 struct BattleEvent_0217d6ac {
     unsigned char pad0[0x8];
     unsigned short messageId;
-    unsigned char padA[0x10b - 0xa];
+    unsigned char padA[RG(0x10b, 0x107) - 0xa];
     unsigned char active;
 };
 
@@ -69,7 +79,7 @@ struct State_0217d6ac {
     unsigned char pad0[0x4];
     unsigned char state;
     signed char busy;
-    unsigned char pad6[0x14 - 0x6];
+    unsigned char pad6[RG(0x14, 0x10) - 0x6];
     int field_0x14;
     unsigned char ids[0x32 - 0x18];
     unsigned char count;
@@ -85,10 +95,18 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
     int extra;
     int sel;
     struct TailList020469b4 *list;
+#if defined(jpn)
+    struct Progress02012fe4 *progress;
+#else
     struct Run02012fe4 *current;
+#endif
     res     = (char *) GetGameResources();
-    list    = *(struct TailList020469b4 **) (res + 0x36fc);
+    list    = *(struct TailList020469b4 **) (res + RG(0x36fc, 0x34ec));
+#if defined(jpn)
+    progress = GetProgress(func_02012fe4());
+#else
     current = func_02012fe4();
+#endif
     if (self->busy == 0) {
         func_0205d7a0(self->list, 0);
         func_ov003_0217dd60(self);
@@ -100,9 +118,9 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
 
     gs                                = GameState::GetInstance();
     global                            = GetGlobalField0x1c020421a0();
-    struct Container0205a330 *entries = *(struct Container0205a330 **) (global + 0x2e0);
+    struct Container0205a330 *entries = *(struct Container0205a330 **) (global + RG(0x2e0, 0x230));
     IterateEntries0205a330(entries, gs->GetTickCount());
-    global[0x19ae] = 0;
+    global[RG(0x19ae, 0x17de)] = 0;
     GetActiveScaledSum0205d794((struct Struct_0205c570 *) self->list);
     extra = 0;
     if (self->count > 1) {
@@ -135,10 +153,14 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
     DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
     ResetEntryList0205d6a0((struct Entry_0205d6a0 *) self->list, 0);
     ReinitController02043204(global);
-    BattleEvent_0217d6ac *event = *(BattleEvent_0217d6ac **) (res + 0x3734);
+    BattleEvent_0217d6ac *event = *(BattleEvent_0217d6ac **) (res + RG(0x3734, 0x3524));
     func_ov017_021baedc(event, 1);
     event->active = 1;
+#if defined(jpn)
+    switch (GetChapter(progress)) {
+#else
     switch (GetChapter(GetProgress(current))) {
+#endif
         case 0:
         case 1:
         case 2: event->messageId = 0xd067; break;
@@ -149,7 +171,7 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
     }
     AppendNodeToTail(list, (struct TailNode020469b4 *) event);
     if (sel != 0) {
-        unsigned char *header = *(unsigned char **) (res + 0x370c);
+        unsigned char *header = *(unsigned char **) (res + RG(0x370c, 0x34fc));
         InitAndResetHeader_0219e310(header, 0);
         EventRecord_0217d6ac *record = (EventRecord_0217d6ac *) GetField0x3f8Address_0200fd0c(gs);
         InitStruct02070378((char *) record);
@@ -160,7 +182,7 @@ extern "C" ARM void func_ov003_0217d6ac(State_0217d6ac *self) {
         record->field_0xc  = 1;
         AppendNodeToTail(list, (struct TailNode020469b4 *) header);
     } else {
-        unsigned char *header = *(unsigned char **) (res + 0x370c);
+        unsigned char *header = *(unsigned char **) (res + RG(0x370c, 0x34fc));
         InitAndResetHeader_0219e310(header, 0);
         EventRecord_0217d6ac *record = (EventRecord_0217d6ac *) GetField0x3f8Address_0200fd0c(gs);
         InitStruct02070378((char *) record);

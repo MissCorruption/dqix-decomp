@@ -7,7 +7,11 @@ struct Struct_0205def8 { unsigned char data[0x7cc]; };
 struct Struct_0205d81c { unsigned char data[0x7cc]; };
 struct Struct0217f8c0;
 struct Obj0205eaa0 { unsigned char data[0xd0]; };
+#if defined(jpn)
+struct ResourceE558 { unsigned char padding[0x7902]; signed char selected; };
+#else
 struct ResourceE558 { unsigned char padding[0x7712]; signed char selected; };
+#endif
 struct PartyEffectsE558 { unsigned char padding[0xf78]; signed char members[4]; unsigned char count; };
 struct ActionRecordE558 { int field0; unsigned int value : 12; unsigned int valueRest : 20; unsigned int flags; };
 struct ActorE558 {
@@ -35,7 +39,11 @@ struct BattleE558 {
     union { Struct_0205c570 sums; Struct_0205def8 flags; Struct_0205d81c fields; } list;
     unsigned char padding954[2];
     unsigned char field956;
+#if defined(jpn)
+    unsigned char padding957[0x1f98 - 0x957];
+#else
     unsigned char padding957[0x1d60 - 0x957];
+#endif
     signed char actions[8];
     signed char actionIndex;
     unsigned char padding1d69[4];
@@ -63,6 +71,13 @@ int FindMatchingTableEntry0217f8c0(Struct0217f8c0*);
 extern "C" void func_ov000_02176634(BattleE558*, int, int, int, int);
 extern Obj0205eaa0 data_02108760;
 extern int data_ov000_02184294[3];
+#if defined(jpn)
+#define G02184294(i) data_ov000_02184294[(i) + 1]
+#define PTR3718(d) (*(void**)((char*)(d) + 0x3508))
+#else
+#define G02184294(i) data_ov000_02184294[i]
+#define PTR3718(d) ((d)->unknown_ptr_3718)
+#endif
 
 // USA: func_ov000_0217e558
 extern "C" ARM void func_ov000_0217e558(BattleE558* battle, int arg1, int arg2) {
@@ -72,7 +87,7 @@ extern "C" ARM void func_ov000_0217e558(BattleE558* battle, int arg1, int arg2) 
     SetElementFieldC2_0205deb4(&battle->list.fields, 0x18, 0);
     GameState* game = GameState::GetInstance();
     GameResources* data = GetWord0x0_0200fb8c((int*)game);
-    if (func_ov017_021b8468(data->unknown_ptr_3718)->selected != -1 || !func_ov000_0217c594(battle, 5)) return;
+    if (func_ov017_021b8468(PTR3718(data))->selected != -1 || !func_ov000_0217c594(battle, 5)) return;
     battle->field956 = 0;
     DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
     if ((unsigned short)battle->keys[battle->selected] == 0) {
@@ -123,7 +138,7 @@ extern "C" ARM void func_ov000_0217e558(BattleE558* battle, int arg1, int arg2) 
         }
     }
     if (battle->actions[battle->actionIndex] != 25) return;
-    func_ov000_02176e3c(battle, 0, 23, data_ov000_02184294[1], data_ov000_02184294[0], 1);
+    func_ov000_02176e3c(battle, 0, 23, G02184294(1), G02184294(0), 1);
     battle->field1c = 0;
     int match = FindMatchingTableEntry0217f8c0((Struct0217f8c0*)battle);
     func_ov000_02176634(battle, match, 25, arg1, arg2);

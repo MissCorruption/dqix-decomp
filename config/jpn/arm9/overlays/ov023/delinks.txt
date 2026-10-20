@@ -3113,3 +3113,19 @@ src/Combat/Overlay_23/021f0a5c.cpp:
 src/Combat/Overlay_23/TailCallOffset20_021fbddc.cpp:
     complete
     .text start:0x021fb158 end:0x021fb168
+
+src/Combat/Overlay_23/RunIfPtr_021e4e20.cpp:
+    complete
+    .text start:0x021e5014 end:0x021e5030
+
+src/Combat/Overlay_23/SetFlagAndData_021dbfa8.cpp:
+    complete
+    .text start:0x021dc8a0 end:0x021dc8c8
+
+src/Combat/Overlay_23/CopyByteFieldToNextAndSet_021e33a0_021e33a0.cpp:
+    complete
+    .text start:0x021e36f8 end:0x021e370c
+
+src/Combat/Overlay_23/ClearEntriesAndSetGlobalFlags_021fa7d4.cpp:
+    complete
+    .text start:0x021f9bf4 end:0x021f9c74

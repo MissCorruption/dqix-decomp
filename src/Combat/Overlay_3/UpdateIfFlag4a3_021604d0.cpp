@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+struct S021604d0 { char pad[0x2cb]; unsigned char flag4a3; };
+#else
 struct S021604d0 { char pad[0x4a3]; unsigned char flag4a3; };
+#endif
 
 extern "C" void func_ov003_0216052c(S021604d0* obj);
 extern "C" void func_ov003_02160678(S021604d0* obj);

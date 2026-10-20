@@ -2,6 +2,10 @@
 #include "std_library_functions.h"
 #include "Resource/Script.h"
 
+#if defined(jpn)
+#define data_021142c4 data_02113f64
+#endif
+
 struct Entry020d3cf0Flags {
     unsigned char f0 : 3;
     unsigned char f1 : 1;
@@ -17,7 +21,11 @@ struct Entry020d3cf0Triple {
 };
 
 struct Entry020d3cf0 {
+#if defined(jpn)
+    char name[11];
+#else
     char name[16];
+#endif
     struct Entry020d3cf0Flags flags;
     unsigned char b11;
     unsigned char b12;

@@ -9,10 +9,6 @@
 #define func_0205ec34 func_0205ff20
 #endif
 
-#if defined(jpn)
-#define func_ov003_0215fce8 func_ov003_0215fe94
-#endif
-
 struct Obj020397cc;
 struct ListHead02046b60;
 struct MenuData {

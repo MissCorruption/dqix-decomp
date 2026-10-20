@@ -3,9 +3,15 @@
 struct Node0208e024 {
     unsigned short field0;
     unsigned short low : 9;
+#if defined(jpn)
+    unsigned short kind : 7;
+    int field4;
+    int field8;
+#else
     unsigned short kind : 6;
     unsigned short high : 1;
     int field4;
+#endif
     struct Node0208e024* next;
 };
 
