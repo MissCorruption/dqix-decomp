@@ -19204,3 +19204,7 @@ src/Combat/Main/GetByteField0x5721.cpp:
 src/Combat/Main/SetByte0x6480.cpp:
     complete
     .text start:0x02011748 end:0x02011758
+
+src/Combat/Main/SetFieldAt0x76c.cpp:
+    complete
+    .text start:0x02025db0 end:0x02025db8
