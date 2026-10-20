@@ -37,6 +37,15 @@ struct Bytes36_021edf54 { char v[36]; };
 struct Bytes9_021edf54 { char v[9]; };
 struct Bytes24_021edf54 { char v[24]; };
 
+#if defined(jpn)
+struct Bytes231_021edf54 { char v[231]; };
+enum { regionalNameLen = 0xc, regionalRecordPtr = -0xc, regionalSceneHead = -0x84, regionalSceneTail = 0x1f0,
+       regionalBossFlag = -0x220, regionalRendererActive = -0x1d0 };
+#else
+enum { regionalNameLen = 0x30, regionalRecordPtr = 0, regionalSceneHead = 0, regionalSceneTail = 0,
+       regionalBossFlag = 0, regionalRendererActive = 0 };
+#endif
+
 struct Record_021edf54 {
     Words6_021edf54 m000;
     Words9_021edf54 m018;
@@ -60,8 +69,12 @@ struct Record_021edf54 {
     unsigned char m56c;
     unsigned char m56d;
     unsigned char m56e;
+#if defined(jpn)
+    Bytes231_021edf54 m56f;
+#else
     unsigned char m56f;
     Bytes384_021edf54 m570;
+#endif
     Words88_021edf54 m6f0;
     Words39_021edf54 m850;
     Bytes36_021edf54 m8ec;
@@ -87,7 +100,7 @@ struct Result_021edf54 {
     unsigned char vocation_;
     unsigned char flag_;
     int exp_;
-    char name_[0x30];
+    char name_[regionalNameLen];
     Record_021edf54 record_;
 };
 
@@ -109,7 +122,7 @@ struct CombatGlobal_021edf54 {
 struct Combatant_021edf54 {
     char pad0[0x134];
     const char* name_;
-    char pad138[0x150 - 0x138];
+    char pad138[0x150 + regionalRecordPtr - 0x138];
     Record_021edf54* record_;
 };
 
@@ -166,12 +179,12 @@ struct BattleInfo_021edf54 {
 };
 
 struct Scene_021edf54 {
-    char pad0[0x29c];
+    char pad0[0x29c + regionalSceneHead];
     World_021edf54* world_;
     BattleInfo_021edf54* info_;
     char pad2a4[0xeac - 0x2a4];
     int endState_;
-    char padeb0[0x5758 - 0xeb0];
+    char padeb0[0x5758 - 0xeb0 + regionalSceneTail - regionalSceneHead];
     int experience_[4];
     int gold_;
     char pad576c[0x58c0 - 0x576c];
@@ -191,12 +204,12 @@ struct Scene_021edf54 {
 };
 
 struct Resources_021edf54 {
-    char pad0[0x42e2];
+    char pad0[0x42e2 + regionalBossFlag];
     unsigned char bossFlag_;
 };
 
 struct Renderer_021edf54 {
-    char pad0[0x19b2];
+    char pad0[0x19b2 + regionalRendererActive];
     unsigned char active_;
 };
 
@@ -459,8 +472,12 @@ extern "C" ARM int func_ov023_021edf54(Scene_021edf54* self) {
                 result->record_.m56c = src->m56c;
                 result->record_.m56d = src->m56d;
                 result->record_.m56e = src->m56e;
+#if defined(jpn)
+                result->record_.m56f = src->m56f;
+#else
                 result->record_.m56f = src->m56f;
                 result->record_.m570 = src->m570;
+#endif
                 result->record_.m6f0 = src->m6f0;
                 result->record_.m850 = src->m850;
                 result->record_.m8ec = src->m8ec;
