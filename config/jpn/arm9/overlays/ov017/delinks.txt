@@ -4798,3 +4798,7 @@ src/Combat/Overlay_17/func_ov017_021a476c.cpp:
 src/Combat/Overlay_17/InitAndInsertNode_021acd30.cpp:
     complete
     .text start:0x021ad568 end:0x021ad5b4
+
+src/Combat/Overlay_17/func_ov017_021a624c.cpp:
+    complete
+    .text start:0x021a6c40 end:0x021a6dbc

@@ -7,6 +7,12 @@
 #include "World/Zone3D.h"
 
 #if defined(jpn)
+#define GLOB1C_FLAG_021a624c 0x868
+#else
+#define GLOB1C_FLAG_021a624c 0x998
+#endif
+
+#if defined(jpn)
 #define func_020daf90 func_020dc998
 #endif
 
@@ -71,7 +77,7 @@ extern "C" ARM void func_ov017_021a624c(GameResources* self) {
         !IsField0Null_02046b08((void**)self->unknown_ptr_array_36fc[0]) ||
         func_0202c540(searchObj) ||
         IsGlobalU16InRange_020117f0(GameState::GetInstance()) != 0 ||
-        *(int*)((char*)glob1c + 0x998) != 0 ||
+        *(int*)((char*)glob1c + GLOB1C_FLAG_021a624c) != 0 ||
         CheckSlotsForFlagState02015a2c((struct Something02015a2c*)zone) ||
         info == 0 || info->unknown_c_low_ != 0 ||
         GetField0x50_020db2d4(ctx)) {

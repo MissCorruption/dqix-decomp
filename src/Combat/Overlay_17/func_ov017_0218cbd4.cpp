@@ -7,7 +7,6 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
-#define func_ov017_021a624c func_ov017_021a6c40
 #define func_02093b90 func_020944b0
 #endif
 
