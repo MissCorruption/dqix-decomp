@@ -37,6 +37,119 @@ static inline void DrawSprite(GaugeSprite0218251c* sprite) {
     GXFIFO_MATRIX_POP = 1;
 }
 
+#if defined(jpn)
+extern const int data_ov000_02184788[][2];
+extern const int data_ov000_0218478c[][2];
+
+// JPN: func_ov000_0218251c (no phase badge; the gauge letters are drawn in a loop)
+extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
+    int level = self->level;
+    int subLevel = self->subLevel;
+    if (level <= 0) {
+        return;
+    }
+    int t = 30 - self->timer;
+
+    if (level > 1 || t >= 0) {
+        int x = 0;
+        int z = 15;
+        if (t < 6) {
+            float f = (6 - t) / 6.0f;
+            x = (int)(-64.0f * (f * f));
+        }
+        int x2 = x;
+        if (level >= 2) {
+            x = 0;
+            x2 /= 4;
+        }
+        int fade = self->fade;
+        if (fade > 0 && fade < 5) {
+            float f = (5 - fade) / 5.0f;
+            int d = (int)(64.0f * (f * f));
+            x -= d;
+            x2 -= d;
+        }
+
+        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[7], (x + 2) << 12, 0x1f000, z-- << 12);
+        self->sprites[7].alpha = 0x1f;
+        DrawSprite(&self->sprites[7]);
+
+        int l = level - 1;
+
+        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[l], (x2 + 11) << 12, 0x8000, z-- << 12);
+        self->sprites[l].alpha = 0x1f;
+        DrawSprite(&self->sprites[l]);
+
+        if (level >= 2 && t < 6) {
+            SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[subLevel - 1], (x + 11) << 12, 0x8000, z-- << 12);
+            self->sprites[subLevel - 1].alpha = (6 - t) * 31 / 6;
+            if (self->sprites[subLevel - 1].alpha > 0x1f) {
+                self->sprites[subLevel - 1].alpha = 0x1f;
+            }
+            DrawSprite(&self->sprites[subLevel - 1]);
+        }
+
+        int count = 4;
+        if ((level == 3 && t >= 6) || subLevel == 3) {
+            count = 5;
+        }
+        int w = t - 2;
+        for (int i = 0; i < count; w--, i++) {
+            int idx = i + 3;
+            if (i == 4) {
+                if (w < 0 && subLevel < 3) {
+                    break;
+                }
+                idx = 6;
+            }
+            int y = 0;
+            if (w > 0 && w < 6) {
+                if (w <= 3) {
+                    y = -w;
+                } else {
+                    y = w - 6;
+                }
+            }
+            SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[idx], (x + data_ov000_02184788[i + 1][0]) << 12,
+                          (y + data_ov000_0218478c[i + 1][0]) << 12, z-- << 12);
+            self->sprites[idx].alpha = 0x1f;
+            DrawSprite(&self->sprites[idx]);
+        }
+    }
+
+    int u = t - 5;
+    if (level > 1 || u > 0) {
+        int x = 0;
+        if (u < 6) {
+            float f = (6 - u) / 6.0f;
+            x = (int)(-64.0f * (f * f));
+        }
+        int fade = self->fade;
+        if (fade > 0 && fade < 5) {
+            float f = (5 - fade) / 5.0f;
+            x -= (int)(64.0f * (f * f));
+        }
+
+        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[8], (x + 3) << 12, 0x21000, 0x1000);
+        self->sprites[8].alpha = 0x1f;
+        DrawSprite(&self->sprites[8]);
+
+        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[9], (x + 36) << 12, 0x22000, 0);
+        self->sprites[9].alpha = 0x1f;
+        DrawSprite(&self->sprites[9]);
+
+        int slot = level + 9;
+        int k = 9;
+        if (level == 3) {
+            k = 10;
+        }
+        SetVec3At0x1c((Vec3Target0203a46c*)&self->sprites[slot], (x + data_ov000_02184788[k][0]) << 12,
+                      data_ov000_0218478c[k][0] << 12, -0x1000);
+        self->sprites[slot].alpha = 0x1f;
+        DrawSprite(&self->sprites[slot]);
+    }
+}
+#else
 // USA: func_ov000_0218251c
 extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
     int level = self->level;
@@ -153,3 +266,4 @@ extern "C" ARM void func_ov000_0218251c(GaugeDisplay0218251c* self) {
         DrawSprite(&self->sprites[slot]);
     }
 }
+#endif
