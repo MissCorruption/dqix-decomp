@@ -26,6 +26,79 @@ void SetFieldB0AndUpdate0205dee8(Obj0205dee8*, int);
 extern int data_02108760;
 
 // USA: func_ov002_021644a8
+#if defined(jpn)
+extern "C" int func_ov002_02162930(char *self, int flag);
+extern "C" void func_ov002_0215852c(char *base);
+extern "C" void func_ov002_0215eb60(unsigned char *obj);
+extern "C" void func_ov002_02162acc(char *base);
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+#define func_ov002_02156e90 func_ov002_0215852c
+#define func_ov002_0215dae0 func_ov002_0215eb60
+#define func_ov002_02161cf0 func_ov002_02162acc
+extern "C" ARM void func_ov002_021644a8(char *self) {
+    int phase = *(int *) (self + 0x1a88);
+    if (phase == 0) {
+        *(short *) (self + 0x1ab8) = 0;
+        FindAndLinkMatchingEntry0205de24((Struct0205de24*)(self + 0xe20), 0, 2);
+        func_ov002_02161cf0(self);
+        func_ov002_0215dae0((unsigned char *) self);
+        (*(int *) (self + 0x1a88))++;
+    } else if (phase == 1) {
+        *(int *) (self + 0x22ac) |= 4;
+        short saved = *(short *) (self + 0x1ab8);
+        *(short *) (self + 0x1ab8) = GetActiveScaledSum0205d794((Struct_0205c570*)(self + 0xe20));
+        *(char *) (self + 0x1ae8) = GetFieldC54ArrayValue021573f8(self, *(short *) (self + 0x1ab8));
+        signed char cur = *(signed char *) (self + 0x1ae8);
+        *(char *) (self + 0x1ae9) = cur;
+        SetElementFieldC2_0205deb4((Struct_0205d81c*)(self + 0xe20), 0xe, 1);
+        if (*(short *) (self + 0x1ab8) != 0) {
+            func_ov002_0215b9a4(self, 0xe, 0);
+            SetElementFlag0x20ByKey0205def8((Struct_0205def8*)(self + 0xe20), 1, 0xe);
+            unsigned char *ea = (unsigned char *) FindElementByC40205d81c((Struct_0205d81c*)(self + 0xe20), 0xc);
+            unsigned char *eb = (unsigned char *) FindElementByC40205d81c((Struct_0205d81c*)(self + 0xe20), 0xe);
+            if (ea != 0 && eb != 0) {
+                short ac = *(short *) (ea + 0xac);
+                short a8 = *(short *) (ea + 0xa8);
+                *(short *) (eb + 0xac) = ac + a8;
+                *(short *) (eb + 0xae) = 1;
+            }
+        } else {
+            SetElementFlag0x20ByKey0205def8((Struct_0205def8*)(self + 0xe20), 0, 0xe);
+        }
+        if (saved != *(short *) (self + 0x1ab8)) {
+            return;
+        }
+        int t = g_keyManager.TestKeysPressed(0x601);
+        int u = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0xe20), 0x14);
+        int hit = (t | u) != 0;
+        if (hit != 0) {
+            *(char *) (self + 0x1afa) = 0;
+            *(char *) (self + 0xed8) = *(int *) (self + 0x1a80);
+            *(int *) (self + 0x22ac) &= ~4;
+            SetElementFieldC2_0205deb4((Struct_0205d81c*)(self + 0xe20), 0xc, 1);
+            DispatchWithShortB4_0205eaa0((Obj0205eaa0*)&data_02108760, 1, 0);
+            *(short *) (self + 0x1ada) = 0;
+            *(short *) (self + 0x1af0) = 0x238d;
+            *(short *) (self + 0x1af2) = -1;
+            *(int *) (self + 0x1a80) = 0x29;
+            *(int *) (self + 0x1a84) = 0xc;
+            *(int *) (self + 0x1a88) = 0;
+            *(char *) (self + 0x1af6) = 1;
+        } else {
+            if (CheckFlagOrThreshold_02161b48(self, 1) == 0) {
+                return;
+            }
+            func_ov002_02156e90(self);
+            *(short *) (self + 0x1ab8) = -1;
+            *(char *) (self + 0x1ae8) = -1;
+            *(char *) (self + 0x1ae9) = -1;
+            SetFieldB0AndUpdate0205dee8((Obj0205dee8*)(self + 0xe20), (*(int *) (self + 0x1a80) = 4));
+            func_ov002_0215b9a4(self, *(int *) (self + 0x1a80), 0);
+            func_ov002_02161cf0(self);
+        }
+    }
+}
+#else
 extern "C" ARM void func_ov002_021644a8(char *self) {
     int phase = *(int *) (self + 0x1bc0);
     if (phase == 0) {
@@ -89,3 +162,4 @@ extern "C" ARM void func_ov002_021644a8(char *self) {
         }
     }
 }
+#endif

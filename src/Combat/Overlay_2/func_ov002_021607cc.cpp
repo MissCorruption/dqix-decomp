@@ -27,6 +27,56 @@ extern Ints8_0216caa4 data_ov002_0216caa4;
 extern Ints7_0216ca88 data_ov002_0216ca88;
 
 // USA: func_ov002_021607cc
+#if defined(jpn)
+extern "C" int func_0204234c(char *dst, int a1);
+extern Ints8_0216caa4 data_ov002_0216d0d0;
+extern Ints7_0216ca88 data_ov002_0216d0b4;
+#define AppendLineTag02041cc0 func_0204234c
+#define data_ov002_0216caa4 data_ov002_0216d0d0
+#define data_ov002_0216ca88 data_ov002_0216d0b4
+extern "C" ARM void func_ov002_021607cc(unsigned char *self, char *dst, int flag) {
+    if (dst == NULL) return;
+    GameState::GetInstance();
+    int cursor        = *(short *) (self + 0x1ad2);
+    Ints8_0216caa4 ys = data_ov002_0216caa4;
+    if (flag) {
+        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+    }
+    AppendCursorTag_02041ea4(dst, cursor);
+    AppendWireTag02041c64(dst, 0x64, 2, 2, 2, 2);
+    char *title = GetFieldByKey020e0434((struct Container020e0310 *) (self + 8), 0x1194);
+    AppendString02042058(dst, title);
+    AppendLineTag02041cc0(dst, 0x11);
+    Ints7_0216ca88 offs = data_ov002_0216ca88;
+    char buf[0x40];
+    int i;
+    for (i = 0; i < 7; i++) {
+        signed char v = *(signed char *) (self + offs.v[i] + 0x1b40);
+        int key;
+        if (v < 0) {
+            key = 0x119d;
+        } else {
+            key = v;
+            key += 0x119d;
+        }
+        __clear(buf, 0x40);
+        AppendXYTag_02041a90(dst, 0x2b, ys.v[i]);
+        if (key != 0x119d) {
+            AppendString02042058(
+                buf, GetFieldByKey020e0434((struct Container020e0310 *) (self + 8), (short) key));
+        } else {
+            AppendDotLeaderLabel02042084(
+                buf, GetFieldByKey020e0434((struct Container020e0310 *) (self + 8), (short) key),
+                0x64, 0xa);
+        }
+        AppendNameTag_02041b70(dst, i, buf);
+    }
+    AppendWireTag02041c64(dst, 0, 2, 2, 2, 2);
+    AppendLineTag02041cc0(dst, 0xa2);
+    AppendXYTag_02041a90(dst, 0x2b, ys.v[i]);
+    AppendNameTag_02041b70(dst, i, GetFieldByKey020e0434((struct Container020e0310 *) (self + 8), 0x11fa));
+}
+#else
 extern "C" ARM void func_ov002_021607cc(unsigned char *self, char *dst, int flag) {
     if (dst == NULL) return;
     GameState::GetInstance();
@@ -70,3 +120,4 @@ extern "C" ARM void func_ov002_021607cc(unsigned char *self, char *dst, int flag
     AppendXYTag_02041a90(dst, 0x2b, ys.v[i]);
     AppendNameTag_02041b70(dst, i, GetFieldByKey020e0434((struct Container020e0310 *) (self + 0x20), 0x11fa));
 }
+#endif

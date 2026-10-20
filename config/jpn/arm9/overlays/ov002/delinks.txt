@@ -438,3 +438,71 @@ src/Combat/Overlay_2/func_ov002_0216c654.cpp:
 src/Combat/Overlay_2/func_ov002_021665b0.cpp:
     complete
     .text start:0x02167068 end:0x0216846c
+
+src/Combat/Overlay_2/func_ov002_0215a658.cpp:
+    complete
+    .text start:0x0215ba64 end:0x0215bbac
+
+src/Combat/Overlay_2/CheckStateAndGetCode0215753c.cpp:
+    complete
+    .text start:0x02158bb4 end:0x02158c44
+
+src/Combat/Overlay_2/func_ov002_021607cc.cpp:
+    complete
+    .text start:0x0216166c end:0x02161858
+
+src/Combat/Overlay_2/ResetAndRebuildEntries02160734.cpp:
+    complete
+    .text start:0x021615e0 end:0x0216166c
+
+src/Combat/Overlay_2/func_ov002_02160fb4.cpp:
+    complete
+    .text start:0x02161ea8 end:0x02161fa8
+
+src/Combat/Overlay_2/InitBattleTag02160c68.cpp:
+    complete
+    .text start:0x02161b94 end:0x02161c0c
+
+src/Combat/Overlay_2/func_ov002_021644a8.cpp:
+    complete
+    .text start:0x02165118 end:0x0216538c
+
+src/Combat/Overlay_2/AppendCursorAndNameTags_0216186c.cpp:
+    complete
+    .text start:0x02162778 end:0x02162818
+
+src/Combat/Overlay_2/InitBattleTag021609d4.cpp:
+    complete
+    .text start:0x02161858 end:0x02161938
+
+src/Combat/Overlay_2/func_ov002_0216806c.cpp:
+    complete
+    .text start:0x02168b20 end:0x02168d54
+
+src/Combat/Overlay_2/func_ov002_02167eb0.cpp:
+    complete
+    .text start:0x02168980 end:0x02168b20
+
+src/Combat/Overlay_2/func_ov002_02165378.cpp:
+    complete
+    .text start:0x02165f70 end:0x0216630c
+
+src/Combat/Overlay_2/func_ov002_02166168.cpp:
+    complete
+    .text start:0x02166c74 end:0x02167068
+
+src/Combat/Overlay_2/func_ov002_021642e4.cpp:
+    complete
+    .text start:0x02164f78 end:0x02165118
+
+src/Combat/Overlay_2/func_ov002_02165764.cpp:
+    complete
+    .text start:0x02166324 end:0x02166674
+
+src/Combat/Overlay_2/func_ov002_02162e50.cpp:
+    complete
+    .text start:0x02163bc8 end:0x02163f30
+
+src/Combat/Overlay_2/func_ov002_02163664.cpp:
+    complete
+    .text start:0x02164390 end:0x02164894

@@ -29,6 +29,70 @@ void SetElementFieldC2_0205deb4(Struct_0205d81c*, int, int);
 extern Obj0205eaa0 data_02108760;
 
 // USA: func_ov002_0216806c
+#if defined(jpn)
+extern "C" int func_ov002_02162930(char *self, int flag);
+extern "C" void func_ov002_0215852c(char *self);
+extern "C" void func_ov002_02162acc(char *self);
+extern "C" void func_ov002_0216104c(char *self);
+extern "C" void func_ov002_0215c2c4(char *self);
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+#define func_ov002_02156e90 func_ov002_0215852c
+#define func_ov002_02161cf0 func_ov002_02162acc
+#define func_ov002_02160068 func_ov002_0216104c
+#define CopyPaletteEntry0215af64 func_ov002_0215c2c4
+extern "C" ARM void func_ov002_0216806c(char *self) {
+    int phase = *(int *) (self + 0x1a88);
+    if (phase == 0) {
+        func_ov002_02161cf0(self);
+        func_ov002_02160068(self);
+        func_ov002_02161cf0(self);
+        CopyPaletteEntry0215af64(self);
+        (*(int *) (self + 0x1a88))++;
+    } else if (phase == 1) {
+        short old                  = *(short *) (self + 0x1ace);
+        *(short *) (self + 0x1ace) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + 0xe20));
+        if (old != *(short *) (self + 0x1ace)) {
+            CopyPaletteEntry0215af64(self);
+            func_ov002_0215b9a4(self, 0x1e, 0);
+        }
+        int a  = g_keyManager.TestKeysPressed(0x601);
+        int b  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0xe20), 0x14);
+        int ok = (a | b) ? 1 : 0;
+        if (ok) {
+            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            int id             = *(signed char *) (self + 0x1ae8);
+            GameObject *member = GameState::GetInstance()->GetPartyMemberByIndex(id);
+            if (member == 0) return;
+            unsigned char *f = (unsigned char *) GetFieldAt0x150_02053c6c((unsigned char *) member);
+            if (f[0x56a] != *(short *) (self + 0x1ace) && *(short *) (f + 0x488) < 0) {
+                member->obj3D_.unknown_2_ = -1;
+                func_ov017_0218f5a4(GetGameResources(), id, 0, 0, 0);
+            }
+            f[0x56a] = *(short *) (self + 0x1ace);
+            func_ov002_02161a8c();
+            func_020dc7e8(1, -1);
+            func_020dc7e8(8, -1);
+            func_020dc7e8(6, -1);
+            func_020dc7e8(7, -1);
+            int *p = func_0202ae18();
+            if (p != 0 && CheckField0NonZero_0202b7d8(p)) {
+                ForEachEntry_021d0dbc();
+            }
+            func_ov002_02156e90(self);
+            func_ov002_02156e90(self);
+            SetElementFieldC2_0205deb4((Struct_0205d81c*)(self + 0xe20), 0x19, 0);
+            SetElementFieldC2_0205deb4((Struct_0205d81c*)(self + 0xe20), 0x1b, 0);
+            SetElementFieldC2_0205deb4((Struct_0205d81c*)(self + 0xe20), 0x1c, 0);
+        } else if (CheckFlagOrThreshold_02161b48(self, 1)) {
+            func_ov002_02156e90(self);
+            func_ov002_02156e90(self);
+            SetElementFieldC2_0205deb4((Struct_0205d81c*)(self + 0xe20), 0x19, 0);
+            SetElementFieldC2_0205deb4((Struct_0205d81c*)(self + 0xe20), 0x1b, 0);
+            SetElementFieldC2_0205deb4((Struct_0205d81c*)(self + 0xe20), 0x1c, 0);
+        }
+    }
+}
+#else
 extern "C" ARM void func_ov002_0216806c(char *self) {
     int phase = *(int *) (self + 0x1bc0);
     if (phase == 0) {
@@ -81,3 +145,4 @@ extern "C" ARM void func_ov002_0216806c(char *self) {
         }
     }
 }
+#endif

@@ -40,6 +40,115 @@ extern "C" char data_02108760;
 #define OBJ (self + 0x2c8 + 0xc00)
 
 // USA: func_ov002_02165764
+#if defined(jpn)
+#undef OBJ
+#define OBJ (self + 0xe20)
+extern "C" int func_ov002_02162930(char *self, int flag);
+extern "C" void func_ov002_02162acc(char *self);
+extern "C" void func_ov002_0215fc6c(void *obj, int val);
+extern "C" void func_ov002_0216297c(char *self);
+extern "C" int func_ov002_0215c974(char *self, int id);
+extern "C" void func_ov002_021593b4(char *self);
+extern "C" void func_ov002_02158674(unsigned char *self, int v);
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+#define func_ov002_02161cf0 func_ov002_02162acc
+#define func_ov002_0215eadc func_ov002_0215fc6c
+#define func_ov002_02161b98 func_ov002_0216297c
+#define func_ov002_0215b720 func_ov002_0215c974
+#define func_ov002_02157d40 func_ov002_021593b4
+#define ClearMatchingEntry_02156ff0 func_ov002_02158674
+
+extern "C" ARM void func_ov002_02165764(char *self) {
+    int state = *(int *) (self + 0x1a88);
+    if (state == 0) {
+        *(short *) (self + 0x1ac2) = 0;
+        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) OBJ, 0, 2);
+        func_ov002_02161cf0(self);
+        func_ov002_0215eadc(self, 0);
+        SetFieldB0AndUpdate0205dee8((struct Obj0205dee8 *) OBJ, 0x12);
+        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) OBJ, 0x12, 0);
+        *(int *) (self + 0x1a88) += 1;
+        return;
+    }
+    if (state == 1) {
+        *(unsigned int *) (self + 0x22ac) |= 4;
+        short old = *(short *) (self + 0x1ac2);
+        func_ov002_02161b98(self);
+        *(short *) (self + 0x1ac2) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) OBJ);
+        if (old != *(short *) (self + 0x1ac2)) {
+            *(int *) (self + 0x1a94) = 1;
+        }
+        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) OBJ, 0x13, 0);
+        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) OBJ, 0x14, 0);
+        func_ov002_0215b9a4(self, *(int *) (self + 0x1a80) & 0xff, 0);
+        int t  = g_keyManager.TestKeysPressed(0x601);
+        int u  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)OBJ, 0x14);
+        int ok = (t | u) ? 1 : 0;
+        if (ok) {
+            *(unsigned char *) (self + 0x1b48) = 3;
+            char *c = GetCombatantChecked_0200ff94(GameState::GetInstance(), *(signed char *) (self + 0x1ae8));
+            if (c == 0) {
+                return;
+            }
+            if (**(int **) (c + 0x130) & 1) {
+                *(short *) (self + 0x1af0) = -1;
+                *(short *) (self + 0x1af2) = -1;
+                *(int *) (self + 0x1a80)   = 0x12;
+                return;
+            }
+            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+            *(short *) (self + 0x1aee) = -1;
+            short v                    = *(short *) (self + 0x1ac2);
+            if (v >= 0 && v < 0x20) {
+                *(short *) (self + 0x1aee) = (*(Entry_02165764 **) (self + v * 4 + 0x22d0))->id;
+            }
+            if (func_ov002_0215b720(self, *(short *) (self + 0x1aee))) {
+                *(int *) (self + 0x1a88) = 2;
+                return;
+            }
+            *(unsigned char *) (self + 0xed8) = *(int *) (self + 0x1a80);
+            *(unsigned int *) (self + 0x22ac) &= ~4;
+            *(int *) (self + 0x1a88) = 0;
+            func_ov002_02157d40(self);
+            return;
+        }
+        if (CheckFlagOrThreshold_02161b48(self, 1)) {
+            *(short *) (self + 0x1ac2) = -1;
+            *(short *) (self + 0x1aee) = -1;
+            *(int *) (self + 0x1a80)   = 0x11;
+            ClearMatchingEntry_02156ff0((unsigned char *) self, 0x12);
+            SetElementFieldC2_0205deb4((struct Struct_0205d81c *) OBJ, 0x12, 1);
+            SetFieldB0AndUpdate0205dee8((struct Obj0205dee8 *) OBJ, 0x11);
+            SetElementFieldC2_0205deb4((struct Struct_0205d81c *) OBJ, 0x11, 0);
+            *(int *) (self + 0x1a88) = 1;
+            *(int *) (self + 0x1a80) = 0x11;
+            func_ov002_0215b9a4(self, *(int *) (self + 0x1a80) & 0xff, 0);
+            func_ov002_02161cf0(self);
+        }
+        return;
+    }
+    if (state != 2) {
+        return;
+    }
+    int r = CheckAndClearEntryStatus_0215b7d0(self);
+    if (r > 0) {
+        *(unsigned char *) (self + 0xed8) = *(int *) (self + 0x1a80);
+        *(unsigned int *) (self + 0x22ac) &= ~4;
+        *(int *) (self + 0x1a88) = 0;
+        func_ov002_02157d40(self);
+        return;
+    }
+    if (r < 0) {
+        *(short *) (self + 0x1af0)         = 0x232d;
+        *(short *) (self + 0x1af2)         = -1;
+        *(short *) (self + 0x22b8)         = 0x232b;
+        *(unsigned char *) (self + 0x22ba) = 1;
+        *(int *) (self + 0x1a80)           = 0x29;
+        *(int *) (self + 0x1a84)           = 0x12;
+        *(int *) (self + 0x1a88)           = 0;
+    }
+}
+#else
 extern "C" ARM void func_ov002_02165764(char *self) {
     int state = *(int *) (self + 0x1bc0);
     if (state == 0) {
@@ -137,3 +246,4 @@ extern "C" ARM void func_ov002_02165764(char *self) {
         *(int *) (self + 0x1bc0)           = 0;
     }
 }
+#endif

@@ -40,6 +40,120 @@ extern "C" char data_02108760;
 #define OBJ (self + 0x2c8 + 0xc00)
 
 // USA: func_ov002_02166168
+#if defined(jpn)
+#undef OBJ
+#define OBJ (self + 0xe20)
+extern "C" int func_ov002_02162930(char *self, int flag);
+extern "C" void func_ov002_0215852c(void *self);
+extern "C" void func_ov002_02162acc(char *self);
+extern "C" void func_ov002_0215bc68(char *self);
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+#define func_ov002_02156e90 func_ov002_0215852c
+#define func_ov002_02161cf0 func_ov002_02162acc
+#define SetPendingFlagAndSync_0215a878 func_ov002_0215bc68
+extern "C" ARM void func_ov002_02166168(char *self) {
+    GameState *gs      = GameState::GetInstance();
+    GameResources *res = (GameResources *) GetWord0x0_0200fb8c((int *) gs);
+    func_02012fe4();
+    int state = *(int *) (self + 0x1a88);
+    if (state == 0) {
+        *(short *) (self + 0x1ac6) = 0;
+        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) OBJ, 0, 2);
+        func_ov002_02161cf0(self);
+        func_ov002_0215f3a0(self);
+        *(int *) (self + 0x1a88) += 1;
+    } else if (state == 1) {
+        *(unsigned int *) (self + 0x22ac) |= 4;
+        SetElementFlag0x20ByKey0205def8((struct Struct_0205def8 *) OBJ, 1, 0x2c);
+        SetElementFieldC2_0205deb4((struct Struct_0205d81c *) OBJ, 0x16, 0);
+        short old                  = *(short *) (self + 0x1ac6);
+        *(short *) (self + 0x1ac6) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) OBJ);
+        char *e                    = FindElementByC40205d81c((struct Struct_0205d81c *) OBJ, 0x17);
+        if (e != 0) {
+            *(short *) (e + 0xc2) = 0;
+        }
+        func_ov002_0215b9a4(self, *(int *) (self + 0x1a80) & 0xff, 0);
+        if (old != *(short *) (self + 0x1ac6)) {
+            func_ov002_0215b9a4(self, 0x17, 0);
+        }
+        int t  = g_keyManager.TestKeysPressed(0x601);
+        int u  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)OBJ, 0x14);
+        int ok = (t | u) ? 1 : 0;
+        if (ok) {
+            unsigned int f = *(unsigned int *) (self + 0x22ac);
+            if (f & 2) {
+                return;
+            }
+            TeardownAndResetState020d7aa0(GetGlobalResetObj020d7a50());
+            short count = 0;
+            short list[9];
+            func_ov002_02156080(self, list, &count);
+            func_ov002_02161920(self);
+            switch (list[*(short *) (self + 0x1ac6)]) {
+                case 0:
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+                    *(unsigned char *) (self + 0xed8) = *(int *) (self + 0x1a80);
+                    *(unsigned int *) (self + 0x22ac) &= ~4;
+                    *(int *) (self + 0x1a80) = 0x18;
+                    *(int *) (self + 0x1a88) = 0;
+                    break;
+                case 1:
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+                    *(int *) (self + 0x1a80) = 0x19;
+                    *(int *) (self + 0x1a88) = 0;
+                    break;
+                case 2:
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+                    *(unsigned char *) (self + 0xed8) = *(int *) (self + 0x1a80);
+                    *(unsigned int *) (self + 0x22ac) &= ~4;
+                    *(int *) (self + 0x1a80) = 0x20;
+                    *(int *) (self + 0x1a88) = 0;
+                    break;
+                case 3:
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+                    *(int *) (self + 0x1a80) = 0x24;
+                    *(int *) (self + 0x1a88) = 0;
+                    break;
+                case 4:
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+                    InitNodeAndInsertAt_021c1798_021c1798(res, 1);
+                    SetPendingFlagAndSync_0215a878(self);
+                    *(int *) (self + 0x1a80) = 0x2e;
+                    *(int *) (self + 0x1a88) = 0;
+                    break;
+                case 5:
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+                    *(int *) (self + 0x1a80) = 0x26;
+                    *(int *) (self + 0x1a88) = 0;
+                    break;
+                case 7:
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+                    *(int *) (self + 0x1a80) = 0x27;
+                    *(int *) (self + 0x1a88) = 0;
+                    break;
+                case 8: {
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+                    int id = (signed char) GetField0x3acValue_020100a8(gs);
+                    for (int i = 0; i < *(int *) (self + 0x1b14); i++) {
+                        char *c = (char *) GetCombatantWithFlag0x100_0200ff1c(gs, *(int *) (self + i * 4 + 0x1b18));
+                        if (c != 0 && !(**(int **) (c + 0x130) & 1)) {
+                            id = (signed char) ((int *) (self + 0x1b18))[i];
+                            break;
+                        }
+                    }
+                    func_ov017_021bff8c((int) res, id);
+                    *(int *) (self + 0x1a80) = 0x2e;
+                    *(int *) (self + 0x1a88) = 0;
+                    break;
+                }
+            }
+        } else if (CheckFlagOrThreshold_02161b48(self, 1)) {
+            *(short *) (self + 0x1ac6) = -1;
+            func_ov002_02156e90(self);
+        }
+    }
+}
+#else
 extern "C" ARM void func_ov002_02166168(char *self) {
     GameState *gs      = GameState::GetInstance();
     GameResources *res = (GameResources *) GetWord0x0_0200fb8c((int *) gs);
@@ -150,3 +264,4 @@ extern "C" ARM void func_ov002_02166168(char *self) {
         }
     }
 }
+#endif
