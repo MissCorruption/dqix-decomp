@@ -21,13 +21,103 @@ extern "C" void *func_ov003_02160bf8(void *obj, int key);
 extern "C" void func_02042764(void *src, void *dst, int flag);
 extern "C" void func_020e4b34(void *, const char *, void *, unsigned int, unsigned char, unsigned char, unsigned char,
                               unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
+#if !defined(jpn)
 extern "C" void func_0204500c(void *obj, void *buffer, int a, int b);
+#endif
 void SetField9a0AndIncrementField78(Struct020444bc *s);
 void ReinitController02043204(char *obj);
 extern "C" void func_02043124(char *obj);
 void SetOrClearFlag40_02166f80(void *self, int key, int set);
 
 // USA: func_ov003_02160f4c
+#if defined(jpn)
+extern "C" void func_0204500c(void *obj, void *buffer, int a);
+extern "C" ARM void func_ov003_02160f4c(unsigned char *self) {
+    unsigned char *ctl = (unsigned char *) GetGlobalField0x1c020421a0();
+
+    if (self[0x2cd] == 0) {
+        func_02046380(ctl);
+        if (*(unsigned int *) (self + 0x28c) & 4) {
+            unsigned char *e = self + *(short *) (self + 0x200 + 0xc0) * 0x1b;
+            if ((signed char) e[1] != 0) {
+                SetIndexedName02046574((Obj02046574 *) ctl, 0, (char *) (e + 1));
+            } else {
+                SetIndexedName02046574(
+                    (Obj02046574 *) ctl, 0,
+                    (char *) GetFieldByKey020e0434((Container020e0310 *) (self + 0x1c4), 0x7530));
+            }
+            *(unsigned int *) (self + 0x28c) &= ~4u;
+        }
+        if (*(unsigned int *) (self + 0x28c) & 0x10) {
+            char *c = (char *) GetCombatantWithFlag0x100_0200ff1c(GameState::GetInstance(), *(short *) (self + 0x200 + 0xaa));
+            if (c != 0) {
+                SetIndexedName02046574((Obj02046574 *) ctl, 0, *(char **) (c + 0x134));
+            }
+            *(unsigned int *) (self + 0x28c) &= ~0x10u;
+            if (*(short *) (self + 0x200 + 0xac) == 0x54) {
+                *(unsigned int *) (self + 0x28c) |= 0x10;
+            }
+        } else if ((*(unsigned int *) (self + 0x28c) & 0x28) || *(short *) (self + 0x200 + 0xac) == 0xe) {
+            unsigned char *r5 = (unsigned char *) func_ov003_02160bf8(self, *(short *) (self + 0x200 + 0xa8));
+            if (r5 != 0) {
+                SetIndexedName02046574((Obj02046574 *) ctl, 0, (char *) (r5 + 0x140));
+            }
+            *(unsigned int *) (self + 0x28c) &= ~0x28u;
+        }
+        short v            = *(short *) (self + 0x200 + 0xac);
+        unsigned char flag = 1;
+        if (v == 8 || v == 0x3d) flag = 0;
+        void *key = GetFieldByKey020e0434((Container020e0310 *) (self + 0x1c4), v);
+        if (key == 0) {
+            *(short *) (self + 0x200 + 0xac) = *(short *) (self + 0x200 + 0xae);
+            *(short *) (self + 0x200 + 0xae) = -1;
+            key = GetFieldByKey020e0434((Container020e0310 *) (self + 0x1c4),
+                                                                 *(short *) (self + 0x200 + 0xac));
+        }
+        func_0204500c(ctl, key, 0);
+        *(int *) (ctl + 0x868) = 1;
+        *(int *) (ctl + 0x86c) = 2;
+        ctl[0x1000 + 0x7fb]    = flag;
+        self[0x2cd]++;
+        if (*(unsigned int *) (self + 0x28c) & 0x4000) {
+            self[0x2ce] = 0;
+        }
+        if (*(unsigned int *) (self + 0x28c) & 0x4000000) {
+            ctl[0x1000 + 0x7fb] = 0;
+            *(unsigned int *) (self + 0x28c) &= ~0x4000000u;
+        }
+        if (*(unsigned int *) (self + 0x28c) & 0x8000000) {
+            ctl[0x1000 + 0x7ff] |= 0x20;
+            *(unsigned int *) (self + 0x28c) &= ~0x8000000u;
+        }
+    } else if (self[0x2cd] == 1) {
+        if (*(int *) (ctl + 0x870) == 2 && (*(unsigned int *) (self + 0x28c) & 0x4000) && ++self[0x2ce] > 0x3c) {
+            SetField9a0AndIncrementField78((Struct020444bc *) ctl);
+        }
+        if (*(int *) (ctl + 0x868) == 0) {
+            *(short *) (self + 0x200 + 0xac) = *(short *) (self + 0x200 + 0xae);
+            *(short *) (self + 0x200 + 0xae) = -1;
+            self[0x2cb]                      = 0x10;
+            self[0x2cd]                      = 0;
+        } else if (*(int *) (ctl + 0x870) == 3) {
+            *(short *) (self + 0x200 + 0xac) = *(short *) (self + 0x200 + 0xae);
+            *(short *) (self + 0x200 + 0xae) = -1;
+            if (*(short *) (self + 0x200 + 0xac) < 0) {
+                if (*(unsigned int *) (self + 0x28c) & 2) {
+                    ReinitController02043204((char *) ctl);
+                    func_02043124((char *) ctl);
+                    *(unsigned int *) (self + 0x28c) &= ~2u;
+                }
+                if (*(unsigned int *) (self + 0x28c) & 0x2000) {
+                    *(unsigned int *) (self + 0x28c) &= ~0x2000u;
+                    SetOrClearFlag40_02166f80(self, *(short *) (self + 0x200 + 0xb0), 0);
+                }
+            }
+            self[0x2cd] = 0;
+        }
+    }
+}
+#else
 extern "C" ARM void func_ov003_02160f4c(unsigned char *self) {
     unsigned char *ctl = (unsigned char *) GetGlobalField0x1c020421a0();
     char nameBuf[0x30];
@@ -119,3 +209,4 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *self) {
         }
     }
 }
+#endif

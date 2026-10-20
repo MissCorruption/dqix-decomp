@@ -2,7 +2,6 @@
 #include "Resource/Brightness.h"
 
 #if defined(jpn)
-#define func_ov003_02160f4c func_ov003_021610a8
 #define data_ov003_02180cc0 data_ov003_0217ef38
 #define data_ov003_0217ff68 data_ov003_0217e758
 #endif
