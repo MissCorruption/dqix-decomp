@@ -22,7 +22,7 @@ func_ov009_021869d8 kind:function(arm,size=0x114) addr:0x02187b04
 func_ov009_02186aec kind:function(arm,size=0x114) addr:0x02187c18
 func_ov009_02186c00 kind:function(arm,size=0x200) addr:0x02187d2c
 func_ov009_02186e00 kind:function(arm,size=0x2d0) addr:0x02187f2c
-func_ov009_021881fc kind:function(arm,size=0x6f4) addr:0x021881fc
+func_ov009_0218742c kind:function(arm,size=0x6f4) addr:0x021881fc
 func_ov009_02187b34 kind:function(arm,size=0x89c) addr:0x021888f0
 func_ov009_021883cc kind:function(arm,size=0x88) addr:0x0218918c
 func_ov009_02189214 kind:function(arm,size=0x164) addr:0x02189214
@@ -55,7 +55,7 @@ data_ov009_0218b952 kind:data(any) addr:0x0218b952
 data_ov009_0218b95c kind:data(any) addr:0x0218b95c
 data_ov009_0218b968 kind:data(any) addr:0x0218b968
 data_ov009_0218b978 kind:data(any) addr:0x0218b978
-data_ov009_0218b988 kind:data(any) addr:0x0218b988
+data_ov009_0218a9b4 kind:data(any) addr:0x0218b988
 data_ov009_0218b990 kind:data(any) addr:0x0218b990
 data_ov009_0218b998 kind:data(any) addr:0x0218b998
 data_ov009_0218b9a4 kind:data(any) addr:0x0218b9a4
@@ -71,7 +71,7 @@ data_ov009_0218ba10 kind:data(any) addr:0x0218ba10
 data_ov009_0218ba1c kind:data(any) addr:0x0218ba1c
 data_ov009_0218ba30 kind:data(any) addr:0x0218ba30
 data_ov009_0218ba4c kind:data(any) addr:0x0218ba4c
-data_ov009_0218ba7c kind:data(any) addr:0x0218ba7c
+data_ov009_0218aac8 kind:data(any) addr:0x0218ba7c
 data_ov009_0218bab0 kind:data(any) addr:0x0218bab0
 data_ov009_0218bb04 kind:data(any) addr:0x0218bb04
 data_ov009_0218bb6c kind:data(any) addr:0x0218bb6c
@@ -79,7 +79,7 @@ data_ov009_0218bc20 kind:data(any) addr:0x0218bc20
 data_ov009_0218bc25 kind:data(any) addr:0x0218bc25
 data_ov009_0218bc3e kind:data(any) addr:0x0218bc3e
 data_ov009_0218bc59 kind:data(any) addr:0x0218bc59
-data_ov009_0218bc5c kind:data(any) addr:0x0218bc5c
+data_ov009_0218ad2c kind:data(any) addr:0x0218bc5c
 data_ov009_0218bc71 kind:data(any) addr:0x0218bc71
 data_ov009_0218bc73 kind:data(any) addr:0x0218bc73
 data_ov009_0218bc76 kind:data(any) addr:0x0218bc76

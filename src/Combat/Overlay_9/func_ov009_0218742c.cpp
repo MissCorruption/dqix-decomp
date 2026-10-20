@@ -28,7 +28,11 @@ struct Character0218742c {
     char field_274[0x214];
     short equipmentKeys[0x71];
     unsigned char appearance;
+#if defined(jpn)
+    char field_56b[0x34d];
+#else
     char field_56b[0x3e5];
+#endif
     int vocation;
 };
 struct Snapshot0218742c { char field_0[0x14c]; PackedStats0218742c stats[5]; char field_160[0xdc]; };
@@ -45,11 +49,19 @@ struct ScriptNode0218742c {
     void SetWaiting(unsigned char value) { waiting = value; }
 };
 struct Menu0218742c {
+#if defined(jpn)
+    char field_0[0xa0]; ScriptNode0218742c* script;
+    char field_c4[4]; char equipmentContainer[0xd4];
+    char display[0xfc]; char entryList[0x9a5];
+    unsigned char step;
+    char field_c5a[0x12a];
+#else
     char field_0[0xc0]; ScriptNode0218742c* script;
     char field_c4[4]; char equipmentContainer[0xf0];
     char display[0xfc]; char entryList[0x9a5];
     unsigned char step;
     char field_c5a[0x12a];
+#endif
     signed char selection;
     char field_d85[3]; Character0218742c* character;
     char field_d8c[9]; unsigned char mode;
@@ -57,7 +69,13 @@ struct Menu0218742c {
     char field_da0[2]; unsigned char vocation; unsigned char selectedIndex;
     char field_da4[4]; unsigned char selections[1];
 };
+#if defined(jpn)
+struct GameFlag0218742c { char field_0[0x6174]; unsigned char changed; };
+#define SetStatValue021855dc func_ov009_021867bc
+extern "C" void func_ov009_021867bc(unsigned char*, int);
+#else
 struct GameFlag0218742c { char field_0[0x63d4]; unsigned char changed; };
+#endif
 struct EquipmentMapping0218742c { unsigned char keyIndex; unsigned char destination; unsigned char field_2[5]; };
 struct Struct_0205d81c; struct Obj0205eaa0; struct Struct_0205c570; struct Obj_0205da38;
 struct Entry_0205d6a0; struct Obj0204b010; struct Cont0205d1e0; struct Cont0205d228;
@@ -134,10 +152,20 @@ extern "C" ARM void func_ov009_0218742c(Menu0218742c* menu) {
         if (menu->step == 3) {
             ResetEntryList0205d6a0((Entry_0205d6a0*)menu->entryList, 0);
             SetElementFieldC2_0205deb4((Struct_0205d81c*)menu->entryList, 3, 2);
+#if defined(jpn)
+            menu->flags &= ~0x20;
+            menu->flags &= ~0x40;
+#else
             menu->flags &= ~0x60;
+#endif
         } else if (cancel) {
             ResetEntryList0205d6a0((Entry_0205d6a0*)menu->entryList, 0);
+#if defined(jpn)
+            menu->flags &= ~0x20;
+            menu->flags &= ~0x40;
+#else
             menu->flags &= ~0x60;
+#endif
             menu->step = 255;
         }
     } else if (step == 3) {
@@ -156,6 +184,66 @@ extern "C" ARM void func_ov009_0218742c(Menu0218742c* menu) {
             CallFunc0204b04cOverList0x98((Cont0205d274*)menu->entryList);
             InitEntries0205d2bc((Obj0205d2bc*)menu->entryList);
             SetStatValue021855dc((unsigned char*)menu, 10);
+#if defined(jpn)
+        } else if (menu->mode == 1) {
+            void* members = GetPtrField0x2a04_02010828(game);
+            Snapshot0218742c snapshot;
+            func_02086404(&snapshot);
+            SetBit0x954StoreIndex0x950_02083ca0((unsigned char*)menu->character, menu->vocation);
+            menu->character->experience[menu->vocation] = 0;
+            menu->character->levels[menu->vocation] = 1;
+            menu->character->appearance = NextRandomMax(GetBTRandom(), 16);
+            char filename[32];
+            int characterVocation = menu->character->vocation;
+            sprintf(filename, data_ov009_0218ad2c, characterVocation);
+            LoadedRecord0218742c record;
+            Clear0x54Bytes0208247c(&record);
+            BackgroundLoader::AddLockGlobal();
+            unsigned int fileSize;
+            void* file = LoadFileIntoMemory(filename, data_0211e33c, &fileSize);
+            if (file) func_02082490(&record, file, fileSize, menu->character->levels[menu->vocation], 0);
+            func_02083cbc(menu->character, &record, record.tail);
+            BackgroundLoader::RemoveLockGlobal();
+            short* keys = menu->character->equipmentKeys;
+            for (int i = 0; i < 7; ++i) {
+                void* item = FindElementByKey020dedd0((Container020dedd0*)menu->equipmentContainer, keys[data_ov009_0218aac8[i].keyIndex]);
+                if (item) memcpy(&menu->character->equipment[data_ov009_0218aac8[i].destination], item, 32);
+            }
+            func_02083e28(menu->character, 0);
+            ResetAndCopyShorts0x1c_020863c4((unsigned char*)menu->character);
+            PackedStats0218742c* stats = SnapshotStats(&snapshot);
+            Character0218742c* character = menu->character;
+            stats[0].first = character->stats[0].first;
+            stats[0].second = character->stats[0].second;
+            stats[0].third = character->stats[0].third;
+            stats[1].first = character->stats[1].first;
+            stats[1].second = character->stats[1].second;
+            stats[1].third = character->stats[1].third;
+            stats[2].first = character->stats[2].first;
+            stats[2].second = character->health;
+            stats[2].third = character->mana;
+            stats[3].SetFirst(character->health);
+            stats[3].second = character->mana;
+            stats[3].third = character->field_70;
+            stats[4].first = character->field_72;
+            stats[4].second = character->stats[3].first;
+            int scriptContext;
+            ClearField00209a804(&scriptContext);
+            Script0218742c script;
+            SetupAndRunBufferedScript0209a810((Ctx0209a810*)&scriptContext, &script);
+            unsigned char vocation = menu->character->vocation;
+            unsigned char level = menu->character->levels[menu->character->vocation];
+            LearnedAbility0218742c* abilities = script.abilities[vocation];
+            for (int i = 0; i < 20; ++i) {
+                if (level >= abilities[i].level && abilities[i].level != 0)
+                    SetBitInArray0x910_02083b60((unsigned char*)menu->character, abilities[i].id);
+            }
+            func_020830cc(menu->character, &snapshot);
+            func_02086778(members, &snapshot, 0, 0);
+            menu->flags |= 0x400;
+            SetStatValue021855dc((unsigned char*)menu, 11);
+        }
+#else
         } else if (menu->mode == 1) {
             Character0218742c* character = menu->character;
             void* members = GetPtrField0x2a04_02010828(game);
@@ -214,6 +302,7 @@ extern "C" ARM void func_ov009_0218742c(Menu0218742c* menu) {
             menu->flags |= 0x400;
             SetStatValue021855dc((unsigned char*)menu, 11);
         }
+#endif
     } else if (step == 255) {
         ClearBuffer0204b010((Obj0204b010*)menu->display, 0);
         func_0204bc74(menu->display, 0, 0, 0, 32, 25, 0);
@@ -222,11 +311,15 @@ extern "C" ARM void func_ov009_0218742c(Menu0218742c* menu) {
         ColorEffect_ConfigureBrightnessAdjust(0x04001050, 1, 0);
         SetElementFieldC2_0205deb4((Struct_0205d81c*)menu->entryList, 3, 0);
         SetElementFieldC2_0205deb4((Struct_0205d81c*)menu->entryList, 2, 0);
+#if defined(jpn)
+        SetStatValue021855dc((unsigned char*)menu, 8);
+#else
         void* script = func_ov003_0215f4fc(menu->script, data_ov009_0218ad26);
         if (script) menu->script->script = script;
         menu->script->SetActive(1);
         menu->script->SetWaiting(0);
         SetStatValue021855dc((unsigned char*)menu, 8);
         menu->step = 1;
+#endif
     }
 }
