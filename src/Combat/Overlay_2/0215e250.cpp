@@ -1,6 +1,14 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+extern "C" int func_02042638(char* buf, int a, int b);
+#define AppendFormatted02041fac func_02042638
+#else
+#define RG(u, j) (u)
+#endif
+
 void FilterSlotsWithFlag0x800020dc4d0(signed char* out, signed char* outCount);
 struct Obj02061bd8;
 int CheckField0x56bLowNibble(struct Obj02061bd8* obj);
@@ -21,7 +29,7 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag
     if (dst == NULL) return;
 
     GameState* bs = GameState::GetInstance();
-    int cursor = *(short*)(base + 0x1bf6);
+    int cursor = *(short*)(base + RG(0x1bf6, 0x1abe));
 
     signed char idArr[7];
     signed char count;
@@ -44,7 +52,7 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag
     }
     AppendCursorTag_02041ea4(dst, cursor);
 
-    int field = GetFieldByKey020e0434((struct Container020e0310*)(base + 0x20), 2);
+    int field = GetFieldByKey020e0434((struct Container020e0310*)(base + RG(0x20, 0x8)), 2);
     AppendFormatted02041fac(dst, field, 0x16);
 
     for (int i2 = 0; i2 < count; i2++) {
@@ -65,13 +73,17 @@ extern "C" ARM void func_ov002_0215e250(unsigned char* base, char* dst, int flag
 
             int pal = func_ov002_02159774(base, idArr[idx], 0, 1, 1);
             AppendPaletteTag_02041e70(dst, pal);
-            AppendNameTag_02041b70(dst, i2, (const char*)(base + 0x1ab0 + idArr[idx] * 0x3c));
+            AppendNameTag_02041b70(dst, i2, (const char*)(base + RG(0x1ab0, 0x1a08) + idArr[idx] * RG(0x3c, 0x18)));
             AppendPaletteTag_02041e70(dst, 0xf);
-            AppendString02042058(dst, *(const char**)(base + 0x1000 + 0xbdc));
+            AppendString02042058(dst, *(const char**)(base + 0x1000 + RG(0xbdc, 0xaa4)));
 
             idx++;
         }
     }
 
+#if defined(jpn)
+    AppendNameTag_02041b70(dst, count, (const char*)GetFieldByKey020e0434((struct Container020e0310*)(base + 0x8), 0x76d));
+#else
     AppendNameTag_02041b70(dst, count, (const char*)CallFunc020e0434With02153694_020e51cc(0x1a));
+#endif
 }

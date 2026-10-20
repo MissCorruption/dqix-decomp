@@ -19,6 +19,38 @@ extern short data_ov002_0216ca04[];
 extern int data_ov002_0216ca58[];
 extern char data_ov002_0216d26e;
 
+#if defined(jpn)
+extern int data_ov002_0216d09c[];
+extern const char* data_ov002_0216d600[];
+extern char data_ov002_0216d92a;
+
+ARM void BuildStatusString_0215c178(void* a0, char* dst, int flag) {
+    if (dst == NULL) return;
+    char* sub = (char*)a0 + 0x1a00;
+    short cursor = *(short*)(sub + 0xa8);
+    void* p = func_0205ec34(sub);
+    int hasBit = TestBitInByteArray_0206dfb0((int)(long)p, (unsigned char*)p + 0x8c, 4506) != 0;
+    if (flag != 0) {
+        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+    }
+    AppendCursorTag_02041ea4(dst, cursor);
+    for (int i = 0; i < 6; i++) {
+        if (i == 3 && hasBit == 0) {
+            AppendPaletteTag_02041e70(dst, 3);
+        }
+        int n = data_ov002_0216d09c[i];
+        AppendNameTag_02041b70(dst, n, data_ov002_0216d600[n]);
+        if (i == 1 || i == 3) {
+            AppendString02042058(dst, &data_ov002_0216d92a);
+        } else {
+            AppendXTag_02041a28(dst, 0x3e);
+        }
+        if (i == 3 && hasBit == 0) {
+            AppendPaletteTag_02041e70(dst, 15);
+        }
+    }
+}
+#else
 // USA: func_ov002_0215c178
 ARM void BuildStatusString_0215c178(void* a0, char* dst, int flag) {
     if (dst == NULL) return;
@@ -52,3 +84,4 @@ ARM void BuildStatusString_0215c178(void* a0, char* dst, int flag) {
         }
     }
 }
+#endif
