@@ -36,10 +36,17 @@ struct BattleData_021677fc {
 };
 
 struct Owner_021677fc {
+#if defined(jpn)
+    char pad_0[0x218];
+    struct BattleData_021677fc* data;
+    char pad_21c[0x394 - 0x21c];
+    char sub[0x57cc - 0x394];
+#else
     char pad_0[0x18];
     char sub[0x284];
     struct BattleData_021677fc* data;
     char pad_2a0[0x55dc - 0x2a0];
+#endif
     int totalWidth;
     int maxHeight;
 };
@@ -57,7 +64,11 @@ extern "C" ARM void func_ov000_021677fc(Owner_021677fc* obj) {
     struct BattleData_021677fc* data = obj->data;
     obj->totalWidth = 0;
     obj->maxHeight = 0;
+#if defined(jpn)
+    sub = obj->sub + 0x800;
+#else
     sub = obj->sub + 0xc00;
+#endif
     formation = &data->formation;
     for (g = 0; g < formation->groups[0].groupCount; g++) {
         group = &formation->groups[g];
