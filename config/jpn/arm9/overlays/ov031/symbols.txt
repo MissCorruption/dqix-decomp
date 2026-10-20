@@ -2711,10 +2711,10 @@ data_ov031_0224e224 kind:bss addr:0x0224ee24
 data_ov031_0224e22c kind:bss addr:0x0224ee2c
 data_ov031_0224e230 kind:bss addr:0x0224ee30
 data_ov031_0224e234 kind:bss addr:0x0224ee34
-data_ov031_0224ee4c kind:bss addr:0x0224ee4c
-data_ov031_0224ee54 kind:bss addr:0x0224ee54
+data_ov031_0224e24c kind:bss addr:0x0224ee4c
+data_ov031_0224e254 kind:bss addr:0x0224ee54
 data_ov031_0224e274 kind:bss addr:0x0224ee74
-data_ov031_0224eeac kind:bss addr:0x0224eeac
+data_ov031_0224e2ac kind:bss addr:0x0224eeac
 data_ov031_0224e3b0 kind:bss addr:0x0224efb0
 data_ov031_0224e3b8 kind:bss addr:0x0224efb8
 data_ov031_0224e528 kind:bss addr:0x0224f128
