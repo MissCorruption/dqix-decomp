@@ -22,7 +22,28 @@ static inline int Passes(int result, int expected) {
 
 // USA: func_ov001_02162338
 // EUR: func_ov001_02162338
+#if defined(jpn)
+extern "C" int data_ov029_021d9c40_fake(void (*callback)());
+extern "C" int data_ov029_0216398c_fake(void (*callback)());
+extern "C" int data_ov029_0216399c_fake(void (*callback)());
+#endif
+
 extern "C" ARM int func_ov001_02162338(void* obj, int count) {
+#if defined(jpn)
+    func_ov017_021d6134(obj, 1);
+    unsigned int id = OVERLAY_ID(29);
+    func_020a1940(id);
+    *(unsigned int*)(&data_ov001_02165880 + 0x28) = 0;
+    if (data_ov029_021d9c40_fake(IncrementCounterBy1_021622f0)
+        && data_ov029_0216398c_fake(IncrementCounterBy2_02162308)
+        && data_ov029_0216399c_fake(IncrementCounterBy3_02162320)
+        && *(unsigned int*)(&data_ov001_02165880 + 0x28) >= 6) {
+        func_ov017_021d6134(obj, 0);
+    }
+    *(unsigned int*)(&data_ov001_02165880 + 0x28) = 0;
+    func_020a1bb4(id);
+    return 1;
+#else
     func_ov017_021d6134(obj, 1);
     unsigned int id = OVERLAY_ID(29);
     func_020a1940(id);
@@ -44,4 +65,5 @@ extern "C" ARM int func_ov001_02162338(void* obj, int count) {
     *(unsigned int*)(&data_ov001_02165880 + 0x28) = 0;
     func_020a1bb4(id);
     return 1;
+#endif
 }

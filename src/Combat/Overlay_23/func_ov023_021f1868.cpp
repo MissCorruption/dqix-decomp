@@ -34,7 +34,11 @@ struct PartyData_021f1868 {
 };
 
 struct GameObject_021f1868 {
+#if defined(jpn)
+    char unk_0[0x144];
+#else
     char unk_0[0x150];
+#endif
     PartyData_021f1868* partyData_;
 };
 
@@ -60,6 +64,14 @@ struct Skill_021f1868 {
 };
 
 struct MessageSystem_021f1868 {
+#if defined(jpn)
+    char unk_0[0x868];
+    int busy_;
+    char unk_86c[0x17e2 - 0x86c];
+    unsigned char unk_19b2;
+    char unk_17e3[0x17fb - 0x17e3];
+    unsigned char unk_19ca;
+#else
     char* actor_;
     char unk_4[4];
     void* item_;
@@ -69,6 +81,7 @@ struct MessageSystem_021f1868 {
     unsigned char unk_19b2;
     char unk_19b3[0x19ca - 0x19b3];
     unsigned char unk_19ca;
+#endif
 };
 
 struct TitleScript_021f1868 {
@@ -78,7 +91,11 @@ struct TitleScript_021f1868 {
 };
 
 struct GuidePage_021f1868 {
+#if defined(jpn)
+    char unk_0[0x15c];
+#else
     char unk_0[0x244];
+#endif
 };
 
 struct GuideWindow_021f1868 {
@@ -96,7 +113,11 @@ struct BattleEnd_021f1868 {
     char unk_8[0x18 - 0x8];
     int current_;
     char unk_1c[0x74 - 0x1c];
+#if defined(jpn)
+    short newSkills_[55];
+#else
     unsigned short newSkills_[55];
+#endif
     unsigned char newSkillCount_;
     unsigned char newSkill_;
 };
@@ -104,6 +125,26 @@ struct BattleEnd_021f1868 {
 struct BattleScene_021f1868 {
     char unk_0[0x30];
     SafeAllocator allocator_;
+#if defined(jpn)
+    char unk_44[0xe28 - 0x44];
+    int endState_;
+    char unk_e2c[0x371c - 0xe2c];
+    char menu_[0x1bf8];
+    SafeAllocator menuAllocator_;
+    char unk_5328[0x5770 - 0x5328];
+    TableA68* skillTable_;
+    char unk_5774[0x57b4 - 0x5774];
+    TitleScript_021f1868* titles_;
+    void* titleTable_;
+    GuideWindow_021f1868* guide_;
+    GuidePage_021f1868* pages_;
+    unsigned char pageCount_;
+    unsigned char firstGuide_;
+    char unk_57c6[0x5af4 - 0x57c6];
+    TableA68 texts_;
+    char unk_5af8[0x79c1 - 0x5af8];
+    unsigned char busy_;
+#else
     char unk_44[0xe98 - 0x44];
     char script_[0xeac - 0xe98];
     int endState_;
@@ -124,6 +165,7 @@ struct BattleScene_021f1868 {
     TableA68 texts_;
     char unk_5908[0x77d1 - 0x5908];
     unsigned char busy_;
+#endif
 };
 
 extern "C" BattleEnd_021f1868* _ZZ17GetGlobal021ffefcvE1s;
@@ -134,6 +176,12 @@ extern const char data_ov023_021fe284[];
 extern const char data_ov023_021fe2a0[];
 extern const char data_ov023_021fe2b7[];
 extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
+#if defined(jpn)
+extern const char data_ov023_021fd517[];
+extern const char data_ov023_021fd533[];
+extern "C" void func_02073864(TableA68* list, SafeAllocator* allocator, const char* name, int a, int b, int c);
+extern "C" void func_020e1fc4(TextTable_021f1868* texts, SafeAllocator* allocator, const char* path, short* ids, unsigned short count, int female, int mode);
+#endif
 
 MessageSystem_021f1868* GetGlobalField0x1c020421a0();
 ArrayContainsByteStruct* GetPtrField0x2a04_02010828(GameState* gameState);
@@ -178,7 +226,11 @@ void func_020e5604(void* items, SafeAllocator* allocator, void* file, int size);
 Skill_021f1868* func_0209a594(void* script, int id);
 void func_02046380(MessageSystem_021f1868* messages);
 void func_020e4864(void* src, char* dst, int a, int b, int c, int d);
+#if defined(jpn)
+void func_0204500c(MessageSystem_021f1868* messages, char* text, int a);
+#else
 void func_0204500c(MessageSystem_021f1868* messages, char* text, int a, int b);
+#endif
 int func_ov023_021f4fc8();
 int func_ov023_021ed724(void* table, short* ids, int count);
 void func_020e0028(TextTable_021f1868* texts, SafeAllocator* allocator, void* file, unsigned int size, short* ids, unsigned short count);
@@ -194,6 +246,147 @@ static inline int IsMessageWindow(GuideWindow_021f1868* guide) { return (guide->
 // USA: func_ov023_021f1868
 extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
 {
+#if defined(jpn)
+    GameState* gameState = GameState::GetInstance();
+    BattleEnd_021f1868* end = _ZZ17GetGlobal021ffefcvE1s;
+    MessageSystem_021f1868* messages = GetGlobalField0x1c020421a0();
+    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+    int id = end->current_;
+    int inParty = ArrayContainsByte_02086ef0(GetPtrField0x2a04_02010828(gameState), id);
+    if (end->step_ == 0)
+    {
+        self->busy_ = 1;
+        self->allocator_.Reset();
+        self->skillTable_ = (TableA68*)self->allocator_.Allocate(8);
+        ResetListHeader020727d8((List020727d8*)self->skillTable_);
+        func_02073864(self->skillTable_, &self->allocator_, FindEntryByKey_02072a68(&self->texts_, 0x21), 0, 0, 0);
+        self->titles_ = NULL;
+        end->task_ = loader->QueueLoadFile(data_ov023_021fd517, NULL);
+        end->step_++;
+    }
+    if (end->step_ == 1)
+    {
+        if (loader->GetTaskStatus(end->task_))
+        {
+            unsigned int size;
+            void* file;
+            loader->GetLoadedFileByID(end->task_, &file, &size);
+            self->titles_ = (TitleScript_021f1868*)self->allocator_.Allocate(0xd0);
+            Reset0209fe9c((char*)self->titles_);
+            InitManagerAndAllocateBuffers0209fee4((Obj0209fee4*)self->titles_, &self->allocator_, (int)file, size);
+            SetIntAt0x60((IntField0x60_0209ff64*)self->titles_, 100);
+            do
+            {
+                PollOv017Task0209ff6c((TaskState0209ff6c*)self->titles_);
+            } while (!AreFields60And64AllOnes_021f21f4((Fields60_021f21f4*)self->titles_));
+            loader->RemoveTask(end->task_);
+            end->task_ = -1;
+            end->step_++;
+        }
+    }
+    else if (end->step_ == 2)
+    {
+        while (end->newSkill_ < end->newSkillCount_)
+        {
+            char* name = FindEntryByKey_02072a68(self->skillTable_, end->newSkills_[end->newSkill_]);
+            if (name != NULL)
+            {
+                Member_021f1868* member = GetCombatantWithFlag0x100_0200ff1c(gameState, id);
+                if (member != NULL)
+                {
+                    char text[0x80];
+                    __clear(text, sizeof(text));
+                    AppendString02042058(text, name);
+                    AppendString02042058(text, FindEntryByKey_02072a68(&self->texts_, 0x22));
+                    func_02046380(messages);
+                    SetIndexedName02046574((Obj02046574*)messages, 0, member->name_);
+                    if (inParty)
+                    {
+                        func_0204500c(messages, text, 1);
+                        messages->unk_19b2 = 0;
+                        messages->busy_ = 1;
+                    }
+                    end->newSkill_++;
+                    end->step_++;
+                    return self->endState_;
+                }
+            }
+            end->newSkill_++;
+        }
+        end->step_ = 4;
+    }
+    else if (end->step_ == 3)
+    {
+        if (end->newSkillCount_ <= end->newSkill_)
+        {
+            if (self->titles_->count_ > 0)
+                messages->unk_19ca = 0;
+        }
+        if (func_ov023_021f4fc8())
+        {
+            if (end->newSkillCount_ <= end->newSkill_)
+                end->step_++;
+            else
+                end->step_ = 2;
+        }
+    }
+    else if (end->step_ == 4)
+    {
+        short* ids;
+        int i;
+        int count = self->titles_->count_;
+        if (count > 0)
+        {
+            ReinitController02043204((char*)messages);
+            SafeAllocator* idAllocator = &self->menuAllocator_;
+            idAllocator->Reset();
+            count = self->titles_->count_;
+            ids = (short*)idAllocator->Allocate(count * 2);
+            for (int k = 0; k < count; k++)
+                ids[k] = self->titles_->ids_[k];
+            self->allocator_.Reset();
+            self->skillTable_ = NULL;
+            self->titles_ = NULL;
+            self->titleTable_ = self->allocator_.Allocate(0x14);
+            ClearStruct020a13c4((S020a13c4*)self->titleTable_);
+            SetupGlobalAndRunScript020a13e4(self->titleTable_, &self->allocator_, (int)ids, (unsigned short)count, 4);
+            self->firstGuide_ = func_ov023_021ed724(self->titleTable_, ids, count) & 1 ? 1 : 0;
+            GameObject_021f1868* hero = gameState->GetProtagonist();
+            TextTable_021f1868 names;
+            ResetAndReturnSelf020dfc2c(&names);
+            ResetStruct020dfc40((Struct020dfc40*)&names);
+            func_020e1fc4(&names, &self->allocator_, data_ov023_021fd533, ids, (unsigned short)count, hero->partyData_->appearance_.female_, 1);
+            self->pages_ = (GuidePage_021f1868*)self->allocator_.Allocate(count * sizeof(GuidePage_021f1868));
+            for (i = 0; i < count; i++)
+            {
+                void* entry = FindElementByField020a15bc((Array020a15bc*)self->titleTable_, ids[i]);
+                if (entry == NULL)
+                    continue;
+                const char* title = GetFieldByKey020e0434((Container020e0310*)&names, ids[i]);
+                if (title == NULL)
+                    continue;
+                InitObj_021f222c((Obj_021f222c*)&self->pages_[i]);
+                func_ov023_021f229c(&self->pages_[i], entry);
+                FormatLabelIntoBufC_021f2304(&self->pages_[i], (char*)title);
+            }
+            self->titleTable_ = NULL;
+            self->pageCount_ = count;
+            idAllocator->Reset();
+            end->step_++;
+        }
+        else if (count == 0)
+        {
+            self->allocator_.Reset();
+            self->skillTable_ = NULL;
+            self->titles_ = NULL;
+            self->busy_ = 0;
+            FontBankLoader* music = GetGlobal02109400_02094a00();
+            BlankFunction02094b40(music);
+            BlankFunction02094b34(music, 0x65, 500, 0, 0);
+            end->step_ = 8;
+        }
+    }
+#else
     GameState* gameState = GameState::GetInstance();
     BattleEnd_021f1868* end = _ZZ17GetGlobal021ffefcvE1s;
     MessageSystem_021f1868* messages = GetGlobalField0x1c020421a0();
@@ -384,6 +577,7 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
             end->step_ = 8;
         }
     }
+#endif
     else if (end->step_ == 5)
     {
         self->guide_ = (GuideWindow_021f1868*)self->allocator_.Allocate(0x44c);
@@ -396,8 +590,13 @@ extern "C" ARM int func_ov023_021f1868(BattleScene_021f1868* self)
     }
     else if (end->step_ == 6)
     {
+#if defined(jpn)
+        if (self->guide_->flags_ & 4)
+            end->step_++;
+#else
         if (IsMessageWindow(self->guide_))
             end->step_++;
+#endif
     }
     else if (end->step_ == 7)
     {

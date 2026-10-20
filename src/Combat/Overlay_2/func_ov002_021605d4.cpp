@@ -23,8 +23,40 @@ void AppendHeightTag_02041b00(char *buf, int h);
 extern "C" void func_02046608(void *messages, int a, const char *format, char *output, int size, int b, int c);
 void AppendString02042058(char *buf, const char *str);
 
+#if defined(jpn)
+#define AppendFormatted02041fac func_02042638
+extern "C" int func_02042638(char *buf, int a, int b);
+extern "C" void func_020474a8(void *messages, int a, const char *format, char *output);
+extern char data_ov002_0216da30[];
+extern char data_ov002_0216da4a[];
+#endif
+
 // USA: func_ov002_021605d4
 extern "C" ARM void func_ov002_021605d4(char *self, char *buf) {
+#if defined(jpn)
+    int slots[4];
+    char line[0x40];
+    if (buf == 0) return;
+    GameState *gs = GameState::GetInstance();
+    short idx     = *(short *) (self + 0x1ad0);
+    func_ov002_02157480(self, slots);
+    int slot = slots[idx];
+    int ok   = (slot >= 0 && slot <= 3);
+    if (!ok) return;
+    unsigned char *c = (unsigned char *) GetCombatantWithFlag0x100_0200ff1c(gs, slot);
+    if (c == 0) return;
+    unsigned char *f = GetFieldAt0x150_02053c6c(c);
+    if (f == 0) return;
+    AppendFormatted02041fac(buf, (int) data_ov002_0216da30, 0x10);
+    void *msg = GetGlobalField0x1c020421a0();
+    func_02046380(msg);
+    StoreInArray0x8b0_020465c0((StoreStruct *) msg, 0, *(unsigned short *) (f + 0x564));
+    SetByteInRange_020465f0((unsigned char *) msg, 0, 4);
+    SetByteAtIndex_020465d8((unsigned char *) msg, 0, 1);
+    __clear(line, sizeof(line));
+    func_020474a8(msg, 8, data_ov002_0216da4a, line);
+    AppendString02042058(buf, line);
+#else
     char text[0x80];
     int slots[4];
     char line[0x40];
@@ -55,4 +87,5 @@ extern "C" ARM void func_ov002_021605d4(char *self, char *buf) {
     func_02046608(msg, 8, GetFieldByKey020e0434((Container020e0310 *) (self + 0x20), 0x1006), line,
                   0x100, 0, 0);
     AppendString02042058(buf, line);
+#endif
 }

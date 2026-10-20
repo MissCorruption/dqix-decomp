@@ -26,7 +26,21 @@ struct DualPlaybackState {
     volatile unsigned int readHigh;
 };
 
+#if defined(jpn)
+struct DualPlaybackStateJ {
+    int pending;        // 0x00
+    int bank;           // 0x04
+    char pad08[4];
+    volatile int ready; // 0x0c
+    char pad10[4];
+    int elapsed;              // 0x14
+    int displayed;            // 0x18
+    unsigned int consecutive; // 0x1c
+};
+extern DualPlaybackStateJ data_ov016_0219d144;
+#else
 extern DualPlaybackState data_ov016_0219d144;
+#endif
 void SleepCurrentContext(unsigned int ticks);
 RangeEntry020e58dc* FindRangeEntry020e58dc(RangeList020e58dc* list, int key);
 int CallIfNonNullBool_0218e708(void* object, void* destination, int stride, int mode);
@@ -35,6 +49,39 @@ extern "C" void func_ov016_0218e240(unsigned short* destination, char* text, uns
 
 // USA: func_ov016_0218d0d4
 extern "C" ARM void func_ov016_0218d0d4(void* first, void* second, int captionsAddress) {
+#if defined(jpn)
+    int displayed;
+    while (data_ov016_0219d144.ready == 0) {
+    }
+    while (data_ov016_0219d144.elapsed <= (displayed = data_ov016_0219d144.displayed)) {
+        SleepCurrentContext(1);
+    }
+    data_ov016_0219d144.pending = 0;
+    if (data_ov016_0219d144.consecutive < 2 ||
+        data_ov016_0219d144.elapsed - displayed <= 1) {
+        unsigned short* destination;
+        if (data_ov016_0219d144.bank == 0) {
+            destination = (unsigned short*)0x06820000;
+        } else {
+            destination = (unsigned short*)0x06800000;
+        }
+        CallIfNonNullBool_0218e708(first, destination, 0x100, 0);
+        if (data_ov016_0219d144.bank == 0) {
+            destination = (unsigned short*)0x06600000;
+        } else {
+            destination = (unsigned short*)GetSubBG2ScreenBase();
+        }
+        CallIfNonNullBool_0218e708(second, destination, 0x100, 0);
+        data_ov016_0219d144.ready = 0;
+    } else {
+        CallIfNonNullBool_0218e72c(first);
+        CallIfNonNullBool_0218e72c(second);
+        data_ov016_0219d144.bank ^= 1;
+        data_ov016_0219d144.consecutive = 0;
+    }
+    data_ov016_0219d144.displayed++;
+    data_ov016_0219d144.consecutive++;
+#else
     int displayed;
     while (data_ov016_0219d144.ready == 0) {
     }
@@ -74,4 +121,5 @@ extern "C" ARM void func_ov016_0218d0d4(void* first, void* second, int captionsA
     }
     data_ov016_0219d144.displayed++;
     data_ov016_0219d144.consecutive++;
+#endif
 }

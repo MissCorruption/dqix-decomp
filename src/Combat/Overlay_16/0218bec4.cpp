@@ -33,7 +33,22 @@ struct PlaybackState {
     long long written;
 };
 
+#if defined(jpn)
+struct PlaybackStateJ {
+    char pad0[4];
+    int pending;        // 0x04
+    volatile int ready; // 0x08
+    char pad0c[0x1c - 0xc];
+    unsigned int consecutive; // 0x1c
+    char pad20[0x30 - 0x20];
+    int elapsed;   // 0x30
+    int toggle;    // 0x34
+    int displayed; // 0x38
+};
+extern PlaybackStateJ data_ov016_0219d0c0;
+#else
 extern PlaybackState data_ov016_0219d0c0;
+#endif
 void SleepCurrentContext(unsigned int ticks);
 RangeEntry020e58dc* FindRangeEntry020e58dc(RangeList020e58dc* list, int key);
 int GetSomeConstByFlag_0218be5c();
@@ -46,6 +61,26 @@ extern "C" void func_ov016_0218e240(unsigned short* destination, char* text, uns
 
 // USA: func_ov016_0218bec4
 extern "C" ARM void func_ov016_0218bec4(void* object, int captionsAddress) {
+#if defined(jpn)
+    int displayed;
+    while (data_ov016_0219d0c0.ready == 0) {
+    }
+    while (data_ov016_0219d0c0.elapsed <= (displayed = data_ov016_0219d0c0.displayed)) {
+        SleepCurrentContext(1);
+    }
+    data_ov016_0219d0c0.pending = 0;
+    if (data_ov016_0219d0c0.consecutive < 2 ||
+        data_ov016_0219d0c0.elapsed - displayed <= 1) {
+        CallIfNonNullBool_0218e708(object, (void*)GetSomeConstByFlag_0218be5c(), 0x100, 0);
+        data_ov016_0219d0c0.ready = 0;
+    } else {
+        CallIfNonNullBool_0218e72c(object);
+        data_ov016_0219d0c0.consecutive = 0;
+        data_ov016_0219d0c0.toggle ^= 1;
+    }
+    data_ov016_0219d0c0.displayed++;
+    data_ov016_0219d0c0.consecutive++;
+#else
     char buffer[0x200];
     int displayed;
     while (data_ov016_0219d0c0.ready == 0) {
@@ -71,4 +106,5 @@ extern "C" ARM void func_ov016_0218bec4(void* object, int captionsAddress) {
     }
     data_ov016_0219d0c0.displayed++;
     data_ov016_0219d0c0.consecutive++;
+#endif
 }
