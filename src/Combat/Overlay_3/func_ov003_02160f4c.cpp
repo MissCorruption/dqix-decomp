@@ -58,9 +58,9 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *self) {
                 *(unsigned int *) (self + 0x28c) |= 0x10;
             }
         } else if ((*(unsigned int *) (self + 0x28c) & 0x28) || *(short *) (self + 0x200 + 0xac) == 0xe) {
-            unsigned char *r5 = (unsigned char *) func_ov003_02160bf8(self, *(short *) (self + 0x200 + 0xa8));
-            if (r5 != 0) {
-                SetIndexedName02046574((Obj02046574 *) ctl, 0, (char *) (r5 + 0x140));
+            unsigned char *entry = (unsigned char *) func_ov003_02160bf8(self, *(short *) (self + 0x200 + 0xa8));
+            if (entry != 0) {
+                SetIndexedName02046574((Obj02046574 *) ctl, 0, (char *) (entry + 0x140));
             }
             *(unsigned int *) (self + 0x28c) &= ~0x28u;
         }
@@ -148,10 +148,10 @@ extern "C" ARM void func_ov003_02160f4c(unsigned char *self) {
                 *(unsigned int *) (self + 0x464) |= 0x10;
             }
         } else if ((*(unsigned int *) (self + 0x464) & 0x28) || *(short *) (self + 0x400 + 0x84) == 0xe) {
-            unsigned char *r5 = (unsigned char *) func_ov003_02160bf8(self, *(short *) (self + 0x400 + 0x80));
-            if (r5 != 0) {
-                func_02042764(r5 + 0x140, nameBuf, 1);
-                func_020e4b34(objBuf, nameBuf, 0, 0, 0, 0, 0, ((Flag174_02160f4c *) (r5 + 0x174))->bit0, 0, 1, 0, 1);
+            unsigned char *entry = (unsigned char *) func_ov003_02160bf8(self, *(short *) (self + 0x400 + 0x80));
+            if (entry != 0) {
+                func_02042764(entry + 0x140, nameBuf, 1);
+                func_020e4b34(objBuf, nameBuf, 0, 0, 0, 0, 0, ((Flag174_02160f4c *) (entry + 0x174))->bit0, 0, 1, 0, 1);
                 *(void **) (ctl + 0x10) = objBuf;
             }
             *(unsigned int *) (self + 0x464) &= ~0x28u;
