@@ -31,6 +31,9 @@ struct CanvasList {
 
 struct Entry0205a198 { char unk_0[0x28]; };
 
+#if defined(jpn)
+struct Ids10 { signed char c[10]; };
+#endif
 struct Table0205a444 {
     char unk_0[0x3c];
     void* tail_;
@@ -39,6 +42,14 @@ struct Table0205a444 {
     short entryCount_;
     char unk_4e[2];
     unsigned char unk_50;
+#if defined(jpn)
+    void SetKind(unsigned char kind) { unk_50 = kind; }
+    void SetEntries(Entry0205a198* entries, short count)
+    {
+        entries_ = entries;
+        entryCount_ = count;
+    }
+#endif
 };
 
 struct Look {
@@ -81,6 +92,18 @@ struct Ov3Obj {
 };
 
 struct CharacterCreation {
+#if defined(jpn)
+    SafeAllocator allocators_[8];
+    SafeAllocator* modelAllocator_;
+    char unk_a4[0xa8 - 0xa4];
+    char unk_c8[0xc0 - 0xa8];
+    char strings_[0xd8 - 0xc0];
+    int unk_f8;
+    char unk_dc[0xee - 0xdc];
+    short unk_ee;
+    char unk_f0[0xf8 - 0xf0];
+    SafeAllocator* unk_f8_;
+#else
     SafeAllocator allocators_[9];
     SafeAllocator* modelAllocator_;
     char unk_b8[0xc0 - 0xb8];
@@ -90,6 +113,7 @@ struct CharacterCreation {
     char strings_[0xf8 - 0xe0];
     int unk_f8;
     char unk_fc[0x138 - 0xfc];
+#endif
     BackgroundGraphics backgrounds_[6];
     CanvasList canvasListA_;
     CanvasList canvasListB_;
@@ -130,6 +154,12 @@ struct CharacterCreation {
     unsigned char unk_daa[2];
     unsigned char unk_dac[2];
     unsigned char unk_dae[2];
+#if defined(jpn)
+    char nameA_[0xb];
+    char nameB_[0xb];
+    char nameEndA_;
+    char nameEndB_;
+#endif
 };
 
 struct List0204af64;
@@ -207,6 +237,19 @@ void SetupTag021d9da4(void* self);
 void SetElementFieldC2_0205deb4(Struct_0205d81c* s, int key, int value);
 void SetStatValue021855dc(unsigned char* self, int val);
 
+#if defined(jpn)
+#define data_ov009_0218acb0 data_ov009_0218bc25
+#define data_ov009_0218ab48 data_ov009_0218bab0
+#define data_ov009_0218acd9 data_ov009_0218bc3e
+#define data_ov009_0218a9bc data_ov009_0218b998
+#define data_ov009_0218aa40 data_ov009_0218ba1c
+#define data_ov009_0218a96c data_ov009_0218b978
+#define data_ov009_0218a994 data_ov009_0218b95c
+#define data_ov009_0218a998 data_ov009_0218b968
+#define data_ov009_0218a99c data_ov009_0218b952
+#define data_ov009_0218a9a4 data_ov009_0218b990
+#endif
+
 extern const char data_ov009_0218acb0[];
 extern const char data_ov009_0218acc9[];
 extern const char* data_020f2a38;
@@ -226,6 +269,24 @@ extern const char data_ov009_0218ad0d[];
 extern const char data_ov009_0218ad26[];
 extern const char data_ov009_0218ad28[];
 
+#if defined(jpn)
+#define SetStatValue021855dc func_ov009_021867bc
+extern "C" void func_020e0484(void* list, SafeAllocator* alloc, const char* name, const void* entries, int count, int flag);
+extern "C" void func_ov009_02185888(void* obj);
+extern "C" void func_ov009_02185850(void* obj);
+extern "C" int func_ov009_02185c58(void* obj);
+extern "C" void func_ov009_021867bc(unsigned char* self, int val);
+#define MODEL0 self->models_[0]
+#define MODEL1 self->models_[1]
+#define TABLE_A self->tableA_
+#define TABLE_B self->tableB_
+#else
+#define MODEL0 model0
+#define MODEL1 model1
+#define TABLE_A table
+#define TABLE_B tableB
+#endif
+
 enum PairTableSize { kPairTableSize = 0xc00 };
 enum PairTableAlign { kPairTableAlign = 0x30 };
 
@@ -239,6 +300,17 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
     unsigned char step = self->step_;
     if (step == 0)
     {
+#if defined(jpn)
+        self->allocators_[1].Reset();
+        void* data = self->allocators_[1].Allocate(0x1800);
+        unsigned int size;
+        LoadFileIntoMemory(data_ov009_0218acb0, data, &size);
+        self->allocators_[5].Reset();
+        func_020dfec0(self->strings_, &self->allocators_[5], data, size);
+        self->unk_f8 = *(int*)(GetGlobalField0x1c020421a0() + 0x28);
+        ZeroInit020de848(self->unk_c8);
+        func_020e0484(self->unk_c8, &self->allocators_[4], data_020f2a38, data_ov009_0218ab48, 0x29, 1);
+#else
         BackgroundLoader::AddLockGlobal();
         BackgroundLoader::FreeAllocationsGlobal();
         unsigned int size;
@@ -254,22 +326,31 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
         if (list != NULL)
             func_020de9a4(self->unk_c8, &self->allocators_[4], list, listSize, data_ov009_0218ab48, 0x29);
         BackgroundLoader::RemoveLockGlobal();
+#endif
 
         self->models_[0] = self->allocators_[3].Allocate(0xc20);
+#if !defined(jpn)
         void* model0 = self->models_[0];
-        InitTenAllocatorsAndClearFields_021e4e8c(model0);
-        CreateTenAndOne_021e4f64(model0, &self->allocators_[3]);
-        InitBlockArray_021e4fd8(model0);
-        SetIntC0C_021e6198(model0, (int)self->unk_c8);
+#endif
+        InitTenAllocatorsAndClearFields_021e4e8c(MODEL0);
+        CreateTenAndOne_021e4f64(MODEL0, &self->allocators_[3]);
+        InitBlockArray_021e4fd8(MODEL0);
+        SetIntC0C_021e6198(MODEL0, (int)self->unk_c8);
         self->models_[1] = self->allocators_[3].Allocate(0xc20);
+#if !defined(jpn)
         void* model1 = self->models_[1];
-        InitTenAllocatorsAndClearFields_021e4e8c(model1);
-        CreateTenAndOne_021e4f64(model1, &self->allocators_[3]);
-        InitBlockArray_021e4fd8(model1);
-        SetIntC0C_021e6198(model1, (int)self->unk_c8);
+#endif
+        InitTenAllocatorsAndClearFields_021e4e8c(MODEL1);
+        CreateTenAndOne_021e4f64(MODEL1, &self->allocators_[3]);
+        InitBlockArray_021e4fd8(MODEL1);
+        SetIntC0C_021e6198(MODEL1, (int)self->unk_c8);
 
         if (self->mode_ == 0)
         {
+#if defined(jpn)
+            PairTableSize pairSize = kPairTableSize;
+            PairTableAlign pairAlign = kPairTableAlign;
+#endif
             BackgroundLoader::AddLockGlobal();
             BackgroundLoader::FreeAllocationsGlobal();
             GPCReadPair pair;
@@ -284,8 +365,10 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             {
                 offset = length;
                 room -= offset;
+#if !defined(jpn)
                 PairTableSize pairSize = kPairTableSize;
                 PairTableAlign pairAlign = kPairTableAlign;
+#endif
                 if (DecompressFileFromGPCByName(pair.pGPCFile, pair.machine, buf + offset, length, room,
                                                 GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x7d0)))
                 {
@@ -303,7 +386,11 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             ZeroDestroyGPCPointer(&pair.pGPCFile);
         }
 
+#if defined(jpn)
+        CharacterCreation* scene = self;
+#else
         Scene* scene = (Scene*)((char*)self + 0x124);
+#endif
         InitCombatController020a2010(scene->camera_);
         SetVec3At0x4((Vec3Target0202e5c0*)scene->camera_, 0xd000, 0xf800, 0x42ccc);
         SetFields0x10To0x18_0202e5c8((unsigned char*)scene->camera_, 0xd000, 0xf800, 0);
@@ -332,6 +419,12 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             self->unk_da8[1] = 0;
             self->unk_dae[1] = 0;
         }
+#if defined(jpn)
+        memcpy(self->nameA_, GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x4272), 0xb);
+        self->nameEndA_ = 0;
+        memcpy(self->nameB_, GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x4272), 0xb);
+        self->nameEndB_ = 0;
+#endif
 
         LookDefaults defaults;
         BackgroundGraphics* backgrounds[4];
@@ -340,6 +433,9 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
         look->unk_14_1_ = self->unk_daa[self->sex_];
         int hair = self->unk_da8[self->sex_];
         {
+#if defined(jpn)
+            Ids10 ids = *(Ids10*)data_ov009_0218a9bc;
+#else
             signed char ids[10];
             int n;
             unsigned char* d;
@@ -352,6 +448,7 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
                 *d = v;
                 d++;
             } while (--n);
+#endif
         }
         look->unk_14_4_ = hair;
         {
@@ -379,13 +476,13 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
         defaults.unk[3] = bottom;
         memcpy(look, &defaults, 0x14);
         look->unk_16 = -1;
-        func_ov023_021e5e68(model0, look->unk_18, look->unk_1a);
-        func_ov023_021e5e68(model1, look->unk_18, look->unk_1a);
+        func_ov023_021e5e68(MODEL0, look->unk_18, look->unk_1a);
+        func_ov023_021e5e68(MODEL1, look->unk_18, look->unk_1a);
 
         if (self->unk_da2 != 0)
         {
-            SetByteC11_021e6150(model0, 1);
-            SetByteC11_021e6150(model1, 1);
+            SetByteC11_021e6150(MODEL0, 1);
+            SetByteC11_021e6150(MODEL1, 1);
             switch (self->unk_da2)
             {
             case 1:
@@ -450,10 +547,14 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
                 AllocateArray0204af38((Foo0204af38*)background, (unsigned char)data_ov009_0218a99c[i], allocator);
         }
 
+#if defined(jpn)
+        self->task_ = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)self->strings_, self->state_), NULL);
+#else
         signed char state = self->state_;
         const char* inner = GetFieldByKey020e0434((Container020e0310*)self->strings_, (short)(state + 0x32));
         self->task_ = loader->QueueLoadFileInGP2(GetFieldByKey020e0434((Container020e0310*)self->strings_, state),
                                                  inner, NULL);
+#endif
         self->step_++;
     }
     else if (step == 1)
@@ -532,29 +633,49 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             LinkArrayPrevPointers0205cf78((Struct_0205cf78*)&self->canvasListB_, (Elem_0205cf78*)self->canvasB_, 4);
 
             int i;
+#if !defined(jpn)
             Table0205a444* table = self->tableA_;
-            InitStruct0205a444((char*)table);
-            table->unk_50 = 0;
-            table->entries_ = self->entriesA_;
-            table->entryCount_ = 6;
-            table->tail_ = self->tailA_;
+#endif
+            InitStruct0205a444((char*)TABLE_A);
+            TABLE_A->unk_50 = 0;
+#if defined(jpn)
+            TABLE_A->SetEntries(self->entriesA_, 6);
+#else
+            TABLE_A->entries_ = self->entriesA_;
+            TABLE_A->entryCount_ = 6;
+#endif
+            TABLE_A->tail_ = self->tailA_;
             for (i = 0; i < 6; i++)
                 Init0205a198((Struct0205a198*)&self->entriesA_[i]);
             ClearField0And40205a234((ClearTarget0205a234*)self->tailA_);
 
+#if !defined(jpn)
             Table0205a444* tableB = self->tableB_;
-            InitStruct0205a444((char*)tableB);
-            tableB->unk_50 = 1;
-            tableB->entries_ = self->entriesB_;
-            tableB->entryCount_ = 0x19;
-            tableB->tail_ = self->tailB_;
+#endif
+            InitStruct0205a444((char*)TABLE_B);
+#if defined(jpn)
+            TABLE_B->SetKind(1);
+#else
+            TABLE_B->unk_50 = 1;
+#endif
+#if defined(jpn)
+            TABLE_B->SetEntries(self->entriesB_, 0x19);
+#else
+            TABLE_B->entries_ = self->entriesB_;
+            TABLE_B->entryCount_ = 0x19;
+#endif
+            TABLE_B->tail_ = self->tailB_;
             for (int j = 0; j < 0x19; j++)
                 Init0205a198((Struct0205a198*)&self->entriesB_[j]);
             ClearField0And40205a234((ClearTarget0205a234*)self->tailB_);
 
+#if defined(jpn)
+            self->task_ = loader->QueueLoadFile(GetFieldByKey020e0434((Container020e0310*)self->strings_, 1000), NULL);
+#else
             const char* inner = GetFieldByKey020e0434((Container020e0310*)self->strings_, 0x41a);
             self->task_ = loader->QueueLoadFileInGP2(GetFieldByKey020e0434((Container020e0310*)self->strings_, 1000),
                                                      inner, NULL);
+#endif
             self->step_++;
         }
     }
@@ -585,6 +706,7 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             self->step_++;
         }
     }
+#if !defined(jpn)
     else if (step == 3)
     {
         if (self->mode_ == 0)
@@ -615,6 +737,7 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
             self->step_++;
         }
     }
+#endif
     else
     {
         InitWordsQuad_021e60e0(self->models_[0], 0x1eb);
@@ -628,6 +751,13 @@ extern "C" ARM void func_ov009_02185634(CharacterCreation* self)
         SetupTag021d9da4(self);
         SetElementFieldC2_0205deb4((Struct_0205d81c*)&self->canvasListB_, 2, 0);
         SetElementFieldC2_0205deb4((Struct_0205d81c*)&self->canvasListB_, 3, 0);
+#if defined(jpn)
+        func_ov009_02185888(self->unk_dc);
+        func_ov009_02185850(self->unk_dc);
+        self->unk_f8_ = &self->allocators_[7];
+        self->unk_ee = 1;
+        func_ov009_02185c58(self->unk_dc);
+#endif
         SetStatValue021855dc((unsigned char*)self, 1);
     }
 }

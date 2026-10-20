@@ -13,9 +13,15 @@ struct Task0215e69c {
 };
 
 struct Ctx0215e69c {
+#if defined(jpn)
+    char pad0[0x962];
+    unsigned short flags;
+    char pad964[0x109c - 0x964];
+#else
     char pad0[0xae2];
     unsigned short flags;
     char padae4[0x12a0 - 0xae4];
+#endif
     Task0215e69c task;
 
     Task0215e69c* GetTask() { return &task; }
@@ -24,6 +30,17 @@ struct Ctx0215e69c {
 struct Obj0215e69c {
     char pad0[0x4];
     void** buffer;
+#if defined(jpn)
+    Ctx0215e69c* ctx;
+    void* elements;
+    char pad10[0x2c - 0x10];
+    Entry0215e69c* entry;
+    char pad30[0x34 - 0x30];
+    char loader[0x6c - 0x34];
+    char table[0x140 - 0x6c];
+    char out[0x164 - 0x140];
+    char lookup[0x17c - 0x164];
+#else
     char pad8[0x10 - 0x8];
     Ctx0215e69c* ctx;
     void* elements;
@@ -34,6 +51,7 @@ struct Obj0215e69c {
     char table[0x14c - 0x74];
     char out[0x170 - 0x14c];
     char lookup[0x17c - 0x170];
+#endif
     char list[0x1ec - 0x17c];
     short lookupId;
     char pad1ee[0x37e - 0x1ee];
@@ -93,6 +111,10 @@ extern "C" int func_020aad1c(void* loader, void* name, int a, int b);
 struct FlagWord020466f4;
 void ClearFlags020466f4(FlagWord020466f4*, unsigned int);
 void** CallFunc020e52a0_020e5294(void* lookup, int id);
+#if defined(jpn)
+struct Container020e0310;
+int GetFieldByKey020e0434(Container020e0310*, int);
+#endif
 extern "C" void* memset(void* dst, int c, unsigned int n);
 extern "C" void func_020e4864(void* src, void* dst, int a, int b, int c, int d);
 struct Container02080f8c;
@@ -291,6 +313,10 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
         void** res;
         int sound;
         self->busy = 1;
+#if defined(jpn)
+        SetEntryFirstField02080f8c((Container02080f8c*)self->elements, 0x7f,
+            GetFieldByKey020e0434((Container020e0310*)self->lookup, self->lookupId));
+#else
         res = CallFunc020e52a0_020e5294(self->lookup, self->lookupId);
         if (res != 0) {
             memset(*self->buffer, 0, 0x80);
@@ -298,6 +324,7 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             SetEntryFirstField02080f8c((Container02080f8c*)self->elements, 0x7f, (int)(*self->buffer));
         }
         Forward0207f7acObjPlus4Size0x40_020805f4(self->elements, 0x7f);
+#endif
         func_020813ec(self->elements, 0x12);
         ctx->flags |= 0x400;
         self->field42f = 1;
@@ -363,6 +390,10 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
         self->cursorA = a;
         self->cursorB = b;
         self->busy = 1;
+#if defined(jpn)
+        SetEntryFirstField02080f8c((Container02080f8c*)self->elements, 0x7f,
+            GetFieldByKey020e0434((Container020e0310*)self->lookup, self->lookupId));
+#else
         res = CallFunc020e52a0_020e5294(self->lookup, self->lookupId);
         if (res != 0) {
             memset(*self->buffer, 0, 0x80);
@@ -370,6 +401,7 @@ extern "C" ARM void func_ov006_0215e69c(Obj0215e69c* self) {
             SetEntryFirstField02080f8c((Container02080f8c*)self->elements, 0x7f, (int)(*self->buffer));
         }
         Forward0207f7acObjPlus4Size0x40_020805f4(self->elements, 0x7f);
+#endif
         func_020813ec(self->elements, 0x12);
         ctx->flags |= 0x400;
         self->field42f = 1;

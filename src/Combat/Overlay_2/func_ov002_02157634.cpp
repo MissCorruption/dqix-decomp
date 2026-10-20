@@ -14,7 +14,6 @@
 #if defined(jpn)
 #define func_ov002_0215a7b4 func_ov002_0215bbac
 #define func_ov002_0216c42c func_ov002_0216ca7c
-#define func_ov002_02159900 func_ov002_0215ae80
 #endif
 
 struct Container020dedd0;

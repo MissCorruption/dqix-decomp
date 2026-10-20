@@ -27,7 +27,9 @@ struct LoadState02154f24
     unsigned short flags;
     char pad_0x52[0x74 - 0x52];
     int firstLoad;
+#if !defined(jpn)
     int secondLoad;
+#endif
     SafeAllocator allocator;
     unsigned int savedSize;
     char pad_0x94[8];
@@ -70,7 +72,11 @@ extern AllocatorUnion data_02114e20;
 extern const char data_ov001_02164bef[];
 extern const char data_ov001_02164c01[];
 extern const char data_ov001_02164c13[];
+#if defined(jpn)
+extern const char data_ov001_021661c1[];
+#else
 extern const char data_ov001_02164c21[];
+#endif
 extern const char data_ov001_02164c26[];
 extern const char data_ov001_02164c2d[];
 extern const char data_ov001_02164c39[];
@@ -155,6 +161,11 @@ extern "C" ARM int func_ov001_02154f24(LoadState02154f24* self)
         sprintf(filename, data_ov001_02164c13, self->name);
     }
     int length = strlen(filename) - 4;
+#if defined(jpn)
+    memcpy(filename + length, data_ov001_021661c1, 4);
+    loader->AddFence();
+    self->firstLoad = loader->QueueLoadFile(filename, &self->allocator);
+#else
     memcpy(filename + length, data_ov001_02164c21, 4);
     char basename[16];
     __clear(basename, 16);
@@ -166,6 +177,7 @@ extern "C" ARM int func_ov001_02154f24(LoadState02154f24* self)
     loader->AddFence();
     self->firstLoad = loader->QueueLoadFileInGP2(filename, firstFile, &self->allocator);
     self->secondLoad = loader->QueueLoadFileInGP2(filename, secondFile, &self->allocator);
+#endif
     if (self->flags & 0x200)
     {
         self->optionalLoad = loader->QueueLoadFile(data_ov001_02164c39, &self->allocator);

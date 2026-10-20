@@ -157,3 +157,7 @@ src/Combat/Overlay_9/SelectRandomName_0218b850.cpp:
 src/Combat/Overlay_9/func_ov009_0218742c.cpp:
     complete
     .text start:0x021881fc end:0x021888f0
+
+src/Combat/Overlay_9/func_ov009_02185634.cpp:
+    complete
+    .text start:0x02186814 end:0x02187500

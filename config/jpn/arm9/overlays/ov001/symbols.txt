@@ -13,7 +13,7 @@ func_ov001_02154c64 kind:function(arm,size=0x13c) addr:0x021563e4
 func_ov001_02154da0 kind:function(arm,size=0x44) addr:0x02156520
 _Z32ProcessAndDispatchState_02154de4P12Self02154de4 kind:function(arm,size=0x5c) addr:0x02156564
 func_ov001_02154e40 kind:function(arm,size=0xe4) addr:0x021565c0
-func_ov001_021566a4 kind:function(arm,size=0x31c) addr:0x021566a4
+func_ov001_02154f24 kind:function(arm,size=0x31c) addr:0x021566a4
 func_ov001_021552a8 kind:function(arm,size=0x548) addr:0x021569c0
 func_ov001_021557e0 kind:function(arm,size=0x3d8) addr:0x02156f08
 func_ov001_02155bb8 kind:function(arm,size=0xf0) addr:0x021572e0
@@ -26,7 +26,7 @@ _Z17Function_0215647cPv kind:function(arm,size=0x34) addr:0x02157b88
 func_ov001_021564b0 kind:function(arm,size=0x84) addr:0x02157bbc
 _Z32InitFieldAndReturnHalfA_02156534P14Struct02156534 kind:function(arm,size=0x24) addr:0x02157c40
 _Z32InitFieldAndReturnHalfA_02156558P14Struct02156558 kind:function(arm,size=0x24) addr:0x02157c64
-func_ov001_02157c88 kind:function(arm,size=0x214) addr:0x02157c88
+func_ov001_0215657c kind:function(arm,size=0x214) addr:0x02157c88
 func_ov001_021567c4 kind:function(arm,size=0x94) addr:0x02157e9c
 _Z24ReadByteAt17122_02156858Pv kind:function(arm,size=0x14) addr:0x02157f30
 func_ov001_0215686c kind:function(arm,size=0x2b4) addr:0x02157f44
@@ -522,11 +522,11 @@ data_ov001_02166168 kind:data(any) addr:0x02166168
 data_ov001_0216616b kind:data(any) addr:0x0216616b
 data_ov001_02166171 kind:data(any) addr:0x02166171
 data_ov001_02166177 kind:data(any) addr:0x02166177
-data_ov001_0216618f kind:data(any) addr:0x0216618f
-data_ov001_021661a1 kind:data(any) addr:0x021661a1
-data_ov001_021661b3 kind:data(any) addr:0x021661b3
+data_ov001_02164bef kind:data(any) addr:0x0216618f
+data_ov001_02164c01 kind:data(any) addr:0x021661a1
+data_ov001_02164c13 kind:data(any) addr:0x021661b3
 data_ov001_021661c1 kind:data(any) addr:0x021661c1
-data_ov001_021661c6 kind:data(any) addr:0x021661c6
+data_ov001_02164c39 kind:data(any) addr:0x021661c6
 data_ov001_021661d7 kind:data(any) addr:0x021661d7
 data_ov001_021661dc kind:data(any) addr:0x021661dc
 data_ov001_02164c4a kind:data(any) addr:0x021661e1

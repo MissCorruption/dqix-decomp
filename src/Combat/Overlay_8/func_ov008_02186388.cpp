@@ -1,4 +1,14 @@
 #include <globaldefs.h>
+#if defined(jpn)
+#define REGION_LAYOUT(j,u) j
+#define REGION_FLAG(obj,flag) ((obj)->flags_ & (flag))
+#define data_ov008_0218b400 data_ov008_0218c080
+#define func_ov008_0218712c func_ov008_02188008
+#define func_ov008_02187f6c func_ov008_02188ccc
+#else
+#define REGION_LAYOUT(j,u) u
+#define REGION_FLAG(obj,flag) ((obj)->IsFlagSet(flag))
+#endif
 #include <Memory/SafeAllocator.h>
 #include <GameState/GameState.h>
 #include <Filesystem/BackgroundLoader.h>
@@ -137,7 +147,7 @@ struct CombatantData {
 };
 
 struct PartyMember : GameObject {
-    char pad_13c[0x150 - 0x13c];
+    char pad_13c[REGION_LAYOUT(0x144, 0x150) - 0x13c];
     CombatantData* data_;
 };
 
@@ -173,6 +183,9 @@ struct Manager02187664;
 void InitConfig02187664(Manager02187664*, int);
 void SelectCoordsByFlag0x24_02012a84(unsigned char* touch, int* x, int* y);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int value);
+#if defined(jpn)
+void SubmitScriptFromFile020727f8(void* list, const char* path, int id, void* out, unsigned char mode);
+#endif
 
 extern "C" {
 void* ExtractFileFromGP2(char* path, char* inner, unsigned int* size);
@@ -187,7 +200,7 @@ int func_ov008_02186b18(BattleRecords* self, int x, int y);
 
 static inline SavedRecords* GetSavedRecords(GameState* gameState)
 {
-    return (SavedRecords*)((char*)gameState + 0x104 + 0x7400);
+    return (SavedRecords*)((char*)gameState + REGION_LAYOUT(0x2c4, 0x104) + REGION_LAYOUT(0x7000, 0x7400));
 }
 
 static inline ClearRecords* GetClearRecords(SavedRecords* saved, int i)
@@ -198,11 +211,22 @@ static inline ClearRecords* GetClearRecords(SavedRecords* saved, int i)
 // USA: func_ov008_02186388
 extern "C" ARM void func_ov008_02186388(BattleRecords* self)
 {
+#if defined(jpn)
+    SavedRecords* saved;
+#endif
     GameState* gameState = GameState::GetInstance();
     GameResources* resources = GetWord0x0_0200fb8c((int*)gameState);
     BackgroundLoader::GetInstance();
     MessageSystem* messages = GetGlobalField0x1c020421a0();
+#if defined(jpn)
+    saved = GetSavedRecords(gameState);
+#define CLEAR_RECORDS GetClearRecords(saved, 0)
+#define CLEAR_TITLE saved->records_.clears_[0].title_
+#else
     ClearRecords* clear = GetClearRecords(GetSavedRecords(gameState), 0);
+#define CLEAR_RECORDS clear
+#define CLEAR_TITLE clear->title_
+#endif
     messages->b19ae = 0;
     unsigned char step = self->step_;
     if (step == 0)
@@ -213,10 +237,10 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
     }
     if (step == 1 && func_ov008_02188a54(self, 1))
     {
-        func_ov008_0218712c(self, clear);
-        InitConfig02187664((Manager02187664*)self, (int)clear);
-        func_ov008_02187a70(self, clear);
-        func_ov008_02187f6c(self, clear);
+        func_ov008_0218712c(self, CLEAR_RECORDS);
+        InitConfig02187664((Manager02187664*)self, (int)CLEAR_RECORDS);
+        func_ov008_02187a70(self, CLEAR_RECORDS);
+        func_ov008_02187f6c(self, CLEAR_RECORDS);
         for (int i = 0; i < 5; i++)
         {
             Canvas* canvas = FindElementByC40205d81c((Struct_0205d81c*)&self->window_, (unsigned char)i);
@@ -235,9 +259,20 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
     {
         if (IsBrightnessTransitionActive(resources))
             return;
-        if (self->title_ != clear->title_)
+        if (self->title_ != CLEAR_TITLE)
         {
-            memset(self->text_, 0, 0x960);
+            memset(self->text_, 0, REGION_LAYOUT(0x800, 0x960));
+#if defined(jpn)
+            char* path = self->text_;
+            char* comment = path + 0x80;
+            TextList list;
+            ResetListHeader020727d8((List020727d8*)&list);
+            SubmitScriptFromFile020727f8(&list, data_ov008_0218b400, 1001, path, 0);
+            PartyMember* member = (PartyMember*)GetCombatantWithFlag0x100_0200ff1c(gameState, GetField0x3acValue_020100a8(gameState));
+            ResetListHeader020727d8((List020727d8*)&list);
+            unsigned char female = member->data_->female_;
+            SubmitScriptFromFile020727f8(&list, path, CLEAR_TITLE, comment, female);
+#else
             char* path = self->text_;
             char* inner = path + 0x80;
             char* comment = path + 0x100;
@@ -258,9 +293,10 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
                 PartyMember* member = (PartyMember*)GetCombatantWithFlag0x100_0200ff1c(gameState, GetField0x3acValue_020100a8(gameState));
                 ResetListHeader020727d8((List020727d8*)&list);
                 unsigned char female = member->data_->female_;
-                SubmitAndRunScript02072928(&list, (StreamHeader*)file, size, clear->title_, comment, female);
+                SubmitAndRunScript02072928(&list, (StreamHeader*)file, size, CLEAR_TITLE, comment, female);
             }
             BackgroundLoader::RemoveLockGlobal();
+#endif
             AppendString02042058(comment, GetFieldByKey020e0434((Container020e0310*)&self->texts_, 1000));
 #if defined(jpn)
             func_0204500c(messages, comment, 0);
@@ -270,7 +306,7 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
             messages->b19b2 = 1;
             messages->b19c8 = 1;
             messages->state = 2;
-            if (self->IsFlagSet(0x40000))
+            if (REGION_FLAG(self, 0x40000))
             {
                 messages->b19c5 = 1;
                 messages->b19b2 = 0;
@@ -335,7 +371,7 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
     }
     if (step == 8 && !IsBrightnessTransitionActive(resources))
     {
-        if (self->title_ == clear->title_)
+        if (self->title_ == CLEAR_TITLE)
         {
             self->flags_ |= 0x200;
         }
@@ -352,10 +388,20 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
             if (self->items_[i] == 7)
             {
                 func_0205bb04(&self->cursor_, i);
+#if defined(jpn)
+                int limit = 5;
+                int first = self->top_;
+                limit += first;
+                if (i > limit)
+                    self->top_ = i - 5;
+                else if (i < first)
+                    self->top_ = i;
+#else
                 if (i > self->top_ + 5)
                     self->top_ = i - 5;
                 else if (i < self->top_)
                     self->top_ = i;
+#endif
                 return;
             }
         }

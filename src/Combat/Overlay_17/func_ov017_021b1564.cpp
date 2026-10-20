@@ -55,7 +55,6 @@ void ClearIntAt0x23c_020a27b8(unsigned char*);
 void CancelPendingAction020397cc(Obj020397cc*, int);
 #if defined(jpn)
 extern "C" void func_0204500c(void*, signed char*, int);
-#define func_ov006_021576a0 func_ov006_02158ca8
 enum { TransitionArenaSize = 0x3b000, TransitionAllocationSize = 0x3c820 };
 #else
 extern "C" void func_0204500c(void*, signed char*, int, int);
