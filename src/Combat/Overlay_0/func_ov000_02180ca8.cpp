@@ -1,12 +1,25 @@
+#if defined(jpn)
+#define data_ov000_02183674 data_ov000_02184730
+#define func_ov000_02171ffc func_ov000_02173834
+#endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 struct Struct0203c1c8  {
+#if defined(jpn)
+    char paddingJpn0[0x14];
+#endif
     int x;
     int y;
+#if defined(jpn)
+    char paddingJpn1c[8];
+#endif
     int category;
     int alignment;
     int active;
     short field_0x14;
+#if defined(jpn)
+    char paddingJpn32[0x38 - 0x32];
+#endif
 };
 struct DisplayEntry02180ca8  {
     char padding0[0x14];
@@ -35,9 +48,17 @@ struct Action02180ca8  {
     int x;
     int y;
     int actorId;
+#if defined(jpn)
+    char padding50[0xc7 - 0x50];
+#else
     char padding50[0x87 - 0x50];
+#endif
     unsigned char busy;
+#if defined(jpn)
+    char padding88[0x483 - 0xc8];
+#else
     char padding88[0x443 - 0x88];
+#endif
     signed char animation;
     char padding444[4];
 };
@@ -65,11 +86,19 @@ struct State02180ca8  {
     char padding948[8];
     int selected;
     unsigned char mode;
+#if defined(jpn)
+    char padding955[0x1b64 - 0x955];
+#else
     char padding955[0x1b0c - 0x955];
+#endif
     Struct0203c1c8 groups[3];
     Struct0203c1c8 actionEntry;
     Struct0203c1c8 specialEntry;
+#if defined(jpn)
+    char padding1c7c[0x1d94 - 0x1c7c];
+#else
     char padding1b84[0x1c5c - 0x1b84];
+#endif
     Struct0203c1c8 entries[8];
     int groupIds[16];
     unsigned char entryCount;
@@ -80,7 +109,11 @@ int HasAnyFlags_021719f8_021719f8(int*);
 int GetHPCategory02174e34(int, int);
 Struct0203c1c8* GetSlotSubField0x68_ov000_02174e1c(void*, int);
 extern "C" int func_ov000_02171ffc(Action02180ca8*);
+#if defined(jpn)
+void AdjustAndDispatchEntry0203c1c8(Struct0203c1c8*, int);
+#else
 void AdjustAndDispatchEntry0203c1c8(Struct0203c1c8*);
+#endif
 void* GetEntryByIndexStride0x10(EntryList0204af14*, unsigned int);
 void CallFunc0204b620IfField0x14_0204b878(Obj0204b878*, int, int, int, short, short, short, short, unsigned short);
 extern const int data_ov000_02183674[11];
@@ -109,7 +142,11 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
         DisplayEntry02180ca8* display = &self->displayEntries[30];
         display->x = 0;
         display->y = (y + 7) << 12;
+#if defined(jpn)
+        display->id = action->actorId + 0x40;
+#else
         display->id = action->actorId + 0x44;
+#endif
         display->active = 0;
         func_0205ac40(self->display, display);
     }
@@ -122,7 +159,11 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
             DisplayEntry02180ca8* display = &self->displayEntries[6];
             display->x = 0xe0000;
             display->y = (y + 7) << 12;
+#if defined(jpn)
+            display->id = action->actorId + 0x78;
+#else
             display->id = action->actorId;
+#endif
             display->active = 1;
             func_0205ac40(self->display, display);
         }
@@ -156,6 +197,7 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
             case 4:             if (ValidSlot(slot))  {
                 entry = &self->specialEntry;
             }
+#if !defined(jpn)
             else  {
                 Struct0203c1c8* group = self->groups;
                 int groupId = self->groupIds[0];
@@ -176,6 +218,7 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
                     entry = group;
                 }
             }
+#endif
             break;
             case 2:
             break;
@@ -195,19 +238,33 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
         categories[1] = data_ov000_02183674[8];
         categories[0] = category;
         int* categoryPointer = categories;
+#if defined(jpn)
+        for (int i = 0; i < 2; ++i)  {
+#else
         for (int i = 0; i < 1; ++i)  {
+#endif
             int value = categoryPointer[i];
             int positionX = xs[i];
             entry->category = value;
             entry->alignment = 2;
             entry->x = positionX;
             entry->y = ys[i];
+#if defined(jpn)
+            AdjustAndDispatchEntry0203c1c8(entry, 0xa);
+#else
             AdjustAndDispatchEntry0203c1c8(entry);
+#endif
             entry->active = 1;
         }
         entry->category = 0;
         void* selectedEntry = GetEntryByIndexStride0x10((EntryList0204af14*)self->entryList, 3);
-        CallFunc0204b620IfField0x14_0204b878(list, (int)selectedEntry, 0, 0, tileX + 15, tileY + 2, 0x20, 0x19, actorId + 2);
+        CallFunc0204b620IfField0x14_0204b878(list, (int)selectedEntry, 0, 0, 
+#if defined(jpn)
+            tileX + 16,
+#else
+            tileX + 15,
+#endif
+            tileY + 2, 0x20, 0x19, actorId + 2);
     }
     else  {
         Struct0203c1c8* entry = &self->actionEntry;
@@ -230,13 +287,25 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
         int* yPointer;
         int* xPointer;
         int* categoryPointer;
+#if defined(jpn)
+        categoryPointer = categories;
+        int i = 0;
+        xPointer = xs;
+        yPointer = ys;
+        for (; i < 2; ++i)  {
+#else
         categoryPointer = categories;
         xPointer = xs;
         yPointer = ys;
         for (int i = 1; i < 2; ++i)  {
+#endif
             entry->x = xPointer[i];
             entry->y = yPointer[i];
+#if defined(jpn)
+            AdjustAndDispatchEntry0203c1c8(entry, 0xa);
+#else
             AdjustAndDispatchEntry0203c1c8(entry);
+#endif
             entry->category = categoryPointer[i];
             entry->active = 1;
         }
