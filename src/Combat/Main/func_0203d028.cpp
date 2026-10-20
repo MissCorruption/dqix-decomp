@@ -28,12 +28,10 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #define data_020efe38 data_020efd50
 #define IsListEmpty_020652b4 func_020665a0
 #define GetFieldAt0x0020652c8 func_020665b4
-#define SetByte0x2e8AndDispatch02041628 func_02041b24
 #define SetWord0x2f4AndDispatch02041640 func_02041b3c
 struct Struct_020652b4;
 extern "C" int func_020665a0(struct Struct_020652b4* p);
 extern "C" int func_020665b4(int* obj);
-extern "C" void func_02041b24(void* obj, int v, int z);
 extern "C" void func_02041b3c(void* obj, int v, int z);
 #endif
 struct BattleSub7e78 {

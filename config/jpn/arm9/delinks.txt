@@ -19196,3 +19196,7 @@ src/Combat/Main/func_02020c18.cpp:
 src/NitroSDK/Main/func_020b20b0.cpp:
     complete
     .text start:0x020b3b7c end:0x020b3e74
+
+src/Combat/Main/SetByte0x2e8AndDispatch02041628.cpp:
+    complete
+    .text start:0x02041b24 end:0x02041b3c
