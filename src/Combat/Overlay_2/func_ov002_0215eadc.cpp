@@ -2,7 +2,6 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-#define func_ov002_02157030 func_ov002_021586b0
 #define func_ov002_0215ef60 func_ov002_021600e0
 #endif
 

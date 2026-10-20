@@ -5,7 +5,6 @@ extern "C" void func_ov002_0215be00(void* obj, int val, int a2, int a3);
 extern "C" void func_ov002_0215db8c(void* obj, void* ptr, int flag);
 #if defined(jpn)
 #define RG(u, j) (j)
-#define func_ov002_02157030 func_ov002_021586b0
 extern "C" void func_ov002_02157030(void* base, int type, short* a, short* b, short* c, short* d);
 extern "C" void func_0205d304(void* ptr, int val, int a2, int a3, int s0, int s1, int s2);
 #else

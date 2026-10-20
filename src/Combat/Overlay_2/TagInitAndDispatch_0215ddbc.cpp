@@ -2,7 +2,6 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-#define func_ov002_02157030 func_ov002_021586b0
 #define func_ov004_0215de9c func_ov002_0215ef64
 #endif
 

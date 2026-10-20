@@ -7,7 +7,6 @@
 #define K(u, j) (j)
 #define func_ov002_0215a0a4 func_ov002_0215b558
 #define func_ov002_0215b6c0 func_ov002_0215c914
-#define func_ov002_0215c988 func_ov002_0215d9e0
 #else
 #define RG(u, j) (u)
 #define K(u, j) (u)
