@@ -3639,7 +3639,7 @@ _Z21CalculateAge_02098f20iii kind:function(arm,size=0x50) addr:0x0209ab70
 func_0209abc0 kind:function(arm,size=0x8) addr:0x0209abc0
 func_0209abc8 kind:function(arm,size=0x8) addr:0x0209abc8
 func_0209abd0 kind:function(arm,size=0x430) addr:0x0209abd0
-func_0209b000 kind:function(arm,size=0x270) addr:0x0209b000
+func_02099304 kind:function(arm,size=0x270) addr:0x0209b000
 _Z37InsertShortIntoTable021098f4_0209953ct kind:function(arm,size=0x18) addr:0x0209b270
 _Z26InsertOrShiftShort02099554Ptt kind:function(arm,size=0x5c) addr:0x0209b288
 _Z18AlwaysTrue020995b0v kind:function(arm,size=0x8) addr:0x0209b2e4
@@ -7171,7 +7171,7 @@ data_020f14b0 kind:data(any) addr:0x020f15fc
 data_020f14d0 kind:data(any) addr:0x020f161c
 data_020f1628 kind:data(any) addr:0x020f1628
 data_020f14ec kind:data(any) addr:0x020f1638
-data_020f1650 kind:data(any) addr:0x020f1650
+data_020f1504 kind:data(any) addr:0x020f1650
 data_020f1670 kind:data(any) addr:0x020f1670
 data_020f1677 kind:data(any) addr:0x020f1677
 data_020f1683 kind:data(any) addr:0x020f1683
@@ -7594,7 +7594,7 @@ questTable kind:bss addr:0x021090cc
 data_02109418 kind:bss addr:0x021090d0
 data_0210941c kind:bss addr:0x021090d4
 data_021098e0 kind:bss addr:0x02109598
-data_021095a0 kind:bss addr:0x021095a0
+data_021098e8 kind:bss addr:0x021095a0
 data_021095ac kind:bss addr:0x021095ac
 data_02109924 kind:bss addr:0x021095dc
 data_02109928 kind:bss addr:0x021095e0
