@@ -134,7 +134,7 @@ extern "C" void func_0204500c(void* g, char* s, int a, int b);
 extern "C" void func_02042b98(void* self, int a, int b, int c, int d);
 
 #if defined(jpn)
-extern "C" void func_020473a0(void*, char*);
+void CopyStringToIndexedField0x2ec_020464e8(char*, char*);
 extern "C" void func_02047410(void*, int);
 extern "C" int func_ov025_021ed5a4(int, char*);
 void* GetBoundedField156_02171674(void*, int);
@@ -357,7 +357,7 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
 
 #endif
 #if defined(jpn)
-        func_020473a0(g, name);
+        CopyStringToIndexedField0x2ec_020464e8((char*)g, name);
 #else
         CopyStringToField0x3ac_02046504((char*)g, name);
 #endif
@@ -366,7 +366,7 @@ StoreInArray0x8b0_020465c0((StoreStruct*)g, 0, fp);
             if (node != 0) v40 = node->s20;
         }
         if (v40 >= 0) {
-            if (func_ov025_021ed5a4(v40, nameB)) func_020473a0(g, nameB);
+            if (func_ov025_021ed5a4(v40, nameB)) CopyStringToIndexedField0x2ec_020464e8((char*)g, nameB);
             SetByte0x1880_020464dc(g, (signed char)v40);
         }
 

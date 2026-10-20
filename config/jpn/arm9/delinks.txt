@@ -19208,3 +19208,7 @@ src/Combat/Main/IsField0x180NonNegative.cpp:
 src/Combat/Main/InitStruct0203be8c.cpp:
     complete
     .text start:0x0203b8e4 end:0x0203b914
+
+src/Combat/Main/CopyStringToIndexedField0x2ec.cpp:
+    complete
+    .text start:0x020473a0 end:0x020473bc
