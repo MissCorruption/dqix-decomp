@@ -598,3 +598,47 @@ src/Combat/Overlay_2/func_ov002_0215db8c.cpp:
 src/Combat/Overlay_2/func_ov002_0215e9c4.cpp:
     complete
     .text start:0x0215fb54 end:0x0215fc6c
+
+src/Combat/Overlay_2/InitBattleTag0215c2c8.cpp:
+    complete
+    .text start:0x0215d35c end:0x0215d3d4
+
+src/Combat/Overlay_2/func_ov002_0215c348.cpp:
+    complete
+    .text start:0x0215d3d4 end:0x0215d4f4
+
+src/Combat/Overlay_2/InitBattleTagWithFields_0215c474.cpp:
+    complete
+    .text start:0x0215d4f4 end:0x0215d5a4
+
+src/Combat/Overlay_2/InitBattleTag0215c614.cpp:
+    complete
+    .text start:0x0215d68c end:0x0215d790
+
+src/Combat/Overlay_2/func_ov002_0215c8a4.cpp:
+    complete
+    .text start:0x0215d908 end:0x0215d9e0
+
+src/Combat/Overlay_2/func_ov002_0215d654.cpp:
+    complete
+    .text start:0x0215e658 end:0x0215e720
+
+src/Combat/Overlay_2/func_ov002_0215d864.cpp:
+    complete
+    .text start:0x0215e858 end:0x0215e938
+
+src/Combat/Overlay_2/InitBattleTag0215e1d0.cpp:
+    complete
+    .text start:0x0215f35c end:0x0215f3d4
+
+src/Combat/Overlay_2/TagInitAndDispatch_0215ddbc.cpp:
+    complete
+    .text start:0x0215ee90 end:0x0215ef64
+
+src/Combat/Overlay_2/func_ov002_0215e900.cpp:
+    complete
+    .text start:0x0215faa4 end:0x0215fb54
+
+src/Combat/Overlay_2/AppendCursorAndProductTag_0215ec4c.cpp:
+    complete
+    .text start:0x0215fdc0 end:0x0215fe54

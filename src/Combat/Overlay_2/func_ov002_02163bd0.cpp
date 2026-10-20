@@ -4,7 +4,6 @@
 
 #if defined(jpn)
 #define REGIONAL_OFFSET(jp, us) jp
-#define func_ov002_0215d654 func_ov002_0215e658
 enum { regionalState0d = 0xe, regionalState26 = 0x29 };
 #else
 #define REGIONAL_OFFSET(jp, us) us
