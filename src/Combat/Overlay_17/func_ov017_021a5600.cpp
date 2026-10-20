@@ -16,7 +16,6 @@ enum { SceneDisplayOffset = 0x34, SceneOptionsOffset = 0x2364,
        SceneSize = 0x2378, SceneHeapSize = 0x293b8, SceneReservationSize = 0x2abd8 };
 #define func_ov002_02154d40 func_ov002_021564c0
 #define func_ov002_02155960 func_ov002_021570a0
-#define _Z26SetBytes485And486_021556ecPvii func_ov002_02156e40
 #else
 enum { SceneDisplayOffset = 0x4c, SceneOptionsOffset = 0x253c,
        SceneSize = 0x2550, SceneHeapSize = 0x2a590, SceneReservationSize = 0x2bdb0 };
