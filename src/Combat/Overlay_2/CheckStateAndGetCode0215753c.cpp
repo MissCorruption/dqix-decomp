@@ -5,8 +5,6 @@ extern "C" void func_ov002_0215a7b4(void* obj, int val, int count, int val2, int
 
 // USA: func_ov002_0215753c
 #if defined(jpn)
-extern "C" void func_ov002_0215bbac(void* obj, int val, int count, int val2, int flag);
-#define func_ov002_0215a7b4 func_ov002_0215bbac
 ARM int CheckStateAndGetCode0215753c(unsigned char* obj) {
     int result = -1;
 

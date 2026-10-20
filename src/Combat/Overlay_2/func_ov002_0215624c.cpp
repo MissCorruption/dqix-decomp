@@ -8,7 +8,6 @@
 #define REGIONAL_OFFSET(jp, us) jp
 #define data_ov002_0216c96c data_ov002_0216cfc0
 #define func_ov002_0215bba8 func_ov002_0215cd18
-#define func_ov002_02161cf0 func_ov002_02162acc
 enum { regionalState2b = 0x2e };
 #else
 #define REGIONAL_OFFSET(jp, us) us

@@ -39,9 +39,7 @@ static inline int InRange02162e50(int v) {
 
 // USA: func_ov002_02162e50
 #if defined(jpn)
-extern "C" void func_ov002_02162acc(char *self);
 extern "C" void func_ov002_0215c618(char *self, int v);
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215b458 func_ov002_0215c618
 extern "C" ARM void func_ov002_02162e50(char *base) {
     int state = *(int *) (base + 0x1a88);

@@ -10,7 +10,6 @@
 
 #if defined(jpn)
 #define func_0206df6c func_0206f0c0
-#define func_020a95a4 func_020ab210
 #endif
 
 struct Buf020a94f8 {

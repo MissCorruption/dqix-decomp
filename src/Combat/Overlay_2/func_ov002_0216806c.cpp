@@ -30,11 +30,7 @@ extern Obj0205eaa0 data_02108760;
 
 // USA: func_ov002_0216806c
 #if defined(jpn)
-extern "C" void func_ov002_0215852c(char *self);
-extern "C" void func_ov002_02162acc(char *self);
 extern "C" void func_ov002_0216104c(char *self);
-#define func_ov002_02156e90 func_ov002_0215852c
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_02160068 func_ov002_0216104c
 extern "C" ARM void func_ov002_0216806c(char *self) {
     int phase = *(int *) (self + 0x1a88);

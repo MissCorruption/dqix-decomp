@@ -5,9 +5,7 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215e1d0 func_ov002_0215f35c
-#define func_ov002_02156e90 func_ov002_0215852c
 #endif
 
 struct Struct0205de24;

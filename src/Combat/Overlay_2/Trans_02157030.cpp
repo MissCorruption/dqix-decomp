@@ -3,9 +3,15 @@
 struct Struct_0205d81c;
 unsigned int FindElementByC40205d81c(Struct_0205d81c*, int);
 
+#if defined(jpn)
+#define LIST_02157030 0xe20
+#else
+#define LIST_02157030 0xec8
+#endif
+
 // USA: func_ov002_02157030  (semantic: Trans_02157030)
 extern "C" ARM void func_ov002_02157030(unsigned int self, unsigned int id, short* x, short* y, short* w, short* h) {
-    char* e = (char*)FindElementByC40205d81c((Struct_0205d81c*)(self + 0xec8), id);
+    char* e = (char*)FindElementByC40205d81c((Struct_0205d81c*)(self + LIST_02157030), id);
     if (e == 0) {
         return;
     }

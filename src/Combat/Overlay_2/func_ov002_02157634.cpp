@@ -12,7 +12,6 @@
 #endif
 
 #if defined(jpn)
-#define func_ov002_0215a7b4 func_ov002_0215bbac
 #define func_ov002_0216c42c func_ov002_0216ca7c
 #endif
 

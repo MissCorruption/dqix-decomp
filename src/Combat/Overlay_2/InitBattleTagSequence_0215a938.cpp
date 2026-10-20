@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_ov002_02161cf0 func_ov002_02162acc
-#endif
-
 int ClearPendingFlag0215a8cc(char* p);
 void InitBattleTag0215bf34(char* base);
 void InitBattleTag0215c028(char* base);

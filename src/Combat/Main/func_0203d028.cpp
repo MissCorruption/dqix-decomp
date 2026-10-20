@@ -26,11 +26,6 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 #define data_020efe27 data_020efd3f
 #define data_020efe30 data_020efd48
 #define data_020efe38 data_020efd50
-#define IsListEmpty_020652b4 func_020665a0
-#define GetFieldAt0x0020652c8 func_020665b4
-struct Struct_020652b4;
-extern "C" int func_020665a0(struct Struct_020652b4* p);
-extern "C" int func_020665b4(int* obj);
 #endif
 struct BattleSub7e78 {
     char pad0[6];

@@ -40,14 +40,10 @@ extern "C" char data_02108760;
 
 #if defined(jpn)
 #define RG(u, j) (j)
-extern "C" void func_ov002_02162acc(char *self);
 extern "C" void func_ov002_0215d68c(char *self);
 extern "C" void func_ov002_0215c618(char *self, int v);
-extern "C" void func_ov002_0215852c(void *obj);
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215c614 func_ov002_0215d68c
 #define func_ov002_0215b458 func_ov002_0215c618
-#define func_ov002_02156e90 func_ov002_0215852c
 #else
 #define RG(u, j) (u)
 #endif

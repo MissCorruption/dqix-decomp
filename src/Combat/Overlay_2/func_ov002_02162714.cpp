@@ -4,9 +4,7 @@
 
 #if defined(jpn)
 #define RG(u, j) (j)
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215c474 func_ov002_0215d4f4
-#define func_ov002_02156e90 func_ov002_0215852c
 #else
 #define RG(u, j) (u)
 #endif
