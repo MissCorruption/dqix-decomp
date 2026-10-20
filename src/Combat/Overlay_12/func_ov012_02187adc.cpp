@@ -30,12 +30,30 @@ struct Save02187adc
 
 struct GameStateSave02187adc
 {
+#if defined(jpn)
+    char unk_0[0x3c];
+#else
     char unk_0[0x29c];
+#endif
     Save02187adc save_;
 };
 
 struct ProfileEditor02187adc
 {
+#if defined(jpn)
+    char unk_0[0x90];
+    char window_[0x1340 - 0x90];
+    unsigned char step_;
+    unsigned char state_;
+    char unk_1372[0x1368 - 0x1342];
+    unsigned char unk_13a0;
+    char unk_13a1[0x1370 - 0x1369];
+    signed char unk_13a8;
+    signed char unk_13a9;
+    unsigned char unk_13aa;
+    unsigned char unk_13ab;
+    char unk_13ac[0x1454 - 0x1374];
+#else
     char unk_0[0xac];
     char window_[0x1370 - 0xac];
     unsigned char step_;
@@ -48,6 +66,7 @@ struct ProfileEditor02187adc
     unsigned char unk_13aa;
     unsigned char unk_13ab;
     char unk_13ac[0x13fc - 0x13ac];
+#endif
     unsigned short year_;
     unsigned char month_;
     unsigned char day_;
@@ -75,6 +94,19 @@ int TestFlagsAndActiveElement2_021e6e20(Obj021e6e20* self);
 void ResetEntryList0205d6a0(Entry_0205d6a0* window, int a);
 extern "C" void func_ov023_021e6e60(ProfileEditor02187adc* self);
 extern "C" void func_ov012_0218943c(ProfileEditor02187adc* self);
+
+#if defined(jpn)
+extern "C" void func_ov023_021e65e8(ProfileEditor02187adc* self);
+extern "C" void func_ov023_021e655c(ProfileEditor02187adc* self);
+extern "C" void func_ov012_02186248(ProfileEditor02187adc* self, unsigned char item, int selected);
+extern "C" void func_ov012_0218bba0(ProfileEditor02187adc* self, int animate, int design);
+extern "C" int func_ov023_021e7148(ProfileEditor02187adc* self);
+extern "C" void func_ov012_02189d18(ProfileEditor02187adc* self);
+#define func_ov012_02185bf0 func_ov012_02186248
+#define func_ov012_0218adac(self, a, d, k) func_ov012_0218bba0(self, a, d)
+#define func_ov023_021e6de4 func_ov023_021e7148
+#define func_ov012_0218943c func_ov012_02189d18
+#endif
 
 extern "C" char data_02108760[];
 extern "C" const MonthDays02187adc data_ov012_0218af9e;
@@ -156,17 +188,30 @@ extern "C" ARM void func_ov012_02187adc(ProfileEditor02187adc* self)
             }
             self->unk_13a9 = 0;
         }
+#if defined(jpn)
+        else if (g_keyManager.TestKeysPressed(0x10) || func_0205df38(self->window_, 9))
+        {
+            func_ov023_021e65e8(self);
+#else
         else if (g_keyManager.TestKeysPressed(0x20) || func_0205df38(self->window_, 9))
         {
             SetThreeElementFields_021e6378(self, 9, 1, 1, 0);
+#endif
             changed = 1;
             canCancel = 0;
             func_ov012_02185bf0(self, 8, 1);
         }
+#if defined(jpn)
+        else if (g_keyManager.TestKeysPressed(0x20) || func_0205df38(self->window_, 7))
+        {
+            GameState::GetInstance();
+            func_ov023_021e655c(self);
+#else
         else if (g_keyManager.TestKeysPressed(0x10) || func_0205df38(self->window_, 7))
         {
             GameState::GetInstance();
             SetThreeElementFields_021e6378(self, 7, 0, 1, 1);
+#endif
             changed = 1;
             canCancel = 0;
             func_ov012_02185bf0(self, 8, 1);
