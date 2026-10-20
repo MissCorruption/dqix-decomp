@@ -174,9 +174,6 @@ extern const char* data_ov003_021805d0[5];
 
 #if defined(jpn)
 static inline ProfileSettings02170d88* GetSettings02170d88(ProfileSaveState02170d88* saved) { return &saved->settings; }
-
-// JPN keeps its own name: func_ov003_0216c00c calls it as func_ov003_02170444.
-#define func_ov003_02170d88 func_ov003_02170444
 #endif
 
 // USA: func_ov003_02170d88

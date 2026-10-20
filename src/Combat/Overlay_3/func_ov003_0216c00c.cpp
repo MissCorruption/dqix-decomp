@@ -137,7 +137,6 @@ struct StoreStruct;
 void StoreInArray0x8b0_020465c0(StoreStruct*, int, int);
 struct Container020e0310;
 char* GetFieldByKey020e0434(Container020e0310*, int);
-extern "C" void func_ov003_02170444(void* p);
 extern char data_ov003_0217e99c[];
 extern char data_ov003_0217e9b4[];
 extern char data_ov003_0217e9b8[];
@@ -305,7 +304,7 @@ extern "C" ARM void func_ov003_0216c00c(char* obj) {
         *(int*)(obj + 0x1000 + 0x298) = 0;
         ReinitController02043204(g);
         func_0209c2e0(&data_02109bf4, 0, 0x12);
-        func_ov003_02170444(obj + 0x368 + 0x400);
+        func_ov003_02170d88(obj + 0x368 + 0x400);
         struct TreasureMapMetadata localF0;
         CopyToRegion0x6482IfDst_020119f8((char*)battle, &localF0);
         int mapType = localF0.GetMapType();
