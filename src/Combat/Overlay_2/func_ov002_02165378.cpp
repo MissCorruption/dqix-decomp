@@ -36,9 +36,7 @@ extern "C" char data_02108760;
 // USA: func_ov002_02165378
 #if defined(jpn)
 int TryApplyElemFields0205d5d0(struct StructA0205d5d0 *, int, int, int);
-extern "C" int func_ov002_0215ffc8(unsigned char *self);
 extern "C" void func_ov002_0215fe54(void *base, char *dst, int c, int productB, int clampedSum);
-#define HasPositiveContainerAndField_0215edc8 func_ov002_0215ffc8
 #define func_ov002_0215ece4 func_ov002_0215fe54
 extern "C" ARM void func_ov002_02165378(char *self) {
     int state = *(int *) (self + 0x1a88);

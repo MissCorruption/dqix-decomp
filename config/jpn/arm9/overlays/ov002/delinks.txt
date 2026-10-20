@@ -686,3 +686,7 @@ src/Combat/Overlay_2/func_ov002_0215f4e8.cpp:
 src/Combat/Overlay_2/func_ov002_02160068.cpp:
     complete
     .text start:0x0216104c end:0x02161158
+
+src/Combat/Overlay_2/HasPositiveContainerAndField_0215edc8.cpp:
+    complete
+    .text start:0x0215ffc8 end:0x02160004
