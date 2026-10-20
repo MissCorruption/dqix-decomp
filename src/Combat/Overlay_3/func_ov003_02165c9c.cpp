@@ -66,13 +66,31 @@ struct ShortPair02165c9c {
 };
 
 struct Table0217f3ec_02165c9c {
+#if defined(jpn)
+    char pad[0x18];
+#else
     char pad[0x10];
+#endif
     ShortPair02165c9c ids;
 };
 
 extern Table0217f3ec_02165c9c data_ov003_0217f3ec;
 
 struct StatusPanel02165c9c {
+#if defined(jpn)
+    char pad[0x1c4];
+    Container020e0310 cont2dc;
+    char pad2e4[0x20c - 0x1cc];
+    struct Container02080cc0* elementObj;
+    char pad328[0x290 - 0x210];
+    unsigned char counters[4];
+    char pad46c[0x2a8 - 0x294];
+    short selected;
+    char pad482[0x2c7 - 0x2aa];
+    signed char page;
+    char pad4a0[0x2e5 - 0x2c8];
+    unsigned char flag4bd;
+#else
     char pad[0x2dc];
     Container020e0310 cont2dc;
     char pad2e4[0x324 - 0x2e4];
@@ -87,10 +105,15 @@ struct StatusPanel02165c9c {
     signed char page;
     char pad4a0[0x4bd - 0x4a0];
     unsigned char flag4bd;
+#endif
 };
 
 struct EntryList02165c9c {
+#if defined(jpn)
+    char pad[0x2a];
+#else
     char pad[0x36];
+#endif
     short field36;
 };
 
@@ -140,13 +163,19 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
     }
     total = count + empty;
     SetOrClearFlags464_02166164((Outer02166164*)self, total > 4, 1);
+#if !defined(jpn)
     memset(self->names, 0, sizeof(self->names));
+#endif
 
     for (i = 0; i < 4; i++) {
         entry = &party->members[row];
+#if defined(jpn)
+        SetEntryFirstField02080f8c((struct Container02080f8c*)elementObj, idA, (int)entry->name);
+#else
         off = i * 0x30;
         func_02042764(entry->name, (char*)self->names + off, 1);
         SetEntryFirstField02080f8c((struct Container02080f8c*)elementObj, idA, (int)&self->names[0][off]);
+#endif
         if (GetFieldAt0x50((Struct020865b0*)entry) != 0) {
             v = (short)(GetFieldAt0x50((Struct020865b0*)entry) + 0x11);
         }
@@ -166,8 +195,10 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
                 SetEntryHighNibble0x13(elementObj, (short)k, color);
                 SetEntryFlagById02080b40(elementObj, (short)(unsigned int)k);
             }
+#if !defined(jpn)
             SetEntryHighNibble0x13(elementObj, idB, color);
             SetEntryFlagById02080b40(elementObj, idB);
+#endif
             kind = entry->unkF[GetFieldAt0x50((Struct020865b0*)entry)];
             SetEntryHalfword0xe_0208103c(elementObj, idC, (short)(kind + 100));
             if (kind != 0) {
@@ -179,7 +210,11 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
                 key = i + 0x19;
                 GetEntryFieldsAt0x602080828(elementObj, (short)key, &t32, &t30);
                 GetEntryOutputs020808c8(elementObj, (short)(unsigned int)key, &t2e, &t2c);
+#if defined(jpn)
+                SetEntryFieldsAt0x602080854(elementObj, idC, (short)(t32 + t2e + 1), (short)(t30 + 2));
+#else
                 SetEntryFieldsAt0x602080854(elementObj, idC, (short)(t32 + t2e + 1), t30);
+#endif
                 SetEntryHighNibble0x13(elementObj, idC, color);
                 SetEntryFlagById02080b40(elementObj, idC);
             }
@@ -197,7 +232,9 @@ extern "C" ARM void func_ov003_02165c9c(StatusPanel02165c9c* self) {
         row++;
         idA = (short)(idA + 1);
         idC = (short)(idC + 1);
+#if !defined(jpn)
         idB++;
+#endif
     }
 
     func_ov003_0215f5e8(elementObj, self->page, total);
