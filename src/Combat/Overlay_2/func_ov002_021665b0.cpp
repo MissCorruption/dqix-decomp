@@ -15,7 +15,11 @@ struct Base_021665b0 {
 };
 
 struct Ext_021665b0 {
+#if defined(jpn)
+    char pad0[0x8b8];
+#else
     char pad0[0x950];
+#endif
     int kind;
 };
 
@@ -23,7 +27,11 @@ struct Unit_021665b0 {
     char pad0[0x130];
     Status_021665b0* status;
     Base_021665b0* base;
+#if defined(jpn)
+    char pad138[0x144 - 0x138];
+#else
     char pad138[0x150 - 0x138];
+#endif
     Ext_021665b0* ext;
 };
 
@@ -54,6 +62,20 @@ struct Order_021665b0 {
 };
 
 struct Menu_021665b0 {
+#if defined(jpn)
+    char pad0[0x1a80];
+    int nextA;
+    int nextB;
+    int nextC;
+    char pad1bc4[0x1ae8 - 0x1a8c];
+    signed char target;
+    signed char actor;
+    char pad1c22[0x1aee - 0x1aea];
+    short sel26;
+    short sel28;
+    short sel2a;
+    char pad1c2c[0x1b14 - 0x1af4];
+#else
     char pad0[0x1bb8];
     int nextA;
     int nextB;
@@ -66,6 +88,7 @@ struct Menu_021665b0 {
     short sel28;
     short sel2a;
     char pad1c2c[0x1c50 - 0x1c2c];
+#endif
     int count;
     int ids[12];
     char pad1c84[2];
@@ -121,6 +144,32 @@ struct Struct_0205def8;
 void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
 extern "C" void func_ov016_0218b5c0(int a, int b);
 extern "C" void func_ov017_0218b5f8(int a);
+
+#if defined(jpn)
+extern "C" void func_ov002_0215ca68(Menu_021665b0* self);
+extern "C" void func_ov002_0215aa68(Menu_021665b0* self, int key, int target, int actor);
+extern "C" int func_ov002_02162930(char*, int);
+#define func_ov002_0215b814 func_ov002_0215ca68
+#define func_ov002_021594e8 func_ov002_0215aa68
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+#define SPELLS_021665b0 0x227c
+#define LIST_021665b0 0xe20
+#define CTL_FLAG_021665b0 0x17fb
+#define NEXT_IDLE_021665b0 0x18
+#define NEXT_BACK_021665b0 0x16
+#define NEXT_MENU_021665b0 0x2e
+#define FLAG_KEY_021665b0 0x2c
+#define NEXT_NONE_021665b0 0x29
+#else
+#define SPELLS_021665b0 0x2444
+#define LIST_021665b0 0xec8
+#define CTL_FLAG_021665b0 0x19ca
+#define NEXT_IDLE_021665b0 0x17
+#define NEXT_BACK_021665b0 0x15
+#define NEXT_MENU_021665b0 0x2b
+#define FLAG_KEY_021665b0 0x29
+#define NEXT_NONE_021665b0 0x26
+#endif
 
 // USA: func_ov002_021665b0
 extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
@@ -181,7 +230,7 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
                 continue;
             }
             for (int k = 0x1a; k < 0x1f; k++) {
-                if (GetBitInArray0x910_02083bc0((unsigned char*)field, k) && func_0209ac28((char*)self + 0x2444, member, k)) {
+                if (GetBitInArray0x910_02083bc0((unsigned char*)field, k) && func_0209ac28((char*)self + SPELLS_021665b0, member, k)) {
                     if (member->status->level >= 2) {
                         revives[id]++;
                     }
@@ -301,11 +350,11 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
             }
             slot->score = slot->score + revives[id] * 4;
             if (GetBitInArray0x910_02083bc0((unsigned char*)field, 0x1f)) {
-                if (func_0209ac28((char*)self + 0x2444, member, 0x1f)) {
+                if (func_0209ac28((char*)self + SPELLS_021665b0, member, 0x1f)) {
                     slot->score += 200;
                 }
             } else if (GetBitInArray0x910_02083bc0((unsigned char*)field, 0x1e)) {
-                if (func_0209ac28((char*)self + 0x2444, member, 0x1e)) {
+                if (func_0209ac28((char*)self + SPELLS_021665b0, member, 0x1e)) {
                     slot->score += 100;
                 }
             }
@@ -377,7 +426,7 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
             if (!GetBitInArray0x910_02083bc0((unsigned char*)(GetFieldAt0x150_02053c6c((unsigned char*)member)), k)) {
                 continue;
             }
-            if (!func_0209ac28((char*)self + 0x2444, member, k)) {
+            if (!func_0209ac28((char*)self + SPELLS_021665b0, member, k)) {
                 continue;
             }
             if (member->status->level < 2) {
@@ -428,7 +477,7 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
                     continue;
                 }
                 if (GetBitInArray0x910_02083bc0((unsigned char*)field, 0x20)) {
-                    if (!func_0209ac28((char*)self + 0x2444, member, 0x20)) {
+                    if (!func_0209ac28((char*)self + SPELLS_021665b0, member, 0x20)) {
                         t++;
                         continue;
                     }
@@ -658,8 +707,8 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
         self->turn = 0;
         self->actorIdx = 0;
         self->sel26 = -1;
-        self->nextA = 0x17;
-        self->nextB = 0x17;
+        self->nextA = NEXT_IDLE_021665b0;
+        self->nextB = NEXT_IDLE_021665b0;
         self->nextC = changed;
         char* ctl = GetGlobalField0x1c020421a0();
         if (self->acted == 0 && self->result == 1) {
@@ -667,17 +716,17 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
         }
         signed char result = self->result;
         if (!(result != 0 && result != 1)) {
-            ctl[0x19ca] = 0;
+            ctl[CTL_FLAG_021665b0] = 0;
             int pressed = g_keyManager.TestKeysPressed(0x601);
-            int cancel = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)((char*)self + 0xec8), 0x14)) ? 1 : 0;
-            int single = func_0205d97c((char*)self + 0xec8) == 1 ? 1 : 0;
+            int cancel = (pressed | IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)((char*)self + LIST_021665b0), 0x14)) ? 1 : 0;
+            int single = func_0205d97c((char*)self + LIST_021665b0) == 1 ? 1 : 0;
             int flagged = CheckFlagOrThreshold_02161b48((char*)self, 1);
             int left = g_keyManager.TestKeysPressed(0xf0);
             if (single | (flagged | (cancel | (left | g_keyManager.TestKeysPressed(0x100))))) {
                 ReinitController02043204(ctl);
-                self->nextA = 0x15;
-                self->nextB = 0x2b;
-                SetElementFlag0x20ByKey0205def8((Struct_0205def8*)((char*)self + 0xec8), 1, 0x29);
+                self->nextA = NEXT_BACK_021665b0;
+                self->nextB = NEXT_MENU_021665b0;
+                SetElementFlag0x20ByKey0205def8((Struct_0205def8*)((char*)self + LIST_021665b0), 1, FLAG_KEY_021665b0);
                 self->result = 0;
                 self->sel28 = -1;
                 self->sel2a = -1;
@@ -686,8 +735,8 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
                 changed = 1;
             } else if (g_keyManager.TestKeysPressed(0x800)) {
                 ReinitController02043204(ctl);
-                self->nextA = 0x2b;
-                self->nextB = 0x2b;
+                self->nextA = NEXT_MENU_021665b0;
+                self->nextB = NEXT_MENU_021665b0;
                 self->result = 0;
                 self->sel28 = -1;
                 self->sel2a = -1;
@@ -697,8 +746,8 @@ extern "C" ARM void func_ov002_021665b0(Menu_021665b0* self) {
             }
         } else if (result == 2) {
             self->sel28 = 0x232b;
-            self->nextA = 0x26;
-            self->nextB = 0x17;
+            self->nextA = NEXT_NONE_021665b0;
+            self->nextB = NEXT_IDLE_021665b0;
             self->result = 4;
             changed = 1;
         }

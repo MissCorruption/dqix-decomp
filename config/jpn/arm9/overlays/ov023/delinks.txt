@@ -3133,3 +3133,39 @@ src/Combat/Overlay_23/ClearEntriesAndSetGlobalFlags_021fa7d4.cpp:
 src/Combat/Overlay_23/func_ov023_021edf54.cpp:
     complete
     .text start:0x021edcb8 end:0x021ee7fc
+
+src/Combat/Overlay_23/DispatchWithLocalTable_021fc238.cpp:
+    complete
+    .text start:0x021fb538 end:0x021fb5b8
+
+src/Combat/Overlay_23/DispatchWithLocalTable_021fbe70.cpp:
+    complete
+    .text start:0x021fb1ec end:0x021fb26c
+
+src/Combat/Overlay_23/DispatchWithLocalTable_021fa87c.cpp:
+    complete
+    .text start:0x021f9c9c end:0x021f9d1c
+
+src/Combat/Overlay_23/TailCallOffset20_021fc228.cpp:
+    complete
+    .text start:0x021fb528 end:0x021fb538
+
+src/Combat/Overlay_23/GetField1c_021fc1e4.cpp:
+    complete
+    .text start:0x021fb4e4 end:0x021fb4ec
+
+src/Combat/Overlay_23/GetField1c_021faa50.cpp:
+    complete
+    .text start:0x021f9e34 end:0x021f9e3c
+
+src/Combat/Overlay_23/GetField1c_021fa580.cpp:
+    complete
+    .text start:0x021f99a8 end:0x021f99b0
+
+src/Combat/Overlay_23/BlankFunction_021faa5c.cpp:
+    complete
+    .text start:0x021f9e40 end:0x021f9e44
+
+src/Combat/Overlay_23/BlankFunction_021faa58.cpp:
+    complete
+    .text start:0x021f9e3c end:0x021f9e40

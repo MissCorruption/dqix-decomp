@@ -20,7 +20,7 @@ struct CachedGlyphOwnerRelease {
     unsigned char workBuffer[256];
 };
 
-extern "C" void func_0203b8e4(char* obj);
+void InitStruct0203be8c(char* obj);
 #else
 void InitStruct0203be8c(char* obj);
 #endif
@@ -41,8 +41,8 @@ ARM void ReleaseEntry0203c54c(char* obj, short* idxPtr) {
         --entry->count;
         --next->count;
         if (entry->count != 0) continue;
-        func_0203b8e4(reinterpret_cast<char*>(entry));
-        func_0203b8e4(reinterpret_cast<char*>(next));
+        InitStruct0203be8c(reinterpret_cast<char*>(entry));
+        InitStruct0203be8c(reinterpret_cast<char*>(next));
         cache->total -= 2;
     }
 #else
