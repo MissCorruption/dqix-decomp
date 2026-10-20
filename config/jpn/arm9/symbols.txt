@@ -7455,7 +7455,9 @@ data_020fdc14 kind:bss addr:0x020fd980
 data_020fdc20 kind:bss addr:0x020fd98c
 data_020fdc40 kind:bss addr:0x020fd9ac
 data_020fdc4c kind:bss addr:0x020fd9b8
-data_020fdc50 kind:bss addr:0x020fd9bc
+data_020fdc54 kind:bss addr:0x020fd9bc
+data_020fdc58 kind:bss addr:0x020fd9c0
+data_020fdc5c kind:bss addr:0x020fd9c4
 data_020fdc60 kind:bss addr:0x020fd9c8
 data_020fdcb0 kind:bss addr:0x020fda18
 data_020fdcb8 kind:bss addr:0x020fda20

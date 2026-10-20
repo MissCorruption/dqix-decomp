@@ -17,6 +17,9 @@ char* data_020fdc50;
 ScriptPalette data_020fdc4c;
 char* data_020fdc5c;
 
+#if defined(jpn)
+#define data_020ef510 data_020ef3f4
+#endif
 extern Script::OpcodeLookupEntry data_020ef510[];
 
 // USA: func_02020c18
