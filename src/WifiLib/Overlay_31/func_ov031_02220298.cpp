@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_ov031_02220248 func_ov031_02220a28
-#endif
-
 struct FramedPayloadHeader {
     unsigned short length;
     unsigned char unknown02[6];

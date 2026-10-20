@@ -1,10 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_ov031_0221dcbc func_ov031_0221e49c
-#define func_ov031_0221de00 func_ov031_0221e5e0
-#endif
-
 extern "C" int func_ov031_0221d384(int);
 extern "C" int func_ov031_0221dcbc(int, const void*, int);
 extern "C" int func_ov031_0221de00(int, const void*, int);

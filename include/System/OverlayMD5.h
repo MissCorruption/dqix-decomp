@@ -10,9 +10,6 @@ struct OverlayMD5Context {
 };
 
 #if defined(jpn)
-#define func_ov031_02221eac func_ov031_0222268c
-#define func_ov031_022227c0 func_ov031_02222fa0
-#define func_ov031_02222818 func_ov031_02222ff8
 #define data_ov031_0224b194 data_ov031_0224bd94
 #endif
 
