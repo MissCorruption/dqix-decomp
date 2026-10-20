@@ -9,7 +9,6 @@
 #define func_0205ec34 func_0205ff20
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215f170 func_ov002_02160274
-#define func_ov002_02161b98 func_ov002_0216297c
 #define func_ov002_0215a7b4 func_ov002_0215bbac
 #define ClearMatchingEntry_02156ff0 func_ov002_02158674
 extern "C" void ClearMatchingEntry_02156ff0(unsigned char *self, int v);

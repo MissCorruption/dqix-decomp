@@ -1,5 +1,11 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Struct_0205d81c;
 struct Elem_0205d81c;
 struct Struct_0205c4a8;
@@ -28,8 +34,8 @@ extern "C" ARM int func_ov002_02161b98(char *base) {
         goto ret0;
     }
     SelectCoordsByFlag0x24_02012a84((unsigned char *) &data_02114e54, &cx, &cy);
-    elem = FindElementByC40205d81c((struct Struct_0205d81c *) (base + 0x2c8 + 0xc00),
-                                   *(int *) (base + 0x1000 + 0xbb8) & 0xff);
+    elem = FindElementByC40205d81c((struct Struct_0205d81c *) (base + RG(0x2c8 + 0xc00, 0xe20)),
+                                   *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) & 0xff);
     if (elem == 0) {
         goto ret0;
     }
@@ -44,20 +50,20 @@ extern "C" ARM int func_ov002_02161b98(char *base) {
     int cyv = cy;
     int baseY = (short) (sy * 8);
     if (baseY - 16 <= cyv && cyv < baseY) {
-        list = base + 0x2c8 + 0xc00;
+        list = base + RG(0x2c8 + 0xc00, 0xe20);
         if (SelectField0x8Or0x58ByFlags_0205c6e4((unsigned char *) list) == 1) {
             return 0;
         }
         int ex8 = (short) (ex * 8);
         if (ex8 <= cx && cx < ex8 + 16) {
             AdvanceWrappedAccumulator0205c4a8((struct Struct_0205c4a8 *) (list + 0x54), -1);
-            *(int *) (base + 0x1000 + 0xbc8) = 1;
+            *(int *) (base + 0x1000 + RG(0xbc8, 0xa90)) = 1;
         }
         int cxv = cx;
         int W = (short) (sx * 8);
         if (W - 16 <= cxv && cxv < W) {
             AdvanceWrappedAccumulator0205c4a8((struct Struct_0205c4a8 *) (list + 0x54), 1);
-            *(int *) (base + 0x1000 + 0xbc8) = 1;
+            *(int *) (base + 0x1000 + RG(0xbc8, 0xa90)) = 1;
         }
         int total = ComputeScaledSum0205bb84((struct Struct_0205bb84 *) (list + 0x54));
         SetIndexIfValid0205bcdc((struct Struct_0205bcdc *) (list + 4), total);

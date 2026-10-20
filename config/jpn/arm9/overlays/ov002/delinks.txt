@@ -366,3 +366,7 @@ src/Combat/Overlay_2/InitBattleTag0215ccc4.cpp:
 src/Combat/Overlay_2/BuildFlaggedCombatantSlotList_02154f4c.cpp:
     complete
     .text start:0x021566cc end:0x021567a4
+
+src/Combat/Overlay_2/func_ov002_02161b98.cpp:
+    complete
+    .text start:0x0216297c end:0x02162acc
