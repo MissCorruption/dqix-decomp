@@ -8,10 +8,6 @@
 #include "Input/Input.h"
 
 #if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
-#if defined(jpn)
 #define func_020c51dc func_020c6ca8
 #endif
 

@@ -16,11 +16,6 @@
 #define func_020d8524 func_020d9e88
 #endif
 
-#if defined(jpn)
-#define func_020d1d1c func_020d37e8
-
-#endif
-
 ModelRenderContext* GetModel3DContext(Model3D* model);
 void AnimationPackageListInsert(AnimationPackage** pListStart, AnimationPackage* entry);
 

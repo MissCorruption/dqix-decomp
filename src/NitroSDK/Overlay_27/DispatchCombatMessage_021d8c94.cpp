@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
 typedef void (*Callback021d8c94)(int, int, int);
 
 extern void* data_ov027_021e33ec;

@@ -7,10 +7,6 @@
 #include "System/VRAM.h"
 
 #if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
-#if defined(jpn)
 #define func_020c39a0 func_020c546c
 #endif
 

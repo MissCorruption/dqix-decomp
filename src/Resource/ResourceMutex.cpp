@@ -1,9 +1,5 @@
 #include "Resource/ResourceMutex.h"
 
-#ifdef jpn
-#define func_020c745c func_020c8f28
-#endif
-
 struct ResourceMutex
 {
     unsigned char unknown_0;

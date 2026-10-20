@@ -13,11 +13,6 @@
 #define func_020c9be0 func_020cb6ac
 #endif
 
-#if defined(jpn)
-
-#define data_020ef0f0 data_020ef02c
-#endif
-
 extern "C"
 {
     void* _Z25GetPtrField0x468_02011584Pv(GameState*);

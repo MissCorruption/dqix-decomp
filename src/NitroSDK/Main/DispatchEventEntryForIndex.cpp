@@ -1,7 +1,4 @@
 #include <globaldefs.h>
-#if defined(jpn)
-#define func_020be2ec func_020bfdb8
-#endif
 
 void* GetOffsetEntry0x14_020bd580(int index);
 extern "C" int func_020be2ec(unsigned int index, int b, int flag);

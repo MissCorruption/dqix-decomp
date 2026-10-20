@@ -19272,3 +19272,93 @@ src/Combat/Main/func_020ab5d4.cpp:
 src/Combat/Main/func_020aaf84.cpp:
     complete
     .text start:0x020acaec end:0x020ace34
+
+src/MSL/Main/02003418.cpp:
+    complete
+    .text start:0x02003334 end:0x02003b58
+
+src/MSL/Main/func_02009998.cpp:
+    complete
+    .text start:0x020098b4 end:0x02009c38
+
+src/Runtime/Main/func_0200f2ec.cpp:
+    complete
+    .text start:0x0200f1b0 end:0x0200f1e0
+
+src/NitroSDK/Main/func_020c0cd0.cpp:
+    complete
+    .text start:0x020c279c end:0x020c2954
+
+src/NitroSDK/Main/func_020d1d1c.cpp:
+    complete
+    .text start:0x020d37e8 end:0x020d38b4
+
+src/NitroSDK/Main/func_020ca458.cpp:
+    complete
+    .text start:0x020cbf24 end:0x020cbf80
+
+src/NitroSDK/Main/func_020c197c.cpp:
+    complete
+    .text start:0x020c3448 end:0x020c3468
+
+src/NitroSDK/Main/Mat4x3_WriteRotationY.cpp:
+    complete
+    .text start:0x020c3468 end:0x020c3484
+
+src/Runtime/Main/func_0200e830.cpp:
+    complete
+    .text start:0x0200e6f4 end:0x0200e848
+
+src/Runtime/Main/func_0200ea08.cpp:
+    complete
+    .text start:0x0200e8cc end:0x0200e92c
+
+src/Runtime/Main/func_0200edc8.cpp:
+    complete
+    .text start:0x0200ec8c end:0x0200ecb8
+
+src/Runtime/Main/func_0200ee94.cpp:
+    complete
+    .text start:0x0200ed58 end:0x0200ee08
+
+src/Runtime/Main/func_0200df80.cpp:
+    complete
+    .text start:0x0200de44 end:0x0200e6f4
+
+src/Runtime/Main/func_0200ee38.cpp:
+    complete
+    .text start:0x0200ecfc end:0x0200ed58
+
+src/Runtime/Main/func_0200ef44.cpp:
+    complete
+    .text start:0x0200ee08 end:0x0200ee64
+
+src/MSL/Main/func_020042a8.cpp:
+    complete
+    .text start:0x020041c4 end:0x02005410
+    .rodata start:0x020e7354 end:0x020e7364
+
+src/MSL/Main/func_02008848.cpp:
+    complete
+    .text start:0x02008764 end:0x02008cc0
+    .rodata start:0x020e756c end:0x020e75ac
+
+src/MSL/Main/func_0200b454.cpp:
+    complete
+    .text start:0x0200b318 end:0x0200b4b4
+
+src/Runtime/Main/func_0200c76c.s:
+    complete
+    .text start:0x0200c630 end:0x0200c698
+
+src/NitroSDK/Main/InvokeBattleActionSlot3.cpp:
+    complete
+    .text start:0x020d68b4 end:0x020d6918
+
+src/NitroSDK/Main/func_020c745c.cpp:
+    complete
+    .text start:0x020c8f28 end:0x020c9070
+
+src/NitroSDK/Main/func_020be2ec.cpp:
+    complete
+    .text start:0x020bfdb8 end:0x020bfec0

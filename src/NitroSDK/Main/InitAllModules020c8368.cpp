@@ -5,9 +5,6 @@ void InitializeInterProcessorCommunication(void);
 void InitializeGamecardBusOwnership(void);
 extern "C" void func_020c84b4(void);
 void InitializeInterruptContextBlock_020c6ad4(void);
-#if defined(jpn)
-#define func_020c745c func_020c8f28
-#endif
 void StoreSharedMemMagicWords_020c6d48(void);
 extern "C" void func_020c8a3c(void);
 void SetWramCntThenReset_020cad00(void);
