@@ -1999,3 +1999,7 @@ src/Combat/Overlay_1/func_ov001_0215657c.cpp:
 src/Combat/Overlay_1/func_ov001_02154f24.cpp:
     complete
     .text start:0x021566a4 end:0x021569c0
+
+src/Combat/Overlay_1/func_ov001_02162338.cpp:
+    complete
+    .text start:0x02163950 end:0x021639f4
