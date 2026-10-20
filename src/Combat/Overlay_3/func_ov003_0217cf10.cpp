@@ -6,10 +6,17 @@
 #include "System/ColorEffects.h"
 
 struct Messages0217cf10 {
+#if defined(jpn)
+    char pad0[0x868];
+    int busy_;
+    char pad86c[0x17e2 - 0x86c];
+    unsigned char flag19b2_;
+#else
     char pad0[0x998];
     int busy_;
     char pad99c[0x19b2 - 0x99c];
     unsigned char flag19b2_;
+#endif
 };
 
 struct Progress0217cf10 {
@@ -23,7 +30,11 @@ struct Save0217cf10 {
 };
 
 struct Zone0217cf10 {
+#if defined(jpn)
+    unsigned char pad0[0x860];
+#else
     unsigned char pad0[0x840];
+#endif
     Save0217cf10 save_;
 };
 
@@ -72,7 +83,9 @@ struct Self0217cf10 {
     signed char step_;
     char pad6[0xc - 6];
     int task_;
+#if !defined(jpn)
     int width_;
+#endif
     char pad14[0x18 - 0x14];
     unsigned char list_[0x18];
     unsigned char count_;
@@ -108,7 +121,11 @@ extern "C" Zone0217cf10 *func_02012fe4(void);
 void CancelPendingAction020397cc(Obj020397cc *obj, int flag);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0 *obj, int a, int b);
 const char *CallFunc020e0434With02153694_020e51cc(int key);
+#if defined(jpn)
+extern "C" void func_0204500c(Messages0217cf10 *window, const char *text, int mode);
+#else
 extern "C" void func_0204500c(Messages0217cf10 *window, const char *text, int mode, int width);
+#endif
 int CountActiveEntries(ActiveEntry02046900 *archive);
 void *FindRecordByIndex(Rec020467f0 *archive, int index, void **name, int *size);
 extern "C" void func_0205a528(Menu0217cf10 *menu, void *file, int size, SafeAllocator *allocator);
@@ -130,8 +147,138 @@ extern char data_ov003_02180c2c[];
 extern char data_ov003_02180c43[];
 extern char data_ov003_02180c56[];
 extern char data_ov003_02180c6f[];
+#if defined(jpn)
+extern char data_ov003_0217ee58[];
+extern char data_ov003_0217ee8c[];
+extern char data_ov003_0217eecc[];
+extern char data_ov003_0217eee3[];
+extern char data_ov003_0217eef6[];
+#endif
 
 // USA: func_ov003_0217cf10
+#if defined(jpn)
+extern "C" ARM void func_ov003_0217cf10(Self0217cf10 *self) {
+    Messages0217cf10 *msg = GetGlobalField0x1c020421a0();
+    GameState *gs = GameState::GetInstance();
+    BackgroundLoader *loader = BackgroundLoader::GetInstance();
+    Zone0217cf10 *zone = func_02012fe4();
+    Save0217cf10 *save = &zone->save_;
+    int step = self->step_;
+
+    if (step == 0) {
+        CancelPendingAction020397cc((Obj020397cc *)gs->GetUnknownGameObject(), 1);
+        msg->busy_ = 1;
+        DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+        if (IsSeen(&save->progress_, 0xffffffff)) {
+            func_0204500c(msg, data_ov003_0217ee58, 0);
+            msg->flag19b2_ = 0;
+            msg->busy_ = 1;
+        } else {
+            func_0204500c(msg, data_ov003_0217ee8c, 0);
+            msg->flag19b2_ = 0;
+            msg->busy_ = 1;
+            self->state_ = 1;
+            self->step_ = 0;
+            return;
+        }
+        int count = 1;
+        for (int i = 1; i < 0x18; i++) {
+            if (save->progress_.seen_ & (1 << i)) {
+                self->list_[count] = i;
+                count++;
+            }
+        }
+        self->count_ = count;
+        self->pages_ = (self->count_ - 1) / 6 + 1;
+        self->menu_.field50_ = 0;
+        self->menu_.field40_ = self->field34_;
+        self->menu_.field4c_ = 7;
+        self->menu_.field3c_ = self->field38_;
+        self->task_ = loader->QueueLoadFile(data_ov003_0217eecc, 0);
+        self->step_ = 1;
+    } else if (step == 1) {
+        if (loader->GetTaskStatus(self->task_) == 0) return;
+        void *name;
+        void *file;
+        unsigned int size;
+        int recSize;
+        loader->GetLoadedFileByID(self->task_, &file, &size);
+        int n = CountActiveEntries((ActiveEntry02046900 *)file);
+        for (int i = 0; i < n; i++) {
+            void *rec = FindRecordByIndex((Rec020467f0 *)file, i, &name, &recSize);
+            func_0205a528(&self->menu_, rec, recSize, &self->menuAllocator_);
+        }
+        loader->RemoveTask(self->task_);
+        self->task_ = -1;
+        self->task_ = loader->QueueLoadFile(data_ov003_0217eee3, 0);
+        self->step_ = 2;
+    } else if (step == 2) {
+        if (loader->GetTaskStatus(self->task_) == 0) return;
+        SetWord0x18ClearByte0x1f_0204b11c((unsigned char *)&self->backgrounds_[0], 0);
+        self->backgrounds_[0].unk_1c_0_ = 0;
+        self->backgrounds_[0].unk_1c_4_ = 1;
+        func_0204b5b4(&self->backgrounds_[0], 0);
+        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c *)&self->backgrounds_[0], self->allocator_);
+        DispatchViaTable0204b5e8((Obj0204b5e8 *)&self->backgrounds_[0], 0, 0);
+        BG1CNT = (BG1CNT & 0x43) | 0xd08;
+        SetWord0x18ClearByte0x1f_0204b11c((unsigned char *)&self->backgrounds_[1], 0);
+        self->backgrounds_[1].unk_1c_0_ = 0;
+        self->backgrounds_[1].unk_1c_4_ = 2;
+        func_0204b5b4(&self->backgrounds_[1], 1);
+        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c *)&self->backgrounds_[1], self->allocator_);
+        DispatchViaTable0204b5e8((Obj0204b5e8 *)&self->backgrounds_[1], 0, 0);
+        BG2CNT = (BG2CNT & 0x43) | 0xe08;
+        void *name;
+        void *file;
+        void *recs[2];
+        unsigned int size;
+        int sizes[2];
+        loader->GetLoadedFileByID(self->task_, &file, &size);
+        int n = CountActiveEntries((ActiveEntry02046900 *)file);
+        for (int i = 0; i < n; i++) {
+            recs[i] = FindRecordByIndex((Rec020467f0 *)file, i, &name, &sizes[i]);
+        }
+        for (int i = 0; i < n; i++) {
+            if (recs[i] != 0) {
+                func_0204b174(&self->backgrounds_[0], recs[i], self->allocator_, sizes[i]);
+            }
+        }
+        loader->RemoveTask(self->task_);
+        self->task_ = -1;
+        func_0204bc74(&self->backgrounds_[0], 0, 0, 0, 0x20, 0x19, 0);
+        FlushAndDispatchList0204b0e8((List0204b0e8 *)&self->backgrounds_[0], 0);
+        func_0204bc74(&self->backgrounds_[1], 0, 0, 0, 0x20, 0x19, 0);
+        FlushAndDispatchList0204b0e8((List0204b0e8 *)&self->backgrounds_[1], 0);
+        self->pixels_ = self->allocator_->Allocate(0x2800);
+        AllocateBuffer0204c7a8((Obj0204c7a8 *)self->canvas_, self->allocator_, (int)self->pixels_, 0x800);
+        self->canvas_->background_ = self->backgrounds_;
+        self->canvas_->fieldc4_ = 0;
+        Window0217cf10 *window = self->window_;
+        window->backgrounds_ = self->backgrounds_;
+        window->backgroundCount_ = 2;
+        LinkArrayPrevPointers0205cf78((Struct_0205cf78 *)self->window_, (Elem_0205cf78 *)self->canvas_, 1);
+        BG0CNT = (BG0CNT & ~3) | 3;
+        BG1CNT = (BG1CNT & ~3) | 1;
+        BG2CNT = (BG2CNT & ~3) | 2;
+        BG3CNT = (BG3CNT & ~3) | 0;
+        ColorEffect_ConfigureAlphaBlend(0x04000050, 4, 1, 10, 6);
+        self->task_ = loader->QueueLoadFile(data_ov003_0217eef6, 0);
+        self->step_ = 3;
+    } else if (step == 3) {
+        if (loader->GetTaskStatus(self->task_) == 0) return;
+        void *file;
+        unsigned int size;
+        loader->GetLoadedFileByID(self->task_, &file, &size);
+        self->textAllocator_.Reset();
+        func_020dfec0(self->texts_, &self->textAllocator_, file, size);
+        loader->RemoveTask(self->task_);
+        self->task_ = -1;
+        DISPCNT = (DISPCNT & ~0x1f00) | 0x1700;
+        self->state_ = 2;
+        self->step_ = 0;
+    }
+}
+#else
 extern "C" ARM void func_ov003_0217cf10(Self0217cf10 *self) {
     Messages0217cf10 *msg = GetGlobalField0x1c020421a0();
     GameState *gs = GameState::GetInstance();
@@ -267,3 +414,4 @@ extern "C" ARM void func_ov003_0217cf10(Self0217cf10 *self) {
         self->step_ = 0;
     }
 }
+#endif
