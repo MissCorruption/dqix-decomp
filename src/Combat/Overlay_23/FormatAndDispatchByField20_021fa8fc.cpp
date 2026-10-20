@@ -8,6 +8,22 @@ extern "C" void func_ov023_021f6bb0(void* thing, int v);
 extern char data_ov023_021fec3c;
 
 // USA: func_ov023_021fa8fc  (semantic: FormatAndDispatchByField20_021fa8fc)
+#if defined(jpn)
+extern char data_ov023_021fdef4;
+
+extern "C" ARM int func_ov023_021fa8fc(void* obj, int a) {
+    void* thing = func_ov011_021849c8(a);
+    if (func_ov023_021f6bb8(thing) >= 0) {
+        return *(int*)((char*)obj + 0x1c);
+    }
+    int val5 = (int)BackgroundLoader::GetInstance();
+    char buf[0x50];
+    sprintf(buf, &data_ov023_021fdef4, *(int*)((char*)obj + 0x10));
+    int result = ((BackgroundLoader*)(val5))->QueueLoadFile((const char*)((int)buf), (SafeAllocator*)(0));
+    func_ov023_021f6bb0(thing, result);
+    return 1;
+}
+#else
 extern "C" ARM int func_ov023_021fa8fc(void* obj, int a) {
     void* thing = func_ov011_021849c8(a);
     int state = func_ov023_021f6bb8(thing);
@@ -30,3 +46,4 @@ extern "C" ARM int func_ov023_021fa8fc(void* obj, int a) {
     }
     return *(int*)((char*)obj + 0x1c);
 }
+#endif

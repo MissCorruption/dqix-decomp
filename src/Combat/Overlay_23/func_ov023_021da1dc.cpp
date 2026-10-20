@@ -35,6 +35,36 @@ static inline WindowFrame_021da1dc* GetFrame(void* window)
 }
 
 // USA: func_ov023_021da1dc
+#if defined(jpn)
+int TryApplyElemFields0205d5d0(struct StructA0205d5d0* a, int b, int c, int d);
+
+struct CharacterCreation_021da9a8 {
+    char pad0[0xd8];
+    void* unk_d8;
+    char paddc[0x278 - 0xdc];
+    char window1[0xd49 - 0x278];
+    unsigned char unk_d49;
+};
+
+extern "C" ARM void func_ov023_021da1dc(CharacterCreation_021da9a8* self)
+{
+    unsigned char unk = self->unk_d49;
+    if (unk != 0)
+    {
+        int highlighted = 0;
+        if (unk == 2 && data_02114e54.unk_5f != 0 && data_02114e54.unk_24 != 0)
+        {
+            WindowFrame_021da1dc* frame = GetFrame(self->window1);
+            if (frame->unk_30 < 0)
+                return;
+            highlighted = 1;
+        }
+        memset(self->unk_d8, 0, 0x800);
+        func_ov023_021da100((CharacterCreation_021da1dc*)self, (char*)self->unk_d8, highlighted);
+        TryApplyElemFields0205d5d0((StructA0205d5d0*)self->window1, 1, (int)self->unk_d8, 0);
+    }
+}
+#else
 extern "C" ARM void func_ov023_021da1dc(CharacterCreation_021da1dc* self)
 {
     unsigned char unk = self->unk_d85;
@@ -54,3 +84,4 @@ extern "C" ARM void func_ov023_021da1dc(CharacterCreation_021da1dc* self)
         TryApplyElemFields0205d5d0((StructA0205d5d0*)self->window1, 1, (int)text, 0, 1);
     }
 }
+#endif
