@@ -25,7 +25,7 @@ _Z36SetTag2aIfNotAlreadyFlagged_02155024Ph kind:function(arm,size=0x38) addr:0x0
 func_ov002_0215505c kind:function(arm,size=0x664) addr:0x021567dc
 _Z26SetBytes485And486_021556ecPvii kind:function(arm,size=0x10) addr:0x02156e40
 func_ov002_021556fc kind:function(arm,size=0x250) addr:0x02156e50
-func_ov002_021570a0 kind:function(arm,size=0x45c) addr:0x021570a0
+func_ov002_02155960 kind:function(arm,size=0x45c) addr:0x021570a0
 func_ov002_021574fc kind:function(arm,size=0x138) addr:0x021574fc
 func_ov002_02155f4c kind:function(arm,size=0x130) addr:0x02157634
 func_ov002_02156080 kind:function(arm,size=0xf8) addr:0x02157764
@@ -238,7 +238,7 @@ data_ov002_0216ccc0 kind:data(any) addr:0x0216d2e0
 data_ov002_0216d2e4 kind:data(any) addr:0x0216d2e4
 data_ov002_0216cce4 kind:data(any) addr:0x0216d304
 data_ov002_0216cce8 kind:data(any) addr:0x0216d308
-data_ov002_0216d394 kind:data(any) addr:0x0216d394
+data_ov002_0216cd74 kind:data(any) addr:0x0216d394
 data_ov002_0216d50c kind:data(any) addr:0x0216d50c
 data_ov002_0216d520 kind:data(any) addr:0x0216d520
 data_ov002_0216d539 kind:data(any) addr:0x0216d539
@@ -281,6 +281,6 @@ data_ov002_0216dacf kind:data(any) addr:0x0216dacf
 data_ov002_0216dae7 kind:data(any) addr:0x0216dae7
 data_ov002_0216db03 kind:data(any) addr:0x0216db03
 data_ov002_0216d3a0 kind:bss addr:0x0216db20
-data_ov002_0216db28 kind:bss addr:0x0216db28
+data_ov002_0216d3a8 kind:bss addr:0x0216db28
 data_ov002_0216d3ac kind:bss addr:0x0216db2c
 data_ov002_0216db30 kind:bss addr:0x0216db30
