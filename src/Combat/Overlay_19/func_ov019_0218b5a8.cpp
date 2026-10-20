@@ -118,6 +118,13 @@ void SetWord0x7f6c_02012010(void* obj, int value);
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 extern "C" void* ExtractFileFromGP2(const char* gp2Path, const char* innerFilePath, unsigned int* outSize);
 
+#if defined(jpn)
+#define data_ov019_0218c2c0 data_ov019_0218cea0
+#define data_ov019_0218c2d4 data_ov019_0218ceb4
+#define data_ov019_0218c294 data_ov019_0218ce7c
+#define data_ov019_0218c2a0 data_ov019_0218ce88
+#define data_ov019_0218c2fe data_ov019_0218ced3
+#endif
 extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 extern AllocatorUnion data_02114e20;
 extern char data_02109bf4[];
@@ -129,12 +136,25 @@ extern char data_ov019_0218c2fe[];
 extern Vector3fix data_ov019_0218c294;
 extern Vector3fix data_ov019_0218c2a0;
 
+#if defined(jpn)
+struct TableA68;
+struct List020727d8;
+struct StreamHeader;
+void* FindEntryByKey_02072a68(struct TableA68* table, int key);
+void ResetListHeader020727d8(struct List020727d8* list);
+extern "C" void func_020728ac(int param0, int param1, struct StreamHeader* buffer, int length, int stack5, unsigned short stack6, unsigned char stack7);
+extern char data_ov019_0218ceb8[];
+enum { regionalTextsSize = 0x8, regionalG2d8 = 0x228 };
+#else
+enum { regionalTextsSize = 0x18, regionalG2d8 = 0x2d8 };
+#endif
+
 struct TitleScene0218b5a8 {
     char resources[0x28];
     unsigned char drawn;
     char pad29[0x2c - 0x29];
     char menu[0x34 - 0x2c];
-    char texts[0x4c - 0x34];
+    char texts[regionalTextsSize];
     int flags;
     int loadCount;
     char icons[0x90 - 0x54];
@@ -151,7 +171,7 @@ struct TitleScene0218b5a8 {
 
 static inline void ShowText(MessageSystem* g, TitleScene0218b5a8* self, int id) {
 #if defined(jpn)
-    func_0204500c(g, GetFieldByKey020e0434((Container020e0310*)self->texts, id), 0);
+    func_0204500c(g, (const char*)FindEntryByKey_02072a68((struct TableA68*)self->texts, id), 0);
 #else
     func_0204500c(g, GetFieldByKey020e0434((Container020e0310*)self->texts, id), 0, 0xe3);
 #endif
@@ -293,7 +313,15 @@ extern "C" ARM void func_ov019_0218b5a8(TitleScene0218b5a8* self) {
     }
     ClearBuffer0202ad30();
     FlushAndClearBuffer0202adf0();
-    *(int*)((char*)g + 0x2d8) = 0;
+    *(int*)((char*)g + regionalG2d8) = 0;
+#if defined(jpn)
+    if (LoadFileIntoMemory(data_ov019_0218ceb8, data_0211e33c, &size) == NULL) {
+        BackgroundLoader::RemoveLockGlobal();
+        return;
+    }
+    ResetListHeader020727d8((struct List020727d8*)self->texts);
+    func_020728ac((int)self->texts, (int)&alloc, (struct StreamHeader*)data_0211e33c, size, 0, 0, 0);
+#else
     void* strings = ExtractFileFromGP2(data_ov019_0218c2d8, data_ov019_0218c2ed, &size);
     if (strings == NULL) {
         BackgroundLoader::RemoveLockGlobal();
@@ -301,6 +329,7 @@ extern "C" ARM void func_ov019_0218b5a8(TitleScene0218b5a8* self) {
     }
     ResetStruct020dfc40((Struct020dfc40*)self->texts);
     func_020dfec0(self->texts, &alloc, strings, size);
+#endif
     BackgroundLoader::RemoveLockGlobal();
 
     int state = 0;
