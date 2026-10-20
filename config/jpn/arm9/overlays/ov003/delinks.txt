@@ -1724,3 +1724,16 @@ src/Combat/Overlay_3/CallCallbackIfState9_02172570.cpp:
 src/Combat/Overlay_3/func_ov003_0215d4fc.cpp:
     complete
     .text start:0x0215e858 end:0x0215ed68
+
+src/Combat/Overlay_3/func_ov003_0215d150.cpp:
+    complete
+    .text start:0x0215e4a8 end:0x0215e858
+
+src/Combat/Overlay_3/func_ov003_02173f70.cpp:
+    complete
+    .text start:0x021730e0 end:0x02173288
+    .data start:0x0217ece0 end:0x0217ed08
+
+src/Combat/Overlay_3/func_ov003_0215caf0.cpp:
+    complete
+    .text start:0x0215de08 end:0x0215e4a8

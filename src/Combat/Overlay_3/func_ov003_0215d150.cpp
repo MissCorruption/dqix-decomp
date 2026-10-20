@@ -6,10 +6,16 @@ struct Struct_0205c570;
 struct Struct0205cf1c;
 struct Obj0205eaa0;
 
+#if defined(jpn)
+enum { regionalScene = 0x18, regionalCtlStrings = -0x34, regionalCtl = -0x130, regionalCtlByte = -0x1d0, regionalZone = 0x20 };
+#else
+enum { regionalScene = 0, regionalCtlStrings = 0, regionalCtl = 0, regionalCtlByte = 0, regionalZone = 0 };
+#endif
+
 struct Ctl {
-    char pad0[0x5c];
+    char pad0[0x5c + regionalCtlStrings];
     char *strings;
-    char pad60[0x998 - 0x60];
+    char pad60[0x998 - 0x60 + regionalCtl - regionalCtlStrings];
     int w998;
     char pad99c[4];
     int w9a0;
@@ -18,7 +24,7 @@ struct Ctl {
 struct Scene {
     char pad0[0x64];
     Container020e0310 cont64;
-    char pad6c[0x98 - 0x6c];
+    char pad6c[0x98 - 0x6c + regionalScene];
     char list98[0x3b8 - 0x98];
     unsigned char state;
     char pad3b9[2];
@@ -46,7 +52,7 @@ struct Sub1840 {
 };
 
 struct Zone {
-    char pad0[0x1840];
+    char pad0[0x1840 + regionalZone];
     Sub1840 sub;
 };
 
@@ -94,7 +100,7 @@ extern "C" ARM void func_ov003_0215d150(Scene *self) {
     Zone *b      = func_02012fe4();
 
     if (g->w9a0 == 3) {
-        *(unsigned char *) ((char *) g + 0x1000 + 0x9ae) = 0;
+        *(unsigned char *) ((char *) g + 0x1000 + 0x9ae + regionalCtlByte) = 0;
     }
 
     unsigned char state = self->state;

@@ -2,7 +2,14 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+struct Data021707c8 { void* f4; void* f8; void* fc; };
+enum { regionalRows = 16, regionalProt = -0xc };
+#define func_ov004_021561b0 func_ov004_02157594
+#else
 struct Data021707c8 { void* f0; void* f4; void* f8; void* fc; };
+enum { regionalRows = 12, regionalProt = 0 };
+#endif
 extern Data021707c8 data_ov004_021707c8;
 extern int data_02108760;
 
@@ -30,7 +37,7 @@ struct Entry02156a00 { unsigned int id : 9; char pad[4]; struct Entry02156a00* n
 struct Head02156a00 { char pad0[8]; struct Entry02156a00* head; char pad1[4]; unsigned char kind; };
 struct Node02156a00 { char pad[0x5c]; short f5c; short f5e; };
 struct Prot2_02156a00 { char pad[0x49c]; unsigned char f49c : 1; };
-struct Prot02156a00 { char pad[0x150]; struct Prot2_02156a00* f150; };
+struct Prot02156a00 { char pad[0x150 + regionalProt]; struct Prot2_02156a00* f150; };
 struct Node66_02156a00 { char pad[0x20]; void* f20; };
 struct Node34_02156a00 { char pad[0x104]; short f104; short f106; };
 
@@ -49,7 +56,7 @@ extern "C" ARM int func_ov004_02156a00(void* a1) {
         return 0;
     }
 
-    short off = node->f5c * 12;
+    short off = node->f5c * regionalRows;
     f5e = node->f5e;
     int idx = func_ov023_021f9bc8(node) + off;
     short v7 = ((short*)data_ov004_021707c8.f8)[idx];
@@ -82,9 +89,9 @@ extern "C" ARM int func_ov004_02156a00(void* a1) {
         }
     }
 
-    node->f5c = (short)(sb / 12);
+    node->f5c = (short)(sb / regionalRows);
     node->f5e = f5e;
-    DivModField26_021f9bdc((struct Obj021f9bdc*)node, (unsigned short)(sb % 12));
+    DivModField26_021f9bdc((struct Obj021f9bdc*)node, (unsigned short)(sb % regionalRows));
 
     DispatchWithShortB4_0205eaa0((struct Obj0205eaa0*)&data_02108760, 1, 0);
 

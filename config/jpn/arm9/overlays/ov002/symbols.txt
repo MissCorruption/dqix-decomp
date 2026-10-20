@@ -193,7 +193,7 @@ _Z13Reset02168c38P11Foo02168c38 kind:function(arm,size=0x70) addr:0x021694bc
 func_ov002_02168ca8 kind:function(arm,size=0x68) addr:0x0216952c
 _Z29AppendFormattedValue_02168d10Phi kind:function(arm,size=0x44) addr:0x02169594
 func_ov002_021695d8 kind:function(arm,size=0x71c) addr:0x021695d8
-func_ov002_02169cf4 kind:function(arm,size=0x19c) addr:0x02169cf4
+func_ov002_02169520 kind:function(arm,size=0x19c) addr:0x02169cf4
 func_ov002_02169e90 kind:function(arm,size=0x25c) addr:0x02169e90
 func_ov002_0216a0ec kind:function(arm,size=0x268) addr:0x0216a0ec
 func_ov002_0216a354 kind:function(arm,size=0x338) addr:0x0216a354
@@ -206,7 +206,7 @@ func_ov002_0216c28c kind:function(arm,size=0x4c) addr:0x0216c8dc
 func_ov002_0216c2d8 kind:function(arm,size=0x154) addr:0x0216c928
 func_ov002_0216ca7c kind:function(arm,size=0x1fc) addr:0x0216ca7c
 func_ov002_0216cc78 kind:function(arm,size=0x2c) addr:0x0216cc78
-func_ov002_0216cca4 kind:function(arm,size=0x31c) addr:0x0216cca4
+func_ov002_0216c654 kind:function(arm,size=0x31c) addr:0x0216cca4
 data_ov002_0216cfc0 kind:data(any) addr:0x0216cfc0
 data_ov002_0216c96e kind:data(any) addr:0x0216cfc2
 data_ov002_0216cfe0 kind:data(any) addr:0x0216cfe0
