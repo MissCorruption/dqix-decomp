@@ -40,6 +40,58 @@ struct Menu_02167ca8 {
 };
 
 // USA: func_ov003_02167ca8
+#if defined(jpn)
+struct Menu_02167b80 {
+    void* pad00[4];
+    void* list;
+    char pad14[0x46 - 0x14];
+    signed char combatantId;
+};
+
+extern "C" ARM void func_ov003_02167ca8(Menu_02167b80* self) {
+    Entry02167ca8* entry = (Entry02167ca8*)FindEntryBySignedId02086e50(
+        (FindEntryContainer02086e50*)GetPtrField0x2a04_02010828(GameState::GetInstance()),
+        self->combatantId);
+    if (entry == 0) {
+        return;
+    }
+    int index = GetFieldAt0x50((Struct020865b0*)entry);
+    func_ov003_02167e28(self, (unsigned char*)entry + 0x140, entry->flag, (unsigned char)index,
+                        entry->tableF[index], entry->metaValues[index], entry->wordValues[index]);
+    func_ov003_02167fa4(self, GetFieldAt0x50((Struct020865b0*)entry) & 0xff, entry->tableF6);
+    int values[12];
+    int a0 = entry->g0.v0;
+    int b0 = a0;
+    values[0] = b0;
+    int a1 = entry->g0.v1;
+    int b1 = a1;
+    values[1] = b1;
+    int a2 = entry->g0.v2;
+    int b2 = a2;
+    values[2] = b2;
+    int a3 = entry->g1.v3;
+    int b3 = a3;
+    values[3] = b3;
+    int a4 = entry->g1.v4;
+    values[4] = a4;
+    int a5 = entry->g1.v5;
+    values[5] = a5;
+    int a6 = entry->g2.v6;
+    values[6] = a6;
+    int a7 = entry->g3.v7;
+    values[7] = a7;
+    int a8 = entry->g3.v8;
+    values[8] = a8;
+    int a9 = entry->g3.v9;
+    values[9] = a9;
+    int a10 = entry->g4.v10;
+    values[10] = a10;
+    int a11 = entry->g4.v11;
+    values[11] = a11;
+    SetEntryFieldsForRange_02168088((Wrapper02168088*)self, values);
+    func_020813ec(self->list, 0);
+}
+#else
 extern "C" ARM void func_ov003_02167ca8(Menu_02167ca8* self) {
     Entry02167ca8* entry = (Entry02167ca8*)FindEntryBySignedId02086e50(
         (FindEntryContainer02086e50*)GetPtrField0x2a04_02010828(GameState::GetInstance()),
@@ -85,3 +137,4 @@ extern "C" ARM void func_ov003_02167ca8(Menu_02167ca8* self) {
     SetEntryFieldsForRange_02168088((Wrapper02168088*)self, values);
     func_020813ec(self->list, 0);
 }
+#endif
