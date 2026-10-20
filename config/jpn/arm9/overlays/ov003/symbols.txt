@@ -626,7 +626,7 @@ data_ov003_0217ecbc kind:data(any) addr:0x0217ecbc
 data_ov003_0217ecc3 kind:data(any) addr:0x0217ecc3
 data_ov003_0217ece0 kind:data(any) addr:0x0217ece0
 data_ov003_0217ece4 kind:data(any) addr:0x0217ece4
-data_ov003_0217ecf0 kind:data(any) addr:0x0217ecf0
+sizes$256 kind:data(any) addr:0x0217ecf0 local
 data_ov003_0217ed08 kind:data(any) addr:0x0217ed08
 data_ov003_02180af4 kind:data(any) addr:0x0217ed58
 data_ov003_0217ed74 kind:data(any) addr:0x0217ed74
