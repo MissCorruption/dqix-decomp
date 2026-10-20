@@ -6,7 +6,6 @@ extern "C" void _Z32ClearBuffers0204b010OverList0x98P12Cont0205d1e0(void*);
 extern "C" void _Z28CallFunc0204b04cOverList0x98P12Cont0205d274(void*);
 extern "C" void _Z19InitEntries0205d2bcP11Obj0205d2bc(void*);
 #define KINDS_OFFSET 0x1f98
-#define func_ov000_0217df08 func_ov000_0217f370
 #else
 #define KINDS_OFFSET 0x1d60
 #endif
