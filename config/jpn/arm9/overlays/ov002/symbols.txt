@@ -49,7 +49,7 @@ func_ov002_02158bb4 kind:function(arm,size=0x90) addr:0x02158bb4
 _Z32SetupTargetAndApplyState021575d4Pc kind:function(arm,size=0x60) addr:0x02158c44
 func_ov002_02157634 kind:function(arm,size=0x6b0) addr:0x02158ca4
 _Z22InitStateArray02157ce0Pc kind:function(arm,size=0x60) addr:0x02159354
-func_ov002_021593b4 kind:function(arm,size=0x16b4) addr:0x021593b4
+func_ov002_02157d40 kind:function(arm,size=0x16b4) addr:0x021593b4
 func_ov002_021594e8 kind:function(arm,size=0x28c) addr:0x0215aa68
 func_ov002_02159774 kind:function(arm,size=0x18c) addr:0x0215acf4
 func_ov002_0215ae80 kind:function(arm,size=0x6d8) addr:0x0215ae80
@@ -211,7 +211,7 @@ data_ov002_0216cfc0 kind:data(any) addr:0x0216cfc0
 data_ov002_0216c96e kind:data(any) addr:0x0216cfc2
 data_ov002_0216cfe0 kind:data(any) addr:0x0216cfe0
 data_ov002_0216cfe6 kind:data(any) addr:0x0216cfe6
-data_ov002_0216cfee kind:data(any) addr:0x0216cfee
+data_ov002_0216c992 kind:data(any) addr:0x0216cfee
 data_ov002_0216cff9 kind:data(any) addr:0x0216cff9
 data_ov002_0216cffa kind:data(any) addr:0x0216cffa
 data_ov002_0216c9ae kind:data(any) addr:0x0216d00a
@@ -244,8 +244,8 @@ data_ov002_0216d520 kind:data(any) addr:0x0216d520
 data_ov002_0216d539 kind:data(any) addr:0x0216d539
 data_ov002_0216cf21 kind:data(any) addr:0x0216d554
 data_ov002_0216cf39 kind:data(any) addr:0x0216d56c
-data_ov002_0216d584 kind:data(any) addr:0x0216d584
-data_ov002_0216d599 kind:data(any) addr:0x0216d599
+data_ov002_0216cf51 kind:data(any) addr:0x0216d584
+data_ov002_0216cf66 kind:data(any) addr:0x0216d599
 data_ov002_0216d5b6 kind:data(any) addr:0x0216d5b6
 data_ov002_0216d5d0 kind:data(any) addr:0x0216d5d0
 data_ov002_0216d5d7 kind:data(any) addr:0x0216d5d7
