@@ -19220,3 +19220,7 @@ src/Combat/Main/SetFlagsAndReset02026678.cpp:
 src/Combat/Main/SetBit02026bc8.cpp:
     complete
     .text start:0x0202652c end:0x02026540
+
+src/Combat/Main/CountEntriesByField0x8c.cpp:
+    complete
+    .text start:0x0202638c end:0x020263dc

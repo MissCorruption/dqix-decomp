@@ -7,7 +7,11 @@ struct Elem02026a28 {
 };
 
 struct List02026a28 {
+#if defined(jpn)
+    unsigned char pad0[0x6d4];
+#else
     unsigned char pad0[0x780];
+#endif
     unsigned char count;
     unsigned char pad1[9];
     struct Elem02026a28 elems[1];
