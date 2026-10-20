@@ -1,6 +1,12 @@
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define func_ov003_02160f4c func_ov003_021610a8
+#define data_ov003_02180cc0 data_ov003_0217ef38
+#define data_ov003_0217ff68 data_ov003_0217e758
+#endif
+
 class PMFObj0215fce8 {
 public:
     virtual void Dummy0215fce8();
@@ -57,11 +63,19 @@ extern "C" int func_020800fc(void *menu, short *cursor, short prevCursor, unsign
 void ClearSublistEntriesFlag4_020804fc(void *menu, int group);
 extern "C" void func_020813ec(void *obj, int key);
 
+#if defined(jpn)
+#define RG(usa, jpn) (jpn)
+#define SO(off) ((off) >= 0x45c ? (off) - 0x1d8 : (off) - 0x118)
+#else
+#define RG(usa, jpn) (usa)
+#define SO(off) (off)
+#endif
+
 // USA: func_ov003_0215fce8
 extern "C" ARM int func_ov003_0215fce8(unsigned char *self, int arg) {
-    if (self[0x4c0] == 0 && func_ov017_021959b4() != 0) {
-        unsigned char a3 = self[0x4a3];
-        if ((a3 == 0xb && self[0x4a4] == 0x11) || (a3 == 6 && self[0x4a4] == 0)) {
+    if (self[SO(0x4c0)] == 0 && func_ov017_021959b4() != 0) {
+        unsigned char a3 = self[SO(0x4a3)];
+        if ((a3 == 0xb && self[SO(0x4a4)] == 0x11) || (a3 == 6 && self[SO(0x4a4)] == 0)) {
             void *p = GetDataPtr02114e04_020d6c00();
             int *g  = GetGlobal02109030_020936f8();
             OrBitsIntoField0_020466e4((unsigned int *) p, 0x20);
@@ -75,87 +89,87 @@ extern "C" ARM int func_ov003_0215fce8(unsigned char *self, int arg) {
             ClearFlag0x3c9Bit0AndCleanup_020939fc((unsigned char *) g);
             FillBitArray0x1524WithFF((BitArrayObj0205e854 *) d);
             ClearFlags00((GameResources*)r8, 0x40);
-            r8[0x4000 + 0x2e3]               = 0;
-            r8[0x4000 + 0x2e2]               = 0;
-            *(short *) (self + 0x400 + 0x84) = 0x37;
-            self[0x4a5]                      = 0;
-            self[0x4a4]                      = 5;
-            self[0x4a3]                      = 0xb;
-            *(unsigned int *) (self + 0x464) = (*(unsigned int *) (self + 0x464) & ~2u) | 4u;
+            r8[RG(0x42e3, 0x40c3)]               = 0;
+            r8[RG(0x42e2, 0x40c2)]               = 0;
+            *(short *) (self + SO(0x484)) = 0x37;
+            self[SO(0x4a5)]                      = 0;
+            self[SO(0x4a4)]                      = 5;
+            self[SO(0x4a3)]                      = 0xb;
+            *(unsigned int *) (self + SO(0x464)) = (*(unsigned int *) (self + SO(0x464)) & ~2u) | 4u;
         } else {
-            self[0x4c0] = 1;
-            self[0x4bf] = 1;
+            self[SO(0x4c0)] = 1;
+            self[SO(0x4bf)] = 1;
         }
     }
 
-    if (!(*(unsigned int *) (self + 0x464) & 0x2000000) && self[0x4bf] != 0) {
-        short *sel = *(short **) (self + 0x470);
+    if (!(*(unsigned int *) (self + SO(0x464)) & 0x2000000) && self[SO(0x4bf)] != 0) {
+        short *sel = *(short **) (self + SO(0x470));
         if (sel != 0) *sel = -1;
-        *(int *) (self + 0x470) = 0;
+        *(int *) (self + SO(0x470)) = 0;
         ReinitController02043204((char *) GetGlobalField0x1c020421a0());
-        *(short *) (self + 0x400 + 0x86) = -1;
-        *(short *) (self + 0x400 + 0x84) = *(short *) (self + 0x400 + 0x86);
-        self[0x4a5]                      = 0;
-        struct Outer020e28dc *o390       = *(struct Outer020e28dc **) (self + 0x390);
+        *(short *) (self + SO(0x486)) = -1;
+        *(short *) (self + SO(0x484)) = *(short *) (self + SO(0x486));
+        self[SO(0x4a5)]                      = 0;
+        struct Outer020e28dc *o390       = *(struct Outer020e28dc **) (self + SO(0x390));
         if (o390 != 0 && GetInnerFlagBit0020e28dc(o390) != 0) {
-            ResetSelectionState020e25e8(*(struct Obj020e25e8 **) (self + 0x390));
+            ResetSelectionState020e25e8(*(struct Obj020e25e8 **) (self + SO(0x390)));
         }
-        self[0x4a3] = 0xf;
-        self[0x4a4] = 0;
-        self[0x4bf] = 0;
+        self[SO(0x4a3)] = 0xf;
+        self[SO(0x4a4)] = 0;
+        self[SO(0x4bf)] = 0;
     }
 
     if (arg == 0) arg = 1;
-    *(int *) (self + 0x460) = arg;
-    void *o318              = *(void **) (self + 0x318);
+    *(int *) (self + SO(0x460)) = arg;
+    void *o318              = *(void **) (self + SO(0x318));
     if (o318 != 0) {
         func_ov003_02167494(o318, arg);
     }
     UpdateIfFlag4a3_021604d0((struct S021604d0 *) self);
     func_ov003_02160ec4(self);
-    if (*(short *) (self + 0x400 + 0x84) >= 0) {
-        *(unsigned int *) (self + 0x464) &= ~1u;
+    if (*(short *) (self + SO(0x484)) >= 0) {
+        *(unsigned int *) (self + SO(0x464)) &= ~1u;
         func_ov003_02160f4c(self);
         return 0;
     }
     ClearGlobalField9ae_02160b2c((struct S02160b2c *) self);
-    self[0x4a6] = 0;
-    *(unsigned int *) (self + 0x464) &= ~0x4000u;
+    self[SO(0x4a6)] = 0;
+    *(unsigned int *) (self + SO(0x464)) &= ~0x4000u;
     struct Outer020e28dc *q390;
-    if (*(int *) (self + 0x470) != 0 && (q390 = *(struct Outer020e28dc **) (self + 0x390)) != 0 &&
+    if (*(int *) (self + SO(0x470)) != 0 && (q390 = *(struct Outer020e28dc **) (self + SO(0x390))) != 0 &&
         GetInnerFlagBit0020e28dc(q390) != 0)
     {
-        UpdateEntryStateAndPosition(*(struct Ctx020e263c **) (self + 0x390), arg);
+        UpdateEntryStateAndPosition(*(struct Ctx020e263c **) (self + SO(0x390)), arg);
     }
-    char *m = *(char **) (self + 0x324);
+    char *m = *(char **) (self + SO(0x324));
     if (m != 0) {
         CallFunc0204c87cOverEntries0207fc6c((struct Obj0207fc6c *) m, arg);
     }
     if (DispatchByFlags464_02160cc0((char *) self) == 0) return 0;
-    if (*(unsigned int *) (self + 0x464) & 0x1000) return 0;
-    if (*(int *) (self + 0x470) != 0) {
-        *(unsigned int *) (self + 0x464) &= ~0x1000000u;
-        func_02081f20((char *) self + 0x308, arg);
-        *(short *) (self + 0x400 + 0x74) = **(short **) (self + 0x470);
-        *(int *) (self + 0x45c) =
-            func_020800fc(m, *(short **) (self + 0x470), *(short *) (self + 0x400 + 0x74),
-                          *(unsigned short *) (self + 0x300 + 0x14), self[0x316], (*(unsigned int *) (self + 0x464) & 1) != 0);
-        *(short *) (m + 0x36) = **(short **) (self + 0x470);
-        if (*(int *) (self + 0x45c) != 0) {
-            ClearSublistEntriesFlag4_020804fc(m, *(short *) (self + 0x400 + 0x88));
+    if (*(unsigned int *) (self + SO(0x464)) & 0x1000) return 0;
+    if (*(int *) (self + SO(0x470)) != 0) {
+        *(unsigned int *) (self + SO(0x464)) &= ~0x1000000u;
+        func_02081f20((char *) self + SO(0x308), arg);
+        *(short *) (self + SO(0x474)) = **(short **) (self + SO(0x470));
+        *(int *) (self + SO(0x45c)) =
+            func_020800fc(m, *(short **) (self + SO(0x470)), *(short *) (self + SO(0x474)),
+                          *(unsigned short *) (self + SO(0x314)), self[SO(0x316)], (*(unsigned int *) (self + SO(0x464)) & 1) != 0);
+        *(short *) (m + RG(0x36, 0x2a)) = **(short **) (self + SO(0x470));
+        if (*(int *) (self + SO(0x45c)) != 0) {
+            ClearSublistEntriesFlag4_020804fc(m, *(short *) (self + SO(0x488)));
         }
-        if (*(short *) (self + 0x400 + 0x74) != **(short **) (self + 0x470)) {
-            func_020813ec(m, *(short *) (self + 0x400 + 0x88));
-            *(unsigned int *) (self + 0x464) |= 0x1000000;
+        if (*(short *) (self + SO(0x474)) != **(short **) (self + SO(0x470))) {
+            func_020813ec(m, *(short *) (self + SO(0x488)));
+            *(unsigned int *) (self + SO(0x464)) |= 0x1000000;
             func_ov003_02160794(self);
         }
     }
-    *(unsigned int *) (self + 0x464) &= ~1u;
+    *(unsigned int *) (self + SO(0x464)) &= ~1u;
     if (!(data_ov003_02180cc0 & 1)) {
         *(unsigned long long *) ((char *) data_ov003_0217ff68 + 0x80) = *(const unsigned long long *) &data_020e6d5c;
         data_ov003_02180cc0 |= 1;
     }
-    unsigned char idx         = self[0x4a3];
+    unsigned char idx         = self[SO(0x4a3)];
     struct Entry0215fce8 *tbl = data_ov003_0217ff68;
     if (tbl[idx].a == 0) {
         return 1;
