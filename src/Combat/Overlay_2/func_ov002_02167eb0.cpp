@@ -26,8 +26,6 @@ extern char data_02108760[];
 
 // USA: func_ov002_02167eb0
 #if defined(jpn)
-extern "C" void func_ov002_02160bc0(char *self);
-#define func_ov002_0215fb54 func_ov002_02160bc0
 extern "C" ARM void func_ov002_02167eb0(char *base) {
     int phase = *(int *) (base + 0x1a88);
     if (phase == 0) {
