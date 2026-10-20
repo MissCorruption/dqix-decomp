@@ -1684,3 +1684,11 @@ src/Combat/Overlay_3/func_ov003_0217a4ac.cpp:
 src/Combat/Overlay_3/func_ov003_021786bc.cpp:
     complete
     .text start:0x0217759c end:0x021777d4
+
+src/Combat/Overlay_3/IsInRangePair_021734dc.cpp:
+    complete
+    .text start:0x02172324 end:0x02172350
+
+src/Combat/Overlay_3/CallCallbackIfState9_02172570.cpp:
+    complete
+    .text start:0x0217153c end:0x02171570
