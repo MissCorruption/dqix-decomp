@@ -1,10 +1,6 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-#if defined(jpn)
-#define func_ov003_0216fe74 func_ov003_0216f728
-#endif
-
 char *GetGlobalField0x1c020421a0(void);
 extern "C" char *func_02012fe4(void);
 extern "C" void func_ov003_0216fc58(void *self, int a, int b);
