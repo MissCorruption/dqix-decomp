@@ -7289,3 +7289,7 @@ src/NetworkLib/Overlay_31/GetRemainingOrStatus_0220a800.cpp:
 src/WifiLib/Overlay_31/func_ov031_022228f4.cpp:
     complete
     .text start:0x022230d4 end:0x02223108
+
+src/NetworkLib/Overlay_31/func_ov031_022052b4.cpp:
+    complete
+    .text start:0x02205a94 end:0x02205b44
