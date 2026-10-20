@@ -1,7 +1,11 @@
 #include <globaldefs.h>
 
 struct Obj021e4e20 {
+#if defined(jpn)
+	char pad[0x124];
+#else
 	char pad[0x128];
+#endif
 	void *ptr;
 };
 
