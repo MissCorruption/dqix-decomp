@@ -63,7 +63,7 @@ func_ov002_0215a938 kind:function(arm,size=0x7c) addr:0x0215bd28
 _Z24NextIndexOrZero_0215a9b4Pvs kind:function(arm,size=0x18) addr:0x0215bda4
 _Z35SetFieldByIndexedOffsetC7c_0215a9ccPvi kind:function(arm,size=0x24) addr:0x0215bdbc
 _Z31GetIndexedOffsetByte7c_0215a9f0Pv kind:function(arm,size=0x24) addr:0x0215bde0
-func_ov002_0215be04 kind:function(arm,size=0x48) addr:0x0215be04
+_Z21CopyByteField0215aa14Pc kind:function(arm,size=0x48) addr:0x0215be04
 _Z21CopyByteField0215aa5cPc kind:function(arm,size=0x48) addr:0x0215be4c
 func_ov002_0215aaa4 kind:function(arm,size=0xb8) addr:0x0215be94
 func_ov002_0215ab60 kind:function(arm,size=0x18c) addr:0x0215bf4c
@@ -205,7 +205,7 @@ func_ov002_0216c628 kind:function(arm,size=0x2b4) addr:0x0216c628
 func_ov002_0216c28c kind:function(arm,size=0x4c) addr:0x0216c8dc
 func_ov002_0216c2d8 kind:function(arm,size=0x154) addr:0x0216c928
 func_ov002_0216ca7c kind:function(arm,size=0x1fc) addr:0x0216ca7c
-func_ov002_0216cc78 kind:function(arm,size=0x2c) addr:0x0216cc78
+_Z35DecrementOrClearCounterC74_0216c628Phi kind:function(arm,size=0x2c) addr:0x0216cc78
 func_ov002_0216c654 kind:function(arm,size=0x31c) addr:0x0216cca4
 data_ov002_0216cfc0 kind:data(any) addr:0x0216cfc0
 data_ov002_0216c96e kind:data(any) addr:0x0216cfc2

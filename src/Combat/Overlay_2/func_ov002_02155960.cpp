@@ -7,9 +7,7 @@
 #define func_0205ec34 func_0205ff20
 #define func_ov002_0215bba8 func_ov002_0215cd18
 #define SyncElementFlags0215b648 func_ov002_0215c8a0
-#define CopyByteField0215aa14 func_ov002_0215be04
 extern "C" void func_ov002_0215c8a0(unsigned char*);
-extern "C" void func_ov002_0215be04(char*);
 #else
 #define RG(u, j) (u)
 #endif
@@ -102,9 +100,7 @@ extern "C" void* func_0205ec34();
 int LookupAndForEachNode020649b0(void*, int, void*);
 extern "C" void func_0206f81c(void*);
 extern "C" void func_ov023_021dca88(void*);
-#if !defined(jpn)
 void CopyByteField0215aa14(char*);
-#endif
 int GetField5cb0Value_0201079c(char*);
 void SetElementFlag0x20ByKey0205def8(Struct_0205def8*, int, int);
 void SetElementFieldC2_0205deb4(Struct_0205d81c*, int, int);
