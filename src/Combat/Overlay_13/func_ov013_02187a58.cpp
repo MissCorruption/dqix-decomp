@@ -16,7 +16,10 @@ struct SkillSortEntry02187a58 {
     int id;
     float points;
 };
-extern "C" SkillEntry02187a58* func_0208e934(void* list, int kind, int index);
+struct List0208e024;
+struct Node0208e024;
+Node0208e024* FindNthNodeByKind0208e024(List0208e024* list, int kind, int index);
+#define func_0208e934(list, kind, index) ((SkillEntry02187a58*)FindNthNodeByKind0208e024((List0208e024*)(list), (kind), (index)))
 struct List0208e06c;
 SkillEntry02187a58* FindNodeById0208e06c(List0208e06c* list, int id);
 int GetTableByte020dd11c(unsigned int, unsigned int);

@@ -19228,3 +19228,7 @@ src/Combat/Main/CountEntriesByField0x8c.cpp:
 src/Combat/Main/CountEntriesByField0x8e.cpp:
     complete
     .text start:0x02026420 end:0x02026470
+
+src/Combat/Main/FindNthNodeByKind0208e024.cpp:
+    complete
+    .text start:0x0208e934 end:0x0208e97c
