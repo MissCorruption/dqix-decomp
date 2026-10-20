@@ -3,6 +3,9 @@
 
 void WriteReg04000488020419f4(int s, int t);
 
+#if defined(jpn)
+#define data_021077fc data_0210773c
+#endif
 extern int data_021077fc;
 
 struct GlyphClip020417b0 {
@@ -34,7 +37,11 @@ extern "C" ARM void func_020417b0(MessageGlyphSlot* glyph, int color, GlyphClip0
     if (alpha == 0) return;
 
     *(volatile unsigned int*)0x04000444 = 0;
+#if defined(jpn)
+    Translate(glyph->x << 12, glyph->y << 12, (glyph->depth + 0x400) << 12);
+#else
     Translate(glyph->x << 12, glyph->y << 12, ((short)glyph->depth + 0x400) << 12);
+#endif
     Scale(0x1000, 0x1000, 0x1000);
 
     *(volatile unsigned int*)0x04000444 = 0;

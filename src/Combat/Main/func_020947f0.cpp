@@ -1,9 +1,15 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+enum { regionalPhase = 0x104, regionalState = 0x138 };
+#else
+enum { regionalPhase = 0x344, regionalState = 0x3c8 };
+#endif
+
 struct PaletteAnimation020947f0 {
-    char pad0[0x344];
+    char pad0[regionalPhase];
     float phase;
-    char pad348[0x3c8 - 0x348];
+    char pad348[regionalState - regionalPhase - 4];
     unsigned char state : 7;
     unsigned char display : 1;
 };

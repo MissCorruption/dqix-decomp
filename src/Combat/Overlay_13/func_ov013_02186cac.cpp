@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_ov013_02186cac func_ov013_02187fc0
-#endif
-
 struct Struct_0205d81c;
 struct Elem_0205d81c {
     unsigned char pad0[0xac];
@@ -32,6 +28,11 @@ struct ListHeader02186cac {
 
 // USA: func_ov013_02186cac
 extern "C" ARM void func_ov013_02186cac(void* obj) {
+#if defined(jpn)
+    enum { regionalFlags = 0x644, regionalElem = 0x34, regionalMode = 0x5c8 };
+#else
+    enum { regionalFlags = 0x6bc, regionalElem = 0x38, regionalMode = 0x63c };
+#endif
     unsigned char* o = (unsigned char*)obj;
     Elem_0205d81c* elem;
     short x, y;
@@ -41,9 +42,9 @@ extern "C" ARM void func_ov013_02186cac(void* obj) {
     unsigned char* entry;
 
     if (*(void**)(o + 0x18) == 0) return;
-    if (!(o[0x6bc] & 1)) return;
+    if (!(o[regionalFlags] & 1)) return;
 
-    elem = FindElementForFieldB0_0205d8c4((Struct_0205d81c*)(o + 0x38));
+    elem = FindElementForFieldB0_0205d8c4((Struct_0205d81c*)(o + regionalElem));
     if (elem == 0) return;
     if (!CheckField0x9cSetWhenField0xd4Present_0204c7e0((unsigned char*)elem)) return;
 
@@ -51,7 +52,7 @@ extern "C" ARM void func_ov013_02186cac(void* obj) {
     y = elem->fae * 8;
     x += elem->fbc;
     y += elem->fbe;
-    mode = o[0x63c];
+    mode = o[regionalMode];
 
     if (mode != 3 && mode != 4) {
         x = x - 8;

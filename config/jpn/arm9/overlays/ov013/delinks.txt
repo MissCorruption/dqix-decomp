@@ -133,3 +133,7 @@ src/Combat/Overlay_13/SetupBattleMessage02185774.cpp:
 src/Combat/Overlay_13/func_ov013_02187a58.cpp:
     complete
     .text start:0x02188a24 end:0x02188ccc
+
+src/Combat/Overlay_13/func_ov013_02186cac.cpp:
+    complete
+    .text start:0x02187fc0 end:0x021880c8

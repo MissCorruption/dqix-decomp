@@ -5,10 +5,6 @@
 #else
 #define IS_JPN 0
 #endif
-#if defined(jpn)
-#define func_02094654 func_02094f3c
-#define func_020947f0 func_020950d8
-#endif
 
 extern "C" void* func_0202ae18(void);
 extern "C" void func_02094654(void* obj);

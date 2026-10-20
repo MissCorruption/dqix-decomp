@@ -16,10 +16,16 @@ struct MarkerEntry02023b5c {
     Vector3i position;
 };
 
+#if defined(jpn)
+enum { regionalOffset = -0xac };
+#else
+enum { regionalOffset = 0 };
+#endif
+
 struct MarkerReceiver02023b5c {
     unsigned char unknown0[0x38];
     fix32_t scale;
-    unsigned char unknown3c[0x77c - 0x3c];
+    unsigned char unknown3c[0x77c - 0x3c + regionalOffset];
     int active;
     unsigned char count;
     unsigned char unknown781[3];

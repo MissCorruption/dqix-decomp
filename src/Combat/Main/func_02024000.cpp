@@ -7,6 +7,12 @@ int IsInRange0201b5b0(int zoneId);
 void SetElementFields0202756c(void *receiver, int x, int y, int elementIndex, unsigned char image, unsigned char palette,
                               unsigned short tile, unsigned char flags, int scaleX, int scaleY);
 
+#if defined(jpn)
+enum { regionalGrotto = 0x20, regionalReceiver = -0xac, regionalVisited = 0x6d8c };
+#else
+enum { regionalGrotto = 0, regionalReceiver = 0, regionalVisited = 0x6fcc };
+#endif
+
 struct GrottoStair {
     fix32_t rotation[9];
     fix32_t worldX;
@@ -16,7 +22,7 @@ struct GrottoStair {
 };
 
 struct GrottoFloor {
-    unsigned char unknown0[0x1c8];
+    unsigned char unknown0[0x1c8 + regionalGrotto];
     unsigned char *mapData;
     unsigned char *adjacencyData;
     int width;
@@ -30,7 +36,7 @@ struct GrottoFloor {
 
 struct ZoneRecord {
     unsigned short zoneId;
-    unsigned char unknown2[0x23ec - 2];
+    unsigned char unknown2[0x23ec + regionalGrotto - 2];
     GrottoFloor grotto;
 };
 
@@ -40,7 +46,7 @@ struct ElementReceiver {
     unsigned char unknown3c[8];
     int offsetX;
     int offsetY;
-    unsigned char unknown4c[0x9ba - 0x4c];
+    unsigned char unknown4c[0x9ba + regionalReceiver - 0x4c];
     unsigned char showDownStair;
 };
 
@@ -65,7 +71,7 @@ extern "C" ARM void func_02024000(void *receiver) {
     if (!IsInRange0201b5b0(zoneId)) {
         return;
     }
-    unsigned char *visited = reinterpret_cast<unsigned char *>(game) + 0x6fcc + (zoneId % 20 - 1) * 32;
+    unsigned char *visited = reinterpret_cast<unsigned char *>(game) + regionalVisited + (zoneId % 20 - 1) * 32;
     GrottoFloor *grotto = &zone->grotto;
     GrottoStair *upStair = GetStair(grotto, 1);
     unsigned char upX = grotto->upStairX;
