@@ -7281,3 +7281,79 @@ src/Combat/Overlay_31/func_ov031_02244e44.cpp:
 src/Combat/Overlay_31/func_ov031_02244050.cpp:
     complete
     .text start:0x02244894 end:0x02244e8c
+
+src/WifiLib/Overlay_31/func_ov031_0221f9f8.cpp:
+    complete
+    .text start:0x022201d8 end:0x02220200
+
+src/WifiLib/Overlay_31/func_ov031_0221d354.cpp:
+    complete
+    .text start:0x0221db34 end:0x0221db64
+
+src/WifiLib/Overlay_31/func_ov031_0221d6a8.cpp:
+    complete
+    .text start:0x0221de88 end:0x0221df7c
+
+src/WifiLib/Overlay_31/func_ov031_0221dcbc.cpp:
+    complete
+    .text start:0x0221e49c end:0x0221e5e0
+
+src/WifiLib/Overlay_31/func_ov031_0221dfd4.cpp:
+    complete
+    .text start:0x0221e7b4 end:0x0221e808
+
+src/WifiLib/Overlay_31/func_ov031_02220418.cpp:
+    complete
+    .text start:0x02220bf8 end:0x02220ccc
+
+src/WifiLib/Overlay_31/func_ov031_022204ec.cpp:
+    complete
+    .text start:0x02220ccc end:0x02220d1c
+
+src/WifiLib/Overlay_31/func_ov031_02221f78.cpp:
+    complete
+    .text start:0x02222758 end:0x02222fa0
+
+src/WifiLib/Overlay_31/func_ov031_0221d82c.cpp:
+    complete
+    .text start:0x0221e00c end:0x0221e0c8
+
+src/WifiLib/Overlay_31/func_ov031_0221da60.cpp:
+    complete
+    .text start:0x0221e240 end:0x0221e2f8
+
+src/NetworkLib/Overlay_31/func_ov031_0221e964.cpp:
+    complete
+    .text start:0x0221f144 end:0x0221f2bc
+
+src/WifiLib/Overlay_31/func_ov031_0221db48.cpp:
+    complete
+    .text start:0x0221e328 end:0x0221e438
+
+src/WifiLib/Overlay_31/func_ov031_0221de00.cpp:
+    complete
+    .text start:0x0221e5e0 end:0x0221e6bc
+
+src/WifiLib/Overlay_31/func_ov031_0221e31c.cpp:
+    complete
+    .text start:0x0221eafc end:0x0221eb34
+
+src/WifiLib/Overlay_31/func_ov031_022206e0.cpp:
+    complete
+    .text start:0x02220ec0 end:0x02221094
+
+src/WifiLib/Overlay_31/func_ov031_02220f0c.cpp:
+    complete
+    .text start:0x022216ec end:0x022218a4
+
+src/WifiLib/Overlay_31/func_ov031_022210c4.cpp:
+    complete
+    .text start:0x022218a4 end:0x02221a5c
+
+src/WifiLib/Overlay_31/func_ov031_0221fa94.cpp:
+    complete
+    .text start:0x02220274 end:0x02220318
+
+src/NetworkLib/Overlay_31/func_ov031_0221eadc.cpp:
+    complete
+    .text start:0x0221f2bc end:0x0221f48c
