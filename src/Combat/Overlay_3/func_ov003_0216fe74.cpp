@@ -12,7 +12,6 @@ extern "C" short func_ov003_0216df38(char* dst, struct Container020e0310* c, int
 
 struct StructA0205d5d0;
 #if defined(jpn)
-// JPN: builds the text from three formatted lines (like func_ov003_0216fc58) instead of func_ov003_0216df38 and keeps the window position.
 extern "C" int sprintf(char* dst, const char* fmt, ...);
 int AppendString02042058(char* dst, const char* src);
 const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);

@@ -15,7 +15,6 @@ extern void InitStruct0205cfd4(struct InitTarget0205cfd4* s);
 extern void ClearFields_021e20c0(void* p);
 
 #if defined(jpn)
-// JPN: the 0x60 block holds 10 entries of 0x28 bytes, each initialised with byte 0x26 = 1; the 0xd4 block is 0x48 bytes.
 struct Struct0205a198;
 extern void Init0205a198(struct Struct0205a198* s);
 #define BLOCK60_SIZE 0x190

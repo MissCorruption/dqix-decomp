@@ -32,7 +32,6 @@ struct ListWindow0217dd60 {
 };
 
 #if defined(jpn)
-// JPN: no field10 (everything from 0x14 moves down 4), fixed window layout, and a page indicator on the global message state.
 struct ListMenu0217dd60 {
     char pad0[0x14];
     unsigned char items[0x2c - 0x14];

@@ -6,7 +6,6 @@
 #include "World/Zone3D.h"
 #include "Resource/Brightness.h"
 
-
 struct SearchStruct0202c1a4;
 struct HeadNode02046b24;
 struct Ctx021a3498;

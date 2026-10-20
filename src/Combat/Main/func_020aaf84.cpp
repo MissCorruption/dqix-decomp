@@ -115,7 +115,6 @@ void ClearRegion020865ec(char*);
 extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 
 // USA: func_020aaf84
-// JPN: no save-flag bit and no status byte (the battle entries are always restored); GameState blocks 0x240/0x260 lower
 #if defined(jpn)
 struct SaveStateJ020aaf84 {
     char pad_0[0x543c];
