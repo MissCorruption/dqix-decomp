@@ -4,6 +4,12 @@
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Fields020a093c;
 struct KeyMap020a0a08;
 struct Slots020838c4;
@@ -43,9 +49,9 @@ struct FieldSubState {
 };
 
 struct FieldState {
-    unsigned char unk0[0x840];
+    unsigned char unk0[RG(0x840, 0x860)];
     FieldSubState sub;
-    unsigned char unk2390[0x2774 - 0x2390];
+    unsigned char unk2390[RG(0x2774 - 0x2390, 0x27b4 - 0x23b0)];
     Vector3i savedPos;
     int savedValue;
     short savedAngle;
@@ -70,11 +76,11 @@ struct Bytes6 {
 };
 
 struct GameStateLoadView {
-    unsigned char unk0[0x63dc];
+    unsigned char unk0[RG(0x63dc, 0x617c)];
     unsigned char byte63dc;
-    unsigned char unk63dd[0x74fe - 0x63dd];
+    unsigned char unk63dd[RG(0x74fe - 0x63dd, 0x72be - 0x617d)];
     Bytes6 name74fe;
-    unsigned char unk7504[0x7e74 - 0x7504];
+    unsigned char unk7504[RG(0x7e74 - 0x7504, 0x7c34 - 0x72c4)];
     int value7e74;
 };
 
@@ -83,7 +89,7 @@ struct MonsterRecord {
     unsigned char name[0x10];
     unsigned char unk464[0x568 - 0x464];
     short id;
-    unsigned char unk56a[0x94c - 0x56a];
+    unsigned char unk56a[RG(0x94c - 0x56a, 0x8b4 - 0x56a)];
     int state;
     unsigned char unk950[0x964 - 0x950];
 };
@@ -154,14 +160,20 @@ extern unsigned char data_02109bf4[];
 extern unsigned char data_02108760[];
 
 // USA: func_020a95a4
+#if defined(jpn)
+extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records) {
+#else
 extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records, unsigned char* inspect) {
+#endif
     GameState* gs = GameState::GetInstance();
     BattleData* battle = static_cast<BattleData*>(GetPtrField0x2a04_02010828(gs));
     func_0202ae18();
     FieldState* field = func_02012fe4();
     GetGameResources();
     Global02109418* global = GetGlobal02109418_02094d6c();
+#if !defined(jpn)
     func_020a93e0((char*)save);
+#endif
 
     for (int i = 0; i < save->idCount; i++) {
         unsigned char id = save->ids[i];
@@ -241,6 +253,8 @@ extern "C" ARM int func_020a95a4(BattleSave* save, MonsterRecord* records, unsig
     sub->savedPosA = save->posA;
     sub->savedPosB = save->posB;
     memcpy(global->block4a8, save->block4a8, sizeof(save->block4a8));
+#if !defined(jpn)
     *inspect = save->inspect;
+#endif
     return 1;
 }

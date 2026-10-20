@@ -19466,3 +19466,7 @@ src/Combat/Main/GetFieldAt0x0020652c8.cpp:
 src/Combat/Main/func_02093b90.cpp:
     complete
     .text start:0x020944b0 end:0x02094888
+
+src/Combat/Main/func_020a95a4.cpp:
+    complete
+    .text start:0x020ab210 end:0x020ab624
