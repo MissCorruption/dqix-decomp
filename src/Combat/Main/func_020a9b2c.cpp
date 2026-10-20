@@ -39,11 +39,16 @@ struct Block020a9b2c {
 };
 
 struct Battle020a9b2c {
+#if defined(jpn)
+    unsigned char pad000[0x860];
+#else
     unsigned char pad000[0x840];
+#endif
     Block020a9b2c block;
 };
 
 // USA: func_020a9b2c
+// JPN: func_020a9b2c
 extern "C" ARM int func_020a9b2c(Ctx020a9b2c* ctx) {
     Mid020a9b2c* mid = &ctx->mid;
     Params020a9b2c* params = &mid->params;
