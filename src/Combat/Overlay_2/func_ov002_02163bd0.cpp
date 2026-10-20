@@ -4,16 +4,11 @@
 
 #if defined(jpn)
 #define REGIONAL_OFFSET(jp, us) jp
-#define func_ov002_0215b814 func_ov002_0215ca68
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215d654 func_ov002_0215e658
 #define func_ov002_02156e90 func_ov002_0215852c
 #define func_ov002_0215a7b4 func_ov002_0215bbac
 #define func_ov002_0216bfd4 func_ov002_0216c628
-extern "C" int func_ov002_02162930(char *base, int a);
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
-extern "C" int func_ov002_021566cc(unsigned char *obj);
-#define BuildFlaggedCombatantSlotList_02154f4c func_ov002_021566cc
 enum { regionalState0d = 0xe, regionalState26 = 0x29 };
 #else
 #define REGIONAL_OFFSET(jp, us) us

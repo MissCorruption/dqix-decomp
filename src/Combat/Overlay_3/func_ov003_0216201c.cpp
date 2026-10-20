@@ -10,15 +10,26 @@
 #endif
 
 struct Entries {
+#if defined(jpn)
+    char pad0[0x2a];
+#else
     char pad0[0x36];
+#endif
     short sel;
 };
 
 struct Scene {
+#if defined(jpn)
+    char pad0[0x1f0];
+    char sub308[0x20c - 0x1f0];
+    Entries *entries;
+    char pad328[0x28c - 0x210];
+#else
     char pad0[0x308];
     char sub308[0x324 - 0x308];
     Entries *entries;
     char pad328[0x464 - 0x328];
+#endif
     unsigned int flags;
     char pad468[0x470 - 0x468];
     short *p470;

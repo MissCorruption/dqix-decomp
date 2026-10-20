@@ -2,6 +2,12 @@
 #include "GameState/GameState.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct Obj0205eaa0;
 struct Obj02048350;
 void *SearchBothTables02079e2c(char *p, int key);
@@ -42,10 +48,17 @@ struct StateArray021594e8 {
     int tail;
 };
 struct Menu021594e8 {
+#if defined(jpn)
+    char pad0[0x1a80];
+    int state;
+    int nextState;
+    char pad1a88[0x1aee - 0x1a88];
+#else
     char pad0[0x1bb8];
     int state;
     int nextState;
     char pad1bc0[0x1c26 - 0x1bc0];
+#endif
     short command;
     short msgId;
     short msgId2;
@@ -66,7 +79,7 @@ extern "C" ARM void func_ov002_021594e8(struct Menu021594e8 *p, short cmd, signe
     GameObject *comb                  = GetCombatantChecked_0200ff94(gs, actor);
     int *checkPtr                     = func_0202ae18();
     int flagA                         = 0;
-    if (p->state == 0x17) {
+    if (p->state == RG(0x17, 0x18)) {
         p->msgId  = 0x232d;
         p->msgId2 = 0x232b;
         int res   = 0;
@@ -117,8 +130,8 @@ extern "C" ARM void func_ov002_021594e8(struct Menu021594e8 *p, short cmd, signe
             }
         }
         DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 0x64, 0);
-        p->state     = 0x26;
-        p->nextState = 0x17;
+        p->state     = RG(0x26, 0x29);
+        p->nextState = RG(0x17, 0x18);
     }
     if (flagA != 0) {
         ConsumeCounter02048350((struct Obj02048350 *) comb, entryA->lo8);

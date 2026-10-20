@@ -2,7 +2,11 @@
 #include "Resource/FontBankLoader.h"
 
 struct LoaderSub_021561b0 {
+#if defined(jpn)
+    char pad[0x2aa];
+#else
     char pad[0x47a];
+#endif
     unsigned char state;
     unsigned char pad47b;
     unsigned int flags;

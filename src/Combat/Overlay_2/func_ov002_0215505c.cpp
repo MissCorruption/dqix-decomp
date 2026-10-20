@@ -5,7 +5,6 @@
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
 #define func_ov002_0215b234 func_ov002_0215c584
-#define func_ov002_0215b814 func_ov002_0215ca68
 #endif
 
 struct Struct020dfc40;

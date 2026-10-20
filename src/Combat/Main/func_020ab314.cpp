@@ -8,7 +8,6 @@
 #define RG(u, j) (j)
 #define func_0205ec34 func_0205ff20
 #define func_020a95a4 func_020ab210
-#define func_020a9b2c func_020ab780
 #else
 #define RG(u, j) (u)
 #endif
