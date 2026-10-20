@@ -6424,18 +6424,18 @@ data_020eed90 kind:data(any) addr:0x020eed90
 @654 kind:data(any) addr:0x020eee80 local
 @655 kind:data(any) addr:0x020eee84 local
 data_020eee88 kind:data(any) addr:0x020eee88
-data_020eee8c kind:data(any) addr:0x020eee8c
+data_020eef2c kind:data(any) addr:0x020eee8c
 data_020eef30 kind:data(any) addr:0x020eee90
 data_020eef34 kind:data(any) addr:0x020eee94
-data_020eeed4 kind:data(any) addr:0x020eeed4
+data_020eef74 kind:data(any) addr:0x020eeed4
 data_020eef04 kind:data(any) addr:0x020eef04
-data_020eef2c kind:data(any) addr:0x020eef2c
+data_020eefcc kind:data(any) addr:0x020eef2c
 data_020eef44 kind:data(any) addr:0x020eef44
 data_020eef54 kind:data(any) addr:0x020eef54
 data_020eef5c kind:data(any) addr:0x020eef5c
 data_020eef64 kind:data(any) addr:0x020eef64
 data_020eef6c kind:data(any) addr:0x020eef6c
-data_020eef74 kind:data(any) addr:0x020eef74
+data_020ef014 kind:data(any) addr:0x020eef74
 data_020eef78 kind:data(any) addr:0x020eef78
 data_020eef7c kind:data(any) addr:0x020eef7c
 data_020eef80 kind:data(any) addr:0x020eef80
@@ -7294,7 +7294,7 @@ data_020f1ee8 kind:data(any) addr:0x020f1ee8
 data_020f1ef0 kind:data(any) addr:0x020f1ef0
 data_020f1f14 kind:data(any) addr:0x020f1f14
 data_020f1f20 kind:data(any) addr:0x020f1f20
-data_020f1f2c kind:data(any) addr:0x020f1f2c
+data_020f1dc0 kind:data(any) addr:0x020f1f2c
 data_020f1f30 kind:data(any) addr:0x020f1f30
 data_020f1f38 kind:data(any) addr:0x020f1f38
 data_020f1f5c kind:data(any) addr:0x020f1f5c
@@ -7310,7 +7310,7 @@ data_020f2060 kind:data(any) addr:0x020f2060
 data_020f2064 kind:data(any) addr:0x020f2064
 data_020f206c kind:data(any) addr:0x020f206c
 data_020f2080 kind:data(any) addr:0x020f2080
-data_020f2098 kind:data(any) addr:0x020f2098
+data_020f1f2c kind:data(any) addr:0x020f2098
 data_020f20b0 kind:data(any) addr:0x020f20b0
 data_020f20c8 kind:data(any) addr:0x020f20c8
 data_020f20e0 kind:data(any) addr:0x020f20e0
