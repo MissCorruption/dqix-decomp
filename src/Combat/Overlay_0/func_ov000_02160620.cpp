@@ -2,11 +2,18 @@
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+#define RG(usa, jpn) (jpn)
+#define func_ov026_021d8ba0 func_ov026_021d9434
+#else
+#define RG(usa, jpn) (usa)
+#endif
+
 struct SearchStruct;
 struct Obj02039fec;
 struct FlagWord020466f4;
 struct BattleFrame {
-    unsigned char field_0x0[0x29c];
+    unsigned char field_0x0[RG(0x29c, 0x218)];
     void* random;
     unsigned int field_0x2a0;
     unsigned int field_0x2a4;
@@ -14,10 +21,10 @@ struct BattleFrame {
     int state;
     int nextState;
     unsigned char field_0xeb0[0x18];
-    unsigned char elements[0x2898];
-    unsigned char turnTimer[0x1e14];
+    unsigned char elements[RG(0x2898, 0x28d8)];
+    unsigned char turnTimer[RG(0x1e14, 0x204c)];
     int mode;
-    unsigned char field_0x5578[0x54];
+    unsigned char field_0x5578[RG(0x54, 0x50)];
     void* optional;
     unsigned char field_0x55d0[0x24];
     unsigned int flags;
@@ -34,7 +41,7 @@ struct BattleFrame {
     unsigned char resetDone;
 };
 struct BattleManager {
-    unsigned char field_0x0[0x998];
+    unsigned char field_0x0[RG(0x998, 0x868)];
     int blocked;
 };
 
