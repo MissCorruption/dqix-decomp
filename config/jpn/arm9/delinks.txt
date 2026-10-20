@@ -19390,3 +19390,43 @@ src/Combat/Main/func_02024000.cpp:
 src/Combat/Main/func_020417b0.cpp:
     complete
     .text start:0x02041cd8 end:0x02041f1c
+
+src/Combat/Main/RepeatStepClampedToField0x3c4.cpp:
+    complete
+    .text start:0x0206982c end:0x02069878
+
+src/Combat/Main/UpdateStreamStateAndDispatch02044f3c.cpp:
+    complete
+    .text start:0x02045ca4 end:0x02045d88
+
+src/Combat/Main/FindMatchingEntryIndex.cpp:
+    complete
+    .text start:0x0204687c end:0x02046948
+
+src/Combat/Main/func_020437bc.cpp:
+    complete
+    .text start:0x02043f88 end:0x02044104
+
+src/Combat/Main/func_020e5920.cpp:
+    complete
+    .init start:0x020e61fc end:0x020e62a8
+
+src/Combat/Main/func_02099304.cpp:
+    complete
+    .text start:0x0209b000 end:0x0209b270
+
+src/Combat/Main/func_020943dc.cpp:
+    complete
+    .text start:0x02094cf0 end:0x02094ea0
+
+src/Combat/Main/func_02066a6c.cpp:
+    complete
+    .text start:0x020681c4 end:0x0206843c
+
+src/Combat/Main/func_020830cc.cpp:
+    complete
+    .text start:0x02083a38 end:0x02083de8
+
+src/Combat/Main/func_02066cf0.cpp:
+    complete
+    .text start:0x0206845c end:0x02068eb8

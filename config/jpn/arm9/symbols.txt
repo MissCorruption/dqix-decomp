@@ -1649,7 +1649,7 @@ func_02043368 kind:function(arm,size=0x22c) addr:0x02043b50
 _Z15Forward0204359cPvi kind:function(arm,size=0xc) addr:0x02043d7c
 _Z31InvokeTableEntryHandler020435a8iPvS_i kind:function(arm,size=0x58) addr:0x02043d88
 func_02043de0 kind:function(arm,size=0x1a8) addr:0x02043de0
-func_02043f88 kind:function(arm,size=0x17c) addr:0x02043f88
+func_020437bc kind:function(arm,size=0x17c) addr:0x02043f88
 func_02044104 kind:function(arm,size=0x64) addr:0x02044104
 func_020439b0 kind:function(arm,size=0x6d4) addr:0x02044168
 func_0204483c kind:function(arm,size=0x18) addr:0x0204483c
@@ -1669,7 +1669,7 @@ func_020454dc kind:function(arm,size=0x28) addr:0x020454dc
 func_02045504 kind:function(arm,size=0x4d8) addr:0x02045504
 func_02044c74 kind:function(arm,size=0x98) addr:0x020459dc
 func_02044d0c kind:function(arm,size=0x230) addr:0x02045a74
-func_02045ca4 kind:function(arm,size=0xe4) addr:0x02045ca4
+func_02044f3c kind:function(arm,size=0xe4) addr:0x02045ca4
 func_0204500c kind:function(arm,size=0x4e0) addr:0x02045d88
 _ZN13MessageSystem25HandleStateChange020455f8Ev kind:function(arm,size=0x90) addr:0x02046268
 _ZN13MessageSystem26ProcessPendingFlag02045688Ev kind:function(arm,size=0x48) addr:0x020462f8
@@ -1678,7 +1678,7 @@ _ZN13MessageSystem25HandleRepeatInput02045740Ev kind:function(arm,size=0xa0) add
 func_020457e0 kind:function(arm,size=0x8) addr:0x02046450
 func_02046458 kind:function(arm,size=0xd8) addr:0x02046458
 func_02046530 kind:function(arm,size=0x34c) addr:0x02046530
-func_0204687c kind:function(arm,size=0xcc) addr:0x0204687c
+_Z22FindMatchingEntryIndexP17Container02045c00PKci kind:function(arm,size=0xcc) addr:0x0204687c
 _Z23InitCombatSlots02045cacP19CombatSlots02045cac kind:function(arm,size=0x68) addr:0x02046948
 func_020469b0 kind:function(arm,size=0x2c8) addr:0x020469b0
 func_02046c78 kind:function(arm,size=0x308) addr:0x02046c78
@@ -2386,7 +2386,7 @@ _Z29ResetOrConsumeCounter02065920Phj kind:function(arm,size=0x74) addr:0x02066d5
 func_02065990 kind:function(arm,size=0x10dc) addr:0x02066dc4
 func_02067ea0 kind:function(arm,size=0x314) addr:0x02067ea0
 func_020681b4 kind:function(arm,size=0x10) addr:0x020681b4
-func_020681c4 kind:function(arm,size=0x278) addr:0x020681c4
+func_02066a6c kind:function(arm,size=0x278) addr:0x020681c4
 _Z22GetField440XY_02066cc0P13Field440XYObjPsS1_ kind:function(arm,size=0x20) addr:0x0206843c
 func_02066cf0 kind:function(arm,size=0xa5c) addr:0x0206845c
 func_020675fc kind:function(arm,size=0xe0) addr:0x02068eb8
@@ -2398,8 +2398,8 @@ func_02069408 kind:function(arm,size=0x28) addr:0x02069408
 func_02069430 kind:function(arm,size=0x14) addr:0x02069430
 func_02069444 kind:function(arm,size=0x5c) addr:0x02069444
 func_020694a0 kind:function(arm,size=0x3c) addr:0x020694a0
-func_020694dc kind:function(arm,size=0x350) addr:0x020694dc
-func_0206982c kind:function(arm,size=0x4c) addr:0x0206982c
+func_02067b28 kind:function(arm,size=0x350) addr:0x020694dc
+_Z38RepeatStepClampedToField0x3c4_02067e58Pvi kind:function(arm,size=0x4c) addr:0x0206982c
 func_02069878 kind:function(arm,size=0x60) addr:0x02069878
 func_020698d8 kind:function(arm,size=0x5f4) addr:0x020698d8
 func_02069ecc kind:function(arm,size=0x200c) addr:0x02069ecc
@@ -3486,7 +3486,7 @@ _Z36UpdateChannelStateIfEligible02093f68Pc kind:function(arm,size=0xc8) addr:0x0
 func_02094030 kind:function(arm,size=0x174) addr:0x02094950
 _Z26ReleaseHandleAndClearFlagsP11Obj020941b0 kind:function(arm,size=0x48) addr:0x02094ac4
 func_020941f8 kind:function(arm,size=0x1e4) addr:0x02094b0c
-func_02094cf0 kind:function(arm,size=0x1b0) addr:0x02094cf0
+func_020943dc kind:function(arm,size=0x1b0) addr:0x02094cf0
 func_020945ac kind:function(arm,size=0x9c) addr:0x02094ea0
 func_02094654 kind:function(arm,size=0xa4) addr:0x02094f3c
 _Z18PackFields020946f8P24PackFields020946f8Structiiiiiiiiiii kind:function(arm,size=0xf8) addr:0x02094fe0
@@ -3636,7 +3636,7 @@ _Z21CalculateAge_02098f20iii kind:function(arm,size=0x50) addr:0x0209ab70
 func_0209abc0 kind:function(arm,size=0x8) addr:0x0209abc0
 func_0209abc8 kind:function(arm,size=0x8) addr:0x0209abc8
 func_0209abd0 kind:function(arm,size=0x430) addr:0x0209abd0
-func_0209b000 kind:function(arm,size=0x270) addr:0x0209b000
+func_02099304 kind:function(arm,size=0x270) addr:0x0209b000
 _Z37InsertShortIntoTable021098f4_0209953ct kind:function(arm,size=0x18) addr:0x0209b270
 _Z26InsertOrShiftShort02099554Ptt kind:function(arm,size=0x5c) addr:0x0209b288
 _Z18AlwaysTrue020995b0v kind:function(arm,size=0x8) addr:0x0209b2e4
@@ -5984,7 +5984,7 @@ _Z39NotifyManagerForSetArrayEntries020e3ed8P14Struct020e3ed8 kind:function(arm,s
 func_020e3f1c kind:function(arm,size=0x638) addr:0x020e5abc
 _Z32StartBattleTimerSequence020e4524Pc kind:function(arm,size=0x38) addr:0x020e60f4
 _Z25ProcessBattleTick020e455cP18MainStruct020e455c kind:function(arm,size=0xd0) addr:0x020e612c
-__sinit_020e61fc kind:function(arm,size=0xac) addr:0x020e61fc
+__sinit_020e5920 kind:function(arm,size=0xac) addr:0x020e61fc
 __sinit_020e59c8 kind:function(arm,size=0xac) addr:0x020e62a8
 __sinit_020e5a74 kind:function(arm,size=0x88) addr:0x020e6354
 __sinit_020e5afc kind:function(arm,size=0x2c) addr:0x020e63dc
@@ -6448,7 +6448,7 @@ data_020ef044 kind:data(any) addr:0x020eefa4
 data_020ef048 kind:data(any) addr:0x020eefa8
 data_020ef070 kind:data(any) addr:0x020eefd0
 data_020ef078 kind:data(any) addr:0x020eefd8
-data_020eefdc kind:data(any) addr:0x020eefdc
+data_020ef07c kind:data(any) addr:0x020eefdc
 data_020eeff3 kind:data(any) addr:0x020eeff3
 data_020ef0ca kind:data(any) addr:0x020ef008
 data_020ef0dc kind:data(any) addr:0x020ef018
@@ -7168,7 +7168,7 @@ data_020f14b0 kind:data(any) addr:0x020f15fc
 data_020f14d0 kind:data(any) addr:0x020f161c
 data_020f1628 kind:data(any) addr:0x020f1628
 data_020f14ec kind:data(any) addr:0x020f1638
-data_020f1650 kind:data(any) addr:0x020f1650
+data_020f1504 kind:data(any) addr:0x020f1650
 data_020f1670 kind:data(any) addr:0x020f1670
 data_020f1677 kind:data(any) addr:0x020f1677
 data_020f1683 kind:data(any) addr:0x020f1683
@@ -7591,7 +7591,7 @@ questTable kind:bss addr:0x021090cc
 data_02109418 kind:bss addr:0x021090d0
 data_0210941c kind:bss addr:0x021090d4
 data_021098e0 kind:bss addr:0x02109598
-data_021095a0 kind:bss addr:0x021095a0
+data_021098e8 kind:bss addr:0x021095a0
 data_021095ac kind:bss addr:0x021095ac
 data_02109924 kind:bss addr:0x021095dc
 data_02109928 kind:bss addr:0x021095e0

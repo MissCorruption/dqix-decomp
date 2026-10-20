@@ -16,6 +16,21 @@ extern "C" void __register_global_object(void* obj, void* func, void* node);
 extern "C" __declspec(initcode) ARM void __sinit_020e5920(void) {
     float t;
     float a;
+#if defined(jpn)
+    // JPN: entries 1 and 2 of both tables swap places.
+    t = data_020ef07c[2] + data_020ef07c[1];
+    t = data_020ef07c[0] + t;
+    t = data_020ef07c[3] + t;
+    data_020f33b4[2] = t;
+    t = data_020f33b4[5] + data_020ef07c[2];
+    a = data_020ef07c[1];
+    data_020f33b4[4] = t;
+    t = t + a;
+    data_020f33b4[3] = t;
+    a = data_020ef07c[0];
+    t = t + a;
+    data_020f33b4[1] = t;
+#else
     t = data_020ef07c[1] + data_020ef07c[2];
     t = data_020ef07c[0] + t;
     t = data_020ef07c[3] + t;
@@ -28,6 +43,7 @@ extern "C" __declspec(initcode) ARM void __sinit_020e5920(void) {
     data_020f33b4[3] = t;
     t = t + a;
     data_020f33b4[2] = t;
+#endif
     ClearSubMemberAndReset_02012200((char*)&data_020f33d8);
     __register_global_object((void*)&data_020f33d8, (void*)ResetAndFinalizeSubMember_02012224, (void*)&data_020f33cc);
 }

@@ -3,7 +3,6 @@
 #if defined(jpn)
 #define func_ov008_02189c70 func_ov008_0218a930
 #define LOW_REGION(j,u) (j)
-#define func_02099304 func_0209b000
 #else
 #define LOW_REGION(j,u) (u)
 #endif

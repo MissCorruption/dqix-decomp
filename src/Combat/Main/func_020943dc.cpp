@@ -2,6 +2,74 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 
+#if defined(jpn)
+// JPN: a smaller state block (12-byte name, 0x30-byte text), the names table at 0x37c, the
+// message file loaded directly (data/bin/menu/str_navi.nat, no .gp2 archive), and a 4-argument
+// formatter call.
+struct NameBuf02046574 { char text[0x40]; };
+struct Obj02046574 {
+    char pad0[0x37c];
+    NameBuf02046574 names[16];
+};
+struct MessageLoadState {
+    char name[0xc];
+    short messageId;
+    char padE[0x100 - 0xe];
+    int taskId;
+    int position;
+    char text[0x30];
+    unsigned char phase : 7;
+    unsigned char reserved : 1;
+    char pad139;
+    unsigned char counter;
+    char pad13b[2];
+    unsigned char flags;
+};
+Obj02046574* GetGlobalField0x1c020421a0();
+void SetIndexedName02046574(Obj02046574*, int, char*);
+extern "C" void func_020e046c(char*, void*, unsigned int, int);
+extern "C" void func_020474a8(Obj02046574*, int, char*, char*);
+extern const char data_020f146e[];
+
+extern "C" ARM int func_020943dc(MessageLoadState* state) {
+    if (!(state->flags & 1)) return 0;
+    BackgroundLoader* loader = BackgroundLoader::GetInstance();
+    if (state->phase == 0) {
+        if (state->taskId >= 0) {
+            loader->RemoveTask(state->taskId);
+            state->taskId = -1;
+        }
+        state->taskId = loader->QueueLoadFile(data_020f146e, 0);
+        ++state->phase;
+    } else if (state->phase == 1) {
+        if (loader->GetTaskStatus(state->taskId)) {
+            void* file;
+            unsigned int size;
+            loader->GetLoadedFileByID(state->taskId, &file, &size);
+            if (file) {
+                char message[0x40] = {};
+                func_020e046c(message, file, size, state->messageId);
+                Obj02046574* formatter = GetGlobalField0x1c020421a0();
+                char* previousName = formatter->names[0].text;
+                char savedName[0x40] = {};
+                if (previousName) memcpy(savedName, previousName, strlen(previousName));
+                SetIndexedName02046574(formatter, 0, state->name);
+                memset(state->text, 0, sizeof(state->text));
+                func_020474a8(formatter, 10, message, state->text);
+                state->text[0x2f] = 0;
+                state->position = 0;
+                if (previousName) SetIndexedName02046574(formatter, 0, savedName);
+            }
+            loader->RemoveTask(state->taskId);
+            state->taskId = -1;
+            state->flags &= ~1;
+            state->phase = 0;
+            state->counter = 0;
+        }
+    }
+    return 1;
+}
+#else
 struct NameBuf02046574 { char text[0x40]; };
 struct Obj02046574 {
     char pad0[0x4ac];
@@ -67,3 +135,4 @@ extern "C" ARM int func_020943dc(MessageLoadState* state) {
     }
     return 1;
 }
+#endif

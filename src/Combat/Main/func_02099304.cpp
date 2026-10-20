@@ -5,7 +5,13 @@ struct ScriptRequest {
     unsigned int lo : 12;
     unsigned int mid : 4;
     unsigned int hi : 5;
+#if defined(jpn)
+    unsigned int rest : 4;
+    unsigned int kind25 : 1;
+    unsigned int rest2 : 5;
+#else
     unsigned int rest : 10;
+#endif
     unsigned int top : 1;
     int offset : 9;
     signed char mode;
@@ -16,8 +22,13 @@ struct Obj02046574;
 
 struct ScriptGlobal {
     unsigned char flags;
+#if defined(jpn)
+    ScriptRequest* request;
+    void* buffer;
+#else
     void* buffer;
     ScriptRequest* request;
+#endif
 };
 
 extern ScriptGlobal data_021098e8;
@@ -62,9 +73,17 @@ extern "C" ARM int func_02099304(ScriptRequest* request, char* name, const void*
                     data_021098e8.flags |= 2;
                 } else if (slot[1] == 0xc && slot[2] == 0x19) {
                     data_021098e8.flags |= 8;
+#if defined(jpn)
+                } else if (request->kind25 == 1 && slot[1] == 2 && slot[2] == 0xe) {
+                    data_021098e8.flags |= 4;
+                } else if (request->kind25 == 0 && slot[1] == 3 && slot[2] == 0xe) {
+                    data_021098e8.flags |= 4;
+                }
+#else
                 } else if (slot[1] == 2 && slot[2] == 0xe) {
                     data_021098e8.flags |= 4;
                 }
+#endif
             }
         }
         if ((flags & 1) && request->mode != 0) {

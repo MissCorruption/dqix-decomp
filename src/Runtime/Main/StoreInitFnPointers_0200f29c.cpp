@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define __sinit_020e5920 __sinit_020e61fc
-#endif
-
 extern "C" void __sinit_020e5920();
 extern "C" char ARM9_INIT_START[];
 

@@ -119,10 +119,14 @@ extern "C" ARM void func_020830cc(struct SlotState020830cc* src, struct SlotReco
     if (flags & 4) {
         *fp |= 4;
     }
+#if defined(jpn)
+    memcpy(dst->b140, src->name3c, 0xc);
+#else
     char local[0xc];
     __clear(local, 0xc);
     func_020426bc(src->name3c, local, 1);
     memcpy(dst->b140, local, 0xc);
+#endif
     dst->bit01_4 = (unsigned short)src->bit30;
     struct PackedTriple02082cdc* s = dst->stats;
     s[0].a = src->stats[0].a;

@@ -1,5 +1,50 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+// JPN: entries are matched by a two-character key plus a kind byte (no id word), the
+// container keeps an entry count at 0x884, and the scan stops after that many active entries.
+struct Entry02045c00 {
+    char unk0[0x18];
+    char key0;
+    char key1;
+    unsigned char kind;
+    unsigned char unk1b_b0 : 1;
+    unsigned char bit1 : 1;
+    unsigned char bit2 : 1;
+    unsigned char unk1b_rest : 5;
+};
+
+struct Container02045c00 {
+    char unk0[0x884];
+    int count;
+    struct Entry02045c00 entries[0x80];
+    unsigned char active[0x80];
+    char unk1708[0x81];
+    unsigned char flags1789;
+};
+
+ARM int FindMatchingEntryIndex(struct Container02045c00* c, const char* key, int kind) {
+    int seen = 0;
+    int i;
+    for (i = 0; i < 0x80; i++) {
+        struct Entry02045c00* e;
+        if (c->active[i] == 0) continue;
+        e = &c->entries[i];
+        if (e->key0 == key[0] && e->key1 == key[1] && kind == e->kind) {
+            if (c->flags1789 & 0x80) {
+                if (e->bit2) return i;
+            } else if (c->flags1789 & 0x2) {
+                if (e->bit1) return i;
+            } else {
+                return i;
+            }
+        }
+        seen++;
+        if (seen == c->count) break;
+    }
+    return -1;
+}
+#else
 struct Entry02045c00 {
     char unk0[0x16];
     unsigned char unk16_b0 : 1;
@@ -39,3 +84,4 @@ ARM int FindMatchingEntryIndex(struct Container02045c00* c, int id) {
     }
     return -1;
 }
+#endif

@@ -71,7 +71,7 @@ extern "C" int func_ov012_0218ae74(ProfileEditor* self, const ProfileData* profi
 
 #if defined(jpn)
 extern "C" void func_02042428(char*, int);
-extern "C" int func_0209b000(const ProfileData*, const char*, const void*, unsigned int, char*, unsigned int, unsigned char, const char*, const char*);
+extern "C" int func_02099304(const ProfileData*, const char*, const void*, unsigned int, char*, unsigned int, unsigned char, const char*, const char*);
 #endif
 
 // USA: func_ov012_0218adac
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov012_0218adac(ProfileEditor* self, int animate, int de
     func_02042428(self->text, 12);
     char* text = self->text;
     unsigned int length = strlen(text);
-    func_0209b000(profile, self->playerName, self->messageScript, self->messageScriptSize, text + length, 0x800 - length, 0, self->titleText, self->accoladeText);
+    func_02099304(profile, self->playerName, self->messageScript, self->messageScriptSize, text + length, 0x800 - length, 0, self->titleText, self->accoladeText);
     memset(self->outputText, 0, 0xf2);
     const char* renderedText = self->text;
     memcpy(self->outputText, renderedText, strlen(renderedText));

@@ -5,7 +5,7 @@
 
 #if defined(jpn)
 
-extern "C" void func_02045ca4(void*, const char*, int);
+extern "C" void func_02044f3c(void*, const char*, int);
 extern "C" void func_0206cb14(void*, int, unsigned short);
 extern "C" void func_0205e944(void*, int);
 extern "C" void func_02041bbc(State0204166c*);
@@ -79,7 +79,7 @@ extern "C" ARM void func_0204500c(MessageSystem* window, const char* text, int m
     window->w9b0 = 0;
     window->b195a = 12;
     if (window->mode == 3) {
-        func_02045ca4(window, text, mode);
+        func_02044f3c(window, text, mode);
     } else {
         unsigned short lineGlyphCount = window->lineGlyphCount;
         unsigned short* lineGlyphSlots = window->lineGlyphSlots;
