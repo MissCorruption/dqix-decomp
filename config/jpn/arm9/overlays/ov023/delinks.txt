@@ -3113,3 +3113,19 @@ src/Combat/Overlay_23/021f0a5c.cpp:
 src/Combat/Overlay_23/TailCallOffset20_021fbddc.cpp:
     complete
     .text start:0x021fb158 end:0x021fb168
+
+src/Combat/Overlay_23/InitEvent10_021fa760.cpp:
+    complete
+    .text start:0x021f9b88 end:0x021f9bf4
+
+src/Combat/Overlay_23/InitEvent4_021fa298.cpp:
+    complete
+    .text start:0x021f9724 end:0x021f9778
+
+src/Combat/Overlay_23/SomeFunc_021fc2b8.cpp:
+    complete
+    .text start:0x021fb5b8 end:0x021fb604
+
+src/Combat/Overlay_23/InitField1cOrRegisterCallback_021fbef0.cpp:
+    complete
+    .text start:0x021fb26c end:0x021fb2bc
