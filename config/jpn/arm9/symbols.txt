@@ -201,7 +201,7 @@ __rethrow kind:function(arm,size=0x4c) addr:0x0200f1e0
 func_0200f368 kind:function(arm,size=0xc) addr:0x0200f22c
 __clear kind:function(arm,size=0x24) addr:0x0200f238
 _ZN9GameState11GetInstanceEv kind:function(arm,size=0xc) addr:0x0200f25c
-func_0200f268 kind:function(arm,size=0x700) addr:0x0200f268
+func_0200f3a4 kind:function(arm,size=0x700) addr:0x0200f268
 _Z26ClearFlagsAndValue0200fad4P13State0200fad4 kind:function(arm,size=0x34) addr:0x0200f968
 _Z28ClearSubstructBytes_0200fb40Pv kind:function(arm,size=0x44) addr:0x0200f99c
 _Z19SetWord0x0_0200fb84Pii kind:function(arm,size=0x8) addr:0x0200f9e0
@@ -566,7 +566,7 @@ _Z29WarpScript_Opcode_70_0201d4ecPN6Script9ParameterEi kind:function(arm,size=0x
 _Z29WarpScript_Opcode_73_0201d530PN6Script9ParameterEi kind:function(arm,size=0x108) addr:0x0201d2bc
 _Z29WarpScript_Opcode_74_0201d638PN6Script9ParameterEi kind:function(arm,size=0x994) addr:0x0201d3c4
 _Z29WarpScript_Opcode_7b_0201dfccPN6Script9ParameterEi kind:function(arm,size=0x4c) addr:0x0201dd58
-func_0201dda4 kind:function(arm,size=0x1b8) addr:0x0201dda4
+_Z29WarpScript_Opcode_7c_0201e018PN6Script9ParameterEi kind:function(arm,size=0x1b8) addr:0x0201dda4
 _Z30ExecuteZoneWarpScript_0201e1d0PKvjP12ZoneFeaturesP13SafeAllocator kind:function(arm,size=0x78) addr:0x0201df5c
 _ZN12ZoneFeatures14Reset_0201e248Ev kind:function(arm,size=0x14) addr:0x0201dfd4
 _ZN12ZoneFeatures32AllocateOpcode64Entries_0201e25cEiP13SafeAllocator kind:function(arm,size=0x2c) addr:0x0201dfe8
@@ -1940,7 +1940,7 @@ _Z28CheckBits5To9NonZero0204bedcPt kind:function(arm,size=0x18) addr:0x0204ccfc
 _Z32ConvertColorToDecimalOffset20000P19ColorHolder0204bef4 kind:function(arm,size=0x3c) addr:0x0204cd14
 _Z22Clear0x4cBytes0204bf30Pv kind:function(arm,size=0x14) addr:0x0204cd50
 _Z24InitRenderParams0204bf44P20RenderParams0204bf44PvP20RenderSource0204bf44j kind:function(arm,size=0xec) addr:0x0204cd64
-func_0204ce50 kind:function(arm,size=0x5d8) addr:0x0204ce50
+func_0204c030 kind:function(arm,size=0x5d8) addr:0x0204ce50
 _Z12SetVec3At0x0P18Vec3Target0204c608iii kind:function(arm,size=0x8) addr:0x0204d428
 _Z20GetFourShortsAtIndexP19ShortArrays0204c610iPsS1_S1_S1_ kind:function(arm,size=0x44) addr:0x0204d430
 _Z20SetFourShortsAtIndexP19ShortArrays0204c654issss kind:function(arm,size=0x30) addr:0x0204d474
@@ -2303,7 +2303,7 @@ _Z18CopyStruct0205e3ecP14Struct0205e3ecS0_ kind:function(arm,size=0x30) addr:0x0
 _Z26PopAndRequeueNode_0205e41cPvPi kind:function(arm,size=0x6c) addr:0x0205f708
 _Z25CheckSlotsAllFree0205e488Pv kind:function(arm,size=0x70) addr:0x0205f774
 func_0205e4f8 kind:function(arm,size=0x84) addr:0x0205f7e4
-func_0205f868 kind:function(arm,size=0x254) addr:0x0205f868
+func_0205e57c kind:function(arm,size=0x254) addr:0x0205f868
 _Z29GetSection0x1000Count0205e7d0P14Struct0205e7d0 kind:function(arm,size=0xc) addr:0x0205fabc
 _Z28SetBitInArray0x1524_0205e7dcPhi kind:function(arm,size=0x28) addr:0x0205fac8
 _Z21ClearBitInArray0x1524P19BitArrayObj0205e804i kind:function(arm,size=0x2c) addr:0x0205faf0
@@ -3944,7 +3944,7 @@ _Z26CheckField0NonZero020a10a8Pi kind:function(arm,size=0x14) addr:0x020a2e20
 _Z18AlwaysTrue020a10bcv kind:function(arm,size=0x8) addr:0x020a2e34
 _Z18AlwaysTrue020a10c4v kind:function(arm,size=0x8) addr:0x020a2e3c
 _Z35InitCappedArrayFromVariants020a10ccP19Vec4Variant020a10cc kind:function(arm,size=0xb4) addr:0x020a2e44
-func_020a2ef8 kind:function(arm,size=0x200) addr:0x020a2ef8
+func_020a1180 kind:function(arm,size=0x200) addr:0x020a2ef8
 _Z19ResetBitfieldRecordP22BitfieldRecord020a1380 kind:function(arm,size=0x44) addr:0x020a30f8
 _Z19ClearStruct020a13c4P9S020a13c4 kind:function(arm,size=0x20) addr:0x020a313c
 _Z31SetupGlobalAndRunScript020a13e4PvS_ith kind:function(arm,size=0x98) addr:0x020a315c
@@ -5984,7 +5984,7 @@ _Z12Init020e3c34P19CombatState020e3c34 kind:function(arm,size=0x60) addr:0x020e5
 func_020e3c94 kind:function(arm,size=0x22c) addr:0x020e5834
 _Z20InitWithFlag020e3ec0P14Struct020e3ec0 kind:function(arm,size=0x18) addr:0x020e5a60
 _Z39NotifyManagerForSetArrayEntries020e3ed8P14Struct020e3ed8 kind:function(arm,size=0x44) addr:0x020e5a78
-func_020e5abc kind:function(arm,size=0x638) addr:0x020e5abc
+func_020e3f1c kind:function(arm,size=0x638) addr:0x020e5abc
 _Z32StartBattleTimerSequence020e4524Pc kind:function(arm,size=0x38) addr:0x020e60f4
 _Z25ProcessBattleTick020e455cP18MainStruct020e455c kind:function(arm,size=0xd0) addr:0x020e612c
 __sinit_020e61fc kind:function(arm,size=0xac) addr:0x020e61fc
@@ -5995,7 +5995,7 @@ __sinit_020e5b28 kind:function(arm,size=0x50) addr:0x020e6408
 __sinit_020e5b78 kind:function(arm,size=0x88) addr:0x020e6458
 __sinit_020e5c00 kind:function(arm,size=0x2c) addr:0x020e64e0
 __sinit_020e5c2c kind:function(arm,size=0x2c) addr:0x020e650c
-__sinit_020e6538 kind:function(arm,size=0x90) addr:0x020e6538
+__sinit_020e5c58 kind:function(arm,size=0x90) addr:0x020e6538
 __sinit_020e5ce8 kind:function(arm,size=0x14) addr:0x020e65c8
 __sinit_020e5cfc kind:function(arm,size=0x88) addr:0x020e65dc
 __sinit_020e5d84 kind:function(arm,size=0x14) addr:0x020e6664
@@ -6027,7 +6027,7 @@ __sinit_020e66a0 kind:function(arm,size=0x5c) addr:0x020e6f80
 __sinit_020e66fc kind:function(arm,size=0x14) addr:0x020e6fdc
 __sinit_020e6710 kind:function(arm,size=0x6c) addr:0x020e6ff0
 __sinit_020e677c kind:function(arm,size=0x14) addr:0x020e705c
-__sinit_020e7070 kind:function(arm,size=0x164) addr:0x020e7070
+__sinit_020e6790 kind:function(arm,size=0x164) addr:0x020e7070
 data_020e692c kind:data(any) addr:0x020e71d4
 data_020e69ac kind:data(any) addr:0x020e7254
 data_020e7354 kind:data(any) addr:0x020e7354
@@ -6150,7 +6150,7 @@ data_020e7b60 kind:data(any) addr:0x020e855c
 data_020e7b68 kind:data(any) addr:0x020e8564
 data_020e7b70 kind:data(any) addr:0x020e856c
 data_020e7b98 kind:data(any) addr:0x020e8594
-data_020e85b4 kind:data(any) addr:0x020e85b4
+@246 kind:data(any) addr:0x020e85b4 local
 data_020e85d0 kind:data(any) addr:0x020e85d0
 data_020e7bfc kind:data(any) addr:0x020e85d4
 data_020e7c40 kind:data(any) addr:0x020e85f0
@@ -6682,7 +6682,7 @@ data_020efd60 kind:data(any) addr:0x020efc78
 data_020efd6c kind:data(any) addr:0x020efc84
 data_020efd78 kind:data(any) addr:0x020efc90
 data_020efd84 kind:data(any) addr:0x020efc9c
-data_020efca4 kind:data(any) addr:0x020efca4
+data_020efd8c kind:data(any) addr:0x020efca4
 data_020efcbc kind:data(any) addr:0x020efcbc
 data_020efcc5 kind:data(any) addr:0x020efcc5
 data_020efcd0 kind:data(any) addr:0x020efcd0
@@ -7164,7 +7164,7 @@ data_020f151f kind:data(any) addr:0x020f151f
 data_020f13d8 kind:data(any) addr:0x020f1524
 data_020f13dc kind:data(any) addr:0x020f1528
 data_020f13fc kind:data(any) addr:0x020f1548
-data_020f1568 kind:data(any) addr:0x020f1568
+data_020f141c kind:data(any) addr:0x020f1568
 data_020f1444 kind:data(any) addr:0x020f1590
 data_020f1474 kind:data(any) addr:0x020f15c0
 data_020f14b0 kind:data(any) addr:0x020f15fc
@@ -7198,7 +7198,7 @@ data_020f18ac kind:data(any) addr:0x020f18ac
 data_020f18c0 kind:data(any) addr:0x020f18c0
 data_020f18e8 kind:data(any) addr:0x020f1a50
 data_020f18ec kind:data(any) addr:0x020f1a54
-data_020f1a7c kind:data(any) addr:0x020f1a7c
+data_020f1914 kind:data(any) addr:0x020f1a7c
 data_020f1a7f kind:data(any) addr:0x020f1a7f
 data_020f1940 kind:data(any) addr:0x020f1a98
 data_020f1a9d kind:data(any) addr:0x020f1a9d
@@ -7505,7 +7505,7 @@ data_021056b4 kind:bss addr:0x021053f4
 data_02105fd8 kind:bss addr:0x021057f4
 data_02105ab4 kind:bss addr:0x02105df4
 data_021065d8 kind:bss addr:0x02106518
-data_02107518 kind:bss addr:0x02107518
+data_021075d8 kind:bss addr:0x02107518
 data_021075f4 kind:bss addr:0x02107534
 data_021077dc kind:bss addr:0x0210771c
 data_021077e8 kind:bss addr:0x02107728
@@ -7521,14 +7521,16 @@ data_021078a8 kind:bss addr:0x021077ec
 data_021078ac kind:bss addr:0x021077f0
 data_021078e0 kind:bss addr:0x02107824
 data_021078e4 kind:bss addr:0x02107828
-data_0210785c kind:bss addr:0x0210785c
+sLastTotal$241 kind:bss addr:0x0210785c local
 s_dayThresholds kind:bss addr:0x02107860 local
 s_lightingManager kind:bss addr:0x02107874 local
 data_021079cc kind:bss addr:0x02107910
 data_021079e0 kind:bss addr:0x02107924
 data_021079ec kind:bss addr:0x02107930
 data_02108740 kind:bss addr:0x02108684
-data_0210868c kind:bss addr:0x0210868c
+sSeq$22 kind:bss addr:0x0210868c local
+sPendingBytes kind:bss addr:0x02108690 local
+sActiveBytes kind:bss addr:0x02108694 local
 data_02108754 kind:bss addr:0x02108698
 data_02108760 kind:bss addr:0x021086a4
 data_02108830 kind:bss addr:0x02108774
@@ -7579,6 +7581,14 @@ data_02109020 kind:bss addr:0x02108f64
 data_02109030 kind:bss addr:0x02108f74
 data_02109400 kind:bss addr:0x021090b4
 data_02109404 kind:bss addr:0x021090bc
+questSkip kind:bss addr:0x021090bd
+questSelected kind:bss addr:0x021090be
+questF3 kind:bss addr:0x021090bf
+questF4 kind:bss addr:0x021090c0
+questIndex kind:bss addr:0x021090c2
+questF8 kind:bss addr:0x021090c4
+questAllocator kind:bss addr:0x021090c8
+questTable kind:bss addr:0x021090cc
 data_02109418 kind:bss addr:0x021090d0
 data_0210941c kind:bss addr:0x021090d4
 data_021098e0 kind:bss addr:0x02109598
@@ -7606,6 +7616,10 @@ data_02109d88 kind:bss addr:0x02109a40
 data_02109d8c kind:bss addr:0x02109a44
 data_02109d90 kind:bss addr:0x02109a48
 data_02109d94 kind:bss addr:0x02109a4c
+data_02109d96 kind:bss addr:0x02109a4e
+data_02109d98 kind:bss addr:0x02109a50
+data_02109d9c kind:bss addr:0x02109a54
+data_02109da0 kind:bss addr:0x02109a58
 data_02109da4 kind:bss addr:0x02109a5c
 data_02109da6 kind:bss addr:0x02109a5e
 data_02109dae kind:bss addr:0x02109a66
@@ -7792,7 +7806,7 @@ data_0214e34c kind:bss addr:0x0214fb74
 data_0214e4a0 kind:bss addr:0x0214fc68
 s_resourceMutex kind:bss addr:0x0214fc70 local
 data_0214e4c8 kind:bss addr:0x0214fc90
-data_0214fd78 kind:bss addr:0x0214fd78
+data_0214e5b0 kind:bss addr:0x0214fd78
 data_0214e5bc kind:bss addr:0x0214fd84
 g_stagingManagerInstance kind:bss addr:0x0214fdac
 g_vramStagingBuffer kind:bss addr:0x0214fdf0

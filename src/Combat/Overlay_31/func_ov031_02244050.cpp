@@ -42,6 +42,16 @@ struct Struct_02245528 {
 struct SessionGlobals02244050 {
     unsigned char padding_0[0xc];
     int completed;
+#if defined(jpn)
+    int field_10;
+    SessionRecordStorage02244050* records;
+    int field_18;
+    int error;
+    int field_20;
+    int released;
+    int connected;
+    unsigned char padding_2c[0xc];
+#else
     int field_10;
     int connected;
     int field_18;
@@ -49,13 +59,18 @@ struct SessionGlobals02244050 {
     SessionRecordStorage02244050* records;
     int error;
     unsigned char padding_28[0x10];
+#endif
 };
 struct SavedSession02244050 {
     unsigned char padding_0[0x104];
     SessionSettings02244050 settings;
 };
 struct SessionGame02244050 {
+#if defined(jpn)
+    unsigned char padding_0[0x5c0c];
+#else
     unsigned char padding_0[0x5e6c];
+#endif
     SavedSession02244050 save;
     SavedSession02244050* GetSave() { return &save; }
 };
@@ -63,8 +78,15 @@ struct Struct0200fb08;
 extern SessionGlobals02244050 data_ov031_02291e04;
 extern char data_ov031_0224c938[];
 extern char data_ov031_0224c93d[];
+#if defined(jpn)
+struct SessionKinds02244050 {
+    char names[4][8];
+};
+extern SessionKinds02244050 data_ov031_0224a198;
+#else
 extern char data_ov031_022495b4[4][8];
 extern char data_ov031_02249582[][3];
+#endif
 extern "C" void func_ov031_022433d0();
 void SetField28_02243404();
 extern "C" int func_ov031_02212ab4(void*, const char*, const char*);
@@ -127,6 +149,19 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* session) {
             break;
         case 7: {
             if (data_ov031_02291e04.error) { session->phase = 8; break; }
+#if defined(jpn)
+            SessionKinds02244050 kinds = data_ov031_0224a198;
+            for (int record = 0; record < session->count; record++) {
+                int kind;
+                int record_offset = record * sizeof(SessionRecord02244050);
+                for (kind = 0; kind < 4; kind++) {
+                    if (!strstr((char*)&data_ov031_02291e04.records->bytes[record_offset] + 0x88, kinds.names[kind])) continue;
+                    if (session->present & (1 << kind)) continue;
+                    session->present |= 1 << kind;
+                    memcpy(&session->records[kind], &data_ov031_02291e04.records->bytes[record_offset], 0xb0);
+                }
+            }
+#else
             int language = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
             for (int record = 0; record < session->count; record++) {
                 int record_offset = record * sizeof(SessionRecord02244050);
@@ -139,6 +174,7 @@ extern "C" ARM void func_ov031_02244050(Struct_02245528* session) {
                     memcpy(&session->records[kind], &data_ov031_02291e04.records->entries[record], 0xb0);
                 }
             }
+#endif
             session->phase = 3;
             session->step++;
             break;

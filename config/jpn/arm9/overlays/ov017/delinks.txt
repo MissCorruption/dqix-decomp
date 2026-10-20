@@ -4784,3 +4784,13 @@ src/Combat/Overlay_17/func_ov017_021c530c.cpp:
 src/Combat/Overlay_17/func_ov017_021b8e8c.cpp:
     complete
     .text start:0x021b9384 end:0x021b9df4
+
+src/Combat/Overlay_17/CallEnqueueEvent94IfFlag_021a5a68.cpp:
+    complete
+    .text start:0x021a64a0 end:0x021a64c0
+
+src/Combat/Overlay_17/func_ov017_021a476c.cpp:
+    complete
+    .text start:0x021a51e0 end:0x021a5764
+    .data start:0x021d7b18 end:0x021d7b1c
+    .bss start:0x021d8c68 end:0x021d8c6c

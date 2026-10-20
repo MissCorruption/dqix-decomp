@@ -2,6 +2,20 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
+#if defined(jpn)
+struct Entries {
+    char pad0[0x2a];
+    short sel;
+};
+
+struct Scene {
+    char pad0[0x1f0];
+    char sub308[0x20c - 0x1f0];
+    Entries *entries;
+    char pad210[0x28c - 0x210];
+    unsigned int flags;
+    char pad290[0x298 - 0x290];
+#else
 struct Entries {
     char pad0[0x36];
     short sel;
@@ -14,6 +28,7 @@ struct Scene {
     char pad328[0x464 - 0x328];
     unsigned int flags;
     char pad468[0x470 - 0x468];
+#endif
     short *p470;
     short h474;
     char pad476[0x480 - 0x476];

@@ -22,7 +22,7 @@ func_ov002_02154c30 kind:function(arm,size=0x110) addr:0x021563b0
 func_ov002_021564c0 kind:function(arm,size=0x20c) addr:0x021564c0
 func_ov002_021566cc kind:function(arm,size=0xd8) addr:0x021566cc
 func_ov002_021567a4 kind:function(arm,size=0x38) addr:0x021567a4
-func_ov002_021567dc kind:function(arm,size=0x664) addr:0x021567dc
+func_ov002_0215505c kind:function(arm,size=0x664) addr:0x021567dc
 func_ov002_02156e40 kind:function(arm,size=0x10) addr:0x02156e40
 func_ov002_021556fc kind:function(arm,size=0x250) addr:0x02156e50
 func_ov002_021570a0 kind:function(arm,size=0x45c) addr:0x021570a0
@@ -177,7 +177,7 @@ func_ov002_02165cd4 kind:function(arm,size=0x29c) addr:0x02165cd4
 func_ov002_02165f70 kind:function(arm,size=0x39c) addr:0x02165f70
 _Z29SetOrClearByteC5Bit8_0216574cPvi kind:function(arm,size=0x18) addr:0x0216630c
 func_ov002_02166324 kind:function(arm,size=0x350) addr:0x02166324
-func_ov002_02166674 kind:function(arm,size=0x600) addr:0x02166674
+func_ov002_02165b44 kind:function(arm,size=0x600) addr:0x02166674
 func_ov002_02166c74 kind:function(arm,size=0x3f4) addr:0x02166c74
 func_ov002_02167068 kind:function(arm,size=0x1404) addr:0x02167068
 func_ov002_0216846c kind:function(arm,size=0x514) addr:0x0216846c
@@ -282,5 +282,5 @@ data_ov002_0216dae7 kind:data(any) addr:0x0216dae7
 data_ov002_0216db03 kind:data(any) addr:0x0216db03
 data_ov002_0216d3a0 kind:bss addr:0x0216db20
 data_ov002_0216db28 kind:bss addr:0x0216db28
-data_ov002_0216db2c kind:bss addr:0x0216db2c
+data_ov002_0216d3ac kind:bss addr:0x0216db2c
 data_ov002_0216db30 kind:bss addr:0x0216db30

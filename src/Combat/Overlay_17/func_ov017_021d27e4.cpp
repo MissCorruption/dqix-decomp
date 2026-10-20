@@ -24,11 +24,7 @@ void* SearchBothTables02079e2c(char*, int);
 struct Obj02048350;
 int ConsumeCounter02048350(struct Obj02048350*, int);
 
-#if defined(jpn)
-extern "C" void func_ov017_021a64a0(void*, int);
-#else
 void CallEnqueueEvent94IfFlag_021a5a68();
-#endif
 typedef void (*EnqueueTag34Fn)(int tag, int first, int second);
 typedef void (*EnqueueEvent94Fn)(void* obj, int arg);
 
@@ -146,20 +142,12 @@ extern "C" ARM void func_ov017_021d27e4(void* unused0, Evt021d27e4* evt, GameSta
                 func_ov017_021c9e00(first, 0, 0, 1);
             }
         }
-#if defined(jpn)
-        func_ov017_021a64a0(ctx->unknown_ptr_array_371c[0], 0xb);
-#else
         ((EnqueueEvent94Fn)CallEnqueueEvent94IfFlag_021a5a68)(ctx->unknown_ptr_array_371c[0], 0xb);
-#endif
         return;
     }
     case 3:
         if (!hasFirst) return;
-#if defined(jpn)
-        func_ov017_021a64a0(ctx->unknown_ptr_array_371c[0], 0xc);
-#else
         ((EnqueueEvent94Fn)CallEnqueueEvent94IfFlag_021a5a68)(ctx->unknown_ptr_array_371c[0], 0xc);
-#endif
         return;
     }
 }

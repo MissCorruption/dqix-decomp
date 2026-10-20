@@ -78,7 +78,15 @@ extern "C" void func_ov023_021fa078(void* obj, void* ctx, unsigned short val, Ve
 unsigned char GetSubByteField34_021b2024(Obj24_021b2024* obj);
 unsigned char GetSubByteField35_021b2038(Obj24_021b2038* obj);
 void* FindEntryByKey_02072a68(TableA68* table, int key);
+#if defined(jpn)
+extern "C" void func_0204500c(void* field, void* buf, int p2);
+#define FUNC_0204500C(g, b) func_0204500c(g, b, 0)
+enum { kGBusy = 0x868, kGState = 0x870, kGText = 0x28, kGTextSize = 0x800 };
+#else
 extern "C" void func_0204500c(void* field, void* buf, int p2, int p3);
+#define FUNC_0204500C(g, b) func_0204500c(g, b, 0, 0xe3)
+enum { kGBusy = 0x998, kGState = 0x9a0, kGText = 0x5c, kGTextSize = 0x960 };
+#endif
 unsigned char GetSubByteField438_021b204c(Obj24_021b204c* obj);
 unsigned char GetSubByteField44_021b1fe8(Obj24_021b1fe8* obj);
 void* GetOffsetPtrromField_021b1fc0_021b1fc0(void* obj);
@@ -163,13 +171,13 @@ spawned:
         unsigned char a = GetSubByteField34_021b2024((Obj24_021b2024*)five);
         unsigned char b = GetSubByteField35_021b2038((Obj24_021b2038*)five);
         if (data_ov004_02171048.shown1 == 0 && a == 5 && b == 0) {
-            func_0204500c((void*)g, FindEntryByKey_02072a68(table, 0xcc), 0, 0xe3);
-            *(int*)(g + 0x998) = 1;
+            FUNC_0204500C((void*)g, FindEntryByKey_02072a68(table, 0xcc));
+            *(int*)(g + kGBusy) = 1;
             data_ov004_02171048.shown1 = 1;
         }
         if (data_ov004_02171048.shown0 == 0 && a == 5 && b == 5) {
-            func_0204500c((void*)g, FindEntryByKey_02072a68(table, 0xcd), 0, 0xe3);
-            *(int*)(g + 0x998) = 1;
+            FUNC_0204500C((void*)g, FindEntryByKey_02072a68(table, 0xcd));
+            *(int*)(g + kGBusy) = 1;
             data_ov004_02171048.shown0 = 1;
         }
         if (*(int*)(actor + 0x4000 + readyOffset) == 0) {
@@ -177,14 +185,14 @@ spawned:
             GameState::GetInstance();
         }
     } else if (state == 3) {
-        if (*(int*)(g + 0x9a0) != 3) return 1;
+        if (*(int*)(g + kGState) != 3) return 1;
 
         Node0216ed9c* node = func_ov023_021f6880(func_ov011_021849c8(self), 0x97);
         if (node) {
             *((unsigned char*)node + 0xc) |= 8;
         }
-        char* buf = *(char**)(g + 0x5c);
-        memset(buf, 0, 0x960);
+        char* buf = *(char**)(g + kGText);
+        memset(buf, 0, kGTextSize);
 
         if (GetSubByteField438_021b204c((Obj24_021b204c*)five)) {
             const char* s = (const char*)FindEntryByKey_02072a68(table, 0x71);
@@ -227,8 +235,8 @@ spawned:
             data_ov004_02171048.ptr->flags2e[1] = 0;
         }
 
-        func_0204500c((void*)g, *(char**)(g + 0x5c), 0, 0xe3);
-        *(int*)(g + 0x998) = 1;
+        FUNC_0204500C((void*)g, *(char**)(g + kGText));
+        *(int*)(g + kGBusy) = 1;
         five[1] = 1;
         data_ov004_02171048.ptr->flags2e[0] = 0;
         Ov004Block_0216ed9c* blk = data_ov004_02171048.ptr;

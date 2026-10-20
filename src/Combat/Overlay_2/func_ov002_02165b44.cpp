@@ -7,6 +7,14 @@
 
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
+#define func_ov002_02161cf0 func_ov002_02162acc
+#define func_ov002_0215f170 func_ov002_02160274
+#define func_ov002_02161b98 func_ov002_0216297c
+#define func_ov002_0215a7b4 func_ov002_0215bbac
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+#define ClearMatchingEntry_02156ff0 func_ov002_02158674
+extern "C" int CheckFlagOrThreshold_02161b48(char *base, int a);
+extern "C" void ClearMatchingEntry_02156ff0(unsigned char *self, int v);
 #endif
 
 struct Struct0205de24;
@@ -64,6 +72,161 @@ extern "C" char data_02108760[];
 
 // USA: func_ov002_02165b44
 extern "C" ARM void func_ov002_02165b44(char *base) {
+#if defined(jpn)
+    int state = *(int *) (base + 0x1a88);
+    if (state == 0) {
+        *(short *) (base + 0x1ac4) = 0;
+        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (base + 0xe20), 0, 2);
+        func_ov002_02161cf0(base);
+        func_ov002_0215f170(base);
+        *(int *) (base + 0x1a88) += 1;
+    } else if (state == 1) {
+        *(unsigned int *) (base + 0x22ac) |= 4;
+        func_ov002_02161b98(base);
+        *(short *) (base + 0x1ac4) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) (base + 0xe20));
+        int ta                            = g_keyManager.TestKeysPressed(0x601);
+        int tb = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(base + 0xe20), 0x14);
+        if ((ta | tb) ? 1 : 0) {
+            GameState *gs = GameState::GetInstance();
+            int id        = *(signed char *) (base + 0x1ae8);
+            if (id == 4) id = GetField0x397cValue_020100b0(gs);
+            GameObject *m = GetCombatantChecked_0200ff94(gs, id);
+            if (m == NULL) return;
+            *(unsigned char *) (base + 0xed8) = *(int *) (base + 0x1a80);
+            *(unsigned int *) (base + 0x22ac) &= ~4;
+            if (**(int **) ((char *) m + 0x130) & 1) {
+                *(short *) (base + 0x1af0) = -1;
+                *(short *) (base + 0x1af2) = -1;
+                *(int *) (base + 0x1a80)  = 0x12;
+                return;
+            }
+            *(int *) (base + 0x1a88) = 0;
+            DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 1, 0);
+            int save    = (int) func_0205ec34();
+            char *world = func_02012fe4();
+            int kind    = 0;
+            if (!TestBitInByteArray_0206dfb0(save, (unsigned char *) ((char *) save + 0x8c), 0x113a)) {
+                char *p = *(char **) (world + 8);
+                if (p != NULL) kind = (unsigned int) (*(unsigned char *) (p + 0xe) << 30) >> 30;
+            }
+            *(short *) (base + 0x1af0) = 0x232d;
+            if (kind == 2) {
+                char *e = FindEntryByByteId020a83b0(*(struct List020a83b0 **) (base + 0x22a4),
+                                                    *(short *) (base + 0x1ac4));
+                if (e != NULL) {
+                    int *rec                          = func_0202ae18();
+                    *(short *) (base + 0x1af2) = -1;
+                    *(int *) (base + 0x1a80)  = 0x29;
+                    *(int *) (base + 0x1a84)  = 0x2e;
+                    if (*(short *) (base + 0x1aea) == 0x5603) {
+                        *(short *) (base + 0x1af0)          = 0x7972;
+                        *(short *) (base + 0x1af2)          = -1;
+                        *(short *) (base + 0x22b8)          = -1;
+                        *(unsigned char *) (base + 0x22ba) = 0;
+                        if (*(unsigned int *) (base + 0x22ac) & 1) func_ov023_021dca88(base + 0x38);
+                        func_ov002_0215a7b4(base, *(signed char *) (base + 0x1ae8), *(short *) (base + 0x1aea),
+                                            *(short *) (base + 0x1ab0), 0);
+                    } else {
+                        DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 0x64, 0);
+                        char *t = SearchBothTables02079e2c((char*)GetData02108e10_020797dc(), 0xca);
+                        ConsumeCounter02048350(
+                            (struct Obj02048350 *) GetCombatantChecked_0200ff94(gs, *(signed char *) (base + 0x1ae8)),
+                            ((struct TE5b44 *) t)->lo8);
+                        if (CheckField0NonZero_0202b7d8(rec)) func_ov017_021c9e00(*(signed char *) (base + 0x1ae8), 0, 0, 1);
+                    }
+                    unsigned char *q = (unsigned char *) GetField0x3f8Address_0200fd0c(gs);
+                    VectorizedMemset(q, 0, 0x70);
+                    q[4]                       = 1;
+                    q[8]                       = 1;
+                    q[9]                       = 1;
+                    *(signed char *) (q + 0xb) = -1;
+                    *(int *) (q + 0x20)        = -1;
+                    *(int *) (q + 0x24)        = -1;
+                    *(int *) (q + 0x28)        = -1;
+                    *(int *) (q + 0x2c)        = -1;
+                    *(short *) (q + 0x1e)      = -1;
+                    q[0xc]                     = 0;
+                    *(short *) (q + 0x6c)      = -1;
+                    q[2]                       = 0;
+                    q[4]                       = 0;
+                    q[5]                       = 1;
+                    *(unsigned short *) q      = *(unsigned short *) (e + 8);
+                    *(Vector3i *) (q + 0x10)   = *(Vector3i *) (e + 0xc);
+                    *(short *) (q + 0x1c)      = *(short *) (e + 0xa);
+                    q[7]                       = 1;
+                    q[0x63]                    = 0;
+                    CallFunc0200fbb4AtField0x3f8_0200fcfc(gs, q);
+                    if (func_0202c508(rec) && TestBitInByteArray_0206dfb0(save, (unsigned char *) ((char *) save + 0x8c), 0x2b)) {
+                        *(unsigned short *) (world + 0x27c6) = *(unsigned short *) (e + 0x1a);
+                        *(unsigned short *) (world + 0x27c4) = *(unsigned short *) (e + 0x1c);
+                        Vector3i *pos                               = (Vector3i *) (world + 0x27b4);
+                        Vector3i v                                  = *pos;
+                        v.x                                         = *(int *) (e + 0x20);
+                        v.z                                         = *(int *) (e + 0x24);
+                        *pos                                        = v;
+                        func_ov017_021d1a18(*(short *) (e + 0x1a), *(short *) (e + 0x1c), 0, 0);
+                    }
+                    char *g = (char *) GetGameResources();
+                    InitAndInsertNode_021acd30(g, 0, 0, 0);
+                    struct TailList020469b4 *tl;
+                    unsigned char *node = *(unsigned char **) (g + 0x34fc);
+                    tl                  = *(struct TailList020469b4 **) (g + 0x34ec);
+                    InitAndResetHeader_0219e310(node, 0);
+                    AppendNodeToTail(tl, (struct TailNode020469b4 *) node);
+                    return;
+                }
+                kind = 0;
+            } else if (kind == 1) {
+                *(short *) (base + 0x1af2) = -1;
+                *(int *) (base + 0x1a80)  = 0x29;
+                *(int *) (base + 0x1a84)  = 0x2e;
+                if (*(short *) (base + 0x1aea) == 0x5603) {
+                    *(short *) (base + 0x1af0)          = 0x7972;
+                    *(short *) (base + 0x1af2)          = -1;
+                    *(short *) (base + 0x22b8)          = -1;
+                    *(unsigned char *) (base + 0x22ba) = 0;
+                    if (*(unsigned int *) (base + 0x22ac) & 1) func_ov023_021dca88(base + 0x38);
+                } else {
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 0x64, 0);
+                }
+                InitAndInsertNode_021acd30((char *) GetGameResources(), 0, 0, 1);
+                return;
+            }
+            if (kind == 0) {
+                if (*(short *) (base + 0x1aea) == 0x5603) {
+                    *(short *) (base + 0x1ac4)          = -1;
+                    *(short *) (base + 0x1af0)          = 0x7936;
+                    *(short *) (base + 0x1af2)          = -1;
+                    *(short *) (base + 0x22b8)          = 0x7919;
+                    *(unsigned char *) (base + 0x22ba) = 1;
+                    *(int *) (base + 0x1a80)           = 0x29;
+                    *(int *) (base + 0x1a84)           = 5;
+                } else {
+                    *(short *) (base + 0x22b8)          = 0x2338;
+                    *(unsigned char *) (base + 0x22ba) = 1;
+                    DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) data_02108760, 0x64, 0);
+                    *(int *) (base + 0x1a80) = 0x29;
+                    *(int *) (base + 0x1a84) = 0x12;
+                }
+            }
+        } else if (CheckFlagOrThreshold_02161b48(base, 1)) {
+            *(short *) (base + 0x1ac4) = -1;
+            if (*(short *) (base + 0x1aea) == 0x5603) {
+                *(short *) (base + 0x1aea) = -1;
+                ClearMatchingEntry_02156ff0((unsigned char *) base, 5);
+            } else {
+                *(short *) (base + 0x1aee) = -1;
+                ClearMatchingEntry_02156ff0((unsigned char *) base, 0x14);
+                *(int *) (base + 0x1a80) = 0x12;
+                SetFieldB0AndUpdate0205dee8((struct Obj0205dee8 *) (base + 0xe20), 0x12);
+                SetElementFieldC2_0205deb4((struct Struct_0205d81c *) (base + 0xe20), 0x12, 0);
+                func_ov002_02161cf0(base);
+                func_ov002_0215b9a4(base, *(int *) (base + 0x1a80) & 0xff, 0);
+                *(int *) (base + 0x1a88) = 1;
+            }
+        }
+    }
+#else
     int state = *(int *) (base + 0x1000 + 0xbc0);
     if (state == 0) {
         *(short *) (base + 0x1b00 + 0xfc) = 0;
@@ -217,4 +380,5 @@ extern "C" ARM void func_ov002_02165b44(char *base) {
             }
         }
     }
+#endif
 }

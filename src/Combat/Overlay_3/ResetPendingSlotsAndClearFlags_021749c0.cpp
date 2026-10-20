@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_ov023_021dca88 func_ov023_021dd398
-#endif
 extern "C" void func_ov023_021dca88(void* obj);
 
 struct FlagWord020466f4;

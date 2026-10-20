@@ -287,7 +287,7 @@ func_ov017_021a4368 kind:function(arm,size=0x2f0) addr:0x021a4ddc
 func_ov017_021a4658 kind:function(arm,size=0xa8) addr:0x021a50cc
 _Z29GetAngleDeltaBetween_021a4700P4Vec3iS0_ kind:function(arm,size=0x54) addr:0x021a5174
 _Z32GetAbsAngleDeltaBetween_021a4754P8Vector3iiS0_ kind:function(arm,size=0x18) addr:0x021a51c8
-func_ov017_021a51e0 kind:function(arm,size=0x584) addr:0x021a51e0
+func_ov017_021a476c kind:function(arm,size=0x584) addr:0x021a51e0
 _Z35ProcessEntryFieldAndNotify_021a4cf0Pc kind:function(arm,size=0xe0) addr:0x021a5764
 _Z24MaybeAppendNode_021a4dd0P13GameResources kind:function(arm,size=0x3c) addr:0x021a5844
 _Z36SetListField22FromCombatant_021a4e0cP13GameResources kind:function(arm,size=0x3c) addr:0x021a5880
@@ -305,7 +305,7 @@ _Z27CallIfGlobalPtrSet_021a5954Pv kind:function(arm,size=0x20) addr:0x021a638c
 _Z30CheckStackAndFinalize_021a5974Pc kind:function(arm,size=0xb4) addr:0x021a63ac
 _Z27CallIfGlobalPtrSet_021a5a28Pvi kind:function(arm,size=0x20) addr:0x021a6460
 _Z32GetByteAtOffset7289OrFF_021a5a48Pv kind:function(arm,size=0x20) addr:0x021a6480
-func_ov017_021a64a0 kind:function(arm,size=0x20) addr:0x021a64a0
+_Z33CallEnqueueEvent94IfFlag_021a5a68v kind:function(arm,size=0x20) addr:0x021a64a0
 _Z25CallHelperIfFlag_021a5a88iiiih kind:function(arm,size=0x28) addr:0x021a64c0
 _Z25CallHelperIfFlag_021a5ab0Pv kind:function(arm,size=0x20) addr:0x021a64e8
 _Z29FillFieldWithEncoded_021a5ad0P17Node0x20_021a5ad0ii kind:function(arm,size=0x38) addr:0x021a6508
@@ -1393,6 +1393,7 @@ data_ov017_021d7b09 kind:data(any) addr:0x021d7b09
 data_ov017_021d7b11 kind:data(any) addr:0x021d7b11
 data_ov017_021d7b14 kind:data(any) addr:0x021d7b14
 data_ov017_021d76d8 kind:data(any) addr:0x021d7b18
+data_ov017_021d76da kind:data(any) addr:0x021d7b1a
 data_ov017_021d76dc kind:data(any) addr:0x021d7b1c
 data_ov017_021d7b28 kind:data(any) addr:0x021d7b28
 data_ov017_021d7b3b kind:data(any) addr:0x021d7b3b

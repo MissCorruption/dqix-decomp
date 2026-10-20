@@ -1,8 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_0200f3a4 func_0200f268
-#endif
 extern "C" void func_0200f3a4(void*);
 int ForwardFirstWord020998ac(int*);
 
