@@ -6423,7 +6423,7 @@ data_020eed90 kind:data(any) addr:0x020eed90
 @653 kind:data(any) addr:0x020eee78 local
 @654 kind:data(any) addr:0x020eee80 local
 @655 kind:data(any) addr:0x020eee84 local
-data_020eee88 kind:data(any) addr:0x020eee88
+data_020eef28 kind:data(any) addr:0x020eee88
 data_020eef2c kind:data(any) addr:0x020eee8c
 data_020eef30 kind:data(any) addr:0x020eee90
 data_020eef34 kind:data(any) addr:0x020eee94
