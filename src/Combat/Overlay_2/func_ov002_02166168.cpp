@@ -43,14 +43,10 @@ extern "C" char data_02108760;
 #if defined(jpn)
 #undef OBJ
 #define OBJ (self + 0xe20)
-extern "C" int func_ov002_02162930(char *self, int flag);
 extern "C" void func_ov002_0215852c(void *self);
 extern "C" void func_ov002_02162acc(char *self);
-extern "C" void func_ov002_0215bc68(char *self);
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
 #define func_ov002_02156e90 func_ov002_0215852c
 #define func_ov002_02161cf0 func_ov002_02162acc
-#define SetPendingFlagAndSync_0215a878 func_ov002_0215bc68
 extern "C" ARM void func_ov002_02166168(char *self) {
     GameState *gs      = GameState::GetInstance();
     GameResources *res = (GameResources *) GetWord0x0_0200fb8c((int *) gs);

@@ -146,12 +146,6 @@ extern "C" void func_ov016_0218b5c0(int a, int b);
 extern "C" void func_ov017_0218b5f8(int a);
 
 #if defined(jpn)
-extern "C" void func_ov002_0215ca68(Menu_021665b0* self);
-extern "C" void func_ov002_0215aa68(Menu_021665b0* self, int key, int target, int actor);
-extern "C" int func_ov002_02162930(char*, int);
-#define func_ov002_0215b814 func_ov002_0215ca68
-#define func_ov002_021594e8 func_ov002_0215aa68
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
 #define SPELLS_021665b0 0x227c
 #define LIST_021665b0 0xe20
 #define CTL_FLAG_021665b0 0x17fb

@@ -26,11 +26,9 @@ extern char data_02108760[];
 
 // USA: func_ov002_02167eb0
 #if defined(jpn)
-extern "C" int func_ov002_02162930(char *self, int flag);
 extern "C" void func_ov002_0215852c(char *self);
 extern "C" void func_ov002_02162acc(char *self);
 extern "C" void func_ov002_02160bc0(char *self);
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
 #define func_ov002_02156e90 func_ov002_0215852c
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215fb54 func_ov002_02160bc0

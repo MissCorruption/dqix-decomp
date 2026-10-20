@@ -43,19 +43,13 @@ extern "C" char data_02108760;
 #if defined(jpn)
 #undef OBJ
 #define OBJ (self + 0xe20)
-extern "C" int func_ov002_02162930(char *self, int flag);
 extern "C" void func_ov002_02162acc(char *self);
 extern "C" void func_ov002_0215fc6c(void *obj, int val);
-extern "C" void func_ov002_0216297c(char *self);
 extern "C" int func_ov002_0215c974(char *self, int id);
-extern "C" void func_ov002_021593b4(char *self);
 extern "C" void func_ov002_02158674(unsigned char *self, int v);
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215eadc func_ov002_0215fc6c
-#define func_ov002_02161b98 func_ov002_0216297c
 #define func_ov002_0215b720 func_ov002_0215c974
-#define func_ov002_02157d40 func_ov002_021593b4
 #define ClearMatchingEntry_02156ff0 func_ov002_02158674
 
 extern "C" ARM void func_ov002_02165764(char *self) {

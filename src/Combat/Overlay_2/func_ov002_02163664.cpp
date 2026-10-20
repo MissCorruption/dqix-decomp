@@ -37,22 +37,14 @@ extern "C" char data_02108760[];
 
 // USA: func_ov002_02163664
 #if defined(jpn)
-extern "C" int func_ov002_02162930(char *self, int flag);
 extern "C" void func_ov002_02162acc(char *self);
 extern "C" void func_ov002_0215852c(char *self);
-extern "C" int func_ov002_021566cc(unsigned char *self);
-extern "C" void func_ov002_021593b4(char *self);
 extern "C" int func_ov002_0215c974(char *self, int id);
-extern "C" void func_ov002_0215ca68(char *self);
 extern "C" void func_ov002_0215dfd0(char *self);
 extern "C" void func_ov002_02158674(unsigned char *self, int v);
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_02156e90 func_ov002_0215852c
-#define BuildFlaggedCombatantSlotList_02154f4c func_ov002_021566cc
-#define func_ov002_02157d40 func_ov002_021593b4
 #define func_ov002_0215b720 func_ov002_0215c974
-#define func_ov002_0215b814 func_ov002_0215ca68
 #define func_ov002_0215ce94 func_ov002_0215dfd0
 #define ClearMatchingEntry_02156ff0 func_ov002_02158674
 extern "C" ARM void func_ov002_02163664(char *base) {

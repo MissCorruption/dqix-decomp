@@ -2,8 +2,6 @@
 
 #if defined(jpn)
 // JPN: a smaller display block (context at 0, glyphs at 0x888, text at 0x1752, holder at 0x1804),
-// fixed 10-pixel glyph spacing instead of the font-width table and glyph metrics, three space
-// codes (0xff19/0xff1a full, 0xff1b half), and glyph codes masked to 7 bits.
 struct GlyphJpn02066a6c { char pad[0x1c]; };
 struct TransformJpn02066a6c { short x; short y; int field4; int mode; int fieldc; int scaleX; int scaleY; int field18; };
 struct HolderJpn02066a6c { char pad[0x440]; TransformJpn02066a6c* transform; };
@@ -24,7 +22,7 @@ struct Holder02042c24;
 void SetSubstructXY02042c24(Holder02042c24*, int, int);
 void EmitScaledField0x440_0202f404(void*, int, int);
 extern "C" void func_020681b4(GlyphJpn02066a6c*, int, int, short);
-extern "C" void func_02041cd8(GlyphJpn02066a6c*, int, int, int);
+extern "C" void func_020417b0(GlyphJpn02066a6c*, int, int, int);
 extern "C" void func_02066934(DisplayJpn02066a6c*, void*, GlyphJpn02066a6c*, int, int, int);
 
 extern "C" ARM void func_02066a6c(DisplayJpn02066a6c* obj, int absolute) {
@@ -72,7 +70,7 @@ extern "C" ARM void func_02066a6c(DisplayJpn02066a6c* obj, int absolute) {
             if (absolute) func_02066934(obj, obj->context, glyph, x, y, 15);
             else {
                 func_020681b4(glyph, x, y, 0);
-                func_02041cd8(glyph, obj->font, 0, 31);
+                func_020417b0(glyph, obj->font, 0, 31);
             }
             x += 10;
         }

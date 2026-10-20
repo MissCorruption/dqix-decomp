@@ -39,13 +39,9 @@ static inline int InRange02162e50(int v) {
 
 // USA: func_ov002_02162e50
 #if defined(jpn)
-extern "C" int func_ov002_02162930(char *self, int flag);
 extern "C" void func_ov002_02162acc(char *self);
-extern "C" void func_ov002_0216297c(char *self);
 extern "C" void func_ov002_0215c618(char *self, int v);
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
 #define func_ov002_02161cf0 func_ov002_02162acc
-#define func_ov002_02161b98 func_ov002_0216297c
 #define func_ov002_0215b458 func_ov002_0215c618
 extern "C" ARM void func_ov002_02162e50(char *base) {
     int state = *(int *) (base + 0x1a88);

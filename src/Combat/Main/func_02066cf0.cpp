@@ -3,9 +3,6 @@
 
 #if defined(jpn)
 // JPN: a smaller text box (context at 0, glyphs at 0x888, holder at 0x1804) with inline layout
-// codes (0xff22..0xff27 absolute/relative moves, 0xff36/0xff37 ruby text drawn by func_02067ea0),
-// a fixed per-glyph advance at 0x1730 instead of kerning and glyph metrics, and 7-argument glyph
-// rasterising through func_02066794.
 struct Glyph02066cf0 {
     char pad[0xc];
     int x;
@@ -97,7 +94,7 @@ extern "C" void func_02044f5c(TextBox02066cf0* obj, int* lineX, int* lineY);
 extern "C" int func_02067ea0(TextBox02066cf0* obj, int x, int y, unsigned short* base, unsigned short* ruby, int alpha, int flag);
 extern "C" void func_02066934(TextBox02066cf0* obj, int cfg, Glyph02066cf0* glyph, short x, short y, int flags);
 extern "C" void func_02066794(void* staging, int w, int h, Glyph02066cf0* glyph, short x, short y, int flags);
-extern "C" void func_02041cd8(Glyph02066cf0* glyph, unsigned short font, void* palette, int alpha);
+extern "C" void func_020417b0(Glyph02066cf0* glyph, unsigned short font, void* palette, int alpha);
 extern "C" void func_0204459c(void* obj, int flag);
 extern "C" void func_020653e4(int a, int b);
 extern int data_0210773c;
@@ -290,7 +287,7 @@ extern "C" ARM void func_02066cf0(TextBox02066cf0* obj, int flag) {
             glyph->x = drawX;
             glyph->y = y;
             glyph->z = 0;
-            func_02041cd8(glyph, obj->font, palette, alpha);
+            func_020417b0(glyph, obj->font, palette, alpha);
         }
 
         x += obj->advance;

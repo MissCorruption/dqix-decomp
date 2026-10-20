@@ -5,8 +5,6 @@
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_02160274 func_ov002_02161228
 #define func_ov002_02156e90 func_ov002_0215852c
-#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
-extern "C" int func_ov002_02162930(char *base, int a);
 #endif
 
 struct Struct0205de24;

@@ -188,11 +188,6 @@ struct Self02172e84 {
 };
 #endif
 
-#if defined(jpn)
-extern "C" int func_ov003_02172324(int unused, int a, int b);
-#define IsInRangePair_021734dc func_ov003_02172324
-#define func_ov003_02172570 func_ov003_0217153c
-#endif
 Messages02172e84 *GetGlobalField0x1c020421a0();
 const char *FindEntryByKey_02072a68(TableA68 *table, int key);
 #if defined(jpn)

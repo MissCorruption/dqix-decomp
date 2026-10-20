@@ -137,7 +137,6 @@ struct StoreStruct;
 void StoreInArray0x8b0_020465c0(StoreStruct*, int, int);
 struct Container020e0310;
 char* GetFieldByKey020e0434(Container020e0310*, int);
-extern "C" void func_02011748(void*);
 extern "C" void func_ov003_02170444(void* p);
 extern char data_ov003_0217e99c[];
 extern char data_ov003_0217e9b4[];
@@ -285,7 +284,7 @@ extern "C" ARM void func_ov003_0216c00c(char* obj) {
         ReinitController02043204(g);
         *(short*)(obj + 4) = 7;
         *(short*)(obj + 6) = 0;
-        func_02011748(battle);
+        SetByte0x6480_020119d8(battle);
         func_ov017_021a9ff0(0);
     } else if (state == 0x66) {
         if (*(int*)(g + 0x870) != 0) return;
