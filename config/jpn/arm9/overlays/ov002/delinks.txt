@@ -338,3 +338,7 @@ src/Combat/Overlay_2/SetBytes485And486_021556ec.cpp:
 src/Combat/Overlay_2/SetTag2aIfNotAlreadyFlagged_02155024.cpp:
     complete
     .text start:0x021567a4 end:0x021567dc
+
+src/Combat/Overlay_2/ClearFlagBit1IfEnabled_02156178.cpp:
+    complete
+    .text start:0x0215785c end:0x02157894
