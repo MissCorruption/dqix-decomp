@@ -6,7 +6,6 @@
 #if defined(jpn)
 #define REGIONAL_OFFSET(jp, us) jp
 #define func_ov003_0215f698 func_ov003_0215f89c
-#define func_ov003_02160344 func_ov003_021604f4
 #else
 #define REGIONAL_OFFSET(jp, us) us
 #endif

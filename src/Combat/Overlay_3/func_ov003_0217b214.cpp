@@ -19,6 +19,68 @@ extern "C" int func_ov003_021766e8(void* self);
 extern struct Obj0205eaa0 data_02108760;
 
 // USA: func_ov003_0217b214
+#if defined(jpn)
+extern "C" ARM void func_ov003_0217b214(char* self) {
+    void* elemObj = *(void**)(self + 0x818);
+    int state = *(unsigned char*)(self + 0xf00 + 0xbb);
+
+    if (state == 0) {
+        *(short*)(self + 0xf00 + 0x90) = 0;
+        *(short*)(self + 0xf00 + 0x92) = 0;
+        CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0*)elemObj, 0);
+        (*(unsigned char*)(self + 0xf00 + 0xbb))++;
+        return;
+    }
+
+    if (state == 1) {
+        func_020813ec(elemObj, 0x15);
+        *(short*)(self + 0xf00 + 0x7a) = 0x1d;
+        if (*(short*)(self + 0xf00 + 0x8e) < 0) {
+            *(short*)(self + 0xf00 + 0x8e) = FindMappedMemberId02080468(elemObj, *(short*)(self + 0xf00 + 0x7a));
+        }
+        *(short*)((char*)elemObj + 0x2a) = *(short*)(self + 0xf00 + 0x8e);
+        SetEntryLowNibbleAndElement02080c68(elemObj, *(short*)(self + 0xf00 + 0x7a), 0);
+        func_020813ec(elemObj, *(short*)(self + 0xf00 + 0x7a));
+        ResetWithSub0208203c((struct Obj0208203c*)(self + 0x808));
+        *(void**)(self + 0xf74) = 0;
+        (*(unsigned char*)(self + 0xf00 + 0xbb))++;
+        func_ov003_02177938(self);
+        func_ov003_021749c0(self);
+        return;
+    }
+
+    if (state == 2) {
+        *(void**)(self + 0xf74) = self + 0xf00 + 0x8e;
+        func_ov003_02177938(self);
+        SetEntryLowNibbleAndElement02080c68(elemObj, 0x15, 1);
+        if (func_ov003_021765b4(self)) {
+            DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
+            ResetWithSub0208203c((struct Obj0208203c*)(self + 0x808));
+            *(void**)(self + 0xf74) = 0;
+            if (ComputePositiveCount_02175f90(self) == 0) {
+                *(short*)(self + 0xf00 + 0xb2) = 0x24;
+                CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0*)elemObj, 0);
+                *(unsigned char*)(self + 0xf00 + 0xbb) = 0;
+                *(unsigned short*)(self + 0xf00 + 0xc2) |= 0x20;
+                return;
+            }
+            CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0*)elemObj, 0);
+            *(unsigned char*)(self + 0xf00 + 0xba) = 8;
+            *(unsigned char*)(self + 0xf00 + 0xbb) = 0;
+            SetEntryLowNibbleAndElement02080c68(elemObj, *(short*)(self + 0xf00 + 0x7a), 1);
+            *(short*)(self + 0xf00 + 0x78) = *(short*)(self + 0xf00 + 0x7a);
+            *(short*)(self + 0xf00 + 0x8a) = -1;
+            *(short*)(self + 0xf00 + 0xb6) = 1;
+            return;
+        }
+        if (func_ov003_021766e8(self)) {
+            CallFunc0204c804OnNonMatchingKey((struct Cont0207fdf0*)elemObj, 0);
+            *(unsigned char*)(self + 0xf00 + 0xba) = 3;
+            *(unsigned char*)(self + 0xf00 + 0xbb) = 0;
+        }
+    }
+}
+#else
 extern "C" ARM void func_ov003_0217b214(char* self) {
     void* elemObj = *(void**)(self + 0x89c);
     int state = *(unsigned char*)(self + 0x1000 + 0x3f);
@@ -80,3 +142,4 @@ extern "C" ARM void func_ov003_0217b214(char* self) {
         }
     }
 }
+#endif
