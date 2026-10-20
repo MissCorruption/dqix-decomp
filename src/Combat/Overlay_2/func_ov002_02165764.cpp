@@ -43,10 +43,8 @@ extern "C" char data_02108760;
 #if defined(jpn)
 #undef OBJ
 #define OBJ (self + 0xe20)
-extern "C" void func_ov002_02162acc(char *self);
 extern "C" void func_ov002_0215fc6c(void *obj, int val);
 extern "C" int func_ov002_0215c974(char *self, int id);
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215eadc func_ov002_0215fc6c
 #define func_ov002_0215b720 func_ov002_0215c974
 

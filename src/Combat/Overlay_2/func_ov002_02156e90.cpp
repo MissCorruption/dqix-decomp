@@ -2,7 +2,6 @@
 
 #if defined(jpn)
 #define RG(u, j) (j)
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define data_ov002_0216c99d data_ov002_0216cff9
 #define data_ov002_0216c99e data_ov002_0216cffa
 #else

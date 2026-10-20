@@ -36,11 +36,9 @@ extern "C" char data_02108760;
 // USA: func_ov002_02165378
 #if defined(jpn)
 int TryApplyElemFields0205d5d0(struct StructA0205d5d0 *, int, int, int);
-extern "C" void func_ov002_02162acc(char *self);
 extern "C" int func_ov002_0215ffc8(unsigned char *self);
 extern "C" void func_ov002_0215faa4(char *self);
 extern "C" void func_ov002_0215fe54(void *base, char *dst, int c, int productB, int clampedSum);
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define HasPositiveContainerAndField_0215edc8 func_ov002_0215ffc8
 #define func_ov002_0215e900 func_ov002_0215faa4
 #define func_ov002_0215ece4 func_ov002_0215fe54

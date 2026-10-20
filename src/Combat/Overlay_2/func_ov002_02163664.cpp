@@ -37,10 +37,8 @@ extern "C" char data_02108760[];
 
 // USA: func_ov002_02163664
 #if defined(jpn)
-extern "C" void func_ov002_02162acc(char *self);
 extern "C" int func_ov002_0215c974(char *self, int id);
 extern "C" void func_ov002_0215dfd0(char *self);
-#define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215b720 func_ov002_0215c974
 #define func_ov002_0215ce94 func_ov002_0215dfd0
 extern "C" ARM void func_ov002_02163664(char *base) {
