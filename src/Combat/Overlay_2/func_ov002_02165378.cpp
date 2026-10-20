@@ -34,6 +34,113 @@ extern "C" void func_ov002_02156e90(void *obj);
 extern "C" char data_02108760;
 
 // USA: func_ov002_02165378
+#if defined(jpn)
+int TryApplyElemFields0205d5d0(struct StructA0205d5d0 *, int, int, int);
+extern "C" int func_ov002_02162930(char *self, int flag);
+extern "C" void func_ov002_0215852c(void *self);
+extern "C" void func_ov002_02162acc(char *self);
+extern "C" int func_ov002_0215ffc8(unsigned char *self);
+extern "C" void func_ov002_0215faa4(char *self);
+extern "C" void func_ov002_0215fe54(void *base, char *dst, int c, int productB, int clampedSum);
+#define CheckFlagOrThreshold_02161b48 func_ov002_02162930
+#define func_ov002_02156e90 func_ov002_0215852c
+#define func_ov002_02161cf0 func_ov002_02162acc
+#define HasPositiveContainerAndField_0215edc8 func_ov002_0215ffc8
+#define func_ov002_0215e900 func_ov002_0215faa4
+#define func_ov002_0215ece4 func_ov002_0215fe54
+extern "C" ARM void func_ov002_02165378(char *self) {
+    int state = *(int *) (self + 0x1a88);
+    if (state == 0) {
+        if (!HasPositiveContainerAndField_0215edc8((unsigned char *) self)) {
+            return;
+        }
+        *(short *) (self + 0x1aee) = -1;
+        *(short *) (self + 0x1ac0) = 0;
+        func_ov002_02157174(self, *(signed char *) (self + *(short *) (self + 0x1ac0) + 0x1b32));
+        FindAndLinkMatchingEntry0205de24((struct Struct0205de24 *) (self + 0xe20), 0, 2);
+        func_ov002_02161cf0(self);
+        func_ov002_0215e900(self);
+        *(short *) (self + 0x1ac2)         = 0;
+        *(short *) (self + 0x1ac0)         = 0;
+        *(unsigned char *) (self + 0x1ae8) = *(signed char *) (self + *(short *) (self + 0x1ac0) + 0x1b32);
+        memset(*(void **) (self + 0x1a98), 0, 0x800);
+        func_ov002_0215ece4(self, *(char **) (self + 0x1a98), *(signed char *) (self + 0x1ae8), 0, 8);
+        int on = 0;
+        if ((short) ((*(unsigned char *) (self + 0x2350) + 7) / 8) > 1) {
+            on = 1;
+        }
+        char *e = FindElementByC40205d81c((struct Struct_0205d81c *) (self + 0xe20), 0x12);
+        if (e != 0) {
+            SetOrClearByteC5Bit8_0216574c(e, on);
+        }
+        TryApplyElemFields0205d5d0((struct StructA0205d5d0 *) (self + 0xe20), 0x12,
+                                                             *(int *) (self + 0x1a98), 1);
+        *(int *) (self + 0x1a88) += 1;
+        return;
+    }
+    if (state != 1) {
+        return;
+    }
+    *(unsigned int *) (self + 0x22ac) |= 4;
+    short old = *(short *) (self + 0x1ac0);
+    *(short *) (self + 0x1ac0) =
+        GetActiveScaledSum0205d794((struct Struct_0205c570 *) (self + 0xe20));
+    *(unsigned char *) (self + 0x1ae8) = *(signed char *) (self + *(short *) (self + 0x1ac0) + 0x1b32);
+    if (old != *(short *) (self + 0x1ac0)) {
+        func_ov002_02157174(self, *(signed char *) (self + 0x1ae8));
+        memset(*(void **) (self + 0x1a98), 0, 0x800);
+        func_ov002_0215ece4(self, *(char **) (self + 0x1a98), *(signed char *) (self + 0x1ae8), 0, 8);
+        int on = 0;
+        if ((short) ((*(unsigned char *) (self + 0x2350) + 7) / 8) > 1) {
+            on = 1;
+        }
+        char *e = FindElementByC40205d81c((struct Struct_0205d81c *) (self + 0xe20), 0x12);
+        if (e != 0) {
+            SetOrClearByteC5Bit8_0216574c(e, on);
+        }
+        TryApplyElemFields0205d5d0((struct StructA0205d5d0 *) (self + 0xe20), 0x12,
+                                                             *(int *) (self + 0x1a98), 1);
+        return;
+    }
+    int t  = g_keyManager.TestKeysPressed(0x601);
+    int u  = IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0xe20), 0x14);
+    int ok = (t | u) ? 1 : 0;
+    if (ok || func_0205df38(self + 0xe20, 0x12) != 0) {
+        if (*(unsigned int *) (self + 0x22ac) & 2) {
+            return;
+        }
+        TeardownAndResetState020d7aa0(GetGlobalResetObj020d7a50());
+        *(unsigned char *) (self + 0xed8) = *(int *) (self + 0x1a80);
+        *(unsigned int *) (self + 0x22ac) &= ~4;
+        DispatchWithShortB4_0205eaa0((struct Obj0205eaa0 *) &data_02108760, 1, 0);
+        *(int *) (self + 0x1a80) = 0x12;
+        *(int *) (self + 0x1a88) = 0;
+        if (IsFlagAt130Bit0Set_0216364c(
+                GameState::GetInstance()->GetPartyMemberByIndex(*(signed char *) (self + 0x1ae8))))
+        {
+            *(short *) (self + 0x1af0) = 0x2332;
+            *(short *) (self + 0x1af2) = -1;
+            *(int *) (self + 0x1a80)   = 0x29;
+            *(int *) (self + 0x1a84)   = 0x11;
+            return;
+        }
+        if (*(unsigned char *) (self + 0x2350) != 0) {
+            *(int *) (self + 0x1a80) = 0x12;
+            return;
+        }
+        *(short *) (self + 0x1af0) = 0x232e;
+        *(short *) (self + 0x1af2) = -1;
+        *(int *) (self + 0x1a80)   = 0x29;
+        *(int *) (self + 0x1a84)   = 0x11;
+        return;
+    }
+    if (CheckFlagOrThreshold_02161b48(self, 1)) {
+        *(short *) (self + 0x1ac0)       = -1;
+        *(signed char *) (self + 0x1ae8) = -1;
+        func_ov002_02156e90(self);
+    }
+}
+#else
 extern "C" ARM void func_ov002_02165378(char *self) {
     int state = *(int *) (self + 0x1bc0);
     if (state == 0) {
@@ -126,3 +233,4 @@ extern "C" ARM void func_ov002_02165378(char *self) {
         func_ov002_02156e90(self);
     }
 }
+#endif
