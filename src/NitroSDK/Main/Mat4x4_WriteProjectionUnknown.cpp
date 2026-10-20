@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 
 #define REG_DIV_NUMER (*(uint64_t*)0x04000290)
 #define REG_DIV_DENOM (*(uint64_t*)0x04000298)

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 bool IsContextInactive(ProcessorContext *context);
 extern "C" void func_020c7e0c(void *a, int b, int c);

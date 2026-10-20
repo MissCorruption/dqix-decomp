@@ -26,11 +26,6 @@ struct Field4328 {
     unsigned char active;
 };
 
-struct Input02114e54 {
-    char pad0[0x40];
-    int count;
-};
-
 struct Actor020a78dc {
     char pad0[0x44];
     struct Vec3 pos;
@@ -69,7 +64,6 @@ short GetShortAt0x22e(struct ShortField0x22e_020968c4*);
 #define data_020e90a8 data_020e91b4
 #endif
 extern struct AngleTable data_020e90a8;
-extern struct Input02114e54 data_02114e54;
 
 // USA: func_020a78dc
 extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
@@ -118,7 +112,7 @@ extern "C" ARM void func_020a78dc(struct Actor020a78dc* self) {
         self->dir = 0xb;
     }
 
-    if (data_02114e54.count >= 5) {
+    if (g_touchInput.timeHeld_ >= 5) {
         self->mode = 2;
         struct Vec3 b;
         struct Vec3 a;

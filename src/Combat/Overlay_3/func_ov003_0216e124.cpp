@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 extern "C" int func_0205d0e0(void* p, int val);
 extern "C" int func_ov023_021e2868(void* obj);
-extern unsigned char data_02114e54;
 
 struct Block16Words0216e124 { unsigned int w[16]; };
 extern struct Block16Words0216e124 data_ov003_0217f5c0;
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov003_0216e124(struct Obj0216e124* obj) {
     }
     if (obj->fieldD4 != 0) {
         obj->fieldC = (short)func_ov023_021e2868(obj->fieldD4);
-        if (*(&data_02114e54 + 0x55) != 0) {
+        if (g_touchInput.pressed_ != 0) {
             obj->fieldE = obj->fieldC;
         } else {
             obj->fieldE = 0;

@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
 #if defined(jpn)

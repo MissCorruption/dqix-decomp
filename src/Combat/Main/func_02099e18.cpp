@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/Model3D.h"
 #include "Graphics/VRAMStaging.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 struct PaletteBlock02099e18 { unsigned int values[3]; };
 extern unsigned short data_02109928[][2] __attribute__((aligned(4)));
 extern unsigned short data_021099b0[][8] __attribute__((aligned(4)));

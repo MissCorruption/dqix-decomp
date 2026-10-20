@@ -1,8 +1,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/ColorEffects.h"
-#include "System/Graphics.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
 #include <globaldefs.h>
 
 struct Background0216b07c {

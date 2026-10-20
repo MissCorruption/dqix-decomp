@@ -268,7 +268,7 @@ def main():
         region_defines = "-d usa -d eur" if args.version == "eur" else "-d $game_version"
         mwcc_cmd = (f'$python tools/mwcc.py $basefile.o {WINE} "$cc_exe" {CC_FLAGS} {CC_INCLUDES} $cc_flags '
                     f'{region_defines} -MD -c $in -o $basedir')
-        mwcc_implicit = [CC, "tools/mwcc.py"] + WINE_DEP
+        mwcc_implicit = [CC, "tools/mwcc.py", "tools/dead_functions.txt"] + WINE_DEP
         if platform.system != "windows":
             transform_dep = "tools/transform_dep.py"
             mwcc_cmd += f" && $python {transform_dep} $basefile.d $basefile.d"

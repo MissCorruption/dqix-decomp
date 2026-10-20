@@ -4,7 +4,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
 struct Obj0204b010;

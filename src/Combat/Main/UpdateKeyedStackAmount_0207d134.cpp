@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 #include "GameState/GameState.h"
 
 struct Container020dedd0;

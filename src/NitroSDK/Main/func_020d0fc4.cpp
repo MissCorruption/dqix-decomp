@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Filesystem/CardReadManager.h"
-#include "System/IPC.h"
-#include "System/Cache.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/Filesystem/CardReadManager.h"
+#include "NitroSDK/IPC.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Interrupts.h"
 
 #define READ_MANAGER_FLAG_INIT_REQUEST_SENT 1
 #define IPC_COMMAND_CARD 11

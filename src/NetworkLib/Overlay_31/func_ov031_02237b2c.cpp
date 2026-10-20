@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <Resource/UiArrayEntry.h>
-#include <System/ColorEffects.h>
+#include <NitroSDK/ColorEffects.h>
 
 struct FourShorts_0223cb1c { unsigned short l; unsigned short t; unsigned short r; unsigned short b; };
 struct Obj0223bcc8;

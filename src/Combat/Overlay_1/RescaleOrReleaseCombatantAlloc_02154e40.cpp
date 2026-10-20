@@ -2,7 +2,7 @@
 #include "Resource/FontBankLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 void SetFlag0x2IfByte0xd4Not3_0208beb4(unsigned char* obj);
 extern "C" void func_0208bb78(void* obj, int count);

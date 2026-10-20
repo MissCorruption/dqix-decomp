@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" extern int LoadToMainBG2ScreenData(int arg0, int arg1, unsigned int arg2);
 

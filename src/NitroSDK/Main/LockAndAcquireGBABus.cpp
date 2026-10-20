@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/GamecardBusOwnership.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/GamecardBusOwnership.h"
+#include "NitroSDK/Interrupts.h"
 
 extern "C" void WaitByLoop(int);
 unsigned short GetLockOwner(GamecardBusLock* lock);

@@ -3,7 +3,7 @@
 #include "World/Zone3D.h"
 #include "Resource/Script.h"
 #include "GameState/GameState.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 extern Script::OpcodeLookupEntry data_020ef388[];
 

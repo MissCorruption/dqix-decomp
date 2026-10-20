@@ -22,9 +22,6 @@ struct Entry0216efdc;
 Entry0216efdc *FindEntryByShortId_0216f414(Obj_0216f414 *list, int id);
 int TestBitInByteArray_0206dfb0(int a, unsigned char *bits, int index);
 extern "C" void func_0206df6c(void *a, unsigned char *bits, int index, int set);
-int CheckByteSetAndByteClear_02012aac(unsigned char *p);
-
-extern char data_02114e54;
 
 struct Entry0216efdc {
     unsigned char pad0[0x16];
@@ -200,7 +197,7 @@ extern "C" ARM void func_ov003_0216efdc(Menu0216efdc *self) {
             if (self->unk_c < 6) {
                 return;
             }
-            if (CheckByteSetAndByteClear_02012aac((unsigned char *) &data_02114e54) == 0) {
+            if (g_touchInput.IsPressed() == 0) {
                 return;
             }
             self->unk_6 = self->unk_c - 6;

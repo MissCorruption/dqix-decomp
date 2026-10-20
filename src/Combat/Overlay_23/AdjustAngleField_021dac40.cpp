@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ColorEffects.h"
+#include "NitroSDK/ColorEffects.h"
 
 #if defined(jpn)
 #define func_ov023_021dac40 func_ov023_021db4b4

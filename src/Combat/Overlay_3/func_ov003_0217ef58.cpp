@@ -6,7 +6,7 @@ enum { kRegion1414 = 0x1414 };
 #endif
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
 

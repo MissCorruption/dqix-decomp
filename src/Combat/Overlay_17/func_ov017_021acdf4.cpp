@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "World/Object3D.h"
 #include "Input/Input.h"
 #include "Resource/Brightness.h"
@@ -161,7 +161,6 @@ extern "C" void func_ov017_021adb1c(Battle021acdf4* self);
 extern AllocatorUnion data_02114e20;
 extern char data_ov017_021d795c;
 extern char data_ov017_021d7978;
-extern unsigned char data_02114e54[];
 extern char data_02108760;
 extern char data_ov017_021d798f;
 
@@ -226,7 +225,7 @@ extern "C" ARM void func_ov017_021acdf4(Battle021acdf4* self, HeadList020469f8* 
             return;
         }
         if (self->special && !self->noEvent) {
-            if (g_keyManager.TestKeysPressed(0x401) == 0 && data_02114e54[0x54] == 0) {
+            if (g_keyManager.TestKeysPressed(0x401) == 0 && g_touchInput.released_ == 0) {
                 return;
             }
         }

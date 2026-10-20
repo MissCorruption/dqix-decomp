@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 extern int data_ov000_02184220;
 

@@ -1,6 +1,6 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include <globaldefs.h>
 
 struct Background0216e2a4 {

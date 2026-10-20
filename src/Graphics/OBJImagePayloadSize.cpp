@@ -1,5 +1,5 @@
 #include "Graphics/OBJImage.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "std_library_functions.h"
 #include <globaldefs.h>
 

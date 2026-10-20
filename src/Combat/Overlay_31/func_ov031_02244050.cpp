@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Timing.h"
+#include "NitroSDK/Timing.h"
 #include "std_library_functions.h"
 
 struct SessionRecord02244050 {

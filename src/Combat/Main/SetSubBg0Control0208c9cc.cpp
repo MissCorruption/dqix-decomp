@@ -1,6 +1,6 @@
 // KEEP-NAME
 #include <globaldefs.h>
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 // USA: func_0208c9cc
 ARM void SetSubBg0Control0208c9cc(int screenSize, int colorMode, int screenBase, int charBase, int extendedPaletteSlot) {

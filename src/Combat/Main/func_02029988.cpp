@@ -42,19 +42,6 @@ struct DebugMenu {
     unsigned char touchBar;
 };
 
-struct TouchInput {
-    char padding_0[0x24];
-    unsigned short held;
-    char padding_26[0x12];
-    int x;
-    int y;
-    char padding_40[0x14];
-    unsigned char released;
-    unsigned char pressed;
-    char padding_56[9];
-    unsigned char down;
-};
-
 struct Metrics020ef74c {
     int field_0;
     int rowHeight;
@@ -87,7 +74,6 @@ struct WrapField_0202a678;
 
 extern "C" void func_02029634(DebugMenu* menu, int ticks);
 DebugMenuItem* GetNodeAtIndex(IndexList_0202a9ac*, int);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 void SetState0x6cAndInvoke(Callback_0202a91c*);
 void Deactivate0202a8cc(char*, int);
 void FormatAndDispatch0202ad98(int a, int b, int c, const char* fmt, ...);
@@ -99,7 +85,6 @@ int SetupViewport02029384(int, int, int, int);
 void PackRegister02029470(int, int, int, int, int, int);
 extern "C" void func_020292ec(int a0, int a1, int a2, int a3, int a4);
 
-extern TouchInput data_02114e54;
 extern Metrics020ef74c data_020ef74c;
 extern TextColor020fe9a4 data_020fe9a4;
 extern const char data_020ef75c[];
@@ -146,10 +131,10 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
         barY = menu->y + scale * (menu->visibleFirst - first);
 
         if (menu->touchEnabled) {
-            if (data_02114e54.pressed) {
+            if (g_touchInput.pressed_) {
                 int tx, ty;
                 menu->touching = 1;
-                SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &tx, &ty);
+                g_touchInput.GetTouchPoint(&tx, &ty);
                 if (menu->x < tx && tx < menu->x + menu->width - 12 &&
                     menu->y < ty && ty < menu->y + menu->height) {
                     menu->touchList = 1;
@@ -157,9 +142,9 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                            menu->y < ty && ty < menu->y + menu->height) {
                     menu->touchBar = 1;
                 }
-            } else if (menu->touching && menu->touchList && data_02114e54.down && data_02114e54.held) {
+            } else if (menu->touching && menu->touchList && g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) {
                 int tx, ty;
-                SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &tx, &ty);
+                g_touchInput.GetTouchPoint(&tx, &ty);
                 if (menu->x < tx && tx < menu->x + menu->width - 12 &&
                     menu->y < ty && ty < menu->y + menu->height) {
                     int row = (ty - menu->y) / data_020ef74c.rowHeight - 1;
@@ -170,9 +155,9 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                         }
                     }
                 }
-            } else if (menu->touching && menu->touchBar && data_02114e54.down && data_02114e54.held) {
+            } else if (menu->touching && menu->touchBar && g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) {
                 int tx, ty;
-                SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &tx, &ty);
+                g_touchInput.GetTouchPoint(&tx, &ty);
                 barY = ty - barH / 2;
                 if (barY < menu->y) {
                     barY = menu->y;
@@ -183,9 +168,9 @@ extern "C" ARM void func_02029988(DebugMenu* menu, int ticks) {
                 menu->visibleLast = menu->visibleFirst + extra;
                 if (menu->selected < menu->visibleFirst) menu->selected = menu->visibleFirst;
                 if (menu->visibleLast < menu->selected) menu->selected = menu->visibleLast;
-            } else if (menu->touching && data_02114e54.released) {
-                int tx = data_02114e54.x;
-                int ty = data_02114e54.y;
+            } else if (menu->touching && g_touchInput.released_) {
+                int tx = g_touchInput.prevX_;
+                int ty = g_touchInput.prevY_;
                 if (menu->touchList &&
                     menu->x < tx && tx < menu->x + menu->width - 12 &&
                     menu->y < ty && ty < menu->y + menu->height) {

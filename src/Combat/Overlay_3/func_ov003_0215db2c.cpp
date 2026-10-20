@@ -17,6 +17,7 @@ enum { kRegion98 = 0x98 };
 #endif
 
 #include "std_library_functions.h"
+#include "Input/Input.h"
 
 struct StructA0205d5d0;
 #if defined(jpn)
@@ -25,14 +26,6 @@ struct StructA0205d5d0;
 #endif
 void AppendEntryNames_0215e13c(char* base, char* dst, int flag);
 void SetupFieldAndFormat_0215de6c(char* base, void* buf);
-
-struct TouchState_02114e54 {
-    char unk_0[0x24];
-    unsigned short field_0x24;
-    char unk_26[0x5f - 0x26];
-    unsigned char field_0x5f;
-};
-extern struct TouchState_02114e54 data_02114e54;
 
 struct MenuCursor_0215db2c {
     char unk_0[0x30];
@@ -51,7 +44,7 @@ extern "C" ARM void func_ov003_0215db2c(char* self) {
     unsigned char mode = *(unsigned char*)(self + kRegion3ba);
     if (mode != 0) {
         int flag = 0;
-        if (mode == 2 && data_02114e54.field_0x5f != 0 && data_02114e54.field_0x24 != 0) {
+        if (mode == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
             if (GetCursor((struct MenuList_0215db2c*)(self + kRegion98))->index < 0) {
                 return;
             }

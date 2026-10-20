@@ -2,8 +2,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory.h"
 
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac

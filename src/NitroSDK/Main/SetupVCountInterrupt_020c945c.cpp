@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 extern "C" void func_020c94e4(void);
 void SetVCountCompare_020c383c(int lyc);

@@ -10,7 +10,7 @@ extern "C" int func_020e04f8(void*, void*, const char*, short, bool);
 #include "Combat/Main/BattleList.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "Graphics/LightingManager.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"

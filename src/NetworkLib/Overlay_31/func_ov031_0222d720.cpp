@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 typedef void (*Init_0222d720)(char*);
 struct InitTable_0222d720 { Init_0222d720 funcs[5]; };

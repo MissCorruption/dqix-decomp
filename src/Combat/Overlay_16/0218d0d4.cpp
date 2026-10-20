@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/BGBases.h>
+#include <NitroSDK/BGBases.h>
 
 struct RangeEntry020e58dc { int field0; int field4; int lo; int hi; int field10; };
 struct RangeList020e58dc { RangeEntry020e58dc* base; int field4; int count; };

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Md5State020c0328;
 void InitMd5State(struct Md5State020c0328* state);

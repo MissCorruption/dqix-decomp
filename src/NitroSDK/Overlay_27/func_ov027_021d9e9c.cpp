@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "Filesystem/FileAccessor.h"
-#include "Filesystem/LowNitroHandle.h"
-#include "Filesystem/NitroVM.h"
-#include "System/Cache.h"
-#include "System/Memory.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Memory.h"
 
 struct MBiCacheInfo
 {

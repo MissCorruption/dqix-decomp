@@ -4,7 +4,7 @@ unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int mask);
 int GetBattleStateCode_020d41e8(void);
 extern "C" int func_020d424c(int a, int b);
-#include "System/IPC.h"
+#include "NitroSDK/IPC.h"
 
 void ClearBit0At027FFF96_020d468c(void);
 void SetArm9IPCCommandHandler(int command, IPCCommandHandler handler);

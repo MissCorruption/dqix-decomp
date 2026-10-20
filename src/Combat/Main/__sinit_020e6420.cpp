@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 #pragma define_section initcode ".init" RX
 

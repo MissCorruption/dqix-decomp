@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 struct LocalRes020b07c0 {
     int f0;

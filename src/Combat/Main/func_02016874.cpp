@@ -2,7 +2,7 @@
 #include "World/Zone3D.h"
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 
 struct CombatEntryList;
 struct RenderFlags02016874 {

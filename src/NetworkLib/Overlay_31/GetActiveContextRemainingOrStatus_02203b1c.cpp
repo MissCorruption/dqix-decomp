@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 int GetRemainingOrStatus_0220a800(char* self);
 

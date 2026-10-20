@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 extern "C" void func_02047554(void* object, int mode, int param1, int value);
 

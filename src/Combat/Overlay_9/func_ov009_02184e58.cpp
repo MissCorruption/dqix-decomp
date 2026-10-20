@@ -2,7 +2,7 @@
 #include <std_library_functions.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 struct BackgroundGraphics {
     char unk_0[0x1c];

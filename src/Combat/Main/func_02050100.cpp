@@ -2,7 +2,7 @@
 #define func_0204f7e8 func_02050cc0
 #endif
 #include <globaldefs.h>
-#include <System/Cache.h>
+#include <NitroSDK/Cache.h>
 #include <std_library_functions.h>
 
 struct WindowReference02050100 {

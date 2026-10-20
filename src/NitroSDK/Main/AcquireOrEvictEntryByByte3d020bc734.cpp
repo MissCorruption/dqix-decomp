@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 struct Obj020bc6fc;
 void DispatchType2Command020bc6fc(struct Obj020bc6fc* obj);

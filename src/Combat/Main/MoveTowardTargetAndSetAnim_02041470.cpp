@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "World/Object3D.h"
 
 ARM void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);

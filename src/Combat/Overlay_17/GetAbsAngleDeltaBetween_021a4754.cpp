@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct Vec3 { int x, y, z; };
 short GetAngleDeltaBetween_021a4700(struct Vec3* p0, int baseAngle, struct Vec3* p2);

@@ -2,6 +2,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define MENU_SHIFT 4
@@ -20,13 +21,6 @@ struct Grid0216aa28 {
 struct GridList0216aa28 {
     int header;
     struct Grid0216aa28 grids[2];
-};
-
-struct TouchState_02114e54 {
-    char unk_0[0x24];
-    unsigned short field_0x24;
-    char unk_26[0x5f - 0x26];
-    unsigned char field_0x5f;
 };
 
 struct Container020e0310;
@@ -54,8 +48,6 @@ struct Ptr2a04_0216aa28 {
 
 struct StoreStruct;
 
-extern struct TouchState_02114e54 data_02114e54;
-
 const char* GetFieldByKey020e0434(struct Container020e0310* c, int key);
 int AppendString02042058(char* dst, const char* src);
 #if defined(jpn)
@@ -79,7 +71,7 @@ extern "C" ARM void func_ov003_0216aa28(struct Menu0216aa28* menu) {
     if (mode != 0) {
         int flag = 0;
         if (mode == 2) {
-            if (data_02114e54.field_0x5f != 0 && data_02114e54.field_0x24 != 0) {
+            if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
                 if (GetGrid(&menu->list)->cursor >= 0) {
                     flag = 1;
                 } else if (menu->selection >= 0) {

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #include "Filesystem/BackupDevice.h"
-#include "Filesystem/FSInnerDefs.h"
-#include "System/Interrupts.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/Filesystem/FSInnerDefs.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
 
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac

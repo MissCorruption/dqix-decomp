@@ -3,7 +3,7 @@
 #include "Graphics/LightingManager.h"
 #include "World/ZoneObjectResourceLoading.h"
 #include "Filesystem/FileIO.h"
-#include "Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
 
 struct ModelTracker14D {
     short status, field2;

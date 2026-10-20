@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Memory.h>
+#include <NitroSDK/Memory.h>
 
 struct ParamA020b1d70;
 ARM int FindFirstZeroByte_0223dd34(unsigned char* s, int len);

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
 class HudNode {

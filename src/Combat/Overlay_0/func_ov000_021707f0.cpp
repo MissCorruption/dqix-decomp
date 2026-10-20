@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
-#include <System/Cache.h>
-#include <System/LoadToVRAM.h>
+#include <NitroSDK/Cache.h>
+#include <NitroSDK/LoadToVRAM.h>
 
 struct Struct_0205d81c;
 struct ShortArrays0204c610;

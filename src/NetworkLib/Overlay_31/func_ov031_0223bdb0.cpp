@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <Graphics/NSBXX/RenderCommands_Common.h>
+#include <NitroSDK/NSBXX/RenderCommands_Common.h>
 
 #if defined(jpn)
 #define func_020ca3ec func_020cbeb8

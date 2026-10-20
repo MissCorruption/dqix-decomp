@@ -1,12 +1,12 @@
 #pragma ipa file
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "Combat/Main/MessageSlotTable.h"
 #include "Resource/FontBankLoader.h"
 #include "World/ZoneLootableRecord.h"

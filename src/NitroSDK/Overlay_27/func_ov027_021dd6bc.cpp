@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Ctx021dd6bc {
 	unsigned char pad0[4];

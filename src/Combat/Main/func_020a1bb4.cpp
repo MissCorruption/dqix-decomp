@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "System/Mutex.h"
+#include "NitroSDK/Mutex.h"
 #include "Resource/ResourceMutex.h"
-#include "Filesystem/OverlayFSManagement.h"
+#include "NitroSDK/Filesystem/OverlayFSManagement.h"
 
 void DispatchByFlag020d9834(int flag);
 void CallAndReturnTrue020cd584(OverlayMetadata* meta);

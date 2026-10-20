@@ -18,7 +18,6 @@
 //    .text start:0x020c6954 end:0x020c6c90
 //    complete
 //    .text start:0x020c75b4 end:0x020c7d34
-
 src/Combat/Main/GetCRC16_0200006a.s:
     complete
     .text start:0x02000068 end:0x02000070
@@ -1260,83 +1259,7 @@ src/Combat/Main/ResetAndFinalizeSubMember.cpp:
 
 src/Input/Input.cpp:
     complete
-    .text start:0x02012244 end:0x02012530
-
-src/Combat/Main/BlankFunction02012530.cpp:
-    complete
-    .text start:0x02012530 end:0x02012534
-
-src/Combat/Main/EmptyStub02012534.cpp:
-    complete
-    .text start:0x02012534 end:0x02012538
-
-src/Combat/Main/func_02012538.cpp:
-    complete
-    .text start:0x02012538 end:0x02012734
-
-src/Combat/Main/IsWithinRect.cpp:
-    complete
-    .text start:0x02012734 end:0x02012780
-
-src/Combat/Main/ClearBytes0x50To0x53.cpp:
-    complete
-    .text start:0x02012780 end:0x02012798
-
-src/Combat/Main/ComputeTargetDistance02012798.cpp:
-    complete
-    .text start:0x02012798 end:0x020127cc
-
-src/Combat/Main/SetCompareFlags0x50To0x53.cpp:
-    complete
-    .text start:0x020127cc end:0x0201282c
-
-src/Combat/Main/InitBattlerContext0201282c.cpp:
-    complete
-    .text start:0x0201282c end:0x0201289c
-
-src/Combat/Main/ResetBattlerState0201289c.cpp:
-    complete
-    .text start:0x0201289c end:0x020128d8
-
-src/Combat/Main/SaveAndDisableBattlerState020128d8.cpp:
-    complete
-    .text start:0x020128d8 end:0x02012938
-
-src/Combat/Main/ResetAndSyncBattlerFields02012938.cpp:
-    complete
-    .text start:0x02012938 end:0x020129b4
-
-src/Combat/Main/UpdateTargetTrackingState.cpp:
-    complete
-    .text start:0x020129b4 end:0x02012a84
-
-src/Combat/Main/SelectCoordsByFlag0x24.cpp:
-    complete
-    .text start:0x02012a84 end:0x02012aac
-
-src/Combat/Main/CheckByteSetAndByteClear.cpp:
-    complete
-    .text start:0x02012aac end:0x02012ad0
-
-src/Combat/Main/TickByteFlagCounter02012ad0.cpp:
-    complete
-    .text start:0x02012ad0 end:0x02012b54
-
-src/Combat/Main/AreCoordsOutOfBounds.cpp:
-    complete
-    .text start:0x02012b54 end:0x02012ba8
-
-src/Combat/Main/SetByte0x6102012ba8.cpp:
-    complete
-    .text start:0x02012ba8 end:0x02012bb0
-
-src/Combat/Main/TailForward02012bb0.cpp:
-    complete
-    .text start:0x02012bb0 end:0x02012bbc
-
-src/Combat/Main/ClearByte0x62IfArg0x10.cpp:
-    complete
-    .text start:0x02012bbc end:0x02012bd8
+    .text start:0x02012244 end:0x02012bd8
 
 src/Combat/Main/InitOverlay17ObjAndBumpBattleCounter02012bd8.cpp:
     complete
@@ -9678,7 +9601,7 @@ src/Combat/Main/GetClampedRateMultiplier.cpp:
 src/Combat/Main/TensionBonusCalculation.cpp:
 	complete
 	.text start:0x02074764 end:0x020747a4
-	
+
 src/Combat/Main/CritRateCalculation.cpp:
 	complete
 	.text start:0x020747a4 end:0x02074838
@@ -17385,61 +17308,10 @@ src/Combat/Main/func_020cd5d4_020cd5d4.s:
     complete
     .text start:0x020cd5d4 end:0x020cd610
 
-src/NitroSDK/Main/func_020cd610.cpp:
+src/NitroSDK/TouchScreen.cpp:
     complete
-    .text start:0x020cd610 end:0x020cd890
-
-src/NitroSDK/Main/InitIPCCommandDispatch020cd890.cpp:
-    complete
-    .text start:0x020cd890 end:0x020cd908
-
-src/NitroSDK/Main/func_020cd908.cpp:
-    complete
-    .text start:0x020cd908 end:0x020cd99c
-
-src/NitroSDK/Main/func_020cd99c.cpp:
-    complete
-    .text start:0x020cd99c end:0x020cdac4
-
-src/NitroSDK/Main/StoreValueWithInterruptsDisabled020cdac4.cpp:
-    complete
-    .text start:0x020cdac4 end:0x020cdae4
-
-src/NitroSDK/Main/func_020cdae4.cpp:
-    complete
-    .text start:0x020cdae4 end:0x020cdbe4
-
-src/NitroSDK/Main/SendArm7CommandAndUpdateFlags020cdbe4.cpp:
-    complete
-    .text start:0x020cdbe4 end:0x020cdc7c
-
-src/NitroSDK/Main/func_020cdc7c.cpp:
-    complete
-    .text start:0x020cdc7c end:0x020cddc0
-
-src/NitroSDK/Main/PrepareAndProcess020cddc0.cpp:
-    complete
-    .text start:0x020cddc0 end:0x020cdddc
-
-src/NitroSDK/Main/GetHalfword021117b0At0x10.cpp:
-    complete
-    .text start:0x020cdddc end:0x020cddec
-
-src/NitroSDK/Main/func_020cddec.cpp:
-    complete
-    .text start:0x020cddec end:0x020cdfd8
-
-src/NitroSDK/Main/func_020cdfd8.cpp:
-    complete
-    .text start:0x020cdfd8 end:0x020ce0fc
-
-src/NitroSDK/Main/WaitWhileFlagsSet.cpp:
-    complete
-    .text start:0x020ce0fc end:0x020ce114
-
-src/NitroSDK/Main/GetMaskedStatus.cpp:
-    complete
-    .text start:0x020ce114 end:0x020ce128
+    .text start:0x020cd610 end:0x020ce128
+    .bss start:0x021117b0 end:0x021117ec
 
 src/NitroSDK/Main/TryAcquireLock.cpp:
     complete
@@ -20626,21 +20498,17 @@ src/NitroSDK/Main/func_020c1280.s:
     complete
     .text start:0x020c1280 end:0x020c129c
 
-
 src/NitroSDK/Main/func_020ca95c.s:
     complete
     .text start:0x020ca95c end:0x020caa10
-
 
 src/Runtime/Main/func_0200c700.s:
     complete
     .text start:0x0200c700 end:0x0200c76c
 
-
 src/Runtime/Main/func_0200c76c.s:
     complete
     .text start:0x0200c76c end:0x0200c7d4
-
 
 src/NitroSDK/Main/func_020b20b0.cpp:
     complete

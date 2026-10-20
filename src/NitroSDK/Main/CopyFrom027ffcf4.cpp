@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_020c99ac
 extern "C" ARM void CopyFrom027ffcf4_020c99ac(void* dst) {

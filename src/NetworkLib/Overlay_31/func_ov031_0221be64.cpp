@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 extern unsigned char data_ov031_022460c4[];
 extern unsigned char data_ov031_022460cc[];

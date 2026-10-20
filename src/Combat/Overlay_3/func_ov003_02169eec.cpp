@@ -42,7 +42,6 @@ void ClearFields_0216a85c(S0216a85c* obj);
 unsigned char* FindElementForFieldB0_0205d8c4(Struct_0205d81c* chan);
 void GetFourSubstructPointers_0204f138(unsigned char* elem, unsigned char** a, unsigned char** b, unsigned char** c,
                               unsigned char** d);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* input, int* x, int* y);
 void SetFieldAt0x30_0205bc24(void* obj, int v);
 int UpdateActiveState0205bc2c(Struct_0205bc2c*, int);
 int GetScaledSumIfActive0205bd04(Struct_0205bd04* obj);
@@ -58,17 +57,6 @@ void DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
 void ClearChannelAFlag0205cf10(void* chan);
 void ClearFlagByte0205cf1c(Struct0205cf1c* chan);
 
-struct InputState {
-    char pad0[0x24];
-    unsigned short h24;
-    char pad26[0x2e];
-    unsigned char b54;
-    unsigned char b55;
-    char pad56[9];
-    unsigned char b5f;
-};
-
-extern InputState data_02114e54;
 extern unsigned char data_ov003_0217f544[];
 extern unsigned char data_ov003_0217f545[];
 extern unsigned char data_ov003_0217f546[];
@@ -186,12 +174,12 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
         signed char cur;
         signed char* cells = self->cells;
         cur = self->cursor;
-        if (data_02114e54.b55 != 0 || (data_02114e54.b5f != 0 && data_02114e54.h24 != 0) ||
-            data_02114e54.b54 != 0) {
-            SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &ax, &ay);
+        if (g_touchInput.pressed_ != 0 || (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ||
+            g_touchInput.released_ != 0) {
+            g_touchInput.GetTouchPoint(&ax, &ay);
             int r8 = (FindElementForFieldB0_0205d8c4((Struct_0205d81c*)self->chan)[0xc5] & 2) != 0;
             unsigned char r7 = 0;
-            if (data_02114e54.b55 != 0) {
+            if (g_touchInput.pressed_ != 0) {
                 short bx = GetBX(self);
                 short by = GetBY(self);
                 int idx = self->cursor;
@@ -243,12 +231,12 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                     }
                 }
             } else {
-                int active = (data_02114e54.b5f != 0 && data_02114e54.h24 != 0);
-                unsigned char b5f = data_02114e54.b5f;
-                if (!(active == 0 && data_02114e54.b54 == 0)) {
+                int active = (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0);
+                unsigned char b5f = g_touchInput.isRepeatValid_;
+                if (!(active == 0 && g_touchInput.released_ == 0)) {
                     if (self->b59d != 0) {
                         r7 = 1;
-                        if (b5f != 0 && data_02114e54.h24 != 0) {
+                        if (b5f != 0 && g_touchInput.currentReading_.isHeld != 0) {
                             if (sb < (unsigned int)self->b59e) {
                                 self->b59e -= sb;
                             } else {
@@ -264,7 +252,7 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                                 self->code = 2;
                             }
                         }
-                        if (data_02114e54.b54 != 0) {
+                        if (g_touchInput.released_ != 0) {
                             if (self->b588 != 0) {
                                 self->code = 4;
                             } else {
@@ -286,7 +274,7 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
                     func_ov003_021696f4(self, after);
                 }
             }
-            if (r8 != 0 && data_02114e54.b54 != 0) {
+            if (r8 != 0 && g_touchInput.released_ != 0) {
                 if (func_ov003_02169674(self, ax, ay, &self->rectB) < 0) {
                     self->code = 3;
                 }
@@ -342,8 +330,8 @@ extern "C" ARM int func_ov003_02169eec(Menu02169eec* self, unsigned int sb) {
 
         int hit1 = 0;
         int hit2 = 0;
-        if (data_02114e54.b55 != 0) {
-            SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &px, &py);
+        if (g_touchInput.pressed_ != 0) {
+            g_touchInput.GetTouchPoint(&px, &py);
             if (py >= 0x60 && py < 0x6b) {
 #if defined(jpn)
                 short lox = 0x8f;

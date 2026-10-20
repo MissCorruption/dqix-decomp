@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Graphics/NSBXX/RenderCommandCallbacks.h"
+#include "NitroSDK/NSBXX/RenderCommandCallbacks.h"
 
 extern Output020e2d54 data_020f2c5c;
 // USA: func_020e2fdc

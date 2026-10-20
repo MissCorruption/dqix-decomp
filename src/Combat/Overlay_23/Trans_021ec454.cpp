@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 // USA: func_ov023_021ec454  (semantic: Trans_021ec454)
 extern "C" ARM void func_ov023_021ec454(int scrSize, int colMode, int scrBase, int charBase) {

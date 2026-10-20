@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/HPXEAllocator.h"
+#include "NitroSDK/Memory/HPXEAllocator.h"
 
 unsigned int DisableSpecificInterrupts(unsigned int mask);
 ARM unsigned int EnableSpecificInterrupts(unsigned int mask);

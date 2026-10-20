@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct Obj020397cc;
 void CancelPendingAction020397cc(struct Obj020397cc* obj, int arg1);

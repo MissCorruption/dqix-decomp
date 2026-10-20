@@ -1,10 +1,11 @@
 #include <globaldefs.h>
 #include "Memory/AllocatorLifecycle.h"
-#include "System/OverlayId.h"
-#include "System/Graphics.h"
+#include "NitroSDK/OverlayId.h"
+#include "NitroSDK/Graphics.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define func_020daf90 func_020dc998
@@ -61,7 +62,6 @@ void ClearByte0x63d6_020115c0(FieldBlock63d6_115c0* gs);
 void GuardedOverlayDispatch020d6cb4();
 void ResetObjectState0205e8d4(void* obj);
 void FreeAndReinit0203a950(void* obj);
-void SaveAndDisableBattlerState020128d8(Obj020128d8* obj);
 void InitializeActiveAlarmList();
 void SetDataFromIndex_02211c50(int index);
 int NormalizeField5_0200fb08(Struct0200fb08* gs);
@@ -69,7 +69,6 @@ void ForwardToDataHandler_0222708c(int kind, int value);
 int EnableIMEReturnPrev_020d6c9c();
 extern "C" void func_020c983c();
 void ResetSystemAndBoot020c98f0(int mode);
-extern "C" void func_02012938(void* obj);
 void SetInterruptHandler(unsigned int mask, const void* handler);
 void EnableSpecificInterrupts(unsigned int mask);
 void EnableIRQInterrupts();
@@ -108,7 +107,6 @@ extern char data_0211e33c[];
 extern char data_02109bf4[];
 extern char data_02108760[];
 extern char data_02114ec4[];
-extern char data_02114e54[];
 
 #if defined(jpn)
 #define TITLE_SCENE_SIZE 0x2d0
@@ -360,7 +358,7 @@ extern "C" ARM void main() {
             case 8:
                 ResetObjectState0205e8d4(data_02108760);
                 FreeAndReinit0203a950(data_02109bf4);
-                SaveAndDisableBattlerState020128d8((Obj020128d8*)data_02114e54);
+                g_touchInput.Pause();
                 func_020a1940(&OVERLAY_27_ID);
                 func_020a1940(&OVERLAY_31_ID);
                 REG_IME;
@@ -395,7 +393,7 @@ extern "C" ARM void main() {
                 func_020c983c();
                 ResetSystemAndBoot020c98f0(1);
                 func_020a1940(&OVERLAY_32_ID);
-                func_02012938(data_02114e54);
+                g_touchInput.Unpause();
                 ResetActor0209c174((Actor0209c174*)data_02109bf4);
                 Dispatch0203a974With0x57000_0209c290(data_02109bf4);
                 SetInterruptHandler(1, (const void*)InitOverlay17ObjAndBumpBattleCounter02012bd8);

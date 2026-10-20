@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 struct AddressConfiguration {
     unsigned char padding[0x18];

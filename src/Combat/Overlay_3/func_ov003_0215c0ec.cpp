@@ -11,13 +11,7 @@ enum { kTextSize=0x960 };
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
-
-struct TouchState02114e54 {
-    char pad0[0x24];
-    unsigned short pressed;
-    char pad26[0x5f - 0x26];
-    unsigned char active;
-};
+#include "Input/Input.h"
 
 struct CursorList0215c0ec {
     int count;
@@ -44,8 +38,6 @@ struct BattleMenu0215c0ec {
 struct StructA0205d5d0;
 struct StoreStruct;
 
-extern struct TouchState02114e54 data_02114e54;
-
 extern "C" void func_ov003_0215b6f0(struct BattleMenu0215c0ec* self, char* dst, int flag);
 extern "C" void func_ov003_0215b964(struct BattleMenu0215c0ec* self, char* dst, int flag);
 extern "C" void func_ov003_0215be70(struct BattleMenu0215c0ec* self, char* dst, int flag);
@@ -61,7 +53,7 @@ void SetByteAtIndex_020465d8(unsigned char* base, int index, unsigned char value
 extern "C" ARM void func_ov003_0215c0ec(struct BattleMenu0215c0ec* self) {
     if (self->state != 0) {
         int flag = 0;
-        if (self->state == 2 && data_02114e54.active != 0 && data_02114e54.pressed != 0) {
+        if (self->state == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
             struct CursorList0215c0ec* list = (struct CursorList0215c0ec*)((char*)self->menu + 4);
             if (!flag && list->selected < 0) {
                 return;

@@ -6,8 +6,8 @@ enum { kRegionalFieldOffset = 0x36fc };
 #endif
 
 #include "GameState/GameState.h"
-#include "System/ColorEffects.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/OverlayId.h"
 
 struct HeadNode02046b24;
 

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "World/Object3D.h"
 
 extern "C" void NSBXX_Model_SetPolygonID(void* obj, unsigned int value);

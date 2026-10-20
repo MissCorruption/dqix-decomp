@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 class VObj0216b390 {
 public:

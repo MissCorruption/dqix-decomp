@@ -4,7 +4,7 @@
 #else
 #define IS_JPN 0
 #endif
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Info02011930 {
     unsigned char b0;

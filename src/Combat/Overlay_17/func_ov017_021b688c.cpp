@@ -2,7 +2,7 @@
 #include "Resource/FontBankLoader.h"
 #include <GameState/GameState.h>
 #include <Memory/SafeAllocator.h>
-#include <System/Graphics.h>
+#include <NitroSDK/Graphics.h>
 #include "Resource/Brightness.h"
 
 #if defined(jpn)

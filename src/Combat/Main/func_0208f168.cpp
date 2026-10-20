@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 extern "C" void* func_02012fe4(void);
 extern "C" void* func_0208e0a8(void);

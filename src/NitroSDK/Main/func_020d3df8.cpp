@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Cache.h"
-#include "System/IPC.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/IPC.h"
+#include "NitroSDK/ProcessorContext.h"
 
 typedef void (*WMCallbackFunc)(void*);
 

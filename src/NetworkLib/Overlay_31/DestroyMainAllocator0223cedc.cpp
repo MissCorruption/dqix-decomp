@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/HPXEAllocator.h"
+#include "NitroSDK/Memory/HPXEAllocator.h"
 
 extern HPXEAllocator* data_ov031_02290d3c;
 

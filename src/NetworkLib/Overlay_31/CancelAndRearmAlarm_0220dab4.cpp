@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Timing.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Timing.h"
 
 extern int data_ov031_0224e53c;
 int RunTwoSteps_0220db28(void);

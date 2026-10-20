@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 typedef void* (*ResourceAllocator02217c00)(const char*, unsigned int);
 union ResourceConfig02217c00 {

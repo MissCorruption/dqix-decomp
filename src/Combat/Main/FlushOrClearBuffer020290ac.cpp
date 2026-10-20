@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Graphics/GlyphBitmapContext.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 // USA: func_020290ac
 ARM void FlushOrClearBuffer020290ac(int isSub) {

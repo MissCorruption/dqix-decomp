@@ -4,7 +4,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" void func_ov015_0218f0c4(void* p);
 extern "C" void func_ov015_02192700(void* obj, int flag);

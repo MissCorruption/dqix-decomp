@@ -1,5 +1,5 @@
 #include "Filesystem/GPC.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include <globaldefs.h>
 
 #if defined(jpn)

@@ -1,4 +1,4 @@
-#include "System/OverlayResponse.h"
+#include "NitroSDK/OverlayResponse.h"
 
 extern unsigned char data_ov031_0224eda0[];
 struct ResponseValidation;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
 
 int NitroVM_ReadSync(NitroVM* vm, void* dst, int capacity);
 int NitroVM_Seek(NitroVM* vm, int position, int whence);

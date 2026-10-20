@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/DMA.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/DMA.h"
+#include "NitroSDK/Interrupts.h"
 
 void UpdateHwRegBitsAndFireCallback020ca24c(void);
 

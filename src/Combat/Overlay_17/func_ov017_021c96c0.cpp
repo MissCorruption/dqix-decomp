@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct Actor021c96c0 {
     unsigned char pad0[0x44];

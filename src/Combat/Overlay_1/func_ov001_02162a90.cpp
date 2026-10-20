@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
-#include "System/VRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/VRAM.h"
 
 typedef enum
 {

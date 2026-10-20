@@ -2,7 +2,7 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
@@ -32,15 +32,6 @@ struct Field4328 {
     unsigned char enabled;
 };
 
-struct Input02114e54 {
-    char pad0[0x30];
-    int x;
-    int y;
-    char pad38[0x40 - 0x38];
-    int count;
-    char pad44[0x70 - 0x44];
-};
-
 struct Actor02038138 {
     char pad0[0x44];
     struct Vec3 pos;
@@ -59,7 +50,6 @@ struct Actor02038138 {
 
 extern "C" char* func_02012fe4();
 struct Field4328* GetField4328_0218d268(void*);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 void SetByte0xbeShiftPrev(struct Bytes02033b88*, int);
 void SetByteIfChanged02033b68(struct Obj02033b68*, int);
 void SetByteSavingPrevious(struct Foo02033b58*, unsigned char);
@@ -71,7 +61,6 @@ int fix32abs(int);
 void SetVecYByMode02033834(struct Obj02033834*, int);
 short GetShortAt0x22e(struct ShortField0x22e_020968c4*);
 
-extern struct Input02114e54 data_02114e54;
 extern int data_020e780c[8];
 
 // USA: func_02038138
@@ -112,18 +101,18 @@ extern "C" ARM void func_02038138(struct Actor02038138* self) {
     }
 
     struct Field4328* f = GetField4328_0218d268(ov);
-    if (data_02114e54.count >= 5 && f->enabled != 0 && f->active != 0) {
+    if (g_touchInput.timeHeld_ >= 5 && f->enabled != 0 && f->active != 0) {
         mode = 2;
         int x;
         int y;
-        SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
+        g_touchInput.GetTouchPoint(&x, &y);
         Vector3fix a;
         Vector3fix b;
         a.x = x << 12;
         a.y = y << 12;
         a.z = 0;
-        x = data_02114e54.x;
-        y = data_02114e54.y;
+        x = g_touchInput.pressX_;
+        y = g_touchInput.pressY_;
         b.x = x << 12;
         b.y = y << 12;
         b.z = 0;

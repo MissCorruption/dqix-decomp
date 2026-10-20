@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 struct Struct0223bfa0;
 extern "C" ARM int func_ov031_0223bfa0(Struct0223bfa0* p);

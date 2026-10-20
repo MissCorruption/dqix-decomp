@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Filesystem/FileIO.h"
-#include "Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "World/ZoneResourceInitialization.h"

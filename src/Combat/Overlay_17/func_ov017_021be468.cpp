@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 struct Obj020397cc; struct ListHead02046b60; struct Foo0207df50; struct Base02010834; struct TailList020469b4; struct TailNode020469b4;

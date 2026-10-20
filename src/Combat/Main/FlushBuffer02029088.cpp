@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/GlyphBitmapContext.h"
 #include "std_library_functions.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 #if defined(jpn)
 int GetData02107800Word0_020429d4(void);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "Graphics/NSBXX/RenderConfig.h"
-#include "System/Matrix.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Matrix.h"
 #include "Input/Input.h"
 
 struct Vec3

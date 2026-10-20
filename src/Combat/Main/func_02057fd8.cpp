@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "Graphics/NSBXX/Animation.h"
+#include "NitroSDK/NSBXX/Animation.h"
 
 struct Struct205563c { int words[7]; };
 struct EffectObject02057fd8 {

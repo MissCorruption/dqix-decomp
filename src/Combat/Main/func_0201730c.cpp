@@ -3,8 +3,8 @@
 
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
-#include "Graphics/NSBXX/RenderConfig.h"
-#include "System/Graphics.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics.h"
 
 struct Obj0204724C;
 struct StructAt020472e4;

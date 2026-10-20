@@ -20,13 +20,8 @@ struct Unknown_02075cdc {
 
 struct AlchemyPot;
 
-extern "C" {
-extern unsigned char data_02114e54[];
-}
-
 int GetInnerFlagBit0020e28dc(Outer020e28dc*);
 int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 int IsPointInsideElement02080d54(Obj2081*, int, int, int);
 
 struct AlchemyMenu {
@@ -135,11 +130,11 @@ extern "C" ARM unsigned char func_ov006_02158b78(AlchemyMenu* self)
         if (IsFlag0x2Active020e2984((struct Outer020e28dc*)self->choice_))
             cancelled = 1;
     }
-    else if (data_02114e54[0x55])
+    else if (g_touchInput.pressed_)
     {
         int x;
         int y;
-        SelectCoordsByFlag0x24_02012a84(data_02114e54, &x, &y);
+        g_touchInput.GetTouchPoint(&x, &y);
         if (!IsPointInsideElement02080d54((Obj2081*)self->menu_, self->group_, (short)x, (short)y))
             cancelled = 1;
     }

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 int ClampInt020d9808(int* value, int* lo, int* hi);
 

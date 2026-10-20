@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 #if defined(jpn)
 enum { CameraBase = 0xb94, CameraPosition = 0xc04, PendingList = 0xaac, MessageQueue = 0x80c, Auxiliary = 0x224, ModeByte = 0xdb4, PendingRequest = 0x7168, RecordsHigh = 0x7000, RecordFlag = 0xfc, Field6e4b = 0x703b, Field6e4c = 0x703c, Field6e4d = 0x703d, Field6e4e = 0x703e, Field6e50 = 0x7040, Field6e6e = 0x705e, Field6ef0 = 0x70e0, Field6efa = 0x70ea, Field6efc = 0x70ec, Field6efe = 0x70ee, Field6eff = 0x70ef, Field6f00 = 0x70f0, Field6f01 = 0x70f1, Field6f02 = 0x70f2, Field6f04 = 0x70f4, Field6f08 = 0x70f8, Field6f14 = 0x7104, Field6f84 = 0x7174, Field6f8c = 0x717c, Field6f98 = 0x7188, Field6f9a = 0x718a, Field6fa0 = 0x7190, Field6fba = 0x71aa, Field6fc4 = 0x71b4, Field6fc8 = 0x71b8, Field6fcc = 0x71bc, Field6fd0 = 0x71c0, Field7745 = 0x7935, Field7746 = 0x7936 };

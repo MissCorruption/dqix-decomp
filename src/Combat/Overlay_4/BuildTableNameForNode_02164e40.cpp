@@ -6,7 +6,7 @@ void* GetField0x649eForValidIndex_02011aa0(char*, unsigned int);
 #endif
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 int GetGlobalField0x1c020421a0();
 extern "C" void func_02046380(void* obj);

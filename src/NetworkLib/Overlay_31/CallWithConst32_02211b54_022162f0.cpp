@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 ARM void* CallWithConst32_02211b54(void* a, void* b);
 ARM int GetBufferSize1da0_02215fcc(void);

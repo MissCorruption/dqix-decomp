@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
-#include "System/Memory.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Memory.h"
 
 #if defined(jpn)
 #define func_020ca390 func_020cbe5c

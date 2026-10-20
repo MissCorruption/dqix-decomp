@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 // USA: func_ov008_02189228

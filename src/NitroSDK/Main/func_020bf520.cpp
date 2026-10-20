@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
+#include "NitroSDK/ProcessorContext.h"
 
 extern "C" void VectorizedMemset(void* dst, int value, unsigned int size);
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Filesystem/FSInnerDefs.h"
+#include "NitroSDK/Filesystem/FSInnerDefs.h"
 
 extern int data_02112140;
 

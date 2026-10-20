@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Memory.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Memory.h"
 
 struct State0221f02c {
     int field0, field4, field8, fieldc;

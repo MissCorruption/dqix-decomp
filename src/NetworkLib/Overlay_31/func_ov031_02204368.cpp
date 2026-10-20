@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Timing.h"
+#include "NitroSDK/Timing.h"
 
 struct BootpPacket02204368 {
     unsigned char type;

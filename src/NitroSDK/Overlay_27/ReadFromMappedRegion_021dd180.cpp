@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Memory.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Memory.h"
 
 struct MemRegionEntry_021dd180 {
     unsigned int base;

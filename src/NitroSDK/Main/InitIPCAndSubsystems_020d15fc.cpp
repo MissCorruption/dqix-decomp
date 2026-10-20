@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/IPC.h"
+#include "NitroSDK/IPC.h"
 
 void FillBufferAndStoreResult_020d12e4(void);
 void InitializeInterProcessorCommunication(void);

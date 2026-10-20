@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Graphics/Vector.h"
-#include "Graphics/NSBXX/RenderCommandCallbacks.h"
-#include "Graphics/NSBXX/GeometryFifo.h"
-#include "Graphics/NSBXX/RenderCommands_Common.h"
+#include "NitroSDK/NSBXX/RenderCommandCallbacks.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
+#include "NitroSDK/NSBXX/RenderCommands_Common.h"
 
 #if defined(jpn)
 #define func_020ca430 func_020cbefc

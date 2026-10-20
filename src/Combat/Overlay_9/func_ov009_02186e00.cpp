@@ -6,7 +6,6 @@
 #include "Resource/CharacterCreationUI.h"
 
 struct Obj0205eaa0;
-struct TouchState { char unknown[0x55]; unsigned char touching; };
 struct PartyMemberData { char unknown[0x3c]; char name[1]; };
 extern "C" void func_ov009_02188c2c(CharacterCreationUI*);
 extern "C" void func_ov009_02188d9c(void*);
@@ -18,7 +17,6 @@ extern "C" void func_ov009_021867bc(unsigned char*, int);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 extern char data_ov009_0218bc59[];
 extern const char data_020ef078[];
-extern TouchState data_02114e54;
 extern Obj0205eaa0 data_02108760;
 
 extern "C" ARM void func_ov009_02186e00(CharacterCreationUI* self)
@@ -68,7 +66,7 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreationUI* self)
             func_ov009_021867bc((unsigned char*)self, 9);
         }
     } else if (self->step == 2) {
-        if (g_keyManager.TestKeysPressed(0x401) || data_02114e54.touching != 0) {
+        if (g_keyManager.TestKeysPressed(0x401) || g_touchInput.pressed_ != 0) {
             DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);
             self->flags = (self->flags & ~0x400000) | 0x2000;
             self->step = 1;
@@ -132,11 +130,6 @@ struct WindowCursor {
     char unk_8[0x38];
 };
 
-struct TouchState {
-    char unk_0[0x55];
-    unsigned char touching_;
-};
-
 struct PartyMemberData {
     char unk_0[0x3c];
     char name_[1];
@@ -167,7 +160,6 @@ extern "C" void func_ov003_0215ec68(int size, short* width, short* height);
 extern char data_ov009_0218ad26[];
 extern char data_ov009_0218ad2a[];
 extern char data_02108760[];
-extern TouchState data_02114e54;
 extern const char data_020ef078[];
 
 struct CharacterCreation {
@@ -263,7 +255,7 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
             DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 2, 0);
             break;
         case 9:
-            if (!g_keyManager.TestKeysPressed(1) && data_02114e54.touching_ == 0)
+            if (!g_keyManager.TestKeysPressed(1) && g_touchInput.pressed_ == 0)
                 SetStatValue021855dc((unsigned char*)self, 7);
             else
                 DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
@@ -360,7 +352,7 @@ extern "C" ARM void func_ov009_02186e00(CharacterCreation* self)
     }
     else if (self->step_ == 3)
     {
-        if (g_keyManager.TestKeysPressed(0x401) || data_02114e54.touching_ != 0)
+        if (g_keyManager.TestKeysPressed(0x401) || g_touchInput.pressed_ != 0)
         {
             DispatchWithShortB4_0205eaa0((Obj0205eaa0*)data_02108760, 1, 0);
             self->flags_ = (self->flags_ & ~0x1400000) | 0x2000;

@@ -2,8 +2,8 @@
 #include <std_library_functions.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
-#include "System/ColorEffects.h"
-#include "System/Graphics.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
 
 #if defined(jpn)
 enum { kRegionValue998_868 = 0x868 };

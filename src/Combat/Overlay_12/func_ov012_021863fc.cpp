@@ -3,9 +3,9 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 

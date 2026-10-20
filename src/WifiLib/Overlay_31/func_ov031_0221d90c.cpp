@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/OverlayResponse.h"
+#include "NitroSDK/OverlayResponse.h"
 struct SettingsEntry0221d90c {
     unsigned char type, reserved;
     unsigned short length, next;

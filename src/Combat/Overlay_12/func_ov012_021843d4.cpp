@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "std_library_functions.h"
 
 struct List020727d8;

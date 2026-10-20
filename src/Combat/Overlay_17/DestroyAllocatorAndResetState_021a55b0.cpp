@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 extern "C" void func_020a0c0c(void);

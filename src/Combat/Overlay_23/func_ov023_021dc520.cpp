@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/SpriteAffineTransform.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 #include <std_library_functions.h>
 
 #if defined(jpn)

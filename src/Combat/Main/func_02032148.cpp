@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct Shape02094b9c { fix32_t x, y, z, ext0, ext1; };
 

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "Filesystem/NitroVM.h"
-#include "Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
 
 #pragma optimize_for_size off
 

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/LoadToVRAM.h"
 typedef void (*VRAMLoader02227d94)(const void*, unsigned int, unsigned int);
 extern "C" void func_ov031_02235c18();
 extern "C" void func_ov031_022275e0();

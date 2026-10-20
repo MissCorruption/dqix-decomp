@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/IPC.h"
+#include "NitroSDK/IPC.h"
 
 void ValidateCode0x10OrHalt_020c9890(int unused, unsigned int code);
 

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Memory.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Memory.h"
 
 struct Entry02207a10 {
 	char pad[0x20];

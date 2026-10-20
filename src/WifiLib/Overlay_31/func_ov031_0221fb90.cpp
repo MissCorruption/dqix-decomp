@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Timing.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/Timing.h"
+#include "NitroSDK/ProcessorContext.h"
 
 struct Buffer1fb90 { unsigned char bytes[0xc0]; };
 struct Connection1fb90 { unsigned char padding0[0x10]; int error; unsigned char padding14[4]; int bufferIndex; unsigned char padding1c[4]; int initialized; int connected; unsigned char padding28[0x34]; Buffer1fb90* buffers; };

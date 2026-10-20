@@ -1,4 +1,4 @@
-#include "System/OverlayResponse.h"
+#include "NitroSDK/OverlayResponse.h"
 
 extern "C" int func_ov031_0221d6a8(ResponseHeader*);
 

@@ -2,9 +2,9 @@
 #include "Combat/MapDisplay.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
-#include "System/BGBases.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/BGBases.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 #include "std_library_functions.h"
 
 struct Word0x0_0215e5b0 {

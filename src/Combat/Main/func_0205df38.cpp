@@ -1,6 +1,5 @@
 #include <globaldefs.h>
-
-extern char data_02114e54;
+#include "Input/Input.h"
 
 struct Elem_0205df38 {
     char pad0[0xa8];
@@ -16,24 +15,21 @@ struct Struct_0205d81c {
     struct Elem_0205df38* f9c;
 };
 
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 struct Elem_0205df38* FindElementByC40205d81c(struct Struct_0205d81c* s, int key);
 
 // USA: func_0205df38
 extern "C" ARM int func_0205df38(struct Struct_0205d81c* s, int key) {
     int touchY, touchX;
     struct Elem_0205df38* e;
-    unsigned char* g;
     short y, h, w, x;
     int yhi, whi;
 
     if (s->f98 == 0) return 0;
     if (s->f9c == 0) return 0;
 
-    g = (unsigned char*)&data_02114e54;
-    if (g[0x55] == 0) goto zero;
+    if (!g_touchInput.pressed_) goto zero;
 
-    SelectCoordsByFlag0x24_02012a84(g, &touchY, &touchX);
+    g_touchInput.GetTouchPoint(&touchY, &touchX);
 
     e = FindElementByC40205d81c(s, key);
     if (e == 0) goto zero;

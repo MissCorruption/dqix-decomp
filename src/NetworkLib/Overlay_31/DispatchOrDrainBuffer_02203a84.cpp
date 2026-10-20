@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 extern "C" int func_ov031_022039b0(void* a0, int a1, void* a2, int a3);
 extern "C" void* memmove(void*, const void*, unsigned int);

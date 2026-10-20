@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
-#include <System/ColorEffects.h>
+#include <NitroSDK/ColorEffects.h>
 #include "Resource/GameResources.h"
 
 #if defined(jpn)

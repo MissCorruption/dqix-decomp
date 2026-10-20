@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 #if defined(jpn)

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Interrupts.h"
 
 void CycleCurrentPriorityContexts();
 

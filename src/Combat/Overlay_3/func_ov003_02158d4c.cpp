@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
 
 int GetGlobal02109400_02094a00(void);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Graphics/Vector.h"
 #include "Resource/GameResources.h"
 

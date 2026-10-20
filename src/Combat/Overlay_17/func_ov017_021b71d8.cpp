@@ -7,7 +7,7 @@ enum {regionalOffset0=0x1f7dc};
 #include "Memory/AllocatorLifecycle.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 
 struct Context021b71d8 {

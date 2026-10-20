@@ -4,8 +4,8 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/ColorEffects.h"
-#include "System/Graphics.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
 
 struct MonsterListEntry {

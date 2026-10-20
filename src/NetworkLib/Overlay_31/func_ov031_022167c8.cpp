@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 typedef void* (*WorkAllocator022167c8)(const char*, unsigned int);
 union WorkCallbacks022167c8 {

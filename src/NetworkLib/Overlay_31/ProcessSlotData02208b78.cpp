@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
-#include "System/NetworkProtocolVersion.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/NetworkProtocolVersion.h"
 
 extern "C" void func_ov031_02207a10(void* obj);
 extern "C" int func_ov031_02208a40(void* addr, int v1, int v2);

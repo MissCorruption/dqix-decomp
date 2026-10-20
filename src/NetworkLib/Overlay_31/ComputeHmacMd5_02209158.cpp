@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 extern "C" void func_ov031_0220b028(void* ctx, const void* data, unsigned int len);
 void InitMd5Ctx_0220afe0(void* ctx);

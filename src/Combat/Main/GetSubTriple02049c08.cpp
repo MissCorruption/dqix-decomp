@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 extern "C" void __clear(void* destination, int size);
 

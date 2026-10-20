@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct Flags0202ecfc;
 void ClearFlag0x1At0x168(struct Flags0202ecfc* p);

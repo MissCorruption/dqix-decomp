@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 // USA: func_02012dbc
 ARM void FreeIfFlag_02012dbc(AllocatorUnion* alloc, void* data, int flag) {

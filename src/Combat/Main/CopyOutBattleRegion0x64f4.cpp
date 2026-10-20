@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "GameState/GameState.h"
 
 // USA: func_020ac760

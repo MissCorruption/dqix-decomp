@@ -5,7 +5,7 @@ enum { kStateOffset = 0x5a68 };
 enum { kStateOffset = 0x5cc8 };
 #endif
 
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "GameState/GameState.h"
 
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);

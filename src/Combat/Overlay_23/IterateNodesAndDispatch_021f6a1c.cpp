@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 class VNode021f6a1c {
 public:
@@ -25,18 +26,16 @@ struct ListHead021f6a1c {
     VNode021f6a1c* head;
 };
 
-extern unsigned char data_02114e54;
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 extern "C" void func_ov011_02184a40(void* a, int b);
 
 // USA: func_ov023_021f6a1c  (semantic: IterateNodesAndDispatch_021f6a1c)
 extern "C" ARM void func_ov023_021f6a1c(struct ListHead021f6a1c* obj, void* arg1) {
-    if (*(unsigned char*)(&data_02114e54 + 0x55) == 0) {
+    if (g_touchInput.pressed_ == 0) {
         return;
     }
 
     int a, b;
-    SelectCoordsByFlag0x24_02012a84(&data_02114e54, &a, &b);
+    g_touchInput.GetTouchPoint(&a, &b);
 
     VNode021f6a1c* node = obj->head;
     while (node != NULL) {

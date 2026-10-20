@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/DTCM.h>
+#include <NitroSDK/DTCM.h>
 
 unsigned int SetData020f2284_020c7dcc();
 

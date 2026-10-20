@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
 #if defined(jpn)

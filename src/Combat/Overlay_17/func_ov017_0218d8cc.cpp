@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Input/Input.h"
 
 void GetVec3FromShorts_020968a4(unsigned char* src, int* out);

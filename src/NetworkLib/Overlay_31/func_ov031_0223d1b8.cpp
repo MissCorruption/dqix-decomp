@@ -1,12 +1,5 @@
 #include <globaldefs.h>
-
-typedef struct TPData_0223d1b8 TPData_0223d1b8;
-struct TPData_0223d1b8 {
-    unsigned short x;
-    unsigned short y;
-    unsigned short touch;
-    unsigned short validity;
-};
+#include "NitroSDK/TouchScreen.h"
 
 typedef struct TouchPos_0223d1b8 TouchPos_0223d1b8;
 struct TouchPos_0223d1b8 {
@@ -16,7 +9,7 @@ struct TouchPos_0223d1b8 {
 
 typedef struct InputState_0223d1b8 InputState_0223d1b8;
 struct InputState_0223d1b8 {
-    TPData_0223d1b8 samples[5];
+    TouchScreenSample samples[5];
     TouchPos_0223d1b8 cur;
     TouchPos_0223d1b8 prev;
     unsigned short mask;
@@ -40,29 +33,27 @@ struct InputGlobal_0223d1b8 {
 
 extern InputGlobal_0223d1b8 data_ov031_02290d40;
 
-unsigned short GetHalfword021117b0At0x10_020cdddc(void);
-void func_020cdfd8(TPData_0223d1b8* dst, const TPData_0223d1b8* src);
-void func_ov031_0223cb10(unsigned short a, unsigned short b, TouchPos_0223d1b8* out);
-int FastIntModulus(int a, int b);
+extern "C" void func_ov031_0223cb10(unsigned short a, unsigned short b, TouchPos_0223d1b8* out);
+extern "C" int FastIntModulus(int a, int b);
 
 // USA: func_ov031_0223d1b8
-ARM void func_ov031_0223d1b8(void) {
+extern "C" ARM void func_ov031_0223d1b8(void) {
     int i;
     unsigned char found;
     int prev;
     int idx;
-    TPData_0223d1b8 tp;
+    TouchScreenSample tp;
 
     prev = data_ov031_02290d40.inner->touch ? 1 : 0;
     found = 0;
-    idx = GetHalfword021117b0At0x10_020cdddc();
+    idx = GetCurrentTouchScreenSampleIndex();
     data_ov031_02290d40.inner->prev = data_ov031_02290d40.inner->cur;
     i = 0;
     do {
-        TPData_0223d1b8* s = &data_ov031_02290d40.inner->samples[idx];
-        if (s->touch == 1 && s->validity == 0) {
+        TouchScreenSample* s = &data_ov031_02290d40.inner->samples[idx];
+        if (s->isHeld == 1 && s->missingCoordFlags == 0) {
             found = 1;
-            func_020cdfd8(&tp, s);
+            ConvertTouchScreenSampleToPixels(&tp, s);
             func_ov031_0223cb10(tp.x, tp.y, &data_ov031_02290d40.inner->cur);
             break;
         }

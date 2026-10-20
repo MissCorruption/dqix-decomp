@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -12,9 +13,6 @@ struct Struct_0205c4a8;
 struct Struct_0205bb84;
 struct Struct_0205bcdc;
 
-extern char data_02114e54;
-
-void SelectCoordsByFlag0x24_02012a84(unsigned char *obj, int *out1, int *out2);
 struct Elem_0205d81c *FindElementByC40205d81c(struct Struct_0205d81c *s, int key);
 int SelectField0x8Or0x58ByFlags_0205c6e4(unsigned char *p);
 void AdvanceWrappedAccumulator0205c4a8(struct Struct_0205c4a8 *s, int delta);
@@ -30,10 +28,10 @@ extern "C" ARM int func_ov002_02161b98(char *base) {
     short sx;
     char *list;
     struct Elem_0205d81c *elem;
-    if (*(unsigned char *) (&data_02114e54 + 0x55) == 0) {
+    if (g_touchInput.pressed_ == 0) {
         goto ret0;
     }
-    SelectCoordsByFlag0x24_02012a84((unsigned char *) &data_02114e54, &cx, &cy);
+    g_touchInput.GetTouchPoint(&cx, &cy);
     elem = FindElementByC40205d81c((struct Struct_0205d81c *) (base + RG(0x2c8 + 0xc00, 0xe20)),
                                    *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) & 0xff);
     if (elem == 0) {

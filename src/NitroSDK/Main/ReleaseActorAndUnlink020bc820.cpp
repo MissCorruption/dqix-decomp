@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 struct Obj020bd984;
 void DestroyAllocator020bd984(struct Obj020bd984* obj);

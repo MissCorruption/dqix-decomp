@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 struct Obj021e7b34 {
     char pad[0x5dc];

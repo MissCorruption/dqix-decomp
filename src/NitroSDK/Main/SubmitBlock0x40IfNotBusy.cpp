@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Graphics/NSBXX/RenderCommands_Common.h"
+#include "NitroSDK/NSBXX/RenderCommands_Common.h"
 
 extern "C" void func_020ca568(void* block, void* dst);
 

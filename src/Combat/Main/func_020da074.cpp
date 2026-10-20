@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/QuestScript.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/HPXEAllocator.h"
+#include "NitroSDK/Memory/HPXEAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
 struct SlotManager020da034 { char unknown0[8]; unsigned short usedMask; char unknowna[2]; int slots[1]; int scriptId; };
 struct Struct02012dd0 { void* field0; HPXEAllocator* alloc; };

@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "Combat/MapDisplay.h"
 
 struct MainBgControlBackup02074af4 {

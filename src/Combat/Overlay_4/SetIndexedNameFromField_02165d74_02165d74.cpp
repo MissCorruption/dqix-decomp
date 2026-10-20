@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "GameState/GameState.h"
 
 int GetGlobalField0x1c020421a0();

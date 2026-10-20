@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include <System/Mutex.h>
-#include <System/Interrupts.h>
+#include <NitroSDK/Mutex.h>
+#include <NitroSDK/Interrupts.h>
 
 struct StreamState022058f0 {
     char padding[0xe0];

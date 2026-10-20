@@ -12,7 +12,7 @@ enum { kObjectPointer = 0x150, kResourceWord = 0x6fc };
 #define func_02052bfc func_02053fd8
 #endif
 #include "GameState/GameState.h"
-#include "System/Timing.h"
+#include "NitroSDK/Timing.h"
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 

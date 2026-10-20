@@ -3,9 +3,9 @@
 #include "Graphics/GlyphMetrics.h"
 
 #include "std_library_functions.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/LoadToVRAM.h"
 
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 // USA: func_02028f54  (semantic: RefreshBg1TileMap_02028f54)
 extern "C" ARM void func_02028f54(void) {

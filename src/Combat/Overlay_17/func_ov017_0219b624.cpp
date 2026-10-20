@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Zone3D.h"
 

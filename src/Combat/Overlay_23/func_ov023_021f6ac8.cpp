@@ -1,10 +1,9 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 extern "C" void* func_ov023_021f6880(void** list, int value);
 extern "C" void func_ov011_021848a0(void* obj, int val);
 extern "C" void func_ov011_02184a40(void* a, int b);
-
-extern unsigned char data_02114e54;
 
 struct Elem021f6ac8 {
     unsigned char count;
@@ -46,7 +45,7 @@ public:
 
 // USA: func_ov023_021f6ac8
 extern "C" ARM int func_ov023_021f6ac8(void* obj, void* arg1) {
-    if (*(unsigned char*)(&data_02114e54 + 0x55) != 0) {
+    if (g_touchInput.pressed_ != 0) {
         struct Obj021f6ac8* o = (struct Obj021f6ac8*)obj;
         int j;
         for (j = 0; j < 3; j++) {

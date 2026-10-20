@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
-#include "System/BGBases.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/BGBases.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 #include "std_library_functions.h"
 #include "Combat/MapDisplay.h"
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 struct S02055080;
 void* GetSubField0xC_020550d8(struct S02055080* p);

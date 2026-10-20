@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct Mtx43_02030d84 { unsigned int v[12]; };
 struct Mtx43_02030d84 RotationMatrixY(int angle);

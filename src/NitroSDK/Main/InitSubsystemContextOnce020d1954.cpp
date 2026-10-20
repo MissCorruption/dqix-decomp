@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
 
 void ClearStruct020d19e0(void* obj);
 extern "C" void func_020d19f4();

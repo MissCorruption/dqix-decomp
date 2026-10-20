@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov027_021dd3cc  (semantic: ClearBuffer32_021dd3cc)
 extern "C" ARM void func_ov027_021dd3cc(void* p) {

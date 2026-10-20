@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/OverlayMD5.h"
+#include "NitroSDK/OverlayMD5.h"
 
 extern "C" void func_ov031_02222818(void*, const void*, unsigned int);
 extern "C" void func_ov031_02221f78(unsigned int*, const unsigned char*);

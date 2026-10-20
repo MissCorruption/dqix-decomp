@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov023_021f6788  (semantic: InitObjAndSetShorts_021f6788)
 extern "C" ARM void func_ov023_021f6788(char* obj) {

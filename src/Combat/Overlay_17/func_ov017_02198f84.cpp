@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/ZoneChest.h"
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20

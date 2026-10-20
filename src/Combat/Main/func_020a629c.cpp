@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <Filesystem/BackgroundLoader.h>
-#include <System/Cache.h>
-#include <System/LoadToVRAM.h>
+#include <NitroSDK/Cache.h>
+#include <NitroSDK/LoadToVRAM.h>
 #include "Resource/GameResources.h"
 struct Obj020a629c { char pad[0xa]; unsigned char ready, state; int task; };
 struct Resource020a629c { char pad[0xc]; unsigned int size; char data[1]; };

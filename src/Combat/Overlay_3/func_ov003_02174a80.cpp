@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/ColorEffects.h"
-#include "System/Graphics.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
 #include "std_library_functions.h"
 
 #if defined(jpn)

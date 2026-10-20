@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" int func_ov017_021d60f4(void*);
 struct Struct02012dd0;

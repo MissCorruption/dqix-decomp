@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include <Memory/SignedAllocator.h>
-#include <System/Interrupts.h>
+#include <NitroSDK/Memory/SignedAllocator.h>
+#include <NitroSDK/Interrupts.h>
 
 struct Foo020bcbc4;
 

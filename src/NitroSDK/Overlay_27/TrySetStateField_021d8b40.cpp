@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 extern "C" int func_ov027_021d9de8(int a);
 extern void* data_ov027_021e33ec;

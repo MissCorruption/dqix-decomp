@@ -2,7 +2,7 @@
 #define data_ov026_021de87c data_ov026_021dee50
 #endif
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct BattleState;
 

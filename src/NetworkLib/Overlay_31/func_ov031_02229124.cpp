@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
-#include "System/Cache.h"
-#include "System/Graphics.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/LoadToVRAM.h"
 struct Palette02229124 { unsigned char banks[16][0x20]; };
 struct State02229124 { void* field0; Palette02229124* palette; int field8; };
 typedef void (*VRAMLoader02229124)(const void*, unsigned int, unsigned int);

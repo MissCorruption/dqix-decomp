@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct T020545b8;
 void DestroyAllocators020545b8(struct T020545b8* obj);

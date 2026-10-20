@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 struct InitData020c7de4;
 void InitStruct020c7de4(InitData020c7de4* s, int e, int f);

@@ -13,7 +13,7 @@
 #include "Resource/FontBankLoader.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"

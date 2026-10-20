@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 struct WindowStyle0204c980 {
     char padding[0x1c];

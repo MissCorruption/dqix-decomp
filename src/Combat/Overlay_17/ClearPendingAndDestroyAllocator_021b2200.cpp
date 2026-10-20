@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern "C" void func_ov011_02184770(void);
 void PopStack1AndTrigger_020a1f4c(int flag);

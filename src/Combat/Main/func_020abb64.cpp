@@ -6,7 +6,7 @@
 #endif
 
 #include <GameState/GameState.h>
-#include <System/Memory.h>
+#include <NitroSDK/Memory.h>
 struct Flags020abb64 { unsigned int value:12, mode:4, index:5, field_0x0_21:4, bit25:1, bit26:1, bit27:1, bit28:1, bit29:1, bit30:1, bit31:1; };
 struct Fields020abb64 { unsigned int low:9, middle:10, high:11, bit30:1, bit31:1; };
 struct Config020abb64 { Flags020abb64 flags; Fields020abb64 fields; unsigned char statusByte; };

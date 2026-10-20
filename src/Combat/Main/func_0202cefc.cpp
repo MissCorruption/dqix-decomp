@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct DispatchEntry0202cefc {
     unsigned char pad0[0x3c];

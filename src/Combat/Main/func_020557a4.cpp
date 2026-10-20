@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 struct S02055080;
 void* GetField0x4Field0x0Field0x0OrNull_02055168(struct S02055080* p);

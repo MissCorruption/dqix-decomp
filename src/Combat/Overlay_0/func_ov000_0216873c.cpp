@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "World/ZoneLootableRecord.h"
 
 #if defined(jpn)

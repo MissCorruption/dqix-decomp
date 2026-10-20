@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Mutex.h"
+#include "NitroSDK/Mutex.h"
 
 struct State0221038c {
     int field0;

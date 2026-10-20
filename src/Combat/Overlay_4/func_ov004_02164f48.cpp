@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
-#include "System/Memory.h"
-#include "System/Timing.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Timing.h"
 #include "std_library_functions.h"
 
 struct Info02011930 {

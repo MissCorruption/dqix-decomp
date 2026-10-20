@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 #if defined(jpn)
 enum { kWorkVectorOffset = 0x71cc, kWorkFlagOffset = 0x71d8 };

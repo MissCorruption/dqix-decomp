@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
 
 struct SoundArchive020bd88c {
 	char _pad[0x7c];

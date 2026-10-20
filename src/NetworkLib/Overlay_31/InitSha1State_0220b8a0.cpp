@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov031_0220b8a0
 ARM void InitSha1State_0220b8a0(unsigned int* ctx) {

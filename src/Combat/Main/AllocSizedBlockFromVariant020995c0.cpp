@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Script.h"
 
 struct Variant02030b0c;

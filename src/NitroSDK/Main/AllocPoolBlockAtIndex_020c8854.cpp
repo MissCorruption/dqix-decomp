@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 struct RemoveNodeEntry;
 RemoveNodeEntry* RemoveNode_020c8784(RemoveNodeEntry* head, RemoveNodeEntry* node);

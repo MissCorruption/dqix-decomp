@@ -9,7 +9,7 @@ enum { kSceneHeapSize = 0x24000, kSceneObjectSize = 0x33c, kSceneFieldOffset = 0
 
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 
 int GetWord0x0_0200fb8c(int* obj);

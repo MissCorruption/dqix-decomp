@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 // USA: func_020bc658
 ARM void InsertAllocatorSortedByByte3d_020bc658(SignedAllocatorList* list, SignedAllocatorHeader* what) {

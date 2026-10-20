@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 #if defined(jpn)
 enum { scalarFieldOffset = 0x150, firstVectorOffset = 0x154, secondVectorOffset = 0x160, defaultValueIndex = 4 };

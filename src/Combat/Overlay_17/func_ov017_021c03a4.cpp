@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 struct AllocatorUnion;
 struct Obj020979c0;

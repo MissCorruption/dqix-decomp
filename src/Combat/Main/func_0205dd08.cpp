@@ -1,13 +1,11 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct_0205d81c;
 struct Elem_0205d81c;
 
 struct Elem_0205d81c* FindElementForFieldB0_0205d8c4(struct Struct_0205d81c* s);
 int IsField0x9cEqual3_0204c7cc(unsigned char* obj);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
-
-extern unsigned char data_02114e54;
 
 struct Obj_0205dd08 {
     char pad0[0x98];
@@ -33,14 +31,14 @@ extern "C" ARM int func_0205dd08(struct Obj_0205dd08* obj) {
 
     if (obj->f98 == NULL) return 0;
     if (obj->f9c == NULL) return 0;
-    if ((&data_02114e54)[0x55] == 0) return 0;
+    if (g_touchInput.pressed_ == 0) return 0;
 
     e = (struct Rect_0205dd08*)FindElementForFieldB0_0205d8c4((struct Struct_0205d81c*)obj);
     if (e == NULL) return 0;
     if (IsField0x9cEqual3_0204c7cc((unsigned char*)e) == 0) return 0;
     if ((e->fc5 & 8) == 0) return 0;
 
-    SelectCoordsByFlag0x24_02012a84(&data_02114e54, &touchY, &touchX);
+    g_touchInput.GetTouchPoint(&touchY, &touchX);
 
     top = e->y * 8;
     bottom = top + (short)(e->height * 8);

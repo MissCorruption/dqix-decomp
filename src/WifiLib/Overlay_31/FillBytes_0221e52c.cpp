@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov031_0221e52c  (semantic: FillBytes_0221e52c)
 extern "C" THUMB void func_ov031_0221e52c(void* dst, int value, unsigned int length) {

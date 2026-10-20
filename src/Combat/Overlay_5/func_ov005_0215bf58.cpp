@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kMember = 0x4f8 };
@@ -8,17 +9,6 @@ enum { kInfoFlags = 0x1930, kSlots = 0x2d08, kSelectedSlot = 0x3d33 };
 enum { kMember = 0x4fc };
 enum { kInfoFlags = 0x19b8, kSlots = 0x2d90, kSelectedSlot = 0x3dbb };
 #endif
-
-struct TouchState
-{
-    char unk_0[0x24];
-    unsigned short touching_;
-    char unk_26[0x54 - 0x26];
-    unsigned char released_;
-    unsigned char pressed_;
-    char unk_56[0x5f - 0x56];
-    unsigned char unk_5f;
-};
 
 struct MemberScreen
 {
@@ -54,14 +44,12 @@ Element020de650* FindElementByKey020dedd0(Container020dedd0* c, int key);
 extern "C" int func_020dd4c4(signed char member, Element020de650* entry);
 void DispatchByIdxAndCond021551fc(char*, int, int);
 
-extern "C" TouchState data_02114e54;
-
 // USA: func_ov005_0215bf58
 extern "C" ARM void func_ov005_0215bf58(EquipmentMenu* self)
 {
     int touchHandled = 0;
-    if (data_02114e54.pressed_ || (data_02114e54.unk_5f != 0 && data_02114e54.touching_ != 0) ||
-        data_02114e54.released_ != 0)
+    if (g_touchInput.pressed_ || (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ||
+        g_touchInput.released_ != 0)
     {
         func_ov005_021562b8(self);
         touchHandled = 1;

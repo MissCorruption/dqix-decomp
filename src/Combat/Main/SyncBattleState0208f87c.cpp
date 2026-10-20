@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 #include <World/Object3D.h>
-#include <Graphics/NSBXX/RenderConfig.h>
+#include <NitroSDK/NSBXX/RenderConfig.h>
 #include "Resource/Brightness.h"
 
 #if defined(jpn)

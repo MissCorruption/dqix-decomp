@@ -3,7 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"
 
 struct BattleState;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Timing.h"
+#include "NitroSDK/Timing.h"
 
 extern "C" void* func_ov031_022133f8(unsigned int flags);
 extern "C" int func_ov031_022151b0(void*, void*, int, int);

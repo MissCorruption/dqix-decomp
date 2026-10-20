@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "World/LootableContainer.h"
 #include "Resource/GameResources.h"
 

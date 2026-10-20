@@ -16,11 +16,8 @@ struct Menu {
     short cursor_;
 };
 
-extern unsigned char data_02114e54;
-
 int GetInnerFlagBit0020e28dc(struct Outer020e28dc* o);
 int GetField0x15UnlessInactive_020e2918(signed char* param);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 int RunAndCheckFlagBit02080dd4(void* obj, int p1, int unused2, int unused3, unsigned char* outFlag, unsigned char extra);
 extern "C" void func_020813ec(void* obj, int key);
 
@@ -47,10 +44,10 @@ extern "C" ARM unsigned char func_ov003_021550dc(Ctx021550dc* self) {
             confirmed = 1;
             *self->cursor_ = choice + 6;
         }
-    } else if ((&data_02114e54)[0x55] != 0 && self->cursor_ != NULL) {
+    } else if (g_touchInput.pressed_ != 0 && self->cursor_ != NULL) {
         Menu* menu = self->menu_;
         int x, y;
-        SelectCoordsByFlag0x24_02012a84(&data_02114e54, &x, &y);
+        g_touchInput.GetTouchPoint(&x, &y);
         self->previousCursor_ = *self->cursor_;
         int item = RunAndCheckFlagBit02080dd4(menu, self->group_, (short)x, (short)y, &confirmed, 1);
         if (item < 0) {

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 #if defined(jpn)
 #define func_020c9bf0 func_020cb6bc

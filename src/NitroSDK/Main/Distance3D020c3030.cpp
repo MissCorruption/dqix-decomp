@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 #define REG_SQRTCNT_020c3030      (*(volatile unsigned short*)0x040002b0)
 #define REG_SQRT_RESULT_020c3030  (*(volatile unsigned int*)0x040002b4)

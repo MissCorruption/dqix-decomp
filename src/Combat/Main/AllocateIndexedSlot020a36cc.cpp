@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
 extern "C" void func_020a0cc4(unsigned int);

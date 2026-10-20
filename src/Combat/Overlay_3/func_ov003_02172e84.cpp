@@ -110,15 +110,6 @@ struct Zone02172e84 {
 
 static inline bool IsLinked(Party02172e84 *party) { return party->state_ == 8 || party->state_ == 9; }
 
-struct Touch02172e84 {
-    char pad0[0x30];
-    int x_;
-    int y_;
-    char pad38[0x54 - 0x38];
-    unsigned char released_;
-    char pad55[0x70 - 0x55];
-};
-
 #if defined(jpn)
 struct Self02172e84 {
     unsigned char active_;
@@ -210,7 +201,6 @@ unsigned char GetByteField28_021b1fa8(void *obj);
 extern "C" void *func_0202ae18(void);
 int CheckField0NonZero_0202b7d8(int *obj);
 extern "C" void func_0202b0f4(void *obj);
-void SelectCoordsByFlag0x24_02012a84(unsigned char *obj, int *out1, int *out2);
 int IsInRangePair_021734dc(int unused, int a, int b);
 void IterateEntries0205a330(Container0205a330 *c, int arg);
 extern "C" int func_020457e0(Messages02172e84 *window);
@@ -219,7 +209,6 @@ extern "C" int func_ov003_02172570(unsigned char *obj, void *extra);
 extern char data_ov003_02180a49[];
 extern char data_ov003_02180a4c[];
 extern char data_ov003_02180a63[];
-extern Touch02172e84 data_02114e54;
 
 // USA: func_ov003_02172e84
 #if defined(jpn)
@@ -279,14 +268,14 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
             self->mode_ = 5;
             self->step_ = 0;
         } else {
-            int x = data_02114e54.x_;
-            int y = data_02114e54.y_;
+            int x = g_touchInput.pressX_;
+            int y = g_touchInput.pressY_;
             int curX;
             int curY;
-            SelectCoordsByFlag0x24_02012a84((unsigned char *) &data_02114e54, &curX, &curY);
+            g_touchInput.GetTouchPoint(&curX, &curY);
             if (IsInRangePair_021734dc((int) self, x, y) && IsInRangePair_021734dc((int) self, curX, curY)) {
                 self->active_ = 1;
-                if (data_02114e54.released_ != 0) {
+                if (g_touchInput.released_ != 0) {
                     self->step_ = 2;
                 }
             } else if (g_keyManager.TestKeysPressed(2)) {
@@ -408,14 +397,14 @@ extern "C" ARM void func_ov003_02172e84(Self02172e84 *self) {
             self->mode_ = 5;
             self->step_ = 0;
         } else {
-            int x = data_02114e54.x_;
-            int y = data_02114e54.y_;
+            int x = g_touchInput.pressX_;
+            int y = g_touchInput.pressY_;
             int curX;
             int curY;
-            SelectCoordsByFlag0x24_02012a84((unsigned char *) &data_02114e54, &curX, &curY);
+            g_touchInput.GetTouchPoint(&curX, &curY);
             if (IsInRangePair_021734dc((int) self, x, y) && IsInRangePair_021734dc((int) self, curX, curY)) {
                 self->active_ = 1;
-                if (data_02114e54.released_ != 0) {
+                if (g_touchInput.released_ != 0) {
                     self->step_ = 2;
                 }
             } else if (g_keyManager.TestKeysPressed(2)) {

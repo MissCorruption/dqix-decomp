@@ -3,7 +3,7 @@
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "Filesystem/FileIO.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
 

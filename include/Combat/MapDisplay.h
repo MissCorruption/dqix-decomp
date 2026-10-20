@@ -1,7 +1,7 @@
 #pragma once
 
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Memory/SafeAllocator.h"
 
 struct Entry02021578 {

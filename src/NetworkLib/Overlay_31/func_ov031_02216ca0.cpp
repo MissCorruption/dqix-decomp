@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "System/Mutex.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Mutex.h"
 
 struct Session02216ca0 {
     char padding[0x1020];

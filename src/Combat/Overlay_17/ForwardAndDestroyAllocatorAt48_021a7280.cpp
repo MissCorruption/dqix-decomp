@@ -4,7 +4,7 @@
 #define func_ov017_021a7280 func_ov017_021a7c28
 #endif
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "GameState/GameState.h"
 
 extern "C" void* func_02057924(void* obj);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
 
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
 void* LoadFileIntoMemory(const char*, void*, unsigned int*);

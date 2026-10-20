@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/WirelessScanDescriptor.h"
+#include "NitroSDK/WirelessScanDescriptor.h"
 #include "Resource/Script.h"
 
 struct Struct02030b7c {

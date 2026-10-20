@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 void ApplyVec3Tail_0202e694(void* obj, int* vec);
 struct GlobalObj0202e6a8;

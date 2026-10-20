@@ -6,7 +6,7 @@ enum { activeFlagOffset = 0x6184, entryOffset = 0x1d0 };
 enum { activeFlagOffset = 0x63e4, entryOffset = 0x450 };
 #endif
 #include "Grotto/Main/TreasureMapMetadata.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 int CopyOutBattleRegion0x64f4_020ac760(void* dst);
 int CopyToBattleRegion0x64f4_020ac734(void* arg);

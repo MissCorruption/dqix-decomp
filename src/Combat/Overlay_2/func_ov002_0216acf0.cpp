@@ -77,7 +77,6 @@ struct Slot0216acf0 {
 
 extern Totals020fdcb0 data_020fdcb0[];
 extern char data_02108760;
-extern unsigned char data_02114e54[];
 
 #define U8(o) (*(unsigned char*)(self + (o)))
 #define S8(o) (*(signed char*)(self + (o)))
@@ -246,7 +245,7 @@ extern "C" ARM void func_ov002_0216acf0(char* self) {
                 break;
             case 2:
                 if (*(int*)(g + 0x9a0) == 3) {
-                    if (CheckFlagOrThreshold_02161b48(self, 0) != 0 || data_02114e54[0x55] != 0) {
+                    if (CheckFlagOrThreshold_02161b48(self, 0) != 0 || g_touchInput.pressed_ != 0) {
                         func_ov002_0216bfd4(self, 3);
                     }
                 }
@@ -270,7 +269,7 @@ extern "C" ARM void func_ov002_0216acf0(char* self) {
             int flag = g_keyManager.TestKeysPressed(0x601);
             if (AnySet(flag, IsActiveElementFlag2Set0205da38((struct Obj_0205da38*)(self + 0x2c8 + 0xc00), 0x14)) ||
                 CheckFlagOrThreshold_02161b48(self, 1) != 0 ||
-                g_keyManager.TestKeysPressed(0xf0) != 0 || data_02114e54[0x55] != 0) {
+                g_keyManager.TestKeysPressed(0xf0) != 0 || g_touchInput.pressed_ != 0) {
                 ok = 1;
             }
             switch (U8(0x1c7b)) {

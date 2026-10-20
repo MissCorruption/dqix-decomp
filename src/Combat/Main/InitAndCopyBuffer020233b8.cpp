@@ -1,7 +1,7 @@
 #if !defined(jpn)
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 int GetGlobalField0x1c020421a0(void);
 void DelayThenSyncBit0_020c9820(void);

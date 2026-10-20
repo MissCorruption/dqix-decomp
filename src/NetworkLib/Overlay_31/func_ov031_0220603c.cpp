@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/ProcessorContext.h"
-#include "System/Memory.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Memory.h"
 
 struct Packet0220603c {
     Packet0220603c* next;

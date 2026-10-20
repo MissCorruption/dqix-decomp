@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 void ResetIfNonNeg_021db2e4(volatile int* p);
 int GetGlobal02109400_02094a00(void);

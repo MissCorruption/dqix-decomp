@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 // USA: func_0209378c
 ARM int GetDisplayModeCode0209378c(int engine) {

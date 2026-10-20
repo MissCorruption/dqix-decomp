@@ -1,12 +1,12 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/Matrix.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/MessageSystem.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 #include "Combat/MapDisplay.h"
 
 #if defined(jpn)

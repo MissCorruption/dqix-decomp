@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 struct List020727d8;
 struct SearchStruct;

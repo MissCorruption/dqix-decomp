@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "Memory/SafeAllocator.h"
 
 ARM void InitSlotEntries020543ec(char* obj, char* p);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
-#include "System/Mutex.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Mutex.h"
 
 struct Pending10050 { int field_0xa04; int field_0xa08; };
 struct State10050 {

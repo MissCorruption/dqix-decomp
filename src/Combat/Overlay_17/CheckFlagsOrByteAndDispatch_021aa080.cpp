@@ -8,7 +8,6 @@ enum { RegionOffset9a0 = 0x9a0 };
 #include "Input/Input.h"
 
 extern int data_02107800;
-extern unsigned char data_02114e54;
 struct Obj0205eaa0;
 extern struct Obj0205eaa0 data_02108760;
 
@@ -30,7 +29,7 @@ extern "C" ARM int func_ov017_021aa080() {
             g_keyManager.TestKeysPressed(0x10)) {
             flag = 1;
         }
-        if (*(unsigned char*)(&data_02114e54 + 0x54) != 0) {
+        if (g_touchInput.released_ != 0) {
             flag = 1;
         }
     }

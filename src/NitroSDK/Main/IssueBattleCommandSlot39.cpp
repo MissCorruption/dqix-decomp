@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 int GetBattleReadyCode_020d4204(void);
 void SetBattleContextArrayEntry_020d404c(int index, int value);

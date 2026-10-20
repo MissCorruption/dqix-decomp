@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" int LoadToSubBG1ScreenData(int arg0, int arg1, unsigned int arg2);
 extern "C" void func_ov031_0223b710(void* p);

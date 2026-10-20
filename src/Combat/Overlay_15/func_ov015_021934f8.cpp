@@ -3,8 +3,8 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/FontBankLoader.h"
-#include "System/Graphics.h"
-#include "System/VRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/VRAM.h"
 #include "Input/Input.h"
 
 #if defined(jpn)

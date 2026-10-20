@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Graphics.h"
-#include "System/VRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/VRAM.h"
 
 struct Background021626e4 {
     char unk_0[0x1c];

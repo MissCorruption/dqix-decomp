@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "System/Memory.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Memory.h"
 
 struct NetworkMaintenanceState {
     unsigned char padding0[0xc];

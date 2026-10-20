@@ -10,7 +10,7 @@ enum { kContextPointerOffset = 0x154 };
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "World/Object3D.h"
 #include "Resource/Brightness.h"
 

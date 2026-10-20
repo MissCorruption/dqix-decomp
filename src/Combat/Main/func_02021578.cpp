@@ -16,6 +16,7 @@ extern "C" void func_02022da0(void*);
 #include "World/Zone3D.h"
 #include "Combat/MapDisplay.h"
 #include "Resource/Brightness.h"
+#include "NitroSDK/Memory.h"
 
 extern "C" Zone3D* func_02012fe4(void);
 extern "C" void* func_0203bd08(void);

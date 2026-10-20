@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct ByteHeader0204693c { signed char byte0, byte1, byte2, byte3; };
 void ResetByteHeader(ByteHeader0204693c* p);

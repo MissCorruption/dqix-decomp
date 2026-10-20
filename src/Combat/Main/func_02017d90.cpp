@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "World/Zone3D.h"
 
 struct TerrainGrid {

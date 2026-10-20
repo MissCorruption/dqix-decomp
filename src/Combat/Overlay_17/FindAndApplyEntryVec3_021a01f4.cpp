@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 extern int data_ov017_021d65f4[];
 extern signed char data_ov017_021d65ec[];

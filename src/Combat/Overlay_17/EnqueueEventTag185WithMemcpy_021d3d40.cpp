@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 void* GetData02100044_0202ae24(void);
 extern "C" void func_0205e330(void* a, void* b, int c);

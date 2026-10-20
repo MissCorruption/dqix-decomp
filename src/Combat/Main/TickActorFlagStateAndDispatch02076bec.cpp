@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 
 extern "C" int func_02032fdc(void* obj, void* param1, int flag);
 void* GetPtrField0x144_0202ed74(void* obj);

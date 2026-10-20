@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "System/Cache.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Interrupts.h"
 
 struct BackupCommand020d03fc {
     int result;

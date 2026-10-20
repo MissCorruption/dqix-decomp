@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "World/Object3D.h"
 
 #if defined(jpn)

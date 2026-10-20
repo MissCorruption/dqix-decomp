@@ -3,7 +3,7 @@
 #include "Resource/Brightness.h"
 #include "Resource/MessageSystem.h"
 #include "Grotto/Main/TreasureMapDataStructs.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 struct MapList3C40 {

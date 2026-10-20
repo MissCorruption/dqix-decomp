@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
 #include "Resource/GameResources.h"
-#include "System/Memory.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 
 #if defined(jpn)

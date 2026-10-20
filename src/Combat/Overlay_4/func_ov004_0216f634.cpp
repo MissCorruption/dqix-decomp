@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 struct Actor0209c174;
 struct Obj_0205e88c;

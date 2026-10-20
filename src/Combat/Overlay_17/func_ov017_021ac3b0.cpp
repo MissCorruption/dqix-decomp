@@ -3,7 +3,7 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
 #if defined(jpn)

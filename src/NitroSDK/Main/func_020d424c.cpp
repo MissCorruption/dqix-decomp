@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 typedef char* va_list;
 #define __va_align(size) ((((unsigned long)(size)) + 3U) & ~3U)

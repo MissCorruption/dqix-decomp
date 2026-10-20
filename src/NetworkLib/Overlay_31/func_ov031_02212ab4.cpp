@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "System/Memory.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 enum DWCNdError {

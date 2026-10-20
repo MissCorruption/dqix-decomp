@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 // USA: func_0203b97c
 extern "C" ARM void func_0203b97c(void*, unsigned short* destination, int width, int height, int startX, int startY, const unsigned short* source, unsigned int copyWidth, unsigned int copyHeight, unsigned short adjustment) {

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_02011ad4
 ARM void ClearRegion0x649e02011ad4(char* obj) {

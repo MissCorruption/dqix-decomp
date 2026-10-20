@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov031_0220c8d0
 ARM void BytesToShortArrayBE_0220c8d0(unsigned short* dst, unsigned char* src, int len, int outLen) {

@@ -1,0 +1,2 @@
+usa _ZNK10TouchInput20TestPressInRectangleEiiii
+eur _ZNK10TouchInput20TestPressInRectangleEiiii

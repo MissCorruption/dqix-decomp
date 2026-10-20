@@ -12,11 +12,11 @@
 #endif
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "Graphics/NSBXX/GeometryFifo.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 #include "Resource/Brightness.h"
-#include "System/Graphics.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/Matrix.h"
 
 struct EdgeColors
 {

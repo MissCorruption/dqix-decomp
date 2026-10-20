@@ -45,7 +45,6 @@ int sprintf(char* buffer, const char* format, ...);
 }
 #endif
 
-
 #define offsetof(type, member) ((unsigned int)(&((type*)0)->member))
 
 typedef unsigned long long uint64_t;
@@ -61,6 +60,9 @@ typedef unsigned int uintptr_t;
 typedef signed int intptr_t;
 
 typedef unsigned int size_t;
+
+// not really standard library but used in a bunch of places
+typedef int CBool;
 
 #define INLINE_MEMCPY(to, from, size) \
     { \

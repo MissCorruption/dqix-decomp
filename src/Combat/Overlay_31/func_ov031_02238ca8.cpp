@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 void SetGlobal02290d14_02239108(unsigned short v);
 #if defined(jpn)

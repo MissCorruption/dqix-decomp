@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Fields021695fc { unsigned char pad[0x14]; };
 

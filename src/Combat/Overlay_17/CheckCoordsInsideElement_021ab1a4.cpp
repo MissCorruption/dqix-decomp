@@ -8,9 +8,6 @@ struct Ctx021ab1a4 {
     struct Obj2081* obj18;
 };
 
-extern unsigned char data_02114e54;
-
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 int IsPointInsideElement02080d54(struct Obj2081* obj, int key, int px, int py);
 
 // USA: func_ov017_021ab1a4
@@ -19,9 +16,9 @@ ARM int CheckCoordsInsideElement_021ab1a4(struct Ctx021ab1a4* ctx) {
     if (g_keyManager.TestKeysPressed(0x2)) {
         flag = 1;
     }
-    if (*(unsigned char*)(&data_02114e54 + 0x55) != 0) {
+    if (g_touchInput.pressed_ != 0) {
         int a, b;
-        SelectCoordsByFlag0x24_02012a84(&data_02114e54, &a, &b);
+        g_touchInput.GetTouchPoint(&a, &b);
         if (!IsPointInsideElement02080d54(ctx->obj18, 0, (short)a, (short)b)) {
             if (!IsPointInsideElement02080d54(ctx->obj18, 1, (short)a, (short)b)) {
                 flag = 1;

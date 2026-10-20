@@ -14,9 +14,9 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
-#include "System/Matrix.h"
-#include "Graphics/NSBXX/GeometryFifo.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/Matrix.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 
 struct Struct0218bc9c;
 

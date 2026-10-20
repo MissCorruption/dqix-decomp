@@ -2,7 +2,7 @@
 #include "Combat/ActionDisplay.h"
 #include "GameState/GameState.h"
 #include "World/Zone3D.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 #if defined(jpn)

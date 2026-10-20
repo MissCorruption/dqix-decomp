@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 int GetAndStoreSwapped_022077cc(int a, unsigned int* out);
 struct Mutex;

@@ -6,7 +6,7 @@ enum { kDragModel = 0x3c68 };
 enum { kDragModel = 0x3cf0 };
 #endif
 
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 #include <std_library_functions.h>
 
 struct Vec3Target0203a46c;

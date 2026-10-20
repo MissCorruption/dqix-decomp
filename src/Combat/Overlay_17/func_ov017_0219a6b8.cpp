@@ -19,12 +19,10 @@ int CheckSubstructByte0x7cPositive_020535c8(signed char*);
 int CheckField0xc4Low15BitsNonZero(BitField0203402c*);
 unsigned char GetByte0x26c_02039d7c(char*);
 extern "C" void __clear(void*, int);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 void CancelPendingAction020397cc(Obj020397cc*, int);
 void ClearByteFlagAt0x154_020a7f40(unsigned char*);
 void SetByteFlagAt0x154_020a7f34(unsigned char*);
 void SetByteField0x253_020397c0(void*);
-extern unsigned char data_02114e54[];
 
 // USA: func_ov017_0219a6b8
 extern "C" ARM void func_ov017_0219a6b8(GameResources* self) {
@@ -51,17 +49,17 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* self) {
         int width = 24;
         int height = 24;
         if (index == 0) { width = 32; height = 32; }
-        if (data_02114e54[0x55]) {
+        if (g_touchInput.pressed_) {
             int x, y;
-            SelectCoordsByFlag0x24_02012a84(data_02114e54, &x, &y);
+            g_touchInput.GetTouchPoint(&x, &y);
             if (self->fieldButtonX[index] < x && x < self->fieldButtonX[index] + width && self->fieldButtonY[index] < y && y < self->fieldButtonY[index] + height) {
                 CancelPendingAction020397cc((Obj020397cc*)actor, 1);
                 if (other && zone == 0x2710) ClearByteFlagAt0x154_020a7f40(other);
                 self->fieldButtonState[index] = 1;
             }
-        } else if (data_02114e54[0x5f] && (*(unsigned short*)(data_02114e54 + 0x24))) {
+        } else if (g_touchInput.isRepeatValid_ && (g_touchInput.currentReading_.isHeld)) {
             int x, y;
-            SelectCoordsByFlag0x24_02012a84(data_02114e54, &x, &y);
+            g_touchInput.GetTouchPoint(&x, &y);
             if (self->fieldButtonState[index] == 1) {
                 if (!(self->fieldButtonX[index] < x && x < self->fieldButtonX[index] + width && self->fieldButtonY[index] < y && y < self->fieldButtonY[index] + height)) self->fieldButtonState[index] = 2;
             } else if (self->fieldButtonState[index] == 2) {
@@ -74,7 +72,7 @@ extern "C" ARM void func_ov017_0219a6b8(GameResources* self) {
                 self->fieldButtonX[index] = nextX;
                 self->fieldButtonY[index] = nextY;
             }
-        } else if (data_02114e54[0x54]) {
+        } else if (g_touchInput.released_) {
             if (self->fieldButtonState[index]) {
                 SetByteField0x253_020397c0(actor);
                 if (other && zone == 0x2710) SetByteFlagAt0x154_020a7f34(other);

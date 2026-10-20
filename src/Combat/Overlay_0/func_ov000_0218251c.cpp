@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "GameState/GameState.h"
 
 struct Struct0200fb08;

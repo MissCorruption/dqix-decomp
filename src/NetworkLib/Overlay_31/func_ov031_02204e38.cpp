@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Memory.h>
+#include <NitroSDK/Memory.h>
 
 void SetPriorityAndApplyToContexts_0220057c(unsigned int priority);
 void SetGlobal0224e540Field28_0220f0e4(int v);

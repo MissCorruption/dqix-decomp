@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 #include "Combat/Overlay15ViewerContext.h"
-#include "Graphics/NSBXX/GeometryFifo.h"
-#include "System/Graphics.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
+#include "NitroSDK/Graphics.h"
 
 ModelRenderContext* GetModel3DContext(Model3D* model);
 extern "C" void func_02031234(int angle);

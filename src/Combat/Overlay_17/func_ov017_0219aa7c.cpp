@@ -19,7 +19,6 @@ typedef void (GameResources::*FocusAction0219aa7c)();
 struct FocusActions0219aa7c { FocusAction0219aa7c entries[15]; };
 extern const FocusActions0219aa7c data_ov017_021d64f4;
 extern const FocusAction0219aa7c data_020e6d5c;
-extern unsigned char data_02114e54[];
 void* GetField0x3b0Value_020100bc(GameState*);
 int CheckSubstructByte0x7cPositive_020535c8(signed char*);
 EntryList_203dce4* GetGlobalPtr021075f4_0203cf4c();
@@ -82,11 +81,11 @@ extern "C" ARM void func_ov017_0219aa7c(GameResources* self) {
     SetVec3At0x1c((Vec3Target0203a46c*)sprite, x << 12, y << 12, 0);
     if (!IsField0Null_02046b08(static_cast<void**>(self->unknown_ptr_array_36fc[0]))) return;
     int dispatch = 0;
-    if (data_02114e54[0x54] && *reinterpret_cast<unsigned int*>(data_02114e54 + 0x44) < 10) {
+    if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {
         int width = GetChainedTableByte_020479fc((ChainRoot*)sprite);
         int height = GetLinkedFlagByte_020479b8((LookupBase*)sprite);
-        int limit_x = *reinterpret_cast<int*>(data_02114e54 + 0x38);
-        int limit_y = *reinterpret_cast<int*>(data_02114e54 + 0x3c);
+        int limit_x = g_touchInput.prevX_;
+        int limit_y = g_touchInput.prevY_;
         if (x < limit_x && y < limit_y && limit_x < x + width && limit_y < y + height) dispatch = 1;
     }
     if (g_keyManager.TestKeysPressed(1)) dispatch = 1;

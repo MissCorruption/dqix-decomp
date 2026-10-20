@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "Resource/Script.h"
 #if defined(jpn)
-#include "Filesystem/NarcHandle.h"
-#include "Filesystem/LowNitroHandle.h"
-#include "Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
 extern const char data_ov017_021d8489[];
 extern const char data_ov017_021d848d[];
 #endif

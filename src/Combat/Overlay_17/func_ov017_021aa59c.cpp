@@ -5,8 +5,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
-#include "System/Graphics.h"
-#include "System/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/ColorEffects.h"
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
 
@@ -112,12 +112,6 @@ struct ActorData02109bf4 {
     char unknown[0xd0];
 };
 extern ActorData02109bf4 data_02109bf4;
-
-struct Settings02114e54 {
-    char unknown_0[0x55];
-    unsigned char flag55;
-};
-extern Settings02114e54 data_02114e54;
 
 struct Input021aa59c {
     unsigned short buttons;
@@ -317,7 +311,7 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
                     if (self->result != 0) {
                         ClearSublistEntriesFlag4_020804fc(menu, self->key);
                     }
-                    if (self->prevCursor != *self->cursorPtr || data_02114e54.flag55 != 0) {
+                    if (self->prevCursor != *self->cursorPtr || g_touchInput.pressed_ != 0) {
                         func_020813ec(menu, self->key);
                         SetThreeEntryFlags_021ab060((Obj021ab060*)self);
                     }
@@ -338,7 +332,7 @@ extern "C" ARM void func_ov017_021aa59c(Self021aa59c* self, ListHead02046b60* li
                 } else if (CheckCoordsInsideElement_021ab1a4((Ctx021ab1a4*)self) != 0) {
                     redraw = true;
                 }
-            } else if (g_keyManager.TestKeysPressed(0x401) != 0 || data_02114e54.flag55 != 0) {
+            } else if (g_keyManager.TestKeysPressed(0x401) != 0 || g_touchInput.pressed_ != 0) {
                 func_020813ec(menu, self->key);
                 SetThreeEntryFlags_021ab060((Obj021ab060*)self);
                 ClearFlags020466f4((FlagWord020466f4*)flags, 0x200);

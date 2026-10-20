@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Obj0224e5c4_02213054 { unsigned char pad[0x17]; unsigned char field17; unsigned char data18[10]; };
 struct Glob0224e5c4_02213054 { unsigned char pad[0xc]; Obj0224e5c4_02213054* pField; };

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/DTCM.h"
+#include "NitroSDK/DTCM.h"
 
 extern "C" void func_01ff82e4(unsigned int data, void* dest, unsigned int size);
 

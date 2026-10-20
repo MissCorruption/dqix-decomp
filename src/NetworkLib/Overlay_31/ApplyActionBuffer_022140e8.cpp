@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 void* CallWithOffsetC_022157e8(char* p);
 void BuildAndApplyBuffer_02215750(int a, void* b);

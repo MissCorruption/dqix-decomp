@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "Input/Input.h"
 
 #if defined(jpn)
@@ -57,18 +57,6 @@ void SetFlagsAt0xa97(FlagBlob02027bac* obj, unsigned char value);
 void AllocateAndCopyBuf28_0216ae2c(SafeAllocator* allocator, void* arg);
 extern char data_02108760;
 extern char data_ov017_021d76dc;
-
-struct Touch02114e54 {
-    char pad0[0x24];
-    unsigned short active;
-    char pad1[0x30 - 0x26];
-    int x;
-    int y;
-    char pad2[0x5f - 0x38];
-    unsigned char enabled;
-};
-
-extern Touch02114e54 data_02114e54;
 
 struct Thresholds021d6a80 {
     short values[5];
@@ -164,8 +152,8 @@ extern "C" ARM void func_ov017_021a51a4(Res021a51a4* res) {
     } else {
         res->pending = start;
     }
-    x = data_02114e54.x;
-    y = data_02114e54.y;
+    x = g_touchInput.pressX_;
+    y = g_touchInput.pressY_;
     if (func_020c39c8((volatile unsigned short*)0x400006c) != 0) {
         return;
     }
@@ -175,7 +163,7 @@ extern "C" ARM void func_ov017_021a51a4(Res021a51a4* res) {
     level = NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance());
 #endif
     int touched;
-    if (data_02114e54.enabled && data_02114e54.active &&
+    if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld &&
 #if defined(jpn)
         0xb0 <= x
 #else

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 extern "C" fix32_t Vector3fix_InnerProduct(const Vector3fix *a, const Vector3fix *b);
 

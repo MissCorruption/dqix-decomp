@@ -6,12 +6,12 @@ enum { IntroResourceSize = 0x1000 };
 enum { IntroResourceSize = 0x1400 };
 #endif
 #include "Resource/FontBankLoader.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Matrix.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Matrix.h"
+#include "NitroSDK/Graphics.h"
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "Resource/GameResources.h"
 

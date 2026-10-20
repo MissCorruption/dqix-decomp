@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Grotto/Main/GrottoStruct.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 #if defined(jpn)
 enum { kLargeBufferOffset = 0x6d8c, kSmallBufferOffset = 0x5a70 };

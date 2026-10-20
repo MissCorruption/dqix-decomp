@@ -1,8 +1,8 @@
 #include <globaldefs.h>
-#include "Filesystem/FileAccessor.h"
-#include "Filesystem/NitroVM.h"
-#include "Filesystem/LowNitroHandle.h"
-#include "System/GamecardBusOwnership.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
+#include "NitroSDK/GamecardBusOwnership.h"
 
 struct ShutdownState0223b4d4 {
     void* allocation;

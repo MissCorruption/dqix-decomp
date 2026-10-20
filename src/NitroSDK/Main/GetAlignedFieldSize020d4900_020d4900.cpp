@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 void* GetBattleContext_020d41d8(void);
 extern "C" int func_020d424c(int a, int b, int c);

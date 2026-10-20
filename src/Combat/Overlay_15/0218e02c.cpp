@@ -2,13 +2,13 @@
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
 #include "World/Object3D.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
-#include "Filesystem/NarcHandle.h"
-#include "Filesystem/NitroVM.h"
-#include "Filesystem/LowNitroHandle.h"
-#include "Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
 
 extern "C" void* __clear(void* dst, int count);
 

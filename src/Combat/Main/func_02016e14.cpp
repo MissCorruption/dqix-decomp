@@ -2,10 +2,10 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "Graphics/Model3D.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 #include "Graphics/Vector.h"
-#include "System/Matrix.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Matrix.h"
+#include "NitroSDK/Graphics.h"
 #include "World/Object3D.h"
 
 struct Pair02016e14 { unsigned char a; unsigned char b; };

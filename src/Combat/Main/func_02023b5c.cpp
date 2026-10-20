@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 #include "GameState/GameState.h"
-#include "System/ColorEffects.h"
-#include "System/Matrix.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/Matrix.h"
 
 extern "C" void func_02012fe4();
 extern "C" void* func_0202ae18();

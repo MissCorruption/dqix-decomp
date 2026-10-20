@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct Vec3Ints0216d368 : Vector3i {};
 struct AngleTrig0202e9a4 {

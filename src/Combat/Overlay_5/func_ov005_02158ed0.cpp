@@ -6,18 +6,9 @@
 #endif
 #include <globaldefs.h>
 #include <std_library_functions.h>
+#include "Input/Input.h"
 
 struct StructA0205d5d0;
-
-struct Touch02114e54 {
-    char pad0[0x24];
-    unsigned short active;
-    char pad1[0x30 - 0x26];
-    int x;
-    int y;
-    char pad2[0x5f - 0x38];
-    unsigned char enabled;
-};
 
 struct MenuList {
     char unk_0[0x30];
@@ -43,8 +34,6 @@ struct EquipmentMenu {
     MenuWindow* GetWindow() { return &window_; }
 };
 
-extern Touch02114e54 data_02114e54;
-
 extern "C" void func_ov005_02159a30(EquipmentMenu* self, unsigned short* text, int touched);
 // USA: func_ov005_02158ed0
 extern "C" ARM void func_ov005_02158ed0(EquipmentMenu* self) {
@@ -52,7 +41,7 @@ extern "C" ARM void func_ov005_02158ed0(EquipmentMenu* self) {
     if (mode == 0)
         return;
     int touched = 0;
-    if (mode == 2 && data_02114e54.enabled && data_02114e54.active) {
+    if (mode == 2 && g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) {
         if (self->GetWindow()->GetList()->GetCursor() < 0)
             return;
         touched = 1;

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ColorEffects.h"
-#include "System/Matrix.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/Matrix.h"
 
 struct Fade0223c150 {
     void* task;

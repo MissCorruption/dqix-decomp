@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
 struct Obj020397cc {

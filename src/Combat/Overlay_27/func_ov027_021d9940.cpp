@@ -10,7 +10,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac

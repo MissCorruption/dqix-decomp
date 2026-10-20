@@ -2,9 +2,9 @@
 #include "Graphics/GlyphBitmapContext.h"
 
 #include "std_library_functions.h"
-#include "System/LoadToVRAM.h"
-#include "System/Cache.h"
-#include "System/Graphics.h"
+#include "NitroSDK/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Graphics.h"
 
 extern "C" void func_02028e90();
 extern "C" void func_02028f54();

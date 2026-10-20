@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Mutex.h"
-#include "System/Memory.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Mutex.h"
+#include "NitroSDK/Memory.h"
 struct TransferState0220f104 {
     char pad[0xf00];
     char buffer[0x1360];

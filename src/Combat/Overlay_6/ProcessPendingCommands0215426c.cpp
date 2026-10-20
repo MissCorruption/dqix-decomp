@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "Graphics/NSBXX/GeometryFifo.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 
 extern int data_ov006_02160380[3];
 extern int data_ov006_0216038c[3];

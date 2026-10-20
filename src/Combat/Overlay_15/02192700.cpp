@@ -46,7 +46,7 @@ extern const char data_ov015_021950c3[];
 extern const char data_ov015_021950f0[];
 #endif
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 #include "Resource/BCFG.h"
 

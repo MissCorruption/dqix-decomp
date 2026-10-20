@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "Filesystem/NarcHandle.h"
-#include "Filesystem/LowNitroHandle.h"
-#include "Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
 #include "Filesystem/FileIO.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"

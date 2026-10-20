@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct ReceiveContext0220a6bc {
     unsigned char padding_0x0[0x455]; unsigned char status, retained;

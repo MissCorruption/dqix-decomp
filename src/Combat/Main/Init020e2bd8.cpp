@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Entry020e2cc4;
 void SetEntryEnabled020e2cc4(struct Entry020e2cc4*, int);

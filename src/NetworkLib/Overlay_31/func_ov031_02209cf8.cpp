@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 struct RandomState09cf8 { unsigned long long value; unsigned long long multiplier; unsigned long long increment; };
 extern RandomState09cf8 data_ov031_0224c9e8;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/RequestSubmission.h"
+#include "NitroSDK/RequestSubmission.h"
 
 #ifdef jpn
 #define data_021023c0 data_02102100

@@ -9,7 +9,7 @@ enum { RegionOffset600 = 0x600, RegionOffset2cc = 0x2cc };
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
 struct Struct0218d618;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov023_021f6e90
 ARM void CopyToSlot_021f6e90(char* obj, int idx, const void* src) {

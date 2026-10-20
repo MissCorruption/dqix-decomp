@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
-#include "System/Timing.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Timing.h"
 
 struct ConnectParams0221eadc {
     int channel;

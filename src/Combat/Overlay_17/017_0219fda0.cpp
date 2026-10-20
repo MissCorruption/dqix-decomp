@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 
 extern "C" void* func_02012fe4(void);

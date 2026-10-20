@@ -151,11 +151,6 @@ struct PartyMember : GameObject {
     CombatantData* data_;
 };
 
-struct TouchState {
-    char pad_0[0x55];
-    unsigned char touching_;
-};
-
 struct GameResources;
 struct List020727d8;
 struct StreamHeader;
@@ -165,7 +160,6 @@ struct Obj0205eaa0;
 
 extern char data_ov008_0218b400[] __attribute__((aligned(4)));
 extern unsigned char data_0211e33c[];
-extern TouchState data_02114e54;
 extern Obj0205eaa0 data_02108760;
 
 GameResources* GetWord0x0_0200fb8c(int* gameState);
@@ -181,7 +175,6 @@ void AppendString02042058(char* text, const char* append);
 Canvas* FindElementByC40205d81c(Struct_0205d81c* window, int canvas);
 struct Manager02187664;
 void InitConfig02187664(Manager02187664*, int);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* touch, int* x, int* y);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0* sound, int effect, int value);
 #if defined(jpn)
 void SubmitScriptFromFile020727f8(void* list, const char* path, int id, void* out, unsigned char mode);
@@ -329,8 +322,8 @@ extern "C" ARM void func_ov008_02186388(BattleRecords* self)
         int ok = 0;
         if (g_keyManager.TestKeysPressed(0x403))
             ok = 1;
-        SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
-        if (data_02114e54.touching_)
+        g_touchInput.GetTouchPoint(&x, &y);
+        if (g_touchInput.pressed_)
         {
             int index = func_ov008_02186b18(self, x, y);
             if (index == -2)

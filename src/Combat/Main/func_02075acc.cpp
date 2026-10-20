@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 void SelectBattleContextMode2_020d0040(int mode);
 int GetBattleSysInnerField4_020d06d4();

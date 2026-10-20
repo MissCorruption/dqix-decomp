@@ -2,7 +2,7 @@
 #include "Combat/MenuNodeChain.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 

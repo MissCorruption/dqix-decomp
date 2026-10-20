@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 class Battle0215bba8 {
 public:
@@ -12,19 +13,11 @@ struct ModePage0215bba8 {
     int b;
 };
 
-struct Global02114e54 {
-    char unk_0[0x24];
-    unsigned short f24;
-    char unk_26[0x5f - 0x26];
-    unsigned char f5f;
-};
-
 extern PageFn0215bba8 data_ov002_0216d10c[44];
 extern unsigned int data_ov002_0216d3b0[2];
 extern PageFn0215bba8 data_020e6d5c;
 extern ModePage0215bba8 data_ov002_0216cb18[];
 extern ModePage0215bba8 data_ov002_0216cb1c[];
-extern Global02114e54 data_02114e54;
 
 extern "C" void *memset(void *dst, int value, unsigned int length);
 extern "C" unsigned char *_Z23FindElementByC40205d81cP15Struct_0205d81ci(char *s, unsigned char key);
@@ -44,7 +37,7 @@ extern "C" ARM void func_ov002_0215bba8(Battle0215bba8 *self) {
     }
     int hl = 0;
     if (mode == 2) {
-        if (data_02114e54.f5f != 0 && data_02114e54.f24 != 0) {
+        if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
             W0215bba8 *w = (W0215bba8 *) (base + 0x2c8 + 0xc00) + 1;
             w--;
             if (w->f34 < 0) {

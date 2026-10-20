@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/OverlayMD5.h"
+#include "NitroSDK/OverlayMD5.h"
 
 // USA: func_ov031_022227c0
 extern "C" THUMB void func_ov031_022227c0(unsigned char* destination, const unsigned int* source, unsigned int size) {

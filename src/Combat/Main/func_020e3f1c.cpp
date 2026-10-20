@@ -3,7 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"

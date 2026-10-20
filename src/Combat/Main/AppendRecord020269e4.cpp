@@ -9,7 +9,7 @@
 #define RECORD_COUNT_OFFSET 0x780
 #endif
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_020269e4
 ARM void AppendRecord020269e4(char* obj, const void* src) {

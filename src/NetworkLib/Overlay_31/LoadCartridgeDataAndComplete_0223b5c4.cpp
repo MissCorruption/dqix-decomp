@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "Filesystem/CardReadManager.h"
-#include "Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/CardReadManager.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
 
 void TailCallOnTaskCompletion_0223b604(NitroHandle* handle);
 

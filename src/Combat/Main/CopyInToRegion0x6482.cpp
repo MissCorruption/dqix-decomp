@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_02011a24
 ARM void CopyInToRegion0x6482_02011a24(char* obj, void* src) {

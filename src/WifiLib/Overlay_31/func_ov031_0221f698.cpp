@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include <Graphics/NSBXX/RenderCommands_Common.h>
-#include "System/WirelessScanDescriptor.h"
+#include <NitroSDK/NSBXX/RenderCommands_Common.h>
+#include "NitroSDK/WirelessScanDescriptor.h"
 
 #if defined(jpn)
 #define func_020ca408 func_020cbed4

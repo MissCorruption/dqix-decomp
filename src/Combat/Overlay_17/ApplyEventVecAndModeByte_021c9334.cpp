@@ -5,7 +5,7 @@ enum { RegionOffset424 = 0x424 };
 #endif
 
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 extern "C" int func_ov017_021d446c(void* obj, void* out, int flags);
 extern "C" int func_02012fe4(void);

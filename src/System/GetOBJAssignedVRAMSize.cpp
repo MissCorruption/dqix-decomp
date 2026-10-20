@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/VRAM.h"
+#include "NitroSDK/VRAM.h"
 
 // USA: func_020937f0
 extern "C" ARM int func_020937f0(int engine) {

@@ -7,7 +7,7 @@ enum { kStatusOffset = 0x520 };
 enum { kStatusValue = 4 };
 #endif
 
-#include "System/DMA.h"
+#include "NitroSDK/DMA.h"
 
 extern "C" int LoadToMainOAM(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubOAM(int arg0, int arg1, unsigned int arg2);

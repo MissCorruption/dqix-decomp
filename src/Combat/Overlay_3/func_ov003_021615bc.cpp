@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "Resource/GameResources.h"
 
 #if defined(jpn)

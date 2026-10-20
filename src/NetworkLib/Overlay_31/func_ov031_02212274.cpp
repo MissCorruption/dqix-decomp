@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Memory.h"
-#include "System/Cache.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Cache.h"
 
 struct ApInfo02212274
 {

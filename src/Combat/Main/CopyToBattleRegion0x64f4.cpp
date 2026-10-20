@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_020ac734
 ARM int CopyToBattleRegion0x64f4_020ac734(void* arg) {

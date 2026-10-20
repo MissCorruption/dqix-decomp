@@ -6,7 +6,7 @@
 #endif
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "Resource/GameResources.h"
 
 struct S021b2ba0;

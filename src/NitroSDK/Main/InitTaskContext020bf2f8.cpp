@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 struct FourWords;
 struct Mutex;

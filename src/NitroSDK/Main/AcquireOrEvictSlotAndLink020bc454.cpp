@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 struct Obj020bc084;
 extern void ClearFieldAndNullSlot020bc084(struct Obj020bc084** slot);

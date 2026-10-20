@@ -2,7 +2,7 @@
 
 #include "../Graphics/Vector.h"
 #include "../Memory/SafeAllocator.h"
-#include "../System/Memory.h"
+#include "../NitroSDK/Memory.h"
 #include "../Grotto/Main/TileFeatures.h"
 
 union WrappedVector3fix

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Grotto/Main/TreasureMapMetadata.h"
 #include "Grotto/Main/TreasureMapDataStructs.h"
-#include "System/Memory.h"
-#include "System/Timing.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Timing.h"
 #include "std_library_functions.h"
 
 extern "C" void func_020a3720();

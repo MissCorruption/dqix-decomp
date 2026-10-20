@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_020119f8
 ARM unsigned char CopyToRegion0x6482IfDst_020119f8(char* obj, void* dst) {

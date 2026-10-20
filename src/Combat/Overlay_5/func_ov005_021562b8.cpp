@@ -8,19 +8,10 @@
 #include "World/ZoneLootableRecord.h"
 #include <GameState/GameState.h>
 #include "Resource/GameResources.h"
+#include "Input/Input.h"
 
 struct Obj0205eaa0;
 struct Foo02048004;
-
-struct TouchState {
-    char unk_0[0x24];
-    unsigned short unk_24;
-    char unk_26[0x54 - 0x26];
-    unsigned char unk_54;
-    unsigned char touching_;
-    char unk_56[0x5f - 0x56];
-    unsigned char unk_5f;
-};
 
 struct MemberScreen {
     char unk_0[LOW_REGION(0x4f8, 0x4fc)];
@@ -67,10 +58,8 @@ struct EquipmentMenu {
     short touchY_;
 };
 
-extern TouchState data_02114e54;
 extern int data_02108760;
 
-void SelectCoordsByFlag0x24_02012a84(unsigned char* state, int* x, int* y);
 MemberScreen* GetField1c_021a193c(int* p);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0* obj, int a, int b);
 extern "C" void func_ov005_0215792c(EquipmentMenu* self, unsigned char state);
@@ -86,11 +75,11 @@ extern "C" void func_ov005_02156ecc(EquipmentMenu* self, int x, int y);
 extern "C" ARM void func_ov005_021562b8(EquipmentMenu* self) {
     int x;
     int y;
-    SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
+    g_touchInput.GetTouchPoint(&x, &y);
     int ticks = GameState::GetInstance()->GetTickCount();
     if (ticks == 0)
         ticks = 1;
-    if (data_02114e54.touching_) {
+    if (g_touchInput.pressed_) {
         if (x == 0 || y == 0)
             return;
         MemberScreen* screen = GetField1c_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
@@ -138,11 +127,11 @@ extern "C" ARM void func_ov005_021562b8(EquipmentMenu* self) {
         self->touchTime_ = 0;
         self->touchX_ = x;
         self->touchY_ = y;
-    } else if (data_02114e54.unk_5f != 0 && data_02114e54.unk_24 != 0) {
+    } else if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
         func_ov005_02156e1c(self, x, y);
         if (self->dragged_ >= 0)
             self->touchTime_ += ticks;
-    } else if (data_02114e54.unk_54 != 0) {
+    } else if (g_touchInput.released_ != 0) {
         if (self->dragged_ >= 0) {
             int dx = self->touchX_ - (short)x;
             int dy = self->touchY_ - (short)y;

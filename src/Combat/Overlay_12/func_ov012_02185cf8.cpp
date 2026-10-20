@@ -10,6 +10,7 @@
 #define func_ov012_02185cf8 func_ov012_0218634c
 #endif
 #include "std_library_functions.h"
+#include "Input/Input.h"
 
 struct StructA0205d5d0;
 struct ProfileEditor02185cf8
@@ -30,14 +31,6 @@ struct Frame02185cf8
     int unk_30;
 };
 
-struct Input02114e54
-{
-    char unk_0[0x24];
-    unsigned short unk_24;
-    char unk_26[0x5f - 0x26];
-    unsigned char unk_5f;
-};
-
 typedef void (ProfileEditor02185cf8::*TextFn02185cf8)(char* text, int hidden);
 
 struct TextTable02185cf8
@@ -45,7 +38,6 @@ struct TextTable02185cf8
     TextFn02185cf8 functions[16];
 };
 
-extern "C" Input02114e54 data_02114e54;
 extern "C" const TextTable02185cf8 data_ov012_0218b108;
 extern "C" TextFn02185cf8 data_020e6d5c;
 
@@ -68,7 +60,7 @@ extern "C" ARM void func_ov012_02185cf8(ProfileEditor02185cf8* self)
     int hidden = 0;
     if (self->unk_1398 == 2)
     {
-        if (data_02114e54.unk_5f != 0 && data_02114e54.unk_24 != 0 &&
+        if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0 &&
             GetFrame02185cf8(GetWindow02185cf8(self))->unk_30 < 0)
             return;
         hidden = 1;

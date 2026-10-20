@@ -94,7 +94,6 @@ struct Obj0205eaa0;
 
 unsigned short GetShortField1b0_02184a00(struct Obj_02184a00* obj);
 extern "C" int func_020c39c8(volatile unsigned short* p);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 void* AddOffset20_021f7318(void* p);
 unsigned char GetEntryByteIfFlag0x84(struct Owner02047a5c* owner, int index);
 int GetElementByte1IfEnabled(struct Owner02047a3c* obj, int index);
@@ -118,7 +117,6 @@ extern "C" Vec3_021f8e1c func_ov023_021f8b78(void* src, void* other);
 extern "C" void func_ov023_021f98e0(void* obj, void* other);
 extern "C" int func_ov023_021f9da8(void* obj, void* other, int x, int y);
 
-extern unsigned char data_02114e54[];
 extern struct Obj0205eaa0 data_02108760;
 extern unsigned int data_ov023_021fff24;
 extern const unsigned short data_ov023_021fd922[];
@@ -325,10 +323,10 @@ extern "C" ARM void func_ov023_021f8e1c(Cursor021f8e1c* self, void* other) {
         }
     }
 
-    if (moved == 0 && data_02114e54[0x55] != 0) {
+    if (moved == 0 && g_touchInput.pressed_ != 0) {
         int touchX;
         int touchY;
-        SelectCoordsByFlag0x24_02012a84(data_02114e54, &touchX, &touchY);
+        g_touchInput.GetTouchPoint(&touchX, &touchY);
         scroll = func_ov023_021f9da8(self, other, touchX, touchY);
         if (scroll == 0) {
             int x;

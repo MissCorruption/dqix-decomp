@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include <System/Memory.h>
-#include <System/ProcessorContext.h>
+#include <NitroSDK/Memory.h>
+#include <NitroSDK/ProcessorContext.h>
 
 struct ReceiveBuffer {
     unsigned char padding[0xf8];

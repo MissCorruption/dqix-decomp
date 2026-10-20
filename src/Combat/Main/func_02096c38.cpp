@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <Graphics/Vector.h>
-#include <System/Graphics.h>
+#include <NitroSDK/Graphics.h>
 
 #if defined(jpn)
 #define func_020c51a4 func_020c6c70

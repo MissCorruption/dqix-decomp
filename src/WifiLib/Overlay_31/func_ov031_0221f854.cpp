@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Interrupts.h"
 
 #if defined(jpn)
 #define func_020ca408 func_020cbed4

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Filesystem/OverlayFSManagement.h"
+#include "NitroSDK/Filesystem/OverlayFSManagement.h"
 #include "Resource/ResourceMutex.h"
-#include "System/Mutex.h"
+#include "NitroSDK/Mutex.h"
 
 extern "C" int func_020a1bb4(unsigned int id);
 void DispatchByFlag020d9834(int flag);

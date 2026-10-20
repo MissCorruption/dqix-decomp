@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #include "GameState/GameState.h"
-#include "System/Timing.h"
-#include "System/GamecardBusOwnership.h"
-#include "System/NetworkIdentity.h"
+#include "NitroSDK/Timing.h"
+#include "NitroSDK/GamecardBusOwnership.h"
+#include "NitroSDK/NetworkIdentity.h"
 #include "Filesystem/FileIO.h"
 #include "std_library_functions.h"
 

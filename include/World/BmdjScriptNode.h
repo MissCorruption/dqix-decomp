@@ -1,6 +1,6 @@
 #pragma once
 
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Grotto/Main/TileFeatures.h"
 
 class Zone3D;

@@ -16,7 +16,7 @@
 
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
-#include "System/Timing.h"
+#include "NitroSDK/Timing.h"
 #include "World/Zone3D.h"
 #include "Resource/GameResources.h"
 

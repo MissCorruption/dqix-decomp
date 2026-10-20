@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "System/Memory.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Memory.h"
 
 struct InitData020c7de4 {
 	int a; int b; int c; int d;

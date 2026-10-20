@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 void InsertAllocatorSortedByByte3d_020bc658(SignedAllocatorList* list, SignedAllocatorHeader* what);
 void InsertSortedByByte3dGlobal020bc6a8(SignedAllocatorHeader* what);

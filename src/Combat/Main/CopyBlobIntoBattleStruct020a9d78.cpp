@@ -6,7 +6,7 @@ enum { RegionOffset = 0x7c38 };
 enum { RegionOffset = 0x7e78 };
 #endif
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 void* GetField0x3f8Address_0200fd0c(GameState* battleStruct);
 extern "C" void* func_02012fe4();

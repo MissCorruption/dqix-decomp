@@ -35,11 +35,9 @@ int GetWord0x0_0200fb8c(int* obj);
 int IsFieldNotPositive_021a4e70(unsigned char* base);
 int GetInnerFlagBit0020e28dc(Outer020e28dc* o);
 int GetField0x15UnlessInactive_020e2918(signed char* obj);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 int RunAndCheckFlagBit02080dd4(void* obj, int p1, int p2, int p3, unsigned char* outFlag, unsigned char extra);
 
 extern "C" {
-extern unsigned char data_02114e54[];
 extern short data_ov003_0217f484[];
 extern short data_ov003_0217f426[];
 void func_02080558(void* obj, int p1, int result, int flag, unsigned char extra);
@@ -63,11 +61,11 @@ extern "C" ARM unsigned char func_ov003_02160854(Ctx02160854* self) {
             confirmed = 1;
             *self->cursor_ = choice + 0x2c;
         }
-    } else if (data_02114e54[0x55] && self->cursor_ != 0) {
+    } else if (g_touchInput.pressed_ && self->cursor_ != 0) {
         int x;
         int y;
         Menu02160854* menu = self->menu_;
-        SelectCoordsByFlag0x24_02012a84(data_02114e54, &x, &y);
+        g_touchInput.GetTouchPoint(&x, &y);
         int item = RunAndCheckFlagBit02080dd4(menu, self->group_, (short)x, (short)y, &confirmed, 0);
         if (item < 0)
             return 0;

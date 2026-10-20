@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "GameState/GameState.h"
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
@@ -33,11 +33,6 @@ struct SteeringObject {
     char pad_19d[3];
     unsigned char direction;
 };
-struct SteeringControl {
-    char pad_00[0x40];
-    int counter;
-};
-
 void* GetField0x3b0Value_020100bc(GameState*);
 extern "C" void func_02012fe4();
 void SetFields0x44(Fields020407b4*, int, int, int);
@@ -48,7 +43,6 @@ int fix32ReduceAngle0To2Pi(int);
 int fix32SignedAngleDistance(int, int);
 int CheckAndComputeDistance020968d0(Obj020968d0*, int*);
 void SetVecYFromValue02033874(Obj02033874*, int);
-extern SteeringControl data_02114e54;
 extern const int data_020e9118[8];
 
 // USA: func_020adaac
@@ -90,7 +84,7 @@ extern "C" ARM void func_020adaac(SteeringObject* self) {
         self->mode = 1;
         self->direction = 11;
     }
-    if (data_02114e54.counter > 5) self->mode = 2;
+    if (g_touchInput.timeHeld_ > 5) self->mode = 2;
     if (!self->enabled) {
         self->mode = 0;
         return;

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "NitroSDK/TouchScreen.h"
 
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac
@@ -11,7 +12,6 @@ int SetVBlankIrqEnable_020c3864(int enable);
 void BlankFunction020c36ec(void);
 void InitializeROMFilesystem(int dmaChannel);
 extern "C" void func_020c9be0(void);
-extern "C" void func_020cd890(void);
 ARM void InitSlotSystem020cf020(void);
 
 extern "C" void func_ov031_0223dda8(void);
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov031_02227128(void) {
     SetVBlankIrqEnable_020c3864(0);
     BlankFunction020c36ec();
     InitializeROMFilesystem(-1);
-    func_020cd890();
+    InitializeTouchSystem();
     InitSlotSystem020cf020();
     SaveAndClearDisplayMode_020c3898();
     *(volatile unsigned int*)0x4001000 &= ~0x10000;

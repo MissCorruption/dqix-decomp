@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
 #include "World/Object3D.h"
-#include "Filesystem/NarcHandle.h"
-#include "Filesystem/FileAccessor.h"
-#include "Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
 #include "Resource/ResourceMutex.h"
 #include "std_library_functions.h"
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct DirectionEntry { unsigned char animation_, mirrored_; };
 struct DirectionObject {

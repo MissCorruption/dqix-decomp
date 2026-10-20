@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Obj020827c4 { char field_0x0[0x1c]; };
 void InitFlagsAndTimers020827c4(Obj020827c4*);

@@ -1,17 +1,13 @@
 #include <globaldefs.h>
-
-extern unsigned char data_02114e54;
-
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
+#include "Input/Input.h"
 
 // USA: func_ov003_02178218  (semantic: CheckCoordsInRange_02178218)
 extern "C" ARM int func_ov003_02178218(void) {
-    unsigned char* d = &data_02114e54;
-    if (*(unsigned char*)(d + 0x5f) == 0 || *(unsigned short*)(d + 0x24) == 0) {
+    if (g_touchInput.isRepeatValid_ == 0 || g_touchInput.currentReading_.isHeld == 0) {
         return 0;
     }
     int x, y;
-    SelectCoordsByFlag0x24_02012a84(d, &x, &y);
+    g_touchInput.GetTouchPoint(&x, &y);
     if (x < 0x94 || x > 0xa7) {
         return 0;
     }

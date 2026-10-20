@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 
 struct Vec3_0208b5b4 { int x, y, z; };
 

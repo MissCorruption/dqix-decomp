@@ -1,5 +1,5 @@
-"""Run mwccarm, then empty the inline functions and [base] ctor/dtor copies nothing references, as the
-original -dead link did.
+"""Run mwccarm, then empty the inline functions and [base] ctor/dtor copies nothing references, and the
+functions tools/dead_functions.txt lists for the region being built, as the original -dead link did.
 
 Usage: mwcc.py <object> <compiler> [flags...]
 """
@@ -18,6 +18,20 @@ STT_FUNC = 2
 STB_MULTIDEF = 13
 SHN_LORESERVE = 0xFF00
 STB_GLOBAL = 1
+REGIONS = ("usa", "jpn", "eur")
+DEAD_PATH = "tools/dead_functions.txt"
+
+
+def dead_functions(flags):
+    defines = [flags[i + 1] for i in range(len(flags) - 1) if flags[i] == "-d"]
+    regions = [d for d in defines if d in REGIONS]
+    if not regions:
+        return set()
+    try:
+        rows = [line.split() for line in open(DEAD_PATH, encoding="utf-8")]
+    except FileNotFoundError:
+        return set()
+    return {row[1].encode() for row in rows if len(row) == 2 and row[0] == regions[-1]}
 
 
 def complete_variant(name):
@@ -35,7 +49,7 @@ def complete_variant(name):
     return None
 
 
-def strip(path):
+def strip(path, dead=frozenset()):
     with open(path, "rb") as fh:
         data = bytearray(fh.read())
     if data[:4] != b"\x7fELF" or data[4] != 1 or data[5] != 1:
@@ -70,8 +84,9 @@ def strip(path):
     for k, (st_name, _, st_size, st_info, _, st_shndx) in enumerate(symbols):
         if st_info & 0xF != STT_FUNC:
             continue
-        if st_info >> 4 != STB_MULTIDEF and not (
-                st_info >> 4 == STB_GLOBAL and complete_variant(cstr(str_offset, st_name)) in defined):
+        name = cstr(str_offset, st_name)
+        if name not in dead and st_info >> 4 != STB_MULTIDEF and not (
+                st_info >> 4 == STB_GLOBAL and complete_variant(name) in defined):
             continue
         if not 0 < st_shndx < SHN_LORESERVE or st_shndx in used:
             continue
@@ -80,7 +95,7 @@ def strip(path):
             continue
         struct.pack_into("<I", data, e_shoff + st_shndx * e_shentsize + 20, 0)
         struct.pack_into("<I", data, sym_offset + k * SYM_SIZE + 8, 0)
-        stripped.append(cstr(str_offset, st_name).decode())
+        stripped.append(name.decode())
 
     if stripped:
         with open(path, "wb") as fh:
@@ -92,4 +107,4 @@ if __name__ == "__main__":
     result = subprocess.run(sys.argv[2:])
     if result.returncode:
         raise SystemExit(result.returncode)
-    strip(sys.argv[1])
+    strip(sys.argv[1], dead_functions(sys.argv[3:]))

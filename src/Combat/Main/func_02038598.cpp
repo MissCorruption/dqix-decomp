@@ -6,6 +6,7 @@
 #include "World/Zone3D.h"
 #include "Input/Input.h"
 #include "Resource/GameResources.h"
+#include "NitroSDK/Memory.h"
 
 #if defined(jpn)
 #define data_020efb44 data_020efa34
@@ -72,7 +73,6 @@ struct ActorTouch02038598 {
     unsigned char endX;
     unsigned char endY;
 };
-struct ActorInputState02038598 { char unknown0[0x40]; unsigned int count; };
 struct Vec3038500;
 struct Obj02033834;
 struct Obj02033874;
@@ -105,7 +105,6 @@ void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
 extern const char data_020efb44[];
 extern const char data_020efb4e[];
 extern const char data_020efb5a[];
-extern ActorInputState02038598 data_02114e54;
 
 // USA: func_02038598
 extern "C" ARM void func_02038598(ActorMotion02038598* self) {
@@ -224,7 +223,7 @@ extern "C" ARM void func_02038598(ActorMotion02038598* self) {
             side = 2;
         }
 
-        if (data_02114e54.count > 5) {
+        if ((unsigned int)g_touchInput.timeHeld_ > 5) {
             fix32_t endFixedX = touch->endX << 12;
             int startX = touch->startX;
             int startY = touch->startY;

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 #include "Filesystem/BackupDevice.h"
-#include "Filesystem/FSInnerDefs.h"
-#include "System/Memory.h"
+#include "NitroSDK/Filesystem/FSInnerDefs.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_020d0078
 extern "C" ARM void func_020d0078(unsigned int type) {

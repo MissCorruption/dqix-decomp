@@ -5,7 +5,7 @@
 #endif
 
 #include "GameState/GameState.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 struct FlagWord02046708;
 

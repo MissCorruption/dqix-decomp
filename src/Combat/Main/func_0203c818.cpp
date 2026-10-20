@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct State0203f20c;
 void UpdateStride0x14Value(State0203f20c*);

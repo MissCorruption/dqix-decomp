@@ -3,7 +3,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
 #include "Combat/ResourceScriptEntry.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 struct PackedTriple02086f24 {

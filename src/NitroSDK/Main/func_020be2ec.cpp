@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 int GetListEntryWord8020bd8ac(unsigned int index);
 void SetListEntryWord8020bd8d4(unsigned int index, int value);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Timing.h"
+#include "NitroSDK/Timing.h"
 
 struct ScanRecord0221e964 { unsigned char bytes[0xc0]; };
 struct ResultEntry0221e964 { unsigned char bytes[0x54]; };

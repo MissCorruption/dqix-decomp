@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);

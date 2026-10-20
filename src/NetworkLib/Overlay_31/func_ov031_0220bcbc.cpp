@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 int TrimTrailingZeroShorts_0220bb24(unsigned short*, int);
 

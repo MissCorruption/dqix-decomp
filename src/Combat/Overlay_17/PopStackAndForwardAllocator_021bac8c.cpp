@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 void PopStack0AndTrigger_020a1e54(int flag);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);

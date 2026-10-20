@@ -3,22 +3,6 @@
 
 #if defined(jpn)
 #define func_ov013_02186160 func_ov013_02187178
-struct TouchInput {
-    char unknown0[0x20];
-    unsigned short x;
-    unsigned short y;
-    unsigned short touching;
-    char unknown26[0x44 - 0x26];
-    unsigned int holdTicks;
-    char unknown48[0x54 - 0x48];
-    unsigned char released;
-    unsigned char pressed;
-    char unknown56[0x5c - 0x56];
-    unsigned char repeat;
-};
-extern TouchInput data_02114e54;
-extern "C" int func_020124b0(void*, int, int, int, int);
-int IsWithinRect_02012734(unsigned char*, int, int, int, int);
 #endif
 
 struct SkillPointMenu {
@@ -116,7 +100,7 @@ extern "C" ARM void func_ov013_02186160(SkillPointMenu* menu) {
     }
     if (menu->selectedSkill < 0) menu->selectedSkill = 5;
     if (menu->selectedSkill >= 6) menu->selectedSkill = 0;
-    int confirmationHit = func_020124b0(&data_02114e54, 0x1e, 0x5a, 0x2a, 0xa);
+    int confirmationHit = g_touchInput.TestPressInRectangle(0x1e, 0x5a, 0x2a, 0xa);
     if (menu->windowInput == 2) {
         menu->selectedSkill = (signed char)GetActiveScaledSum0205d794((Struct_0205c570*)menu->window);
         redraw = true;
@@ -124,7 +108,7 @@ extern "C" ARM void func_ov013_02186160(SkillPointMenu* menu) {
     if (menu->remainingPoints >= 0 && menu->selectedSkill < 5) {
         if (g_keyManager.TestKeyRepeat(0x20) ||
             g_keyManager.TestKeyRepeat(2) ||
-            (data_02114e54.repeat && IsWithinRect_02012734((unsigned char*)&data_02114e54, 0x52, menu->selectedSkill * 0xd + 0x12, 0xe, 0xb))) {
+            (g_touchInput.repeatFired_ && g_touchInput.TestHoldInRectangle(0x52, menu->selectedSkill * 0xd + 0x12, 0xe, 0xb))) {
             if (menu->lockedSkills[menu->selectedSkill] == 0) {
                 menu->allocatedPoints[menu->selectedSkill]--;
                 redraw = true;
@@ -136,7 +120,7 @@ extern "C" ARM void func_ov013_02186160(SkillPointMenu* menu) {
         } else if (menu->remainingPoints > 0 && menu->skillPoints[menu->selectedSkill] != 0x64) {
             if (menu->skillPoints[menu->selectedSkill] > menu->pointCap) {
                 if (g_keyManager.TestKeyRepeat(0x611) ||
-                    (data_02114e54.repeat && IsWithinRect_02012734((unsigned char*)&data_02114e54, 0x8c, menu->selectedSkill * 0xd + 0x14, 0xe, 0xb))) {
+                    (g_touchInput.repeatFired_ && g_touchInput.TestHoldInRectangle(0x8c, menu->selectedSkill * 0xd + 0x14, 0xe, 0xb))) {
                     menu->flags &= ~1;
                     menu->state = SkillPointMenu::PointLimit;
                     transitioned = true;
@@ -150,7 +134,7 @@ extern "C" ARM void func_ov013_02186160(SkillPointMenu* menu) {
             } else {
                 bool pointsAdded = false;
                 if (g_keyManager.TestKeyRepeat(0x611) ||
-                    (data_02114e54.repeat && IsWithinRect_02012734((unsigned char*)&data_02114e54, 0x84, menu->selectedSkill * 0xd + 0x14, 0xe, 0xb))) {
+                    (g_touchInput.repeatFired_ && g_touchInput.TestHoldInRectangle(0x84, menu->selectedSkill * 0xd + 0x14, 0xe, 0xb))) {
                     if (menu->lockedSkills[menu->selectedSkill] == 0) {
                         menu->allocatedPoints[menu->selectedSkill]++;
                         pointsAdded = true;
@@ -189,15 +173,15 @@ extern "C" ARM void func_ov013_02186160(SkillPointMenu* menu) {
         }
     } else {
         if ((g_keyManager.TestKeyRepeat(0x611) ||
-             (data_02114e54.repeat && IsWithinRect_02012734((unsigned char*)&data_02114e54, 0x84, menu->selectedSkill * 0xd + 0x14, 0xe, 0xb))) &&
+             (g_touchInput.repeatFired_ && g_touchInput.TestHoldInRectangle(0x84, menu->selectedSkill * 0xd + 0x14, 0xe, 0xb))) &&
             menu->selectedSkill != 5 && menu->remainingPoints == 0) {
             menu->selectedSkill = 5;
             redraw = true;
         } else if (g_keyManager.TestKeysPressed(2) && menu->state != SkillPointMenu::PointLimit) {
             if (previousAllocatedPoints[menu->selectedSkill] == 0 || menu->selectedSkill == 5 || menu->selectedSkill == 6)
                 nextPrompt = SkillPointMenu::DiscardAllocation;
-        } else if (menu->selectedSkill == 5 && menu->state != SkillPointMenu::PointLimit && data_02114e54.released &&
-                   data_02114e54.holdTicks < 0x14 && menu->confirmationPressed == 1) {
+        } else if (menu->selectedSkill == 5 && menu->state != SkillPointMenu::PointLimit && g_touchInput.released_ &&
+                   (unsigned int)g_touchInput.prevTimeHeld_ < 0x14 && menu->confirmationPressed == 1) {
             if (confirmationHit) {
                 menu->confirmationPressed = 0;
                 nextPrompt = SkillPointMenu::ConfirmAllocation;
@@ -221,9 +205,9 @@ extern "C" ARM void func_ov013_02186160(SkillPointMenu* menu) {
         if (menu->subScreen) InitTag02185828((unsigned char*)menu);
                         else SetupBattleMessage02185774(menu);
     } else {
-        if (menu->selectedSkill == 5 && data_02114e54.released && confirmationHit)
+        if (menu->selectedSkill == 5 && g_touchInput.released_ && confirmationHit)
             menu->confirmationPressed = 1;
-        else if (data_02114e54.pressed && !confirmationHit)
+        else if (g_touchInput.pressed_ && !confirmationHit)
             menu->confirmationPressed = 0;
     }
     int sum = 0;

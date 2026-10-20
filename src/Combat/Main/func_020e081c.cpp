@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/GameResources.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "Resource/Brightness.h"
 
 #if defined(jpn)

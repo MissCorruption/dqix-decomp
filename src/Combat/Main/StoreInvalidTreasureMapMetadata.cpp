@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 
 // USA: func_02011a40

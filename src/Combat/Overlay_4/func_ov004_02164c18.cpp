@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 #if defined(jpn)
 enum { countOffset = 0x19f4 };

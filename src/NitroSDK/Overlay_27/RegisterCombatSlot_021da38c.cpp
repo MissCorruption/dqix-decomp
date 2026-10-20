@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Memory.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Memory.h"
 
 int IsFieldqual1_021dd0ac_021dd0ac(void);
 extern "C" int func_ov027_021da808(void* out, void* rawElems);

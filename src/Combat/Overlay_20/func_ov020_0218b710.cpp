@@ -121,7 +121,6 @@ extern "C" void MapVRAMBanksToTextureImage(int);
 extern "C" void MapVRAMBanksToTexturePalette(int);
 
 extern AllocatorUnion data_02114e20;
-extern unsigned char data_02114e54[];
 extern char data_02108760[];
 extern char data_02109bf4[];
 extern char data_ov020_0218dbdc[];
@@ -362,7 +361,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
             InitCombatSubsystems02012efc();
             if (g_keyManager.TestKeysPressed(1) || g_keyManager.TestKeysPressed(2) ||
                 g_keyManager.TestKeysPressed(0x400) || g_keyManager.TestKeysPressed(0x800) ||
-                data_02114e54[0x55] != 0) {
+                g_touchInput.pressed_ != 0) {
                 break;
             }
             DelayThenSyncBit0_020c9820();
@@ -448,7 +447,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                     func_ov020_0218d854(self);
                     InitCombatSubsystems02012efc();
                     if (self->timer <= 2500) {
-                        if (g_keyManager.TestKeysPressed(0xf0b) || data_02114e54[0x55] != 0) break;
+                        if (g_keyManager.TestKeysPressed(0xf0b) || g_touchInput.pressed_ != 0) break;
                     }
                 }
                 func_ov020_0218d644(self);
@@ -470,7 +469,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
                     if (!IsTimerActive(self)) break;
                     func_ov020_0218d854(self);
                     InitCombatSubsystems02012efc();
-                    if (g_keyManager.TestKeysPressed(0xf0b) || data_02114e54[0x55] != 0) break;
+                    if (g_keyManager.TestKeysPressed(0xf0b) || g_touchInput.pressed_ != 0) break;
                 }
                 func_ov020_0218d644(self);
                 DelayThenSyncBit0_020c9820();

@@ -33,9 +33,9 @@ extern "C" int func_0205b36c(void* self, void* glyph, short a, int b, unsigned c
 
 #if defined(jpn)
 #include "Resource/FontGlyphTable.h"
-#include "System/Graphics.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 struct CachedGlyphEntry0203bebc {
     short advanceX;

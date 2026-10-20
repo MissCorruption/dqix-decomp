@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
 
 struct Obj020bda58;
 

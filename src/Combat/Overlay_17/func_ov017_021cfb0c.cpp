@@ -6,7 +6,7 @@ enum { RegionOffset36fc = 0x36fc, RegionOffset3b0c = 0x3b0c };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct HeadNode02046b24;
 struct ListHead02046b60;

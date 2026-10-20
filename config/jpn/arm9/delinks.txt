@@ -5,7 +5,6 @@
     .data       start:0x020eeb40 end:0x020f2e60 kind:data align:32
     .bss        start:0x020f2e60 end:0x02154e60 kind:bss align:32
 
-
 src/Combat/Main/AutoloadCallback.cpp:
     complete
     .text start:0x02000aac end:0x02000ab0
@@ -498,7 +497,6 @@ src/Runtime/Main/func_0200d958.cpp:
 src/Runtime/Main/func_0200d9e4.cpp:
     complete
     .text start:0x0200d8a8 end:0x0200d934
-
 
 src/Runtime/Main/BinarySearchByRange0200da70.cpp:
     complete
@@ -1094,83 +1092,7 @@ src/Combat/Main/ResetAndFinalizeSubMember.cpp:
 
 src/Input/Input.cpp:
     complete
-    .text start:0x02011fc0 end:0x020122ac
-
-src/Combat/Main/BlankFunction02012530.cpp:
-    complete
-    .text start:0x020122ac end:0x020122b0
-
-src/Combat/Main/EmptyStub02012534.cpp:
-    complete
-    .text start:0x020122b0 end:0x020122b4
-
-src/Combat/Main/func_02012538.cpp:
-    complete
-    .text start:0x020122b4 end:0x020124b0
-
-src/Combat/Main/IsWithinRect.cpp:
-    complete
-    .text start:0x020124fc end:0x02012548
-
-src/Combat/Main/ClearBytes0x50To0x53.cpp:
-    complete
-    .text start:0x02012548 end:0x02012560
-
-src/Combat/Main/ComputeTargetDistance02012798.cpp:
-    complete
-    .text start:0x02012560 end:0x02012594
-
-src/Combat/Main/SetCompareFlags0x50To0x53.cpp:
-    complete
-    .text start:0x02012594 end:0x020125f4
-
-src/Combat/Main/InitBattlerContext0201282c.cpp:
-    complete
-    .text start:0x020125f4 end:0x02012664
-
-src/Combat/Main/ResetBattlerState0201289c.cpp:
-    complete
-    .text start:0x02012664 end:0x020126a0
-
-src/Combat/Main/SaveAndDisableBattlerState020128d8.cpp:
-    complete
-    .text start:0x020126a0 end:0x02012700
-
-src/Combat/Main/ResetAndSyncBattlerFields02012938.cpp:
-    complete
-    .text start:0x02012700 end:0x0201277c
-
-src/Combat/Main/UpdateTargetTrackingState.cpp:
-    complete
-    .text start:0x0201277c end:0x0201284c
-
-src/Combat/Main/SelectCoordsByFlag0x24.cpp:
-    complete
-    .text start:0x0201284c end:0x02012874
-
-src/Combat/Main/CheckByteSetAndByteClear.cpp:
-    complete
-    .text start:0x02012874 end:0x02012898
-
-src/Combat/Main/TickByteFlagCounter02012ad0.cpp:
-    complete
-    .text start:0x02012898 end:0x0201291c
-
-src/Combat/Main/AreCoordsOutOfBounds.cpp:
-    complete
-    .text start:0x0201291c end:0x02012970
-
-src/Combat/Main/SetByte0x6102012ba8.cpp:
-    complete
-    .text start:0x02012970 end:0x02012978
-
-src/Combat/Main/TailForward02012bb0.cpp:
-    complete
-    .text start:0x02012978 end:0x02012984
-
-src/Combat/Main/ClearByte0x62IfArg0x10.cpp:
-    complete
-    .text start:0x02012984 end:0x020129a0
+    .text start:0x02011fc0 end:0x020129a0
 
 src/Combat/Main/InitOverlay17ObjAndBumpBattleCounter02012bd8.cpp:
     complete
@@ -6769,7 +6691,6 @@ src/Combat/Main/RunAndReturnArg0205873c.cpp:
     complete
     .text start:0x02059ab4 end:0x02059ac8
 
-
 src/Combat/Main/func_02058750.cpp:
     complete
     .text start:0x02059ac8 end:0x02059d30
@@ -8497,7 +8418,7 @@ src/Combat/Main/TensionBonusCalculation.cpp:
 src/Combat/Main/CritRateCalculation.cpp:
 	complete
 	.text start:0x02075930 end:0x020759c4
-	
+
 src/Combat/Main/ApplyRandomVariance.cpp:
     complete
     .text start:0x020759c4 end:0x02075a34
@@ -8617,7 +8538,6 @@ src/Combat/Main/ForwardTableValue02075db0.cpp:
 src/Combat/Main/func_02075df4.cpp:
     complete
     .text start:0x02076d10 end:0x02076f9c
-
 
 src/Combat/Main/func_02076080.cpp:
     complete
@@ -10957,7 +10877,6 @@ src/Combat/Main/PopulateElementStructFromTaggedValues0208daf4.cpp:
     complete
     .text start:0x0208e3b0 end:0x0208e4bc
 
-
 src/Combat/Main/InitStreamAndRun0208dc00.cpp:
     complete
     .text start:0x0208e4bc end:0x0208e530
@@ -12639,7 +12558,6 @@ src/Combat/Main/func_0209dcdc.cpp:
     complete
     .text start:0x0209fa54 end:0x0209ff44
 
-
 src/Combat/Main/func_0209e1cc.cpp:
     complete
     .text start:0x0209ff44 end:0x020a0154
@@ -13175,7 +13093,6 @@ src/Combat/Main/StoreByteAtCountTail020a1fd4.cpp:
 src/Combat/Main/Fill6BytesWithFFAndReturn.cpp:
     complete
     .text start:0x020a3d74 end:0x020a3d88
-
 
 src/Combat/Main/InitCombatController020a2010.cpp:
     complete
@@ -15979,61 +15896,10 @@ src/Combat/Main/func_020cd5d4_020cd5d4.s:
     complete
     .text start:0x020cf0a0 end:0x020cf0dc
 
-src/NitroSDK/Main/func_020cd610.cpp:
+src/NitroSDK/TouchScreen.cpp:
     complete
-    .text start:0x020cf0dc end:0x020cf35c
-
-src/NitroSDK/Main/InitIPCCommandDispatch020cd890.cpp:
-    complete
-    .text start:0x020cf35c end:0x020cf3d4
-
-src/NitroSDK/Main/func_020cd908.cpp:
-    complete
-    .text start:0x020cf3d4 end:0x020cf468
-
-src/NitroSDK/Main/func_020cd99c.cpp:
-    complete
-    .text start:0x020cf468 end:0x020cf590
-
-src/NitroSDK/Main/StoreValueWithInterruptsDisabled020cdac4.cpp:
-    complete
-    .text start:0x020cf590 end:0x020cf5b0
-
-src/NitroSDK/Main/func_020cdae4.cpp:
-    complete
-    .text start:0x020cf5b0 end:0x020cf6b0
-
-src/NitroSDK/Main/SendArm7CommandAndUpdateFlags020cdbe4.cpp:
-    complete
-    .text start:0x020cf6b0 end:0x020cf748
-
-src/NitroSDK/Main/func_020cdc7c.cpp:
-    complete
-    .text start:0x020cf748 end:0x020cf88c
-
-src/NitroSDK/Main/PrepareAndProcess020cddc0.cpp:
-    complete
-    .text start:0x020cf88c end:0x020cf8a8
-
-src/NitroSDK/Main/GetHalfword021117b0At0x10.cpp:
-    complete
-    .text start:0x020cf8a8 end:0x020cf8b8
-
-src/NitroSDK/Main/func_020cddec.cpp:
-    complete
-    .text start:0x020cf8b8 end:0x020cfaa4
-
-src/NitroSDK/Main/func_020cdfd8.cpp:
-    complete
-    .text start:0x020cfaa4 end:0x020cfbc8
-
-src/NitroSDK/Main/WaitWhileFlagsSet.cpp:
-    complete
-    .text start:0x020cfbc8 end:0x020cfbe0
-
-src/NitroSDK/Main/GetMaskedStatus.cpp:
-    complete
-    .text start:0x020cfbe0 end:0x020cfbf4
+    .text start:0x020cf0dc end:0x020cfbf4
+    .bss start:0x02111450 end:0x0211148c
 
 src/NitroSDK/Main/TryAcquireLock.cpp:
     complete
@@ -17259,7 +17125,6 @@ src/Combat/Main/PushInterruptDisableState.cpp:
 src/Combat/Main/PopInterruptDisableState.cpp:
     complete
     .text start:0x020d9ff8 end:0x020da034
-
 
 src/Combat/Main/WriteControlAndToggle020d86d0.cpp:
     complete

@@ -3,8 +3,6 @@
 
 int GetGlobalField0x1c020421a0(void);
 
-extern char data_02114e54;
-
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
 extern struct Obj0205eaa0 data_02108760;
@@ -31,7 +29,7 @@ extern "C" ARM int func_ov023_021f4fc8(void) {
             || g_keyManager.TestKeysPressed(0x10)) {
             flag = 1;
         }
-        if (*((unsigned char*)&data_02114e54 + 0x54)) flag = 1;
+        if (g_touchInput.released_) flag = 1;
     }
     if (flag) {
         DispatchWithShortB4_0205eaa0(&data_02108760, 1, 0);

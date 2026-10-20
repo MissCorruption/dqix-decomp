@@ -4,8 +4,8 @@
 #include "World/Object3D.h"
 #include "Memory/SafeAllocator.h"
 #include "Graphics/VRAMStaging.h"
-#include "System/LoadToVRAM.h"
-#include "System/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
 
 struct Entry0203db44 {
     S02040538 getter;

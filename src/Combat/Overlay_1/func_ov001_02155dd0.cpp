@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/Brightness.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "World/Object3D.h"
 #include "std_library_functions.h"
 

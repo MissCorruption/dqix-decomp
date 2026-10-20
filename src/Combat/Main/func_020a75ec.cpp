@@ -27,13 +27,11 @@ struct WrappedActor020a75ec {
     char padding_155[5];
     unsigned char field_15a;
 };
-struct InputWork020a75ec { char padding[0x38]; int x; int y; char padding_40[4]; unsigned int state; char padding_48[0xc]; unsigned char active; };
 struct PartyActor020a75ec { Object3D object; unsigned short state; };
 struct ListHead02046b60;
 struct Bytes02033b88;
 struct Vec3copy0202ec84;
 extern short data_020e9450[];
-extern InputWork020a75ec data_02114e54;
 extern "C" Zone3D* func_02012fe4();
 extern "C" void func_020332ac(WrappedActor020a75ec*);
 extern "C" void func_020a78dc(WrappedActor020a75ec*);
@@ -111,9 +109,9 @@ extern "C" ARM void func_020a75ec(WrappedActor020a75ec* actor) {
     if (ComputeTwoFromVec3_0202ec84(view, (Vec3copy0202ec84*)&actor->object.position_, &screenX, &screenY) == 0) {
         int inputX;
         int inputY;
-        if (data_02114e54.active && data_02114e54.state < 10) {
-            inputX = data_02114e54.x;
-            inputY = data_02114e54.y;
+        if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {
+            inputX = g_touchInput.prevX_;
+            inputY = g_touchInput.prevY_;
         }
         if (screenX - 16 < inputX && inputX < screenX + 16 && screenY - 20 < inputY && inputY < screenY + 8) hit = 1;
     }

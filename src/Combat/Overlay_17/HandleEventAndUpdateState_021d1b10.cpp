@@ -5,7 +5,7 @@ enum { RegionOffset70c = 0x70c, RegionOffset734 = 0x734, RegionOffset2774 = 0x27
 #endif
 
 #include <globaldefs.h>
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 
 struct SearchStruct0202c1a4;
 signed char GetSearchStructCurrentArrEntry(struct SearchStruct0202c1a4* obj);

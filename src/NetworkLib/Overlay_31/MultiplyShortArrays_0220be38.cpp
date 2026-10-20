@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 extern int TrimTrailingZeroShorts_0220bb24(unsigned short* arr, int len);
 extern void PropagateCarryFromIndex_0220be04(unsigned short* arr, int carry, int i, int count);

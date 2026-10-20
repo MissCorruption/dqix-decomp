@@ -1,6 +1,7 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 unsigned int GetSharedWordDa0_020c8534(int i);
 unsigned int GetSharedWordDc4_020c8520(int i);
@@ -48,8 +49,6 @@ void TryDispatchOrFallback0203aba8(Obj0203aba8*, void*, void*);
 void UpdateScaleOrApplyRecord0203ae4c(void* a, int b, void* c);
 void ScaleAndNotify0203ad88(void* a, void* b, int c);
 void SetContextAndDispatch0203ac10(void* a, void* b, int c);
-extern "C" void func_02012538(void* p);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* p, int* x, int* y);
 struct Struct0200fb08;
 int NormalizeField5_0200fb08(Struct0200fb08*);
 void SetFlagAndMaybeIncrement_0218c024(void);
@@ -84,18 +83,10 @@ struct State_0218c04c {
 	long long written;
 };
 
-struct Touch_02114e54 {
-	char pad0[0x24];
-	unsigned short h24;
-	char pad26[0x5f - 0x26];
-	unsigned char b5f;
-};
-
 extern State_0218c04c data_ov016_0219d0c0;
 extern char data_ov016_0219d0cc;
 extern char data_ov016_0219d118;
 extern char data_02109bf4;
-extern Touch_02114e54 data_02114e54;
 
 // USA: func_ov016_0218c04c
 extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
@@ -287,9 +278,9 @@ extern "C" ARM void func_ov016_0218c04c(const char* path, int arg1) {
 			if (data_ov016_0219d0c0.mute == 1) {
 				int lo0, hi0, lo1, hi1;
 				int touched;
-				func_02012538(&data_02114e54);
-				SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &sx, &sy);
-				touched = (data_02114e54.b5f != 0 && data_02114e54.h24 != 0) ? 1 : 0;
+				g_touchInput.RefreshState();
+				g_touchInput.GetTouchPoint(&sx, &sy);
+				touched = (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ? 1 : 0;
 				switch (NormalizeField5_0200fb08((Struct0200fb08*)GameState::GetInstance())) {
 				case 1:
 					lo0 = 0x4c; hi0 = 0xbd; lo1 = 0x67; hi1 = 0x98;

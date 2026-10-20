@@ -7,7 +7,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 struct MenuManager {
 #if defined(jpn)

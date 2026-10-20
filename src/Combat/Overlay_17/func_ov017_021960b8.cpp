@@ -9,8 +9,9 @@ enum { kGlobalStateOffset = 0x998, kGlobalFlagOffset = 0x19cb, kSceneFlagOffset 
 #include "GameState/GameState.h"
 #include "Graphics/AtmosphericEffect.h"
 #include "Graphics/LightingManager.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"
+#include "Input/Input.h"
 
 struct HeadNode02046b24;
 struct Obj020444e0;
@@ -24,13 +25,6 @@ struct Global020421a0 {
     int field998;
     char pad1[kGlobalFlagOffset - (kGlobalStateOffset + 4)];
     unsigned char field19cb;
-};
-
-struct Field02114e54 {
-    char pad0[0x24];
-    unsigned short field24;
-    char pad1[0x5f - 0x26];
-    unsigned char field5f;
 };
 
 struct Battle021960b8 {
@@ -58,7 +52,6 @@ GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState*, int);
 extern "C" void func_0205337c(GameObject*);
 unsigned char GetByteField0x252_02039820(void*);
 int GetByte0x26c_02039d7c(char*);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 void MaybeDispatchPendingAction02096824(unsigned char*);
 int* GetGlobal02109030_020936f8();
 void UpdateChannelStateIfEligible02093f68(char*);
@@ -68,7 +61,6 @@ Global020421a0* GetGlobalField0x1c020421a0();
 
 extern Vector3fix data_ov017_021d6408;
 extern Vector3fix data_ov017_021d6414;
-extern Field02114e54 data_02114e54;
 extern int data_ov017_021d8340;
 extern int data_ov017_021d8344;
 extern int data_ov017_021d834c;
@@ -124,14 +116,12 @@ extern "C" ARM void func_ov017_021960b8(Battle021960b8* self) {
 
     if (TestFlags04((GameResources*)(self->flags), 0x80) == 0 && self->field3658 == 0 && leader != NULL &&
         (GetByteField0x252_02039820(leader) != 0 || GetByte0x26c_02039d7c((char*)leader) != 0)) {
-        if (data_02114e54.field5f != 0 && data_02114e54.field24 != 0) {
+        if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
             if (data_ov017_021d8340 == 0) {
                 data_ov017_021d8340 = 1;
-                SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &data_ov017_021d8344,
-                                       &data_ov017_021d834c);
+                g_touchInput.GetTouchPoint(&data_ov017_021d8344, &data_ov017_021d834c);
             }
-            SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &data_ov017_021d8348,
-                                   &data_ov017_021d8350);
+            g_touchInput.GetTouchPoint(&data_ov017_021d8348, &data_ov017_021d8350);
         } else {
             data_ov017_021d8340 = 0;
         }

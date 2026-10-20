@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "Resource/GameResources.h"
 
 extern const char data_ov031_0224c94e[];

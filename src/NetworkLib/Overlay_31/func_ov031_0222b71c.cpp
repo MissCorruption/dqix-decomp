@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 struct AssetName25 { char text[25]; };
 struct AssetName22 { char text[22]; };

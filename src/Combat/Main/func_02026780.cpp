@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "World/LootableContainer.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Memory.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Matrix.h"
 struct MapDisplay;
 
 extern "C" void* func_0202ae18(void);

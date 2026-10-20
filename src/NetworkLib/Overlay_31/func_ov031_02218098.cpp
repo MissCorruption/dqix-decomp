@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
-#include "System/Memory.h"
-#include "System/Mutex.h"
-#include "System/Timing.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Mutex.h"
+#include "NitroSDK/Timing.h"
 
 struct HttpRequest {
     unsigned char payload[0x800];

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 struct PaletteState0203c35c {
     #if defined(jpn)

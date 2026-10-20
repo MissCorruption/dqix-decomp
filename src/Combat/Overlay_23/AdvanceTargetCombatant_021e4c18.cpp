@@ -14,8 +14,6 @@ extern "C" void func_ov005_021551d4(void* p);
 void DispatchByIdxAndCond021551fc(char* base, int byteVal, int cond);
 typedef void (*DispatchFn021551fc)(char*, int, int);
 
-extern unsigned char data_02114e54;
-
 struct Obj021e4c18 {
     void* f0;
     char pad1[0xc8 - 0x4];
@@ -67,7 +65,7 @@ extern "C" ARM void func_ov023_021e4c18(struct Obj021e4c18* obj) {
     }
 
     int five = 0;
-    if (*((unsigned char*)&data_02114e54 + 0x55) != 0) {
+    if (g_touchInput.pressed_ != 0) {
         if (func_ov023_021e29d0((char*)obj + 0xd4) == 0x21) five = 1;
     }
     if (!five) {

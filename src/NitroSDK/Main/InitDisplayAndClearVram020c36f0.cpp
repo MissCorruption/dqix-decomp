@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/DMA.h"
-#include "System/GamecardBusOwnership.h"
+#include "NitroSDK/DMA.h"
+#include "NitroSDK/GamecardBusOwnership.h"
 
 #if defined(jpn)
 #define func_020ca3ec func_020cbeb8

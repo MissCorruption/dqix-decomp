@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 // USA: func_02012d88
 ARM void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size) {

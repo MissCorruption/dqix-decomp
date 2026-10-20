@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct TaggedNumber02184c30;
 extern int GetTaggedValueAsInt_02184c30(struct TaggedNumber02184c30* v);

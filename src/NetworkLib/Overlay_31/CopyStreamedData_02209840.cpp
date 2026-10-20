@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 int WaitOrCycle_02203500(unsigned int* out, void* obj);
 extern "C" void func_ov031_022035e0(int count, void* obj);

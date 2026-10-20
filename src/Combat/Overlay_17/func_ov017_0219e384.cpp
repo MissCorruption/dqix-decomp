@@ -7,6 +7,7 @@
 #include "World/LootableContainer.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
+#include "NitroSDK/Memory.h"
 
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20

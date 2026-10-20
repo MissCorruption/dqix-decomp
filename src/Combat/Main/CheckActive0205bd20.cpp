@@ -1,6 +1,5 @@
 #include <globaldefs.h>
-
-extern char data_02114e54;
+#include "Input/Input.h"
 
 struct Struct_0205bd20 {
     char pad[0x4c];
@@ -12,7 +11,7 @@ struct Struct_0205bd20 {
 // USA: func_0205bd20
 ARM int CheckActive0205bd20(struct Struct_0205bd20* s, int key) {
     int result = 0;
-    if (*(unsigned char*)(&data_02114e54 + 0x55) != 0 && s->field4e == 1 && s->field4c != 0) {
+    if (g_touchInput.pressed_ != 0 && s->field4e == 1 && s->field4c != 0) {
         result = 1;
     }
     return result;

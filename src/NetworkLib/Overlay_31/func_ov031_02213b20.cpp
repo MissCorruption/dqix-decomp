@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 #if defined(jpn)
 #define func_020ca3ec func_020cbeb8

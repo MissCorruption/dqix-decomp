@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
-#include "System/Memory.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Memory.h"
 
 struct PeerGameInfo3778c {
     unsigned short magicNumber;

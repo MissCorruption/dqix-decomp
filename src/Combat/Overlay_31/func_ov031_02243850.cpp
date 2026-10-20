@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 #include "Resource/GameResources.h"
 
 #if defined(jpn)

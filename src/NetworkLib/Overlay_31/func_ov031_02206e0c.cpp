@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 void SetField164_02203164(int v);
 void ClearField164_02203178(void);

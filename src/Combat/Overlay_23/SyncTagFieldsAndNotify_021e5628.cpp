@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
-#include "Graphics/NSBXX/GeometryFifo.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
 
 unsigned short (*GetVariantShortTable02109928_02099cac(void))[2];
 int CallWithAddr4000330_020c555c(int a);

@@ -6,7 +6,7 @@ enum { RegionalSize = 0xe4 };
 
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 

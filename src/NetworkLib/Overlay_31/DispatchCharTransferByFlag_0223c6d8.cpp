@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" int LoadToMainBG0CharacterData(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubBG0CharacterData(int arg0, int arg1, unsigned int arg2);

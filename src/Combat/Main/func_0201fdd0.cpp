@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include "Combat/CombatantDisplay.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
 int ClassifyFlag0x800RatioTier02027bd0(int);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
 
 int GetWord0x0_0200fb8c(int* obj);

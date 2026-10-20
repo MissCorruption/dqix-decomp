@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 extern "C" void func_ov031_0220b8f4(void* ctx, const void* data, unsigned int len);
 void InitSha1State_0220b8a0(unsigned int* ctx);

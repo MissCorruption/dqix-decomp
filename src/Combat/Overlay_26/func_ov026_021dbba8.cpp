@@ -3,7 +3,7 @@
 #include "GameState/Field3b0.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct PartyState;
 struct Bytes02033b88;

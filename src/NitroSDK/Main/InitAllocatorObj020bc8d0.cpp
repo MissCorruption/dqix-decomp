@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
 
 struct Obj020bcde0;
 void NotifyMaskedEvent020bcde0(struct Obj020bcde0*);

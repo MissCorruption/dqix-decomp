@@ -5,7 +5,7 @@ enum { kPaletteFlagOffset = 0xa6c };
 enum { kPaletteFlagOffset = 0xccc };
 #endif
 #include "GameState/GameState.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern int GetFieldAt0x150_02053c6c(unsigned char* obj);
 extern void* GetData02109dcc_020a6084(void);

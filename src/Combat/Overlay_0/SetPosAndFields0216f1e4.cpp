@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 // USA: func_ov000_0216f1e4
 ARM void SetPosAndFields0216f1e4(void* obj, int* srcVec3, int a, int b) {

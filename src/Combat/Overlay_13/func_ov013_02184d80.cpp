@@ -7,8 +7,8 @@ extern char data_ov013_02188d20[];
 #endif
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/ColorEffects.h"
-#include "System/Graphics.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
 
 extern "C" void func_020dfec0(void* texts, SafeAllocator* allocator, void* file, unsigned int size);
 void* GetGlobalField0x1c020421a0(void);

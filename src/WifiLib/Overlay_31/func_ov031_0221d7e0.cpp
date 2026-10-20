@@ -1,4 +1,4 @@
-#include "System/OverlayResponse.h"
+#include "NitroSDK/OverlayResponse.h"
 
 extern char data_ov031_0224b0dc[];
 extern "C" int func_ov031_0221e650(const char*);

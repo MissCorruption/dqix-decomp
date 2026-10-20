@@ -108,7 +108,6 @@ extern "C" void func_0205e944(void* p, int v);
 
 extern unsigned char data_02109bf4;
 extern unsigned char data_02108760;
-extern unsigned char data_02114e54;
 
 // USA: func_02065990
 extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
@@ -364,7 +363,7 @@ extern "C" ARM void func_02065990(MessageSystem* message, int amount) {
                     ((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] - 1;
                 if (((int*)(self + REGION_VALUE(0x173c, 0x186c)))[*(signed char*)(self + REGION_VALUE(0x17dc, 0x19ac))] > 0) {
                     if (g_keyManager.TestKeysPressed(0xfe3) == 0 &&
-                        (&data_02114e54)[0x55] == 0) {
+                        g_touchInput.pressed_ == 0) {
                         return;
                     }
                 }

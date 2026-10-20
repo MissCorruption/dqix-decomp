@@ -7,7 +7,7 @@ enum { RegionOffset8c = 0x8c };
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/GameResources.h"
 
 int GetGlobalField0x1c020421a0();

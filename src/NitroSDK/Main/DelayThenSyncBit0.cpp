@@ -1,4 +1,4 @@
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 #include <globaldefs.h>
 
 extern "C" void WaitByLoop(int);

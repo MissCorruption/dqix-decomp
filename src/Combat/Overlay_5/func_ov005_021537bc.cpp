@@ -4,7 +4,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 extern "C" void func_02047554(void* object, int index, int mode);
 struct Struct02075db0;

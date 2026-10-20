@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
-#include "System/VRAM.h"
-#include "System/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/VRAM.h"
+#include "NitroSDK/ColorEffects.h"
 
 #if defined(jpn)
 #define func_020c39a0 func_020c546c

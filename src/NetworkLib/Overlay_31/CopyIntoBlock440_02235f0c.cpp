@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Struct02235f0c { unsigned char* field0; };
 extern struct Struct02235f0c data_ov031_02290cfc;

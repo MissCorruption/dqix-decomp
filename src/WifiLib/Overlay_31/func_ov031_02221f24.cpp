@@ -1,4 +1,4 @@
-#include "System/OverlayMD5.h"
+#include "NitroSDK/OverlayMD5.h"
 
 extern const unsigned char data_ov031_0224b194[64];
 

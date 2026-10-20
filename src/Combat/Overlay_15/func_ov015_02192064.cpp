@@ -4,7 +4,7 @@
 #define R(j,u) (u)
 #endif
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct Struct021931b4;
 void PushArrayValue021931b4(struct Struct021931b4* s, int v);

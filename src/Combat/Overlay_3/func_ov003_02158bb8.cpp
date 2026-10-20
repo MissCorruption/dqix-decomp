@@ -12,7 +12,7 @@
 #endif
 #include <globaldefs.h>
 #include <Memory/SafeAllocator.h>
-#include <System/Graphics.h>
+#include <NitroSDK/Graphics.h>
 
 struct Struct020dfc40;
 struct List0204af64;

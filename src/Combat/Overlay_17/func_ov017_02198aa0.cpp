@@ -13,7 +13,6 @@ struct TailList020469b4;
 struct TailNode020469b4;
 struct Position02198aa0 { int x,y,z; };
 struct GrottoView02198aa0 { unsigned char padding0[8]; signed char offset; unsigned char padding9[3]; int entranceZone; Position02198aa0 position; };
-struct Cursor02198aa0 { unsigned char padding0[0x38]; int x, y; unsigned int field40, mode; unsigned char padding48[12]; unsigned char active; };
 struct Event02198aa0 { unsigned char kind; unsigned char padding1[19]; };
 struct State02198aa0 { unsigned short zoneId; unsigned char padding2[5]; unsigned char field7; unsigned char padding8[4]; unsigned char fieldC; unsigned char paddingD[15]; unsigned short angle; };
 void* GetField0x3b0Value_020100bc(GameState*);
@@ -32,7 +31,6 @@ void InitStruct02070378(char*);
 void InitAndResetHeader_0219e310(unsigned char*, int);
 void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
 void InitByteHeader_021be0a0(unsigned char*);
-extern Cursor02198aa0 data_02114e54;
 
 // USA: func_ov017_02198aa0
 extern "C" ARM void func_ov017_02198aa0(GameResources* self) {
@@ -66,7 +64,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* self) {
     if (g_keyManager.TestKeysPressed(1)) proceed = 1;
     int cursorX = -1;
     int cursorY = -1;
-    if (data_02114e54.active && data_02114e54.mode < 10) { cursorX = data_02114e54.x; cursorY = data_02114e54.y; }
+    if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { cursorX = g_touchInput.prevX_; cursorY = g_touchInput.prevY_; }
     {
         int screenX, screenY;
         ComputeTwoFromVec3_0202ec84(camera, (Vec3copy0202ec84*)&actor->obj3D_.position_, &screenX, &screenY);

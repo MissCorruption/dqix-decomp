@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "GameState/Field3b0.h"
 #include "Resource/GameResources.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "World/ZoneLootableRecord.h"
 #include "Resource/Brightness.h"
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 int CheckPositionInRange_021dc864(unsigned int a, unsigned int b, int c);
 

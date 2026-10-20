@@ -11,7 +11,7 @@
 #endif
 #include <globaldefs.h>
 #include "World/Object3D.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 #include "GameState/GameState.h"
 
 struct AlchemyProjectedWidgetView {

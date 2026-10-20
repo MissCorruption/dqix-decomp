@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/OverlayResponse.h"
+#include "NitroSDK/OverlayResponse.h"
 
 struct Packet0221db48 {
     unsigned char type;

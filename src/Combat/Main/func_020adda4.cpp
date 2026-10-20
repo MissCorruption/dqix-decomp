@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 #include <Graphics/Vector.h>
 
 struct Combatant020adda4 {

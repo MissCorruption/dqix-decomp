@@ -45,7 +45,6 @@ extern "C" void func_ov002_0215b9a4(void *self, int mode, int flag);
 extern "C" void func_ov002_02156e90(void *self);
 
 extern unsigned char data_ov002_0216cc98[];
-extern unsigned char data_02114e54[];
 extern char data_02108760[];
 
 // USA: func_ov002_02167998
@@ -93,7 +92,7 @@ extern "C" ARM void func_ov002_02167998(char *base) {
     sel         = cur->row;
     *(short *) (base + 0x1c02) = GetActiveScaledSum0205d794((struct Struct_0205c570 *) obj);
     if (old != *(short *) (base + 0x1c02)) {
-        if (col == sel && sel == *(signed char *) (base + 0x1c73) && data_02114e54[0x55] == 0) {
+        if (col == sel && sel == *(signed char *) (base + 0x1c73) && g_touchInput.pressed_ == 0) {
             sel--;
             v = mode * (*(signed char *) (base + 0x1c73) + 1) + sel;
             func_0205d7a0(obj, v);

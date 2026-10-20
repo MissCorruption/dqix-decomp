@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern void* GetData02109dcc_020a6084(void);
 extern "C" int LoadToMainObjStandardPalette(int arg0, int arg1, unsigned int arg2);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 long long GetPair_02212d20(void);
 void SetFlagBit0_02211754(struct FlagObj02211754* obj);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/NetworkIdentity.h"
+#include "NitroSDK/NetworkIdentity.h"
 
 extern "C" int func_ov031_0221156c(void* p);
 int GetField1c_022115d0(void* obj);

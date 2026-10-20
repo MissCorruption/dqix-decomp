@@ -102,7 +102,7 @@ struct AlchemyPot {
     unsigned char resetBlend_;
 };
 
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 struct Data0210a010 {
     char unk_0[0xa0];

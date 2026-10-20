@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 #if defined(jpn)
 enum { Field2a78 = 0x2868, Field2ad0 = 0x28c0, Field2aa8 = 0x2898, Field2cc = 0x27c, Fieldf0c = 0xebc, Fieldbfc = 0xbac, Fieldf34 = 0xee4, Fieldc24 = 0xbd4, Fieldf5c = 0xf0c, Fieldc4c = 0xbfc, Fieldf60 = 0xf10, Fieldc50 = 0xc00, Fieldf64 = 0xf14, Fieldc54 = 0xc04, Fieldf6c = 0xf1c, Fieldc5c = 0xc0c, Fieldf74 = 0xf24, Fieldc64 = 0xc14, Fieldf78 = 0xf28, Fieldc68 = 0xc18 };

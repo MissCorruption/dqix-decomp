@@ -3,8 +3,8 @@
 #include "Graphics/GlyphMetrics.h"
 
 #include "std_library_functions.h"
-#include "System/LoadToVRAM.h"
-#include "System/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
 
 // USA: func_02028e90  (semantic: FlushBg1TileMapByMode_02028e90)
 extern "C" ARM void func_02028e90(void) {

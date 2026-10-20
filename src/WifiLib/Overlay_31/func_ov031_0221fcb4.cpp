@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 struct EventState0221fcb4 { char field_0x0[0x20]; int active; int cleanup; };
 extern EventState0221fcb4 data_ov031_0224f670;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Memory.h"
-#include "System/Timing.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Timing.h"
 
 struct Entry02207b44 {
 	char pad[0x20];

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" void MemoryMapTextureImage(void);
 extern "C" void LoadToTextureImage(void* ptr, int a, int b);

@@ -5,7 +5,7 @@ enum { entryOffset = 0x1d0, argumentOffset = 0x190, payloadDOffset = 0x194, payl
 #else
 enum { entryOffset = 0x450, argumentOffset = 0x3f0, payloadDOffset = 0x3f4, payloadEOffset = 0x3f8, payloadFOffset = 0x3fc, payloadGOffset = 0x3e9, payloadHOffset = 0x3ea, activeFlagOffset = 0x3e4, secondFlagOffset = 0x3e5 };
 #endif
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Payload0201165c {
     int d;

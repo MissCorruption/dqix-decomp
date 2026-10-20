@@ -5,7 +5,7 @@
 #include "World/LootableContainer.h"
 #include "Filesystem/FileIO.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 struct ChestLoot0201afd0 {

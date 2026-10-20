@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
 
 struct QueueNode021dd3f8 {
 	QueueNode021dd3f8* next;

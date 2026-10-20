@@ -2,7 +2,7 @@
 #include "Combat/SearchEntry.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 struct SearchStruct;
 struct SearchStruct0202c1a4;

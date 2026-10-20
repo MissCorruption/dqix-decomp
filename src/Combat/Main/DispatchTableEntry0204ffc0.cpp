@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 #include <std_library_functions.h>
 
 extern "C" int func_02050064(void* obj);

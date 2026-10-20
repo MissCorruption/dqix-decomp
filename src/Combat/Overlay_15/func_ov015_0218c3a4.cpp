@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 #include "Graphics/VRAMStaging.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 struct Container020dedd0;
 struct Obj020de2a4;

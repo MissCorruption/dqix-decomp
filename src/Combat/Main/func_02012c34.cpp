@@ -22,7 +22,6 @@ extern "C" {
     void _Z23ChangeROMLoadDMAChannelj(int channel);
     void _Z31InitBattleModeAndCommit020758a8v(void);
     void func_020bbd14(void);
-    void _Z26InitBattlerContext0201282cPh(unsigned char* obj);
     void _Z25ResetElapsedState020e1114v(void);
     void _Z44InitOverlay17ObjAndBumpBattleCounter02012bd8v(void);
 }
@@ -31,7 +30,6 @@ extern int data_020f2270;
 extern unsigned char data_02114e00;
 extern AllocatorUnion data_02114e20;
 extern int data_02114e50;
-extern unsigned char data_02114e54[];
 
 // USA: func_02012c34
 extern "C" ARM void func_02012c34(void) {
@@ -60,7 +58,7 @@ extern "C" ARM void func_02012c34(void) {
     _Z31InitBattleModeAndCommit020758a8v();
     func_020bbd14();
     g_keyManager.Initialize();
-    _Z26InitBattlerContext0201282cPh(data_02114e54);
+    g_touchInput.Initialize();
     _Z25ResetElapsedState020e1114v();
     data_02114e00 = 0;
     data_02114e50 = 0;

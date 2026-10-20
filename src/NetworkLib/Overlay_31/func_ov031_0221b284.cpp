@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include <System/IPC.h>
-#include <System/Cache.h>
-#include <System/Timing.h>
+#include <NitroSDK/IPC.h>
+#include <NitroSDK/Cache.h>
+#include <NitroSDK/Timing.h>
 
 struct IPCStatus0221b284 {
     unsigned short status;

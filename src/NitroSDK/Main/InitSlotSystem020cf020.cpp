@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/IPC.h"
+#include "NitroSDK/IPC.h"
 
 void InitializeInterProcessorCommunication(void);
 bool IsIPCCommandHandlerRegistered(int command, IPCSide side);

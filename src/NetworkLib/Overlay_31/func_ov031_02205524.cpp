@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Mutex.h>
+#include <NitroSDK/Mutex.h>
 
 struct SizeInputStruct022054fc {
     unsigned short stackSize;

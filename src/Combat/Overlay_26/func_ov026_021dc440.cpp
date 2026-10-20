@@ -6,7 +6,7 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 #include <Filesystem/GPC.h>
 #include <Memory/SafeAllocator.h>
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 #include <World/Object3D.h>
 #include <std_library_functions.h>
 #include "Resource/GameResources.h"

@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
 #include "Filesystem/FileIO.h"
-#include "Filesystem/FileAccessor.h"
-#include "Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
 #include "Grotto/Main/ActiveGrottoClass.h"
 #include "World/ZoneFeatures.h"
 #include "World/Zone3D.h"

@@ -7,7 +7,7 @@ extern char data_ov013_02188dfa[];
 #endif
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "GameState/GameState.h"
 
 void InitStruct0205a444(char* renderer);

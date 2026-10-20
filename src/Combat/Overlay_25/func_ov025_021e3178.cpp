@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Graphics/Vector.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 #if defined(jpn)
 enum { NotificationField = 0x4, CombatantSubobject = 0x144, WorkFlag = 0x71c5 };

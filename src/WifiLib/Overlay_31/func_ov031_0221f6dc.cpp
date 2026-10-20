@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include <System/Interrupts.h>
-#include <System/Memory.h>
+#include <NitroSDK/Interrupts.h>
+#include <NitroSDK/Memory.h>
 
 enum APCState0221f6dc {
     APC_STATE_NONE,

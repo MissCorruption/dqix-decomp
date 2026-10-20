@@ -1,7 +1,6 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
-extern unsigned char data_02114e54;
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 extern "C" int func_ov023_021e2c38(void* obj, int candidate);
 extern "C" void* func_ov023_021e2418(void* obj, int candidate);
 struct Obj021e2b5c;
@@ -9,10 +8,10 @@ extern "C" void func_ov023_021e2b5c(struct Obj021e2b5c* obj, int key, short* out
 
 // USA: func_ov023_021e29d0
 extern "C" ARM int func_ov023_021e29d0(char* obj) {
-    if (*((unsigned char*)&data_02114e54 + 0x55) == 0) return -1;
+    if (g_touchInput.pressed_ == 0) return -1;
 
     int outX, outY;
-    SelectCoordsByFlag0x24_02012a84(&data_02114e54, &outX, &outY);
+    g_touchInput.GetTouchPoint(&outX, &outY);
 
     unsigned short count = *(unsigned short*)(obj + 0x14);
     char* arr = *(char**)(obj + 8);

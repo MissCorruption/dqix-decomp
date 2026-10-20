@@ -1,4 +1,4 @@
-#include "System/OverlayResponse.h"
+#include "NitroSDK/OverlayResponse.h"
 
 struct ResponsePayloadHeader {
     unsigned char type;

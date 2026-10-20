@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 extern "C" int LoadToMainBG3ScreenData(int arg0, int arg1, unsigned int arg2);
 extern "C" int LoadToSubBG3ScreenData(int arg0, int arg1, unsigned int arg2);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
-#include "Filesystem/FSInnerDefs.h"
+#include "NitroSDK/Filesystem/FSInnerDefs.h"
 
 struct FlagWord02046708 { unsigned int flags; };
 

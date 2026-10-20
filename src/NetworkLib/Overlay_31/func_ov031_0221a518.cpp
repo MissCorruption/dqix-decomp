@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/ProcessorContext.h"
 #include "std_library_functions.h"
 
 #if defined(jpn)

@@ -1,18 +1,10 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 extern "C" void* memset(void* dst, int value, unsigned int length);
 
 struct StructA0205d5d0;
 int TryApplyElemFields0205d5d0(struct StructA0205d5d0* a, int b, int c, int d, unsigned char e);
-
-struct TouchState_021da1dc {
-    char pad0[0x24];
-    unsigned short unk_24;
-    char pad26[0x5f - 0x26];
-    unsigned char unk_5f;
-};
-
-extern "C" TouchState_021da1dc data_02114e54;
 
 struct WindowFrame_021da1dc {
     char pad0[0x30];
@@ -52,7 +44,7 @@ extern "C" ARM void func_ov023_021da1dc(CharacterCreation_021da9a8* self)
     if (unk != 0)
     {
         int highlighted = 0;
-        if (unk == 2 && data_02114e54.unk_5f != 0 && data_02114e54.unk_24 != 0)
+        if (unk == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0)
         {
             WindowFrame_021da1dc* frame = GetFrame(self->window1);
             if (frame->unk_30 < 0)
@@ -71,7 +63,7 @@ extern "C" ARM void func_ov023_021da1dc(CharacterCreation_021da1dc* self)
     if (unk != 0)
     {
         int highlighted = 0;
-        if (unk == 2 && data_02114e54.unk_5f != 0 && data_02114e54.unk_24 != 0)
+        if (unk == 2 && g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0)
         {
             WindowFrame_021da1dc* frame = GetFrame(self->window1);
             if (frame->unk_30 < 0)

@@ -14,11 +14,8 @@ enum { kRegionValue8A0_81C = 0x8a0 };
 struct Outer020e28dc;
 struct Obj2081;
 
-extern unsigned char data_02114e54;
-
 int GetInnerFlagBit0020e28dc(struct Outer020e28dc* o);
 int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 int IsPointInsideElement02080d54(struct Obj2081* obj, int key, int px, int py);
 
 struct Ctx021766e8 {
@@ -38,9 +35,9 @@ extern "C" ARM int func_ov003_021766e8(struct Ctx021766e8* self) {
         if (IsFlag0x2Active020e2984(self->ptr0)) {
             flag = 1;
         }
-    } else if (*((unsigned char*)&data_02114e54 + 0x55) != 0) {
+    } else if (g_touchInput.pressed_ != 0) {
         int a, b;
-        SelectCoordsByFlag0x24_02012a84(&data_02114e54, &a, &b);
+        g_touchInput.GetTouchPoint(&a, &b);
         if (!IsPointInsideElement02080d54(self->field89c, self->keyffe, (short)a, (short)b)) {
             flag = 1;
         }

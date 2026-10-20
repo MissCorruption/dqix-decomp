@@ -20,9 +20,6 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern unsigned char data_02114e54;
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
-
 int RunAndCheckFlagBit02080dd4(void* obj, int p1, int unused2, int unused3, unsigned char* outFlag, unsigned char extra);
 extern "C" void func_020813ec(void* obj, int key);
 
@@ -34,9 +31,9 @@ extern "C" ARM int func_ov014_02186f10(char* self) {
         flag = 1;
     }
 
-    if (*(&data_02114e54 + 0x55) != 0 && *(short**)(self + 0xd0) != 0) {
+    if (g_touchInput.pressed_ != 0 && *(short**)(self + 0xd0) != 0) {
         int a, b;
-        SelectCoordsByFlag0x24_02012a84(&data_02114e54, &a, &b);
+        g_touchInput.GetTouchPoint(&a, &b);
         int result = RunAndCheckFlagBit02080dd4(*(void**)(self + 0xc0), *(short*)(self + 0x170), (short)a, (short)b, &flag, 1);
         if (result < 0) {
             return 0;

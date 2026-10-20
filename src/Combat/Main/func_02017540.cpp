@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <World/Zone3D.h>
-#include <Graphics/NSBXX/RenderConfig.h>
+#include <NitroSDK/NSBXX/RenderConfig.h>
 
 extern Vector3i data_020e6e2c;
 extern Vector3i data_020e6e38;

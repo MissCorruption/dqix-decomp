@@ -1,5 +1,5 @@
-#include "System/DTCM.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/DTCM.h"
+#include "NitroSDK/Interrupts.h"
 #include <globaldefs.h>
 
 extern BlockedContextList data_027e0060;

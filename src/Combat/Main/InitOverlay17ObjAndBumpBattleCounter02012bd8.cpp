@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 int IsIndexMappedToSelf020a18f4(unsigned int idx);
 extern char data_027e0000;

@@ -30,12 +30,10 @@ void CallFunc0204b04cOverList0x98(struct Cont0205d274*);
 void InitEntries0205d2bc(struct Obj0205d2bc*);
 void ResetEntryList0205d6a0(struct Entry_0205d6a0*, int);
 
-extern unsigned char data_02114e54;
-
 // USA: func_ov000_0217e46c  (semantic: InitCombatEncounterState_0217e46c)
 extern "C" ARM void func_ov000_0217e46c(char* obj) {
     if (g_keyManager.TestKeysPressed(0x802) == 0) {
-        if (*(&data_02114e54 + 0x55) == 0) {
+        if (g_touchInput.pressed_ == 0) {
             return;
         }
     }

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 extern "C" float _fflt(int v);
 extern "C" float _fdiv(float a, float b);

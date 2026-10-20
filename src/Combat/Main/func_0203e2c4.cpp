@@ -8,7 +8,7 @@ enum { PendingPositionOffset = 0x7e78 };
 
 #include "Combat/EntryGetterTypes.h"
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct EntrySnapshot {
     short x;

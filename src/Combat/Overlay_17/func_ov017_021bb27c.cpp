@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 
 struct Flags02033fdc;

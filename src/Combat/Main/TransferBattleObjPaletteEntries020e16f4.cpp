@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern int GetWord0x0_0200fb8c(int* obj);
 extern "C" extern int LoadToMainObjStandardPalette(int arg0, int arg1, unsigned int arg2);

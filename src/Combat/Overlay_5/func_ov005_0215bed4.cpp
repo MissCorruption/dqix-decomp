@@ -1,22 +1,12 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 enum { kMember = 0x4f8 };
 #else
 enum { kMember = 0x4fc };
 #endif
-
-struct TouchState
-{
-    char unk_0[0x24];
-    unsigned short touching_;
-    char unk_26[0x54 - 0x26];
-    unsigned char released_;
-    unsigned char pressed_;
-    char unk_56[0x5f - 0x56];
-    unsigned char unk_5f;
-};
 
 struct MemberScreen
 {
@@ -31,14 +21,12 @@ extern "C" void func_ov005_0215730c(EquipmentMenu* self);
 MemberScreen* GetField1c_021a193c(int* obj);
 void DispatchByIdxAndCond021551fc(char*, int, int);
 
-extern "C" TouchState data_02114e54;
-
 // USA: func_ov005_0215bed4
 extern "C" ARM void func_ov005_0215bed4(EquipmentMenu* self)
 {
     int touchHandled = 0;
-    if (data_02114e54.pressed_ || (data_02114e54.unk_5f != 0 && data_02114e54.touching_ != 0) ||
-        data_02114e54.released_ != 0)
+    if (g_touchInput.pressed_ || (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ||
+        g_touchInput.released_ != 0)
     {
         func_ov005_021562b8(self);
         touchHandled = 1;

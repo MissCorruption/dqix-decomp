@@ -6,7 +6,7 @@ enum { stateOffset = 0x5901, workOffset = 0x371c, pointerOffset = 0x5310, modeOf
 enum { stateOffset = 0x5711, workOffset = 0x3760, pointerOffset = 0x5254, modeOffset = 0x55f8 };
 #endif
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "Resource/GameResources.h"
 
 extern "C" void func_02012de8(void);

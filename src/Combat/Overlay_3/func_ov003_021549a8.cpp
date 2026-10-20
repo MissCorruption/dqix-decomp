@@ -27,7 +27,7 @@ enum { kRegion20c = 0x20c };
 #endif
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
 
 extern "C" void func_ov023_021eb26c(void* obj);

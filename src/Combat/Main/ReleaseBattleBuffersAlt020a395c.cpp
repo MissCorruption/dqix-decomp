@@ -6,7 +6,7 @@
 #define BUFFER_OFFSET 0x48c
 #define OWNED_OFFSET 0x490
 #endif
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
 

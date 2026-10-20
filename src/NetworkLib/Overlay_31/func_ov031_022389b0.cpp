@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 extern "C" int func_ov027_021d8b40(int index, int flag);
 #if defined(jpn)

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-#include "System/Cache.h"
-#include "System/Graphics.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 void SetIntArrayElement020b0334(int *array, int index, int value);
 

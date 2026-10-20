@@ -12,7 +12,7 @@ enum { kRegion13ea = 0x13ea };
 #endif
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct Scene_0216af14 {
     unsigned char pad0[0x4];

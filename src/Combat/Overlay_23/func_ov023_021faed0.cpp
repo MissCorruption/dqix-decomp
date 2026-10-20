@@ -1,5 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
+#include "Input/Input.h"
 
 int GetGlobalField0x1c020421a0(void);
 extern "C" void* func_ov011_021849c8(void* a);
@@ -10,7 +11,6 @@ struct Entry021faed0;
 ARM void* GetEntryPtr_021fa854(char* obj, unsigned int idx);
 
 extern "C" void func_0205ac40(void* obj, void* entry);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 
 struct Obj0205eaa0;
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0* obj, int a, int b);
@@ -18,7 +18,6 @@ extern struct Obj0205eaa0 data_02108760;
 
 extern "C" void func_ov011_02184a40(void* a, int b);
 
-extern char data_02114e54;
 #if defined(jpn)
 extern "C" void* func_0203bd08(void);
 extern "C" void* func_0203be40(void);
@@ -172,13 +171,13 @@ extern "C" ARM void func_ov023_021faed0(struct Obj021faed0* obj, void* arg1) {
     }
 
     if ((obj->flags0xc & 0x10) == 0) {
-        unsigned char b55 = *((unsigned char*)&data_02114e54 + 0x55);
+        unsigned char b55 = g_touchInput.pressed_;
         int flagX = 0;
-        if (*((unsigned char*)&data_02114e54 + 0x5f) != 0 &&
-            *(unsigned short*)((char*)&data_02114e54 + 0x24) != 0) {
+        if (g_touchInput.isRepeatValid_ != 0 &&
+            g_touchInput.currentReading_.isHeld != 0) {
             flagX = 1;
         }
-        unsigned char b54 = *((unsigned char*)&data_02114e54 + 0x54);
+        unsigned char b54 = g_touchInput.released_;
         GameState* battleStruct = GameState::GetInstance();
         int field3b4 = battleStruct->GetEffectiveDeltaTime();
         int result = 0;
@@ -210,7 +209,7 @@ DONE:
         if (result == 0) return;
 
         int px, py;
-        SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &px, &py);
+        g_touchInput.GetTouchPoint(&px, &py);
         int ax1 = (obj->f28 >> 12) + obj->f30;
         int ay1 = (obj->f2c >> 12) + obj->f32;
         int ax2 = ax1 + obj->f34;

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/Matrix.h"
 
 // USA: func_020653e4
 extern "C" ARM void func_020653e4(fix32_t s, fix32_t t) {

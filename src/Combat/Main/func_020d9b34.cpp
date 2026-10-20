@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Resource/FontBankLoader.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"

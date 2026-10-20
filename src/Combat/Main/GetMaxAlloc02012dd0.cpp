@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/HPXEAllocator.h"
+#include "NitroSDK/Memory/HPXEAllocator.h"
 
 struct Struct02012dd0 {
     void* unk0;

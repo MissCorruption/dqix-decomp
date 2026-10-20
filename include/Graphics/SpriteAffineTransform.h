@@ -1,7 +1,7 @@
 #pragma once
 
 #include <globaldefs.h>
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct Matrix2x2 {
     fix32_t values[4];

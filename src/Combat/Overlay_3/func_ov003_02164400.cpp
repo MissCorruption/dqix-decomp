@@ -2,6 +2,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "std_library_functions.h"
 #include "Resource/GameResources.h"
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define REGIONAL_OFFSET(jp, us) jp
@@ -75,7 +76,6 @@ int SetEntryFlagById02080b40(void* obj, int id);
 extern struct Elem2081* FindElementByByte0xc4_02081da8(struct Obj2081*, int);
 int IsField0x9cEqual3_0204c7cc(unsigned char* obj);
 
-extern unsigned char data_02114e54;
 extern int data_0211e33c;
 extern struct Obj0205eaa0 data_02108760;
 
@@ -427,7 +427,7 @@ extern "C" ARM void func_ov003_02164400(unsigned char* self) {
     if (state == 0xe) {
         int flag = 0;
         if (*(unsigned short*)(self + HI(0x47a)) > 0x78 || func_ov003_02160a68(self) != 0 ||
-            *(&data_02114e54 + 0x55) != 0) {
+            g_touchInput.pressed_ != 0) {
             flag = 1;
         }
 

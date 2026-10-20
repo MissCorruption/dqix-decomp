@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct_0205d81c {
     char padding[0xb0];
@@ -11,23 +12,17 @@ struct Elem_0205d81c {
     short x;
     short y;
 };
-struct TouchState0205d97c {
-    char padding[0x55];
-    unsigned char enabled;
-};
-extern TouchState0205d97c data_02114e54;
 Elem_0205d81c* FindElementByC40205d81c(Struct_0205d81c*, int);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 
 // USA: func_0205d97c
 extern "C" ARM int func_0205d97c(Struct_0205d81c* object) {
-    if (!data_02114e54.enabled) return -1;
+    if (!g_touchInput.pressed_) return -1;
     Elem_0205d81c* element;
     int x;
     int y;
     element = FindElementByC40205d81c(object, object->selected);
     if (element == NULL) return 0;
-    SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
+    g_touchInput.GetTouchPoint(&x, &y);
     if (x == 0 || y == 0) return 0;
     int left = element->x;
     int top = element->y;

@@ -5,7 +5,7 @@
 #endif
 #include <globaldefs.h>
 #include "Resource/Brightness.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "Resource/GameResources.h"
 
 extern "C" void func_020a1940(unsigned int id);

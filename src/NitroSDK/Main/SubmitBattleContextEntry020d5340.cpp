@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 extern "C" int func_020d424c(int a, int b, int c, int d);
 void SetBattleContextArrayEntry_020d404c(int index, int value);

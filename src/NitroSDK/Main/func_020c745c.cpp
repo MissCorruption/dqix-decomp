@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 extern ProcessorContext* data_02111308;
 extern unsigned int data_0211155c[];

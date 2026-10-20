@@ -33,15 +33,6 @@ struct Trajectory020ad61c {
     int secondAngle;
 };
 struct HeadNode02046b24;
-struct Touch020ad61c {
-    unsigned char field0[0x38];
-    int x;
-    int y;
-    unsigned char field40[4];
-    unsigned int count;
-    unsigned char field48[12];
-    unsigned char active;
-};
 struct Flag020ad61c {
     unsigned char field0[13];
     unsigned char flags;
@@ -64,7 +55,6 @@ extern "C" int func_02018fbc(Zone3D*, Vec3copy0202ec84*);
 int IsField0Null_02046b08(void**);
 extern "C" void func_ov017_021a72f4(GameResources*, int);
 extern short data_020e9450[];
-extern Touch020ad61c data_02114e54;
 extern Flag020ad61c data_ov017_021d82fc;
 
 // USA: func_020ad61c
@@ -142,9 +132,9 @@ extern "C" ARM void func_020ad61c(Trajectory020ad61c* object) {
     points[1] = *(Vec3copy0202ec84*)&object->firstPosition;
     points[2] = *(Vec3copy0202ec84*)&object->secondPosition;
     for (int i = 0; i < 3; i++) ComputeTwoFromVec3_0202ec84(camera, &points[i], &screenX[i], &screenY[i]);
-    if (data_02114e54.active && data_02114e54.count < 10) {
-        touchX = data_02114e54.x;
-        touchY = data_02114e54.y;
+    if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) {
+        touchX = g_touchInput.prevX_;
+        touchY = g_touchInput.prevY_;
     }
     for (int i = 0; i < 3; i++) {
         if (screenX[i] - 16 < touchX && touchX < screenX[i] + 16 &&

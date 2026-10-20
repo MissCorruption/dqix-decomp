@@ -10,7 +10,7 @@ enum { kStatusOffset = 0x23ec, kStatusFlagOffset = 0x262, kFieldXOffset = 0x2786
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "World/Object3D.h"
 
 #if defined(jpn)

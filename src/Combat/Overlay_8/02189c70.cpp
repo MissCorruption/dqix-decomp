@@ -12,8 +12,8 @@
 #include "Memory/SafeAllocator.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 #include "std_library_functions.h"
-#include "System/Memory.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/OverlayId.h"
 #include "Resource/Brightness.h"
 
 #if defined(jpn)

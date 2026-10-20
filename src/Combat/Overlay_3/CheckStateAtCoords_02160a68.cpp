@@ -22,12 +22,9 @@ int IsFieldNotPositive_021a4e70(unsigned char* base);
 struct Outer020e28dc;
 int GetInnerFlagBit0020e28dc(struct Outer020e28dc* o);
 int IsFlag0x2Active020e2984(struct Outer020e28dc* window);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 
 struct Obj2081;
 int IsPointInsideElement02080d54(struct Obj2081* obj, int key, int px, int py);
-
-extern unsigned char data_02114e54;
 
 struct Ctx02160a68 {
     char pad0[kRegionValue324_20C];
@@ -52,9 +49,9 @@ extern "C" ARM int func_ov003_02160a68(struct Ctx02160a68* self) {
         if (IsFlag0x2Active020e2984(self->ptr390)) {
             flag = 1;
         }
-    } else if (*((unsigned char*)&data_02114e54 + 0x55) != 0) {
+    } else if (g_touchInput.pressed_ != 0) {
         int a, b;
-        SelectCoordsByFlag0x24_02012a84(&data_02114e54, &a, &b);
+        g_touchInput.GetTouchPoint(&a, &b);
         if (!IsPointInsideElement02080d54(self->field324, self->key488, (short)a, (short)b)) {
             flag = 1;
         }

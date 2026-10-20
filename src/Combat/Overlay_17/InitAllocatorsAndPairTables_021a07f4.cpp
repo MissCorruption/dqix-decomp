@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Memory/SafeAllocator.h"
 
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);

@@ -14,7 +14,6 @@ int GetActiveScaledSum0205d794(struct Struct_0205c570 *s);
 int IsActiveElementFlag2Set0205da38(struct Obj_0205da38* obj, int key);
 void DispatchWithShortB4_0205eaa0(struct Obj0205eaa0 *o, int a, int b);
 int CheckFlagOrThreshold_02161b48(char *base, int a);
-void SelectCoordsByFlag0x24_02012a84(unsigned char *p, int *x, int *y);
 char *FindElementByC40205d81c(struct Struct_0205d81c *s, int key);
 void GetFourShortsAtIndex(struct ShortArrays0204c610 *p, int idx, short *a, short *b, short *c, short *d);
 void SetIndexIfValid0205bcdc(struct Struct_0205bcdc *s, int idx);
@@ -24,7 +23,6 @@ extern "C" void func_ov002_02161cf0(void *base);
 extern "C" void func_ov002_02160c68(void *base);
 extern "C" void func_ov002_02156e90(void *base);
 extern "C" void func_ov002_0215b9a4(char *self, unsigned char key, int flag);
-extern "C" unsigned char data_02114e54[];
 extern "C" char data_02108760[];
 
 // USA: func_ov002_02169bb0
@@ -44,10 +42,10 @@ extern "C" ARM void func_ov002_02169bb0(char *base) {
         unsigned char *vals[2];
         vals[0] = (unsigned char *) (base + 0x2c + 0x1c00);
         vals[1] = (unsigned char *) (base + 0x2d + 0x1c00);
-        if (data_02114e54[0x55] != 0) {
+        if (g_touchInput.pressed_ != 0) {
             int tx, ty;
             short x0, y0, w, h;
-            SelectCoordsByFlag0x24_02012a84(data_02114e54, &tx, &ty);
+            g_touchInput.GetTouchPoint(&tx, &ty);
             char *e = FindElementByC40205d81c((struct Struct_0205d81c *) (base + 0x2c8 + 0xc00), 0x23);
             if (e != NULL) {
                 short key = 3;

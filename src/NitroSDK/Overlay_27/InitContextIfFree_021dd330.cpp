@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
 
 extern "C" void func_ov027_021dd3cc(void *p);
 extern "C" void func_ov027_021dd218();

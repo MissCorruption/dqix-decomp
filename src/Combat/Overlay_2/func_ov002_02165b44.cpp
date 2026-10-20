@@ -1,7 +1,7 @@
 #include "Resource/ActionDataTables.h"
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include <globaldefs.h>
 #include "Input/Input.h"
 

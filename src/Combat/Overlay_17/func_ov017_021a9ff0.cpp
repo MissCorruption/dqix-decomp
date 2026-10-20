@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 struct S021b2ba0;
 struct TailList020469b4;

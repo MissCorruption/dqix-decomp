@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Memory.h>
+#include <NitroSDK/Memory.h>
 
 struct MD5Context020c0430 {
     unsigned long a, b, c, d;

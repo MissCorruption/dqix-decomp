@@ -5,7 +5,7 @@
 #define IS_JPN 0
 #endif
 
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "Combat/MapDisplay.h"
 #include "Combat/CombatScriptContext.h"
 

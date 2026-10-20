@@ -2,7 +2,7 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include "GameState/BattleRecordSnapshot.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 void* GetData02100044_0202ae24();
 extern "C" void func_0205e330(void* dispatcher, void* packet, int flag);

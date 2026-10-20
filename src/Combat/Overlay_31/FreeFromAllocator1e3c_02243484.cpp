@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 #include "Memory/SafeAllocator.h"
 
 extern SafeAllocator data_ov031_02291e3c;

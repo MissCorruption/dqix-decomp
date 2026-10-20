@@ -7,7 +7,7 @@
 #endif
 
 #include "GameState/GameState.h"
-#include "System/ColorEffects.h"
+#include "NitroSDK/ColorEffects.h"
 #include "Input/Input.h"
 
 struct Container0205a330;

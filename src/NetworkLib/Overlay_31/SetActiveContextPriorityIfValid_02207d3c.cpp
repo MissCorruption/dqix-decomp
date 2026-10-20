@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 // USA: func_ov031_02207d3c
 ARM void SetActiveContextPriorityIfValid_02207d3c(unsigned int priority) {

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Timing.h"
+#include "NitroSDK/Timing.h"
 
 int GetField260_0220d540(void);
 struct EntityStruct022140b0;

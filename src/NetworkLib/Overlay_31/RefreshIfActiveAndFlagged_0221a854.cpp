@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 void RefreshRefIfFlagged_02217e70(char* self);
 bool IsContextInactive(ProcessorContext* context);

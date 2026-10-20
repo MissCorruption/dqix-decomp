@@ -11,9 +11,9 @@ enum { kRegiond8 = 0xd8 };
 #include "Filesystem/BackgroundLoader.h"
 #include "Resource/GameResources.h"
 #include "Resource/Brightness.h"
-#include "System/BGBases.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/BGBases.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 struct ActiveEntry02046900;
 struct Rec020467f0;

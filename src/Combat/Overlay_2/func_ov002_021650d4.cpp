@@ -2,6 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 #if defined(jpn)
 #define RG(u, j) (j)
@@ -37,7 +38,6 @@ extern "C" int func_ov023_021e76c4(void *p);
 extern "C" void func_ov023_021e7b34(void *p, int a);
 extern "C" void func_ov023_021e7340(void *p);
 extern "C" unsigned char data_ov002_0216cc88[];
-extern "C" unsigned char data_02114e54[];
 
 // USA: func_ov002_021650d4
 extern "C" ARM void func_ov002_021650d4(char *base) {
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov002_021650d4(char *base) {
             SetSubBrightness(res, 0, 0xf);
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (st == 4) {
-            if (!CheckFlagOrThreshold_02161b48(base, 1) && data_02114e54[0x55] == 0) return;
+            if (!CheckFlagOrThreshold_02161b48(base, 1) && g_touchInput.pressed_ == 0) return;
             SetSubBrightness(res, -16, 0xa);
             *(int *) (base + 0x1000 + RG(0xbc0, 0xa88)) += 1;
         } else if (st == 5) {

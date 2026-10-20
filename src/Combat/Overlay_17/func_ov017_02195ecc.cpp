@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "System/Matrix.h"
-#include "Graphics/NSBXX/RenderConfig.h"
-#include "Graphics/NSBXX/GeometryFifo.h"
+#include "NitroSDK/Matrix.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
 #include "Resource/Brightness.h"
 
 #if defined(jpn)

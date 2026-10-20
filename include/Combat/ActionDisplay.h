@@ -1,7 +1,7 @@
 #pragma once
 
-#include "System/Matrix.h"
-#include "System/Memory.h"
+#include "NitroSDK/Matrix.h"
+#include "NitroSDK/Memory.h"
 #include <globaldefs.h>
 
 struct CombatActionPosition {

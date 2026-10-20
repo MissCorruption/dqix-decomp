@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 ARM void InitSha1State_0220b8a0(unsigned int* ctx);
 ARM void FinalizeSha1Digest_0220b9ac(void* ctx, void* out);

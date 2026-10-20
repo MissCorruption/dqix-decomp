@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 
 // KEEP-NAME: the ROM symbol here is the mangled C++ name, not a func_ tag.
 // USA: func_020c223c

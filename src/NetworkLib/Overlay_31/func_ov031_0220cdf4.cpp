@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Cache.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Cache.h"
 
 extern int data_ov031_0224e53c;
 

@@ -2,12 +2,12 @@
 #include "World/Zone3D.h"
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "Filesystem/NarcHandle.h"
-#include "Filesystem/FileAccessor.h"
-#include "Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
 #include "Filesystem/FileIO.h"
 #include "Resource/GameResources.h"
-#include "Graphics/NSBXX/NSBXX.h"
+#include "NitroSDK/NSBXX/NSBXX.h"
 
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/Model3D.h"
 #include "Graphics/VRAMStaging.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 struct CharacterColors {
     unsigned short hair_[10][2];

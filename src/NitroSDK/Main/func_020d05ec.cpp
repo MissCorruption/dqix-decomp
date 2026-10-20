@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "Filesystem/FSInnerDefs.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/Filesystem/FSInnerDefs.h"
+#include "NitroSDK/Interrupts.h"
 
 #define BACKUP_MIDDLEWARE ((const void*)0x02000bc4)
 #define CARD_STAT_BUSY 0x4

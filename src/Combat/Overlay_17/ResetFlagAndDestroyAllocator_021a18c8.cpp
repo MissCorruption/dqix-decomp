@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 void CleanupAndReinitCombatState_021e2f38(void* obj);
 void PopStack0AndTrigger_020a1e54(int flag);

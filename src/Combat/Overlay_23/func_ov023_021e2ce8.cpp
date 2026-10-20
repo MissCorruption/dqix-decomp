@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 #include "Resource/GameResources.h"
 
 extern "C" int func_ov017_021bdbcc(void* obj);

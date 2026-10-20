@@ -7,9 +7,9 @@
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
 #include "Graphics/VRAMStaging.h"
-#include "Graphics/NSBXX/RenderConfig.h"
-#include "System/VRAM.h"
-#include "System/Matrix.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/VRAM.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/Brightness.h"
 struct ObjectStatePrefix;
 

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Interrupts.h"
 
 extern "C" void func_01ff83a8(unsigned long src, void* dst, long len);
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov031_02204168
 ARM void* FillRemainder_02204168(int value, unsigned int end, void* dst, unsigned int start) {

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Timing.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Timing.h"
 
 ARM void InitOnce_0220ef5c(void);
 ARM void SetFieldAt2264_0220d8d4(void);

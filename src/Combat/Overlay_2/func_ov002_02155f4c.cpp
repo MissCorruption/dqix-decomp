@@ -1,4 +1,4 @@
-#include "System/ColorEffects.h"
+#include "NitroSDK/ColorEffects.h"
 #include <globaldefs.h>
 
 struct Container021e76a8;

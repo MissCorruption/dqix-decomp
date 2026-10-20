@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "GameState/GameState.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct FieldFlagBlock;
 void ResetAndEnableFieldFlag_02011b24(struct FieldFlagBlock* block);

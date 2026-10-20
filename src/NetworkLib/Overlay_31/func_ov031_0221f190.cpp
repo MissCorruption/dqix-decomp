@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Interrupts.h>
+#include <NitroSDK/Interrupts.h>
 
 struct SessionState {
     unsigned char padding[0x18];

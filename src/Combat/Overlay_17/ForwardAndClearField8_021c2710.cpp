@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 extern AllocatorUnion data_02114e20;
 void TailForward02012da4(AllocatorUnion* alloc, void* data);

@@ -34,20 +34,12 @@ struct Self0215e8f4 {
 
 struct LookupTable0215e930;
 
-struct TouchState0215f000 {
-    char pad0[0x55];
-    unsigned char touched;
-};
-
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* x, int* y);
 struct LookupTable0215e930* FindEntryByMask_0215e8f4(struct Self0215e8f4* self);
 extern "C" int func_ov003_0215e930(struct LookupTable0215e930* table, short id, signed char* col, signed char* row);
 extern "C" void func_ov003_0215e9ec(struct Self0215e8f4* self, int dx, int dy);
 extern "C" int func_ov003_0215ef54(struct Self0215e8f4* self);
 extern "C" int func_ov003_0215eeb8(struct Self0215e8f4* self);
 extern "C" void func_ov003_0215ec68(int shape, short* w, short* h);
-
-extern struct TouchState0215f000 data_02114e54;
 
 // USA: func_ov003_0215f000
 extern "C" ARM int func_ov003_0215f000(struct Self0215e8f4* self, int elapsed) {
@@ -154,10 +146,10 @@ extern "C" ARM int func_ov003_0215f000(struct Self0215e8f4* self, int elapsed) {
 
         if (result == 0) {
             mask = self->mask;
-            if (data_02114e54.touched) {
+            if (g_touchInput.pressed_) {
                 int ty;
                 int tx;
-                SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &tx, &ty);
+                g_touchInput.GetTouchPoint(&tx, &ty);
                 struct CellList0215f000* list = self->list;
                 hit = list->cells;
                 count = list->count;

@@ -3,8 +3,8 @@
 #include <GameState/GameState.h>
 #include <Resource/Brightness.h>
 #include <Filesystem/BackgroundLoader.h>
-#include <Memory/AllocatorUnion.h>
-#include <Memory/HMRFAllocator.h>
+#include <NitroSDK/Memory/AllocatorUnion.h>
+#include <NitroSDK/Memory/HMRFAllocator.h>
 #include <std_library_functions.h>
 
 #if defined(jpn)

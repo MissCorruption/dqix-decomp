@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Node0208036c;
 struct Slot0208010c {
@@ -51,12 +52,9 @@ struct Flags0208036c {
 };
 
 void* FindSlotWithValue020810b4(unsigned char* self, short val);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 extern "C" int func_02080e40(void* obj, int p1, int p2, int p3);
 struct Node0208036c* FindEntryByShortId0207f6ac(struct List0207f6ac* list, int id);
 struct Node0208036c* WalkListByMode0208036c(void* unused, struct Node0208036c* start, int mode, struct Flags0208036c* flags, unsigned char setFlag);
-
-extern unsigned char data_02114e54[];
 
 // USA: func_020800fc
 extern "C" ARM int func_020800fc(struct Ctx0208010c* self, short* outId, short id, int mode, unsigned char sel, unsigned char setFlag) {
@@ -70,10 +68,10 @@ extern "C" ARM int func_020800fc(struct Ctx0208010c* self, short* outId, short i
 
     flags.f0 = 0;
     *outId = id;
-    if (data_02114e54[0x55] != 0) {
+    if (g_touchInput.pressed_ != 0) {
         slot = (struct Slot0208010c*)FindSlotWithValue020810b4((unsigned char*)self, id);
         if (slot != NULL) {
-            SelectCoordsByFlag0x24_02012a84(data_02114e54, &x, &y);
+            g_touchInput.GetTouchPoint(&x, &y);
             ret = func_02080e40(self, slot->id, (short)x, (short)y);
             if (ret >= 0) {
                 *outId = (short)ret;

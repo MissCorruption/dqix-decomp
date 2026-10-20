@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 unsigned int SetSpecificInterruptsEnabled(unsigned int which);
 

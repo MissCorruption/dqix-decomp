@@ -3,7 +3,7 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 #include "Graphics/LightingManager.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include "Resource/GameResources.h"
 
 #if defined(jpn)

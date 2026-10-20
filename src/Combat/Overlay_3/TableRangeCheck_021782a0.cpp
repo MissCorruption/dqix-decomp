@@ -1,21 +1,19 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Obj2081;
 struct Elem2081;
-void SelectCoordsByFlag0x24_02012a84(unsigned char* p, int* a, int* b);
 struct Elem2081* FindElementByByte0xc4_02081da8(struct Obj2081* obj, int id);
 int IsField0x9cEqual3_0204c7cc(unsigned char* p);
 void FindTableEntryPayload_02173f08(char* a, char* b, char* c, char* d);
 
-extern unsigned char data_02114e54[];
-
 // USA: func_ov003_021782a0  (semantic: TableRangeCheck_021782a0)
 extern "C" ARM int func_ov003_021782a0(struct Obj2081* obj) {
-    if (data_02114e54[0x5f] == 0 || *(unsigned short*)(data_02114e54 + 0x24) == 0)
+    if (g_touchInput.isRepeatValid_ == 0 || g_touchInput.currentReading_.isHeld == 0)
         return 0;
 
     int coordA, coordB;
-    SelectCoordsByFlag0x24_02012a84(data_02114e54, &coordA, &coordB);
+    g_touchInput.GetTouchPoint(&coordA, &coordB);
     if (coordB < 0x5d || coordB > 0x6e)
         return 0;
 

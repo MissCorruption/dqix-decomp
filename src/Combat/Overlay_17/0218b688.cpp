@@ -4,7 +4,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "Resource/ActionDataTables.h"
 #include "World/LootableContainer.h"
 #include "Graphics/LightingManager.h"

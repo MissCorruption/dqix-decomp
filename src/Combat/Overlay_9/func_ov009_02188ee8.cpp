@@ -16,7 +16,6 @@ void SetField0AndPropagate0205bacc(Node0205bacc*, int);
 int GetField0_0205bafc(void*);
 int ComputeScaledSum0205bb84(Struct_0205bb84*);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 int GetFieldByKey020e0434(Container020e0310*, int);
 extern "C" int func_02001aec(const void*, const void*, unsigned int);
 extern "C" int func_ov009_0218a8b4(CharacterCreationUI*, int, int);
@@ -31,14 +30,6 @@ extern "C" void func_ov009_02188e70(CharacterCreationUI*, int);
 extern "C" void func_ov009_02188944(CharacterCreationUI*, int);
 extern "C" int func_ov009_02188b14(CharacterCreationUI*, int, int);
 
-struct TouchState {
-    char unknown0[0x24];
-    unsigned short pressure;
-    char unknown26[0x2e];
-    unsigned char repeating, pressed;
-    char unknown56[9];
-    unsigned char held;
-};
 struct PartyMemberAppearance {
     short models[10];
     unsigned char female : 1;
@@ -49,7 +40,6 @@ struct PartyMemberAppearance {
     short field16, width, height;
 };
 struct PartyMemberData { char unknown0[0x488]; PartyMemberAppearance appearance; };
-extern TouchState data_02114e54;
 extern Obj0205eaa0 data_02108760;
 
 #define RESET_NAVIGATION(columns, rows, total, selected) \
@@ -78,9 +68,9 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
     int result = -1;
     int choice = -1;
     int x, y;
-    SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
+    g_touchInput.GetTouchPoint(&x, &y);
     int touched = 0;
-    if (data_02114e54.pressed) {
+    if (g_touchInput.pressed_) {
         touched = 1;
         choice = func_ov009_0218a8b4(self, x, y);
         self->touchedChoice = choice;
@@ -106,8 +96,8 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreationUI* self)
             self->lastCursorX = self->cursorX;
             self->lastCursorY = self->cursorY;
         }
-    } else if (data_02114e54.held && data_02114e54.pressure) touched = 1;
-    else if (data_02114e54.repeating) touched = 1;
+    } else if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) touched = 1;
+    else if (g_touchInput.released_) touched = 1;
     if (!touched) {
         unsigned int ticks = GameState::GetInstance()->GetTickCount();
         if (!ticks) ticks = 1;
@@ -262,7 +252,6 @@ void SetField0AndPropagate0205bacc(Node0205bacc*, int);
 int GetField0_0205bafc(void*);
 int ComputeScaledSum0205bb84(Struct_0205bb84*);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 
 struct TouchState {
     char pad0[0x24];
@@ -313,7 +302,6 @@ struct CharacterCreation {
     char paddb0[5];
     unsigned char blocked;
 };
-extern TouchState data_02114e54;
 extern Obj0205eaa0 data_02108760;
 extern "C" int func_ov009_02189854(CharacterCreation*, int, int);
 extern "C" void func_0205bb04(Navigation*, int);
@@ -348,9 +336,9 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreation* self) {
     int result = -1;
     int choice = -1;
     int x, y;
-    SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
+    g_touchInput.GetTouchPoint(&x, &y);
     int touched = 0;
-    if (data_02114e54.pressed) {
+    if (g_touchInput.pressed_) {
         touched = 1;
         choice = func_ov009_02189854(self, x, y);
         self->touchedChoice = choice;
@@ -375,8 +363,8 @@ extern "C" ARM int func_ov009_02188ee8(CharacterCreation* self) {
             self->lastX = self->cursorX;
             self->lastY = self->cursorY;
         }
-    } else if (data_02114e54.held && data_02114e54.pressure) touched = 1;
-    else if (data_02114e54.repeating) touched = 1;
+    } else if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) touched = 1;
+    else if (g_touchInput.released_) touched = 1;
     if (!touched) {
         unsigned int ticks = GameState::GetInstance()->GetTickCount();
         if (!ticks) ticks = 1;

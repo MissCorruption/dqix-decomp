@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 extern char* data_ov031_0224e60c;
 void RefreshRefIfFlagged_02217e70(char *self);

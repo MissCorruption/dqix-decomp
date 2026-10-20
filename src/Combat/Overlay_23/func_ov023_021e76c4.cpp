@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <Filesystem/BackgroundLoader.h>
 #include <Memory/SafeAllocator.h>
-#include <System/Cache.h>
+#include <NitroSDK/Cache.h>
 
 #define REG_DISPCNT_SUB (*(volatile unsigned int*)0x04001000)
 #define REG_BG0CNT_SUB (*(volatile unsigned short*)0x04001008)

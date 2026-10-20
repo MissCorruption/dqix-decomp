@@ -9,8 +9,6 @@ void InitWordsQuad_021e60e0(void* obj, unsigned int val);
 void SetFourWordBlocks_021e6088(void* obj, Words021e60c4* src);
 extern "C" int func_ov023_021e29d0(char* obj);
 
-extern unsigned char data_02114e54;
-
 // USA: func_ov023_021e463c  (semantic: UpdateOrientationOrCombatFlags_021e463c)
 extern "C" ARM void func_ov023_021e463c(void* objRaw, unsigned int count) {
 #if defined(jpn)
@@ -68,16 +66,16 @@ extern "C" ARM void func_ov023_021e463c(void* objRaw, unsigned int count) {
         }
     } else if (flags & 1) {
         int flag5 = 0, flag6 = 0, got = 0;
-        if (*(&data_02114e54 + 0x55)) {
+        if (g_touchInput.pressed_) {
             int v = func_ov023_021e29d0(obj + 0xd4);
             if (v == 0x22) flag5 = 1;
             if (v == 0x23) flag6 = 1;
             got = 1;
-        } else if (*(&data_02114e54 + 0x5f) && *(unsigned short*)(&data_02114e54 + 0x24)) {
+        } else if (g_touchInput.isRepeatValid_ && g_touchInput.currentReading_.isHeld) {
             if (flags & 0x100) flag5 = 1;
             if (flags & 0x200) flag6 = 1;
             got = 1;
-        } else if (*(&data_02114e54 + 0x54)) {
+        } else if (g_touchInput.released_) {
             got = 1;
         }
         if (!got) {

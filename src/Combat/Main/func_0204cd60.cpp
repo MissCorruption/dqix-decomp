@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
-#include <System/BGBases.h>
+#include <NitroSDK/BGBases.h>
 
 struct Wnd0204cd60 {
     char pad0[8];

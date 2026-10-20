@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 ARM void InitSha1State_0220b8a0(unsigned int* ctx);
 ARM void InitMd5Ctx_0220afe0(void* ctx);

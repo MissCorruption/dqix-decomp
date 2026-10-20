@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Combat/FieldActorState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 #if defined(jpn)
 enum { EntryListOffset = 0x14 };

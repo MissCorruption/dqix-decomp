@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Memory/SignedAllocator.h"
-#include "Filesystem/LowNitroHandle.h"
-#include "System/Mutex.h"
+#include "NitroSDK/Memory/SignedAllocator.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Mutex.h"
 
 struct SleepCallback020be9e8 {
     void (*callback)(void*);

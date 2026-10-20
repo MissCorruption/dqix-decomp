@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
-#include "System/NetworkProtocolVersion.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/NetworkProtocolVersion.h"
 
 struct SslClientHelloState02208ab0 {
     unsigned char unknown0[0x30];

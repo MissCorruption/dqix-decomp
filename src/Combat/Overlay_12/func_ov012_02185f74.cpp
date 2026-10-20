@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Graphics.h"
-#include "System/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/ColorEffects.h"
 
 #if defined(jpn)
 #define data_ov012_0218af75 data_ov012_0218bcec

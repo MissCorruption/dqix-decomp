@@ -1,4 +1,4 @@
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include <globaldefs.h>
 
 // KEEP-NAME: the ROM symbol is a curated name, not a func_ tag.

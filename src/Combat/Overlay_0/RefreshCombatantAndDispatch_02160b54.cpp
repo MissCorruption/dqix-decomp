@@ -6,7 +6,7 @@ enum { flagsOffset = 0x57e4, workOffset = 0xe44, combatantOffset = 0x71c6, state
 enum { flagsOffset = 0x55f4, workOffset = 0xec8, combatantOffset = 0x6fd6, stateOffset = 0xea8, dispatchOffset = 0x5ab0 };
 #endif
 #include "GameState/GameState.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 #include "Resource/Brightness.h"
 
 extern "C" void func_02016874(void* big);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/HMRFAllocator.h"
+#include "NitroSDK/Memory/HMRFAllocator.h"
 
 void InitAllocatorListZero_020bdbe0(SignedAllocatorList* list);
 

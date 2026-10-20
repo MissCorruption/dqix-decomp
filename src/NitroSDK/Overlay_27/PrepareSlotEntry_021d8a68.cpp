@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 extern "C" int func_ov027_021d9de8(unsigned int index);
 extern "C" void VectorizedInvertedMemcpy(const void* src, void* dst, unsigned int len);

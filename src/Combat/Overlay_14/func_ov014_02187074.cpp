@@ -88,7 +88,6 @@ struct Obj0205eaa0;
 
 Canvas* FindElementByByte0xc4_02081da8(Obj2081*, int);
 bool CheckField0x9cSetWhenField0xd4Present_0204c7e0(unsigned char*);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 void DispatchWithShortB4_0205eaa0(Obj0205eaa0*, int, int);
 void ClearSublistEntriesFlag4_020804fc(void*, int);
 
@@ -100,7 +99,6 @@ void func_ov014_0218854c(MonsterListScreen* self);
 void func_ov014_021885bc(MonsterListScreen* self);
 }
 
-extern unsigned char data_02114e54[];
 extern char data_02108760[];
 
 inline short TilesToPixels(short tiles)
@@ -123,11 +121,11 @@ extern "C" ARM bool func_ov014_02187074(MonsterListScreen* self)
         short top = TilesToPixels(y);
         short right = left + TilesToPixels(canvas->width_);
         short bottom = top + TilesToPixels(height);
-        if (data_02114e54[0x55])
+        if (g_touchInput.pressed_)
         {
             int x;
             int y;
-            SelectCoordsByFlag0x24_02012a84(data_02114e54, &x, &y);
+            g_touchInput.GetTouchPoint(&x, &y);
             if (left <= x && x < right && top <= y && y < bottom)
                 toggle = true;
         }

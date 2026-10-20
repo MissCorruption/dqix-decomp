@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/WirelessScanDescriptor.h"
+#include "NitroSDK/WirelessScanDescriptor.h"
 
 struct LookupList_0220ee50 {
     int field0;

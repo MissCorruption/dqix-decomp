@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Grotto/Main/TreasureMapMetadata.h"
 #include "Grotto/Main/DetailedTreasureMapData.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 #if defined(jpn)

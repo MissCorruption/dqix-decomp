@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <GameState/GameState.h>
 #include <World/Zone3D.h>
-#include <System/Cache.h>
+#include <NitroSDK/Cache.h>
 #include <std_library_functions.h>
 #include "Resource/Brightness.h"
 

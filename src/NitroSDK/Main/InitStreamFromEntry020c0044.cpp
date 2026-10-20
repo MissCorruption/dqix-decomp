@@ -2,7 +2,7 @@
 
 extern "C" int func_020bd7c4(unsigned int index, void* buf, int size, int flag);
 
-#include "Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
 bool NitroVM_PrepareReadFileByID(NitroVM* vm, NitroFileAccessor accessor);
 NitroFileAccessor GetHolderPair020bd88c(void);
 

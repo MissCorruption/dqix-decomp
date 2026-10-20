@@ -1,12 +1,12 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 typedef char* va_list;
 #define __va_align(size) ((((unsigned long)(size)) + 3U) & ~3U)
 #define va_start(ap, parm) ((ap) = (va_list)((char*)((unsigned long)&(parm) & ~3U) + __va_align(sizeof(parm))))
 #define va_arg(ap, type) (*(type*)(((ap) += __va_align(sizeof(type))) - __va_align(sizeof(type))))
 #define va_end(ap) ((void)0)
-#include "System/IPC.h"
+#include "NitroSDK/IPC.h"
 
 void* TryAcquireLock021142e8_020d4064();
 extern "C" int func_020c7e0c(void* queue, void* message, int flags);

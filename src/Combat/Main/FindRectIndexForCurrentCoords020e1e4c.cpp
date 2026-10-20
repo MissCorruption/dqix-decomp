@@ -1,19 +1,17 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
-extern char data_02114e54;
-
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 struct RectList020e1eb0;
 ARM int FindRectContainingPoint020e1eb0(struct RectList020e1eb0* list, int x, int y);
 
 // USA: func_020e1e4c
 ARM int FindRectIndexForCurrentCoords020e1e4c(struct RectList020e1eb0* list) {
-    if (!*(unsigned char*)(&data_02114e54 + 0x55)) {
+    if (!g_touchInput.pressed_) {
         goto no_flag;
     }
     {
         int x, y;
-        SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
+        g_touchInput.GetTouchPoint(&x, &y);
         int idx = FindRectContainingPoint020e1eb0(list, (short)x, (short)y);
         return (idx < 0) ? -2 : idx;
     }

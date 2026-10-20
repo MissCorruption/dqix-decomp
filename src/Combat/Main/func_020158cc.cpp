@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/LootableContainer.h"
 #include "World/Zone3D.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 void ResetGxEngineState020c52e8();
 extern "C" void func_020c5414();

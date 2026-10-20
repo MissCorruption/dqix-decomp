@@ -2,7 +2,7 @@
 
 #include "Combat/DistanceSort.h"
 #include "GameState/GameState.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 
 struct Target02059f38;
 struct Vec3_02059f38;

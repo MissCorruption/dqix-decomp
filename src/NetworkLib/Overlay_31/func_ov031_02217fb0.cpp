@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
-#include "System/Mutex.h"
+#include "NitroSDK/Mutex.h"
 
 struct ResponseBuffer02217fb0 {
     char* start;

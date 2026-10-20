@@ -25,13 +25,11 @@ struct Menu {
 };
 
 extern "C" {
-extern unsigned char data_02114e54[];
 void func_020813ec(Menu*, int);
 }
 
 int GetInnerFlagBit0020e28dc(Outer020e28dc*);
 int GetField0x15UnlessInactive_020e2918(signed char*);
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 int RunAndCheckFlagBit02080dd4(void*, int, int, int, unsigned char*, unsigned char);
 
 struct Ctx021765b4 {
@@ -60,12 +58,12 @@ extern "C" ARM unsigned char func_ov003_021765b4(Ctx021765b4* self)
             *self->cursor_ = choice + 2;
         }
     }
-    else if (data_02114e54[0x55] && self->cursor_ != 0)
+    else if (g_touchInput.pressed_ && self->cursor_ != 0)
     {
         int x;
         int y;
         Menu* menu = self->menu_;
-        SelectCoordsByFlag0x24_02012a84(data_02114e54, &x, &y);
+        g_touchInput.GetTouchPoint(&x, &y);
         self->previousCursor_ = *self->cursor_;
         int item = RunAndCheckFlagBit02080dd4(menu, self->group_, (short)x, (short)y, &confirmed, 1);
         if (item < 0)

@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 #include "Resource/CharacterCreationUI.h"
-#include "System/ColorEffects.h"
+#include "NitroSDK/ColorEffects.h"
 
 int GetWord0x0_0200fb8c(int*);
 struct Entry_0205d6a0;

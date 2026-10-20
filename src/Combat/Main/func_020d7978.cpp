@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "Resource/GameResources.h"
 
 struct Obj0205eaa0;

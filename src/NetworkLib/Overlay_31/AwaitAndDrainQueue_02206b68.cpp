@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Interrupts.h"
 
 extern "C" int func_020c7ea0(void* obj, unsigned int* out, int canWait);
 extern "C" void func_020c7e0c(void* data, int a, int b);

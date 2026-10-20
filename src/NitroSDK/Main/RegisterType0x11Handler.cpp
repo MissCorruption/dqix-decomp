@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/IPC.h"
+#include "NitroSDK/IPC.h"
 
 #if defined(jpn)
 #define func_020d1118 func_020d2be4

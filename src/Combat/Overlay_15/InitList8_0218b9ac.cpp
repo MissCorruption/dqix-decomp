@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct Entry8_0218b9ac { int a; int b; };
 struct List8_0218b9ac { void* f0; Entry8_0218b9ac* arr; void* f8; int count; };

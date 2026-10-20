@@ -2,8 +2,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
-#include "System/ColorEffects.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/ColorEffects.h"
 
 struct Messages0217cf10 {
 #if defined(jpn)

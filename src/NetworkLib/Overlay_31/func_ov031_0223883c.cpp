@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Filesystem/NitroVM.h"
-#include "Filesystem/FileAccessor.h"
-#include "Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
 
 struct Req0223883c { char* path; };
 

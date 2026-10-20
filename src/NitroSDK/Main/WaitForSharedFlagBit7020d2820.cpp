@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/IPC.h"
+#include "NitroSDK/IPC.h"
 
 void SetArm9IPCCommandHandler(int command, IPCCommandHandler handler);
 int TriggerAndPollRegister04fff200_020d28f0(void);

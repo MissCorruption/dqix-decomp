@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Memory.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Memory.h"
 
 extern "C" ARM int func_ov031_0220547c(void* a0);
 extern "C" ARM void func_ov031_02205524(void* a0, void* a1);

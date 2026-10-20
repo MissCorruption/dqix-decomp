@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov017_0219a674
 ARM void InitObj0219a674(unsigned char* self) {

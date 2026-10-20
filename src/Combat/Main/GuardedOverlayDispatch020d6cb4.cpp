@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 #if defined(jpn)
 #define func_ov023_021d8a40 func_ov030_021d9300

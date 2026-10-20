@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
 #include "Combat/MapDisplay.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 class AllocatorUnion;
 int TailForward02012da4(AllocatorUnion*, void*);

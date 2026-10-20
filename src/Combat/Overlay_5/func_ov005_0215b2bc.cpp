@@ -2,8 +2,7 @@
 #include <GameState/GameState.h>
 #include <Resource/Brightness.h>
 #include "Resource/GameResources.h"
-
-extern unsigned char data_02114e54;
+#include "Input/Input.h"
 
 struct MenuTail {
 #if defined(jpn)
@@ -20,8 +19,6 @@ extern Obj0205eaa0 data_02108760;
 struct Src02157174;
 struct Dst02157174;
 void CopyThreeFields02157174(Dst02157174*, Src02157174*);
-
-void SelectCoordsByFlag0x24_02012a84(unsigned char*, int*, int*);
 
 struct Struct_0205bb84;
 int ComputeScaledSum0205bb84(Struct_0205bb84*);
@@ -93,9 +90,9 @@ extern "C" ARM void func_ov005_0215b2bc(Menu* self) {
         int hasCoords = 0;
         int bx;
         int by;
-        if ((&data_02114e54)[0x55] != 0) {
+        if (g_touchInput.pressed_ != 0) {
             hasCoords = 1;
-            SelectCoordsByFlag0x24_02012a84(&data_02114e54, &bx, &by);
+            g_touchInput.GetTouchPoint(&bx, &by);
             sel = func_ov005_021586c4(self, bx, by);
             if (sel != 255) {
                 found = hasCoords;

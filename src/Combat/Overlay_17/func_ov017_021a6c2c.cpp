@@ -3,9 +3,10 @@
 #include <std_library_functions.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Resource/Brightness.h"
 #include "Resource/GameResources.h"
+#include "NitroSDK/Memory.h"
 
 struct Obj020397cc;
 struct Base02010834;

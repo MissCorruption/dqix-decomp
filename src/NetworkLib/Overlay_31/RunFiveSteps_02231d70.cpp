@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 extern "C" void func_ov031_02231f54(void);
 extern "C" void func_ov031_02231d90(void);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 
 struct CubicPathSegment {
     int startTime;

@@ -2,8 +2,8 @@
 #include <Filesystem/BackgroundLoader.h>
 #include <GameState/GameState.h>
 #include <Memory/SafeAllocator.h>
-#include <System/Cache.h>
-#include <System/LoadToVRAM.h>
+#include <NitroSDK/Cache.h>
+#include <NitroSDK/LoadToVRAM.h>
 #include <std_library_functions.h>
 #include "Resource/Brightness.h"
 

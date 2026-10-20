@@ -1,9 +1,6 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern unsigned char data_02114e54;
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
-
 struct Obj2081;
 int IsPointInsideElement02080d54(struct Obj2081* obj, int key, int px, int py);
 
@@ -15,9 +12,9 @@ ARM int CheckFlagAndPointInElement_02186ff0(char* obj) {
 		result = 1;
 	}
 
-	if (*(&data_02114e54 + 0x55) != 0) {
+	if (g_touchInput.pressed_ != 0) {
 		int a, b;
-		SelectCoordsByFlag0x24_02012a84(&data_02114e54, &a, &b);
+		g_touchInput.GetTouchPoint(&a, &b);
 		short key = *(short*)(obj + 0x170);
 		struct Obj2081* elemObj = *(struct Obj2081**)(obj + 0xc0);
 		if (!IsPointInsideElement02080d54(elemObj, key, (short)a, (short)b)) {

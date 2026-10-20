@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include <System/Timing.h>
-#include <System/Memory.h>
+#include <NitroSDK/Timing.h>
+#include <NitroSDK/Memory.h>
 
 struct ScanEntry02216360 {
     int valid;

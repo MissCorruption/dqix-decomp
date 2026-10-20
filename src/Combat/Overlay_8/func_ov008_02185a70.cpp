@@ -102,13 +102,6 @@ struct BattleRecords {
     }
 };
 
-struct TouchState {
-    char pad_0[0x55];
-    unsigned char touching_;
-};
-
-extern TouchState data_02114e54;
-
 struct GameResources;
 struct Entry_0205d6a0;
 struct Manager02187664;
@@ -151,7 +144,7 @@ extern "C" ARM void func_ov008_02185a70(BattleRecords* self, unsigned int ticks)
             return;
         self->step_++;
     }
-    if (step == 1 && (g_keyManager.TestKeysPressed(0xff3) || data_02114e54.touching_))
+    if (step == 1 && (g_keyManager.TestKeysPressed(0xff3) || g_touchInput.pressed_))
         self->step_++;
     if (step == 2)
     {

@@ -18,9 +18,6 @@ struct Ctx021ab0c0 {
     short s4e;
 };
 
-extern unsigned char data_02114e54;
-
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 int RunAndCheckFlagBit02080dd4(void* obj, int p1, int unused2, int unused3, unsigned char* outFlag, unsigned char extra);
 extern "C" void func_020813ec(void* obj, int key);
 
@@ -30,10 +27,10 @@ ARM int UpdateElementCoordFlag_021ab0c0(struct Ctx021ab0c0* ctx) {
     if (g_keyManager.TestKeysPressed(0x401)) {
         flag = 1;
     }
-    if (*(unsigned char*)(&data_02114e54 + 0x55) != 0 && ctx->p44 != NULL) {
+    if (g_touchInput.pressed_ != 0 && ctx->p44 != NULL) {
         void* obj = ctx->p18;
         int a, b;
-        SelectCoordsByFlag0x24_02012a84(&data_02114e54, &a, &b);
+        g_touchInput.GetTouchPoint(&a, &b);
         ctx->s4e = *ctx->p44;
         int result = RunAndCheckFlagBit02080dd4(obj, ctx->s48, (short)a, (short)b, &flag, 1);
         if (result < 0) {

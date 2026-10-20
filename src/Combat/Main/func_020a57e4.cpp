@@ -2,7 +2,7 @@
 #include "Grotto/Main/TreasureMapDataStructs.h"
 #include "Filesystem/FileIO.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 #ifdef jpn

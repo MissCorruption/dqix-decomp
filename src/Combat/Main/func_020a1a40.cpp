@@ -1,9 +1,9 @@
 #include <globaldefs.h>
-#include "System/Mutex.h"
+#include "NitroSDK/Mutex.h"
 #include "Resource/ResourceMutex.h"
-#include "Filesystem/OverlayFSManagement.h"
-#include "Filesystem/FSInnerDefs.h"
-#include "Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/OverlayFSManagement.h"
+#include "NitroSDK/Filesystem/FSInnerDefs.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
 
 void DispatchByFlag020d9834(int flag);
 void NitroVM_Initialize(NitroVM* vm);

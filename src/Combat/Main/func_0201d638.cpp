@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "Resource/Script.h"
 #include "World/ZoneFeatures.h"
 #include "Combat/Main/ElementLookup.h"

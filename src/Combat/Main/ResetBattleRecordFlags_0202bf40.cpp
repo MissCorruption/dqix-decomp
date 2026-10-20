@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 void PushInterruptDisableState_020d8654(void);
 int GetGlobalField0x10_0202d6a8(void);

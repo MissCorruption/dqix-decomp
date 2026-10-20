@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "Filesystem/FileAccessor.h"
-#include "Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
 
 struct Holder020bd110
 {

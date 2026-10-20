@@ -39,7 +39,6 @@ struct EquipmentMenu {
 };
 
 extern "C" char data_02108760[];
-extern "C" unsigned char data_02114e54[];
 
 extern "C" void func_0205d0e0(void* window);
 extern "C" void func_ov005_021589f4(EquipmentMenu* self);
@@ -69,7 +68,7 @@ extern "C" ARM void func_ov005_02158878(EquipmentMenu* self) {
         return;
     int clear;
     unsigned char touch;
-    touch = data_02114e54[0x55];
+    touch = g_touchInput.pressed_;
     clear = 0;
     int flag = CheckFlag30Or401_02157190(self);
     if (flag | touch) {

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/Overlay_33/Ov33BackgroundLoader.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 extern "C" void func_020a1940(unsigned int id);
 extern char data_0211e33c;

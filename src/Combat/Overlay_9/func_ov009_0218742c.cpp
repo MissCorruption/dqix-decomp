@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/ColorEffects.h"
+#include "NitroSDK/ColorEffects.h"
 #include "Util/Random.h"
 #include "std_library_functions.h"
 #include "Input/Input.h"

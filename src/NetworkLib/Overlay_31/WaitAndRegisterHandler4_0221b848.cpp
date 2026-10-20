@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/IPC.h"
+#include "NitroSDK/IPC.h"
 
 unsigned int SetFieldsA_0221b8b4(int, int, int);
 extern "C" int func_ov031_0221b284(int, int, int, int);

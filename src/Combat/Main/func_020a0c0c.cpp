@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct Struct02012dd0;
 unsigned int GetMaxAlloc02012dd0(struct Struct02012dd0* self);

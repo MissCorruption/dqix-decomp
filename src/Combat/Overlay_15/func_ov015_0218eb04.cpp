@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include <std_library_functions.h>
 #include "World/Object3D.h"
-#include "Graphics/NSBXX/GeometryFifo.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
 
 extern "C" void __clear(void* buffer, unsigned long size);
 

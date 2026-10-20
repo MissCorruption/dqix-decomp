@@ -3,7 +3,7 @@
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac
 #endif
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 struct Link0223db7c {
     Link0223db7c* previous;

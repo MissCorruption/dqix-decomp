@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Timing.h"
-#include "System/ProcessorContext.h"
-#include "System/Mutex.h"
-#include "System/Memory.h"
+#include "NitroSDK/Timing.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Mutex.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 struct Obj022075a4;

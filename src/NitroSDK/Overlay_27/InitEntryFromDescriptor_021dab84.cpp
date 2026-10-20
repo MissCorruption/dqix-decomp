@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
 
 #if defined(jpn)
 #define func_020ca390 func_020cbe5c

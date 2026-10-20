@@ -1,4 +1,4 @@
-#include "System/OverlayResponse.h"
+#include "NitroSDK/OverlayResponse.h"
 
 extern "C" unsigned short func_ov031_0221e5f8(unsigned short);
 extern "C" void func_ov031_0221e51c(void*, const void*, unsigned int);

@@ -3,7 +3,7 @@
 // The SDK provides a number of matrix operations and some basic vector
 // stuff (add, subtract, normalize), but there are some additional ones earlier
 // in the binary
-#include "../System/Matrix.h"
+#include "../NitroSDK/Matrix.h"
 
 void StoreThreeWordsAt0x0020130a8(Vector3i* vector, int x, int y, int z);
 

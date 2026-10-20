@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 struct Vec3copy0202ec84 { unsigned int v[3]; };
 

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Combat/BattleHeapOwner.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 void PopStack1AndTrigger_020a1f4c(int flag);
 void PopStack0AndTrigger_020a1e54(int flag);

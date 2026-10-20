@@ -11,25 +11,12 @@ struct Vector3fix {
     int z;
 };
 
-struct TouchState {
-    char unk_0[0x24];
-    unsigned short unk_24;
-    char unk_26[0x54 - 0x26];
-    unsigned char unk_54;
-    unsigned char touching_;
-    char unk_56[0x5f - 0x56];
-    unsigned char unk_5f;
-};
-
 struct Words021e60c4;
 
 extern "C" Vector3fix func_ov023_021e613c(void* character);
 int fix32ReduceAngle0To2Pi(int angle);
 void InitWordsQuad_021e60e0(void* character, unsigned int angle);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* touch, int* x, int* y);
 void SetFourWordBlocks_021e6088(void* character, Words021e60c4* rotation);
-
-extern TouchState data_02114e54;
 
 struct CharacterCreation {
 #if defined(jpn)
@@ -87,9 +74,9 @@ extern "C" ARM void func_ov009_02188604(CharacterCreation* self, unsigned int ti
         int touched = 0;
         int x;
         int y;
-        SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
-        if (data_02114e54.touching_ != 0 || (data_02114e54.unk_5f != 0 && data_02114e54.unk_24 != 0) ||
-            data_02114e54.unk_54 != 0)
+        g_touchInput.GetTouchPoint(&x, &y);
+        if (g_touchInput.pressed_ != 0 || (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) ||
+            g_touchInput.released_ != 0)
         {
             touched = 1;
             if (y >= 0xa9 && y <= 0xb1)

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Matrix.h>
+#include <NitroSDK/Matrix.h>
 
 #if defined(jpn)
 #define func_020c51a4 func_020c6c70

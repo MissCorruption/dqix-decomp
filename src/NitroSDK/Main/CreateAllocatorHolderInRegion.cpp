@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/HMRFAllocator.h"
+#include "NitroSDK/Memory/HMRFAllocator.h"
 
 struct Obj020bdbf0;
 extern int InitAllocatorHolder020bdbf0(Obj020bdbf0* obj, HMRFAllocator* allocator);

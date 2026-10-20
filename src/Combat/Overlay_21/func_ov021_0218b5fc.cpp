@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 static inline unsigned long ReadDisplay(volatile unsigned int* p) { return *p; }
 static inline void WriteDisplay(volatile unsigned int* p, unsigned int value) { *p = value; }
@@ -13,7 +13,7 @@ enum { kGlobalDisplayOffset = 0x508, kControllerBackupOffset = 0x1e28, kSceneAll
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 #if defined(jpn)
 #define func_020c51dc func_020c6ca8

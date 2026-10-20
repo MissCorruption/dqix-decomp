@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 #include "Input/Input.h"
 
 #if defined(jpn)
@@ -51,7 +51,6 @@ void HandleFieldFlagsAndState021870c0(void* obj);
 extern "C" void func_ov002_021685bc(char* self);
 extern "C" void _Z31UpdateBattleTagCounter_0216885cPc(char* self);
 int GetGlobalField0x1c020421a0(void);
-int CheckByteSetAndByteClear_02012aac(unsigned char* obj);
 void ReinitController02043204(char* obj);
 extern "C" void func_02043124(void* self);
 void PushInputLogB_020a1ef0(int id);
@@ -79,7 +78,6 @@ extern "C" void func_ov002_02160274(char* self);
 
 extern char data_ov002_0216d350;
 extern char data_ov002_0216d368;
-extern unsigned char data_02114e54;
 
 // USA: func_ov002_02168d54; JPN: func_ov002_021695d8
 #if defined(jpn)
@@ -167,7 +165,7 @@ extern "C" ARM void func_ov002_02168d54(char* self) {
             if (*(int*)(controller + REGION_VALUE(0x870, 0x9a0)) != 3) {
                 return;
             }
-            if (!g_keyManager.TestKeysPressed(0x203) && !CheckByteSetAndByteClear_02012aac(&data_02114e54)) {
+            if (!g_keyManager.TestKeysPressed(0x203) && !g_touchInput.IsPressed()) {
                 return;
             }
         }

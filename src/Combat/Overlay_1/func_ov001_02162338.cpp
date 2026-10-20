@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/OverlayId.h"
+#include "NitroSDK/OverlayId.h"
 
 extern "C" void func_ov017_021d6134(void* obj, int enable);
 extern "C" void func_020a1940(unsigned int id);

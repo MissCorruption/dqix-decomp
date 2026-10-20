@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 typedef void* (*AllocFn0221a434)(void*, unsigned int);
 

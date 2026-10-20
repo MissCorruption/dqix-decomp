@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include <System/Memory.h>
-#include <System/Mutex.h>
-#include <System/Cache.h>
+#include <NitroSDK/Memory.h>
+#include <NitroSDK/Mutex.h>
+#include <NitroSDK/Cache.h>
 
 struct Obj020bf658;
 void UpdateAndDispatch020bf658(struct Obj020bf658* obj);

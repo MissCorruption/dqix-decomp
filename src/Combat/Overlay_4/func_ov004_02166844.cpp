@@ -8,8 +8,8 @@ enum { MainIndex = 0, ListIndex = 1, FlagOffset = 0x962, WindowPrefix = 0x1800, 
 
 #include "Memory/SafeAllocator.h"
 #include "Resource/QuestScript.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 #include "std_library_functions.h"
 
 #if defined(jpn)

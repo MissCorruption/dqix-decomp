@@ -2,9 +2,9 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
-#include "System/Interrupts.h"
-#include "System/VRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/VRAM.h"
 
 #if defined(jpn)
 #define func_020c39a0 func_020c546c

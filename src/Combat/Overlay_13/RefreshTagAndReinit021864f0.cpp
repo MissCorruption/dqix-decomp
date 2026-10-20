@@ -9,13 +9,10 @@
 #endif
 
 int GetGlobalField0x1c020421a0();
-int CheckByteSetAndByteClear_02012aac(unsigned char* obj);
 void ReinitController02043204(char* obj);
 
 extern "C" void func_ov013_02186c64(void* obj, int a, int b);
 extern "C" void func_ov013_02185cc0(void* obj);
-
-extern char data_02114e54;
 
 // USA: func_ov013_021864f0  (semantic: RefreshTagAndReinit021864f0)
 extern "C" ARM void func_ov013_021864f0(void* obj) {
@@ -27,7 +24,7 @@ extern "C" ARM void func_ov013_021864f0(void* obj) {
     unsigned char* gp = (unsigned char*)g;
     gp[0x1000 + LOW_REGION(0x7ee, 0x9be)] = 1;
 
-    if (!g_keyManager.TestKeysPressed(0x613) && !CheckByteSetAndByteClear_02012aac((unsigned char*)&data_02114e54)) {
+    if (!g_keyManager.TestKeysPressed(0x613) && !g_touchInput.IsPressed()) {
         return;
     }
 

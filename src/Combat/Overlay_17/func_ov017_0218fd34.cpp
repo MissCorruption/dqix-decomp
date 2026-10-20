@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 #include "Graphics/Model3D.h"
 #include "Graphics/VRAMStaging.h"
-#include "Memory/AllocatorUnion.h"
-#include "System/Cache.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
+#include "NitroSDK/Cache.h"
 
 GameObject* GetField4334_021bdbc0(unsigned char* base);
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);

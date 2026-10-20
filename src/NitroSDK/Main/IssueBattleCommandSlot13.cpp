@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" int func_020d424c(int, int, int, int, int, int);
 extern "C" int func_020d40bc(int, int, int);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 void* TryAcquireLock021142e8_020d4064(void);
 void CleanCacheRange(const void* addr, unsigned int size);

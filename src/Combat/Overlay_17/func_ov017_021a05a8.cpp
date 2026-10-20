@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);

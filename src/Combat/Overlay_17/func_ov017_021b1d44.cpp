@@ -7,7 +7,7 @@ enum { RegionOffset26c = 0x26c };
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct ByteHeader0204693c;
 void ResetByteHeader(struct ByteHeader0204693c* p);

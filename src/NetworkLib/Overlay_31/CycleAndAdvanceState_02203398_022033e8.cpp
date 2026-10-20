@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 void ResetStatusIfEight_0220a9b0(void*);
 struct Struct0_02203398;

@@ -1,6 +1,6 @@
 #include "GameState/GameState.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 #include <globaldefs.h>
 #include "Input/Input.h"
 

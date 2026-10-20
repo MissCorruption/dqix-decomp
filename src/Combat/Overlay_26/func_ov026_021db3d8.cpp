@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 struct Foo0207df50 {
     unsigned int a[10];

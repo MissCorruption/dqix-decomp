@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 extern "C" void VectorizedInvertedMemcpy(void* src, void* dst, int n);
 

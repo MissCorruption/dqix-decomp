@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/DMA.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/DMA.h"
+#include "NitroSDK/Interrupts.h"
 
 #if defined(jpn)
 #define func_020ca0a8 func_020cbb74

@@ -1,6 +1,6 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include <globaldefs.h>
 
 struct State0xbb1c;

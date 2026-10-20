@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 int GetStateAndMaybeNotify_02212598();
 int GetGlobal0224e5a4Field0AndOutField4_022119b0(int*);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct StringPair18b8c { char* name; char* value; };
 struct PairList18b8c { StringPair18b8c* entries; int capacity; int count; };

@@ -6,7 +6,7 @@ enum { RegionOffset4400 = 0x4400, RegionOffsetae = 0xae, RegionOffset6fc = 0x6fc
 
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
 

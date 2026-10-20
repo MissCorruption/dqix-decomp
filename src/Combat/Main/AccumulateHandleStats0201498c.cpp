@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "World/Zone3D.h"
-#include "Graphics/NSBXX/NSBXX.h"
+#include "NitroSDK/NSBXX/NSBXX.h"
 
 // USA: func_0201498c
 ARM int AccumulateHandleStats0201498c(void* zoneRaw) {

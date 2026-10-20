@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct HandshakeState { unsigned char secret[0x30]; unsigned char resumed; char pad31[3]; unsigned char random[0x20]; char pad54[0x20]; unsigned char session[0x20]; char pad94[0x3c1]; unsigned char error; };
 struct HandshakeConnection { char pad0[0xc]; HandshakeState* state; char pad10[8]; unsigned short field18; char pad1a[2]; void* field1c; };

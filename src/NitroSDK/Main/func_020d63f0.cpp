@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 struct Obj020d6610;
 

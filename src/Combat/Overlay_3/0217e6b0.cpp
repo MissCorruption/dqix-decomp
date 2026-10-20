@@ -3,11 +3,11 @@
 #include "GameState/GameState.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"
-#include "System/Cache.h"
-#include "System/Graphics.h"
-#include "System/LoadToVRAM.h"
-#include "System/OverlayId.h"
-#include "System/VRAM.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/LoadToVRAM.h"
+#include "NitroSDK/OverlayId.h"
+#include "NitroSDK/VRAM.h"
 #include "Resource/Brightness.h"
 
 #if defined(jpn)

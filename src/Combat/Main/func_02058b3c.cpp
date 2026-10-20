@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <Memory/SignedAllocator.h>
+#include <NitroSDK/Memory/SignedAllocator.h>
 #include <std_library_functions.h>
 struct S02055080;
 struct Track02058b3c { char pad[0xe0]; SignedAllocatorList entries; };

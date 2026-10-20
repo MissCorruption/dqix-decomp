@@ -1,8 +1,8 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
-#include "System/Memory.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
+#include "NitroSDK/Memory.h"
 #include <globaldefs.h>
 
 struct Global0216bcfc {

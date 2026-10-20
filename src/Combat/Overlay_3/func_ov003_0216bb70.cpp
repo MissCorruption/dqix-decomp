@@ -6,8 +6,8 @@
 #endif
 #include <GameState/GameState.h>
 #include <Memory/SafeAllocator.h>
-#include <System/Graphics.h>
-#include <System/Memory.h>
+#include <NitroSDK/Graphics.h>
+#include <NitroSDK/Memory.h>
 #include <std_library_functions.h>
 
 struct GlobalField0x1c {

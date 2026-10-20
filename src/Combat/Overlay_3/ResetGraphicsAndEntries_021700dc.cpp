@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #include "Memory/SafeAllocator.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 #include "std_library_functions.h"
 
 void EmptyDestructor0205a494(void* obj);

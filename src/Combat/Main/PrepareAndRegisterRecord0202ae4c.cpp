@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #define data_020ef7a0 data_020ef690
 #endif
 

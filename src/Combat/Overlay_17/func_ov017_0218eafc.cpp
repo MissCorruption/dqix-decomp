@@ -2,9 +2,9 @@
 #include "GameState/Field3b0.h"
 #include "GameState/GameState.h"
 #include "Combat/CombatantRecovery.h"
-#include "Graphics/NSBXX/GeometryFifo.h"
-#include "Graphics/NSBXX/RenderConfig.h"
-#include "System/Graphics.h"
+#include "NitroSDK/NSBXX/GeometryFifo.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
+#include "NitroSDK/Graphics.h"
 #include "Resource/Brightness.h"
 
 struct Obj02061bd8;

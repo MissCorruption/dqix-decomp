@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
+#include "NitroSDK/Interrupts.h"
 
 struct Node02206ce8 { char pad70[0x70]; short flags; char pad7c[0xa]; Node02206ce8* next; };
 

@@ -1,4 +1,5 @@
 #include <globaldefs.h>
+#include "Input/Input.h"
 
 struct Struct_0205d81c;
 struct Struct_0205c4a8;
@@ -11,11 +12,6 @@ struct Element_021e6448 {
     short height;
     short x;
     short y;
-};
-
-struct TouchState_021e6448 {
-    char pad0[0x55];
-    unsigned char touching_;
 };
 
 struct ListState_021e6448 {
@@ -54,22 +50,19 @@ struct ListMenu_021e6448 {
 };
 
 int SelectField0x8Or0x58ByFlags_0205c6e4(unsigned char* obj);
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 Element_021e6448* FindElementByC40205d81c(Struct_0205d81c* s, int key);
 void AdvanceWrappedAccumulator0205c4a8(Struct_0205c4a8* s, int delta);
 int ComputeScaledSum0205bb84(Struct_0205bb84* s);
 void SetIndexIfValid0205bcdc(Struct_0205bcdc* s, int index);
 extern "C" void func_0205bb04(void* s, int index);
 
-extern "C" TouchState_021e6448 data_02114e54;
-
 // USA: func_ov023_021e6448
 extern "C" ARM int func_ov023_021e6448(ListMenu_021e6448* self) {
     if (SelectField0x8Or0x58ByFlags_0205c6e4((unsigned char*)&self->list_) <= 1)
         return 0;
-    if (data_02114e54.touching_ != 0) {
+    if (g_touchInput.pressed_ != 0) {
         int x, y;
-        SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
+        g_touchInput.GetTouchPoint(&x, &y);
         Element_021e6448* e = FindElementByC40205d81c((Struct_0205d81c*)&self->list_, self->selectedKey_);
         if (e != NULL) {
             short right = e->x;

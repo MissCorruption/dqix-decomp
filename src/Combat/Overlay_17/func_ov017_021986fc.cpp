@@ -31,14 +31,6 @@ struct Obj0208e7d0 {
     struct Node021986fc* head;
 };
 
-struct Cursor021986fc {
-    unsigned char padding0[0x38];
-    int x, y;
-    unsigned int field40, mode;
-    unsigned char padding48[12];
-    unsigned char active;
-};
-
 struct Event021986fc {
     unsigned char kind;
     unsigned char padding1[19];
@@ -66,8 +58,6 @@ extern "C" void func_0206df6c(void*, unsigned char*, int, int);
 void RemoveNodeByKey0208f3b4(Cont0208f3b4*, int);
 int GetRandomTableEntry0208e7d0(Obj0208e7d0*);
 void AppendNodeToTail(TailList020469b4*, TailNode020469b4*);
-
-extern Cursor021986fc data_02114e54;
 
 // USA: func_ov017_021986fc
 extern "C" ARM void func_ov017_021986fc(GameResources* self) {
@@ -113,7 +103,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* self) {
     if (g_keyManager.TestKeysPressed(1)) proceed = 1;
     int cursorX = -1;
     int cursorY = -1;
-    if (data_02114e54.active && data_02114e54.mode < 10) { cursorX = data_02114e54.x; cursorY = data_02114e54.y; }
+    if (g_touchInput.released_ && (unsigned int)g_touchInput.prevTimeHeld_ < 10) { cursorX = g_touchInput.prevX_; cursorY = g_touchInput.prevY_; }
     int screenX, screenY;
     ComputeTwoFromVec3_0202ec84(camera, (Vec3copy0202ec84*)&actor->obj3D_.position_, &screenX, &screenY);
     if (cursorX > 0x70 && cursorX < 0x90 && cursorY > 0x28 && cursorY < 0x60) proceed = 1;

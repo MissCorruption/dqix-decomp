@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 int IsGlobal0224e598Set_02211848(void);
 void SetGlobal0224e588Deref_022103dc(void* value);

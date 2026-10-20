@@ -2,8 +2,6 @@
 #include "Input/Input.h"
 
 int GetGlobalField0x1c020421a0();
-int CheckByteSetAndByteClear_02012aac(unsigned char* obj);
-extern unsigned char data_02114e54;
 
 #if defined(jpn)
 #define RG(usa, jpn) (jpn)
@@ -26,7 +24,7 @@ ARM void UpdateBattleTagCounter_0216885c(char* base) {
             return;
         }
         if (!g_keyManager.TestKeysPressed(0x603)) {
-            if (!CheckByteSetAndByteClear_02012aac(&data_02114e54)) {
+            if (!g_touchInput.IsPressed()) {
                 return;
             }
         }

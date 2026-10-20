@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 // USA: func_ov031_0220afe0
 ARM void InitMd5Ctx_0220afe0(void* ctx) {

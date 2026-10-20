@@ -1,6 +1,6 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 

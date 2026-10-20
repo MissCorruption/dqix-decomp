@@ -2,7 +2,7 @@
 
 #include "Combat/ActionState.h"
 #include "Combat/MapDisplay.h"
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct State_1f9b8 {
     int field0;

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct ByteHeader0204693c;
 extern void ResetByteHeader(ByteHeader0204693c* p);

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Graphics/Model3D.h"
-#include "Graphics/NSBXX/NSBXX.h"
+#include "NitroSDK/NSBXX/NSBXX.h"
 #include "Graphics/VRAMStaging.h"
-#include "System/Cache.h"
+#include "NitroSDK/Cache.h"
 
 struct Param021e7ec0 {
     char pad0[8];

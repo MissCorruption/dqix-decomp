@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Memory/SafeAllocator.h"
-#include "System/Graphics.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/LoadToVRAM.h"
 
 struct Array02048090 {
     int count;

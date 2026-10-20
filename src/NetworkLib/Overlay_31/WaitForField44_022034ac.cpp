@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/ProcessorContext.h"
-#include "System/Interrupts.h"
+#include "NitroSDK/ProcessorContext.h"
+#include "NitroSDK/Interrupts.h"
 
 // USA: func_ov031_022034ac
 ARM int WaitForField44_022034ac(unsigned int* out, void* obj) {

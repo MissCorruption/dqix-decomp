@@ -6,9 +6,9 @@
 #include "Combat/MapDisplay.h"
 #if defined(jpn)
 #include "Resource/MessageSystem.h"
-#include "System/Memory.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
+#include "NitroSDK/Memory.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
 int GetGlobalField0x1c020421a0(void);
 extern "C" void func_02023218(MapDisplay* self, void* buffer, int offset, unsigned int capacity);
 extern char data_020ef4b1[], data_020ef4c9[], data_020ef4d0[];

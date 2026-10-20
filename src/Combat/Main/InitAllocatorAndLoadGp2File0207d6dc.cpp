@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 #include "Filesystem/FileIO.h"
 
 void* AllocateAligned4_02012d88(AllocatorUnion* alloc, unsigned int size);

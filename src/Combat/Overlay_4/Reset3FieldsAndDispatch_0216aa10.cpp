@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 #if defined(jpn)
 enum { kControllerField = 0x868 };

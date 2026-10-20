@@ -1,7 +1,7 @@
 #include <globaldefs.h>
-#include "Filesystem/NitroVM.h"
-#include "Filesystem/FileAccessor.h"
-#include "Filesystem/LowNitroHandle.h"
+#include "NitroSDK/Filesystem/NitroVM.h"
+#include "NitroSDK/Filesystem/FileAccessor.h"
+#include "NitroSDK/Filesystem/LowNitroHandle.h"
 
 #if defined(jpn)
 #define func_020c9be0 func_020cb6ac

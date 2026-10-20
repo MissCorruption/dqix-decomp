@@ -7,7 +7,7 @@ enum { RegionOffset36fc = 0x36fc, RegionOffset38 = 0x38, RegionOffset3c = 0x3c }
 #include <globaldefs.h>
 #include "Combat/ActorAction.h"
 #include "GameState/GameState.h"
-#include "Graphics/NSBXX/RenderConfig.h"
+#include "NitroSDK/NSBXX/RenderConfig.h"
 #include "Resource/GameResources.h"
 
 extern "C" void* func_02012fe4(void);

@@ -4,7 +4,7 @@
 #define func_ov017_021a7dd8 func_ov017_021a8754
 #endif
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 struct Obj021a7d78;

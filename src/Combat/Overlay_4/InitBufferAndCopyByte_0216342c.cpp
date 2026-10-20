@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "Resource/GameResources.h"
 #include "Grotto/Main/DetailedTreasureMapData.h"
 

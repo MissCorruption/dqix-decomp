@@ -9,17 +9,6 @@
 struct GameState;
 struct Obj0205eaa0;
 
-struct TouchState
-{
-    char unk_0[0x24];
-    unsigned short touching_;
-    char unk_26[0x54 - 0x26];
-    unsigned char released_;
-    unsigned char pressed_;
-    char unk_56[0x5f - 0x56];
-    unsigned char unk_5f;
-};
-
 struct GameResources0215c058
 {
 #if defined(jpn)
@@ -85,7 +74,6 @@ struct Menu0215c058
 Member0215c058* GetField1c_021a193c(int*);
 void DispatchByIdxAndCond021551fc(char*, int, int);
 extern "C" GameState* _ZN9GameState11GetInstanceEv();
-void SelectCoordsByFlag0x24_02012a84(unsigned char* obj, int* out1, int* out2);
 extern "C" void func_ov005_02156658(Menu0215c058* self, int x, int y);
 extern "C" int func_ov005_02155670(Menu0215c058* self, int x, int y);
 extern "C" void func_0205bb04(void* obj, int v);
@@ -110,7 +98,6 @@ short* GetPointerFromArray0xbd0_0207c5f8(unsigned char*, unsigned int);
 signed char* GetPointerAt0xbf0_0207c60c(void*, unsigned int);
 extern "C" void func_ov005_0215792c(Menu0215c058* self, int mode);
 
-extern "C" TouchState data_02114e54;
 extern char data_02108760[];
 extern unsigned char data_ov005_0215cd10[];
 
@@ -134,12 +121,12 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
         GameState* gs = _ZN9GameState11GetInstanceEv();
         int touched = 0;
         int moved = 0;
-        if (data_02114e54.pressed_)
+        if (g_touchInput.pressed_)
         {
             int x;
             int y;
             touched = 1;
-            SelectCoordsByFlag0x24_02012a84((unsigned char*)&data_02114e54, &x, &y);
+            g_touchInput.GetTouchPoint(&x, &y);
             self->dirty.f2 = 0;
             self->dirty.f3 = 1;
             func_ov005_02156658(self, x, y);
@@ -152,11 +139,11 @@ extern "C" ARM void func_ov005_0215c058(Menu0215c058* self)
                 func_ov005_021579ec(self, self->cursorMode, self->selected);
             }
         }
-        else if (data_02114e54.unk_5f != 0 && data_02114e54.touching_ != 0)
+        else if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0)
         {
             touched = 1;
         }
-        else if (data_02114e54.released_ != 0)
+        else if (g_touchInput.released_ != 0)
         {
             touched = 1;
         }

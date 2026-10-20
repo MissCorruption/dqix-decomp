@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include "System/Interrupts.h"
-#include "System/Memory.h"
+#include "NitroSDK/Interrupts.h"
+#include "NitroSDK/Memory.h"
 
 int IssueBattleCommandSlot29_020d6ad4(int arg, int a, int b, int c, unsigned short d);
 extern "C" void func_ov031_0220da1c(int);

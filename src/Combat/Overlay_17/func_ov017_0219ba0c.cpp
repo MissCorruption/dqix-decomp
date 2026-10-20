@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
-#include "Filesystem/NarcHandle.h"
+#include "NitroSDK/Filesystem/NarcHandle.h"
 #include "Graphics/Model3D.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/GameResources.h"

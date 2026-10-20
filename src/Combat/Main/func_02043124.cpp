@@ -7,7 +7,7 @@
 
 #include <std_library_functions.h>
 #include <Graphics/VRAMStaging.h>
-#include <System/BGBases.h>
+#include <NitroSDK/BGBases.h>
 struct FlagOwner;
 void ClearFlag0x1SetFlag0x2_020e1cb8(FlagOwner*);
 #if defined(jpn)

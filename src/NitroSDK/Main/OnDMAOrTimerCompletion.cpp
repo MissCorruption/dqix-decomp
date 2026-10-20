@@ -1,6 +1,6 @@
 #include <globaldefs.h>
-#include <System/DMA.h>
-#include <System/DTCM.h>
+#include <NitroSDK/DMA.h>
+#include <NitroSDK/DTCM.h>
 
 #if defined(jpn)
 #define data_020f2274 data_020f23e0

@@ -3,8 +3,8 @@
 #include "GameState/Field3b0.h"
 #include "Memory/SafeAllocator.h"
 #include "Resource/Brightness.h"
-#include "System/BGBases.h"
-#include "System/Matrix.h"
+#include "NitroSDK/BGBases.h"
+#include "NitroSDK/Matrix.h"
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 

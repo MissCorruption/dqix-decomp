@@ -5,7 +5,7 @@
 #endif
 #include "GameState/GameState.h"
 #include "Resource/GameResources.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 
 int GetField4340_021bdbe4(unsigned char* base);
 int GetField433c_021bdbd8(unsigned char* base);

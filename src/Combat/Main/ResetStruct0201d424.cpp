@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 #include "World/ZoneFeatures.h"
 
 // USA: func_0201d424

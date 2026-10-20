@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Memory.h>
+#include <NitroSDK/Memory.h>
 
 struct WirelessKeySettings {
     unsigned char field_0[0x480];

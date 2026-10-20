@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include <System/Mutex.h>
+#include <NitroSDK/Mutex.h>
 
 struct SendBuffer02206150 {
     unsigned char padding_0[0xe0];

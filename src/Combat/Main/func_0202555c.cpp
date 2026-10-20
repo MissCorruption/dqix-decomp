@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Combat/ActionDisplay.h"
 #include "GameState/GameState.h"
-#include "System/ColorEffects.h"
-#include "System/Memory.h"
+#include "NitroSDK/ColorEffects.h"
+#include "NitroSDK/Memory.h"
 #include "std_library_functions.h"
 
 struct Bcb8Params;

@@ -3,10 +3,10 @@
 #include "std_library_functions.h"
 #endif
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Cache.h"
-#include "System/LoadToVRAM.h"
-#include "System/BGBases.h"
-#include "System/Memory.h"
+#include "NitroSDK/Cache.h"
+#include "NitroSDK/LoadToVRAM.h"
+#include "NitroSDK/BGBases.h"
+#include "NitroSDK/Memory.h"
 #include "Resource/GameResources.h"
 
 struct TableA68 {

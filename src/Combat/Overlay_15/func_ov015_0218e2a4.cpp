@@ -22,7 +22,7 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 #include "Filesystem/FileIO.h"
-#include "Graphics/NSBXX/Animation.h"
+#include "NitroSDK/NSBXX/Animation.h"
 
 extern "C" void __clear(void*, unsigned long);
 struct Foo0207df50;

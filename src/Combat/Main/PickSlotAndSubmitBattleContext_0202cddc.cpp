@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 void SetField0x48UnlessState9Or10_0202c848(int arg);
 int GetSharedHalfwordOrBattleDefault_020d4aa8(void);

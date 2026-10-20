@@ -5,7 +5,7 @@ enum { kSelectionIndex = 0x753e - 0x6fc0 };
 enum { kSelectionIndex = 0x74fe - 0x6fc0 };
 #endif
 #include "GameState/GameState.h"
-#include "System/ProcessorContext.h"
+#include "NitroSDK/ProcessorContext.h"
 
 struct BattleSelection0202b000 { unsigned char values[6]; };
 struct BattleObject0202b000 {

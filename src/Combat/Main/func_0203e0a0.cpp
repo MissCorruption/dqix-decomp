@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 #include "Combat/EntryGetterTypes.h"
-#include "System/Matrix.h"
+#include "NitroSDK/Matrix.h"
 
 extern "C" void *__clear(void *dst, int count);
 

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 typedef void* (*FetchFn0221883c)(void*, int);
 typedef void (*NotifyFn0221883c)(void*, void*, int);

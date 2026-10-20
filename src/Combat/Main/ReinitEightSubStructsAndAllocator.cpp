@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "World/ZoneLootableRecord.h"
 #include "Memory/SafeAllocator.h"
-#include "Memory/AllocatorUnion.h"
+#include "NitroSDK/Memory/AllocatorUnion.h"
 
 struct Foo02048004;
 extern void MaybeInvoke0204719c_02047230(struct Foo02048004* obj);

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "Memory/HMRFAllocator.h"
+#include "NitroSDK/Memory/HMRFAllocator.h"
 
 extern "C" int func_ov017_021d60f4(void*);
 extern void* data_ov001_021658b8[];

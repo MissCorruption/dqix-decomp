@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-#include "System/Memory.h"
+#include "NitroSDK/Memory.h"
 
 struct Field0x4Holder_021dd5d4 {
 	unsigned char pad0[4];

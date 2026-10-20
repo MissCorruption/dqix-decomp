@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 #include "Resource/Brightness.h"
-#include "System/Graphics.h"
+#include "NitroSDK/Graphics.h"
 #include "Resource/MessageSystem.h"
 
 #if defined(jpn)

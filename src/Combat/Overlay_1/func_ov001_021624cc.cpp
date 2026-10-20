@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 #include "Filesystem/BackgroundLoader.h"
-#include "System/Graphics.h"
-#include "System/VRAM.h"
+#include "NitroSDK/Graphics.h"
+#include "NitroSDK/VRAM.h"
 
 extern "C" int func_ov017_021d612c(void* obj);
 extern char data_ov001_02165745[];
