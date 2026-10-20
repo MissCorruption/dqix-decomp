@@ -3125,3 +3125,7 @@ src/Combat/Overlay_23/SetFlagAndData_021dbfa8.cpp:
 src/Combat/Overlay_23/CopyByteFieldToNextAndSet_021e33a0_021e33a0.cpp:
     complete
     .text start:0x021e36f8 end:0x021e370c
+
+src/Combat/Overlay_23/ClearEntriesAndSetGlobalFlags_021fa7d4.cpp:
+    complete
+    .text start:0x021f9bf4 end:0x021f9c74
