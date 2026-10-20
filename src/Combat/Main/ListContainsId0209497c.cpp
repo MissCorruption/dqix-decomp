@@ -3,26 +3,26 @@
 #if defined(jpn)
 struct Entry0209497c {
     char pad0[0xc];
-    short id;                       // 0xc
+    short id;
     char pad0e[0x10 - 0xe];
 };
 
 struct List0209497c {
-    struct Entry0209497c entries[18];   // 0..0x11f
-    char pad[0x13b - 0x120];            // 0x120..0x13a
-    signed char count;                  // 0x13b
+    struct Entry0209497c entries[18];
+    char pad[0x13b - 0x120];
+    signed char count;
 };
 #else
 struct Entry0209497c {
     char pad0[0x30];
-    short id;                       // 0x30
+    short id;
     char pad32[0x34 - 0x32];
 };
 
 struct List0209497c {
-    struct Entry0209497c entries[18];   // 0..0x3a7
-    char pad[0x3cb - 0x3a8];            // 0x3a8..0x3ca
-    signed char count;                  // 0x3cb
+    struct Entry0209497c entries[18];
+    char pad[0x3cb - 0x3a8];
+    signed char count;
 };
 #endif
 

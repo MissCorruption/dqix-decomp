@@ -17,13 +17,10 @@
 
 extern "C"
 {
-    // memset but tries to do 32 bytes at a time
     void func_020ca458(int value, void* dst, unsigned len);
 
-    // abort() or fatal error or similar
     void func_020c9be0();
 }
-// is card read manager initialized
 extern int data_02111860;
 
 void MarkCardReadManagerInitialized(int to);
@@ -42,8 +39,6 @@ void LockCardReadManager(unsigned short ownerID, int taskType)
 {
     CardReadManager* manager = &data_021118e0;
     volatile CardReadManager* volMan = manager;
-    // here we access owner & multiplicity via volatile, but 
-    // owner & taskType works too.
     int priorState = DisableIRQInterrupts();
     if (volMan->lock.owner == ownerID)
     {
@@ -57,7 +52,7 @@ void LockCardReadManager(unsigned short ownerID, int taskType)
         volMan->lock.owner = ownerID;
         manager->lock.taskType = taskType;
     }
-    
+
     volMan->lock.multiplicity++;
     manager->pSharedData->unknown_0 = 0;
     SetIRQInterruptState(priorState);
@@ -86,7 +81,7 @@ void UnlockCardReadManager(unsigned short ownerID, int taskType)
             UnblockContexts(&manager->lock.waitingContexts);
         }
     }
-    
+
     manager->pSharedData->unknown_0 = 0;
     SetIRQInterruptState(priorState);
 }
@@ -96,20 +91,19 @@ void InitializeCardReadManager()
     CardReadManager* manager = &data_021118e0;
     volatile CardReadManager* volatileManager = manager;
 
-    // two of these need to be volatile and definitely owner
     volatileManager->lock.owner = -3;
     volatileManager->lock.multiplicity = 0;
     manager->lock.taskType = 0;
     manager->pSharedData = &data_02111880;
-    
+
     func_020ca458(0, &data_02111880, sizeof(Arm7CardReadData));
     CleanInvalidateCacheRange(&data_02111880, sizeof(Arm7CardReadData));
     manager->instructionCacheCleanThreshold = 0xffffffff;
     manager->dataCacheCleanThreshold = 0xffffffff;
-    
+
     if (!IsDownloadPlay())
         VectorizedInvertedMemcpy((void*)BIOS_ADDR_CARTRIDGE_HEADER, (void*)0x027ffa80, 0x160);
-    
+
     manager->contextPriority_108 = 4;
     manager->lock.waitingContexts.last = 0;
     manager->lock.waitingContexts.first = 0;
@@ -125,7 +119,7 @@ void InitializeCardReadManager()
         DECLARE_ASM_NOP();
         return;
     }
-    MarkCardReadManagerInitialized(true);    
+    MarkCardReadManagerInitialized(true);
 }
 
 int IsCardReadManagerInitialized()

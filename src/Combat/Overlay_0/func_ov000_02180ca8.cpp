@@ -258,7 +258,7 @@ extern "C" ARM void func_ov000_02180ca8(State02180ca8* self, Action02180ca8* act
         }
         entry->category = 0;
         void* selectedEntry = GetEntryByIndexStride0x10((EntryList0204af14*)self->entryList, 3);
-        CallFunc0204b620IfField0x14_0204b878(list, (int)selectedEntry, 0, 0, 
+        CallFunc0204b620IfField0x14_0204b878(list, (int)selectedEntry, 0, 0,
 #if defined(jpn)
             tileX + 16,
 #else

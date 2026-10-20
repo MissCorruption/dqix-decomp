@@ -8,7 +8,6 @@ void PrepareEncodeStreamBuffer0204394c(struct Struct0204394c* obj);
 
 #if defined(jpn)
 // JPN: the stream block sits 0x1d0 lower, the second flag is bit 0 of the byte at +0x17ff,
-// the 0x40/0x44 words are at 0xc/0x10, and the trailing 0x30/0x31 stores are absent.
 struct StreamFlags02044f3c {
     unsigned char b0 : 1;
 };

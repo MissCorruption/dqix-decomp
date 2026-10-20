@@ -2,7 +2,6 @@
 
 #if defined(jpn)
 // JPN: entries are matched by a two-character key plus a kind byte (no id word), the
-// container keeps an entry count at 0x884, and the scan stops after that many active entries.
 struct Entry02045c00 {
     char unk0[0x18];
     char key0;

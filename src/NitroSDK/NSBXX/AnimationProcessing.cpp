@@ -21,7 +21,6 @@ bool ProcessMaterialAnimationsOnBoundMaterial(MaterialRenderData* material, Anim
             {
                 if (anim->callback_ != NULL)
                 {
-                    // points to {MAM, MAT, MPT}AnimationProcessingCallback
                     anim->callback_(material, anim, anim->entries_[matIdx] & 0xff);
                     success = true;
                 }
@@ -53,7 +52,6 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
     if (anim == NULL)
         return false;
 
-    // handle case of only one animation separately
     if (anim->pNext_ == NULL)
     {
         if (boneIdx < anim->numEntries_)
@@ -71,13 +69,12 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
         else return false;
     }
 
-    
     fix32_t totalWeight = 0;
     AnimationData* loopAnim;
     int numContributingAnims = 0;
     int numAnimsProcessed = 0;
     loopAnim = anim;
-    AnimationData* finalAnim = anim; // after the following loop, will hold the last anim to contribute
+    AnimationData* finalAnim = anim;
     do {
         if (boneIdx < loopAnim->numEntries_ && (loopAnim->entries_[boneIdx] & 0x300) == 0x100)
         {
@@ -105,7 +102,6 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
         return true;
     }
 
-    // Multiple animations to deal with
     func_020ca458(0, bone, sizeof(BoneMatrixRenderData));
     bone->flags_ = 0xffffffff;
 
@@ -130,17 +126,15 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
             AccumulateScaleVector(&bone->scale_v1_, &tempData.scale_v1_, thisIntensity, tempData.flags_ & 8);
             AccumulateScaleVector(&bone->scale_v2_, &tempData.scale_v2_, thisIntensity, tempData.flags_ & 0x10);
 
-            if (!(tempData.flags_ & 4)) // translation
+            if (!(tempData.flags_ & 4))
             {
                 bone->translate_.x += (fix32_t)(((int64_t)thisIntensity * tempData.translate_.x) >> 12);
                 bone->translate_.y += (fix32_t)(((int64_t)thisIntensity * tempData.translate_.y) >> 12);
                 bone->translate_.z += (fix32_t)(((int64_t)thisIntensity * tempData.translate_.z) >> 12);
             }
 
-            if (!(tempData.flags_ & 2)) // rotation
+            if (!(tempData.flags_ & 2))
             {
-                // Only accumulate the top two rows, we'll compute the third row (and
-                // apply small corrections) later to ensure we get an orthogonal matrix
                 bone->rotationMatrix_.entries[0] += ((thisIntensity * tempData.rotationMatrix_.entries[0]) >> 12);
                 bone->rotationMatrix_.entries[1] += ((thisIntensity * tempData.rotationMatrix_.entries[1]) >> 12);
                 bone->rotationMatrix_.entries[2] += ((thisIntensity * tempData.rotationMatrix_.entries[2]) >> 12);
@@ -150,13 +144,9 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
             }
             else
             {
-                // add scaled multiple of identity matrix
                 bone->rotationMatrix_.entries[0] += thisIntensity;
                 bone->rotationMatrix_.entries[4] += thisIntensity;
             }
-            // recall that set bits mean 'does not have feature': in order to not have
-            // a feature, we need to not have had it previously and not have picked it 
-            // up in this iteration, so bitwise AND does the trick
             bone->flags_ &= tempData.flags_;
         }
         anim = anim->pNext_;
@@ -182,9 +172,6 @@ bool ProcessJointAnimationsOnBoneMatrix(BoneMatrixRenderData* bone, AnimationDat
         Vector3fix_Normalize(&bone->rotationMatrix_.rows[2], &bone->rotationMatrix_.rows[2]);
     }
 
-    // set row2 = (row3) x (row1). Previously we set row3 = (row1) x (row2), so
-    // that row3 and row1 are orthogonal to each other, then normalized both.
-    // This way we guarantee the resulting matrix is orthogonal
     Vector3fix_CrossProduct(&bone->rotationMatrix_.rows[2], &bone->rotationMatrix_.rows[0], &bone->rotationMatrix_.rows[1]);
 
     return true;

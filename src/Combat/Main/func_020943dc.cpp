@@ -4,8 +4,6 @@
 
 #if defined(jpn)
 // JPN: a smaller state block (12-byte name, 0x30-byte text), the names table at 0x37c, the
-// message file loaded directly (data/bin/menu/str_navi.nat, no .gp2 archive), and a 4-argument
-// formatter call.
 struct NameBuf02046574 { char text[0x40]; };
 struct Obj02046574 {
     char pad0[0x37c];

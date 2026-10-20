@@ -5,7 +5,6 @@
 #define IS_JPN 0
 #endif
 
-
 void InitStruct0203be8c(char* obj);
 
 // USA: func_0203c304

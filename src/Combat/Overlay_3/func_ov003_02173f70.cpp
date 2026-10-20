@@ -8,7 +8,6 @@ void Init0205a198(Struct0205a198*);
 extern unsigned int data_ov003_02180cc8[2];
 
 #if defined(jpn)
-// JPN builds this function in one unit with the "no equipment" label pointer below, so its .data starts 0x10 before sizes.
 extern char data_ov003_0217ece4[];
 char *data_ov003_0217ece0 = data_ov003_0217ece4;
 char data_ov003_0217ece4[] = "\x82\xbb\x82\xa4\x82\xd1\x82\xc8\x82\xb5";

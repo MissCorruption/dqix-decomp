@@ -30,7 +30,6 @@ struct Obj0RowEvent021f9724 {
     unsigned char field28;
 };
 
-// JPN keeps its own name: callers in ov011 use func_ov023_021f9724.
 extern "C" ARM int func_ov023_021f9724(struct Obj0RowEvent021f9724* obj, int p1, int p2, int p3, int p4, int p5) {
     func_ov023_021f6ed8(obj);
     obj->kind = 4;
