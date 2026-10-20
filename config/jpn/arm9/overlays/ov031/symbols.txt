@@ -186,7 +186,7 @@ _Z28SwapField2AndForward02207204PvP14Packet02207204 kind:function(arm,size=0x2c)
 _Z20SendSwapped_02207230PvP14Packet02207230 kind:function(arm,size=0x5c) addr:0x02207a10
 _Z29CallWithZeroZeroZero_0220728ciii kind:function(arm,size=0x20) addr:0x02207a6c
 _Z26CallWithZeroZeroD_022072aciiii kind:function(arm,size=0x24) addr:0x02207a8c
-func_ov031_02207ab0 kind:function(arm,size=0x90) addr:0x02207ab0
+func_ov031_022072d0 kind:function(arm,size=0x90) addr:0x02207ab0
 _Z29CallWithZeroZeroZero_02207360iii kind:function(arm,size=0x20) addr:0x02207b40
 _Z26CallWithZeroZeroD_02207380iiii kind:function(arm,size=0x24) addr:0x02207b60
 func_ov031_022073a4 kind:function(arm,size=0x84) addr:0x02207b84
@@ -2781,7 +2781,7 @@ data_ov031_0224f620 kind:bss addr:0x02250220
 data_ov031_0224f648 kind:bss addr:0x02250248
 data_ov031_0224f650 kind:bss addr:0x02250250
 data_ov031_0224f670 kind:bss addr:0x02250270
-data_ov031_022502c0 kind:bss addr:0x022502c0
+data_ov031_0224f6c0 kind:bss addr:0x022502c0
 data_ov031_0224f6f0 kind:bss addr:0x022502f0
 data_ov031_0224f6f4 kind:bss addr:0x022502f4
 data_ov031_0224f704 kind:bss addr:0x02250304
@@ -2791,7 +2791,7 @@ data_ov031_0224f7f0 kind:bss addr:0x022503f0
 data_ov031_0224f804 kind:bss addr:0x02250404
 data_ov031_0224f884 kind:bss addr:0x02250484
 data_ov031_0224f8c4 kind:bss addr:0x022504c4
-data_ov031_022505b0 kind:bss addr:0x022505b0
+data_ov031_0224f9b0 kind:bss addr:0x022505b0
 data_ov031_0224f9c4 kind:bss addr:0x022505c4
 data_ov031_0224f9f0 kind:bss addr:0x022505f0
 data_ov031_0224fa28 kind:bss addr:0x02250628
@@ -2799,14 +2799,14 @@ data_ov031_0224fac0 kind:bss addr:0x022506c0
 data_ov031_0224fb18 kind:bss addr:0x02250718
 data_ov031_02250720 kind:bss addr:0x02250720
 data_ov031_0224fb28 kind:bss addr:0x02250728
-data_ov031_02250730 kind:bss addr:0x02250730
-data_ov031_02250740 kind:bss addr:0x02250740
-data_ov031_02250748 kind:bss addr:0x02250748
+data_ov031_0224fb30 kind:bss addr:0x02250730
+data_ov031_0224fb40 kind:bss addr:0x02250740
+data_ov031_0224fb48 kind:bss addr:0x02250748
 data_ov031_0224fb60 kind:bss addr:0x02250760
 data_ov031_02250780 kind:bss addr:0x02250780
 data_ov031_0224fba4 kind:bss addr:0x022507a4
 data_ov031_022507ac kind:bss addr:0x022507ac
-data_ov031_02250fa4 kind:bss addr:0x02250fa4
+data_ov031_022503a4 kind:bss addr:0x02250fa4
 data_ov031_02250ba4 kind:bss addr:0x022517a4
 data_ov031_02250ba8 kind:bss addr:0x022517a8
 data_ov031_02250bac kind:bss addr:0x022517ac

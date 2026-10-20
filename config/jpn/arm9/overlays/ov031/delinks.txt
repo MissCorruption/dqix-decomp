@@ -7409,3 +7409,7 @@ src/WifiLib/Overlay_31/func_ov031_022227ec.cpp:
 src/WifiLib/Overlay_31/CopyBytes_02222818.cpp:
     complete
     .text start:0x02222ff8 end:0x02223010
+
+src/WifiLib/Overlay_31/func_ov031_02220af0.cpp:
+    complete
+    .text start:0x022212d0 end:0x022216b4
