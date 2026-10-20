@@ -4969,7 +4969,7 @@ _Z21PopFrontMutexFromListP9MutexList kind:function(arm,size=0x30) addr:0x020c8d8
 _Z27InsertContextIntoGlobalListP16ProcessorContext kind:function(arm,size=0x60) addr:0x020c8db8
 _Z27RemoveContextFromGlobalListP16ProcessorContext kind:function(arm,size=0x48) addr:0x020c8e18
 _Z13SwitchContextv kind:function(arm,size=0xc8) addr:0x020c8e60
-func_020c8f28 kind:function(arm,size=0x148) addr:0x020c8f28
+func_020c745c kind:function(arm,size=0x148) addr:0x020c8f28
 _Z30GetGlobalWord021112ec_020c75a4v kind:function(arm,size=0x10) addr:0x020c9070
 _Z15PopulateContextP16ProcessorContextjjjjj kind:function(arm,size=0xfc) addr:0x020c9080
 _Z26ContextExecutionReturnProcv kind:function(arm,size=0x20) addr:0x020c917c
@@ -7717,9 +7717,9 @@ data_02110f80 kind:bss addr:0x02110f80
 data_02110f8c kind:bss addr:0x02110f8c
 data_02111304 kind:bss addr:0x02110fa4
 data_02110fa4 kind:bss addr:0x02110fa4
-data_02110fa8 kind:bss addr:0x02110fa8
+data_02111308 kind:bss addr:0x02110fa8
 data_02111314 kind:bss addr:0x02110fb4
-data_02111074 kind:bss addr:0x02111074
+data_021113d4 kind:bss addr:0x02111074
 data_0211155c kind:bss addr:0x021111fc
 data_02111564 kind:bss addr:0x02111204
 data_02111588 kind:bss addr:0x02111228
