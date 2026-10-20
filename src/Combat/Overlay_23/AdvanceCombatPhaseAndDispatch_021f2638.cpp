@@ -14,7 +14,11 @@ void* FindEntryByKey_02072a68(struct TableA68* table, int key);
 struct StoreStruct;
 void StoreInArray0x8b0_020465c0(struct StoreStruct* base, int index, int value);
 int IsValueInRange0201b5d8(int x);
+#if defined(jpn)
+extern "C" void func_0204500c(void* obj, char* buffer, int a);
+#else
 extern "C" void func_0204500c(void* obj, char* buffer, int a, int b);
+#endif
 extern "C" int func_ov023_021f4fc8(void);
 struct Reset_021eefac;
 void ResetFields_021eefac(struct Reset_021eefac* s);
@@ -23,6 +27,52 @@ extern "C" int* _ZZ17GetGlobal021ffefcvE1s;
 
 // USA: func_ov023_021f2638  (semantic: AdvanceCombatPhaseAndDispatch_021f2638)
 extern "C" ARM int func_ov023_021f2638(unsigned char* obj) {
+#if defined(jpn)
+    GameState* battleStruct = GameState::GetInstance();
+    int* g = _ZZ17GetGlobal021ffefcvE1s;
+    int state = GetGlobalField0x1c020421a0();
+    unsigned char* stateObj = (unsigned char*)state;
+    func_0202ae18();
+    void* search = func_02012fe4();
+    int counter = *g;
+
+    if (counter == 0) {
+        if (*(int*)(obj + 0x5958) != 0) {
+            char msgBuf[0x100];
+            int fieldCheck = func_ov023_021f4438(obj);
+            char* e1 = (char*)FindEntryByKey_02072a68((struct TableA68*)(obj + 0x5af4), 0x10);
+            sprintf(msgBuf, e1, *(int*)(obj + 0x5958));
+            int inRange = 0;
+            if (*(unsigned char*)(obj + 0x5af0) == 0 && *(int*)(obj + 0x7014) != 0) {
+                if (IsValueInRange0201b5d8(*(unsigned short*)search) != 0) inRange = 1;
+            }
+            if (fieldCheck != 0 && inRange == 0) {
+                char* e2 = (char*)FindEntryByKey_02072a68((struct TableA68*)(obj + 0x5af4), 0x22);
+                strcat(msgBuf, e2);
+            }
+            func_0204500c(stateObj, msgBuf, 1);
+            stateObj[0x17e2] = 0;
+            *(int*)(stateObj + 0x868) = 1;
+        } else {
+            *g = 2;
+            return *(int*)(obj + 0xe28);
+        }
+        *g = *g + 1;
+    } else if (counter == 1) {
+        if (func_ov023_021f4fc8() != 0 || *(int*)(stateObj + 0x868) == 0) {
+            *g = *g + 1;
+        }
+    } else if (counter == 2) {
+        ResetFields_021eefac((struct Reset_021eefac*)g);
+        if (*(unsigned char*)(obj + 0x5af0) != 0 || *(int*)(obj + 0x7014) != 0) {
+            int fieldCheck2 = func_ov023_021f4438(obj);
+            if (fieldCheck2 != 0) return 0xd;
+            *(int*)(obj + 0x7014) = 0;
+        }
+        return 0xe;
+    }
+    return *(int*)(obj + 0xe28);
+#else
     GameState* battleStruct = GameState::GetInstance();
     int* g = _ZZ17GetGlobal021ffefcvE1s;
     int state = GetGlobalField0x1c020421a0();
@@ -85,4 +135,5 @@ extern "C" ARM int func_ov023_021f2638(unsigned char* obj) {
         return 0xe;
     }
     return *(int*)(obj + 0xeac);
+#endif
 }
