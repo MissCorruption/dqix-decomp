@@ -7,6 +7,21 @@
 
 #if defined(jpn)
 #define func_020c39a0 func_020c546c
+#define data_ov020_0218dbdc data_ov020_0218e41c
+#define data_ov020_0218dbef data_ov020_0218e42f
+#define data_ov020_0218dbf5 data_ov020_0218e435
+#define data_ov020_0218dbfc data_ov020_0218e43d
+#define data_ov020_0218dc08 data_ov020_0218e449
+#define data_ov020_0218dc1b data_ov020_0218e45c
+#define data_ov020_0218dc2b data_ov020_0218e46c
+#define data_ov020_0218dc3f data_ov020_0218e480
+#define data_ov020_0218dc55 data_ov020_0218e496
+#define data_ov020_0218dc65 data_ov020_0218e4a6
+#define data_ov020_0218dc72 data_ov020_0218e4b3
+#define data_ov020_0218dc82 data_ov020_0218e4fa
+#define data_ov020_0218dc91 data_ov020_0218e54f
+#define data_ov020_0218da90 data_ov020_0218e2e0
+#define data_ov020_0218d9b0 data_ov020_0218e200
 #endif
 
 struct FieldGroup4e8_0218d7ac;
@@ -102,13 +117,20 @@ extern "C" void func_0204c684(void* obj);
 extern "C" void func_0204b5b4(void* obj, int a);
 extern "C" void func_0204b174(void* list, void* rec, SafeAllocator* alloc, int size);
 extern "C" void func_0204bc74(void* obj, unsigned short tile, int x, int y, int w, int h, unsigned short palette);
+#if defined(jpn)
+extern "C" void func_0205d304(void* obj, char* text, int, int, int, int, int);
+#else
 extern "C" void func_0205d304(void* obj, char* text, int, int, int, int, int, int);
+#endif
 extern "C" void func_0205d0e0(void* obj, int a);
 extern "C" void func_0207de48(void* obj, int a, int b);
 extern "C" void func_02042c68(char* g);
 extern "C" void func_02043124(char* g);
 extern "C" void func_020432c4(char* g);
 extern "C" void func_0205cc50(void* obj, int a, int b);
+#if defined(jpn)
+extern "C" void func_0205dfa8(void* obj);
+#endif
 extern "C" void func_0205bb04(void* obj, int a);
 extern "C" void func_02043368(char* g);
 extern "C" void func_020439b0(char* g, int a);
@@ -158,9 +180,13 @@ struct Sequence0218b710 {
     short posY;
     short width;
     short height;
+#if defined(jpn)
+    char padC8[0x1d4 - 0xc8];
+#else
     char padC8[0x244 - 0xc8];
-    char pairTables[0x2b4 - 0x244];
-    char textCont[0x34c - 0x2b4];
+#endif
+    char pairTables[0x70];
+    char textCont[0x98];
     void* list34c;
     char pad350[0x354 - 0x350];
     short textW;
@@ -192,6 +218,15 @@ struct Sequence0218b710 {
     char pad4e8[0x4fc - 0x4e8];
     int fadeTimer;
 };
+
+#if defined(jpn)
+struct Entries8_0218b710 {
+    char d[0x100];
+};
+struct Entries7_0218b710 {
+    char d[0xe0];
+};
+#endif
 
 static inline int IsTimerActive(Sequence0218b710* self) { return self->timer > 0; }
 
@@ -312,8 +347,13 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         self->b369 = 0;
         self->b36a = 1;
 
+#if defined(jpn)
+        char* text = *(char**)(GetGlobalField0x1c020421a0() + 0x28);
+        memset(text, 0, 0x800);
+#else
         char* text = *(char**)(GetGlobalField0x1c020421a0() + 0x5c);
         memset(text, 0, 0x960);
+#endif
         char buf[0x80] = {0};
         AppendXYTag_02041a90(text, 4, 0x68);
         sprintf(buf, data_ov020_0218dbef, data_ov020_0218dbf5, data_ov020_0218dbfc);
@@ -336,14 +376,27 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         AppendXYTag_02041a90(text, 4, 0xb0);
         sprintf(buf, data_ov020_0218dc65, 3, 0, 0x7531);
         AppendString02042058(text, buf);
+#if defined(jpn)
+        AppendXYTag_02041a90(text, 0x4e, 0x28);
+        AppendString02042058(text, data_ov020_0218dc72);
+        AppendXYTag_02041a90(text, 0x4b, 0x36);
+        AppendString02042058(text, data_ov020_0218dc82);
+        AppendXYTag_02041a90(text, 0x4b, 0x50);
+        AppendString02042058(text, data_ov020_0218dc91);
+#else
         AppendXYTag_02041a90(text, 0, 0x28);
         AppendDotLeaderLabel02042084(text, data_ov020_0218dc72, 0x100, 0);
         AppendXYTag_02041a90(text, 0, 0x36);
         AppendDotLeaderLabel02042084(text, data_ov020_0218dc82, 0x100, 0);
         AppendXYTag_02041a90(text, 0, 0x50);
         AppendDotLeaderLabel02042084(text, data_ov020_0218dc91, 0x100, 0);
+#endif
 
+#if defined(jpn)
+        func_0205d304(self->textCont, text, 0, 0, 0, 1, 0);
+#else
         func_0205d304(self->textCont, text, 0, 0, 0, 1, 0, 0);
+#endif
         func_0205d0e0(self->textCont, 1);
         func_0205d0e0(self->textCont, 1);
         CallFunc0204c8f0OverList0x9c((Cont0205d228*)self->textCont);
@@ -402,7 +455,11 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
     func_02042c68(g);
     func_02043124(g);
     TailForward020440a4(g);
+#if defined(jpn)
+    *(char**)(g + 0x1c4c) = self->pairTables;
+#else
     *(char**)(g + 0x1e28) = self->pairTables;
+#endif
     CopyInternalFields0207df50((Foo0207df50*)self->pairTables);
     RestorePairTables0207df90(self->pairTables);
     func_020432c4(g);
@@ -412,6 +469,58 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
 
     if (GetByte0x4_0200fb9c((char*)gs) == 6) {
         if (GetWord0x7f6c_0201201c(gs) == 0) {
+#if defined(jpn)
+            func_ov020_0218cf8c(self);
+            RestoreDisplayMode_020c38d4();
+            *(volatile unsigned int*)0x4001000 |= 0x10000;
+            self->timer = 2000;
+            for (;;) {
+                if (!IsTimerActive(self)) break;
+                func_ov020_0218d854(self);
+                DelayThenSyncBit0_020c9820();
+                WriteControlAndToggle020d86d0(0, 1);
+            }
+            START_FADE(self, 0, 1500);
+            self->timer = 7000;
+            for (;;) {
+                if (!func_ov020_0218d898(self)) {
+                    if (!IsTimerActive(self)) break;
+                    func_ov020_0218d854(self);
+                    InitCombatSubsystems02012efc();
+                    if (self->timer <= 2500) {
+                        if (g_keyManager.TestKeysPressed(0xc0b) || g_touchInput.pressed_ != 0) break;
+                    }
+                }
+                func_ov020_0218d644(self);
+                DelayThenSyncBit0_020c9820();
+                WriteControlAndToggle020d86d0(0, 1);
+            }
+            START_FADE(self, -16, 1000);
+            WAIT_FADE(self)
+            self->timer = 1000;
+            WAIT_TIMER(self)
+
+            func_ov020_0218d32c(self, 0);
+            RestoreDisplayMode_020c38d4();
+            *(volatile unsigned int*)0x4001000 |= 0x10000;
+            UpdateFieldGroup4f4_0218d800((FieldGroup4f4_0218d800*)(self), 0, 1500);
+            self->timer = 6000;
+            for (;;) {
+                if (!IsFadeActive(self)) {
+                    if (!IsTimerActive(self)) break;
+                    func_ov020_0218d854(self);
+                    InitCombatSubsystems02012efc();
+                    if (g_keyManager.TestKeysPressed(0xc0b) || g_touchInput.pressed_ != 0) break;
+                }
+                func_ov020_0218d644(self);
+                DelayThenSyncBit0_020c9820();
+                WriteControlAndToggle020d86d0(0, 1);
+            }
+            UpdateFieldGroup4f4_0218d800((FieldGroup4f4_0218d800*)(self), -16, 1000);
+            WAIT_FADE(self)
+            self->timer = 1000;
+            WAIT_TIMER(self)
+#else
             Set3DClearColor_020c5588(0x7fff, 0x1f, 0x7fff, 0, 0);
             func_ov020_0218cd98(self);
             RestoreDisplayMode_020c38d4();
@@ -480,6 +589,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
             self->timer = 1000;
             WAIT_TIMER(self)
             Set3DClearColor_020c5588(0, 0x1f, 0x7fff, 0, 0);
+#endif
         }
         SetWord0x7f6c_02012010(gs, 5);
         SetByte0x4_0200fb94((char*)gs, 0);
@@ -493,6 +603,28 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         InitBigStruct0205c790(self->big);
         self->flagBd = 1;
         self->flagBc = 1;
+#if defined(jpn)
+        if (CheckSaveBufferStatus_020ab9c0(1) == 4) {
+            Entries8_0218b710 entries = *(Entries8_0218b710*)data_ov020_0218da90;
+            for (int i = 0; i < 8; i++) {
+                ProcessCombatEntry0205cb74(self->big, (int)(entries.d + i * 0x20));
+                Forward0204359c(g, 0x80);
+                func_020439b0(g, 0);
+            }
+            func_ov020_0218c7f0(self->big, 1, 8);
+        } else {
+            Entries7_0218b710 entries = *(Entries7_0218b710*)data_ov020_0218d9b0;
+            for (int i = 0; i < 7; i++) {
+                ProcessCombatEntry0205cb74(self->big, (int)(entries.d + i * 0x20));
+                Forward0204359c(g, 0x80);
+                func_020439b0(g, 0);
+            }
+            func_ov020_0218c7f0(self->big, 1, 7);
+        }
+        self->posX = 0x3e;
+        self->posY = 0x28;
+        func_0205dfa8(self->big);
+#else
         if (CheckSaveBufferStatus_020ab9c0(1) == 4) {
             for (int i = 0; i < 8; i++) {
                 ProcessCombatEntry0205cb74(self->big, (int)(data_ov020_0218da90 + i * 0x20));
@@ -514,6 +646,7 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         self->posX = x;
         self->posY = y;
         func_0205cc50(self->big, 0, -4);
+#endif
         SetIndexIfValid0205bcdc((Struct_0205bcdc*)self->sub2c, 0);
         func_0205bb04(self->sub7c, 0);
         MapVRAMBanksToMainObj(2);
@@ -522,7 +655,11 @@ extern "C" ARM void func_ov020_0218b710(Sequence0218b710* self) {
         char* global = GetGlobalField0x1c020421a0();
         for (;;) {
             func_02043368(global);
+#if defined(jpn)
+            if (((unsigned char*)global)[0x237] == 2) break;
+#else
             if (((unsigned char*)global)[0x2e7] == 2) break;
+#endif
             loader->RemoveAllLocks();
         }
 
