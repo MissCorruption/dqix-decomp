@@ -15,6 +15,26 @@ extern unsigned char data_0211e33c[0x30000] __attribute__((aligned(4)));
 
 #if defined(jpn)
 #define func_020daf90 func_020dc998
+#define func_0203e8f8 func_0203edf4
+#define data_020efdc4 data_020efcdc
+#define data_020efdda data_020efcf2
+#define data_020efde9 data_020efd01
+#define data_020efdf0 data_020efd08
+#define data_020efe08 data_020efd20
+#define data_020efe0e data_020efd26
+#define data_020efe20 data_020efd38
+#define data_020efe27 data_020efd3f
+#define data_020efe30 data_020efd48
+#define data_020efe38 data_020efd50
+#define IsListEmpty_020652b4 func_020665a0
+#define GetFieldAt0x0020652c8 func_020665b4
+#define SetByte0x2e8AndDispatch02041628 func_02041b24
+#define SetWord0x2f4AndDispatch02041640 func_02041b3c
+struct Struct_020652b4;
+extern "C" int func_020665a0(struct Struct_020652b4* p);
+extern "C" int func_020665b4(int* obj);
+extern "C" void func_02041b24(void* obj, int v, int z);
+extern "C" void func_02041b3c(void* obj, int v, int z);
 #endif
 struct BattleSub7e78 {
     char pad0[6];
@@ -24,7 +44,11 @@ struct BattleStruct {
     int unk0;
     int unk4;
     struct CombatantStruct* combatantList[0xe9];
+#if defined(jpn)
+    char pad3ac[0x7c38 - 0x3ac];
+#else
     char pad3ac[0x7e78 - 0x3ac];
+#endif
     struct BattleSub7e78 sub7e78;
     struct BattleSub7e78* GetSub7e78() { return &sub7e78; }
 };
@@ -248,6 +272,9 @@ struct RegNode0203d028 {
     unsigned short id;
     unsigned char type;
     unsigned char field3;
+#if defined(jpn)
+    char pad4[0xc];
+#endif
     char name[12];
     struct RegNode0203d028* next;
 };
@@ -318,6 +345,12 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
     GameResources* mgr = GetGameResources();
     struct RegNode0203d028* entry = (struct RegNode0203d028*)GetFieldAt0x0020652c8(&self->listHead);
     struct Global02012fe4* globalStruct = func_02012fe4();
+#if defined(jpn)
+    char* sub860 = (char*)globalStruct + 0x860;
+#define GLOBAL_SUB sub860
+#else
+#define GLOBAL_SUB ((char*)globalStruct + 0x840)
+#endif
     unsigned int* dataFlags = GetDataPtr02114e04_020d6c00();
     unsigned int idVal = *(unsigned short*)globalStruct;
     void* childModelPtr = 0;
@@ -325,8 +358,8 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
     int assignedFlag = 0;
     InitPool020401fc(&self->pool, 0xc, sb);
 
-    if (IsIdInRange020981e4((int)((char*)globalStruct + 0x840), idVal) &&
-        IsIdInSet02098210((int)((char*)globalStruct + 0x840), idVal) == 0) {
+    if (IsIdInRange020981e4((int)GLOBAL_SUB, idVal) &&
+        IsIdInSet02098210((int)GLOBAL_SUB, idVal) == 0) {
         self->pool.field5 = 1;
     } else {
         self->pool.field5 = 0;
@@ -378,9 +411,13 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
             BackupPairTables0207dfac(fp);
         }
         else if (entry->type == 4) {
+#if defined(jpn)
+            unsigned char* table = ((struct Sub1840_02012fe4*)(sub860 + 0x1000))->tableB5c;
+#else
             unsigned char* table = globalStruct->GetSub1840()->tableB5c;
+#endif
             int slot = 5;
-            struct Entry0209854c* found = FindEntryByFieldC0209854c((struct Entry0209854c*)((char*)globalStruct + 0x840), entry->id);
+            struct Entry0209854c* found = FindEntryByFieldC0209854c((struct Entry0209854c*)GLOBAL_SUB, entry->id);
             if (found != 0) {
                 {
                     if (GetField0x50_020db2d4(func_020daf90()) == 0) {
@@ -406,8 +443,13 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
                     extra[3] = 1;
 
                     char* base = (char*)mgr + 0x3000;
+#if defined(jpn)
+                    void* ctxA = *(void**)(base + 0x4f0);
+                    void* ctxB = *(void**)(base + 0x4f4);
+#else
                     void* ctxA = *(void**)(base + 0x700);
                     void* ctxB = *(void**)(base + 0x704);
+#endif
                     BackgroundLoader* instance = BackgroundLoader::GetInstance();
 
                     while (GetHeadNodeIdOrMinusOne((struct HeadNode02046b24**)ctxA) == 0x13) {
@@ -456,17 +498,23 @@ extern "C" ARM void func_0203d028(struct SelfObj0203d028* self, void* unused1, S
             BackgroundLoader::FreeAllocationsGlobal();
 
             GPCReadPair pair;
-            ZeroInitGPCPointer(&pair.pGPCFile);
-            pair.ZeroInitializeMachine();
+#if defined(jpn)
+            GPCReadPair* pairp = &pair;
+#define PAIR (*pairp)
+#else
+#define PAIR pair
+#endif
+            ZeroInitGPCPointer(&PAIR.pGPCFile);
+            PAIR.ZeroInitializeMachine();
 
             char innerName[16];
             sprintf(innerName, &data_020efde9, entry->name);
 
-            if (!LoadAndDecompressGPCHeaderAndInnerFileInfo(&pair.pGPCFile, pair.machine,
+            if (!LoadAndDecompressGPCHeaderAndInnerFileInfo(&PAIR.pGPCFile, pair.machine,
                     &data_020efdf0, data_0211e33c, length2, 0x30000, false, NULL))
             {
-                pair.Reset();
-                ZeroDestroyGPCPointer(&pair.pGPCFile);
+                PAIR.Reset();
+                ZeroDestroyGPCPointer(&PAIR.pGPCFile);
                 goto abort_unlock;
             }
 

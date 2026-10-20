@@ -61,9 +61,17 @@ struct FieldSubState {
 
 struct FieldState {
     unsigned short mapId;
+#if defined(jpn)
+    unsigned char unk2[0x860 - 2];
+#else
     unsigned char unk2[0x840 - 2];
+#endif
     FieldSubState sub;
+#if defined(jpn)
+    unsigned char unk23a4[0x2774 - 0x23a4 + 0x20];
+#else
     unsigned char unk23a4[0x2774 - 0x23a4];
+#endif
     Vector3i savedPos;
     int savedValue;
     short savedAngle;
@@ -116,7 +124,11 @@ struct TreasureMapList {
 struct GameStateSaveView {
     unsigned char unk0[0x3e4];
     float savedDayTimer;
+#if defined(jpn)
+    unsigned char unk3e8[0x569c - 0x3e8 - 0x260];
+#else
     unsigned char unk3e8[0x569c - 0x3e8];
+#endif
     unsigned char block569c[0x7c];
     unsigned char unk5718[0x5cc8 - 0x5718];
     unsigned char saving;
@@ -131,7 +143,11 @@ struct GameStateSaveView {
     unsigned char block6180[0x200];
     unsigned char unk6380[0x63dc - 0x6380];
     unsigned char byte63dc;
+#if defined(jpn)
+    unsigned char unk63dd[0x64f4 - 0x63dd + 0x20];
+#else
     unsigned char unk63dd[0x64f4 - 0x63dd];
+#endif
     TreasureMapList treasureMaps;
     unsigned char unk6fca[2];
     unsigned char grottoLarge[0x200];
@@ -368,7 +384,11 @@ extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int fl
     BattleData* battle;
     bool useArea;
     unsigned short savedArea;
+#if defined(jpn)
+    char* base;
+#else
     int inspect;
+#endif
     int k;
     int total;
     int j;
@@ -429,11 +449,17 @@ extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int fl
     func_02075acc(0x10, &header, sizeof(header), 0);
     SendBattleSaveBufferOrSetFlag020ac7b4(0);
 
+#if defined(jpn)
+    base = (char*)body - 0x84;
+#else
     char* base = (char*)body - 0x84;
+#endif
+#if !defined(jpn)
     inspect = 0;
     if (mode == 0 && (flags & 0x10)) {
         inspect = 1;
     }
+#endif
 
     {
         BattleSave* save;
@@ -516,8 +542,13 @@ extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int fl
             GameStateSaveView::Bytes6* namePtr = &name;
             *namePtr = view2->name74fe;
             save->name = *namePtr;
+#if defined(jpn)
+            FieldSubState* sub = &field2->sub;
+#endif
             if (func_0202c540(session2)) {
+#if !defined(jpn)
                 FieldSubState* sub = &field2->sub;
+#endif
                 save->posA = sub->posA;
                 save->posB = sub->posB;
                 save->dir = field2->dir;
@@ -530,7 +561,9 @@ extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int fl
                 save->countB = field2->countB;
                 save->countC = field2->countC;
             } else {
+#if !defined(jpn)
                 FieldSubState* sub = &field2->sub;
+#endif
                 save->posA = sub->savedPosA;
                 save->posB = sub->savedPosB;
                 sub->posA = save->posA;
@@ -555,7 +588,9 @@ extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int fl
                 field2->countC = save->countC;
             }
             memcpy(save->block4a8, global2->block4a8, sizeof(global2->block4a8));
+#if !defined(jpn)
             save->inspect = inspect;
+#endif
             func_02075acc((char*)&body->battle - base, save, sizeof(BattleSave), 0);
             TailForward02012da4(&data_02114e20, save);
         }
@@ -635,8 +670,14 @@ extern "C" ARM int func_020a9eb8(SaveTask* task, SaveBody* body, unsigned int fl
         int offset;
         int n;
         offset = (char*)&body->treasureMaps - base;
+#if defined(jpn)
+        FieldState* field5;
+        GameState* gs5 = GameState::GetInstance();
+        field5 = func_02012fe4();
+#else
         GameState* gs5 = GameState::GetInstance();
         FieldState* field5 = func_02012fe4();
+#endif
         TreasureMapList maps;
         if (mode) {
             offset += 0x8000;

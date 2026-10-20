@@ -229,7 +229,11 @@ extern "C" ARM struct Entry_021da9e0* func_ov024_021da9e0(struct Act_021da9e0* o
             if (fc && (fc->f1c.b1 || fc->f1c.b2 || fc->f1c.b3 || fc->f1c.b4 || fc->f1c.b5 || fc->f1c.b6))
                 sel = 0;
             else
+#if defined(jpn)
+                sel = 0x1b;
+#else
                 sel = SelectByIndexRange0to3_021da644(id, 0x26d, 0x1b);
+#endif
         }
         if (sel) AddEntryAndIncrementCount0215a88c(obj->world, entry, sel);
         if (obj->list && func_ov000_02159f18(obj->world, effects.value, 2)) {

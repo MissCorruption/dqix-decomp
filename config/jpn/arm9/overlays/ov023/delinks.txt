@@ -3101,3 +3101,11 @@ src/Combat/Overlay_23/InitBuffersAndConfigureEntry_021e761c.cpp:
 src/Combat/Overlay_23/UpdateEntryFromDoublePtr_021e6b04.cpp:
     complete
     .text start:0x021e7074 end:0x021e7148
+
+src/Combat/Overlay_23/021f454c.cpp:
+    complete
+    .text start:0x021f3bd8 end:0x021f4288
+
+src/Combat/Overlay_23/021f0a5c.cpp:
+    complete
+    .text start:0x021f0634 end:0x021f0db4

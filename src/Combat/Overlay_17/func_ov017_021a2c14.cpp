@@ -18,7 +18,6 @@ struct PositionHolder021a2c14 { int field0; Vector3i position; };
 struct Entry021a2c14 { unsigned int flags; unsigned char padding4[0x10]; PositionHolder021a2c14* holder; Object3D* actor; };
 #if defined(jpn)
 enum { ZoneStateOffset = 0x58c };
-#define func_0203d028 func_0203d560
 #define data_ov017_021d76a6 data_ov017_021d7ae6
 #define data_ov017_021d76bb data_ov017_021d7afb
 #define data_ov017_021d76bf data_ov017_021d7aff

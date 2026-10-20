@@ -6,6 +6,13 @@
 
 #if defined(jpn)
 #define func_0205ec34 func_0205ff20
+#define data_020e88a8 data_020e89bc
+#define SetVec3At0x002073d50 func_02074edc
+struct Vec3Target02073d50;
+extern "C" void func_02074edc(struct Vec3Target02073d50* obj, int x, int y, int z);
+enum { regionalOffsetList = 0x14, regionalOffsetMask = 0x5c };
+#else
+enum { regionalOffsetList = 0x18, regionalOffsetMask = 0x60 };
 #endif
 
 extern "C" void* func_0205ec34(void);
@@ -81,7 +88,7 @@ struct ZoneNode020733d8 {
 };
 
 static inline int NodeCount020733d8(unsigned char* self) {
-    return ((struct List_020283c0*)(self + 0x18))->count;
+    return ((struct List_020283c0*)(self + regionalOffsetList))->count;
 }
 
 #define SELF_MODE(self) (((struct ModeField020733d8*)((self) + 2))->mode)
@@ -133,7 +140,9 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
     struct Pos020733d8 slotPosTmp;
 
     for (retry = 0; retry < 4; retry++) {
+#if !defined(jpn)
         matchEntry = 0;
+#endif
 
         do {
             struct Pos020733d8 baseTmp;
@@ -312,15 +321,15 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
             }
 
             zone = (struct ZoneNode020733d8*)GetListEntryChecked(
-                (struct List_02028430*)(self + 0x18), *(unsigned short*)((char*)slotObj + 0xb8));
+                (struct List_02028430*)(self + regionalOffsetList), *(unsigned short*)((char*)slotObj + 0xb8));
             if (zone == 0) {
                 func_02034104(&zoneTmp, slotObj);
-                closestIdx = func_02028460((struct SearchCtx_02028460*)(self + 0x18), &zoneTmp);
+                closestIdx = func_02028460((struct SearchCtx_02028460*)(self + regionalOffsetList), &zoneTmp);
                 if (closestIdx < 0) {
                     status = -1;
                     break;
                 }
-                zone = (struct ZoneNode020733d8*)GetListEntryChecked((struct List_02028430*)(self + 0x18), closestIdx);
+                zone = (struct ZoneNode020733d8*)GetListEntryChecked((struct List_02028430*)(self + regionalOffsetList), closestIdx);
                 if (zone == 0) {
                     status = -1;
                     break;
@@ -391,7 +400,7 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
                 pick = stored[rand() % matchCount]->id;
             }
 
-            entry = (struct ZoneNode020733d8*)FindListEntryById((struct List_020283c0*)(self + 0x18), pick);
+            entry = (struct ZoneNode020733d8*)FindListEntryById((struct List_020283c0*)(self + regionalOffsetList), pick);
             if (entry == 0) {
                 status = -1;
                 break;
@@ -469,14 +478,14 @@ extern "C" ARM void func_020733d8(unsigned char* self, int unused) {
             continue;
         }
 
-        dest = (struct ZoneNode020733d8*)FindListEntryById((struct List_020283c0*)(self + 0x18), status);
+        dest = (struct ZoneNode020733d8*)FindListEntryById((struct List_020283c0*)(self + regionalOffsetList), status);
         if (dest == 0) {
             continue;
         }
         if (dest != 0 && (dest->flags & 2)) {
             continue;
         }
-        matchEntry = FindMatchingEntryByMask02073ec4(dest->mask, self + 0x60);
+        matchEntry = FindMatchingEntryByMask02073ec4(dest->mask, self + regionalOffsetMask);
         if (matchEntry == 0) {
             continue;
         }

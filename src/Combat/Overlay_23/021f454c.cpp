@@ -28,10 +28,17 @@ struct Element_021f454c {
 
 struct Element_021f454c* SearchWithLow15Comparator02070fd0(struct Container02070e60* container, int key);
 
+#if defined(jpn)
+#define data_ov023_021fd888 data_ov023_021fcb3c
+#endif
 extern int data_ov023_021fd888[];
 
 struct Combatant_021f454c {
+#if defined(jpn)
+    char pad0[0x144];
+#else
     char pad0[0x150];
+#endif
     unsigned char* status;
 };
 
@@ -70,16 +77,28 @@ struct Drop_021f454c {
 };
 
 struct Scene_021f454c {
+#if defined(jpn)
+    char pad0[0x218];
+#else
     char pad0[0x29c];
+#endif
     struct World_021f454c* world;
     struct Info_021f454c* info;
+#if defined(jpn)
+    char pad2a4[0x5abc - 0x220];
+#else
     char pad2a4[0x58cc - 0x2a4];
+#endif
     unsigned short scaled;
     char pad58ce[2];
     struct Drop_021f454c drops[8];
     unsigned char dropCount;
     signed char memberMask;
+#if defined(jpn)
+    char pad5902[0x7014 - 0x5af2];
+#else
     char pad5902[0x6e24 - 0x5902];
+#endif
     int map;
     unsigned short mapItem;
     unsigned char mapType;
@@ -88,6 +107,12 @@ struct Scene_021f454c {
 };
 
 #define IsSpecial(info) ((info)->f24 != 0 || (info)->special != 0)
+
+#if defined(jpn)
+enum { regionalOffset0 = 0x240c };
+#else
+enum { regionalOffset0 = 0x23ec };
+#endif
 
 // USA: func_ov023_021f454c
 extern "C" ARM void func_ov023_021f454c(struct Scene_021f454c* self) {
@@ -113,7 +138,7 @@ extern "C" ARM void func_ov023_021f454c(struct Scene_021f454c* self) {
     gs = GameState::GetInstance();
     table = (struct Container02070e60*)((char*)self->info + 0x684);
     func_0202ae18();
-    detail = ((ActiveGrottoClass*)((char*)func_02012fe4() + 0x23ec))->GetDetailedData();
+    detail = ((ActiveGrottoClass*)((char*)func_02012fe4() + regionalOffset0))->GetDetailedData();
     altId = 0;
     if (IsSpecial(self->info)) {
         if (detail->mapType_ == 1) {

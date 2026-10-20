@@ -4,6 +4,23 @@
 #include "GameState/GameState.h"
 #include "Filesystem/BackgroundLoader.h"
 
+#if defined(jpn)
+#define REGIONAL_OFFSET(jp, us) jp
+#define REGION_LOAD(gp2, inner, jp) QueueLoadFile(jp, (SafeAllocator*)0)
+#define data_ov006_021602bb data_ov006_02161600
+extern char data_ov006_021615ce[];
+extern char data_ov006_021615e8[];
+extern char data_ov006_02161617[];
+extern char data_ov006_0216162c[];
+extern char data_ov006_02161641[];
+extern char data_ov006_02161657[];
+struct Obj0207f914;
+extern "C" void func_02080654(Obj0207f914*, int, int);
+#else
+#define REGIONAL_OFFSET(jp, us) us
+#define REGION_LOAD(gp2, inner, jp) QueueLoadFileInGP2(gp2, inner, (SafeAllocator*)0)
+#endif
+
 extern int data_02109bf4;
 extern char data_ov006_0216026c[];
 extern char data_ov006_02160286[];
@@ -102,7 +119,9 @@ struct Nib {
 };
 
 struct Scene {
+#if !defined(jpn)
     unsigned char pad00[0x08];
+#endif
     void* f08;
     void* alloc;
     unsigned char pad10[0x04];
@@ -129,11 +148,11 @@ struct Scene {
     unsigned char padfa[0xfc - 0xfa];
     unsigned char ffc;
     unsigned char padfd[0x100 - 0xfd];
-    unsigned char f100[0x14c - 0x100];
+    unsigned char f100[REGIONAL_OFFSET(0x48, 0x14c - 0x100)];
     int f14c;
     unsigned char pad150[0x158 - 0x150];
     unsigned char f158[0x170 - 0x158];
-    unsigned char f170[0x300 - 0x170];
+    unsigned char f170[REGIONAL_OFFSET(0x300 - 0x164, 0x300 - 0x170)];
     unsigned char f300[0x54];
     int f354;
     unsigned char pad358[0x35c - 0x358];
@@ -168,7 +187,9 @@ struct Frame {
     void* c5d;
     unsigned int c3s;
     void* c3d;
+#if !defined(jpn)
     unsigned char buf[0x400];
+#endif
 };
 
 // USA: func_ov006_0215a5fc
@@ -195,7 +216,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         }
     }
     else if (st == 2) {
-        obj->f354 = ((BackgroundLoader*)loader)->QueueLoadFileInGP2(data_ov006_0216026c, data_ov006_02160286, (SafeAllocator*)0);
+        obj->f354 = ((BackgroundLoader*)loader)->REGION_LOAD(data_ov006_0216026c, data_ov006_02160286, data_ov006_021615ce);
         obj->f390 = obj->f390 + 1;
     }
     else if (st == 3) {
@@ -204,8 +225,8 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             if (f.c3d != 0) {
                 void* alloc = obj->alloc;
                 ((SafeAllocator*)((char*)alloc + 0x14))->Reset();
-                ResetStruct020dfc40((Struct020dfc40*)((char*)obj + 0x158));
-                func_020dfec0((char*)obj + 0x158, (char*)alloc + 0x14, f.c3d, f.c3s);
+                ResetStruct020dfc40((Struct020dfc40*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)));
+                func_020dfec0((char*)obj + REGIONAL_OFFSET(0x14c, 0x158), (char*)alloc + 0x14, f.c3d, f.c3s);
             }
             ((BackgroundLoader*)loader)->RemoveTask(obj->f354);
             obj->f354 = -1;
@@ -213,7 +234,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         }
     }
     else if (st == 4) {
-        obj->f354 = ((BackgroundLoader*)loader)->QueueLoadFileInGP2(data_ov006_02160297, data_ov006_021602ab, (SafeAllocator*)0);
+        obj->f354 = ((BackgroundLoader*)loader)->REGION_LOAD(data_ov006_02160297, data_ov006_021602ab, data_ov006_021615e8);
         obj->f390 = obj->f390 + 1;
     }
     else if (st == 5) {
@@ -222,8 +243,8 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             if (f.c5d != 0) {
                 void* alloc = obj->alloc;
                 ((SafeAllocator*)alloc)->Reset();
-                ClearListHeader((Struct02071be8*)((char*)obj + 0x14c));
-                RunBufferedStream02071c00((int)((char*)obj + 0x14c), (unsigned int)alloc, (StreamHeader*)f.c5d, (int)f.c5s);
+                ClearListHeader((Struct02071be8*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)));
+                RunBufferedStream02071c00((int)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), (unsigned int)alloc, (StreamHeader*)f.c5d, (int)f.c5s);
             }
             ((BackgroundLoader*)loader)->RemoveTask(obj->f354);
             obj->f354 = -1;
@@ -239,14 +260,14 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         memset(GetSubBG0ScreenBase(), 0, 0x800);
         *(volatile unsigned int*)0x04001010 = 0;
         ((SafeAllocator*)((char*)obj->alloc + 0x3c))->Reset();
-        ResetList0204af64((List0204af64*)((char*)obj + 0x54));
-        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)((char*)obj + 0x54), 0);
+        ResetList0204af64((List0204af64*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)));
+        SetWord0x18ClearByte0x1f_0204b11c((unsigned char*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0);
         obj->f70 = (unsigned char)((obj->f70 & ~0xf) | 1);
         obj->f70 = (unsigned char)((obj->f70 & ~0xf0) | 0x30);
-        func_0204b5b4((char*)obj + 0x54, 3);
-        DispatchViaTable0204b5e8((Obj0204b5e8*)((char*)obj + 0x54), 0, 0);
-        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)((char*)obj + 0x54), (SafeAllocator*)((char*)obj->alloc + 0x3c));
-        AllocateArray0204af38((Foo0204af38*)((char*)obj + 0x54), 7, (SafeAllocator*)((char*)obj->alloc + 0x3c));
+        func_0204b5b4((char*)obj + REGIONAL_OFFSET(0x4c, 0x54), 3);
+        DispatchViaTable0204b5e8((Obj0204b5e8*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0, 0);
+        AllocateAndClearBuffer0204b12c((AllocTarget0204b12c*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), (SafeAllocator*)((char*)obj->alloc + 0x3c));
+        AllocateArray0204af38((Foo0204af38*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), REGIONAL_OFFSET(3, 7), (SafeAllocator*)((char*)obj->alloc + 0x3c));
         obj->f354 = ((BackgroundLoader*)loader)->QueueLoadFile(data_ov006_021602bb, (SafeAllocator*)0);
         obj->f390 = obj->f390 + 1;
     }
@@ -275,11 +296,11 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
                     }
                 }
                 else {
-                    func_0204b174((char*)obj + 0x54, rec, (char*)obj->alloc + 0x3c, f.r7s);
+                    func_0204b174((char*)obj + REGIONAL_OFFSET(0x4c, 0x54), rec, (char*)obj->alloc + 0x3c, f.r7s);
                 }
                 }
             }
-            FlushAndDispatchList0204b0e8((List0204b0e8*)((char*)obj + 0x54), 0);
+            FlushAndDispatchList0204b0e8((List0204b0e8*)((char*)obj + REGIONAL_OFFSET(0x4c, 0x54)), 0);
             ((BackgroundLoader*)loader)->RemoveTask(obj->f354);
             obj->f354 = -1;
             obj->f390 = obj->f390 + 1;
@@ -295,7 +316,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             AllocateBuffer0204c7a8((Obj0204c7a8*)o, (SafeAllocator*)((char*)alloc + 0x50), (int)obj->f08, 0x600);
             *(unsigned int*)((char*)o + 4) = (unsigned int)obj->f1c;
         }
-        obj->f354 = ((BackgroundLoader*)loader)->QueueLoadFileInGP2(data_ov006_021602d2, data_ov006_021602e7, (SafeAllocator*)0);
+        obj->f354 = ((BackgroundLoader*)loader)->REGION_LOAD(data_ov006_021602d2, data_ov006_021602e7, data_ov006_02161617);
         obj->f390 = obj->f390 + 1;
     }
     else if (st == 9) {
@@ -304,17 +325,17 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             if (f.c9d != 0) {
                 void* alloc = obj->alloc;
                 ((SafeAllocator*)((char*)alloc + 0x78))->Reset();
-                ClearFields_021e20c0((char*)obj + 0x100);
-                func_ov023_021e20f0((char*)obj + 0x100, (char*)alloc + 0x78, f.c9d, f.c9s);
-                unsigned char* e = (unsigned char*)func_ov006_02157368((char*)obj + 0x100, 1);
+                ClearFields_021e20c0((char*)obj + REGIONAL_OFFSET(0xf8, 0x100));
+                func_ov023_021e20f0((char*)obj + REGIONAL_OFFSET(0xf8, 0x100), (char*)alloc + 0x78, f.c9d, f.c9s);
+                unsigned char* e = (unsigned char*)func_ov006_02157368((char*)obj + REGIONAL_OFFSET(0xf8, 0x100), 1);
                 if (e != 0) {
                     e[0x16] = (unsigned char)(e[0x16] & ~1);
                 }
-                e = (unsigned char*)func_ov006_02157368((char*)obj + 0x100, 0x23);
+                e = (unsigned char*)func_ov006_02157368((char*)obj + REGIONAL_OFFSET(0xf8, 0x100), 0x23);
                 if (e != 0) {
                     e[0x16] = (unsigned char)(e[0x16] & ~1);
                 }
-                e = (unsigned char*)func_ov006_02157368((char*)obj + 0x100, 0x24);
+                e = (unsigned char*)func_ov006_02157368((char*)obj + REGIONAL_OFFSET(0xf8, 0x100), 0x24);
                 if (e != 0) {
                     e[0x16] = (unsigned char)(e[0x16] & ~1);
                 }
@@ -325,12 +346,12 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         }
     }
     else if (st == 0xa) {
-        InitStruct0205a444((char*)((char*)obj + 0xac));
+        InitStruct0205a444((char*)((char*)obj + REGIONAL_OFFSET(0xa4, 0xac)));
         obj->ffc = 1;
         obj->fec = (int)obj->f24;
         obj->ff8 = 0x1d;
         obj->fe8 = *(int*)((char*)obj->f18 + 0x20);
-        obj->f354 = ((BackgroundLoader*)loader)->QueueLoadFileInGP2(data_ov006_021602f8, data_ov006_0216030a, (SafeAllocator*)0);
+        obj->f354 = ((BackgroundLoader*)loader)->REGION_LOAD(data_ov006_021602f8, data_ov006_0216030a, data_ov006_0216162c);
         obj->f390 = obj->f390 + 1;
     }
     else if (st == 0xb) {
@@ -344,7 +365,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             for (i = 0; i < n; i++) {
                 void* rec = FindRecordByIndex((Rec020467f0*)f.cbd, i, &f.rbd, &f.rbs);
                 if (rec != 0) {
-                func_0205a528((char*)obj + 0xac, rec, (void*)f.rbs, (char*)alloc + 0x8c);
+                func_0205a528((char*)obj + REGIONAL_OFFSET(0xa4, 0xac), rec, (void*)f.rbs, (char*)alloc + 0x8c);
                 }
             }
             ((BackgroundLoader*)loader)->RemoveTask(obj->f354);
@@ -357,7 +378,7 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         }
     }
     else if (st == 0xc) {
-        obj->f354 = ((BackgroundLoader*)loader)->QueueLoadFileInGP2(data_ov006_02160318, data_ov006_0216032e, (SafeAllocator*)0);
+        obj->f354 = ((BackgroundLoader*)loader)->REGION_LOAD(data_ov006_02160318, data_ov006_0216032e, data_ov006_02161641);
         obj->f390 = obj->f390 + 1;
     }
     else if (st == 0xd) {
@@ -366,8 +387,13 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
             if (f.cd != 0) {
                 void* alloc = obj->alloc;
                 ((SafeAllocator*)((char*)alloc + 0x28))->Reset();
-                Zero4Bytes_020e526c((char*)obj + 0x170);
-                func_020e5604((char*)obj + 0x170, (char*)alloc + 0x28, f.cd, f.cs);
+#if defined(jpn)
+                ResetStruct020dfc40((Struct020dfc40*)((char*)obj + REGIONAL_OFFSET(0x164, 0x170)));
+                func_020dfec0((char*)obj + REGIONAL_OFFSET(0x164, 0x170), (char*)alloc + 0x28, f.cd, f.cs);
+#else
+                Zero4Bytes_020e526c((char*)obj + REGIONAL_OFFSET(0x164, 0x170));
+                func_020e5604((char*)obj + REGIONAL_OFFSET(0x164, 0x170), (char*)alloc + 0x28, f.cd, f.cs);
+#endif
             }
             ((BackgroundLoader*)loader)->RemoveTask(obj->f354);
             obj->f354 = -1;
@@ -378,7 +404,11 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         void* alloc = obj->alloc;
         ((SafeAllocator*)((char*)alloc + 0x64))->Reset();
         func_0207f84c(obj->f14);
+#if defined(jpn)
+        func_02080654((Obj0207f914*)obj->f14, (unsigned int)alloc + 0x64, (int)data_ov006_02161657);
+#else
         SetFieldsFromFormattedValue0207f914((Obj0207f914*)obj->f14, (unsigned int)alloc + 0x64, (int)data_ov006_02160340, (int)data_ov006_02160359);
+#endif
         obj->f390 = obj->f390 + 1;
     }
     else if (st == 0xf) {
@@ -399,8 +429,10 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         }
         InitNodeChain0207f7f0(obj->f14, obj->f20, 7);
         obj->f14->active = 1;
+#if !defined(jpn)
         DispatchEntryOp0x8_0208108c(obj->f14, 0x20);
         DispatchEntryOp0x8_0208108c(obj->f14, 0x3e);
+#endif
         volatile unsigned short* bg = (volatile unsigned short*)0x04001008;
         bg[0] = bg[0] & ~3;
         bg[1] = (bg[1] & ~3) | 1;
@@ -411,16 +443,16 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
         func_ov006_02158de0(obj);
         obj->f38f = 1;
         obj->f390 = 0;
-        func_ov006_02153744((char*)obj + 0x74, (char*)obj + 0x14c, (void*)obj->f38, 0x1d8 - 1);
-        FilterAndSortEntries02071ffc((Container02071ffc*)((char*)obj + 0x14c), -1, -1, 0, 0, (short*)((char*)obj + 0x35c));
+        func_ov006_02153744((char*)obj + REGIONAL_OFFSET(0x6c, 0x74), (char*)obj + REGIONAL_OFFSET(0x140, 0x14c), (void*)obj->f38, 0x1d8 - 1);
+        FilterAndSortEntries02071ffc((Container02071ffc*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), -1, -1, 0, 0, (short*)((char*)obj + 0x35c));
         f.sel = 0;
-        FilterAndSortEntries02071ffc((Container02071ffc*)((char*)obj + 0x14c), obj->f384, obj->f385, obj->f386, 0x10, &f.sel);
+        FilterAndSortEntries02071ffc((Container02071ffc*)((char*)obj + REGIONAL_OFFSET(0x140, 0x14c)), obj->f384, obj->f385, obj->f386, 0x10, &f.sel);
         int v = obj->f14c;
         obj->f2c = v;
         obj->f30 = v;
         ComputeField_02158cac_02158cac(obj);
-        func_ov006_02153c60((char*)obj + 0x74, obj->f38, 0x1d7);
-        func_ov006_0215373c((char*)obj + 0x74, (char*)obj + 0x14c);
+        func_ov006_02153c60((char*)obj + REGIONAL_OFFSET(0x6c, 0x74), obj->f38, 0x1d7);
+        func_ov006_0215373c((char*)obj + REGIONAL_OFFSET(0x6c, 0x74), (char*)obj + REGIONAL_OFFSET(0x140, 0x14c));
         if ((obj->f394 & 2) == 0) {
             SetEntryFlag0x2ByShortId((StatusOwner02081164*)obj->f14, 0, 1);
             SetEntryFlag0x2ByShortId((StatusOwner02081164*)obj->f14, 1, 1);
@@ -431,11 +463,16 @@ extern "C" ARM void func_ov006_0215a5fc(Scene* obj) {
                 cv->fb8 = 0xc;
                 cv->fba = 0x10;
             }
+#if defined(jpn)
+            void* r = GetFieldByKey020e0434((Container020e0310*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)), 0);
+            SetEntryFirstField02080f8c((Container02080f8c*)obj->f14, 1, (int)r);
+#else
             __clear(f.buf, 0x400);
             void* g = GetGlobalField0x1c020421a0();
-            void* r = GetFieldByKey020e0434((Container020e0310*)((char*)obj + 0x158), 0);
+            void* r = GetFieldByKey020e0434((Container020e0310*)((char*)obj + REGIONAL_OFFSET(0x14c, 0x158)), 0);
             func_02046608(g, 0xc, r, f.buf, 0xe3, 0, 1);
             SetEntryFirstField02080f8c((Container02080f8c*)obj->f14, 1, (int)f.buf);
+#endif
             func_020813ec(obj->f14, 1);
         }
     }

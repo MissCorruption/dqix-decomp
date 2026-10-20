@@ -26,7 +26,6 @@ struct State02155f4c {
 };
 
 #if defined(jpn)
-#define func_ov002_02155f4c func_ov002_02157634
 #define REGIONAL_OFFSET(jp, us) (jp)
 #else
 #define REGIONAL_OFFSET(jp, us) (us)

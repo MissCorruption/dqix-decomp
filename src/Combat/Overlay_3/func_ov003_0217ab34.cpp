@@ -25,7 +25,11 @@ struct Menu_0217ab34 {
     char unk_0[8];
     struct Obj02179e18* elem;
     char unk_c[0x30];
+#if defined(jpn)
+    char sub3c[0x7f0 - 0x3c];
+#else
     char sub3c[0x874 - 0x3c];
+#endif
     char container[0x88c - 0x874];
     char repeat[0x89c - 0x88c];
     struct Obj2081* menu;
@@ -137,7 +141,9 @@ extern "C" ARM void func_ov003_0217ab34(struct Menu_0217ab34* self) {
                 self->nextState = 0x12;
                 self->step = 0;
                 self->flags |= 0x20;
+#if !defined(jpn)
                 self->flags &= ~0x2000;
+#endif
                 return;
             }
             switch (func_ov003_02179da8(self->elem, 1)) {
