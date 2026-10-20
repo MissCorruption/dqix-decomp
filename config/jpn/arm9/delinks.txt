@@ -19204,3 +19204,7 @@ src/Combat/Main/SetVec3At0x002073d50.cpp:
 src/Combat/Main/IsField0x180NonNegative.cpp:
     complete
     .text start:0x02054958 end:0x0205496c
+
+src/Combat/Main/InitStruct0203be8c.cpp:
+    complete
+    .text start:0x0203b8e4 end:0x0203b914
