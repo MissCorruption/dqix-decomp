@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+struct Name020d3cf0 { unsigned char c[11]; };
+#else
 struct Name020d3cf0 { unsigned char c[16]; };
+#endif
 
 struct Entry020d3cf0 {
     struct Name020d3cf0 name;
@@ -26,8 +30,13 @@ ARM void AppendNamedEntry020d3cf0(struct Container020d3cf0* c, struct Entry020d3
     int idx = c->count;
     struct Entry020d3cf0* dst;
     if (idx >= 5) return;
+#if defined(jpn)
+    c->count = idx + 1;
+    dst = &c->entries[idx];
+#else
     dst = &c->entries[idx];
     c->count = idx + 1;
+#endif
     dst->name = src->name;
     dst->b10 = src->b10;
     dst->b11 = src->b11;
