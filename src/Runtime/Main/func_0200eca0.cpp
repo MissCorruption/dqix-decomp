@@ -3,7 +3,6 @@
 #if defined(jpn)
 #define func_0200e830 func_0200e6f4
 #define func_0200df80 func_0200de44
-#define func_0200f2ec func_0200f1b0
 #endif
 
 struct ExceptionContext {
