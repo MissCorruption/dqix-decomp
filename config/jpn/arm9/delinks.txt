@@ -19228,3 +19228,19 @@ src/NitroSDK/Main/func_020c197c.cpp:
 src/NitroSDK/Main/Mat4x3_WriteRotationY.cpp:
     complete
     .text start:0x020c3468 end:0x020c3484
+
+src/Runtime/Main/func_0200e830.cpp:
+    complete
+    .text start:0x0200e6f4 end:0x0200e848
+
+src/Runtime/Main/func_0200ea08.cpp:
+    complete
+    .text start:0x0200e8cc end:0x0200e92c
+
+src/Runtime/Main/func_0200edc8.cpp:
+    complete
+    .text start:0x0200ec8c end:0x0200ecb8
+
+src/Runtime/Main/func_0200ee94.cpp:
+    complete
+    .text start:0x0200ed58 end:0x0200ee08
