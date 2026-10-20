@@ -72,11 +72,17 @@ struct ProfileState02170d88 {
     unsigned int timer;
     unsigned char keys[50][8];
     unsigned char keyCount;
+#if defined(jpn)
+    char unknown199[0x19c - 0x199];
+    Profile02170d88 current;
+    char unknown27c[0x614 - 0x27c];
+#else
     char unknown199[0x1c0 - 0x199];
     Profile02170d88 current;
     char unknown2a0[0xe0];
     Profile02170d88 sample;
     char unknown460[0x718 - 0x460];
+#endif
     unsigned char active;
     char unknown719[3];
     int pending;
@@ -101,11 +107,19 @@ struct ProfileCharacterData02170d88 {
     unsigned char unknownFlags : 7;
     char unknown49d[0x56a - 0x49d];
     unsigned char unknown56a;
+#if defined(jpn)
+    char unknown56b[0x8b8 - 0x56b];
+#else
     char unknown56b[0x950 - 0x56b];
+#endif
     unsigned int vocation;
 };
 struct ProfileActor02170d88 : GameObject {
+#if defined(jpn)
+    char unknown13c[0x144 - 0x13c];
+#else
     char unknown13c[0x150 - 0x13c];
+#endif
     ProfileCharacterData02170d88* data;
 };
 struct ProfileRecordRegion02170d88 {
@@ -113,14 +127,24 @@ struct ProfileRecordRegion02170d88 {
     BattleRecordSnapshot record;
 };
 struct ProfileSaveState02170d88 {
+#if defined(jpn)
+    char unknown0[0x543c];
+    ProfileSettings02170d88 settings;
+    char unknown54b8[0x72be - 0x54b8];
+#else
     char unknown0[0x569c];
     ProfileSettings02170d88 settings;
     char unknown5718[0x74fe - 0x5718];
+#endif
     ProfileCode02170d88 code;
     ProfileRecordRegion02170d88 region;
 };
 struct ProfileResourceState02170d88 {
+#if defined(jpn)
+    char unknown0[0x41e4];
+#else
     char unknown0[0x4494];
+#endif
     int profileActive;
 };
 struct Field150Holder02052e2c;
@@ -148,6 +172,13 @@ extern "C" void func_ov017_021b1d44(void*, int, int);
 extern const char* data_ov003_021805e4[5];
 extern const char* data_ov003_021805d0[5];
 
+#if defined(jpn)
+static inline ProfileSettings02170d88* GetSettings02170d88(ProfileSaveState02170d88* saved) { return &saved->settings; }
+
+// JPN keeps its own name: func_ov003_0216c00c calls it as func_ov003_02170444.
+#define func_ov003_02170d88 func_ov003_02170444
+#endif
+
 // USA: func_ov003_02170d88
 // EUR: func_ov003_02170d88
 extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
@@ -164,7 +195,11 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
     GameState* state = GameState::GetInstance();
     GameObject* actorObject = state->GetProtagonist();
     ProfileActor02170d88* actor = static_cast<ProfileActor02170d88*>(actorObject);
+#if defined(jpn)
+    strcpy(self->current.name.text, (const char*)actor->baseStats_);
+#else
     strcpy(self->current.name.text, (const char*)ResetBuffer02052a10((char*)actor));
+#endif
     self->current.vocation = actor->data->vocation;
     self->current.level = actor->data->vocationLevels[actor->data->vocation];
     ProfileSaveState02170d88* saved = (ProfileSaveState02170d88*)state;
@@ -185,7 +220,11 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
         vocationValue = protagonist->data->vocationValues[vocation];
     }
     UpdatePlayClocks020ac4f8(0);
+#if defined(jpn)
+    ProfileSettings02170d88* settings = GetSettings02170d88(saved);
+#else
     ProfileSettings02170d88* settings = &saved->settings;
+#endif
     VectorizedMemset(output, 0, 0x18);
     output->fields.elapsedHours = region->record.clocks.elapsed.hours;
     output->fields.elapsedMinutes = region->record.clocks.elapsed.minutes;
@@ -205,10 +244,13 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
     output->fields.flag = (unsigned char)flag;
     output->fields.vocationValue = (unsigned char)vocationValue;
     output->fields.unknown17 = GetFieldAt0x150_02053c6c((unsigned char*)protagonist)->unknown56a;
+#if !defined(jpn)
     output->fields.captured = 1;
+#endif
     VectorizedMemset(&self->current.map, 0, 0x1c);
     ProfileCode02170d88 code = saved->code;
     self->current.code = code;
+#if !defined(jpn)
     unsigned char platformLanguage = NormalizeField5_0200fb08((Struct0200fb08*)state);
     int language = 0;
     switch (platformLanguage) {
@@ -268,6 +310,7 @@ extern "C" ARM void func_ov003_02170d88(ProfileState02170d88* self) {
         memcpy(name, data_ov003_021805e4[language], 11);
         memcpy(sampleMap->ClearedBy, name, 10);
     }
+#endif
     ClearUnmatchedKeys_02171f80((KeyArrayObj_02171f80*)self);
     self->active = 0;
     self->unknown738 = 0;
