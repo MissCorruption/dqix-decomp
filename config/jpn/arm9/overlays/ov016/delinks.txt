@@ -4,6 +4,10 @@
     .data       start:0x0219cee0 end:0x0219cfa0 kind:data align:32
     .bss        start:0x0219cfa0 end:0x0219d0c0 kind:bss align:32
 
+src/Combat/Overlay_16/func_ov016_0218b5c4.cpp:
+    complete
+    .text start:0x0218c1e4 end:0x0218c750
+
 src/Combat/Overlay_16/FindNodeByID_0218e124.cpp:
     complete
     .text start:0x0218e70c end:0x0218e734

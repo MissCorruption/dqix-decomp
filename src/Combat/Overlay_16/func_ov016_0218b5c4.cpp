@@ -9,6 +9,10 @@
 
 #if defined(jpn)
 #define func_020c39a0 func_020c546c
+#define func_ov016_0218d2f4 func_ov016_0218d9f8
+#define data_ov016_0219cfc0 data_ov016_0219cee0
+#define data_ov016_0219cfc6 data_ov016_0219cee9
+#define data_ov016_0219d022 data_ov016_0219ceef
 #endif
 
 struct StreamHeader;
@@ -113,8 +117,15 @@ void SetupContextForMode0205ea20(void* p, int mode);
 void Dispatch0203a974With0x57000_0209c290(void* p);
 void TailForward02012da4(AllocatorUnion* alloc, void* data);
 extern "C" void func_020a0c0c();
+#if defined(jpn)
+extern "C" void func_ov016_0218d2f4(char* mainName, char* subName, Self0218b5c4* self, ScriptNode0218b5c4* node, int mode);
+extern "C" void func_ov016_0218caa8(char* name, Self0218b5c4* self, ScriptNode0218b5c4* node, int mode);
+#define SCRIPT_ARG_0218b5c4
+#else
 extern "C" void func_ov016_0218d2f4(char* mainName, char* subName, Self0218b5c4* self, ScriptNode0218b5c4* node, int mode, Struct020e57e0* script);
 extern "C" void func_ov016_0218caa8(char* name, Self0218b5c4* self, ScriptNode0218b5c4* node, int mode, Struct020e57e0* script);
+#define SCRIPT_ARG_0218b5c4 , &script
+#endif
 
 extern AllocatorUnion data_02114e20;
 extern char data_02109bf4;
@@ -135,10 +146,14 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
     char subName[0x50];
     NodeList0218b5c4 nodes;
     char label[0x30];
+#if !defined(jpn)
     Struct020e57e0 script;
+#endif
     char mainOnly[0x28];
     char subOnly[0x28];
+#if !defined(jpn)
     unsigned int size;
+#endif
 
     GameState* gs = GameState::GetInstance();
     func_020c39a0((short*)0x400006c, -16);
@@ -227,6 +242,7 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
         func_020c39a0((short*)0x400106c, -16);
     }
 
+#if !defined(jpn)
     ClearThreeWords020e57e0(&script);
     BackgroundLoader::GetInstance();
     if (id > 0) {
@@ -246,6 +262,7 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
         }
         BackgroundLoader::RemoveLockGlobal();
     }
+#endif
     ClearBuffer02029060();
     FlushBuffer02029088();
     WriteControlAndToggle020d86d0(0, 1);
@@ -262,6 +279,7 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
         func_020c39a0((short*)0x400106c, -16);
         ScriptNode0218b5c4* node = FindNodeByID_0218e124((Node0218e124**)&nodes, id);
         if (node != 0) {
+#if !defined(jpn)
             if (node->fade != 0) {
                 DispatchContextByState0209c678((Actor0209c678*)&data_02109bf4, 0);
                 ScaleAndNotify0203ad88(&data_02109bf4, 0, 0);
@@ -272,20 +290,22 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
                 ResetActor0209c174((Actor0209c174*)&data_02109bf4);
                 Dispatch0203a974With0xA2000_0209c2b8(&data_02109bf4);
             }
+#endif
             if (node->mainName != 0 && node->subName != 0) {
                 SetPowCnt1Bit15_0218bc70(1);
                 sprintf(mainName, data_ov016_0219d022, node->mainName);
                 sprintf(subName, data_ov016_0219d022, node->subName);
-                func_ov016_0218d2f4(mainName, subName, self, node, mode, &script);
+                func_ov016_0218d2f4(mainName, subName, self, node, mode SCRIPT_ARG_0218b5c4);
             } else if (node->mainName != 0 && node->subName == 0) {
                 SetPowCnt1Bit15_0218bc70(1);
                 sprintf(mainOnly, data_ov016_0219d022, node->mainName);
-                func_ov016_0218caa8(mainOnly, self, node, mode, &script);
+                func_ov016_0218caa8(mainOnly, self, node, mode SCRIPT_ARG_0218b5c4);
             } else if (node->mainName == 0 && node->subName != 0) {
                 SetPowCnt1Bit15_0218bc70(0);
                 sprintf(subOnly, data_ov016_0219d022, node->subName);
-                func_ov016_0218caa8(subOnly, self, node, mode, &script);
+                func_ov016_0218caa8(subOnly, self, node, mode SCRIPT_ARG_0218b5c4);
             }
+#if !defined(jpn)
             if (node->fade != 0) {
                 ResetObjectState0205e8d4(&data_02108760);
                 FreeAndReinit0203a950(&data_02109bf4);
@@ -294,6 +314,7 @@ extern "C" ARM void func_ov016_0218b5c4(Self0218b5c4* self) {
                 SetupContextForMode0205ea20(&data_02108760, 100);
                 Dispatch0203a974With0x57000_0209c290(&data_02109bf4);
             }
+#endif
         }
     }
 
