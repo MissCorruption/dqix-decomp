@@ -7,7 +7,6 @@
 #define RG(u, j) (j)
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215e44c func_ov002_0215f5d8
-#define func_ov002_02156e90 func_ov002_0215852c
 #else
 #define RG(u, j) (u)
 #endif

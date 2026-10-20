@@ -43,9 +43,7 @@ extern "C" char data_02108760;
 #if defined(jpn)
 #undef OBJ
 #define OBJ (self + 0xe20)
-extern "C" void func_ov002_0215852c(void *self);
 extern "C" void func_ov002_02162acc(char *self);
-#define func_ov002_02156e90 func_ov002_0215852c
 #define func_ov002_02161cf0 func_ov002_02162acc
 extern "C" ARM void func_ov002_02166168(char *self) {
     GameState *gs      = GameState::GetInstance();

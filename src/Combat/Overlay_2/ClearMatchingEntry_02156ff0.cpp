@@ -6,8 +6,6 @@ extern "C" void func_ov002_02156e90(void* obj);
 
 #if defined(jpn)
 #define LIST_02156ff0 0xe20
-#define func_ov002_02156e90 func_ov002_0215852c
-extern "C" void func_ov002_0215852c(void* obj);
 #define KEY_02156ff0 0xa80
 #else
 #define LIST_02156ff0 0x2c8 + 0xc00
