@@ -19200,3 +19200,7 @@ src/NitroSDK/Main/func_020b20b0.cpp:
 src/Combat/Main/SetVec3At0x002073d50.cpp:
     complete
     .text start:0x02074edc end:0x02074ee4
+
+src/Combat/Main/IsField0x180NonNegative.cpp:
+    complete
+    .text start:0x02054958 end:0x0205496c
