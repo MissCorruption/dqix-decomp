@@ -1,4 +1,8 @@
 #include <globaldefs.h>
+
+#if defined(jpn)
+#define func_020c9be0 func_020cb6ac
+#endif
 #include "System/Interrupts.h"
 
 struct Link0223db7c {
