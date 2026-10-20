@@ -19216,3 +19216,7 @@ src/Combat/Main/GetByteFieldAt0x9ba.cpp:
 src/Combat/Main/SetFlagsAndReset02026678.cpp:
     complete
     .text start:0x02025fdc end:0x02025ff8
+
+src/Combat/Main/SetBit02026bc8.cpp:
+    complete
+    .text start:0x0202652c end:0x02026540
