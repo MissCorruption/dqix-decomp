@@ -338,3 +338,23 @@ src/Combat/Overlay_2/func_ov002_0215a658.cpp:
 src/Combat/Overlay_2/CheckStateAndGetCode0215753c.cpp:
     complete
     .text start:0x02158bb4 end:0x02158c44
+
+src/Combat/Overlay_2/func_ov002_021607cc.cpp:
+    complete
+    .text start:0x0216166c end:0x02161858
+
+src/Combat/Overlay_2/ResetAndRebuildEntries02160734.cpp:
+    complete
+    .text start:0x021615e0 end:0x0216166c
+
+src/Combat/Overlay_2/func_ov002_02160fb4.cpp:
+    complete
+    .text start:0x02161ea8 end:0x02161fa8
+
+src/Combat/Overlay_2/InitBattleTag02160c68.cpp:
+    complete
+    .text start:0x02161b94 end:0x02161c0c
+
+src/Combat/Overlay_2/func_ov002_021644a8.cpp:
+    complete
+    .text start:0x02165118 end:0x0216538c
