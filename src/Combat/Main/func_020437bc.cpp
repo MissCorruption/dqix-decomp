@@ -5,7 +5,6 @@ struct Rectangle020437bc {
 };
 
 #if defined(jpn)
-// JPN: its own tile table (data_020e8453), tile bias 0x1d, and int row offsets.
 extern const unsigned char data_020e8453[][8];
 
 extern "C" ARM void func_020437bc(unsigned short* map, const Rectangle020437bc* rectangle, int style) {

@@ -5,7 +5,6 @@
 #else
 #define RG(u, j) (u)
 #endif
-// JPN: the menu fields from 0x835 on sit 0x84 lower
 #define J(o) RG(o, (o) - 0x84)
 
 struct Obj2081;

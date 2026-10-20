@@ -53,7 +53,6 @@ extern "C" void func_0204f41c(TextWindow*, short, int, char*, int, int, short*, 
 #endif
 
 // USA: func_02081870
-// JPN: centred by half the string length times the font width; 0x800 buffer; no alignment offset
 #if defined(jpn)
 extern "C" ARM void func_02081870(TextRenderer* renderer, TextWindow* window, TextItem* item) {
     int color = item->color;

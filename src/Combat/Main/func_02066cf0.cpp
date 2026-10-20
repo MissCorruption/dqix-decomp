@@ -2,7 +2,6 @@
 #include "Graphics/VRAMStaging.h"
 
 #if defined(jpn)
-// JPN: a smaller text box (context at 0, glyphs at 0x888, holder at 0x1804) with inline layout
 struct Glyph02066cf0 {
     char pad[0xc];
     int x;

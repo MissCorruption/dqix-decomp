@@ -41,7 +41,6 @@ typedef void (*WindowUpload0204cb20)(void*, int, unsigned int);
 WindowUpload0204cb20 GetTableEntry0204a5e4(int, int);
 
 // USA: func_0204cb20
-// JPN: the text is formatted without a width limit and no font argument
 #if defined(jpn)
 extern "C" ARM void func_0204cb20(Window0204cb20* self, const char* text, short mode) {
     char formatted[0x800];

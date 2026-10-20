@@ -2,7 +2,6 @@
 
 extern int data_ov017_021d83ac;
 #if defined(jpn)
-// JPN: the call goes to ov002 func_ov002_0216c28c (USA shares 0x0216c28c with ov000)
 extern "C" int func_ov002_0216c28c(void);
 #define EnqueueEvent0x5e_ov000_0216c28c func_ov002_0216c28c
 #else

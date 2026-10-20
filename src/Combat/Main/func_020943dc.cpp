@@ -3,7 +3,6 @@
 #include "std_library_functions.h"
 
 #if defined(jpn)
-// JPN: a smaller state block (12-byte name, 0x30-byte text), the names table at 0x37c, the
 struct NameBuf02046574 { char text[0x40]; };
 struct Obj02046574 {
     char pad0[0x37c];

@@ -17,7 +17,6 @@ extern "C" __declspec(initcode) ARM void __sinit_020e5920(void) {
     float t;
     float a;
 #if defined(jpn)
-    // JPN: entries 1 and 2 of both tables swap places.
     t = data_020ef07c[2] + data_020ef07c[1];
     t = data_020ef07c[0] + t;
     t = data_020ef07c[3] + t;

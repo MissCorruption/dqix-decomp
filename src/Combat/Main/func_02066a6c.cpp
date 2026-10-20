@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-// JPN: a smaller display block (context at 0, glyphs at 0x888, text at 0x1752, holder at 0x1804),
 struct GlyphJpn02066a6c { char pad[0x1c]; };
 struct TransformJpn02066a6c { short x; short y; int field4; int mode; int fieldc; int scaleX; int scaleY; int field18; };
 struct HolderJpn02066a6c { char pad[0x440]; TransformJpn02066a6c* transform; };

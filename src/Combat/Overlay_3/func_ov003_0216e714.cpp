@@ -153,7 +153,6 @@ struct Path0216e714 {
     char s[0x40];
 };
 
-// JPN: no name buffer (records print straight via %s), a per-kind label switch, a per-category
 extern "C" ARM void func_ov003_0216e714(Menu0216e714 *self) {
     int row;
     int start;

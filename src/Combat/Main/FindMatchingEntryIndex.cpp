@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 
 #if defined(jpn)
-// JPN: entries are matched by a two-character key plus a kind byte (no id word), the
 struct Entry02045c00 {
     char unk0[0x18];
     char key0;

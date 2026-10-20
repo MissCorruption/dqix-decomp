@@ -16,7 +16,6 @@ ARM void RepeatStepClampedToField0x3c4_02067e58(void* obj, int count) {
         count = minCount;
     }
 #if defined(jpn)
-    // JPN: also keeps stepping while the byte at obj + 0x17f2 is set.
     while (count != 0 || ((unsigned char*)obj)[0x17f2] != 0) {
 #else
     while (count > 0) {

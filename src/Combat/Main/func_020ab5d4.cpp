@@ -47,7 +47,6 @@ struct Sz3c00_020ab5d4 {
 };
 
 // USA: func_020ab5d4
-// JPN: no save-flag bit, no name conversion; each entry keeps a 0xc-byte raw copy
 #if defined(jpn)
 struct ElemJ020ab5d4 {
     char data[0xc];
