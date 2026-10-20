@@ -2,10 +2,6 @@
 #include "Filesystem/NitroVM.h"
 
 #if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
-#if defined(jpn)
 #define func_020ca390 func_020cbe5c
 #endif
 

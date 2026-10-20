@@ -19216,3 +19216,7 @@ src/NitroSDK/Main/func_020c0cd0.cpp:
 src/NitroSDK/Main/func_020d1d1c.cpp:
     complete
     .text start:0x020d37e8 end:0x020d38b4
+
+src/NitroSDK/Main/func_020ca458.cpp:
+    complete
+    .text start:0x020cbf24 end:0x020cbf80

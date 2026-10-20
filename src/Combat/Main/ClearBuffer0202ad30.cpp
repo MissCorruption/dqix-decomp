@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
 extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 extern char data_020fe9cc;
 

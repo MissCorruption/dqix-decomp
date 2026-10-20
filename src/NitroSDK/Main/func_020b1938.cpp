@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
 struct TileFillCtx020b1938 {
     char* dest;
     int width;

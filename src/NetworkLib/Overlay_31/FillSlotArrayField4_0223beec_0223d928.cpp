@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
 struct OamSlots_0223d928 {
     char slotData[2][0x400];
     int slots[2];

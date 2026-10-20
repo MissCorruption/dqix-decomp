@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
 extern "C" void func_0202ab34(void* data, int a, int b);
 extern "C" void LoadToMainBGStandardPalette(int src, int dstOffset, unsigned int size);
 extern "C" void func_020ca458(int a, void* ptr, int size);

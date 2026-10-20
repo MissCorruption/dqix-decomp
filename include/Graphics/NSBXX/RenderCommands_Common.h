@@ -41,7 +41,6 @@
 #define func_020ca3ec func_020cbeb8
 #define func_020ca408 func_020cbed4
 #define func_020ca430 func_020cbefc
-#define func_020ca458 func_020cbf24
 #define func_020ca7d0 func_020cc29c
 #endif
 

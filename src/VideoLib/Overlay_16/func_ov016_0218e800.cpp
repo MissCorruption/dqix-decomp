@@ -1,10 +1,6 @@
 #include <globaldefs.h>
 #include "System/Memory.h"
 
-#if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
 struct VideoFile {
     virtual void v0();
     virtual void v1();

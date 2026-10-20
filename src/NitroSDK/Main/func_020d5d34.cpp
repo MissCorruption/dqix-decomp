@@ -1,9 +1,5 @@
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
 typedef void (*WMCallbackFunc)(void* arg);
 
 struct WMDataSet

@@ -5,10 +5,6 @@
 #define func_020ca4b4 func_020cbf80
 #endif
 
-#if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
 void SleepCurrentContext(unsigned int ticks);
 int GetField260_0220d540(void);
 void* GetOffset10FromResult_0220ec04(int index);

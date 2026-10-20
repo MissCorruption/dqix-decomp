@@ -16,10 +16,6 @@ enum { kGlobalDisplayOffset = 0x508, kControllerBackupOffset = 0x1e28, kSceneAll
 #include "System/OverlayId.h"
 
 #if defined(jpn)
-#define func_020ca458 func_020cbf24
-#endif
-
-#if defined(jpn)
 #define func_020c51dc func_020c6ca8
 #endif
 
