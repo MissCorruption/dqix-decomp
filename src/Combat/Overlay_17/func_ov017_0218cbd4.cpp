@@ -6,9 +6,6 @@
 #include "World/Zone3D.h"
 #include "Resource/Brightness.h"
 
-#if defined(jpn)
-#define func_02093b90 func_020944b0
-#endif
 
 struct SearchStruct0202c1a4;
 struct HeadNode02046b24;

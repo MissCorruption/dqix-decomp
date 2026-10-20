@@ -9,7 +9,6 @@
 #define func_0205ec34 func_0205ff20
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215f170 func_ov002_02160274
-#define func_ov002_0215a7b4 func_ov002_0215bbac
 #endif
 
 struct Struct0205de24;

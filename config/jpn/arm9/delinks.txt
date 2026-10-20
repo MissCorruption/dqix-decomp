@@ -19462,3 +19462,7 @@ src/Combat/Main/IsListEmpty_020652b4.cpp:
 src/Combat/Main/GetFieldAt0x0020652c8.cpp:
     complete
     .text start:0x020665b4 end:0x020665bc
+
+src/Combat/Main/func_02093b90.cpp:
+    complete
+    .text start:0x020944b0 end:0x02094888

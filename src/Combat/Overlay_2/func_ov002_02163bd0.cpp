@@ -7,7 +7,6 @@
 #define func_ov002_02161cf0 func_ov002_02162acc
 #define func_ov002_0215d654 func_ov002_0215e658
 #define func_ov002_02156e90 func_ov002_0215852c
-#define func_ov002_0215a7b4 func_ov002_0215bbac
 #define func_ov002_0216bfd4 func_ov002_0216c628
 enum { regionalState0d = 0xe, regionalState26 = 0x29 };
 #else

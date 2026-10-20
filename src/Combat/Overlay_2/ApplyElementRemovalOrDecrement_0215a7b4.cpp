@@ -21,12 +21,20 @@ GameObject* GetCombatantWithFlag0x100_0200ff1c(GameState* battleStruct, int comb
 int GetFieldAt0x150_02053c6c(unsigned char* obj);
 void RemoveSlotShiftDown0208386c(struct Slots0208386c* s, int idx);
 
+#if defined(jpn)
+#define CONTAINER_0215a7b4 0x750
+#define DIRTY_0215a7b4 0x22a8
+#else
+#define CONTAINER_0215a7b4 0x7ec
+#define DIRTY_0215a7b4 0x2478
+#endif
+
 // USA: func_ov002_0215a7b4  (semantic: ApplyElementRemovalOrDecrement_0215a7b4)
 extern "C" ARM void func_ov002_0215a7b4(char* self, int type, int key, int extra, unsigned char flag) {
     GameState* battle = GameState::GetInstance();
     if (type == 4) {
         if (flag != 0) {
-            struct Element020de650* elem = FindElementByKey020dedd0((struct Container020dedd0*)(self + 0x7ec), key);
+            struct Element020de650* elem = FindElementByKey020dedd0((struct Container020dedd0*)(self + CONTAINER_0215a7b4), key);
             if (elem != 0) {
                 TryDecrementAndAdjustField_020dddcc(elem);
             }
@@ -34,11 +42,11 @@ extern "C" ARM void func_ov002_0215a7b4(char* self, int type, int key, int extra
             void* p2a04 = GetPtrField0x2a04_02010828(battle);
             DecrementKeyValue020a0a08((struct KeyMap020a0a08*)p2a04, key, 1);
         }
-        *(unsigned char*)(self + 0x2478) = 1;
+        *(unsigned char*)(self + DIRTY_0215a7b4) = 1;
         return;
     }
     if (flag != 0) {
-        func_020ddcbc(type, extra, (struct Container020dedd0*)(self + 0x7ec), 0);
+        func_020ddcbc(type, extra, (struct Container020dedd0*)(self + CONTAINER_0215a7b4), 0);
     } else {
         GameObject* combatant = GetCombatantWithFlag0x100_0200ff1c(battle, type);
         if (combatant == 0) return;
@@ -47,5 +55,5 @@ extern "C" ARM void func_ov002_0215a7b4(char* self, int type, int key, int extra
             RemoveSlotShiftDown0208386c((struct Slots0208386c*)field150, (signed char)extra);
         }
     }
-    *(unsigned char*)(self + 0x2478) = 1;
+    *(unsigned char*)(self + DIRTY_0215a7b4) = 1;
 }

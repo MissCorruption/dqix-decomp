@@ -2,11 +2,21 @@
 #include "std_library_functions.h"
 #include "Resource/Brightness.h"
 
+#if defined(jpn)
+#define ENTRY_TEXT_02093b90 0xc
+#define TEXT_LEN_02093b90 0x30
+#define DRAW_ARGS_02093b90 10, 15
+#else
+#define ENTRY_TEXT_02093b90 0x30
+#define TEXT_LEN_02093b90 128
+#define DRAW_ARGS_02093b90 15, 0
+#endif
+
 struct FlagWord02046708;
 struct AllocatorUnion;
 struct Obj0205eaa0;
 struct TextEntry02093b90 {
-    char text[0x30];
+    char text[ENTRY_TEXT_02093b90];
     short code;
     signed char index;
     unsigned char started;
@@ -15,7 +25,7 @@ struct Obj020941b0 {
     TextEntry02093b90 entries[16];
     int handle;
     float phase;
-    unsigned char text[128];
+    unsigned char text[TEXT_LEN_02093b90];
     unsigned char state:7, display:1;
     unsigned char enabled:1, reserved:7;
     unsigned char elapsed;
@@ -118,7 +128,7 @@ extern "C" ARM void func_02093b90(Obj020941b0* self, int ticks) {
                 ClearTwoWordsAndByte_0205b20c(&descriptor);
                 SetField0_0205b220(&descriptor, (int)pixels);
                 SetFieldsAt0x4And0x8_0205b228(&descriptor, (int)tiles, 8);
-                func_0205b234(&descriptor, 16, 3, text, 15, 0);
+                func_0205b234(&descriptor, 16, 3, text, DRAW_ARGS_02093b90);
                 CleanInvalidateCacheRange(pixels, 0x800);
                 if (display==0) LoadToMainObjVRAM(pixels, destination-0x800, 0x800);
                 else LoadToSubObjVRAM(pixels, destination-0x800, 0x800);
@@ -126,7 +136,7 @@ extern "C" ARM void func_02093b90(Obj020941b0* self, int ticks) {
           }
         }
         TailForward02012da4(&data_02114e20,pixels);
-        memset(self->text,0,128);
+        memset(self->text,0,TEXT_LEN_02093b90);
         self->flags |=4;
         if (!self->entries[0].started) {
             DispatchWithShortB4_0205eaa0(&data_02108760,29,0);
