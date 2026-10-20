@@ -825,7 +825,7 @@ from:0x0200a8dc kind:load to:0x020eee94 module:main
 from:0x0200aa10 kind:arm_call to:0x02009038 module:main
 from:0x0200aa20 kind:arm_call to:0x020090f4 module:main
 from:0x0200aa40 kind:load to:0x020ca428 module:main
-from:0x0200b4b0 kind:load to:0x020f3390 module:main
+from:0x0200b4b0 kind:load to:0x020f3390 module:none
 from:0x0200c958 kind:load to:0x020f3390 module:main
 from:0x0200cc2c kind:arm_call to:0x0200ce08 module:main
 from:0x0200cdd0 kind:arm_call to:0x0200d01c module:main
