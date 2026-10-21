@@ -7,7 +7,7 @@ Also, please note that a 30-day free trial may be activated automatically when y
 This trial is available only once per lifetime, so please keep that in mind.<br>
 
 
-https://www.jetbrains.com/ja-jp/clion/download/
+https://www.jetbrains.com/clion/download/
 
 ## Files and analysis scope
 | Path | Role |
