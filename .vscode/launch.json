@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "melonDS ARM9",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/../dqix-debug/arm9_dbg.elf",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb-multiarch",
+            "miDebuggerServerAddress": "localhost:3333",
+            "stopAtConnect": true,
+            "setupCommands": [
+                { "text": "set architecture armv5te" },
+                { "text": "set breakpoint pending on" },
+                { "text": "source ${workspaceFolder}/../dqix-debug/gdb_overlays.py" }
+            ]
+        }
+    ]
+}

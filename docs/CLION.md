@@ -7,7 +7,7 @@ Open the repository folder in CLion 2026.1 or later. The committed `.idea/c_cpp_
 | `tools/ide/mwcc_compat.h` | Fixed, IDE-only forced include configured for every analyzed source. Handles CodeWarrior section annotations and its clear-memory builtin. |
 | `src/` | Original C/C++ definitions and uses, indexed in place. |
 | `include/` | Original headers and declarations, provided as an include directory. |
-| Other `.idea/` files, `.vscode/` | Local IDE preferences, ignored by Git. |
+| Other `.idea/` files, `.vscode/` except `launch.json` | Local IDE preferences, ignored by Git. |
 | `tools/configure.py`, `build.ninja`, `tools/mwccarm/` | Existing ROM build setup and compiler; not used to configure this navigation setup. |
 | Sibling `dqix-decomp-kit/` | Existing matching tools; no CLion additions are required. |
 | Sibling `dqix-kit-state/wip/` | Optional candidate sources; keep them outside the decomp's `src/`. |

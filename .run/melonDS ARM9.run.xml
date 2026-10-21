@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="melonDS ARM9" type="CLion_Remote" version="1" remoteCommand="localhost:3333" symbolFile="$PROJECT_DIR$/../dqix-debug/arm9_dbg.elf" sysroot="">
+    <method v="2" />
+  </configuration>
+</component>
