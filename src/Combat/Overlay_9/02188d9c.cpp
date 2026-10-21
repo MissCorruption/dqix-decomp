@@ -18,9 +18,6 @@ struct Struct021847c4 { int a, b, c, d, e, f, g, h; };
 
 void ResetFields021847c4(struct Struct021847c4 *s);
 
-#if defined(jpn) || defined(eur)
-extern const short data_ov009_0218ac04[];
-#else
 extern const short data_ov009_0218ac04[] = {
 	1, 64, 48, 128, 32, 0, 48, 1, 2,
 	2, 32, 40, 32, 72, 40, 0, 5, 1,
@@ -32,7 +29,6 @@ extern const short data_ov009_0218ac04[] = {
 	8, 24, 56, 16, 16, 16, 16, 11, 6,
 	-1,
 };
-#endif
 
 // USA: func_ov009_02188d9c
 extern "C" ARM void func_ov009_02188d9c(void *self) {

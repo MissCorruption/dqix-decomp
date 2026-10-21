@@ -1,5 +1,3 @@
-#THIS IS FOR CLION ONLY. NEVER ATTEMPT TO BUILD USING THIS! USE THE KIT!
-
 cmake_minimum_required(VERSION 3.20)
 project(DQIX_Navigation LANGUAGES C CXX)
 
@@ -9,7 +7,6 @@ file(GLOB_RECURSE NAV_FILES CONFIGURE_DEPENDS
         "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h"
 )
 
-##THIS IS FOR CLION ONLY. NEVER ATTEMPT TO BUILD USING THIS! USE THE KIT!
 add_library(dqix_navigation OBJECT EXCLUDE_FROM_ALL ${NAV_FILES})
 
 target_include_directories(dqix_navigation PRIVATE
@@ -35,5 +32,3 @@ else()
             "SHELL:-include \"${CMAKE_CURRENT_SOURCE_DIR}/tools/ide/mwcc_compat.h\""
     )
 endif()
-
-##THIS IS FOR CLION ONLY. NEVER ATTEMPT TO BUILD USING THIS! USE THE KIT!
