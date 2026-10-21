@@ -31,8 +31,6 @@ extern "C" char data_02108760[];
 
 #if defined(jpn)
 #define RG(u, j) (j)
-extern "C" int func_ov002_0215c974(char *self, int id);
-#define func_ov002_0215b720 func_ov002_0215c974
 #else
 #define RG(u, j) (u)
 #endif

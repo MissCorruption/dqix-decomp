@@ -43,8 +43,6 @@ extern "C" char data_02108760;
 #if defined(jpn)
 #undef OBJ
 #define OBJ (self + 0xe20)
-extern "C" int func_ov002_0215c974(char *self, int id);
-#define func_ov002_0215b720 func_ov002_0215c974
 
 extern "C" ARM void func_ov002_02165764(char *self) {
     int state = *(int *) (self + 0x1a88);

@@ -6,8 +6,6 @@
 #define RG(u, j) (j)
 #define func_0205ec34 func_0205ff20
 #define func_ov002_0215bba8 func_ov002_0215cd18
-#define SyncElementFlags0215b648 func_ov002_0215c8a0
-extern "C" void func_ov002_0215c8a0(unsigned char*);
 #else
 #define RG(u, j) (u)
 #endif
@@ -83,9 +81,7 @@ extern "C" void func_ov023_021e7404(void*, int);
 void ClearFlagBit1IfEnabled_02156178(unsigned char*);
 extern "C" void func_ov023_021eb43c(void*);
 extern "C" int func_ov002_02154c30(void*);
-#if !defined(jpn)
 void SyncElementFlags0215b648(unsigned char*);
-#endif
 extern "C" void func_ov002_02156bc8(BattleActor*);
 extern "C" void func_ov002_02156c7c(BattleActor*);
 extern "C" void func_ov002_021561b0(BattleActor*);

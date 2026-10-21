@@ -1,6 +1,12 @@
 #include "Resource/ActionDataTables.h"
 #include <globaldefs.h>
 
+#if defined(jpn)
+enum { StateOffset = 0xa80, StateA = 7, StateB = 0x12, StateC = 8 };
+#else
+enum { StateOffset = 0xbb8, StateA = 6, StateB = 0x11, StateC = 7 };
+#endif
+
 void* SearchBothTables02079e2c(char* p, int key);
 void* GetData02153637_020e2ff8(void);
 void StoreInFirstEmptySlot_020e3368(unsigned char* base, unsigned char val);
@@ -15,7 +21,7 @@ struct Field18_0215b720 {
 extern "C" ARM int func_ov002_0215b720(unsigned char* obj, int key) {
     int result = 0;
 
-    if (*(int*)(obj + 0x1000 + 0xbb8) == 6 || *(int*)(obj + 0x1000 + 0xbb8) == 0x11) {
+    if (*(int*)(obj + 0x1000 + StateOffset) == StateA || *(int*)(obj + 0x1000 + StateOffset) == StateB) {
         if (key == 0x198 || key == 0x22 || key == 0x310) {
             result = 1;
         }
@@ -27,7 +33,7 @@ extern "C" ARM int func_ov002_0215b720(unsigned char* obj, int key) {
             if (f->field1 == 2 || f->field1 == 7 || f->field1 == 0x4f || f->field1 == 0x50 || f->field1 == 0x12 || f->field1 == 0x1a) {
                 result = 1;
             }
-            if (f->field0 == 5 && *(int*)(obj + 0x1000 + 0xbb8) == 7) {
+            if (f->field0 == 5 && *(int*)(obj + 0x1000 + StateOffset) == StateC) {
                 result = 1;
             }
         }
