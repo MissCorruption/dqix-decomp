@@ -1,60 +1,55 @@
 # CLion navigation
-Open the repository folder in CLion 2026.1 or later. The committed `.idea/c_cpp_properties.json` supplies the analysis settings directly.<br>
-No setup command, generated compilation database, template copy, compiler installation or kit change is needed.<br>
+Open the repository folder in CLion 2026.1 or later. CLion automatically discovers the root `CMakeLists.txt` and uses it to configure C/C++ code analysis and navigation.<br>
+The CMake project provides source indexing, include paths, region definitions and CodeWarrior compatibility settings.<br>
 
 To start navigating code in CLion, create a JetBrains account, download CLion, and select **Non-commercial use** as the license type.<br>
 Also, please note that a 30-day free trial may be activated automatically when you launch CLion for the first time with your account.<br>
 This trial is available only once per lifetime, so please keep that in mind.<br>
-
-
 https://www.jetbrains.com/clion/download/
 
 ## Files and analysis scope
 | Path | Role |
 | --- | --- |
-| `.idea/c_cpp_properties.json` | Automatically discovered C/C++ analysis settings. Tracked in Git, with workspace-relative paths. |
-| `tools/ide/mwcc_compat.h` | Fixed, IDE-only forced include configured for every analyzed source. Handles CodeWarrior section annotations and its clear-memory builtin. |
-| `src/` | Original C/C++ definitions and uses, indexed in place. |
-| `include/` | Original headers and declarations, provided as an include directory. |
-| Other `.idea/` files, `.vscode/` except `launch.json` | Local IDE preferences, ignored by Git. |
-| `tools/configure.py`, `build.ninja`, `tools/mwccarm/` | Existing ROM build setup and compiler; not used to configure this navigation setup. |
-| Sibling `dqix-decomp-kit/` | Existing matching tools; no CLion additions are required. |
-| Sibling `dqix-kit-state/wip/` | Optional candidate sources; keep them outside the decomp's `src/`. |
+| `CMakeLists.txt` | Shared CMake configuration for CLion navigation, including source discovery, include directories, region macros and IDE parsing settings. |
+| `.idea/` | Local CLion project settings and caches. Ignored by Git. |
+| `.vscode/` | Local VS Code settings. Ignored by Git, except for explicitly tracked files such as `launch.json`. |
+| `tools/ide/mwcc_compat.h` | IDE compatibility header for CodeWarrior-specific constructs. |
+| `include/globaldefs.h` | Additional forced include when using an MSVC toolchain. |
+| `src/` | Original C/C++ source files, indexed in place. |
+| `include/` | Original headers and declarations, available through CMake include directories. |
+| `tools/configure.py`, `build.ninja`, `tools/mwccarm/` | Original ROM build infrastructure. |
+| Sibling `dqix-decomp-kit/` | Matching and build tools. |
+| Sibling `dqix-kit-state/wip/` | External work-in-progress candidate sources. |
 
-The analysis configuration has an empty `compilerPath` and no `compileCommands` entry.<br>
-It supplies `includePath`, region macros and the fixed `forcedInclude`; its browse scope covers `src/` and `include/` with `limitSymbolsToIncludedHeaders` disabled.<br>
-Source files are not enumerated in generated commands, so adding a source does not require regeneration.<br>
-CLion's language engine performs the actual indexing and reference resolution.<br>
-
-The forced header supplies parser compatibility for each source independently.<br>
-It does not include all `.cpp` files into one translation unit or synthesize declarations and definitions.<br>
-This keeps separate file-local types, static functions and alternate implementations from being merged accidentally.<br>
-The header is guarded by `DQIX_IDE` and rejects use with CodeWarrior's `__MWERKS__` macro.<br>
+The CMake configuration discovers `.cpp` and `.c` files under `src/` and `.h` files under `include/` using `file(GLOB_RECURSE ... CONFIGURE_DEPENDS)`.<br>
+New source files are discovered during CMake reconfiguration.<br>
+The `dqix_navigation` target is an object library marked `EXCLUDE_FROM_ALL`, providing CLion with a project model for code inspection.<br>
+The configuration adds `include/` to the include directories and defines `jpn` and `DQIX_IDE=1`.<br>
+The compatibility header is force-included for each translation unit. MSVC toolchains additionally force-include `include/globaldefs.h`.<br>
+Each source remains an independent translation unit, preserving file-local types, static functions and declarations.<br>
+CLion's language engine uses this configuration for indexing, navigation and reference resolution.<br>
 
 ## Region and use
-The committed configuration selects JPN.<br>
-For USA, replace `jpn` in `defines` with `usa`; for EUR, use both `usa` and `eur`.<br>
-Keep `DQIX_IDE=1`.<br>
-C99/C++11 are IDE parsing settings only; matching sources still follow the real compiler's language rules.<br>
-`__MWERKS__` stays undefined so the source's existing IDE alternatives are active.<br>
-
-After opening the folder and allowing indexing to finish, use `Ctrl+B` for declarations/definitions and `Alt+F7` for Find Usages.<br>
-`AlphaTween::Advance` in `src/Graphics/AlphaTween.cpp`, its declaration in `include/Graphics/AlphaTween.h` and calls in `src/Combat/Main/func_020489e8.cpp` provide a concrete cross-file check.<br>
+The default configuration selects JPN.<br>
+For USA, replace `jpn` with `usa` in `target_compile_definitions`. For EUR, use both `usa` and `eur`.<br>
+Keep `DQIX_IDE=1` enabled for IDE analysis.<br>
+The configuration uses C99 for C sources and C++11 for C++ sources.<br>
+The `__MWERKS__` macro remains undefined so the source's existing IDE alternatives are active.<br>
+After opening the repository, allow CMake configuration and indexing to finish.<br>
+Use `Ctrl+B` to navigate to declarations and definitions, and `Alt+F7` to find usages.<br>
+For a cross-file navigation check, use `AlphaTween::Advance` in `src/Graphics/AlphaTween.cpp`, its declaration in `include/Graphics/AlphaTween.h`, and calls in `src/Combat/Main/func_020489e8.cpp`.<br>
 
 ## External work-in-progress files
-To browse a kit candidate together with the decomp, open their common parent folder in CLion.<br>
-Put the analysis configuration in that parent's `.idea/c_cpp_properties.json`; adjust the include and forced-header paths to `${workspaceFolder}/dqix-decomp/include` and `${workspaceFolder}/dqix-decomp/tools/ide/mwcc_compat.h`.<br>
-Adjust the browse paths to the decomp's `src/`, `include/` and the active WIP directory.<br>
-Use the actual directory names when they differ.<br>
-
-Keep attempts, archives, build outputs and competing copies of a function outside the IDE's indexing scope.<br>
-The kit's `DQIX_REPO` and `DQIX_STATE` settings resolve its script paths; they do not configure CLion.<br>
-No source copying, kit wrapper or kit modification is required.<br>
-If a checkout contains additional `libs/**/include` directories, add those actual header directories to the analysis include paths.<br>
+External candidate sources can be included in a separate local CMake configuration for cross-file navigation.<br>
+Keep candidate files in their existing sibling directories and reference their actual paths from the local CMake project.<br>
+Include the relevant source files and header directories in the analysis target, then reload CMake.<br>
+For checkouts containing additional `libs/**/include` directories, configure the relevant include directories through CMake.<br>
+The kit's `DQIX_REPO` and `DQIX_STATE` settings continue to resolve its script paths independently.<br>
 
 ## Limits and verification
-Existing `extern` declarations can be associated with C/C++ definitions when the IDE indexes both sides with compatible types, linkage and preprocessor context.<br>
-This does not need a compiler or linker run.<br>
-A fixed forced include supplies parsing context; it cannot create a missing definition or guarantee that inconsistent reconstructed declarations are treated as one symbol.<br>
-The configuration's JSON, paths, source-directory coverage and Git inclusion have been checked. CLion's graphical interface and its handling of every imported properties field have not been exercised here; project-wide navigation is not claimed as verified. CodeWarrior assembly syntax can still produce IDE diagnostics, and this configuration does not reproduce every per-file ABI/compiler flag or replace ROM matching checks.
-References: [CLion custom-project support](https://blog.jetbrains.com/clion/2026/03/2026-1-release/), [CLion project import](https://www.jetbrains.com/help/clion/creating-new-project-from-scratch.html), [C/C++ properties reference](https://code.visualstudio.com/docs/cpp/customize-cpp-settings).
+Cross-file navigation depends on CLion indexing the relevant translation units with compatible declarations, linkage and preprocessor definitions.<br>
+The compatibility header provides parsing support for CodeWarrior-specific constructs. Some assembly syntax and compiler-specific extensions may still produce IDE diagnostics.<br>
+This CMake project is dedicated to CLion navigation and code inspection. ROM builds and matching verification are performed using the existing kit.<br>
+The configuration provides project-wide parsing settings rather than reproducing every original CodeWarrior compiler option.<br>
+CLion's graphical indexing and navigation behavior have not been independently verified.<br>
+References: [CLion CMake project support](https://www.jetbrains.com/help/clion/cmakelists-txt-file.html), [CLion toolchains](https://www.jetbrains.com/help/clion/how-to-create-toolchain-in-clion.html).
