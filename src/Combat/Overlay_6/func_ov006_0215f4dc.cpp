@@ -4,17 +4,27 @@ struct Container02080f8c;
 struct Container02080fa8;
 
 struct AlchemyMenu {
+#if !defined(jpn)
     int textPosition_;
     char** texts_;
+#endif
     char padding_0x08[0xc];
     void* menu_;
     char padding_0x18[0x30];
     short** items_;
     unsigned char** counts_;
     unsigned short* sizes_;
+#if defined(jpn)
+    char padding_0x54[0x118];
+#else
     char padding_0x54[0x11c];
+#endif
     char itemNames_[0xc];
+#if defined(jpn)
+    char padding_0x17c[0x1f2];
+#else
     char padding_0x17c[0x1e6];
+#endif
     short categoryCursor_;
     char padding_0x364[0xc];
     short item_;
@@ -32,6 +42,10 @@ void SetSublistEntriesFlag2_02080608(void*, int);
 void ClearSublistEntryFlag2_020806c4(void*, int);
 void SetEntryFlagById02080b40(void*, int);
 void* CallFunc020e52a0_020e5294(void*, int);
+#if defined(jpn)
+struct Container020e0310;
+const char* GetFieldByKey020e0434(Container020e0310*, int);
+#endif
 void SetEntryFirstField02080f8c(Container02080f8c*, int, int);
 void SetEntryFirstField02080fa8(Container02080fa8*, int, int);
 void Forward0207f7acObjPlus4Size0x40_020805f4(void*, int);
@@ -71,6 +85,9 @@ extern "C" ARM void func_ov006_0215f4dc(AlchemyMenu* self) {
             SetEntryFlagById02080b40(menu, nameEntry);
             SetEntryFlagById02080b40(menu, iconEntry);
             SetEntryFlagById02080b40(menu, countEntry);
+#if defined(jpn)
+            SetEntryFirstField02080f8c((Container02080f8c*)menu, nameEntry, (int)GetFieldByKey020e0434((Container020e0310*)self->itemNames_, items[position]));
+#else
             const char** name = (const char**)CallFunc020e52a0_020e5294(self->itemNames_, items[position]);
             if (name != NULL) {
                 memset(self->texts_[row], 0, 4);
@@ -78,6 +95,7 @@ extern "C" ARM void func_ov006_0215f4dc(AlchemyMenu* self) {
                 SetEntryFirstField02080f8c((Container02080f8c*)self->menu_, nameEntry, (int)self->texts_[row]);
             }
             Forward0207f7acObjPlus4Size0x40_020805f4(menu, nameEntry);
+#endif
             unsigned char amount = counts[position];
             if (self->item_ == items[position]) amount -= self->count_;
             SetEntryFirstField02080fa8((Container02080fa8*)menu, countEntry, amount);

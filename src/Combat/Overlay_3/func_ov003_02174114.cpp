@@ -8,9 +8,15 @@ struct Sub02081ee4;
 struct List0204af64;
 
 struct Global020421a0 {
+#if defined(jpn)
+    char unk_0[0x28];
+    int p5c_;
+    char unk_60[0x868 - 0x2c];
+#else
     char unk_0[0x5c];
     int p5c_;
     char unk_60[0x998 - 0x60];
+#endif
     int f998_;
     int f99c_;
 };
@@ -31,7 +37,11 @@ struct Battle02174114 {
     unsigned char b35_;
     char unk_36[2];
     int dispcnt_;
+#if defined(jpn)
+    char s3c_[0x7d8 - 0x3c - 0x84];
+#else
     char s3c_[0x7d8 - 0x3c];
+#endif
     char s7d8_[0x830 - 0x7d8];
     int f830_;
     char s834_[0x88c - 0x834];
@@ -77,7 +87,11 @@ struct Battle02174114 {
 };
 
 Global020421a0 *GetGlobalField0x1c020421a0(void);
+#if defined(jpn)
+extern "C" void func_0204500c(Global020421a0 *, int, int);
+#else
 extern "C" void func_0204500c(Global020421a0 *, int, int, int);
+#endif
 void ResetStruct020dfc40(Struct020dfc40 *);
 extern "C" void func_02074af4(void *);
 extern "C" void func_ov023_021dc134(void *, int, int);
@@ -89,12 +103,22 @@ extern "C" void func_0204c684(void *);
 unsigned char CopyOutRegion0x5718_02011494(char *, void *);
 GameObject *GetCombatantWithFlag0x100_0200ff1c(GameState *, int);
 
+#if defined(jpn)
+#define FIGHTER_OFF_02174114 0x144
+#else
+#define FIGHTER_OFF_02174114 0x150
+#endif
+
 // USA: func_ov003_02174114
 extern "C" ARM void func_ov003_02174114(Battle02174114 *self) {
     Global020421a0 *g = GetGlobalField0x1c020421a0();
     int p             = g->p5c_;
     self->fff0_       = g->f99c_;
+#if defined(jpn)
+    func_0204500c(g, p, 0);
+#else
     func_0204500c(g, p, 0, 0xe3);
+#endif
     g->f998_ = 1;
     g->f99c_ = self->fff0_;
 
@@ -123,7 +147,11 @@ extern "C" ARM void func_ov003_02174114(Battle02174114 *self) {
     self->ffe0_     = 0;
     self->ffe4_     = 0;
     self->ffe8_     = 0;
+#if defined(jpn)
+    self->ffec_     = 0;
+#else
     self->ffec_     = -1;
+#endif
     self->fff4_     = 0;
     self->fff8_     = 0;
     self->sffc_     = -1;
@@ -175,7 +203,7 @@ extern "C" ARM void func_ov003_02174114(Battle02174114 *self) {
     while (r < self->count_) {
         GameObject *c = GetCombatantWithFlag0x100_0200ff1c(gs, self->ids_[r]);
         if (c) {
-            Fighter02174114 *f = *(Fighter02174114 **) ((char *) c + 0x150);
+            Fighter02174114 *f = *(Fighter02174114 **) ((char *) c + FIGHTER_OFF_02174114);
             bool alive         = f ? (f->lo_ != 0) : false;
             if (alive) {
                 int s = r;

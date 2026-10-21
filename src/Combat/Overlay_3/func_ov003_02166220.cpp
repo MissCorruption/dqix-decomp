@@ -16,7 +16,11 @@ int SetSublistEntriesFlag1_02080b54(void* obj, int id);
 void* GetPtrField0x2a04_02010828(GameState*);
 void SetOrClearFlags464_02166164(Outer02166164*, int, int);
 extern "C" void func_02042764(void* src, void* dst, int flag);
+#if defined(jpn)
+short GetFieldAt0x50(Struct020865b0*);
+#else
 int GetFieldAt0x50(Struct020865b0*);
+#endif
 int ClassifyRatio_0215f56c(S0215f56c*);
 int SetEntryFlagById02080b40(void* obj, int id);
 void SetEntryHighNibble0x13(struct Container02080cc0* obj, int id, int value);
@@ -61,13 +65,29 @@ struct ShortPair02166220 {
 };
 
 struct Table0217f3ec {
+#if defined(jpn)
+    char pad[0x14];
+#else
     char pad[0x20];
+#endif
     ShortPair02166220 ids;
 };
 
 extern Table0217f3ec data_ov003_0217f3ec;
 
 struct StatusPanel02166220 {
+#if defined(jpn)
+    char pad[0x1c4];
+    Container020e0310 cont2dc;
+    char pad2e4[0x20c - 0x1cc];
+    struct Container02080cc0* elementObj;
+    char pad328[0x290 - 0x210];
+    unsigned char counters[4];
+    char pad46c[0x2c7 - 0x294];
+    signed char page;
+    char pad4a0[0x2e5 - 0x2c8];
+    unsigned char flag4bd;
+#else
     char pad[0x2dc];
     Container020e0310 cont2dc;
     char pad2e4[0x324 - 0x2e4];
@@ -80,10 +100,15 @@ struct StatusPanel02166220 {
     signed char page;
     char pad4a0[0x4bd - 0x4a0];
     unsigned char flag4bd;
+#endif
 };
 
 struct EntryList02166220 {
+#if defined(jpn)
+    char pad[0x2a];
+#else
     char pad[0x36];
+#endif
     short field36;
 };
 
@@ -94,7 +119,11 @@ extern "C" ARM void func_ov003_02166220(StatusPanel02166220* self) {
     short count;
     MemberEntry02166220* entry;
     short idB;
+#if defined(jpn)
+    short v;
+#else
     int v;
+#endif
     int k;
     short row;
     int idA;
@@ -120,13 +149,19 @@ extern "C" ARM void func_ov003_02166220(StatusPanel02166220* self) {
     idC = 0xcb;
     memset(self->counters, 0, 4);
     SetOrClearFlags464_02166164((Outer02166164*)self, count > 4, 1);
+#if !defined(jpn)
     memset(self->names, 0, sizeof(self->names));
+#endif
 
     for (i = 0; i < 4; i++) {
         entry = &party->members[row];
+#if defined(jpn)
+        SetEntryFirstField02080f8c((struct Container02080f8c*)elementObj, idA, (int)entry->name);
+#else
         off = i * 0x30;
         func_02042764(entry->name, (char*)self->names + off, 1);
         SetEntryFirstField02080f8c((struct Container02080f8c*)elementObj, idA, (int)&self->names[0][off]);
+#endif
         if (GetFieldAt0x50((Struct020865b0*)entry) != 0) {
             v = (short)(GetFieldAt0x50((Struct020865b0*)entry) + 0x11);
         }
@@ -143,8 +178,10 @@ extern "C" ARM void func_ov003_02166220(StatusPanel02166220* self) {
                 _Z22SetEntryHighNibble0x13P17Container02080cc0ii(elementObj, k, color);
                 SetEntryFlagById02080b40(elementObj, (short)k);
             }
+#if !defined(jpn)
             SetEntryHighNibble0x13(elementObj, idB, color);
             SetEntryFlagById02080b40(elementObj, idB);
+#endif
             self->counters[i] = entry->bit0 + 1;
             kind = entry->unkF[GetFieldAt0x50((Struct020865b0*)entry)];
             SetEntryHalfword0xe_0208103c(elementObj, idC, (short)(kind + 100));
@@ -156,7 +193,11 @@ extern "C" ARM void func_ov003_02166220(StatusPanel02166220* self) {
                 key = i + 0x19;
                 GetEntryFieldsAt0x602080828(elementObj, (short)key, &t22, &t20);
                 _Z23GetEntryOutputs020808c8PviPsS0_(elementObj, key, &t1e, &t1c);
+#if defined(jpn)
+                SetEntryFieldsAt0x602080854(elementObj, idC, (short)(t22 + t1e + 1), (short)(t20 + 2));
+#else
                 SetEntryFieldsAt0x602080854(elementObj, idC, (short)(t22 + t1e + 1), t20);
+#endif
                 SetEntryHighNibble0x13(elementObj, idC, color);
                 SetEntryFlagById02080b40(elementObj, idC);
             }
@@ -168,7 +209,9 @@ extern "C" ARM void func_ov003_02166220(StatusPanel02166220* self) {
         row++;
         idA = (short)(idA + 1);
         idC = (short)(idC + 1);
+#if !defined(jpn)
         idB++;
+#endif
     }
 
     func_ov003_0215f5e8(elementObj, self->page, count);

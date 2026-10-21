@@ -55,7 +55,11 @@ struct BattleSetup021e33b4 {
     char unk_18[0x2c - 0x18];
     SafeAllocator bufferAllocator_2c;
     SafeAllocator allocator_40;
+#if defined(jpn)
+    SafeAllocator allocator_54;
+#else
     char unk_54[0x68 - 0x54];
+#endif
     SafeAllocator spriteAllocator_68;
     SafeAllocator tableAllocator_7c;
     SafeAllocator dataAllocator_90;
@@ -67,7 +71,11 @@ struct BattleSetup021e33b4 {
     SpriteList021e33b4* sprites_c8;
     char* spriteEntries_cc;
     void* spriteExtra_d0;
+#if defined(jpn)
+    char table_d4[0x11c - 0xd4];
+#else
     char table_d4[0x120 - 0xd4];
+#endif
     Model021e33b4* models_120[2];
     Model021e33b4* current_128[2];
     char unk_130[0x138 - 0x130];
@@ -79,7 +87,11 @@ struct BattleSetup021e33b4 {
     signed char mode_4e5;
     char unk_4e6[0x4fc - 0x4e6];
     int combatant_4fc;
+#if defined(jpn)
+    char unk_500[0x568 - 0x4fc];
+#else
     char unk_500[0x630 - 0x500];
+#endif
     int task_630;
     unsigned short flags_634;
     void* buffer_638;
@@ -95,6 +107,28 @@ extern const char data_ov023_021fdca4[];
 extern const char data_ov023_021fdcb6[];
 extern const char data_ov023_021fdcc4[];
 extern const char data_ov023_021fdc94[];
+
+#if defined(jpn)
+#define data_020f2a40 data_020f2bcc
+#define data_ov023_021fd66c data_ov023_021fc936
+#define data_ov023_021fdca4 data_ov023_021fcf60
+#define data_ov023_021fdcc4 data_ov023_021fcf75
+#define data_ov023_021fdc94 data_ov023_021fcf50
+#define func_ov005_0215ae7c func_ov005_0215c33c
+#define func_ov023_021e49a4 func_ov023_021e4bc8
+struct Mid02154da8;
+void ResetAllocatorAndCallInner02154da8(Mid02154da8*, int, int);
+extern const char* data_020f2bcc;
+extern const char data_ov023_021fc936[];
+extern const char data_ov023_021fcf60[];
+extern const char data_ov023_021fcf75[];
+extern const char data_ov023_021fcf50[];
+#define BATTLE_SIZE_021e33b4 0x3e9c
+#define SPRITE_COUNT_021e33b4 0xf
+#else
+#define BATTLE_SIZE_021e33b4 0x428c
+#define SPRITE_COUNT_021e33b4 0x10
+#endif
 
 extern "C" void* memset(void* dst, int value, unsigned int length);
 extern "C" void* memcpy(void* dst, const void* src, unsigned int length);
@@ -182,7 +216,11 @@ extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
         if (AlwaysTrue02094b4c(GetGlobal02109400_02094a00()))
         {
             func_ov017_0219ba0c(resources, 1);
+#if defined(jpn)
+            self->task_630 = loader->QueueLoadGP1(data_020f2a38, NULL);
+#else
             self->task_630 = loader->QueueLoadFileInGP2(data_020f2a38, data_020f2a30, NULL);
+#endif
             self->step_4e4++;
         }
     }
@@ -206,23 +244,31 @@ extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
 
             if (self->mode_4e5 == 3)
             {
-                self->battle_0 = self->allocator_10->Allocate(0x428c);
+                self->battle_0 = self->allocator_10->Allocate(BATTLE_SIZE_021e33b4);
                 func_ov005_02153ba4(self->battle_0);
                 func_ov005_02153954(self->battle_0, self->allocator_10, self->unk_c);
+#if defined(jpn)
+                ResetAllocatorAndCallInner02154da8((Mid02154da8*)self->battle_0, (int)data, size);
+#else
                 func_ov004_02154da8(self->battle_0, data, size);
+#endif
             }
 
             self->bufferAllocator_2c.CreateTypeA(self->allocator_10->Allocate(0x800), 0x800);
             self->allocator_40.CreateTypeA(self->allocator_10->Allocate(0x100), 0x100);
+#if defined(jpn)
+            self->allocator_54.CreateTypeA(self->allocator_10->Allocate(0xc00), 0xc00);
+#else
             for (int i = 0; i < 2; i++)
             {
                 self->buffers_640[i] = self->bufferAllocator_2c.Allocate(0x40);
                 memset(self->buffers_640[i], 0, 0x40);
             }
+#endif
 
             self->spriteAllocator_68.CreateTypeA(self->allocator_4->Allocate(0x100), 0x100);
             self->sprites_c8 = (SpriteList021e33b4*)self->allocator_4->Allocate(0x54);
-            self->spriteEntries_cc = (char*)self->allocator_4->Allocate(0x280);
+            self->spriteEntries_cc = (char*)self->allocator_4->Allocate(SPRITE_COUNT_021e33b4 * 0x28);
             self->spriteExtra_d0 = self->allocator_4->Allocate(8);
             if (self->battle_0 != NULL && self->spriteExtra_d0 != NULL && self->sprites_c8 != NULL)
                 InitEntryManagerAndAllocator02159c24((Obj02159c24*)self->battle_0, self->spriteExtra_d0, self->sprites_c8);
@@ -299,12 +345,16 @@ extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
 
             InitStruct0205a444((char*)self->sprites_c8);
             self->sprites_c8->flag_50 = 0;
-            self->sprites_c8->SetEntries(self->spriteEntries_cc, 0x10);
+            self->sprites_c8->SetEntries(self->spriteEntries_cc, SPRITE_COUNT_021e33b4);
             self->sprites_c8->ptr_3c = self->spriteExtra_d0;
-            for (int i = 0; i < 0x10; i++)
+            for (int i = 0; i < SPRITE_COUNT_021e33b4; i++)
                 Init0205a198((Struct0205a198*)(self->spriteEntries_cc + i * 0x28));
 
+#if defined(jpn)
+            self->task_630 = loader->QueueLoadFile(data_ov023_021fdca4, NULL);
+#else
             self->task_630 = loader->QueueLoadFileInGP2(data_ov023_021fdca4, data_ov023_021fdcb6, NULL);
+#endif
             self->step_4e4++;
         }
     }
@@ -340,6 +390,7 @@ extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
     }
     else if (self->step_4e4 == 7)
     {
+#if !defined(jpn)
         TextArg021e33b4 arg;
         Clear12Bytes020e46c4(&arg);
         InitObjFromCombatantId020e4bf4(&arg, GetField0x3acValue_020100a8(gameState));
@@ -352,6 +403,7 @@ extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
             *(TextArg021e33b4**)messages = &arg;
             func_02046608(messages, 8, GetFieldByKey020e0434(texts, 0x226), self->buffers_640[i], 0x100, 0, 0);
         }
+#endif
         self->task_630 = loader->QueueLoadFile(data_ov023_021fdcc4, NULL);
         self->step_4e4++;
     }
@@ -396,7 +448,9 @@ extern "C" ARM void func_ov023_021e33b4(BattleSetup021e33b4* self)
         func_ov023_021e3d3c(self->table_d4, 0x12, 1);
         func_ov023_021e3d3c(self->table_d4, 0x1b, 1);
         func_ov023_021e3d3c(self->table_d4, 0x20, 1);
+#if !defined(jpn)
         func_ov023_021e2ce8(self->combatant_4fc, self->sprites_c8);
+#endif
         CopyByteFieldToNextAndSet_021e33a0_021e33a0((char*)self, self->mode_4e5);
         self->step_4e4 = 0;
         self->flags_634 &= ~0x2000;

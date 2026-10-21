@@ -20,6 +20,10 @@ src/Combat/Overlay_23/BuildElemPaletteTags_021d9a6c.cpp:
     complete
     .text start:0x021da264 end:0x021da52c
 
+src/Combat/Overlay_23/func_ov023_021e33b4.cpp:
+    complete
+    .text start:0x021e370c end:0x021e3f98
+
 src/Combat/Overlay_23/AddOffset20_021f7318.cpp:
     complete
     .text start:0x021f6854 end:0x021f685c

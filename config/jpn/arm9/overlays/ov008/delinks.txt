@@ -127,6 +127,10 @@ src/Combat/Overlay_8/Dispatch0218936c.cpp:
 src/Combat/Overlay_8/SetupAllocators_02189284.cpp:
     .text start:0x02189f8c end:0x0218a074
 
+src/Combat/Overlay_8/func_ov008_0218aa24.cpp:
+    complete
+    .text start:0x0218b760 end:0x0218bb28
+
 src/Combat/Overlay_8/AllocateFreeSlot0218b1e0.cpp:
     .text start:0x0218be20 end:0x0218be84
 

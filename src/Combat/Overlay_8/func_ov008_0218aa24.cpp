@@ -27,12 +27,20 @@ struct PartyData0218aa24 {
     Stars0218aa24 rank[0x49c - 0x186];
     unsigned char female : 1;
     unsigned char pad49c_1 : 7;
+#if defined(jpn)
+    char pad49d[0x8b8 - 0x49d];
+#else
     char pad49d[0x950 - 0x49d];
+#endif
     int vocation;
 };
 
 struct Member0218aa24 {
+#if defined(jpn)
+    char pad0[0x144];
+#else
     char pad0[0x150];
+#endif
     PartyData0218aa24* data;
 };
 
@@ -68,15 +76,26 @@ struct Self0218aa24 {
     char pad1fc[0x278 - 0x1fc];
     char texts[0x2a0 - 0x278];
     char* text;
+#if defined(jpn)
+    char pad2a4[0xdf2 - 0x2a4];
+    char codes[0xe18 - 0xdf2];
+#else
     char pad2a4[0xdf6 - 0x2a4];
     char codes[0xe1c - 0xdf6];
+#endif
     unsigned int e1c_lo : 12;
     unsigned int e1c_title : 4;
     unsigned int e1c_scroll : 5;
     unsigned int e1c_hi : 11;
+#if defined(jpn)
+    char pad_e20[0xeb1 - 0xe1c];
+    signed char member;
+    char pad_eba[0xeb4 - 0xeb2];
+#else
     char pad_e20[0xeb9 - 0xe20];
     signed char member;
     char pad_eba[0xebc - 0xeba];
+#endif
     Quest0218aa24* quest;
 };
 
@@ -108,6 +127,112 @@ void AppendLineXTag02041cf4(char* dst, int color, int a, int b, int c);
 int AppendPaletteTag_02041e70(char* dst, int palette);
 void SetByteAtIndex_020465d8(unsigned char*, int, unsigned char);
 void SetByteInRange_020465f0(unsigned char*, int, unsigned char);
+#if defined(jpn)
+extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g);
+extern "C" void func_020474a8(void* w, int a, const char* str, char* buf);
+extern "C" int func_ov008_0218bb28(Self0218aa24* self, const char* str);
+extern "C" unsigned int strlen(const char* s);
+int AppendXTag_02041a28(char* dst, int x);
+
+// USA: func_ov008_0218aa24
+extern "C" ARM void func_ov008_0218aa24(Self0218aa24* self) {
+    char buf80[0x80];
+
+    void* win = GetGlobalField0x1c020421a0();
+    GameState* gs = GameState::GetInstance();
+    FindAndLinkMatchingEntry0205de24((Struct0205de24*)self->list, 0, 2);
+    self->c9 = 0;
+    self->bc = 0x15;
+    self->be = 0;
+    self->c0 = 8;
+    self->c2 = 3;
+    self->b8 = 11;
+    self->ba = 7;
+    self->c4 = 10;
+    self->c6 = 12;
+    self->cd = 1;
+    memset(self->text, 0, 0x800);
+
+    int vocation;
+    int scroll;
+    unsigned char rank;
+    unsigned char level;
+    const char* name;
+    if (self->quest == 0) {
+        int fail = 0;
+        Member0218aa24* m = (Member0218aa24*)gs->GetPartyMemberByIndex(self->member);
+        Ent0218aa24* ent = 0;
+        if (m == 0) {
+            fail = 1;
+        } else {
+            ent = GetFieldAt0x150_02053c6c((unsigned char*)m);
+            if (ent == 0) fail = 1;
+        }
+        if (fail) {
+            func_ov008_0218b240(self);
+            return;
+        }
+        PartyData0218aa24* data = m->data;
+        vocation = data->vocation;
+        rank = data->rank[vocation].count;
+        scroll = data->scroll[vocation];
+        name = self->codes;
+        level = ent->level;
+    } else {
+        Quest0218aa24* quest = self->quest;
+        vocation = quest->kind;
+        scroll = quest->scroll;
+        rank = quest->rank;
+        level = quest->level;
+        name = (const char*)quest;
+    }
+    FindElementByC40205d81c((Struct_0205d81c*)self->list, 0);
+    AppendXYTag_02041a90(self->text, func_ov008_0218bb28(self, name), 3);
+    AppendString02042058(self->text, name);
+    AppendLineXTag02041cf4(self->text, 0x7fff, 2, 0x56, 0xf);
+
+    char* str = FindEntryByKey_02072a68((TableA68*)self->texts, (short)vocation);
+    int x = func_ov008_0218bb28(self, str);
+    if (rank != 0) x -= 5;
+    AppendXYTag_02041a90(self->text, x, 0x12);
+    AppendString02042058(self->text, str);
+    if (rank != 0) {
+        if (rank >= 10) {
+            rank = 10;
+            AppendPaletteTag_02041e70(self->text, 0xd);
+        } else {
+            AppendPaletteTag_02041e70(self->text, 5);
+        }
+        int x2 = x + strlen(str) / 2 * 10;
+        str = FindEntryByKey_02072a68((TableA68*)self->texts, (short)(rank + 0x12c));
+        AppendXYTag_02041a90(self->text, x2, 0x11);
+        AppendString02042058(self->text, str);
+        AppendPaletteTag_02041e70(self->text, 0xf);
+    }
+
+    func_02046380(win);
+    StoreInArray0x8b0_020465c0((StoreStruct*)win, 0, scroll);
+    SetByteAtIndex_020465d8((unsigned char*)win, 0, 0);
+    SetByteInRange_020465f0((unsigned char*)win, 0, 3);
+    func_020474a8(win, 10, FindEntryByKey_02072a68((TableA68*)self->texts, 0x1f6), buf80);
+    AppendXYTag_02041a90(self->text, 0x1f, 0x1b);
+    AppendString02042058(self->text, buf80);
+    AppendLineXTag02041cf4(self->text, 0x7fff, 2, 0x56, 0x28);
+    memset(buf80, 0, 0x80);
+    StoreInArray0x8b0_020465c0((StoreStruct*)win, 1, self->e1c_title);
+    SetByteAtIndex_020465d8((unsigned char*)win, 1, 1);
+    SetByteInRange_020465f0((unsigned char*)win, 1, 2);
+    StoreInArray0x8b0_020465c0((StoreStruct*)win, 2, self->e1c_scroll);
+    SetByteAtIndex_020465d8((unsigned char*)win, 2, 1);
+    SetByteInRange_020465f0((unsigned char*)win, 2, 2);
+    func_020474a8(win, 10, FindEntryByKey_02072a68((TableA68*)self->texts, 0x1f8), buf80);
+    AppendXTag_02041a28(self->text, 12);
+    AppendString02042058(self->text, buf80);
+    func_0205d304(self->list, self->text, 0, 0, 0, 1, 0);
+    self->link->level115 = (signed char)level;
+    self->link->level13d = (signed char)level;
+}
+#else
 extern "C" void func_0205d304(void* a, void* b, int c, int d, int e, int f, int g, int h);
 
 // USA: func_ov008_0218aa24
@@ -223,3 +348,4 @@ extern "C" ARM void func_ov008_0218aa24(Self0218aa24* self) {
     self->link->level115 = (signed char)level;
     self->link->level13d = (signed char)level;
 }
+#endif
