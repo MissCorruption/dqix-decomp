@@ -2,7 +2,7 @@
 #define DQIX_IDE_MWCC_COMPAT_H
 
 #if !defined(DQIX_IDE) || defined(__MWERKS__)
-#error This header is only for the Clang indexing database, never the ROM build.
+#error This header is only for IDE analysis, never the ROM build.
 #endif
 
 // CodeWarrior section placement does not change declarations or their references.
