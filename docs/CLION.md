@@ -1,13 +1,13 @@
 # CLion navigation
-Open the repository folder in CLion 2026.1 or later. The committed `.vscode/c_cpp_properties.json` supplies the analysis settings directly. No setup command, generated compilation database, template copy, compiler installation or kit change is needed.
+Open the repository folder in CLion 2026.1 or later. The committed `.idea/c_cpp_properties.json` supplies the analysis settings directly. No setup command, generated compilation database, template copy, compiler installation or kit change is needed.
 ## Files and analysis scope
 | Path | Role |
 | --- | --- |
-| `.vscode/c_cpp_properties.json` | Automatically discovered C/C++ analysis settings. Tracked in Git, with workspace-relative paths. |
+| `.idea/c_cpp_properties.json` | Automatically discovered C/C++ analysis settings. Tracked in Git, with workspace-relative paths. |
 | `tools/ide/mwcc_compat.h` | Fixed, IDE-only forced include configured for every analyzed source. Handles CodeWarrior section annotations and its clear-memory builtin. |
 | `src/` | Original C/C++ definitions and uses, indexed in place. |
 | `include/` | Original headers and declarations, provided as an include directory. |
-| `.idea/`, other `.vscode/` files | Local IDE preferences, ignored by Git. |
+| Other `.idea/` files, `.vscode/` | Local IDE preferences, ignored by Git. |
 | `tools/configure.py`, `build.ninja`, `tools/mwccarm/` | Existing ROM build setup and compiler; not used to configure this navigation setup. |
 | Sibling `dqix-decomp-kit/` | Existing matching tools; no CLion additions are required. |
 | Sibling `dqix-kit-state/wip/` | Optional candidate sources; keep them outside the decomp's `src/`. |
@@ -16,9 +16,8 @@ The forced header supplies parser compatibility for each source independently. I
 ## Region and use
 The committed configuration selects JPN. For USA, replace `jpn` in `defines` with `usa`; for EUR, use both `usa` and `eur`. Keep `DQIX_IDE=1`. C99/C++11 are IDE parsing settings only; matching sources still follow the real compiler's language rules. `__MWERKS__` stays undefined so the source's existing IDE alternatives are active.
 After opening the folder and allowing indexing to finish, use `Ctrl+B` for declarations/definitions and `Alt+F7` for Find Usages. `AlphaTween::Advance` in `src/Graphics/AlphaTween.cpp`, its declaration in `include/Graphics/AlphaTween.h` and calls in `src/Combat/Main/func_020489e8.cpp` provide a concrete cross-file check.
-If the earlier experimental compilation-database setup was used, unload that project model and remove its locally generated `compile_commands.json` from the project before reopening the folder. The generator and `configure.py --ide` options have been removed. Preserve the normal ROM build files.
 ## External work-in-progress files
-To browse a kit candidate together with the decomp, open their common parent folder in CLion. Put the analysis configuration in that parent's `.vscode/c_cpp_properties.json`; adjust the include and forced-header paths to `${workspaceFolder}/dqix-decomp/include` and `${workspaceFolder}/dqix-decomp/tools/ide/mwcc_compat.h`. Adjust the browse paths to the decomp's `src/`, `include/` and the active WIP directory. Use the actual directory names when they differ.
+To browse a kit candidate together with the decomp, open their common parent folder in CLion. Put the analysis configuration in that parent's `.idea/c_cpp_properties.json`; adjust the include and forced-header paths to `${workspaceFolder}/dqix-decomp/include` and `${workspaceFolder}/dqix-decomp/tools/ide/mwcc_compat.h`. Adjust the browse paths to the decomp's `src/`, `include/` and the active WIP directory. Use the actual directory names when they differ.
 Keep attempts, archives, build outputs and competing copies of a function outside the IDE's indexing scope. The kit's `DQIX_REPO` and `DQIX_STATE` settings resolve its script paths; they do not configure CLion. No source copying, kit wrapper or kit modification is required. If a checkout contains additional `libs/**/include` directories, add those actual header directories to the analysis include paths.
 ## Limits and verification
 Existing `extern` declarations can be associated with C/C++ definitions when the IDE indexes both sides with compatible types, linkage and preprocessor context. This does not need a compiler or linker run. A fixed forced include supplies parsing context; it cannot create a missing definition or guarantee that inconsistent reconstructed declarations are treated as one symbol.
