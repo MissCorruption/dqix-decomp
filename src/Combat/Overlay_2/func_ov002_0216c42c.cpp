@@ -2,6 +2,12 @@
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
+#if defined(jpn)
+#define RG(u, j) (j)
+#else
+#define RG(u, j) (u)
+#endif
+
 struct ArrayContainsByteStruct;
 
 struct Val0216c42c {
@@ -73,7 +79,7 @@ extern "C" ARM void func_ov002_0216c42c(char* base, Src0216c42c* src, Action0216
         break;
     }
     if (action->kind == 5) ev.sub = 3;
-    ev.f3 = *(signed char*)(base + 0x1c20);
+    ev.f3 = *(signed char*)(base + RG(0x1c20, 0x1ae8));
     signed char n = 0;
     for (int i = 0; i < src->count; i++) {
         int id = src->ids[i];
@@ -86,9 +92,9 @@ extern "C" ARM void func_ov002_0216c42c(char* base, Src0216c42c* src, Action0216
             if (ev.type == 4 && v->kind == 3) {
                 char* c = (char*)func_0200ff1c(gs, id);
                 if (c != NULL) {
-                    *(unsigned char*)(base + 0x2522) = 1;
-                    *(unsigned char*)(base + 0x2523) = 0;
-                    *(Vector3i*)(base + 0x2524) = *(Vector3i*)(c + 0x44);
+                    *(unsigned char*)(base + RG(0x2522, 0x2352)) = 1;
+                    *(unsigned char*)(base + RG(0x2523, 0x2353)) = 0;
+                    *(Vector3i*)(base + RG(0x2524, 0x2354)) = *(Vector3i*)(c + 0x44);
                 }
             }
             n++;

@@ -11,10 +11,6 @@
 #define func_0206df6c func_0206f0c0
 #endif
 
-#if defined(jpn)
-#define func_ov002_0216c42c func_ov002_0216ca7c
-#endif
-
 struct Container020dedd0;
 struct Struct020a8170 {
     char pad[0xc];
