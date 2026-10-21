@@ -4,8 +4,6 @@
 #if defined(jpn)
 enum { WindowOffset = 0xe20, TextOffset = 0xa98, FieldOffset = 0xa80, CursorOffset = 0x1ace, TextCapacity = 0x800, ElementId = 0x1e, ElementRow = 0x16, SecondRow = 5 };
 #define FINAL_ARG_02160068
-#define AppendFieldTags021601e0 func_ov002_021611a8
-extern "C" void func_ov002_021611a8(char *base, char *dst, int);
 extern "C" void func_0205d304(void *a, void *b, int p2, int p3, int p4, int p5, int p6);
 #else
 enum { WindowOffset = 0xec8, TextOffset = 0xbd0, FieldOffset = 0xbb8, CursorOffset = 0x1c06, TextCapacity = 0x960, ElementId = 0x1d, ElementRow = 0x15, SecondRow = 4 };
@@ -19,9 +17,7 @@ void FindAndLinkMatchingEntry0205de24(struct Struct0205de24 *obj, unsigned char 
 struct Struct_0205d81c;
 void SetElementFieldC2_0205deb4(struct Struct_0205d81c *s, int a, int b);
 int AppendCursorTag_02041ea4(char *dst, int cursor);
-#if !defined(jpn)
 void AppendFieldTags021601e0(char *base, char *dst, int);
-#endif
 
 struct BufOv02160068 {
     char pad[TextOffset];

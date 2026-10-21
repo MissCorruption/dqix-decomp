@@ -718,3 +718,7 @@ src/Combat/Overlay_2/SyncElementFlags0215b648.cpp:
 src/Combat/Overlay_2/func_ov002_0215f170.cpp:
     complete
     .text start:0x02160274 end:0x02160318
+
+src/Combat/Overlay_2/AppendFieldTags021601e0.cpp:
+    complete
+    .text start:0x021611a8 end:0x02161228
