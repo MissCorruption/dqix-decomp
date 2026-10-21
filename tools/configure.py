@@ -18,10 +18,6 @@ parser.add_argument('-w', type=str, default=DEFAULT_WIBO_PATH, dest="wine", requ
 parser.add_argument("--compiler", type=Path, required=False, help="Path to pre-installed compiler root directory")
 parser.add_argument("--no-extract", action="store_true", help="Skip extract step")
 parser.add_argument("--dsd", type=Path, required=False, help="Path to pre-installed dsd CLI")
-parser.add_argument("--ide", action="store_true", help="Write an indexing-only compile_commands.json without configuring or building the ROM")
-parser.add_argument("--ide-compiler", default="clang", help="Clang executable for the indexing database (default: clang)")
-parser.add_argument("--ide-source", type=Path, action="append", default=[], help="Also index this external C/C++ candidate (repeatable)")
-parser.add_argument("--ide-build", default="game", help="Build family for external candidates: game, sdk, msl, runtime, network, video, wifi")
 parser.add_argument('version', choices=["usa", "jpn", "eur"], help='Game version')
 args = parser.parse_args()
 
@@ -233,15 +229,6 @@ class Project:
 
 
 def main():
-    if args.ide:
-        from ide_compdb import write_database
-        try:
-            path, count = write_database(sys.modules[__name__], args.ide_compiler,
-                                         args.ide_source, args.ide_build)
-        except (OSError, ValueError) as error:
-            parser.error(str(error))
-        print(f"Wrote {path}: {count} C/C++ files ({args.version}, indexing only)")
-        return
     project = Project(args.version)
 
     with build_ninja_path.open("w") as file:

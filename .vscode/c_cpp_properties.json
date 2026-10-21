@@ -4,6 +4,10 @@
       "name": "DQIX JPN navigation",
       "compilerPath": "",
       "includePath": ["${workspaceFolder}/include"],
+      "browse": {
+        "path": ["${workspaceFolder}/src", "${workspaceFolder}/include"],
+        "limitSymbolsToIncludedHeaders": false
+      },
       "defines": ["jpn", "DQIX_IDE=1"],
       "forcedInclude": ["${workspaceFolder}/tools/ide/mwcc_compat.h"],
       "cStandard": "c99",
