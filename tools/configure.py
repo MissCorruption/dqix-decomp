@@ -72,6 +72,7 @@ LD_FLAGS = " ".join([
     "-map closure,unused",  # Generate map file
     "-msgstyle gcc",        # Use GCC-like messages (some IDEs will make file names clickable)
     "-nodead",              # -dead strips ~all 11k of our compiled functions; see OPEN_WORK
+    "-sym on",
 ])
 # Every symbol nothing references, which -dead would strip and the ROM's layout needs anyway.
 FORCE_ACTIVE_PATH = "tools/force_active.txt"
