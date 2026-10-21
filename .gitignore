@@ -1,6 +1,5 @@
 build/
-/.vscode/*
-!/.vscode/c_cpp_properties.json
+.vscode/
 dqix_*/
 *.nds
 *bios.bin
