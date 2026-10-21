@@ -11,7 +11,43 @@ int AppendFormatted02041fac(char* buf, int a, int b);
 int AppendNameTag_02041b70(char* dst, int n, const char* name);
 int AppendString02042058(char* dst, const char* src);
 
+#if defined(jpn)
+extern "C" int func_02042638(char* dst, int str, int a);
+#endif
+
 // USA: func_ov002_0215fbd4
+#if defined(jpn)
+ARM void AppendFieldRow0215fbd4(char* obj, char* dst, int flag) {
+    if (dst == NULL) return;
+
+    int cursor = *(short*)(obj + 0x1a00 + 0xcc);
+    short key = 0x109c;
+
+    if (flag) {
+        AppendFrameTag02041c08(dst, cursor, 8, 5, 5, 5);
+    }
+    AppendCursorTag_02041ea4(dst, cursor);
+
+    AppendXTag_02041a28(dst, 0xf);
+    struct Container020e0310* c = (struct Container020e0310*)(obj + 0x8);
+    cursor = GetFieldByKey020e0434(c, 0x109a);
+    func_02042638(dst, cursor, 0x10);
+
+    char* ptr;
+    int i;
+    i = 0;
+    for (; i < 6; i++) {
+        ptr = obj + 0x1000;
+        short oldKey = key;
+        key++;
+        int name = GetFieldByKey020e0434(c, oldKey);
+        AppendNameTag_02041b70(dst, i, (const char*)name);
+        if (i != 5) {
+            AppendString02042058(dst, *(char**)(ptr + 0xaa4));
+        }
+    }
+}
+#else
 ARM void AppendFieldRow0215fbd4(char* obj, char* dst, int flag) {
     if (dst == NULL) return;
 
@@ -43,3 +79,4 @@ ARM void AppendFieldRow0215fbd4(char* obj, char* dst, int flag) {
         }
     }
 }
+#endif
