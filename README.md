@@ -76,8 +76,8 @@ Contributions are welcome, though make sure you've read the pages linked above f
 ---
 
 ### 🔧 Useful Tools
-For CLion definition jumps and Find Usages without changing the ROM build, see [CLion navigation](docs/CLION.md).
-To step through the source while the game runs in melonDS, from CLion or VS Code, see [Debugging](docs/DEBUGGING.md).
+For CLion definition jumps and Find Usages without changing the ROM build, see [CLion navigation](docs/CLION.md).<br>
+To step through the source while the game runs in melonDS, from CLion or VS Code, see [Debugging](docs/DEBUGGING.md).<br>
 1. **Ghidra** (with the NTRGhidra plugin):  
    - A powerful reverse engineering tool for DS games and code.  
    - [Download Ghidra](https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_11.2.1_build) 
