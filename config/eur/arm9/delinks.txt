@@ -20196,6 +20196,10 @@ src/MSL/Main/func_02008848.cpp:
     .text start:0x02008848 end:0x02008da4
     .rodata start:0x020e6cd4 end:0x020e6d14
 
+src/MSL/Main/ptmf.c:
+    complete
+    .rodata start:0x020e6d6c end:0x020e6d74
+
 src/Combat/Main/func_020def98.cpp:
     complete
     .text start:0x020defa8 end:0x020df384
