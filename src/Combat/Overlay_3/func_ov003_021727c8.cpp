@@ -7,7 +7,6 @@ enum { kRegionValueEC_E8 = 0xe8 };
 enum { kRegionValueEC_E8 = 0xec };
 #endif
 
-
 struct Obj021727c8 {
     char unk_0[kRegionValueEC_E8];
     unsigned char state_;

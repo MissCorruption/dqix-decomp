@@ -1,7 +1,6 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-
 struct Obj020a620c {
     char pad0[0xa];
     unsigned char index;

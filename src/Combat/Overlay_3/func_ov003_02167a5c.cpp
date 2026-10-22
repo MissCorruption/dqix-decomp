@@ -6,7 +6,6 @@ enum { kRegionValue70_40 = 0x40 };
 enum { kRegionValue70_40 = 0x70 };
 #endif
 
-
 struct Cont0207fe44;
 void CallFunc0204c804OverAllElems(struct Cont0207fe44* obj);
 

@@ -11,7 +11,6 @@ enum { kRegionValue90_8C = 0x90 };
 enum { kRegionValue18_14 = 0x18 };
 #endif
 
-
 struct Struct6_0217dc94;
 extern "C" void func_ov003_0217dc94(Struct6_0217dc94* obj);
 extern "C" int func_0205d0e0(void* p, int val);

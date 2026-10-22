@@ -1,7 +1,5 @@
 #include <globaldefs.h>
 
-
-
 class PMFObj021537d4 { public: virtual void Dummy021537d4(); };
 typedef void (PMFObj021537d4::*MemFn021537d4)();
 
