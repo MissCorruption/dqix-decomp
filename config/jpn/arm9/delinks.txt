@@ -6895,6 +6895,10 @@ src/Combat/Main/func_0205b228.cpp:
     complete
     .text start:0x0205c5c4 end:0x0205c5d0
 
+src/Combat/Main/func_0205b234.cpp:
+    complete
+    .text start:0x0205c5d0 end:0x0205c68c
+
 src/Combat/Main/func_0205b734.cpp:
     complete
     .text start:0x0205ca98 end:0x0205cbf4
