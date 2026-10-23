@@ -6,33 +6,33 @@
 #endif
 
 struct Container020e0310;
-extern "C" int func_020e0434(struct Container020e0310* c, int key);
-extern "C" int func_02041c08(char* dst, int a1, int a2, int a3, int a4, int a5);
-extern "C" int func_02041ea4(char* dst, int cursor);
-extern "C" int func_02041b70(char* dst, int n, const char* name);
-extern "C" int func_02042058(char* dst, const char* src);
-extern "C" int func_02041fac(char* buf, int a, int b);
-extern "C" int func_02041a90(char* dst, int x, int y);
+extern "C" int func_020e0434(struct Container020e0310* arg0, int arg1);
+extern "C" int func_02041c08(char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" int func_02041ea4(char* arg0, int arg1);
+extern "C" int func_02041b70(char* arg0, int arg1, const char* arg2);
+extern "C" int func_02042058(char* arg0, const char* arg1);
+extern "C" int func_02041fac(char* arg0, int arg1, int arg2);
+extern "C" int func_02041a90(char* arg0, int arg1, int arg2);
 
-struct UnkStruct0205c508;
-extern "C" void func_0205c508(struct UnkStruct0205c508* s, int* out1, int* out2);
+struct Struct_ov002_0215f224;
+extern "C" void func_0205c508(struct Struct_ov002_0215f224* arg0, int* arg1, int* arg2);
 
-struct List020a83b0;
-struct Entry020a83b0;
-extern "C" struct Entry020a83b0* func_020a83b0(struct List020a83b0* list, int id);
+struct Struct_ov002_0215f224_2;
+struct Struct_ov002_0215f224_3;
+extern "C" struct Struct_ov002_0215f224_3* func_020a83b0(struct Struct_ov002_0215f224_2* arg0, int arg1);
 
-extern "C" int _s32_div_f(int a, int b);
-extern "C" void __clear(void* buf, int n);
-extern "C" int sprintf(char* dst, const char* fmt, ...);
-extern "C" int func_020420e8(const char* str, int flags);
+extern "C" int _s32_div_f(int arg0, int arg1);
+extern "C" void __clear(void* arg0, int arg1);
+extern "C" int sprintf(char* arg0, const char* arg1, ...);
+extern "C" int func_020420e8(const char* arg0, int arg1);
 
 extern int data_ov002_0216d2a8;
 
 #if defined(jpn)
 #define RG(u, j) (j)
-struct StoreStruct;
+struct Struct_ov002_02157d40_2;
 extern "C" int func_020421a0();
-extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_020465c0(Struct_ov002_02157d40_2*, int, int);
 extern "C" void func_020465f0(unsigned char*, int, unsigned char);
 extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 #else
@@ -40,65 +40,65 @@ extern "C" void func_020465d8(unsigned char*, int, unsigned char);
 #endif
 
 // USA: func_ov002_0215f224
-extern "C" ARM void func_ov002_0215f224(char* p, char* dst, int flag2) {
-    if (dst == NULL) {
+extern "C" ARM void func_ov002_0215f224(char* arg0, char* arg1, int arg2) {
+    if (arg1 == NULL) {
         return;
     }
-    if (*(int*)(p + RG(0x2474, 0x22a4)) == 0) {
+    if (*(int*)(arg0 + RG(0x2474, 0x22a4)) == 0) {
         return;
     }
 
-    int cursor = *(short*)(p + RG(0x1bfc, 0x1ac4)) % 6;
+    int var0 = *(short*)(arg0 + RG(0x1bfc, 0x1ac4)) % 6;
 
-    if (flag2) {
-        func_02041c08(dst, cursor, 8, 5, 5, 5);
+    if (arg2) {
+        func_02041c08(arg1, var0, 8, 5, 5, 5);
     }
-    func_02041ea4(dst, cursor);
+    func_02041ea4(arg1, var0);
 
-    char* fld = p + RG(0x2c8 + 0xc00, 0xe20);
-    int out1, out2;
-    func_0205c508((struct UnkStruct0205c508*)(fld + 0x54), &out1, &out2);
+    char* var1 = arg0 + RG(0x2c8 + 0xc00, 0xe20);
+    int var2, var3;
+    func_0205c508((struct Struct_ov002_0215f224*)(var1 + 0x54), &var2, &var3);
 
-    int fmtVal = func_020e0434((struct Container020e0310*)(p + RG(0x20, 8)), 0x578);
-    func_02041fac(dst, fmtVal, 0x10);
+    int var4 = func_020e0434((struct Container020e0310*)(arg0 + RG(0x20, 8)), 0x578);
+    func_02041fac(arg1, var4, 0x10);
 
-    int i;
-    for (i = out1; i < out2; i++) {
-        struct Entry020a83b0* entry = func_020a83b0((struct List020a83b0*)(*(int*)(p + 0x2000 + RG(0x474, 0x2a4))), (short)i);
-        if (entry != NULL) {
-            int rem = i % 6;
-            func_02041b70(dst, rem, *(const char**)((char*)entry + 4));
-            if (i != out2 - 1) {
-                func_02042058(dst, *(char**)(p + 0x1000 + RG(0xbdc, 0xaa4)));
+    int var5;
+    for (var5 = var2; var5 < var3; var5++) {
+        struct Struct_ov002_0215f224_3* var6 = func_020a83b0((struct Struct_ov002_0215f224_2*)(*(int*)(arg0 + 0x2000 + RG(0x474, 0x2a4))), (short)var5);
+        if (var6 != NULL) {
+            int var7 = var5 % 6;
+            func_02041b70(arg1, var7, *(const char**)((char*)var6 + 4));
+            if (var5 != var3 - 1) {
+                func_02042058(arg1, *(char**)(arg0 + 0x1000 + RG(0xbdc, 0xaa4)));
             }
         }
     }
 
 #if defined(jpn)
-    int n = *(int*)(fld + 0x58);
-    fmtVal = *(int*)(fld + 0x68);
-    if (n > 1) {
-        int g = func_020421a0();
-        func_020465c0((StoreStruct*)g, 0, fmtVal + 1);
-        func_020465c0((StoreStruct*)g, 1, n);
-        func_020465f0((unsigned char*)g, 0, 1);
-        func_020465f0((unsigned char*)g, 1, 1);
-        func_020465d8((unsigned char*)g, 0, 1);
-        func_020465d8((unsigned char*)g, 1, 0);
-        func_02042058(dst, (const char*)func_020e0434((struct Container020e0310*)(p + 8), 0x579));
+    int var8 = *(int*)(var1 + 0x58);
+    var4 = *(int*)(var1 + 0x68);
+    if (var8 > 1) {
+        int var9 = func_020421a0();
+        func_020465c0((Struct_ov002_02157d40_2*)var9, 0, var4 + 1);
+        func_020465c0((Struct_ov002_02157d40_2*)var9, 1, var8);
+        func_020465f0((unsigned char*)var9, 0, 1);
+        func_020465f0((unsigned char*)var9, 1, 1);
+        func_020465d8((unsigned char*)var9, 0, 1);
+        func_020465d8((unsigned char*)var9, 1, 0);
+        func_02042058(arg1, (const char*)func_020e0434((struct Container020e0310*)(arg0 + 8), 0x579));
     }
 #else
-    int n = *(int*)(fld + 0x58);
-    if (n > 1) {
-        int field68 = *(int*)(fld + 0x68);
-        char buf[4];
-        __clear(buf, 4);
-        sprintf(buf, (const char*)&data_ov002_0216d2a8, field68 + 1, n);
-        int width = func_020420e8(buf, 0);
-        int rounded = width + (width & 1);
-        int xoff = (0x78 - rounded) >> 1;
-        func_02041a90(dst, xoff, 0x63);
-        func_02042058(dst, buf);
+    int var10 = *(int*)(var1 + 0x58);
+    if (var10 > 1) {
+        int var11 = *(int*)(var1 + 0x68);
+        char var12[4];
+        __clear(var12, 4);
+        sprintf(var12, (const char*)&data_ov002_0216d2a8, var11 + 1, var10);
+        int var13 = func_020420e8(var12, 0);
+        int var14 = var13 + (var13 & 1);
+        int var15 = (0x78 - var14) >> 1;
+        func_02041a90(arg1, var15, 0x63);
+        func_02042058(arg1, var12);
     }
 #endif
 }

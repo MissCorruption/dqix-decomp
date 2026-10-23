@@ -7,120 +7,120 @@
 #define data_ov002_0216cb18 data_ov002_0216d120
 #define data_ov002_0216cb1c data_ov002_0216d124
 #define RG(u, j) (j)
-#define OBJ (base + 0xe20)
+#define OBJ (var0 + 0xe20)
 #define PAGES 47
 #else
 #define RG(u, j) (u)
-#define OBJ (base + 0x2c8 + 0xc00)
+#define OBJ (var0 + 0x2c8 + 0xc00)
 #define PAGES 44
 #endif
 
-class Battle0215bba8 {
+class Struct_ov002_0215bba8_2 {
 public:
-    char unk_0[0x1bb8];
+    char unknown_0_[0x1bb8];
 };
 
-typedef void (Battle0215bba8::*PageFn0215bba8)(void *buf, int flag);
+typedef void (Struct_ov002_0215bba8_2::*Type_ov002_0215bba8)(void *buf, int flag);
 
-struct ModePage0215bba8 {
-    int a;
-    int b;
+struct Struct_ov002_0216cb18 {
+    int unknown_0_;
+    int unknown_4_;
 };
 
-extern PageFn0215bba8 data_ov002_0216d10c[PAGES];
+extern Type_ov002_0215bba8 data_ov002_0216d10c[PAGES];
 extern unsigned int data_ov002_0216d3b0[2];
-extern PageFn0215bba8 data_020e6d5c;
-extern ModePage0215bba8 data_ov002_0216cb18[];
-extern ModePage0215bba8 data_ov002_0216cb1c[];
+extern Type_ov002_0215bba8 data_020e6d5c;
+extern Struct_ov002_0216cb18 data_ov002_0216cb18[];
+extern Struct_ov002_0216cb18 data_ov002_0216cb1c[];
 
-extern "C" void *memset(void *dst, int value, unsigned int length);
-extern "C" unsigned char *func_0205d81c(char *s, unsigned char key);
-struct StructA0205d5d0;
+extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
+extern "C" unsigned char *func_0205d81c(char *arg0, unsigned char arg1);
+struct Struct_ov002_0215bba8_3;
 #if defined(jpn)
-extern "C" void func_0205d5d0(StructA0205d5d0*, int, int, int);
+extern "C" void func_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int);
 #define APPLY(s, k, t) func_0205d5d0(s, k, t, 1)
 #else
-extern "C" void func_0205d5d0(StructA0205d5d0*, int, int, int, unsigned char);
+extern "C" void func_0205d5d0(Struct_ov002_0215bba8_3*, int, int, int, unsigned char);
 #define APPLY(s, k, t) func_0205d5d0(s, k, t, 0, 0)
 #endif
 
-struct W0215bba8 {
-    char pad[0x34];
-    int f34;
+struct Struct_ov002_0215bba8 {
+    char unknown_0_[0x34];
+    int unknown_34_;
 };
 // USA: func_ov002_0215bba8
-extern "C" ARM void func_ov002_0215bba8(Battle0215bba8 *self) {
-    char *base = (char *) self;
-    int mode   = *(int *) (base + 0x1000 + RG(0xbc8, 0xa90));
-    if (mode == 0) {
+extern "C" ARM void func_ov002_0215bba8(Struct_ov002_0215bba8_2 *arg0) {
+    char *var0 = (char *) arg0;
+    int var1   = *(int *) (var0 + 0x1000 + RG(0xbc8, 0xa90));
+    if (var1 == 0) {
         return;
     }
-    int hl = 0;
-    if (mode == 2) {
+    int var2 = 0;
+    if (var1 == 2) {
         if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
-            W0215bba8 *w = (W0215bba8 *) OBJ + 1;
-            w--;
-            if (w->f34 < 0) {
+            Struct_ov002_0215bba8 *var3 = (Struct_ov002_0215bba8 *) OBJ + 1;
+            var3--;
+            if (var3->unknown_34_ < 0) {
                 return;
             }
         }
-        hl = 1;
+        var2 = 1;
     }
-    memset(*(void **) (base + 0x1000 + RG(0xbd0, 0xa98)), 0, RG(0x960, 0x800));
+    memset(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98)), 0, RG(0x960, 0x800));
     if (!(data_ov002_0216d3b0[0] & 1)) {
-        PageFn0215bba8 nul      = data_020e6d5c;
-        data_ov002_0216d10c[0]  = nul;
+        Type_ov002_0215bba8 var4      = data_020e6d5c;
+        data_ov002_0216d10c[0]  = var4;
 #if defined(jpn)
-        data_ov002_0216d10c[24] = nul;
-        data_ov002_0216d10c[31] = nul;
-        data_ov002_0216d10c[34] = nul;
-        data_ov002_0216d10c[35] = nul;
-        data_ov002_0216d10c[39] = nul;
-        data_ov002_0216d10c[43] = nul;
-        data_ov002_0216d10c[44] = nul;
-        data_ov002_0216d10c[45] = nul;
-        data_ov002_0216d10c[46] = nul;
+        data_ov002_0216d10c[24] = var4;
+        data_ov002_0216d10c[31] = var4;
+        data_ov002_0216d10c[34] = var4;
+        data_ov002_0216d10c[35] = var4;
+        data_ov002_0216d10c[39] = var4;
+        data_ov002_0216d10c[43] = var4;
+        data_ov002_0216d10c[44] = var4;
+        data_ov002_0216d10c[45] = var4;
+        data_ov002_0216d10c[46] = var4;
 #else
-        data_ov002_0216d10c[23] = nul;
-        data_ov002_0216d10c[30] = nul;
-        data_ov002_0216d10c[36] = nul;
-        data_ov002_0216d10c[40] = nul;
-        data_ov002_0216d10c[41] = nul;
-        data_ov002_0216d10c[42] = nul;
-        data_ov002_0216d10c[43] = nul;
+        data_ov002_0216d10c[23] = var4;
+        data_ov002_0216d10c[30] = var4;
+        data_ov002_0216d10c[36] = var4;
+        data_ov002_0216d10c[40] = var4;
+        data_ov002_0216d10c[41] = var4;
+        data_ov002_0216d10c[42] = var4;
+        data_ov002_0216d10c[43] = var4;
 #endif
         data_ov002_0216d3b0[0] |= 1;
     }
-    int key = *(int *) (base + 0x1000 + RG(0xbb8, 0xa80));
-    if (data_ov002_0216d10c[key] == 0) {
+    int var5 = *(int *) (var0 + 0x1000 + RG(0xbb8, 0xa80));
+    if (data_ov002_0216d10c[var5] == 0) {
         return;
     }
 #if !defined(jpn)
-    if (func_0205d81c(OBJ, (unsigned char) key) != 0) {
+    if (func_0205d81c(OBJ, (unsigned char) var5) != 0) {
 #endif
-        (self->*data_ov002_0216d10c[*(int *) (base + 0x1000 + RG(0xbb8, 0xa80))])(*(void **) (base + 0x1000 + RG(0xbd0, 0xa98)), hl);
-        APPLY((StructA0205d5d0*)OBJ, (unsigned char) *(int *) (base + 0x1000 + RG(0xbb8, 0xa80)), (int)(*(void **) (base + 0x1000 + RG(0xbd0, 0xa98))));
+        (arg0->*data_ov002_0216d10c[*(int *) (var0 + 0x1000 + RG(0xbb8, 0xa80))])(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98)), var2);
+        APPLY((Struct_ov002_0215bba8_3*)OBJ, (unsigned char) *(int *) (var0 + 0x1000 + RG(0xbb8, 0xa80)), (int)(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98))));
 #if !defined(jpn)
     }
 #endif
-    if (*(int *) (base + 0x1000 + RG(0xbcc, 0xa94)) == 0) {
+    if (*(int *) (var0 + 0x1000 + RG(0xbcc, 0xa94)) == 0) {
         return;
     }
-    for (int i = 0; data_ov002_0216cb18[i].a >= 0; i++) {
-        if (*(int *) (base + 0x1000 + RG(0xbb8, 0xa80)) == data_ov002_0216cb18[i].a) {
-            int page = data_ov002_0216cb1c[i].a;
-            memset(*(void **) (base + 0x1000 + RG(0xbd0, 0xa98)), 0, RG(0x960, 0x800));
-            if (data_ov002_0216d10c[page] == 0) {
+    for (int var6 = 0; data_ov002_0216cb18[var6].unknown_0_ >= 0; var6++) {
+        if (*(int *) (var0 + 0x1000 + RG(0xbb8, 0xa80)) == data_ov002_0216cb18[var6].unknown_0_) {
+            int var7 = data_ov002_0216cb1c[var6].unknown_0_;
+            memset(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98)), 0, RG(0x960, 0x800));
+            if (data_ov002_0216d10c[var7] == 0) {
                 break;
             }
 #if !defined(jpn)
-            if (func_0205d81c(OBJ, page) == 0) {
+            if (func_0205d81c(OBJ, var7) == 0) {
                 continue;
             }
 #endif
-            (self->*data_ov002_0216d10c[page])(*(void **) (base + 0x1000 + RG(0xbd0, 0xa98)), hl);
-            APPLY((StructA0205d5d0*)OBJ, (unsigned char) page, (int)(*(void **) (base + 0x1000 + RG(0xbd0, 0xa98))));
+            (arg0->*data_ov002_0216d10c[var7])(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98)), var2);
+            APPLY((Struct_ov002_0215bba8_3*)OBJ, (unsigned char) var7, (int)(*(void **) (var0 + 0x1000 + RG(0xbd0, 0xa98))));
         }
     }
-    *(int *) (base + 0x1000 + RG(0xbcc, 0xa94)) = 0;
+    *(int *) (var0 + 0x1000 + RG(0xbcc, 0xa94)) = 0;
 }

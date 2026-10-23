@@ -6,85 +6,85 @@
 #include <std_library_functions.h>
 
 #if defined(jpn)
-enum { StateOffset = 0xa80, TextsEnd = 0x10, ActorOffset = 0x1ae8, SecondaryOffset = 0x22b8, TextSize = 0x800, FormatOffset = 0x700, AskState = 0x29, AskNext = 0x12 };
+enum { Enum_ov002_0215a0a4_3000 = 0xa80, Enum_ov002_0215a0a4_40 = 0x10, Enum_ov002_0215a0a4_7200 = 0x1ae8, Enum_ov002_0215a0a4_9352 = 0x22b8, Enum_ov002_0215a0a4_2400 = 0x800, Enum_ov002_0215a0a4_2144 = 0x700, Enum_ov002_0215a0a4_38 = 0x29, Enum_ov002_0215a0a4_17 = 0x12 };
 #define FORMAT(m, k, t, d) func_020474a8(m, k, t, d)
 #else
-enum { StateOffset = 0xbb8, TextsEnd = 0x28, ActorOffset = 0x1c20, SecondaryOffset = 0x2488, TextSize = 0x960, FormatOffset = 0x860, AskState = 0x26, AskNext = 0x11 };
+enum { Enum_ov002_0215a0a4_3000 = 0xbb8, Enum_ov002_0215a0a4_40 = 0x28, Enum_ov002_0215a0a4_7200 = 0x1c20, Enum_ov002_0215a0a4_9352 = 0x2488, Enum_ov002_0215a0a4_2400 = 0x960, Enum_ov002_0215a0a4_2144 = 0x860, Enum_ov002_0215a0a4_38 = 0x26, Enum_ov002_0215a0a4_17 = 0x11 };
 #define FORMAT(m, k, t, d) func_02046608(m, k, t, d, 0xe3, 0, 1)
 #endif
 
-struct Obj02048350;
-struct StoreStruct;
-struct Obj02046574 {
-    void* actor;
-    unsigned char unknown_4[12];
-    void* target;
+struct Struct_ov002_02157d40_8;
+struct Struct_ov002_02157d40_2;
+struct Struct_ov002_02157d40_6 {
+    void* unknown_0_;
+    unsigned char unknown_4_[12];
+    void* unknown_10_;
 };
-struct CommandEntry0215a0a4 {
-    char* name;
-    int unknown_4;
-    unsigned int counter : 8;
-    unsigned int unused : 24;
+struct Struct_ov002_0215a0a4_5 {
+    char* unknown_0_;
+    int unknown_4_;
+    unsigned int unknown_8_0_ : 8;
+    unsigned int unknown_9_0_ : 24;
 };
-struct BattleTextState0215a0a4 {
-    unsigned char unknown_0[StateOffset];
-    int state;
-    int nextState;
-    int timer;
-    unsigned char unknown_bc4[12];
-    char* text;
-    char* textCopy;
+struct Struct_ov002_0215a0a4_6 {
+    unsigned char unknown_0_[Enum_ov002_0215a0a4_3000];
+    int unknown_bb8_;
+    int unknown_bbc_;
+    int unknown_bc0_;
+    unsigned char unknown_bc4_[12];
+    char* unknown_bd0_;
+    char* unknown_bd4_;
 };
-struct BattleMessage0215a0a4 {
-    unsigned char unknown_0[8];
+struct Struct_ov002_0215a0a4 {
+    unsigned char unknown_0_[8];
 #if !defined(jpn)
-    unsigned char actorName[12];
-    unsigned char targetName[12];
+    unsigned char unknown_8_[12];
+    unsigned char unknown_14_[12];
 #endif
-    Container020e0310 texts;
-    unsigned char unknown_28[0x1000 - TextsEnd];
-    BattleTextState0215a0a4 textState;
-    unsigned char unknown_1bd8[ActorOffset - 0x1000 - sizeof(BattleTextState0215a0a4)];
-    signed char actorId;
-    signed char partyIndex;
-    unsigned char unknown_1c22[4];
-    short command;
-    short messageKey;
-    short alternateKey;
-    unsigned char unknown_1c2c[5];
-    unsigned char pending;
-    unsigned char unknown_1c32[SecondaryOffset - ActorOffset - 0x12];
-    short secondaryKey;
-    unsigned char active;
+    Container020e0310 unknown_20_;
+    unsigned char unknown_28_[0x1000 - Enum_ov002_0215a0a4_40];
+    Struct_ov002_0215a0a4_6 unknown_1000_;
+    unsigned char unknown_1bd8_[Enum_ov002_0215a0a4_7200 - 0x1000 - sizeof(Struct_ov002_0215a0a4_6)];
+    signed char unknown_1c20_;
+    signed char unknown_1c21_;
+    unsigned char unknown_1c22_[4];
+    short unknown_1c26_;
+    short unknown_1c28_;
+    short unknown_1c2a_;
+    unsigned char unknown_1c2c_[5];
+    unsigned char unknown_1c31_;
+    unsigned char unknown_1c32_[Enum_ov002_0215a0a4_9352 - Enum_ov002_0215a0a4_7200 - 0x12];
+    short unknown_2488_;
+    unsigned char unknown_248a_;
 };
-struct ActionResult0215a0a4 {
-    unsigned char kind;
-    unsigned char unknown_1[5];
+struct Struct_ov002_0215a0a4_2 {
+    unsigned char unknown_0_;
+    unsigned char unknown_1_[5];
 };
-struct BattleEvent0215a0a4 {
-    unsigned char unknown_0[2];
-    signed char actor;
-    unsigned char count;
-    signed char targets[4];
-    ActionResult0215a0a4 results[4];
+struct Struct_ov002_0215a0a4_3 {
+    unsigned char unknown_0_[2];
+    signed char unknown_2_;
+    unsigned char unknown_3_;
+    signed char unknown_4_[4];
+    Struct_ov002_0215a0a4_2 unknown_8_[4];
 };
-struct PartyFlags0215a0a4 {
-    unsigned char unknown_0[0x130];
-    unsigned int* flags;
+struct Struct_ov002_0215a0a4_4 {
+    unsigned char unknown_0_[0x130];
+    unsigned int* unknown_130_;
 };
 
 extern "C" void* func_020e2ff8();
 extern "C" void func_020e3428(void*, int);
-extern "C" Obj02046574* func_020421a0();
-extern "C" CommandEntry0215a0a4* func_02079e2c(char*, int);
+extern "C" Struct_ov002_02157d40_6* func_020421a0();
+extern "C" Struct_ov002_0215a0a4_5* func_02079e2c(char*, int);
 extern "C" void* func_020e46c4(void*);
-extern "C" void func_02046574(Obj02046574*, int, char*);
+extern "C" void func_02046574(Struct_ov002_02157d40_6*, int, char*);
 extern "C" void func_020e4bf4(void*, int);
-extern "C" int func_02048350(Obj02048350*, int);
+extern "C" int func_02048350(Struct_ov002_02157d40_8*, int);
 extern "C" int func_0202b7d8(int*);
 extern "C" int func_020e0434(Container020e0310*, int);
 extern "C" int func_02042058(char*, const char*);
-extern "C" void func_020465c0(StoreStruct*, int, int);
+extern "C" void func_020465c0(Struct_ov002_02157d40_2*, int, int);
 extern "C" int* func_0202ae18();
 extern "C" void func_02046380(void*);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
@@ -94,140 +94,140 @@ extern "C" void func_020474a8(void*, int, int, void*);
 extern "C" void func_02046608(void*, int, int, void*, int, int, int);
 #endif
 
-static inline char* CombatantName0215a0a4(GameObject* target) { SDK_NULL_ASSERT(target); return target->baseStats_->unk; }
+static inline char* inline_ov002_0215a0a4(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->baseStats_->unk; }
 
 // USA: func_ov002_0215a0a4
-extern "C" ARM void func_ov002_0215a0a4(BattleMessage0215a0a4* self, BattleEvent0215a0a4* event, int any) {
-    GameObject* target;
-    int rejectedKey;
-    int* state;
-    GameObject* actor;
-    ActionResult0215a0a4* results;
-    char* buffer;
-    signed char* targetIds;
-    GameState* gs;
-    Obj02046574* message;
-    CommandEntry0215a0a4* entry;
-    int index;
+extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov002_0215a0a4_3* arg1, int arg2) {
+    GameObject* var0;
+    int var1;
+    int* var2;
+    GameObject* var3;
+    Struct_ov002_0215a0a4_2* var4;
+    char* var5;
+    signed char* var6;
+    GameState* var7;
+    Struct_ov002_02157d40_6* var8;
+    Struct_ov002_0215a0a4_5* var9;
+    int var10;
     func_020e3428(func_020e2ff8(), 1);
-    gs = GameState::GetInstance();
-    message = func_020421a0();
-    state = func_0202ae18();
-    entry = func_02079e2c((char*)func_020797dc(), self->command);
-    if (!entry) return;
-    memset(self->textState.text, 0, TextSize);
-    memset(self->textState.textCopy, 0, TextSize);
-    func_02046380(message);
-    buffer = self->textState.text;
+    var7 = GameState::GetInstance();
+    var8 = func_020421a0();
+    var2 = func_0202ae18();
+    var9 = func_02079e2c((char*)func_020797dc(), arg0->unknown_1c26_);
+    if (!var9) return;
+    memset(arg0->unknown_1000_.unknown_bd0_, 0, Enum_ov002_0215a0a4_2400);
+    memset(arg0->unknown_1000_.unknown_bd4_, 0, Enum_ov002_0215a0a4_2400);
+    func_02046380(var8);
+    var5 = arg0->unknown_1000_.unknown_bd0_;
 #if !defined(jpn)
-    func_020e46c4(self->actorName);
-    func_020e46c4(self->targetName);
+    func_020e46c4(arg0->unknown_8_);
+    func_020e46c4(arg0->unknown_14_);
 #endif
-    actor = func_0200ff1c(gs, event->actor);
-    if (actor) {
-        func_02046574(message, 0, actor->baseStats_->unk);
+    var3 = func_0200ff1c(var7, arg1->unknown_2_);
+    if (var3) {
+        func_02046574(var8, 0, var3->baseStats_->unk);
 #if !defined(jpn)
-        func_020e4bf4(self->actorName, event->actor);
-        message->actor = self->actorName;
+        func_020e4bf4(arg0->unknown_8_, arg1->unknown_2_);
+        var8->unknown_0_ = arg0->unknown_8_;
 #endif
     }
-    func_02046574(message, 1, entry->name);
-    if (self->command == 0x1e || self->command == 0x1f || self->command == 0x20 ||
-        self->command == 0x21 || self->command == 0x23 || self->command == 0x26 || self->command == 0x27) {
-        self->active = 1;
-        self->messageKey = 0x232d;
-        self->alternateKey = -1;
-        GameObject* party = gs->GetPartyMemberByIndex(self->partyIndex);
-        int consumed = 0;
-        if (any && party) {
-            if (self->command == 0x1e || self->command == 0x1f || self->command == 0x20 || self->command == 0x21) {
-                self->secondaryKey = 0x232c;
-                consumed = 1;
-            } else if (self->command == 0x23) {
-                self->secondaryKey = 0x794b;
-                consumed = 1;
-            } else if (self->command == 0x27 || self->command == 0x26) {
-                self->secondaryKey = 0x2336;
-                consumed = 1;
+    func_02046574(var8, 1, var9->unknown_0_);
+    if (arg0->unknown_1c26_ == 0x1e || arg0->unknown_1c26_ == 0x1f || arg0->unknown_1c26_ == 0x20 ||
+        arg0->unknown_1c26_ == 0x21 || arg0->unknown_1c26_ == 0x23 || arg0->unknown_1c26_ == 0x26 || arg0->unknown_1c26_ == 0x27) {
+        arg0->unknown_248a_ = 1;
+        arg0->unknown_1c28_ = 0x232d;
+        arg0->unknown_1c2a_ = -1;
+        GameObject* var11 = var7->GetPartyMemberByIndex(arg0->unknown_1c21_);
+        int var12 = 0;
+        if (arg2 && var11) {
+            if (arg0->unknown_1c26_ == 0x1e || arg0->unknown_1c26_ == 0x1f || arg0->unknown_1c26_ == 0x20 || arg0->unknown_1c26_ == 0x21) {
+                arg0->unknown_2488_ = 0x232c;
+                var12 = 1;
+            } else if (arg0->unknown_1c26_ == 0x23) {
+                arg0->unknown_2488_ = 0x794b;
+                var12 = 1;
+            } else if (arg0->unknown_1c26_ == 0x27 || arg0->unknown_1c26_ == 0x26) {
+                arg0->unknown_2488_ = 0x2336;
+                var12 = 1;
             }
-        } else if (!party) {
-            self->messageKey = 0x232d;
-            self->secondaryKey = 0x232b;
-        } else if (*((PartyFlags0215a0a4*)party)->flags & 1) {
-            if (self->command == 0x26) {
-                self->secondaryKey = 0x2337;
-                consumed = 1;
+        } else if (!var11) {
+            arg0->unknown_1c28_ = 0x232d;
+            arg0->unknown_2488_ = 0x232b;
+        } else if (*((Struct_ov002_0215a0a4_4*)var11)->unknown_130_ & 1) {
+            if (arg0->unknown_1c26_ == 0x26) {
+                arg0->unknown_2488_ = 0x2337;
+                var12 = 1;
             } else {
-                self->secondaryKey = 0x232b;
+                arg0->unknown_2488_ = 0x232b;
             }
-        } else if (event->results[0].kind == 1) {
-            self->messageKey = 0x232d;
-            self->secondaryKey = 0x232b;
+        } else if (arg1->unknown_8_[0].unknown_0_ == 1) {
+            arg0->unknown_1c28_ = 0x232d;
+            arg0->unknown_2488_ = 0x232b;
         } else {
-            self->messageKey = 0x2333;
-            self->secondaryKey = 0x2334;
+            arg0->unknown_1c28_ = 0x2333;
+            arg0->unknown_2488_ = 0x2334;
         }
-        self->textState.state = AskState;
-        self->textState.nextState = AskNext;
-        self->textState.timer = 0;
-        if (consumed) {
-            func_02048350((Obj02048350*)actor, entry->counter);
-            if (func_0202b7d8(state)) func_ov017_021c9e00(self->actorId, 0, 0, 1);
+        arg0->unknown_1000_.unknown_bb8_ = Enum_ov002_0215a0a4_38;
+        arg0->unknown_1000_.unknown_bbc_ = Enum_ov002_0215a0a4_17;
+        arg0->unknown_1000_.unknown_bc0_ = 0;
+        if (var12) {
+            func_02048350((Struct_ov002_02157d40_8*)var3, var9->unknown_8_0_);
+            if (func_0202b7d8(var2)) func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
         }
         return;
     }
-    if (self->command != 0x22 && self->command != 0x310) return;
-    if (any) {
-        FORMAT(message, 0xc, func_020e0434(&self->texts, 0x232d), buffer + FormatOffset);
-        func_02042058(self->textState.text, buffer + FormatOffset);
-        results = event->results;
-        rejectedKey = 0x232c;
-        index = 0;
-        targetIds = event->targets;
-        while (index < event->count) {
-            int key = results[index].kind == 3 ? rejectedKey : 0x233a;
-            if (key >= 0) {
+    if (arg0->unknown_1c26_ != 0x22 && arg0->unknown_1c26_ != 0x310) return;
+    if (arg2) {
+        FORMAT(var8, 0xc, func_020e0434(&arg0->unknown_20_, 0x232d), var5 + Enum_ov002_0215a0a4_2144);
+        func_02042058(arg0->unknown_1000_.unknown_bd0_, var5 + Enum_ov002_0215a0a4_2144);
+        var4 = arg1->unknown_8_;
+        var1 = 0x232c;
+        var10 = 0;
+        var6 = arg1->unknown_4_;
+        while (var10 < arg1->unknown_3_) {
+            int var13 = var4[var10].unknown_0_ == 3 ? var1 : 0x233a;
+            if (var13 >= 0) {
 #if defined(jpn)
-                target = func_0200ff1c(gs, event->targets[index]);
+                var0 = func_0200ff1c(var7, arg1->unknown_4_[var10]);
 #else
-                target = func_0200ff1c(gs, targetIds[index]);
+                var0 = func_0200ff1c(var7, var6[var10]);
 #endif
-                if (target) {
-                    func_02046380(message);
-                    func_02046574(message, 2, CombatantName0215a0a4(target));
+                if (var0) {
+                    func_02046380(var8);
+                    func_02046574(var8, 2, inline_ov002_0215a0a4(var0));
 #if !defined(jpn)
-                    func_020e4bf4(self->targetName, targetIds[index]);
-                    message->target = self->targetName;
+                    func_020e4bf4(arg0->unknown_14_, var6[var10]);
+                    var8->unknown_10_ = arg0->unknown_14_;
 #endif
-                    func_020465c0((StoreStruct*)message, 9, target->obj3D_.unknown_4_);
-                    FORMAT(message, 0xc, func_020e0434(&self->texts, key), buffer + FormatOffset);
-                    func_02042058(self->textState.text, (const char*)func_020e0434(&self->texts, 8));
-                    func_02042058(self->textState.text, buffer + FormatOffset);
+                    func_020465c0((Struct_ov002_02157d40_2*)var8, 9, var0->obj3D_.unknown_4_);
+                    FORMAT(var8, 0xc, func_020e0434(&arg0->unknown_20_, var13), var5 + Enum_ov002_0215a0a4_2144);
+                    func_02042058(arg0->unknown_1000_.unknown_bd0_, (const char*)func_020e0434(&arg0->unknown_20_, 8));
+                    func_02042058(arg0->unknown_1000_.unknown_bd0_, var5 + Enum_ov002_0215a0a4_2144);
                 }
             }
-            index++;
+            var10++;
         }
-        func_02048350((Obj02048350*)actor, entry->counter);
-        if (func_0202b7d8(state)) func_ov017_021c9e00(self->actorId, 0, 0, 1);
+        func_02048350((Struct_ov002_02157d40_8*)var3, var9->unknown_8_0_);
+        if (func_0202b7d8(var2)) func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
     } else {
-        target = gs->GetUnknownGameObject();
-        if (target) {
-            func_02046574(message, 2, CombatantName0215a0a4(target));
+        var0 = var7->GetUnknownGameObject();
+        if (var0) {
+            func_02046574(var8, 2, inline_ov002_0215a0a4(var0));
 #if !defined(jpn)
-            func_020e4bf4(self->targetName, target->obj3D_.unknown_4_);
-            message->target = self->targetName;
+            func_020e4bf4(arg0->unknown_14_, var0->obj3D_.unknown_4_);
+            var8->unknown_10_ = arg0->unknown_14_;
 #endif
         }
-        func_02042058(buffer + FormatOffset, (const char*)func_020e0434(&self->texts, 0x2333));
-        func_02042058(buffer + FormatOffset, (const char*)func_020e0434(&self->texts, 8));
-        if (func_02011538(gs) == 1)
-            func_02042058(buffer + FormatOffset, (const char*)func_020e0434(&self->texts, 0x2334));
+        func_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)func_020e0434(&arg0->unknown_20_, 0x2333));
+        func_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)func_020e0434(&arg0->unknown_20_, 8));
+        if (func_02011538(var7) == 1)
+            func_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)func_020e0434(&arg0->unknown_20_, 0x2334));
         else
-            func_02042058(buffer + FormatOffset, (const char*)func_020e0434(&self->texts, 0x2335));
-        FORMAT(message, 0xc, (int)(buffer + FormatOffset), self->textState.text);
+            func_02042058(var5 + Enum_ov002_0215a0a4_2144, (const char*)func_020e0434(&arg0->unknown_20_, 0x2335));
+        FORMAT(var8, 0xc, (int)(var5 + Enum_ov002_0215a0a4_2144), arg0->unknown_1000_.unknown_bd0_);
     }
-    self->pending = 1;
-    memcpy(self->textState.textCopy, self->textState.text, TextSize);
-    self->secondaryKey = -1;
-    self->active = 0;
+    arg0->unknown_1c31_ = 1;
+    memcpy(arg0->unknown_1000_.unknown_bd4_, arg0->unknown_1000_.unknown_bd0_, Enum_ov002_0215a0a4_2400);
+    arg0->unknown_2488_ = -1;
+    arg0->unknown_248a_ = 0;
 }

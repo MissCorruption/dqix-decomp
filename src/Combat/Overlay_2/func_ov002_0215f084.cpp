@@ -1,70 +1,70 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020dd290(void *obj, unsigned int flag);
+extern "C" int func_020dd290(void *arg0, unsigned int arg1);
 extern "C" void *func_020421a0();
 extern "C" void func_02046380();
-struct StoreStruct;
-extern "C" void func_020465c0(StoreStruct*, int, int);
+struct Struct_ov002_02157d40_2;
+extern "C" void func_020465c0(Struct_ov002_02157d40_2*, int, int);
 struct Container020e0310;
 extern "C" int func_020e0434(Container020e0310*, int);
-extern "C" void func_02046608(void *g, int a, int b, int c, int d, int e, int f);
+extern "C" void func_02046608(void *arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 
 #if defined(jpn)
 #define RG(u, j) (j)
-extern "C" void func_020465f0(StoreStruct*, int, unsigned char);
-extern "C" void func_020465d8(StoreStruct*, int, unsigned char);
-extern "C" void func_020474a8(void *g, int a, int b, int c);
+extern "C" void func_020465f0(Struct_ov002_02157d40_2*, int, unsigned char);
+extern "C" void func_020465d8(Struct_ov002_02157d40_2*, int, unsigned char);
+extern "C" void func_020474a8(void *arg0, int arg1, int arg2, int arg3);
 #else
 #define RG(u, j) (u)
 #endif
 
-struct Struct020fdcb0 { int f0; int f4; char pad[0x18]; };
-extern Struct020fdcb0 data_020fdcb0[];
+struct Struct_020fdcb0 { int unknown_0_; int unknown_4_; char unknown_8_[0x18]; };
+extern Struct_020fdcb0 data_020fdcb0[];
 
 // USA: func_ov002_0215f084
-extern "C" ARM void func_ov002_0215f084(void *objPtr, int param2) {
-    if (param2 == 0) {
+extern "C" ARM void func_ov002_0215f084(void *arg0, int arg1) {
+    if (arg1 == 0) {
         return;
     }
-    char *base = (char*)objPtr;
-    void *bs = GameState::GetInstance();
-    signed char byteFlag = *(signed char*)(base + RG(0x1c20, 0x1ae8));
-    void *combatant = ((GameState*)bs)->GetPartyMemberByIndex(byteFlag);
-    if (combatant == 0) {
+    char *var0 = (char*)arg0;
+    void *var1 = GameState::GetInstance();
+    signed char var2 = *(signed char*)(var0 + RG(0x1c20, 0x1ae8));
+    void *var3 = ((GameState*)var1)->GetPartyMemberByIndex(var2);
+    if (var3 == 0) {
         return;
     }
-    short idx = *(short*)(base + RG(0x1bfa, 0x1ac2));
-    void *entry = 0;
-    if (idx >= 0) {
-        if (idx < 0x20) {
-            entry = *(void**)(base + 0x2000 + idx * 4 + RG(0x4a0, 0x2d0));
+    short var4 = *(short*)(var0 + RG(0x1bfa, 0x1ac2));
+    void *var5 = 0;
+    if (var4 >= 0) {
+        if (var4 < 0x20) {
+            var5 = *(void**)(var0 + 0x2000 + var4 * 4 + RG(0x4a0, 0x2d0));
         }
     }
-    if (entry == 0) {
+    if (var5 == 0) {
         return;
     }
-    struct FlagsField8 { unsigned int byte0 : 8; unsigned int rest : 24; };
-    unsigned int flagByte = ((FlagsField8*)((char*)entry + 8))->byte0;
-    int adjResult = func_020dd290(combatant, flagByte);
-    short s = *(short*)((char*)combatant + 4);
-    Struct020fdcb0 *e = &data_020fdcb0[s];
-    void *g = func_020421a0();
+    struct Struct_ov002_0215f084 { unsigned int unknown_0_0_ : 8; unsigned int unknown_1_0_ : 24; };
+    unsigned int var6 = ((Struct_ov002_0215f084*)((char*)var5 + 8))->unknown_0_0_;
+    int var7 = func_020dd290(var3, var6);
+    short var8 = *(short*)((char*)var3 + 4);
+    Struct_020fdcb0 *var9 = &data_020fdcb0[var8];
+    void *var10 = func_020421a0();
     func_02046380();
-    func_020465c0((StoreStruct*)g, 0, adjResult);
+    func_020465c0((Struct_ov002_02157d40_2*)var10, 0, var7);
 #if defined(jpn)
-    func_020465f0((StoreStruct*)g, 0, 3);
-    func_020465d8((StoreStruct*)g, 0, 1);
+    func_020465f0((Struct_ov002_02157d40_2*)var10, 0, 3);
+    func_020465d8((Struct_ov002_02157d40_2*)var10, 0, 1);
 #endif
-    func_020465c0((StoreStruct*)g, 1, e->f4);
+    func_020465c0((Struct_ov002_02157d40_2*)var10, 1, var9->unknown_4_);
 #if defined(jpn)
-    func_020465f0((StoreStruct*)g, 1, 3);
-    func_020465d8((StoreStruct*)g, 1, 0);
+    func_020465f0((Struct_ov002_02157d40_2*)var10, 1, 3);
+    func_020465d8((Struct_ov002_02157d40_2*)var10, 1, 0);
 #endif
-    int fieldResult = func_020e0434((Container020e0310*)(base + RG(0x20, 0x8)), 0xbb8);
+    int var11 = func_020e0434((Container020e0310*)(var0 + RG(0x20, 0x8)), 0xbb8);
 #if defined(jpn)
-    func_020474a8(g, 0xa, fieldResult, param2);
+    func_020474a8(var10, 0xa, var11, arg1);
 #else
-    func_02046608(g, 0xa, fieldResult, param2, 0x100, 0, 0);
+    func_02046608(var10, 0xa, var11, arg1, 0x100, 0, 0);
 #endif
 }

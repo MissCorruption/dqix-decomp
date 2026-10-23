@@ -2,104 +2,104 @@
 #include "std_library_functions.h"
 #include <globaldefs.h>
 
-extern "C" void func_ov002_02157480(void *obj, int *arr);
-extern "C" void func_ov002_0215be00(void *base, int a, int b, int c);
-extern "C" void func_ov002_021605d4(void *base, void *dst, int flag);
-extern "C" void func_ov002_0216049c(void *base, void *dst, int flag);
-extern "C" void func_ov002_0215b9a4(void *base, int a, int b);
+extern "C" void func_ov002_02157480(void *arg0, int *arg1);
+extern "C" void func_ov002_0215be00(void *arg0, int arg1, int arg2, int arg3);
+extern "C" void func_ov002_021605d4(void *arg0, void *arg1, int arg2);
+extern "C" void func_ov002_0216049c(void *arg0, void *arg1, int arg2);
+extern "C" void func_ov002_0215b9a4(void *arg0, int arg1, int arg2);
 #if defined(jpn)
-extern "C" void func_0205d304(void *a, void *b, int p2, int p3, int p4, int p5, int p6);
+extern "C" void func_0205d304(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5, int arg6);
 #else
-extern "C" void func_0205d304(void *a, void *b, int p2, int p3, int p4, int p5, int p6, int p7);
+extern "C" void func_0205d304(void *arg0, void *arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 #endif
 extern "C" unsigned char data_ov002_0216c9f9[];
 
-struct Struct_0205d81c;
-struct Struct_0205def8;
-struct Elem_0205d81c {
-    char pad0[0xa8];
-    short fa8;
-    short faa;
-    short fac;
-    short fae;
+struct Struct_ov002_02155960_2;
+struct Struct_ov002_02155960_3;
+struct Struct_ov002_02155960_4 {
+    char unknown_0_[0xa8];
+    short unknown_a8_;
+    short unknown_aa_;
+    short unknown_ac_;
+    short unknown_ae_;
 };
-extern "C" struct Elem_0205d81c *func_0205d81c(struct Struct_0205d81c *s, int key);
-struct Struct0205de24;
-extern "C" void func_0205de24(struct Struct0205de24 *obj, unsigned char keyLow,
-                                                                        unsigned char keyHigh);
-extern "C" void func_0205deb4(struct Struct_0205d81c *s, int a, int b);
-extern "C" void func_0205def8(struct Struct_0205def8 *s, int a, int b);
+extern "C" struct Struct_ov002_02155960_4 *func_0205d81c(struct Struct_ov002_02155960_2 *arg0, int arg1);
+struct Struct_ov002_0215624c_11;
+extern "C" void func_0205de24(struct Struct_ov002_0215624c_11 *arg0, unsigned char arg1,
+                                                                        unsigned char arg2);
+extern "C" void func_0205deb4(struct Struct_ov002_02155960_2 *arg0, int arg1, int arg2);
+extern "C" void func_0205def8(struct Struct_ov002_02155960_3 *arg0, int arg1, int arg2);
 
-struct BufOv02160274 {
-    char pad[0xbd0];
-    char *buf;
+struct Struct_ov002_02160274 {
+    char unknown_0_[0xbd0];
+    char *unknown_bd0_;
 };
-struct FieldOv02160274 {
-    char pad[0xbb8];
-    int field;
+struct Struct_ov002_02160274_2 {
+    char unknown_0_[0xbb8];
+    int unknown_bb8_;
 };
 
-static inline int InRange02160274(int v) {
-    return (v >= 0 && v <= 3) ? 1 : 0;
+static inline int inline_ov002_02160274(int arg0) {
+    return (arg0 >= 0 && arg0 <= 3) ? 1 : 0;
 }
-static inline void SetPos02160274(struct Elem_0205d81c *e, short x, short y) {
-    e->fac = x;
-    e->fae = y;
+static inline void inline_ov002_02160274_2(struct Struct_ov002_02155960_4 *arg0, short arg1, short arg2) {
+    arg0->unknown_ac_ = arg1;
+    arg0->unknown_ae_ = arg2;
 }
 
 // USA: func_ov002_02160274
-extern "C" ARM void func_ov002_02160274(char *base) {
-    int ids[4];
-    GameState *gs = GameState::GetInstance();
-    func_ov002_02157480(base, ids);
-    int n = 0;
-    for (int i = 0; i < 4; i++) {
-        if (InRange02160274(ids[i]) && func_0200ff1c(gs, ids[i]) != NULL) {
-            n++;
+extern "C" ARM void func_ov002_02160274(char *arg0) {
+    int var0[4];
+    GameState *var1 = GameState::GetInstance();
+    func_ov002_02157480(arg0, var0);
+    int var2 = 0;
+    for (int var3 = 0; var3 < 4; var3++) {
+        if (inline_ov002_02160274(var0[var3]) && func_0200ff1c(var1, var0[var3]) != NULL) {
+            var2++;
         }
     }
-    int h = n * 2;
-    if (n == 1) h++;
+    int var4 = var2 * 2;
+    if (var2 == 1) var4++;
 #if defined(jpn)
-    func_ov002_0215be00(base, 0x21, 0x10, (short) (h + 10));
-    memset(*(char **) (base + 0x1000 + 0xa98), 0, 0x800);
-    func_ov002_021605d4(base, *(char **) (base + 0x1000 + 0xa98), 0);
-    func_0205d304(base + 0xe20, *(char **) (base + 0x1000 + 0xa98), 0, 0, 0, 1, 0);
+    func_ov002_0215be00(arg0, 0x21, 0x10, (short) (var4 + 10));
+    memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
+    func_ov002_021605d4(arg0, *(char **) (arg0 + 0x1000 + 0xa98), 0);
+    func_0205d304(arg0 + 0xe20, *(char **) (arg0 + 0x1000 + 0xa98), 0, 0, 0, 1, 0);
 
-    func_0205de24((struct Struct0205de24 *) (base + 0xe20), 0, 2);
-    func_ov002_0215be00(base, *(int *) (base + 0x1000 + 0xa80) & 0xff, 0x10, 8);
-    memset(*(char **) (base + 0x1000 + 0xa98), 0, 0x800);
-    func_ov002_0216049c(base, *(char **) (base + 0x1000 + 0xa98), 0);
-    func_0205d304(base + 0xe20, *(char **) (base + 0x1000 + 0xa98), 0, 1, 0, 1, 0);
+    func_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xe20), 0, 2);
+    func_ov002_0215be00(arg0, *(int *) (arg0 + 0x1000 + 0xa80) & 0xff, 0x10, 8);
+    memset(*(char **) (arg0 + 0x1000 + 0xa98), 0, 0x800);
+    func_ov002_0216049c(arg0, *(char **) (arg0 + 0x1000 + 0xa98), 0);
+    func_0205d304(arg0 + 0xe20, *(char **) (arg0 + 0x1000 + 0xa98), 0, 1, 0, 1, 0);
 
-    func_0205deb4((struct Struct_0205d81c *) (base + 0xe20), 0x21, 0);
-    func_0205def8((struct Struct_0205def8 *) (base + 0xe20), 0, 0x2c);
+    func_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + 0xe20), 0x21, 0);
+    func_0205def8((struct Struct_ov002_02155960_3 *) (arg0 + 0xe20), 0, 0x2c);
 #else
-    func_ov002_0215be00(base, 0x20, 0x10, (short) (h + 10));
-    memset(((struct BufOv02160274 *) (base + 0x1000))->buf, 0, 0x960);
-    func_ov002_021605d4(base, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0);
-    func_0205d304(base + 0xec8, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0, 0, 0, 1, 0, 0);
+    func_ov002_0215be00(arg0, 0x20, 0x10, (short) (var4 + 10));
+    memset(((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
+    func_ov002_021605d4(arg0, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0);
+    func_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0, 0, 1, 0, 0);
 
-    func_0205de24((struct Struct0205de24 *) (base + 0xec8), 0, 2);
-    func_ov002_0215be00(base, ((struct FieldOv02160274 *) (base + 0x1000))->field & 0xff, 0x10, 8);
-    memset(((struct BufOv02160274 *) (base + 0x1000))->buf, 0, 0x960);
-    func_ov002_0216049c(base, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0);
-    func_0205d304(base + 0xec8, ((struct BufOv02160274 *) (base + 0x1000))->buf, 0, 1, 0, 1, 0, 0);
+    func_0205de24((struct Struct_ov002_0215624c_11 *) (arg0 + 0xec8), 0, 2);
+    func_ov002_0215be00(arg0, ((struct Struct_ov002_02160274_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 0x10, 8);
+    memset(((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 0x960);
+    func_ov002_0216049c(arg0, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0);
+    func_0205d304(arg0 + 0xec8, ((struct Struct_ov002_02160274 *) (arg0 + 0x1000))->unknown_bd0_, 0, 1, 0, 1, 0, 0);
 
-    func_0205deb4((struct Struct_0205d81c *) (base + 0xec8), 0x20, 0);
-    func_0205def8((struct Struct_0205def8 *) (base + 0xec8), 0, 0x29);
-    struct Elem_0205d81c *elem =
-        func_0205d81c((struct Struct_0205d81c *) (base + 0xec8), 0x15);
-    if (elem != NULL) {
-        int x = elem->fac + elem->fa8;
-        for (int i = 0; i < 2; i++) {
-            struct Elem_0205d81c *e = func_0205d81c(
-                (struct Struct_0205d81c *) (base + 0x2c8 + 0xc00), data_ov002_0216c9f9[i]);
-            if (e != NULL) {
-                SetPos02160274(e, x, e->fae);
+    func_0205deb4((struct Struct_ov002_02155960_2 *) (arg0 + 0xec8), 0x20, 0);
+    func_0205def8((struct Struct_ov002_02155960_3 *) (arg0 + 0xec8), 0, 0x29);
+    struct Struct_ov002_02155960_4 *var5 =
+        func_0205d81c((struct Struct_ov002_02155960_2 *) (arg0 + 0xec8), 0x15);
+    if (var5 != NULL) {
+        int var6 = var5->unknown_ac_ + var5->unknown_a8_;
+        for (int var7 = 0; var7 < 2; var7++) {
+            struct Struct_ov002_02155960_4 *var8 = func_0205d81c(
+                (struct Struct_ov002_02155960_2 *) (arg0 + 0x2c8 + 0xc00), data_ov002_0216c9f9[var7]);
+            if (var8 != NULL) {
+                inline_ov002_02160274_2(var8, var6, var8->unknown_ae_);
             }
         }
     }
-    func_ov002_0215b9a4(base, ((struct FieldOv02160274 *) (base + 0x1000))->field & 0xff, 0);
+    func_ov002_0215b9a4(arg0, ((struct Struct_ov002_02160274_2 *) (arg0 + 0x1000))->unknown_bb8_ & 0xff, 0);
 #endif
 }
