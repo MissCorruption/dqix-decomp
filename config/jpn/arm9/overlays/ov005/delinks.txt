@@ -99,6 +99,10 @@ src/Combat/Overlay_5/func_ov005_021556e4.cpp:
 src/Combat/Overlay_5/func_ov005_02154de8.cpp:
     .text start:0x02156448 end:0x0215654c
 
+src/Combat/Overlay_5/func_ov005_021583fc.cpp:
+    complete
+    .text start:0x021599f4 end:0x02159a04
+
 src/Combat/Overlay_5/func_ov005_02159850.cpp:
     .text start:0x0215ad30 end:0x0215ade0
 

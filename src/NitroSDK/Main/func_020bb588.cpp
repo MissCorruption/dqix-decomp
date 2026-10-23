@@ -9,6 +9,11 @@ struct PairSlot020bb588 {
     unsigned short field12;
     unsigned int base;
 };
+#if defined(jpn)
+#define data_020f1f44 data_020f20b0
+#define data_020f1ef8 data_020f2064
+#define data_020f1f00 data_020f206c
+#endif
 extern PairSlot020bb588 data_020f1f44;
 extern PairSlot020bb588 data_020f1f2c;
 extern PairSlot020bb588* data_020f1ef8[2];

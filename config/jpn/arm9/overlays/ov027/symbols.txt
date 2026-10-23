@@ -91,7 +91,8 @@ data_ov027_021de1a0 kind:data(any) addr:0x021de1a0
 data_ov027_021dd8e4 kind:data(any) addr:0x021de1a4
 data_ov027_021dd8e8 kind:data(any) addr:0x021de1a8
 data_ov027_021dd8ec kind:data(any) addr:0x021de1ac
-data_ov027_021de1bc kind:data(any) addr:0x021de1bc
+@wstringBase0 kind:data(any) addr:0x021de1bc local
+data_ov027_021dd910 kind:data(any) addr:0x021de1d0
 data_ov027_021dd920 kind:bss addr:0x021de1e0
 data_ov027_021dd924 kind:bss addr:0x021de1e4
 data_ov027_021dd940 kind:bss addr:0x021de200

@@ -1,6 +1,10 @@
 #include <globaldefs.h>
 
+#if defined(jpn)
+struct Holder021583fc { char pad[0x144]; void* ptr; };
+#else
 struct Holder021583fc { char pad[0x150]; void* ptr; };
+#endif
 
 // USA: func_ov005_021583fc
 extern "C" ARM void func_ov005_021583fc(Holder021583fc* obj, char val) {
