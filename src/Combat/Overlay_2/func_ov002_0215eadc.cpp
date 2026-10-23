@@ -1,10 +1,6 @@
 #include "std_library_functions.h"
 #include <globaldefs.h>
 
-#if defined(jpn)
-#define func_ov002_0215ef60 func_ov002_021600e0
-#endif
-
 struct Struct_0205d81c;
 struct Elem_0205d81c;
 extern "C" struct Elem_0205d81c *func_0205d81c(struct Struct_0205d81c *s, int key);
