@@ -48,10 +48,10 @@ data_ov009_0218a961 kind:data(any) addr:0x0218a961
 data_ov009_0218a963 kind:data(any) addr:0x0218a963
 data_ov009_0218a966 kind:data(any) addr:0x0218a966
 data_ov009_0218a969 kind:data(any) addr:0x0218a969
-data_ov009_0218a96c kind:data(any) addr:0x0218a96c
+data_ov009_0218a96c kind:data(byte[4]) addr:0x0218a96c
 data_ov009_0218a994 kind:data(any) addr:0x0218a994
 data_ov009_0218a998 kind:data(any) addr:0x0218a998
-data_ov009_0218a99c kind:data(any) addr:0x0218a99c
+data_ov009_0218a99c kind:data(byte[4]) addr:0x0218a99c
 data_ov009_0218a9a4 kind:data(any) addr:0x0218a9a4
 data_ov009_0218a9ac kind:data(any) addr:0x0218a9ac
 data_ov009_0218a9b4 kind:data(any) addr:0x0218a9b4

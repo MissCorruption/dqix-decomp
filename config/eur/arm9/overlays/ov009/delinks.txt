@@ -222,3 +222,27 @@ src/Combat/Overlay_9/data_ov009_0218aafc.c:
 src/Combat/Overlay_9/data_ov009_0218aca0.c:
     complete
     .data start:0x0218aca0 end:0x0218aca4
+
+src/Combat/Overlay_9/data_ov009_0218a96c.c:
+    complete
+    .rodata start:0x0218a96c end:0x0218a970
+
+src/Combat/Overlay_9/data_ov009_0218a994.c:
+    complete
+    .rodata start:0x0218a994 end:0x0218a998
+
+src/Combat/Overlay_9/data_ov009_0218a998.c:
+    complete
+    .rodata start:0x0218a998 end:0x0218a99c
+
+src/Combat/Overlay_9/data_ov009_0218a99c.c:
+    complete
+    .rodata start:0x0218a99c end:0x0218a9a0
+
+src/Combat/Overlay_9/data_ov009_0218a9a4.c:
+    complete
+    .rodata start:0x0218a9a4 end:0x0218a9ac
+
+src/Combat/Overlay_9/data_ov009_0218ab48.c:
+    complete
+    .rodata start:0x0218ab48 end:0x0218ab9c
