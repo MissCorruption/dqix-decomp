@@ -3,7 +3,11 @@
 
 extern "C" void func_ov002_0215be00(void *base, int a, int b, int c);
 extern "C" void func_ov002_0215f084(void *base, void *dst, int flag);
+#if defined(jpn)
+extern "C" void func_0205d304(void *a, void *b, int p2, int p3, int p4, int p5, int p6);
+#else
 extern "C" void func_0205d304(void *a, void *b, int p2, int p3, int p4, int p5, int p6, int p7);
+#endif
 
 struct Struct_0205d81c;
 struct Elem_0205d81c {
@@ -33,6 +37,15 @@ static inline void SetPos0215ef60(struct Elem_0205d81c *e, short x, short y) {
 
 // USA: func_ov002_0215ef60
 extern "C" ARM void func_ov002_0215ef60(char *base) {
+#if defined(jpn)
+    func_0205de24((struct Struct0205de24 *) (base + 0xe20), 0, 2);
+    func_ov002_0215be00(base, 0x14, 0x15, 8);
+
+    memset(*(void **) (base + 0x1000 + 0xa98), 0, 0x800);
+    func_ov002_0215f084(base, *(void **) (base + 0x1000 + 0xa98), 0);
+
+    func_0205d304(base + 0xe20, *(void **) (base + 0x1000 + 0xa98), 0, 0, 0, 1, 0);
+#else
     short x = 0x17;
     short y = 9;
     short w = 0;
@@ -56,4 +69,5 @@ extern "C" ARM void func_ov002_0215ef60(char *base) {
     SetPos0215ef60(elem, x + w - elem->fa8, elem->fae);
     func_0205d5d0((struct StructA0205d5d0 *) (base + 0xec8), 0x13,
                                                          (int) ((struct BufOv0215ef60 *) (base + 0x1000))->buf, 1, 0);
+#endif
 }
